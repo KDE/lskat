@@ -8,6 +8,6 @@ AUTOMAKE_OPTIONS = foreign
 
 KDE_ICON = lskat
 
-appsdir = $(kde_appsdir)/Games
+appsdir = $(kde_appsdir)/Games/Card
 apps_DATA = lskat.desktop
 EXTRA_DIST = $(apps_DATA)
