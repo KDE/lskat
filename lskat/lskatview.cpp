@@ -107,8 +107,8 @@ LSkatView::LSkatView(QWidget *parent, const char *name) : QWidget(parent, name)
   setBackgroundMode(PaletteBase);
   // setBackgroundMode(NoBackground);
 
-  status_rect1=QRect(412,CARD_Y_OFFSET+5,180,95+20);
-  status_rect2=QRect(412,310,180,95+20);
+  status_rect1=QRect(412,CARD_Y_OFFSET+5,180,95+25);
+  status_rect2=QRect(412,310,180,95+25);
   status_rect3=QRect(CARD_X_OFFSET+60,CARD_Y_OFFSET+5+100+15+20,
                      400,320-100-CARD_Y_OFFSET-30);
 
@@ -708,11 +708,11 @@ void LSkatView::drawStatus(QPainter *p)
       p->drawText(brect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2);
       p->drawText(brect3,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line3);
       p->drawText(brect4,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line4);
-      rect2=QRect(brect2.left()+rect.width(),brect2.top(),drawrect.width()-brect2.width()-rect.width(),brect2.height());
+      rect2=QRect(brect2.left()+rect.width(),brect2.top(),drawrect.width()-brect2.width()-rect.width()+5,brect2.height());
       p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2a);
-      rect2=QRect(brect3.left()+rect.width(),brect3.top(),drawrect.width()-brect3.width()-rect.width(),brect3.height());
+      rect2=QRect(brect3.left()+rect.width(),brect3.top(),drawrect.width()-brect3.width()-rect.width()+5,brect3.height());
       p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2b);
-      rect2=QRect(brect4.left()+rect.width(),brect4.top(),drawrect.width()-brect4.width()-rect.width(),brect4.height());
+      rect2=QRect(brect4.left()+rect.width(),brect4.top(),drawrect.width()-brect4.width()-rect.width()+5,brect4.height());
       p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2c);
 
       pa=QPoint(drawrect.width()-getDocument()->mPixType[getDocument()->GetPlayedBy(pl)-1].width(),0);
