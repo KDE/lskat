@@ -90,6 +90,7 @@ class LSkatView : public QWidget
   int introcnt;
   int cardmovecnt;
   int cardmovex,cardmovey;
+  int cardmoveunder;
   QPoint cardorigin;
   QPoint cardend;
   int introCards[NO_OF_CARDS];

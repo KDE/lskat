@@ -99,8 +99,8 @@
 
 #define DLGBOXTITLE  TITLE
 
-#define MOVECOUNTER  20   // so many moves when playing card
-
+#define MOVECOUNTER  20      // so many moves when playing card
+#define MOVE_TIMER_DELAY 7   // timer in milllisec default 7
 
 LSkatView::LSkatView(QWidget *parent, const char *name) : QWidget(parent, name)
 {
@@ -215,8 +215,36 @@ void LSkatView::drawMove(QPainter *p)
   card=getDocument()->GetMoveStatus();
   if (card>=0)
   {
+
+    if (cardmoveunder>=0)
+    {
+      // turn new card
+      if ((double)cardmovecnt/(double)MOVECOUNTER>0.5) 
+      {
+        QPixmap pix1(getDocument()->mPixCard[cardmoveunder]);
+        int wid=pix1.width();
+        QWMatrix m;
+        m.scale(2.0*((double)cardmovecnt/(double)MOVECOUNTER-0.5),1.0);
+        pix1=pix1.xForm(m);
+        point=QPoint((wid-pix1.width())/2,0);
+        p->drawPixmap(cardorigin+point,pix1);
+      }
+      // turn deck
+      else
+      {
+        QPixmap pix1(getDocument()->mPixDeck);
+        int wid=pix1.width();
+        QWMatrix m;
+        m.scale(1.0-2.0*((double)cardmovecnt/(double)MOVECOUNTER),1.0);
+        pix1=pix1.xForm(m);
+        point=QPoint((wid-pix1.width())/2,0);
+        p->drawPixmap(cardorigin+point,pix1);
+      }
+    } /* end turn card */
+
     point=cardorigin+(cardend-cardorigin)*cardmovecnt/MOVECOUNTER;
     p->drawPixmap(point,getDocument()->mPixCard[card]);
+
   }
 }
 
@@ -313,7 +341,8 @@ void LSkatView::drawDeck(QPainter *p)
         }
         else
         {
-          if (height>0 ) p->drawPixmap(point,getDocument()->mPixDeck);
+           // moved to drawMove
+           // if (height>0 ) p->drawPixmap(point,getDocument()->mPixDeck);
         }
       }
       else
@@ -706,8 +735,9 @@ void LSkatView::InitMove(int player,int mx,int my)
 {
     cardmovex=mx;
     cardmovey=my+2*player;
+    cardmoveunder=getDocument()->GetCard(player,mx+4*my,getDocument()->GetHeight(player,mx+4*my));
     introTimer->stop();
-    moveTimer->start(7,FALSE);
+    moveTimer->start(MOVE_TIMER_DELAY,FALSE);
     cardmovecnt=0;
     cardorigin=calcCardPos(mx,my+2*player);
     if (getDocument()->GetCurrentPlayer()==0)
@@ -763,12 +793,15 @@ void LSkatView::moveTimerReady()
   else
   {
     pos=cardorigin+(cardend-cardorigin)*cardmovecnt/MOVECOUNTER;
-     update(QRect(pos,getDocument()->cardsize));
-    // repaint(QRect(pos,getDocument()->cardsize));
+    update(QRect(pos,getDocument()->cardsize));
     cardmovecnt++;
     pos=cardorigin+(cardend-cardorigin)*cardmovecnt/MOVECOUNTER;
     update(QRect(pos,getDocument()->cardsize));
-    //repaint(QRect(pos,getDocument()->cardsize));
+    // Turning of the card
+    if ( cardmoveunder>=0)
+    {
+      update(QRect(cardorigin,getDocument()->cardsize)); 
+    }
   }
 }
 
