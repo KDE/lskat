@@ -47,7 +47,6 @@
 #define ACTION(x)   (actionCollection()->action(x))
 #define ID_STATUS_MSG               1003
 #define ID_STATUS_MOVER              1002
-#define ID_STATUS_TIME               1001
 
 LSkatApp::LSkatApp() : KMainWindow(0)
 {
@@ -256,17 +255,11 @@ void LSkatApp::initStatusBar()
   // STATUSBAR
   // statusBar()->setInsertOrder(KStatusBar::RightToLeft);
   statusBar()->insertItem(i18n("This leaves space for the mover"),ID_STATUS_MOVER,0,true);
-  statusBar()->insertItem(i18n("23:45"),ID_STATUS_TIME,0,true);
   statusBar()->insertItem(i18n("Ready"), ID_STATUS_MSG);
 
-  slotStatusTime();
   slotStatusMover(i18n("(c) Martin Heni   "));
   slotStatusMsg(i18n("Welcome to Lieutenant Skat"));
 
-  // status bar clock
-  statusTimer=new QTimer(this);
-  connect(statusTimer,SIGNAL(timeout()),this,SLOT(slotStatusTimer()));
-  statusTimer->start(10000,false);
   // computer move timer
   procTimer=new QTimer(this);
   connect(procTimer,SIGNAL(timeout()),this,SLOT(slotProcTimer()));
@@ -624,21 +617,6 @@ void LSkatApp::slotStatusMover(const QString &text)
   statusBar()->changeItem(text, ID_STATUS_MOVER);
 }
 
-void LSkatApp::slotStatusTime()
-{
-  ///////////////////////////////////////////////////////////////////
-  // change status time permanently
-  QString s;
-  QTime now;
-
-  now=QTime::currentTime();
-  s=now.toString();
-  s.truncate(5);
-
-  statusBar()->clear();
-  statusBar()->changeItem(s, ID_STATUS_TIME);
-}
-
 
 void LSkatApp::slotStatusHelpMsg(const QString &text)
 {
@@ -659,10 +637,6 @@ void LSkatApp::slotProcTimer(void)
   */
 }
 
-/** Triggers the status timer */
-void LSkatApp::slotStatusTimer(void){
-  slotStatusTime();
-}
 /** Set the names in the mover field */
 void LSkatApp::slotStatusNames(){
 

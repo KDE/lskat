@@ -189,7 +189,6 @@ class LSkatApp : public KMainWindow
     /** Set the names in the mover field */
     void slotStatusNames();
     void slotStatusMover(const QString &text);
-    void slotStatusTime();
 
     void slotLevel();
     void slotStartplayer();
@@ -199,8 +198,6 @@ class LSkatApp : public KMainWindow
     void slotPlayer2By();
     void slotOptionsNames();
     void slotOptionsCardDeck();
-  /** Triggers the status timer */
-  void slotStatusTimer(void);
   /** Triggers the process timer */
   void slotProcTimer(void);
 
@@ -210,7 +207,6 @@ protected: // Protected attributes
   
   /**  */
   /** Counts the time in the status bar */
-  QTimer * statusTimer;
   QTimer * procTimer;
   KEInput *mInput;
   QString mGrafix;
