@@ -291,7 +291,7 @@ void LSkatView::drawIntro(QPainter *p)
     p->setPen(QColor(col3,col,0));
     p->drawText(x,y,s);
 
-    s=i18n("by");
+    s=i18n("for");
     y=270+(NO_OF_CARDS-cnt)*3;
     x=-50+(int)(340.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
     p->setPen(QColor(col4,col2,0));
@@ -300,9 +300,9 @@ void LSkatView::drawIntro(QPainter *p)
     p->setPen(QColor(col3,col,0));
     p->drawText(x,y,s);
 
-    s=QCString("Martin Heni");
+    s=i18n("K D E");
     y=350+(NO_OF_CARDS-cnt)*3;
-    x=640-(int)(450.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
+    x=640-(int)(380.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
     p->setPen(QColor(col4,col2,0));
     p->drawText(x-2,y+2,s);
 
