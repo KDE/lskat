@@ -734,7 +734,7 @@ void LSkatDoc::ReadConfig(KConfig *config)
 
 
   config->setGroup("Parameter");
-  host=config->readEntry("host",QCString(""));
+  host=config->readEntry("host");
   port=(unsigned short)config->readNumEntry("port",7432);
   procfile=config->readEntry("process",QCString("lskatproc"));
   names[0]=config->readEntry("Name1",i18n("Alice"));
@@ -746,8 +746,8 @@ void LSkatDoc::ReadConfig(KConfig *config)
   // installing the carddecks !
   // For the release version you can remove the aruments to the following two
   // functions !!!!
-  cardPath=config->readEntry("cardpath", KCardDialog::getDefaultCardDir());
-  deckPath=config->readEntry("deckpath", KCardDialog::getDefaultDeck());
+  cardPath=config->readPathEntry("cardpath", KCardDialog::getDefaultCardDir());
+  deckPath=config->readPathEntry("deckpath", KCardDialog::getDefaultDeck());
 
   // Debug only
   if (global_debug>3)
@@ -779,8 +779,8 @@ void LSkatDoc::WriteConfig(KConfig *config)
   config->writeEntry("host",host);
   config->writeEntry("port",port);
   config->writeEntry("process",procfile);
-  config->writeEntry("tmppath",picpath);
-  config->writeEntry("delpath",delpath);
+  config->writePathEntry("tmppath",picpath);
+  config->writePathEntry("delpath",delpath);
   config->writeEntry("Name1",names[0]);
   config->writeEntry("Name2",names[1]);
 
@@ -798,8 +798,8 @@ void LSkatDoc::WriteConfig(KConfig *config)
   config->writeEntry("Stat1G",stat_games[0]);
   config->writeEntry("Stat2G",stat_games[1]);
 
-  config->writeEntry("cardpath",cardPath);
-  config->writeEntry("deckpath",deckPath);
+  config->writePathEntry("cardpath",cardPath);
+  config->writePathEntry("deckpath",deckPath);
 
   config->sync();
 }

@@ -348,7 +348,7 @@ void LSkatApp::saveProperties(KConfig *_cfg)
   else
   {
     QString filename=doc->getAbsFilePath();
-    _cfg->writeEntry("filename", filename);
+    _cfg->writePathEntry("filename", filename);
     _cfg->writeEntry("modified", doc->isModified());
 
     QString tempname = kapp->tempSaveName(filename);
@@ -359,7 +359,7 @@ void LSkatApp::saveProperties(KConfig *_cfg)
 
 void LSkatApp::readProperties(KConfig* _cfg)
 {
-  QString filename = _cfg->readEntry("filename", QCString(""));
+  QString filename = _cfg->readPathEntry("filename");
   bool modified = _cfg->readBoolEntry("modified", false);
   if(modified)
   {
