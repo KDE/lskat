@@ -335,7 +335,7 @@ report to the &kde; team.</para>
 
 <varlistentry>
 <term><anchor id="about-lskat"><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout &lskat;</guimenuitem></menuchoice></term>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout Lieutnant sKat</guimenuitem></menuchoice></term>
 <listitem>
 <para>This will display version and author information.</para>
 </listitem>
