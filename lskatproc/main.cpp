@@ -24,6 +24,5 @@
 int main(int argc, char *argv[])
 {
   lskatproc mComm;
-  mComm.exec();
-  return 1;
+  return mComm.exec() ? 0 : 1;
 }
