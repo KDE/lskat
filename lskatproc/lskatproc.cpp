@@ -374,7 +374,7 @@ lskatproc::~lskatproc(){
 
 bool lskatproc::ReceiveMsg(KEMessage* msg,int id)
 {
-time_t timee,timea;
+// time_t timee,timea;
 short x,y;
 
   SendDebug("Receiv Msg");
@@ -447,7 +447,7 @@ short x,y;
 int lgame::ExtractGame(KEMessage *msg)
 {
   int i;
-  short move,tmp;
+  short tmp;
   char *p;
   int size;
 
@@ -495,7 +495,7 @@ void lskatproc::initrandom()
 int lskatproc::GetComputerMove(lgame game,short &x,short &y,int rek)
 {
   int i,maxvalue,maxmove,h,c;
-  short oldscore;
+  //short oldscore;
   bool startflag;
   int startplayer;
   int value;
