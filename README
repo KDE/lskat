@@ -1,0 +1,33 @@
+GENERAL NOTE:
+
+  This is a small KDE 2.0 game, I wrote to practise 
+  programming in KDE. 
+  It should work quite stable. But if you find any bugs
+  please contact me. 
+  It would be also nice to give me some general feedback
+  about the program, so that it can be approved or it
+  can be considered in other programs.
+  (Email: martin@heni-online.de)
+
+INSTALLATION:
+
+# unpack the archive
+tar xzf lskat-0.9.tar.gz 
+
+# build the package
+cd lskat-0.9
+./configure 
+# or if KDE is in /opt/kde2
+./configure --prefix=/opt/kde2
+make
+
+# become superuser for installing
+su -c 'make install'
+
+DECKS:
+  
+  You can use up to 6 own carddecks. Simply put into
+  the grafichs directory resp the lskatpic.taz archive
+  BMP graphics of the size 72x96, named deck1.bmp ..
+  deck6.bmp
+

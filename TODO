@@ -1,0 +1,4 @@
+- Convert BMP graphics to PNG
+- Rename lskat to klskat?
+- Checke QT QString-char * casting
+  (Its a bit of a QCString/QString mess right now)
