@@ -100,7 +100,7 @@ bool tryserver;
     if (kSocket->socket()!=-1) // success
     {
       kSocket->enableRead(TRUE);
-      kSocket->enableWrite(TRUE);
+      //kSocket->enableWrite(TRUE);
       connect(kSocket,SIGNAL(closeEvent(KSocket *)),
             this,SLOT(socketClosed(KSocket *)));
       connect(kSocket,SIGNAL(readEvent(KSocket *)),
@@ -191,7 +191,7 @@ void KRemoteConnect::socketRequest(KSocket *sock)
   if (kSocket->socket()!=-1) // success
   {
     kSocket->enableRead(TRUE);
-    kSocket->enableWrite(TRUE);
+    //kSocket->enableWrite(TRUE);
     connect(kSocket,SIGNAL(closeEvent(KSocket *)),
           this,SLOT(socketClosed(KSocket *)));
     connect(kSocket,SIGNAL(readEvent(KSocket *)),
