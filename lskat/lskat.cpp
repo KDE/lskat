@@ -207,7 +207,7 @@ void LSkatApp::initGUI()
   list.append(i18n("Player &2"));
   ((KSelectAction *)ACTION("startplayer"))->setItems(list);
 
-  (void)new KSelectAction(i18n("Player &1 played by"),0,this,SLOT(slotPlayer1By()),
+  (void)new KSelectAction(i18n("Player &1 Played By"),0,this,SLOT(slotPlayer1By()),
                       actionCollection(), "player1");
   ACTION("player1")->setStatusText(i18n("Changing who plays player 1..."));
   ACTION("player1")->setWhatsThis(i18n("Changing who plays player 1..."));
@@ -216,7 +216,7 @@ void LSkatApp::initGUI()
   list.append(i18n("&Computer"));
   list.append(i18n("&Remote"));
   ((KSelectAction *)ACTION("player1"))->setItems(list);
-  (void)new KSelectAction(i18n("Player &2 played by"),0,this,SLOT(slotPlayer2By()),
+  (void)new KSelectAction(i18n("Player &2 Played By"),0,this,SLOT(slotPlayer2By()),
                       actionCollection(), "player2");
   ACTION("player1")->setStatusText(i18n("Changing who plays player 2..."));
   ACTION("player1")->setWhatsThis(i18n("Changing who plays player 2..."));
