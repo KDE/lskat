@@ -411,7 +411,7 @@ void LSkatView::drawFinal(QPainter *p)
   QRect brect1_4,brect2_4,brect3_4,brect4_4;
 
   // Calculate geometry
-  line1=QString(i18n("Game over"));
+  line1=i18n("Game over");
   rect=p->window();
   //rect1.moveBy(0,FINAL_Y0-24);
   p->setFont(font24);
