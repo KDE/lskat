@@ -245,8 +245,8 @@ automatically started by the server.
 
 <varlistentry>
 <term><menuchoice>
-<guimenu>File</guimenu>
-<guimenuitem>Clear statistics...</guimenuitem>
+<guimenu>Game</guimenu>
+<guimenuitem>Clear Statistics...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 <action>Clears the all time game memory.</action> This statistic is
