@@ -286,7 +286,7 @@ void LSkatApp::initToolBar()
   // TOOLBAR
   toolBar()->insertButton(BarIcon(QCString("filenew")), ID_FILE_NEW, true, i18n("New File"));
   toolBar()->insertButton(BarIcon(QCString("fileopen")), ID_FILE_OPEN, true, i18n("Open File"));
-  toolBar()->insertButton(BarIcon(QCString("filefloppy")), ID_FILE_SAVE, true, i18n("Save File"));
+  toolBar()->insertButton(BarIcon(QCString("filesave")), ID_FILE_SAVE, true, i18n("Save File"));
   toolBar()->insertButton(BarIcon(QCString("fileprint")), ID_FILE_PRINT, true, i18n("Print"));
   toolBar()->insertSeparator();
   toolBar()->insertButton(BarIcon(QCString("editcut")), ID_EDIT_CUT, true, i18n("Cut"));
