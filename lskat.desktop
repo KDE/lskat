@@ -1,6 +1,5 @@
 [Desktop Entry]
 Comment=Lieutnant Skat
-Comment[af]=LUITENANT SKAT
 Comment[az]=Leytenant Skat
 Comment[bg]=Игра с карти
 Comment[br]=Letanant Skat
@@ -33,10 +32,10 @@ Comment[ta]=¬ð§À÷ §¸ð
 Comment[tr]=Yüzbaşı Skat
 Comment[uk]=Лейтенант Скет
 Comment[vi]=Trung uý Skat 
+Comment[xh]=Umyaleli we Skat
 Exec=lskat
 Icon=lskat
 Name=Lieutnant Skat
-Name[af]=LUITENANT SKAT
 Name[az]=LEytenant Skat
 Name[bg]=Лейтенант Скат
 Name[br]=Letanant Skat
@@ -69,6 +68,7 @@ Name[ta]=¬ð§À÷ §¸ð
 Name[tr]=Yüzbaşı Skat
 Name[uk]=Лейтенант Скет
 Name[vi]=Trung uý Skat 
+Name[xh]=Umyaleli we Skat
 Terminal=0
 Type=Application
 DocPath=lskat/index.html
