@@ -19,6 +19,7 @@
 #include <qpixmap.h>
 #include <qcolor.h>
 #include <qrect.h>
+#include <qfontmetrics.h>
 #include <qpoint.h>
 #include <qstring.h>
 #include <qpainter.h>
@@ -241,13 +242,17 @@ void LSkatView::drawMove(QPainter *p)
 void LSkatView::drawIntro(QPainter *p)
 {
     int i,c1,c2,x,cnt,y,col,col2,col3,col4;
+    // The window width;
+    // int win_width = p->window().width();
     QPoint point,point1,p2;
     QString s;
-    QFont font(QCString("lucida"),48,QFont::Normal,false);
+    // Get a nice font
+    QFont font("Helvetica",48,QFont::Normal,false);
     font.setPixelSize(48);
+    // Get the font info to determine text sizes
+    QFontMetrics fontMetrics(font);
 
     p->setFont(font);
-
 
     cnt=introcnt;
     if (cnt>NO_OF_CARDS) cnt=NO_OF_CARDS;
@@ -268,13 +273,15 @@ void LSkatView::drawIntro(QPainter *p)
       p->drawPixmap(point1+p2,getDocument()->mPixCard[c2]);
     }
 
+    // All text are positioned that they end up at x=310-textwidth/2
+    // All texts are drawn twice with different colors to produce a shadow
     col=255-8*i;
     if (col<0) col=0;
     col2=2*col/3;
     col3=255-2*i;
     col4=2*col3/3;
     s=i18n("Lieutenant Skat");
-    x=160;
+    x=310-fontMetrics.width(s)/2;
     y=-20+(int)(200.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
     p->setPen(QColor(col4,col2,0));
     p->drawText(x-2,y+2,s);
@@ -284,7 +291,7 @@ void LSkatView::drawIntro(QPainter *p)
 
     s=i18n("for");
     y=270+(NO_OF_CARDS-cnt)*3;
-    x=-50+(int)(340.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
+    x=-fontMetrics.width(s)/2+(int)(310.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
     p->setPen(QColor(col4,col2,0));
     p->drawText(x-2,y+2,s);
 
@@ -293,7 +300,8 @@ void LSkatView::drawIntro(QPainter *p)
 
     s=i18n("K D E");
     y=350+(NO_OF_CARDS-cnt)*3;
-    x=640-(int)(380.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
+    // x=640-(int)(380.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
+    x=570-fontMetrics.width(s)/2-(int)(260.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
     p->setPen(QColor(col4,col2,0));
     p->drawText(x-2,y+2,s);
 
@@ -347,9 +355,9 @@ void LSkatView::drawDeck(QPainter *p)
 void LSkatView::drawFinal(QPainter *p)
 {
   int sc1,sc0,pt0,pt1;
-  QPoint p1,p2;
+  //QPoint p1,p2;
   int trump;
-  QRect r;
+  //QRect r;
   QString ld;
   int ts[10];
 
@@ -396,7 +404,7 @@ void LSkatView::drawFinal(QPainter *p)
   //rect1.moveBy(0,FINAL_Y0-24);
   p->setFont(font24);
   brect1=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line1);
-  QRect wrect=p->window();
+  //QRect wrect=p->window();
   sumrect=brect1;
 
   if (sc0+sc1!=120)  // aborted
