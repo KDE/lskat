@@ -22,7 +22,7 @@
 #include <qprogressdialog.h>
 
 // include files for KDE
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kiconloader.h>
 #include <kmessagebox.h>
 #include <kfiledialog.h>

@@ -18,7 +18,7 @@
 #include <stdlib.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
-#include <kstddirs.h>
+#include <kstandarddirs.h>
 #include <kinstance.h>
 #include <kaboutdata.h>
 
