@@ -28,7 +28,6 @@
 #include <qrect.h>
 #include <qdatetime.h>
 #include <qtimer.h>
-#include <kprinter.h>
 
 #include "lskat.h"
 
@@ -59,8 +58,6 @@ class LSkatView : public QWidget
      */
     LSkatDoc *getDocument() const;
 
-    /** contains the implementation for printing functionality */
-    void print(KPrinter *pPrinter);
     void paintEvent( QPaintEvent * p);
     void Paint(QPainter *p);
     void InitMove(int player,int x,int y);

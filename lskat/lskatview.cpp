@@ -16,7 +16,6 @@
  ***************************************************************************/
 
 // include files for Qt
-#include <kprinter.h>
 #include <qpixmap.h>
 #include <qcolor.h>
 #include <qrect.h>
@@ -142,16 +141,6 @@ LSkatDoc *LSkatView::getDocument() const
   LSkatApp *theApp=(LSkatApp *) parentWidget();
 
   return theApp->getDocument();
-}
-
-void LSkatView::print(KPrinter *pPrinter)
-{
-  QPainter printpainter;
-  printpainter.begin(pPrinter);
-	
-  // TODO: add your printing code here
-
-  printpainter.end();
 }
 
 // draw a border around a rect
