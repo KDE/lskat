@@ -8,9 +8,5 @@ AUTOMAKE_OPTIONS = foreign
 
 KDE_ICON = lskat
 
-appsdir = $(kde_appsdir)/Games/Card
-apps_DATA = lskat.desktop
-EXTRA_DIST = $(apps_DATA)
-
-install-data-local:
-	rm -rf $(DESTDIR)$(kde_appsdir)/Games/lskat.desktop
+xdg_apps_DATA = lskat.desktop
+EXTRA_DIST = $(xdg_apps_DATA)
