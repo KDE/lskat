@@ -10,16 +10,17 @@
 
 #include <qframe.h>
 #include <qlabel.h>
-#include <qpushbutton.h>
 #include <qlayout.h>
 #include <klocale.h>
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 
 #define VERSION 0.91
 
 
-/* 
- *  Constructs a aboutDlg which is a child of 'parent', with the 
- *  name 'name' and widget flags set to 'f' 
+/*
+ *  Constructs a aboutDlg which is a child of 'parent', with the
+ *  name 'name' and widget flags set to 'f'
  *
  *  The dialog will by default be modeless, unless you set 'modal' to
  *  TRUE to construct a modal dialog.
@@ -28,9 +29,9 @@ aboutDlg::aboutDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
     : QDialog( parent, name, modal, fl )
 {
     if ( !name ) setName( "aboutDlg" );
-    resize( 315, 318 ); 
+    resize( 315, 318 );
     setCaption( i18n( "About Lieutenant Skat"  ) );
-    vbox = new QVBoxLayout( this ); 
+    vbox = new QVBoxLayout( this );
     vbox->setSpacing( 6 );
     vbox->setMargin( 11 );
 
@@ -40,11 +41,11 @@ aboutDlg::aboutDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
     Frame5->setBackgroundColor(Qt::white);
     Frame5->setLineWidth( 3 );
     Frame5->setMidLineWidth( 2 );
-    vbox_2 = new QVBoxLayout( Frame5 ); 
+    vbox_2 = new QVBoxLayout( Frame5 );
     vbox_2->setSpacing( 6 );
     vbox_2->setMargin( 11 );
 
-    hbox = new QHBoxLayout; 
+    hbox = new QHBoxLayout;
     hbox->setSpacing( 6 );
     hbox->setMargin( 0 );
 
@@ -70,14 +71,13 @@ aboutDlg::aboutDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
     vbox_2->addWidget( TextLabel4 );
     vbox->addWidget( Frame5 );
 
-    hbox_2 = new QHBoxLayout; 
+    hbox_2 = new QHBoxLayout;
     hbox_2->setSpacing( 6 );
     hbox_2->setMargin( 0 );
     QSpacerItem* spacer_2 = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
     hbox_2->addItem( spacer_2 );
 
-    PushButton15 = new QPushButton( this, "PushButton15" );
-    PushButton15->setText( i18n( "OK"  ) );
+    PushButton15 = new KPushButton( KStdGuiItem::ok(), this, "PushButton15" );
     hbox_2->addWidget( PushButton15 );
     QSpacerItem* spacer_3 = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
     hbox_2->addItem( spacer_3 );
@@ -87,7 +87,7 @@ aboutDlg::aboutDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
     connect( PushButton15, SIGNAL( clicked() ), this, SLOT( accept() ) );
 }
 
-/*  
+/*
  *  Destroys the object and frees any allocated resources
  */
 aboutDlg::~aboutDlg()

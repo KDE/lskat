@@ -18,25 +18,26 @@
     Networkdlg.cpp
 
     $Id$
-    
+
     Confiugre game over IP
-    
+
     (c) Martin Heni, martin@heni-online.de
 	      June 1999
-    
+
     License: GPL
 
 */
 
 #include "networkdlg.h"
 #include <qgroupbox.h>
-#include <qpushbutton.h>
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 #include <klocale.h>
 
 
 
 
-// Create the dialog 
+// Create the dialog
 NetworkDlg::NetworkDlg( QWidget *parent, const char *name,const char * /*sufi*/ )
     : QDialog( parent, name,TRUE )
 {
@@ -83,18 +84,16 @@ NetworkDlg::NetworkDlg( QWidget *parent, const char *name,const char * /*sufi*/ 
 
 
 
-  PushButton = new QPushButton( this, "PushButton_1" );
+  PushButton = new KPushButton( KStdGuiItem::ok(), this, "PushButton_1" );
   PushButton->setGeometry( 130, 210, 65, 30 );
   connect( PushButton, SIGNAL(clicked()), SLOT(accept()) );
-  PushButton->setText( i18n("OK" ));
   PushButton->setAutoRepeat( FALSE );
   PushButton->setDefault( TRUE );
 
   /*
-  PushButton = new QPushButton( this, "PushButton_2" );
+  PushButton = new KPushButton( KStdGuiItem::cancel(), this, "PushButton_2" );
   PushButton->setGeometry( 165, 210, 65, 30 );
   connect( PushButton, SIGNAL(clicked()), SLOT(reject()) );
-  PushButton->setText( i18n("Cancel" ));
   PushButton->setAutoRepeat( FALSE );
   */
 
