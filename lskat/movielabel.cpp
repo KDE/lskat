@@ -1,5 +1,5 @@
 
-//#include <kapp.h>
+//#include <kapplication.h>
 #include <qpixmap.h>
 //#include <qmovie.h>
 #include <qpainter.h>
