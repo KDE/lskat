@@ -163,7 +163,7 @@ void LSkatDoc::closeDocument()
   deleteContents();
 }
 
-bool LSkatDoc::newDocument(KConfig *config,QString path)
+bool LSkatDoc::newDocument(KConfig * /*config*/,QString path)
 {
   int res;
   modified=false;
@@ -203,7 +203,7 @@ bool LSkatDoc::SetCardDeckPath(QString deck,QString card)
   return update;
 }
 
-bool LSkatDoc::openDocument(const QString &filename, const char *format /*=0*/)
+bool LSkatDoc::openDocument(const QString &filename, const char * /*format*/ /*=0*/)
 {
   QFileInfo fileInfo(filename);
   title=fileInfo.fileName();
@@ -216,7 +216,7 @@ bool LSkatDoc::openDocument(const QString &filename, const char *format /*=0*/)
   return true;
 }
 
-bool LSkatDoc::saveDocument(const QString &filename, const char *format /*=0*/)
+bool LSkatDoc::saveDocument(const QString & /*filename*/, const char * /*format*/ /*=0*/)
 {
   /////////////////////////////////////////////////
   // TODO: Add your document saving code here
