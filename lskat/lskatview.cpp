@@ -16,7 +16,7 @@
  ***************************************************************************/
 
 // include files for Qt
-#include <qprinter.h>
+#include <kprinter.h>
 #include <qpixmap.h>
 #include <qcolor.h>
 #include <qrect.h>
@@ -144,7 +144,7 @@ LSkatDoc *LSkatView::getDocument() const
   return theApp->getDocument();
 }
 
-void LSkatView::print(QPrinter *pPrinter)
+void LSkatView::print(KPrinter *pPrinter)
 {
   QPainter printpainter;
   printpainter.begin(pPrinter);
