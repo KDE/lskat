@@ -21,7 +21,7 @@
 //#include <qkeycode.h>
 //#include <qmultilineedit.h>
 //#include <unistd.h>
-#include <kapp.h>
+#include <kapplication.h>
 #include <qlabel.h>
 #include <kconfig.h>
 #include <qdialog.h>

@@ -18,7 +18,7 @@
 #define _KEINPUT_H_
 
 #include <string.h>
-#include <qlist.h>
+#include <qptrlist.h>
 #include <qobject.h>
 #include <qtimer.h>
 #include <qmemarray.h>
