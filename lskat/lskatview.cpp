@@ -138,6 +138,7 @@ LSkatView::~LSkatView()
 {
 }
 
+// Access the document with the game data
 LSkatDoc *LSkatView::getDocument() const
 {
   LSkatApp *theApp=(LSkatApp *) parentWidget();
@@ -146,6 +147,11 @@ LSkatDoc *LSkatView::getDocument() const
 }
 
 // draw a border around a rect
+// p: Painter
+// rect: The rect to draw a border
+// offset: An offset to the rect to make it smaller
+// width: The width of the border
+// mode: 0: Light border, 1: dark border
 void LSkatView::drawBorder(QPainter *p,QRect rect,int offset,int width,int mode)
 {
 QPen graypen;
@@ -176,6 +182,9 @@ QPoint p1,p2;
 	}
 }
 
+// draw a move by animating the movment and turning of the
+// card. This is called until the card reaches its final
+// position
 void LSkatView::drawMove(QPainter *p)
 {
   int m1,m2;
@@ -239,6 +248,8 @@ void LSkatView::drawMove(QPainter *p)
   }
 }
 
+// Show the intro (Cards+Text)
+// This is called repeatetly
 void LSkatView::drawIntro(QPainter *p)
 {
     int i,c1,c2,x,cnt,y,col,col2,col3,col4;
@@ -309,6 +320,7 @@ void LSkatView::drawIntro(QPainter *p)
     p->drawText(x,y,s);
 }
 
+// Draw all cards to create the game board
 void LSkatView::drawDeck(QPainter *p)
 {
   int x,y,card;
