@@ -1,5 +1,5 @@
 /***************************************************************************
-                          Kwin4  -  Four in a Row for KDE
+                          networkdlg  
                              -------------------
     begin                : March 2000 
     copyright            : (C) 1995-2000 by Martin Heni
