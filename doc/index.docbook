@@ -1,0 +1,341 @@
+<!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+  <!ENTITY lskat "<application>LSkat</application>">
+  <!ENTITY % FDLNotice PUBLIC "-//KDE//ENTITIES GNU FDL 1.1 Notice Entities//EN">
+  %FDLNotice;
+  <!ENTITY % addindex "IGNORE">
+  <![ %addindex; [ <!ENTITY kdedocindex SYSTEM "docindex.docbook"> ]]>
+]>
+
+<book lang="en">
+<bookinfo>
+<title>Lieutnant Skat</title>
+<authorgroup>
+<author>
+<firstname>Martin</firstname>
+<surname>Heni</surname>
+<affiliation>
+<address><email>martin@heni-online.de</email></address>
+</affiliation>
+</author>
+</authorgroup>
+
+<date>09/06/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+
+<abstract>
+<para>This documentation describes &lskat; version 1.0</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdegames</keyword>
+<keyword>game</keyword>
+<keyword>playing cards</keyword>
+<keyword>skat</keyword>
+<keyword>lieutenant skat</keyword>
+<keyword>lskat</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="overview">
+<title>Overview</title>
+
+<para>
+Lieutnant skat (from German
+<foreignphrase lang="de">Offiziersskat</foreignphrase>) is a card
+game for two players. It is roughly played according to the rules of
+<firstterm>Skat</firstterm> but with only two players and simplified
+rules.
+</para>
+
+<para>
+Every player has a set of cards in front of him/her, half of them covered
+and half of them open. Both players try to win more than 60 of the 120
+possible points. After 16 moves all cards are played and the game ends.
+</para>
+
+</chapter>
+
+<chapter id="rules">
+<title>Rules</title>
+
+<para>
+The game has a randomly chosen trump card. It is shown as a small suit
+symbol in the upper right corner of the score field. All four Jacks are
+also counted as trumps and do <emphasis>not</emphasis> belong to their
+suits. So if <emphasis>heart</emphasis> is trump all seven hearts as
+well as all four Jacks count as trumps, making 11 trumps. E.g. the Jack
+of clubs does not count as <emphasis>club</emphasis> but as trump.
+</para>
+
+<para>
+A special trump is the <firstterm>Grand</firstterm>. In this game no
+suit is trump and only the four Jacks count as trump. In the game this
+is indicated by the symbol of the Jack's head.
+</para>
+
+<para>
+Every player owns 16 cards. 8 of them covered 8 of them open. The start
+player can play any of his/her open cards.
+</para>
+
+<para>
+The second player has following choices:
+<orderedlist>
+<listitem><para>
+  The second player has in his/her open cards the same suit.
+  He/she has to play one of this suit then. The player with
+  the higher card (see table below) wins both cards.
+</para></listitem>
+<listitem><para>
+  The second player does not have a card of the played suit.
+  He/she can now play any other card. If it is a trump the
+  second player will win both cards. Otherwise the
+  first player will win both cards.
+</para></listitem>
+</orderedlist>
+</para>
+
+<para>
+If there is still a covered card below a played card it will be uncovered
+and is from now on an open card.
+</para>
+
+<para>
+The player who won the cards can make the next turn.
+</para>
+
+<para>
+The sequence of the cards (from the highest to the lowest -
+holding for any <emphasis>trump</emphasis>):
+<simplelist type="inline">
+<member>Jack of clubs</member>
+<member>Jack of spades</member>
+<member>Jack of hearts</member>
+<member>Jack of diamonds</member>
+<member>Ace</member>
+<member>Ten</member>
+<member>King</member>
+<member>Queen</member>
+<member>Nine</member>
+<member>Eight</member>
+<member>Seven</member>
+</simplelist>
+</para>
+
+<para>
+The player who wins both cards will add their value to his score. The
+value of the card are:
+<informaltable>
+<tgroup cols="2">
+<thead>
+  <row><entry> Card </entry><entry> Value </entry></row>
+</thead>
+<tbody>
+  <row><entry> Ace </entry><entry> 11 </entry></row>
+  <row><entry> Ten </entry><entry> 10 </entry></row>
+  <row><entry> King </entry><entry> 4 </entry></row>
+  <row><entry> Queen </entry><entry> 3 </entry></row>
+  <row><entry> Jack </entry><entry> 2 </entry></row>
+  <row><entry> Nine </entry><entry> 0 </entry></row>
+  <row><entry> Eight </entry><entry> 0 </entry></row>
+  <row><entry> Seven </entry><entry> 0 </entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</para>
+
+<sect1 id="scoring">
+<title>Scoring</title>
+
+<para>
+The game is won if you have more than 60 points. With both players having
+60 points the game ands in a draw.
+<informaltable>
+<tgroup cols="2">
+<thead>
+  <row><entry> Points </entry><entry>Score</entry></row>
+</thead>
+<tbody>
+  <row><entry> 60 </entry><entry> 1 </entry></row>
+  <row><entry> 61..90 </entry><entry> 2 </entry></row>
+  <row><entry> 91..119 </entry><entry> 3 </entry></row>
+  <row><entry> 120 </entry><entry> 4 </entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+</para>
+
+</sect1>
+</chapter>
+
+<chapter id="menus">
+<title>Menus</title>
+
+<para>
+<variablelist>
+
+<varlistentry>
+<term><guimenu>File</guimenu></term>
+<listitem><para>
+<variablelist>
+<varlistentry>
+  <term><guimenuitem>New Game</guimenuitem></term>
+  <listitem><para>
+     Starts a new game. In a network game this option is
+     only available for the network server. The network client
+     will be automatically started by the server.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><guimenuitem>End Game</guimenuitem></term>
+  <listitem><para>
+     Aborts a running game.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><guimenuitem>Clear statistics...</guimenuitem></term>
+  <listitem><para>
+     Clears the all time game memory. This statistic is
+     usually saved when the game ended and shows the amount of
+     played and won games per player. This is cleared with this menu
+     option.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><guimenuitem>Send Message</guimenuitem></term>
+  <listitem><para>
+     If connected to another game in a remote session this
+     option allows you to send a message to the remote player.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><guimenuitem>Exit</guimenuitem></term>
+  <listitem><para>
+     Quits the program.
+  </para></listitem>
+</varlistentry>
+</variablelist>
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenu>View</guimenu></term>
+<listitem><para>
+<variablelist>
+<varlistentry>
+  <term><guimenuitem>View statusbar</guimenuitem></term>
+  <listitem><para>
+     Shows or hides the statusbar.
+  </para></listitem>
+</varlistentry>
+</variablelist>
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenu>Options</guimenu></term>
+<listitem><para>
+<variablelist>
+<varlistentry>
+  <term><guimenuitem>Startplayer</guimenuitem></term>
+  <listitem><para>
+     Selects whether player 1 (top) or player two (bottom)
+     begins the next game.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><guimenuitem>Player 1 played by</guimenuitem></term>
+  <listitem><para>
+     Chooses who should play for player 1 (top). It can be either
+     <guilabel>player</guilabel>, i.e. a local player using the mouse
+     as input device, <guilabel>computer</guilabel>, i.e. the computer
+     plays this player or <guilabel>remote</guilabel>, i.e. a remote
+     connection to another computer will be build.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><guimenuitem>Player 2 played by</guimenuitem></term>
+  <listitem><para>
+     Same as <guimenuitem>Player 1 played by</guimenuitem>.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><guimenuitem>Level</guimenuitem></term>
+  <listitem><para>
+     Selects the level of the computer player.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><guimenuitem>Select carddeck</guimenuitem></term>
+  <listitem><para>
+     Choose the background of the carddeck. You can use your own graphics
+     here, if you replace the files <filename>deck1.bmp</filename> to
+     <filename>deck6.bmp</filename> in the graphics directory by any
+     graphic of the size 72x96 pixel. Not existing graphics will be no
+     availble in the menu.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><guimenuitem>Change names...</guimenuitem></term>
+  <listitem><para>
+     Change the names of the players.
+  </para></listitem>
+</varlistentry>
+</variablelist>
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenu>Help</guimenu></term>
+<listitem><para>
+  Shows help on the program an information about the program and
+  KDE.
+</para></listitem>
+</varlistentry>
+
+</variablelist>
+</para>
+
+</chapter>
+
+<chapter id="remote-connections">
+<title>Remote connections</title>
+
+<para>
+It is possible to play the game over a network connection with another
+computer. To do so both player on both computers have to select one colour
+played by a human player and the other by the remote player. Who chooses
+which side does not matter. It even does not matter if both choose to play
+the same player as this will automatically be interchanged by the game.
+</para>
+
+<para>
+One of the computers will act as game server. Only this one can start
+a new network game. Also all its game data will be transfered to the
+client computer. You can force your computer to be server if you do not
+supply a hostname in the network dialog. This dialog pops up if you start
+a new network game. As a client you enter the hostname of the machine
+the server is running. The port needs usually not be changed. But you
+can enter nearly any number there.
+</para>
+
+</chapter>
+
+<chapter id="credits">
+<title>Credits and license</title>
+
+<para>
+<variablelist>
+<varlistentry>
+  <term>Author</term>
+  <listitem><para>
+    &copy; 2000 Martin Heni (<email>martin@heni-online.de</email>)
+  </para></listitem>
+</varlistentry>
+</variablelist>
+</para>
+
+</chapter>
+
+</book>
