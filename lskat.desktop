@@ -88,4 +88,4 @@ Type=Application
 DocPath=lskat/index.html
 X-KDE-StartupNotify=true
 X-DCOP-ServiceType=Multi
-Categories=QT;KDE;Game;CardGame
+Categories=Qt;KDE;Game;CardGame
