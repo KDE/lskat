@@ -58,7 +58,7 @@ LSkatApp::LSkatApp() : KMainWindow(0)
   config=kapp->config();
 
    // localise data file
-   QString file=QString::fromLatin1("lskat/grafix/1.png");
+   QString file=QString::fromLatin1("lskat/grafix/t1.png");
    mGrafix=kapp->dirs()->findResourceDir("data", file);
    if (mGrafix.isNull()) mGrafix = QCString("grafix/");
    else mGrafix+=QCString("lskat/grafix/");
