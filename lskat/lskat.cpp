@@ -1530,7 +1530,7 @@ void LSkatApp::Move(int x,int y,int player,bool remote)
   {
      KMessageBox::error(this, 
        i18n("Severe internal error. Move to illegal position.\n"
-            "Restart game and report but to the developper.\n"),TITLE);
+            "Restart game and report bug to the developer.\n"),TITLE);
     return ;
   }
   int res=doc->PrepareMove(player,y*4+x);
