@@ -22,6 +22,9 @@
 #include <time.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <pwd.h>
+#include <sys/types.h>
+
 
 // include files for KDE
 #include <klocale.h>
@@ -721,12 +724,24 @@ void LSkatDoc::ClearStats()
 }
 void LSkatDoc::ReadConfig(KConfig *config)
 {
+  KConfig emailCfg( "emaildefaults", true );
+  emailCfg.setGroup( "UserInfo" );
+  QString name = emailCfg.readEntry( "FullName" );
+  if ( name.isEmpty() )
+  {
+    struct passwd *pw = getpwuid( getuid() );
+    if ( pw )
+      name = QString::fromLatin1( pw->pw_gecos );
+  }
+
+
   config->setGroup("Parameter");
   host=config->readEntry("host",QCString(""));
   port=(unsigned short)config->readNumEntry("port",7432);
   procfile=config->readEntry("process",QCString("lskatproc"));
   names[0]=config->readEntry("Name1",i18n("Alice"));
-  names[1]=config->readEntry("Name2",i18n("Bob"));
+//  names[1]=config->readEntry("Name2",i18n("Bob"));
+  names[1]=config->readEntry("Name2", name.isEmpty() ? i18n("Bob") : name);
 
 
   // This is for debug and testing as you can run it from the CVS without

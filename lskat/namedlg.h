@@ -10,7 +10,7 @@
 #define NAMEDLG_H
 
 #include <qvariant.h>
-#include <qdialog.h>
+#include <kdialogbase.h>
 class QVBoxLayout; 
 class QHBoxLayout; 
 class QGridLayout; 
@@ -19,7 +19,7 @@ class QLabel;
 class QLineEdit;
 class QPushButton;
 
-class NameDlg : public QDialog
+class NameDlg : public KDialogBase
 { 
     Q_OBJECT
 

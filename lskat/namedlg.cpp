@@ -19,7 +19,7 @@
 
 #include <klocale.h>
 
-#define NAME_MAX_LEN 9
+#define NAME_MAX_LEN 12
 
 /* 
  *  Constructs a NameDlg which is a child of 'parent', with the 
@@ -28,14 +28,16 @@
  *  The dialog will by default be modeless, unless you set 'modal' to
  *  TRUE to construct a modal dialog.
  */
-NameDlg::NameDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
-    : QDialog( parent, name, modal, fl )
+NameDlg::NameDlg( QWidget *parent, const char *name,bool /* modal */, WFlags /* fl */ )
+    : KDialogBase( Plain, i18n("Configure names..."), Ok|Cancel, Ok,
+                   parent, name, true,true )
+
 {
-    if ( !name )
-	setName( "NameDlg" );
+  QWidget *page = plainPage();
+    if ( !name ) setName( "NameDlg" );
     resize( 252, 186 ); 
-    setCaption( i18n( "Configure names..."  ) );
-    vbox = new QVBoxLayout( this ); 
+//    setCaption( i18n( "Configure names..."  ) );
+    vbox = new QVBoxLayout( page,spacingHint() ); 
     vbox->setSpacing( 6 );
     vbox->setMargin( 11 );
 
@@ -43,7 +45,7 @@ NameDlg::NameDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
     hbox->setSpacing( 6 );
     hbox->setMargin( 0 );
 
-    player_names = new QGroupBox( this, "player_names" );
+    player_names = new QGroupBox( page, "player_names" );
     player_names->setTitle(i18n("Player names") );
     player_names->setColumnLayout(0, Qt::Vertical );
     player_names->layout()->setSpacing( 0 );
@@ -81,7 +83,7 @@ NameDlg::NameDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
     hbox_3->addWidget( text_player2 );
 
     edit_player2 = new QLineEdit( player_names, "edit_player2" );
-    edit_player2->setText( i18n( ""  ) );
+    edit_player2->setText( i18n( "Player 2"  ) );
     edit_player2->setMaxLength( NAME_MAX_LEN );
     QWhatsThis::add(  edit_player2, i18n( "Enter a player's name" ) );
     hbox_3->addWidget( edit_player2 );
@@ -100,24 +102,6 @@ NameDlg::NameDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
     QSpacerItem* spacer_3 = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
     hbox_4->addItem( spacer_3 );
 
-    PushButton1 = new QPushButton( this, "PushButton1" );
-    PushButton1->setText( i18n( "OK"  ) );
-    hbox_4->addWidget( PushButton1 );
-    QSpacerItem* spacer_4 = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    hbox_4->addItem( spacer_4 );
-    QWhatsThis::add(   PushButton1, i18n( "Confirm changes and leave dialog" ) );
-
-    PushButton2 = new QPushButton( this, "PushButton2" );
-    PushButton2->setText( i18n( "Cancel"  ) );
-    hbox_4->addWidget( PushButton2 );
-    QSpacerItem* spacer_5 = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    hbox_4->addItem( spacer_5 );
-    vbox->addLayout( hbox_4 );
-    QWhatsThis::add(   PushButton2, i18n( "Leave dialog without changes" ) );
-
-    // signals and slots connections
-    connect( PushButton1, SIGNAL( clicked() ), this, SLOT( accept() ) );
-    connect( PushButton2, SIGNAL( clicked() ), this, SLOT( accept() ) );
 }
 
 /*  
