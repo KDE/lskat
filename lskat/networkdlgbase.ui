@@ -13,7 +13,7 @@
         </rect>
     </property>
     <property name="caption">
-        <string>Network options</string>
+        <string>Network Options</string>
     </property>
     <vbox>
         <property name="name">
@@ -32,7 +32,7 @@
                 </sizepolicy>
             </property>
             <property name="title">
-                <string>Play as</string>
+                <string>Play As</string>
             </property>
             <vbox>
                 <property name="name">
@@ -128,7 +128,7 @@
                             <cstring>clientLabel</cstring>
                         </property>
                         <property name="text">
-                            <string>Network games</string>
+                            <string>Network games:</string>
                         </property>
                         <property name="buddy" stdset="0">
                             <cstring>clientName</cstring>
@@ -248,7 +248,7 @@
                         <cstring>pushButton1</cstring>
                     </property>
                     <property name="text">
-                        <string>OK</string>
+                        <string>&amp;OK</string>
                     </property>
                 </widget>
                 <spacer>
