@@ -24,8 +24,8 @@
 </othercredit>
 </authorgroup>
 
-<date>18/12/2000</date>
-<releaseinfo>0.09.00</releaseinfo>
+<date>03/02/2001</date>
+<releaseinfo>0.09.01</releaseinfo>
 
 <abstract>
 <para>This documentation describes &lskat; version 0.9</para>
@@ -37,7 +37,7 @@
 <keyword>game</keyword>
 <keyword>playing cards</keyword>
 <keyword>skat</keyword>
-<keyword>lieutenant skat</keyword>
+<keyword>lieutenant</keyword>
 <keyword>lskat</keyword>
 </keywordset>
 </bookinfo>
@@ -187,14 +187,14 @@ can enter nearly any number there.
 
 <chapter id="menus">
 <title>Menus</title>
-<sect1 id="file-menu"><title><guimenu>File</guimenu> Menu</title>
+<sect1 id="file-menu"><title><guimenu>Game</guimenu> Menu</title>
 <variablelist>
 <varlistentry>
 <term><menuchoice>
 <shortcut>
 <keycap>F2</keycap>
 </shortcut>
-<guimenu><accel>F</accel>ile</guimenu><guimenuitem><accel>N</accel>ew</guimenuitem></menuchoice></term>
+<guimenu><accel>G</accel>ame</guimenu><guimenuitem><accel>N</accel>ew</guimenuitem></menuchoice></term>
   <listitem><para>
      <action>Starts a new game.</action> In a network game this option is
      only available for the network server. The network client
@@ -206,7 +206,7 @@ can enter nearly any number there.
   <shortcut>
 <keycombo action="simul"><keycap>Ctrl</keycap><keycap>W</keycap></keycombo>
 </shortcut>
-<guimenu><accel>F</accel>ile</guimenu><guimenuitem><accel>E</accel>nd Game</guimenuitem></menuchoice></term>
+<guimenu><accel>G</accel>ame</guimenu><guimenuitem><accel>E</accel>nd Game</guimenuitem></menuchoice></term>
   <listitem><para>
      <action>Aborts a running game.</action>
   </para></listitem>
@@ -225,7 +225,7 @@ can enter nearly any number there.
   <shortcut>
 <keycombo action="simul"><keycap>Ctrl</keycap><keycap>M</keycap></keycombo>
 </shortcut>
-<guimenu><accel>F</accel>ile</guimenu><guimenuitem>Send <accel>M</accel>essage</guimenuitem></menuchoice></term>
+<guimenu><accel>G</accel>ame</guimenu><guimenuitem>Send <accel>M</accel>essage</guimenuitem></menuchoice></term>
   <listitem><para>
      If connected to another game in a remote session this
      option allows you to <action>send a message to the remote player.</action>
@@ -236,7 +236,7 @@ can enter nearly any number there.
   <shortcut>
 <keycombo action="simul"><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
 </shortcut>
-  <guimenu><accel>F</accel>ile</guimenu><guimenuitem><accel>Q</accel>uit</guimenuitem></menuchoice></term>
+  <guimenu><accel>G</accel>ame</guimenu><guimenuitem><accel>Q</accel>uit</guimenuitem></menuchoice></term>
   <listitem><para><action>
      Quits the program.</action>
   </para></listitem>
@@ -264,17 +264,19 @@ can enter nearly any number there.
 <varlistentry>
   <term><menuchoice><guimenu><accel>O</accel>ptions</guimenu><guisubmenu>Player <accel>1</accel> played by</guisubmenu></menuchoice></term>
   <listitem><para>
-     Chooses who should play for player 1 (top). It can be either
-     <guimenuitem>player</guimenuitem>, &ie; a local player using the mouse
-     as input device, <guimenuitem>computer</guimenuitem>,&ie; the computer
-     plays this player or <guimenuitem>remote</guimenuitem>, &ie; a remote
-     connection to another computer will be build.
+     Chooses who should play for player 1 (top). It can be one of the following:</para>
+     <para>
+     A local player using the mouse
+     as input device.  For this option, choose <guimenuitem>Player</guimenuitem>.</para>
+     <para>The computer.  For this option, choose <guimenuitem>computer</guimenuitem>.</para>
+     <para>or a remote player, who is connected to this computer through a network.  For this option choose
+     <guimenuitem>Remote</guimenuitem>.
   </para></listitem>
 </varlistentry>
 <varlistentry>
   <term><menuchoice><guimenu><accel>O</accel>ptions</guimenu><guisubmenu>Player <accel>2</accel> played by</guisubmenu></menuchoice></term>
   <listitem><para>
-     Same as <guimenuitem>Player 1 played by</guimenuitem>.
+     Same as <guimenuitem>Player 1 options, only this refers to Player 2.</guimenuitem>.
   </para></listitem>
 </varlistentry>
 <varlistentry>
@@ -312,7 +314,15 @@ can enter nearly any number there.
 <para>This invokes the &kde; help system starting at the the top of this help file.</para>
 </listitem>
 </varlistentry>
-
+<varlistentry>
+<term><anchor id="whats-this"><menuchoice>
+<shortcut><keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
+<guimenu>Help</guimenu><guimenuitem>What's This?</guimenuitem></menuchoice></term>
+<listitem><para>This changes the mouse cursor to a combination arrow and
+question mark.  Clicking on items within &lskat; with this arrow will open a help
+window (if one exists for the particular item) explaining the item's
+function.</para></listitem>
+</varlistentry>
 <varlistentry>
 <term><anchor id="bug-report"><menuchoice>
 <guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>R</accel>eport Bug</guimenuitem></menuchoice></term>
@@ -325,7 +335,7 @@ report to the &kde; team.</para>
 
 <varlistentry>
 <term><anchor id="about-lskat"><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout lskat</guimenuitem></menuchoice></term>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout &lskat;</guimenuitem></menuchoice></term>
 <listitem>
 <para>This will display version and author information.</para>
 </listitem>
