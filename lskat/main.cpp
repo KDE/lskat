@@ -37,9 +37,9 @@ int main(int argc, char *argv[])
 {
 
   global_debug=0;
-  KAboutData *aboutData=new KAboutData( "lskat", I18N_NOOP("LSkat"),
+  KAboutData *aboutData=new KAboutData( "lskat", I18N_NOOP("Lieutnant Skat"),
                         "1.0",
-                        I18N_NOOP("Lieutnant Skat"),
+                        I18N_NOOP("Card Game"),
                         KAboutData::License_GPL,
                         "(c) 2000, Martin Heni");
   aboutData->addAuthor("Martin Heni",0, "martin@heni-online.de");
