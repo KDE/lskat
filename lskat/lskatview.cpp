@@ -368,12 +368,12 @@ void LSkatView::drawFinal(QPainter *p)
 
   if (sc0>=120) pt0=4;
   else if (sc0>=90) pt0=3;
-  else if (sc0>=60) pt0=2;
+  else if (sc0>60) pt0=2;
   else if (sc0==60) pt0=1;
   else pt0=0;
   if (sc1>=120) pt1=4;
   else if (sc1>=90) pt1=3;
-  else if (sc1>=60) pt1=2;
+  else if (sc1>60) pt1=2;
   else if (sc1==60) pt1=1;
   else pt1=0;
 
@@ -487,7 +487,10 @@ void LSkatView::drawFinal(QPainter *p)
     }
     else if (sc0>=90)
     {
-      line5=i18n("%1 won over 90 points. Super!").arg(getDocument()->GetName(0));
+      if (sc0==90)
+        line5=i18n("%1 won with 90 points. Super!").arg(getDocument()->GetName(0));
+      else
+        line5=i18n("%1 won over 90 points. Super!").arg(getDocument()->GetName(0));
       rect=QRect(0,sumrect.height()+10,p->window().width(),p->window().height());
       brect5=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line5);
       sumrect|=brect5;
@@ -501,7 +504,10 @@ void LSkatView::drawFinal(QPainter *p)
     }
     else if (sc1>=90)
     {
-      line5=i18n("%1 won over 90 points. Super!").arg(getDocument()->GetName(1));
+      if (sc1==90)
+        line5=i18n("%1 won with 90 points. Super!").arg(getDocument()->GetName(1));
+      else
+        line5=i18n("%1 won over 90 points. Super!").arg(getDocument()->GetName(1));
       rect=QRect(0,sumrect.height()+10,p->window().width(),p->window().height());
       brect5=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line5);
       sumrect|=brect5;
