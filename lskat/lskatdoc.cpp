@@ -205,11 +205,11 @@ bool LSkatDoc::openDocument(const QString &filename, const char * /*format*/ /*=
 {
   QFileInfo fileInfo(filename);
   title=fileInfo.fileName();
-  absFilePath=fileInfo.absFilePath();	
+  absFilePath=fileInfo.absFilePath();
   /////////////////////////////////////////////////
   // TODO: Add your document opening code here
   /////////////////////////////////////////////////
-	
+
   modified=false;
   return true;
 }
@@ -243,8 +243,8 @@ void LSkatDoc::EvaluateGame()
   stat_games[1]++;
   if (score[0]==score[1]) // drawn
   {
-    stat_points[0]++; 
-    stat_points[1]++; 
+    stat_points[0]++;
+    stat_points[1]++;
   }
   else if (score[0]>score[1])
   {
@@ -729,7 +729,7 @@ void LSkatDoc::ReadConfig(KConfig *config)
   {
     struct passwd *pw = getpwuid( getuid() );
     if ( pw )
-      name = QString::fromLatin1( pw->pw_gecos );
+      name = QString::fromLocal8Bit( pw->pw_gecos );
   }
 
 
