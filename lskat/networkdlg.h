@@ -16,10 +16,10 @@
  ***************************************************************************/
 #ifndef __NETWORKDLG_H_
 #define __NETWORKDLG_H_
-#include <qlined.h>
+#include <qlineedit.h>
 //#include <ktabctl.h>
 //#include <qkeycode.h>
-//#include <qmlined.h>
+//#include <qmultilineedit.h>
 //#include <unistd.h>
 #include <kapp.h>
 #include <qlabel.h>
