@@ -20,11 +20,11 @@
 <othercredit>
 <firstname>Mike</firstname><surname>McBride</surname>
 <contrib>Reviewer</contrib>
-<affiliation><address><email>mmcbride@ematic.com</email></address></affiliation>
+<affiliation><address><email>mpmcbride7@yahoo.com</email></address></affiliation>
 </othercredit>
 </authorgroup>
 
-<date>12/08/2000</date>
+<date>21/10/2000</date>
 <releaseinfo>0.09.00</releaseinfo>
 
 <abstract>
@@ -382,7 +382,7 @@ Program copyright 2000 Martin Heni <email>martin@heni-online.de</email>
 Documentation copyright 2000 Martin Heni <email>martin@heni-online.de</email>
 </para>
 <para>
-Documentation converted to KDE 2.0 by Mike McBride <email>mmcbride@ematic.com</email>
+Documentation converted to KDE 2.0 by Mike McBride <email>mpmcbride7@yahoo.com</email>
 </para>
 
 &license-links;
