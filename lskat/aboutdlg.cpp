@@ -10,9 +10,10 @@
 
 #include <qframe.h>
 #include <qlabel.h>
-#include <qpushbutton.h>
 #include <qlayout.h>
 #include <klocale.h>
+#include <kpushbutton.h>
+#include <kstdguiitem.h>
 
 #define VERSION 0.91
 
@@ -76,8 +77,7 @@ aboutDlg::aboutDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
     QSpacerItem* spacer_2 = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
     hbox_2->addItem( spacer_2 );
 
-    PushButton15 = new QPushButton( this, "PushButton15" );
-    PushButton15->setText( i18n( "OK"  ) );
+    PushButton15 = new KPushButton( KStdGuiItem::ok(), this, "PushButton15" );
     hbox_2->addWidget( PushButton15 );
     QSpacerItem* spacer_3 = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
     hbox_2->addItem( spacer_3 );
