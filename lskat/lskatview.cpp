@@ -480,7 +480,7 @@ void LSkatView::drawFinal(QPainter *p)
     p->setFont(font14);
     if (sc0>=120)
     {
-      line5=i18n("%1 won to nil.  Congratulations!").arg(getDocument()->GetName(0));
+      line5=i18n("%1 won to nil. Congratulations!").arg(getDocument()->GetName(0));
       rect=QRect(0,sumrect.height()+10,p->window().width(),p->window().height());
       brect5=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line5);
       sumrect|=brect5;
@@ -497,7 +497,7 @@ void LSkatView::drawFinal(QPainter *p)
     }
     if (sc1>=120)
     {
-      line5=i18n("%1 won to nil.  Congratulations!").arg(getDocument()->GetName(1));
+      line5=i18n("%1 won to nil. Congratulations!").arg(getDocument()->GetName(1));
       rect=QRect(0,sumrect.height()+10,p->window().width(),p->window().height());
       brect5=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line5);
       sumrect|=brect5;
