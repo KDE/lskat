@@ -34,8 +34,8 @@ class KInteractiveConnect:public KChildConnect
   bool Send(QString str);
 
   signals:
-  void signalReceiveMsg(KEMessage *msg,int id); 
-  void signalPrepareMove(KEMessage *msg,KG_INPUTTYPE type); 
+  void signalPrepareMove(KEMessage *msg,KG_INPUTTYPE type);
+//  void signalReceiveMsg(KEMessage *msg,int id);
 };
 
 #endif
