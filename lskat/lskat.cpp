@@ -317,7 +317,7 @@ void LSkatApp::initStatusBar()
  // statusBar()->setInsertOrder(KStatusBar::RightToLeft);
   statusBar()->insertItem(i18n("This leaves space for the mover"),ID_STATUS_MOVER,0,true);
   statusBar()->insertItem(i18n("23:45"),ID_STATUS_TIME,0,true);
-  statusBar()->insertItem(i18n(IDS_STATUS_DEFAULT), ID_STATUS_MSG);
+  statusBar()->insertItem(i18n("Ready"), ID_STATUS_MSG);
 
   slotStatusTime();
   slotStatusMover(i18n("(c) Martin Heni   "));
@@ -495,7 +495,7 @@ void LSkatApp::slotEditUndo()
 
 
   slotStatusMsg(i18n("Undo move..."));
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 
 void LSkatApp::slotEditRedo()
@@ -503,7 +503,7 @@ void LSkatApp::slotEditRedo()
 
   slotStatusMsg(i18n("Redo move..."));
 
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 
 
@@ -520,7 +520,7 @@ void LSkatApp::slotFileStatistics()
     doc->ClearStats();
     doc->slotUpdateAllViews(0);
   }
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 /** send message */
 void LSkatApp::slotFileMessage()
@@ -547,7 +547,7 @@ void LSkatApp::slotFileMessage()
     delete msg;
   }
 	
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 
 
@@ -557,7 +557,7 @@ void LSkatApp::slotFileNew()
   slotStatusMsg(i18n("Starting a new game..."));
   NewGame();
 
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 
 void LSkatApp::slotFileClose()
@@ -602,7 +602,7 @@ void LSkatApp::slotFileQuit()
           break;
     }
   }	
-//  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+//  slotStatusMsg(i18n("Ready"));
 }
 
 
@@ -623,7 +623,7 @@ void LSkatApp::slotViewToolBar()
     toolBar()->show();
   }		
 
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 #endif
 
@@ -632,7 +632,7 @@ void LSkatApp::slotStartplayer(int i)
   slotStatusMsg(i18n("Changing startplayer..."));
   doc->SetStartPlayer(i);
   doc->UpdateViews(UPDATE_STATUS);
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 void LSkatApp::slotPlayer1(KG_INPUTTYPE i)
 {
@@ -643,7 +643,7 @@ void LSkatApp::slotPlayer1(KG_INPUTTYPE i)
     MakeInputDevice(0);
   }
   doc->UpdateViews(UPDATE_STATUS);
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 void LSkatApp::slotPlayer2(KG_INPUTTYPE i)
 {
@@ -654,7 +654,7 @@ void LSkatApp::slotPlayer2(KG_INPUTTYPE i)
     MakeInputDevice(1);
   }
   doc->UpdateViews(UPDATE_STATUS);
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 void LSkatApp::slotOptionsNames()
 {
@@ -672,7 +672,7 @@ void LSkatApp::slotOptionsNames()
   }
 
   	
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 
 void LSkatApp::slotLevel(int i)
@@ -680,14 +680,14 @@ void LSkatApp::slotLevel(int i)
   slotStatusMsg(i18n("Change level..."));
   doc->SetComputerLevel(i);
   doc->UpdateViews(UPDATE_STATUS);
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 void LSkatApp::slotDeck(int i)
 {
   slotStatusMsg(i18n("Change carddeck..."));
   doc->SetDeckNo(i);
   doc->slotUpdateAllViews(0);
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 
 void LSkatApp::slotViewStatusBar()
@@ -706,7 +706,7 @@ void LSkatApp::slotViewStatusBar()
     statusBar()->show();
   }
 
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 void LSkatApp::slotStatusMsg(const QString &text)
 {
@@ -1318,7 +1318,7 @@ void LSkatApp::slotHelpAbout()
   aboutDlg *dlg=new aboutDlg(movie,this);
   dlg->exec();
   delete movie;
-  slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+  slotStatusMsg(i18n("Ready"));
 }
 
 
@@ -1442,7 +1442,7 @@ void LSkatApp::slotReceiveInput(KEMessage *msg,int id)
 
   if (msg->HasKey(QCString("Move")))
   {
-     slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
+     slotStatusMsg(i18n("Ready"));
      msg->GetData(QCString("Move"),player);
      msg->GetData(QCString("MoveX"),x);
      msg->GetData(QCString("MoveY"),y);

@@ -47,9 +47,9 @@ LSkatDoc::LSkatDoc(QWidget *parent, const char *name) : QObject(parent, name)
   isrunning=0;
   wasgame=false;
   initrandom();
-  // NewGame(0);
-  names[0]="Alice";
-  names[1]="Bob";
+  // Allow translation of playernames
+  names[0]=i18n("Alice");
+  names[1]=i18n("Bob");
 
   deckno=0;
   for (i=0;i<14;i++) cardvalues[i]=0;
@@ -694,8 +694,8 @@ void LSkatDoc::ReadConfig(KConfig *config)
   host=config->readEntry("host",QCString(""));
   port=(unsigned short)config->readNumEntry("port",7432);
   procfile=config->readEntry("process",QCString("lskatproc"));
-  names[0]=config->readEntry("Name1",QCString("Alice"));
-  names[1]=config->readEntry("Name2",QCString("Bob"));
+  names[0]=config->readEntry("Name1",i18n("Alice"));
+  names[1]=config->readEntry("Name2",i18n("Bob"));
 
   startplayer=config->readNumEntry("Startplayer",0);
   if (startplayer>1 || startplayer<0) startplayer=0;
