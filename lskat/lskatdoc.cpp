@@ -4,7 +4,6 @@
     begin                : Tue May  2 15:47:11 CEST 2000
     copyright            : (C) 2000 by Martin Heni
     email                : martin@heni-online.de
-    $Id$
  ***************************************************************************/
 
 /***************************************************************************
@@ -174,7 +173,7 @@ bool LSkatDoc::newDocument(KConfig * /*config*/,QString path)
   return true;
 }
 
-bool LSkatDoc::LoadGrafix(QString /*path*/)
+bool LSkatDoc::LoadGrafix(QString path)
 {
   int res;
   res=LoadCards(cardPath);
@@ -781,14 +780,14 @@ void LSkatDoc::WriteConfig(KConfig *config)
   config->writeEntry("port",port);
   config->writeEntry("process",procfile);
   config->writePathEntry("tmppath",picpath);
-  config->writeEntry("delpath",delpath);
+  config->writePathEntry("delpath",delpath);
   config->writeEntry("Name1",names[0]);
   config->writeEntry("Name2",names[1]);
 
   config->writeEntry("Startplayer",startplayer);
   config->writeEntry("Level",computerlevel);
-  config->writeEntry("Player1",static_cast<int>(playedby[0]));
-  config->writeEntry("Player2",static_cast<int>(playedby[1]));
+  config->writeEntry("Player1",int(playedby[0]));
+  config->writeEntry("Player2",int(playedby[1]));
 
   config->writeEntry("Stat1W",stat_won[0]);
   config->writeEntry("Stat2W",stat_won[1]);
