@@ -3,7 +3,7 @@
 bin_PROGRAMS = lskat
 lskat_SOURCES = msgdlg.cpp movielabel.cpp aboutdlg.cpp networkdlg.cpp namedlg.cpp KRemoteConnect.cpp KRSocket.cpp KProcessConnect.cpp KMessageEntry.cpp KInteractiveConnect.cpp KInputChildProcess.cpp KEMessage.cpp KEInput.cpp KConnectEntry.cpp KChildConnect.cpp lskatview.cpp lskatdoc.cpp lskat.cpp main.cpp 
 
-lskat_LDADD   = $(LIB_KFILE) $(top_builddir)/libkdegames/libkdegames.la
+lskat_LDADD   = $(LIB_KFILE) $(LIB_KDEGAMES)
 
 INCLUDES = -I$(top_srcdir)/libkdegames $(all_includes)
 
