@@ -429,7 +429,7 @@ void LSkatView::drawFinal(QPainter *p)
     }
     else if (sc0>=90)
     {
-      ld=i18n("%1 won over 90 points. Super !").arg(getDocument()->GetName(0));
+      ld=i18n("%1 won over 90 points. Super!").arg(getDocument()->GetName(0));
       p->drawText(p1.x()+FINAL_X7,p1.y()+FINAL_Y7,ld);
     }
     if (sc1>=120)
@@ -439,7 +439,7 @@ void LSkatView::drawFinal(QPainter *p)
     }
     else if (sc1>=90)
     {
-      ld=i18n("%1 won over 90 points. Super !").arg(getDocument()->GetName(1));
+      ld=i18n("%1 won over 90 points. Super!").arg(getDocument()->GetName(1));
       p->drawText(p1.x()+FINAL_X7,p1.y()+FINAL_Y7,ld);
     }
 
