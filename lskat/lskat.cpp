@@ -47,6 +47,7 @@
 
 
 #include <stdlib.h>
+#include <kstatusbar.h>
 
 #define ACTION(x)   (actionCollection()->action(x))
 #define ID_STATUS_MSG               1003
