@@ -89,18 +89,22 @@ NameDlg::NameDlg( QWidget *parent, const char *name,bool /* modal */, WFlags /* 
     hbox_3->addWidget( edit_player2 );
     vbox_3->addLayout( hbox_3 );
     vbox_2->addLayout( vbox_3 );
+
+    // left
+    QSpacerItem* spacer_3 = new QSpacerItem( 0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum );
+    hbox->addItem( spacer_3 );
+
     hbox->addWidget( player_names );
     QSpacerItem* spacer = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
     hbox->addItem( spacer );
+
+    // top
+    QSpacerItem* spacer_4 = new QSpacerItem( 0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding );
+    vbox->addItem( spacer_4 );
+
     vbox->addLayout( hbox );
     QSpacerItem* spacer_2 = new QSpacerItem( 20, 20, QSizePolicy::Minimum, QSizePolicy::Expanding );
     vbox->addItem( spacer_2 );
-
-    hbox_4 = new QHBoxLayout; 
-    hbox_4->setSpacing( 6 );
-    hbox_4->setMargin( 0 );
-    QSpacerItem* spacer_3 = new QSpacerItem( 20, 20, QSizePolicy::Expanding, QSizePolicy::Minimum );
-    hbox_4->addItem( spacer_3 );
 
 }
 
