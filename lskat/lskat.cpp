@@ -41,6 +41,7 @@
 #include "aboutdlg.h"
 #include "msgdlg.h"
 
+#include <stdlib.h>
 
 LSkatApp::LSkatApp()
 {
