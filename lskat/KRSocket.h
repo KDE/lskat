@@ -52,8 +52,6 @@ typedef sockaddr_in ksockaddr_in;
 
 #include <ksock.h>
 
-typedef size_t ksize_t;
-
 class KRServerSocketPrivate;
 
 

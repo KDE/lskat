@@ -52,9 +52,7 @@
  *  Boston, MA 02111-1307, USA.
  **/
 
-#ifdef HAVE_CONFIG_H
 #include <config.h>
-#endif
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -189,7 +187,7 @@ bool KRServerSocket::init( const char *_path,int optname,int value,int level )
   // Heni - 05042000
   if (optname>0)
   {
-   socklen_t len=sizeof(value);
+   ksize_t len=sizeof(value);
    if (-1==setsockopt(sock,level,optname,&value,len ))
    {
 	   warning("Could not set socket options.\n");
