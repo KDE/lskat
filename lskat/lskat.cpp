@@ -190,7 +190,7 @@ void LSkatApp::initGUI()
   ACTION("send_message")->setWhatsThis(i18n("Allows you to talk with a remote player."));
   (void)KStdAction::quit(this, SLOT(slotFileQuit()), actionCollection(), "game_exit");
   ACTION("game_exit")->setStatusText(i18n("Exiting..."));
-  ACTION("game_exit")->setWhatsThis(i18n("Quits the programm."));
+  ACTION("game_exit")->setWhatsThis(i18n("Quits the program."));
 
   (void)new KToggleAction(i18n("&Statusbar"),0,this,SLOT(slotViewStatusBar()),
                       actionCollection(), "show_statusbar");
