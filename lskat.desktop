@@ -72,4 +72,4 @@ Name[xh]=Umyaleli we Skat
 Terminal=0
 Type=Application
 DocPath=lskat/index.html
-KDE-X-StartupNotify=true
+X-KDE-StartupNotify=true
