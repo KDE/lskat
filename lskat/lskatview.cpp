@@ -29,6 +29,7 @@
 #include <klocale.h>
 #include <math.h>
 #include <stdio.h>
+#include <kglobalsettings.h>
 
 
 // application specific includes
@@ -258,7 +259,8 @@ void LSkatView::drawIntro(QPainter *p)
     QPoint point,point1,p2;
     QString s;
     // Get a nice font
-    QFont font("Helvetica",48,QFont::Normal,false);
+    QFont font = KGlobalSettings::generalFont();
+    font.setPointSize(48);
     font.setPixelSize(48);
     // Get the font info to determine text sizes
     QFontMetrics fontMetrics(font);
@@ -373,11 +375,12 @@ void LSkatView::drawFinal(QPainter *p)
   QString ld;
   int ts[10];
 
-  QFont font24(QCString("Helvetica"),24,QFont::Normal,false);
-  QFont font14(QCString("Helvetica"),14,QFont::Normal,false);
-  //QFont font12(QCString("Helvetica"),12,QFont::Normal,false);
+  QFont font24 = KGlobalSettings::generalFont();
   font24.setPixelSize(24);
+  font24.setPointSize(24);
+  QFont font14 = KGlobalSettings::generalFont();
   font14.setPixelSize(14);
+  font14.setPointSize(14);
 
 	//p1=status_rect3.topLeft();
 	//p2=status_rect3.bottomRight();
@@ -628,8 +631,9 @@ void LSkatView::drawStatus(QPainter *p)
   srect[0]=status_rect1;
   srect[1]=status_rect2;
 
-  QFont font10(QCString("Helvetica"),11,QFont::Normal,false);
+  QFont font10 = KGlobalSettings::generalFont();
   font10.setPixelSize(14);
+  font10.setPointSize(14);
   p->setFont(font10);
 
   trump=getDocument()->GetTrump();
