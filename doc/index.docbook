@@ -1,9 +1,9 @@
 <!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
-  <!ENTITY lskat "<application>LSkat</application>">
-  <!ENTITY % FDLNotice PUBLIC "-//KDE//ENTITIES GNU FDL 1.1 Notice Entities//EN">
-  %FDLNotice;
+  <!ENTITY kapp "<application>LSkat</application>">
+  <!ENTITY kappname "&kapp;" -- this only *seems* redundant -->
   <!ENTITY % addindex "IGNORE">
-  <![ %addindex; [ <!ENTITY kdedocindex SYSTEM "docindex.docbook"> ]]>
+  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Application-Variable Entities V1.0//EN">
+  %ents;
 ]>
 
 <book lang="en">
@@ -17,13 +17,18 @@
 <address><email>martin@heni-online.de</email></address>
 </affiliation>
 </author>
+<othercredit>
+<firstname>Mike</firstname><surname>McBride</surname>
+<contrib>Reviewer</contrib>
+<affiliation><address><email>mmcbride@ematic.com</email></address></affiliation>
+</othercredit>
 </authorgroup>
 
-<date>09/06/2000</date>
-<releaseinfo>1.00.00</releaseinfo>
+<date>12/08/2000</date>
+<releaseinfo>0.09.00</releaseinfo>
 
 <abstract>
-<para>This documentation describes &lskat; version 1.0</para>
+<para>This documentation describes &kapp; version 0.9</para>
 </abstract>
 
 <keywordset>
@@ -40,47 +45,79 @@
 <chapter id="overview">
 <title>Overview</title>
 
-<para>
-Lieutnant skat (from German
-<foreignphrase lang="de">Offiziersskat</foreignphrase>) is a card
-game for two players. It is roughly played according to the rules of
-<firstterm>Skat</firstterm> but with only two players and simplified
-rules.
-</para>
+<para> Lieutnant skat (from German <foreignphrase
+lang="de">Offiziersskat</foreignphrase>) is a card game for two players. It is
+roughly played according to the rules of <firstterm>Skat</firstterm> but with
+only two players and simplified rules.  </para>
+
+<para>Every player has a set of cards in front of him/her, half of them covered
+and half of them open. Both players try to win more than 60 of the 120 possible
+points. After 16 moves all cards are played and the game ends.</para>
+
+</chapter>
+
+<chapter id="Installation">
+<title>Installation</title>
+<sect1 id="getting-lskat">
+<title>How to obtain lskat</title>
 
 <para>
-Every player has a set of cards in front of him/her, half of them covered
-and half of them open. Both players try to win more than 60 of the 120
-possible points. After 16 moves all cards are played and the game ends.
-</para>
+&kapp; can be found in the package kdegames on
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, 
+the main ftp site of the KDE project.</para>
+</sect1>
 
+<sect1 id="Requirements">
+<title>Requirements</title>
+<para>
+In order to successfully compile &kapp;, you need KDE 2.0 </para>
+<para>
+All required libraries as well as &kapp; itself can be found on
+<ulink 
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>.</para>
+</sect1>
+
+
+<sect1 id="Compilation">
+<title>Compilation and installation</title>
+
+<para>In order to compile and install &kapp; on your system, extract the package
+and type the following commands in the base directory of the &kapp;
+distribution: </para>
+
+<screen width="40">
+<prompt>%</prompt> <userinput>cd kdegames</userinput>
+<prompt>%</prompt> <userinput>./configure</userinput>
+<prompt>%</prompt> <userinput>make</userinput>
+<prompt>%</prompt> <userinput>make install</userinput>
+</screen>
+      
+<para>Since &kapp; uses <application>autoconf</application> and <application>automake</application> you should have no trouble compiling it.</para>
+
+</sect1>
 </chapter>
 
 <chapter id="rules">
 <title>Rules</title>
 
-<para>
-The game has a randomly chosen trump card. It is shown as a small suit
-symbol in the upper right corner of the score field. All four Jacks are
-also counted as trumps and do <emphasis>not</emphasis> belong to their
-suits. So if <emphasis>heart</emphasis> is trump all seven hearts as
-well as all four Jacks count as trumps, making 11 trumps. E.g. the Jack
-of clubs does not count as <emphasis>club</emphasis> but as trump.
-</para>
+<para>The game has a randomly chosen trump card. It is shown as a small suit
+symbol in the upper right corner of the score field. All four Jacks are also
+counted as trumps and do <emphasis>not</emphasis> belong to their suits. So if
+<emphasis>heart</emphasis> is trump all seven hearts as well as all four Jacks
+count as trumps, making 11 trumps.</para
 
-<para>
-A special trump is the <firstterm>Grand</firstterm>. In this game no
-suit is trump and only the four Jacks count as trump. In the game this
-is indicated by the symbol of the Jack's head.
-</para>
+<note><para>The Jack of clubs does not count as <emphasis>club</emphasis> but as
+trump.  </para></note>
 
-<para>
-Every player owns 16 cards. 8 of them covered 8 of them open. The start
-player can play any of his/her open cards.
-</para>
+<para>A special trump is the <firstterm>Grand</firstterm>. In this game no suit
+is trump and only the four Jacks count as trump. In the game this is indicated
+by the symbol of the Jack's head.  </para>
 
-<para>
-The second player has following choices:
+<para>Every player owns 16 cards. 8 of them covered 8 of them open. The start
+player can play any of his/her open cards.</para>
+
+<para>The second player has following choices:</para>
+
 <orderedlist>
 <listitem><para>
   The second player has in his/her open cards the same suit.
@@ -94,7 +131,6 @@ The second player has following choices:
   first player will win both cards.
 </para></listitem>
 </orderedlist>
-</para>
 
 <para>
 If there is still a covered card below a played card it will be uncovered
@@ -107,7 +143,7 @@ The player who won the cards can make the next turn.
 
 <para>
 The sequence of the cards (from the highest to the lowest -
-holding for any <emphasis>trump</emphasis>):
+holding for any <emphasis>trump</emphasis>):</para>
 <simplelist type="inline">
 <member>Jack of clubs</member>
 <member>Jack of spades</member>
@@ -121,11 +157,11 @@ holding for any <emphasis>trump</emphasis>):
 <member>Eight</member>
 <member>Seven</member>
 </simplelist>
-</para>
 
 <para>
 The player who wins both cards will add their value to his score. The
-value of the card are:
+value of the card are:</para>
+
 <informaltable>
 <tgroup cols="2">
 <thead>
@@ -143,14 +179,13 @@ value of the card are:
 </tbody>
 </tgroup>
 </informaltable>
-</para>
 
 <sect1 id="scoring">
 <title>Scoring</title>
 
 <para>
 The game is won if you have more than 60 points. With both players having
-60 points the game ands in a draw.
+60 points the game ands in a draw.</para>
 <informaltable>
 <tgroup cols="2">
 <thead>
@@ -164,139 +199,8 @@ The game is won if you have more than 60 points. With both players having
 </tbody>
 </tgroup>
 </informaltable>
-</para>
 
 </sect1>
-</chapter>
-
-<chapter id="menus">
-<title>Menus</title>
-
-<para>
-<variablelist>
-
-<varlistentry>
-<term><guimenu>File</guimenu></term>
-<listitem><para>
-<variablelist>
-<varlistentry>
-  <term><guimenuitem>New Game</guimenuitem></term>
-  <listitem><para>
-     Starts a new game. In a network game this option is
-     only available for the network server. The network client
-     will be automatically started by the server.
-  </para></listitem>
-</varlistentry>
-<varlistentry>
-  <term><guimenuitem>End Game</guimenuitem></term>
-  <listitem><para>
-     Aborts a running game.
-  </para></listitem>
-</varlistentry>
-<varlistentry>
-  <term><guimenuitem>Clear statistics...</guimenuitem></term>
-  <listitem><para>
-     Clears the all time game memory. This statistic is
-     usually saved when the game ended and shows the amount of
-     played and won games per player. This is cleared with this menu
-     option.
-  </para></listitem>
-</varlistentry>
-<varlistentry>
-  <term><guimenuitem>Send Message</guimenuitem></term>
-  <listitem><para>
-     If connected to another game in a remote session this
-     option allows you to send a message to the remote player.
-  </para></listitem>
-</varlistentry>
-<varlistentry>
-  <term><guimenuitem>Exit</guimenuitem></term>
-  <listitem><para>
-     Quits the program.
-  </para></listitem>
-</varlistentry>
-</variablelist>
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><guimenu>View</guimenu></term>
-<listitem><para>
-<variablelist>
-<varlistentry>
-  <term><guimenuitem>View statusbar</guimenuitem></term>
-  <listitem><para>
-     Shows or hides the statusbar.
-  </para></listitem>
-</varlistentry>
-</variablelist>
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><guimenu>Options</guimenu></term>
-<listitem><para>
-<variablelist>
-<varlistentry>
-  <term><guimenuitem>Startplayer</guimenuitem></term>
-  <listitem><para>
-     Selects whether player 1 (top) or player two (bottom)
-     begins the next game.
-  </para></listitem>
-</varlistentry>
-<varlistentry>
-  <term><guimenuitem>Player 1 played by</guimenuitem></term>
-  <listitem><para>
-     Chooses who should play for player 1 (top). It can be either
-     <guilabel>player</guilabel>, i.e. a local player using the mouse
-     as input device, <guilabel>computer</guilabel>, i.e. the computer
-     plays this player or <guilabel>remote</guilabel>, i.e. a remote
-     connection to another computer will be build.
-  </para></listitem>
-</varlistentry>
-<varlistentry>
-  <term><guimenuitem>Player 2 played by</guimenuitem></term>
-  <listitem><para>
-     Same as <guimenuitem>Player 1 played by</guimenuitem>.
-  </para></listitem>
-</varlistentry>
-<varlistentry>
-  <term><guimenuitem>Level</guimenuitem></term>
-  <listitem><para>
-     Selects the level of the computer player.
-  </para></listitem>
-</varlistentry>
-<varlistentry>
-  <term><guimenuitem>Select carddeck</guimenuitem></term>
-  <listitem><para>
-     Choose the background of the carddeck. You can use your own graphics
-     here, if you replace the files <filename>deck1.bmp</filename> to
-     <filename>deck6.bmp</filename> in the graphics directory by any
-     graphic of the size 72x96 pixel. Not existing graphics will be no
-     availble in the menu.
-  </para></listitem>
-</varlistentry>
-<varlistentry>
-  <term><guimenuitem>Change names...</guimenuitem></term>
-  <listitem><para>
-     Change the names of the players.
-  </para></listitem>
-</varlistentry>
-</variablelist>
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><guimenu>Help</guimenu></term>
-<listitem><para>
-  Shows help on the program an information about the program and
-  KDE.
-</para></listitem>
-</varlistentry>
-
-</variablelist>
-</para>
-
 </chapter>
 
 <chapter id="remote-connections">
@@ -322,20 +226,176 @@ can enter nearly any number there.
 
 </chapter>
 
-<chapter id="credits">
-<title>Credits and license</title>
-
-<para>
+<chapter id="menus">
+<title>Menus</title>
+<sect1 id="file-menu"><title>File Menu</title>
 <variablelist>
 <varlistentry>
-  <term>Author</term>
+<term><menuchoice><guimenu>File</guimenu><guimenuitem>New Game</guimenuitem></menuchoice></term>
   <listitem><para>
-    &copy; 2000 Martin Heni (<email>martin@heni-online.de</email>)
+     Starts a new game. In a network game this option is
+     only available for the network server. The network client
+     will be automatically started by the server.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>File</guimenu><guimenuitem>End Game</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Aborts a running game.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>File</guimenu><guimenuitem>Clear statistics...</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Clears the all time game memory. This statistic is
+     usually saved when the game ended and shows the amount of
+     played and won games per player. This is cleared with this menu
+     option.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>File</guimenu><guimenuitem>Send Message</guimenuitem></menuchoice></term>
+  <listitem><para>
+     If connected to another game in a remote session this
+     option allows you to send a message to the remote player.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>File</guimenu><guimenuitem>Exit</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Quits the program.
   </para></listitem>
 </varlistentry>
 </variablelist>
-</para>
+</sect1>
+<sect1 id="view-menu"><title>View Menu</title>
+<variablelist>
+<varlistentry>
+<term><menuchoice><guimenu>View</guimenu><guimenuitem>View statusbar</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Shows or hides the statusbar.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="option-menu"><title>Options Menu</title>
+<variablelist>
+<varlistentry>
+  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Startplayer</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Selects whether player 1 (top) or player two (bottom)
+     begins the next game.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Player 1 played by</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Chooses who should play for player 1 (top). It can be either
+     <guilabel>player</guilabel>, <abbrev>i.e.</abbrev> a local player using the mouse
+     as input device, <guilabel>computer</guilabel>, <abbrev>i.e.</abbrev> the computer
+     plays this player or <guilabel>remote</guilabel>, <abbrev>i.e.</abbrev> a remote
+     connection to another computer will be build.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Player 2 played by</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Same as <guimenuitem>Player 1 played by</guimenuitem>.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Level</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Selects the level of the computer player.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Select carddeck</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Choose the background of the carddeck. You can use your own graphics
+     here, if you replace the files <filename>deck1.bmp</filename> to
+     <filename>deck6.bmp</filename> in the graphics directory by any
+     graphic of the size 72x96 pixel. Nonexistent graphics will be not
+     available in the menu.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Change names...</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Change the names of the players.
+  </para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="help">
+<title>The <guimenuitem>Help</guimenuitem> Menu</title>
+
+<variablelist>
+<varlistentry>
+<term><anchor id="contents"><menuchoice>
+<shortcut><keycombo><keycap>F1</keycap></keycombo></shortcut>
+<guimenu>Help</guimenu><guimenuitem>Contents</guimenuitem></menuchoice></term>
+<listitem>
+<para>This invokes the KDE help system starting at the the top of this help file.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="bug-report"><menuchoice>
+<guimenu>Help</guimenu><guimenuitem>Report Bug.</guimenuitem></menuchoice></term>
+<listitem><para>If you find an error in the program, or you have an idea on how
+to improve the game, clicking this option will let you send an official bug
+report to the KDE team.</para>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-lskat"><menuchoice>
+<guimenu>Help</guimenu><guimenuitem>About lskat</guimenuitem></menuchoice></term>
+<listitem>
+<para>This will display version and author information.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-kde"><menuchoice>
+<guimenu>Help</guimenu><guimenuitem>About KDE</guimenuitem></menuchoice></term>
+<listitem>
+<para>This displays the KDE version and other basic information.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
 
 </chapter>
+<chapter id="credits">
+<title>Credits and License</title>
 
+<para>
+&kapp;
+</para>
+<para>
+Program copyright 2000 Martin Heni <email>martin@heni-online.de</email>
+</para>
+<para>
+Documentation copyright 2000 Martin Heni <email>martin@heni-online.de</email>
+</para>
+<para>
+Documentation converted to KDE 2.0 by Mike McBride <email>mmcbride@ematic.com</email>
+</para>
+
+&license-links;
+</chapter>
+
+<![ %addindex; [ &kdedocindex; ]]>
 </book>
+<!--
+Local Variables:
+mode: sgml-mode
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+
+
