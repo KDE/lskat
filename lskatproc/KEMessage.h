@@ -39,11 +39,11 @@ class KEMessage
   public:
   QStrList *QueryKeys();
   uint QueryNumberOfKeys();
-  void AddDataType(QString key,int size,char *data,KGM_TYPE type);
+  void AddDataType(QString key,int size,const char *data,KGM_TYPE type);
   void AddData(QString key,short data);
   void AddData(QString key,long data);
   void AddData(QString key,float data);
-  void AddData(QString key,char *data,int size=-1);
+  void AddData(QString key,const char *data,int size=-1);
   bool GetData(QString key,short &s);
   bool GetData(QString key,long &l);
   bool GetData(QString key,float &f);

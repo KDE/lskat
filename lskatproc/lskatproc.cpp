@@ -24,7 +24,7 @@
 
 #define MIN_TIME 1000  // usec
 
-// ------------ class game --------------------------------- 
+// ------------ class game ---------------------------------
 lgame::lgame()
 {
  int i;
@@ -359,7 +359,7 @@ int lgame::Value(int player)
 }
 
 
-// -------------class lskatproc ---------------------------- 
+// -------------class lskatproc ----------------------------
 lskatproc::lskatproc()
   : KInputChildProcess(4096)
 {
@@ -415,7 +415,7 @@ short x,y;
 
     // fills data
     x=0;y=0;
-    GetComputerMove(game,x,y,0); 
+    GetComputerMove(game,x,y,0);
     sprintf(buf,"Computer move player=%d x=%d y=%d",game.currentplayer,x,y);
     SendDebug(buf);
 
@@ -571,7 +571,7 @@ int lskatproc::GetComputerMove(lgame game,short &x,short &y,int rek)
 
     sprintf(buf,"%s:i=%d:: Value=%d",sbuf,i,value);
     SendDebug(buf);
-    
+
     if (value>maxvalue)
     {
       maxvalue=value;
@@ -583,7 +583,7 @@ int lskatproc::GetComputerMove(lgame game,short &x,short &y,int rek)
   return maxvalue;
 }
 
-void lskatproc::SendDebug(char *s)
+void lskatproc::SendDebug(const char *s)
 {
   KEMessage *msg=new KEMessage;
   msg->AddData(QCString("Debug"),s);

@@ -95,7 +95,7 @@ public:
 
   void initrandom();
   int GetComputerMove(lgame game,short &x,short &y,int rek);
-  void SendDebug(char *s);
+  void SendDebug(const char *s);
 
   private:
   char buf[1024];

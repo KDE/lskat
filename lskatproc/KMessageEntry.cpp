@@ -56,7 +56,7 @@ char * KMessageEntry::QueryData()
   return data;
 }
 
-bool KMessageEntry::CopyData(int s,char *c)
+bool KMessageEntry::CopyData(int s,const char *c)
 {
   if (s<1) return false;
   data=(char *)calloc(s,1);

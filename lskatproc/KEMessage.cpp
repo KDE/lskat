@@ -27,7 +27,7 @@ void KEMessage::AddEntry(QString key,KMessageEntry *entry)
   keys.append(key.latin1());
 }
 
-void KEMessage::AddDataType(QString key,int size,char *data,KGM_TYPE type)
+void KEMessage::AddDataType(QString key,int size,const char *data,KGM_TYPE type)
 {
 //   printf("AddDataType for %s size=%d\n",(const char *)key,size);
   if (size<=0) return ;
@@ -52,7 +52,7 @@ void KEMessage::AddData(QString key,float data)
   AddDataType(key,sizeof(float),(char *)&data,KGM_TYPE_FLOAT);
 }
 
-void KEMessage::AddData(QString key,char *data,int size)
+void KEMessage::AddData(QString key,const char *data,int size)
 {
   if (size<0) size=strlen(data)+1; // +1 for 0 Byte
   AddDataType(key,size,data,KGM_TYPE_DATA);
@@ -198,7 +198,7 @@ QString KEMessage::StringToEntry(QString str,KMessageEntry *entry)
 
   data=str.right(str.length()-pos-len);
 
-  
+
   cnt=size.toInt();
   entry->SetType((KGM_TYPE)type.toInt());
 
@@ -209,13 +209,13 @@ QString KEMessage::StringToEntry(QString str,KMessageEntry *entry)
   for(pos=0;pos<cnt;pos++)
   {
     if (pos*2+1>(int)data.length()) return QString(); // SEVERE ERROR
-    c=*(p+2*pos)-'a' | ((*(p+2*pos+1)-'a')<<4); 
+    c=*(p+2*pos)-'a' | ((*(p+2*pos+1)-'a')<<4);
     q[pos]=c;
   }
   entry->CopyData(cnt,q);
 
   free(q);
-  return key; 
+  return key;
 }
 
 QString KEMessage::ToString()
@@ -267,7 +267,7 @@ bool KEMessage::AddStringMsg(QString str)
       if (!result) return false;   // wrong format
     }
   }while(data!=(KEMESSAGE_TAIL));
-  
+
   return result;
 }
 
