@@ -169,7 +169,7 @@ The game is won if you have more than 60 points. With both players having
 
 <para>
 It is possible to play the game over a network connection with another
-computer. To do so both player on both computers have to select one colour
+computer. To do so both player on both computers have to select one color
 played by a human player and the other by the remote player. Who chooses
 which side does not matter. It even does not matter if both choose to play
 the same player as this will automatically be interchanged by the game.
