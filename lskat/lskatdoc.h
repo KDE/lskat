@@ -221,7 +221,7 @@ public:
  	
   public:	
     /** the list of the views currently connected to the document */
-    static QList<LSkatView> *pViewList;	
+    static QPtrList<LSkatView> *pViewList;	
 
   private:
     /** the modified flag of the current document */

@@ -36,14 +36,14 @@
 #include "lskatview.h"
 #include <kcarddialog.h>
 
-QList<LSkatView> *LSkatDoc::pViewList = 0L;
+QPtrList<LSkatView> *LSkatDoc::pViewList = 0L;
 
 LSkatDoc::LSkatDoc(QWidget *parent, const char *name) : QObject(parent, name)
 {
   int i;
   if(!pViewList)
   {
-    pViewList = new QList<LSkatView>();
+    pViewList = new QPtrList<LSkatView>();
   }
 
   pViewList->setAutoDelete(true);
