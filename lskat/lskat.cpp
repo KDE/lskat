@@ -410,8 +410,8 @@ void LSkatApp::slotFileStatistics()
 {
    QString message;
 
-   message=i18n("Do you really want to clear the all time\n"
-                "statistical data?\n");
+   message=i18n("Do you really want to clear the all time "
+                "statistical data?");
 
   if (KMessageBox::Yes==KMessageBox::questionYesNo(this,message))
   {
@@ -698,18 +698,18 @@ void LSkatApp::NewGame()
   if (!res)
   {
     KMessageBox::error(this,
-      i18n("Cannot start player 1. Maybe the network connection\n"
-           "failed or the computer player process file is not\n"
-           "found.\n"));
+      i18n("Cannot start player 1. Maybe the network connection "
+           "failed or the computer player process file is not "
+           "found."));
     return ;
   }
   res=MakeInputDevice(1);
   if (!res)
   {
     KMessageBox::error(this,
-      i18n("Cannot start player 2. Maybe the network connection\n"
-           "failed or the computer player process file is not\n"
-           "found.\n"));
+      i18n("Cannot start player 2. Maybe the network connection "
+           "failed or the computer player process file is not "
+           "found."));
     return ;
   }
   // Remote game is started when receiving the start mesage .. not here!
