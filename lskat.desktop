@@ -1,5 +1,24 @@
 [Desktop Entry]
+Encoding=UTF-8
 Comment=Card Game
+Comment[ar]=لعبة ورق
+Comment[da]=Kortspil
+Comment[de]=Kartenspiel
+Comment[es]=Juego de cartas
+Comment[fi]=Korttipeli
+Comment[fr]=Jeu de cartes
+Comment[he]=משחק קלפים
+Comment[hu]=Elektronikus póker
+Comment[lt]=Kortų žaidimas
+Comment[lv]=Kāršu Spēle
+Comment[nn]=Kortspel
+Comment[pt]=Jogo de Cartas
+Comment[pt_BR]=Jogo de Cartas
+Comment[sk]=Kartová hra
+Comment[sv]=Kortspel
+Comment[tr]=İskambil Oyunu
+Comment[xx]=xx
+Comment[zh_TW]=牌類遊戲
 Exec=lskat
 Icon=lskat
 Name=Lieutnant Skat
