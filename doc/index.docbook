@@ -417,7 +417,7 @@ distribution: </para>
 </appendix>
 
 
-<![ %addindex; [ &kdedocindex; ]]>
+<![ %addindex; [ &documentation.index; ]]>
 </book>
 <!--
 Local Variables:
