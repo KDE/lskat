@@ -188,7 +188,7 @@ bool KRServerSocket::init( const char *_path,int optname,int value,int level )
   // Heni - 05042000
   if (optname>0)
   {
-   ksize_t len=sizeof(value);
+   socklen_t len=sizeof(value);
    if (-1==setsockopt(sock,level,optname,(char*)&value,len ))
    {
 	   kdWarning() << "Could not set socket options." << endl;
@@ -251,7 +251,7 @@ bool KRServerSocket::init( unsigned short int _port,int optname,int value,int le
   // Heni - 05042000
   if (optname>0)
   {
-   ksize_t len=sizeof(value);
+   socklen_t len=sizeof(value);
    if (-1==setsockopt(sock,level,optname,(char*)&value,len ))
    {
 	   kdWarning() << "Could not set socket options." << endl;
@@ -308,7 +308,7 @@ unsigned short int KRServerSocket::port()
   if ( domain != PF_INET )
     return false;
 
-  ksockaddr_in name; ksize_t len = sizeof(name);
+  ksockaddr_in name; socklen_t len = sizeof(name);
   getsockname(sock, (struct sockaddr *) &name, &len);
   return ntohs(get_sin_port(name));
 }
@@ -318,7 +318,7 @@ unsigned long KRServerSocket::ipv4_addr()
   if ( domain != PF_INET )
     return 0;
 
-  sockaddr_in name; ksize_t len = sizeof(name);
+  sockaddr_in name; socklen_t len = sizeof(name);
   getsockname(sock, (struct sockaddr *) &name, &len);
   if (name.sin_family == AF_INET) // It's IPv4
     return ntohl(name.sin_addr.s_addr);
@@ -337,7 +337,7 @@ void KRServerSocket::slotAccept( int )
     ksockaddr_in clientname;
     int new_sock;
 
-    ksize_t size = sizeof(clientname);
+    socklen_t size = sizeof(clientname);
 
     if ((new_sock = accept (sock, (struct sockaddr *) &clientname, &size)) < 0)
     {
@@ -352,7 +352,7 @@ void KRServerSocket::slotAccept( int )
     struct sockaddr_un clientname;
     int new_sock;
 
-    ksize_t size = sizeof(clientname);
+    socklen_t size = sizeof(clientname);
 
     if ((new_sock = accept (sock, (struct sockaddr *) &clientname, &size)) < 0)
     {
