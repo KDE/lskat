@@ -1,9 +1,9 @@
-<!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&lskat;">
-  <!ENTITY % English "INCLUDE" -- change language only here -->
+  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
-  %ents;
+  
+  
 ]>
 
 <book lang="&language;">
@@ -309,7 +309,7 @@ can enter nearly any number there.
 
 <variablelist>
 <varlistentry>
-<term><anchor id="contents"><menuchoice>
+<term><anchor id="contents"/><menuchoice>
 <shortcut><keycap>F1</keycap></shortcut>
 <guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>C</accel>ontents</guimenuitem></menuchoice></term>
 <listitem>
@@ -317,7 +317,7 @@ can enter nearly any number there.
 </listitem>
 </varlistentry>
 <varlistentry>
-<term><anchor id="whats-this"><menuchoice>
+<term><anchor id="whats-this"/><menuchoice>
 <shortcut><keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
 <guimenu>Help</guimenu><guimenuitem>What's This?</guimenuitem></menuchoice></term>
 <listitem><para>This changes the mouse cursor to a combination arrow and
@@ -326,7 +326,7 @@ window (if one exists for the particular item) explaining the item's
 function.</para></listitem>
 </varlistentry>
 <varlistentry>
-<term><anchor id="bug-report"><menuchoice>
+<term><anchor id="bug-report"/><menuchoice>
 <guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>R</accel>eport Bug</guimenuitem></menuchoice></term>
 <listitem><para>If you find an error in the program, or you have an idea on how
 to improve the game, clicking this option will let you send an official bug
@@ -336,7 +336,7 @@ report to the &kde; team.</para>
 </varlistentry>
 
 <varlistentry>
-<term><anchor id="about-lskat"><menuchoice>
+<term><anchor id="about-lskat"/><menuchoice>
 <guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout Lieutnant sKat</guimenuitem></menuchoice></term>
 <listitem>
 <para>This will display version and author information.</para>
@@ -344,7 +344,7 @@ report to the &kde; team.</para>
 </varlistentry>
 
 <varlistentry>
-<term><anchor id="about-kde"><menuchoice>
+<term><anchor id="about-kde"/><menuchoice>
 <guimenu><accel>H</accel>elp</guimenu><guimenuitem>About <accel>K</accel>DE</guimenuitem></menuchoice></term>
 <listitem>
 <para>This displays the KDE version and other basic information.</para>
@@ -421,7 +421,7 @@ distribution: </para>
 </appendix>
 
 
-<![ %addindex; [ &documentation.index; ]]>
+&documentation.index; 
 </book>
 <!--
 Local Variables:
@@ -430,5 +430,6 @@ sgml-minimize-attributes: nil
 sgml-general-insert-case: lower
 End:
 -->
+
 
 
