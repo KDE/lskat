@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 GenericName=Card Game
-GenericName[af]=kaart speletjie
+GenericName[af]=Kaart Speletjie
 GenericName[ar]=لعبة ورق
 GenericName[be]=Картачная гульня
 GenericName[bg]=Игра на Карти
@@ -46,7 +46,7 @@ GenericName[zu]=Umdlalo Wekhadi
 Exec=lskat
 Icon=lskat
 Name=Lieutnant Skat
-Name[af]=luitenant skat
+Name[af]=Luitenant Skat
 Name[az]=LEytenant Skat
 Name[bg]=Лейтенант Скат
 Name[br]=Letanant Skat
