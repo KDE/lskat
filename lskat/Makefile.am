@@ -10,10 +10,7 @@ METASOURCES = AUTO
 
 lskat_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
-KDE_ICON = lskat
 
-appsdir = $(kde_appsdir)/Games
-apps_DATA = lskat.desktop
 
 messages:
 	$(XGETTEXT) `find . -name \*.h -o -name \*.cpp -o -name \*.cc` -o $(podir)/lskat.pot 

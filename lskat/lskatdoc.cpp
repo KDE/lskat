@@ -155,52 +155,14 @@ void LSkatDoc::closeDocument()
   deleteContents();
 }
 
-bool LSkatDoc::newDocument(KConfig *config,QString file)
+bool LSkatDoc::newDocument(KConfig *config,QString path)
 {
   int res;
   modified=false;
   absFilePath=QDir::homeDirPath();
   title=i18n("Untitled");
-  config->setGroup(QCString("Parameter"));
-  picpath=config->readEntry(QCString("tmppath"),QCString("/tmp"));
-  delpath=config->readNumEntry(QCString("delpath"),(int)1);
-  if (global_debug>1) printf("file=%s\n",file.latin1());
-  QString s;
-  if (global_debug>5)
-  {
-    printf("delpath=%d\n",delpath);
-    printf("picpath=%s\n",picpath.latin1());
-  }
-  // delpath ==1 : untar archive into tmp and delet tmp later
-  // delpath ==0 : use given directory
-  // delpath ==2 : untar into directory and set delpath to 0
-  if (delpath>0) 
-  {
-    s=QString(QCString("mkdir "))+picpath+QString(QCString("/lskat"));
-    if (global_debug>2) printf(s);
-    system(s.latin1());
-    s=QString(QCString("tar xzf "))+file+
-      QString(QCString(" -C "))+picpath+QString(QCString("/lskat"));
-    if (global_debug>2) printf(s);
-    system(s.latin1());
-    res=LoadBitmap(picpath+QString(QCString("/lskat/")));
-    if (delpath==1)
-    {
-      s=QString(QCString("rm -rf "))+picpath+QString(QCString("/lskat"));
-      if (global_debug>2) printf(s);
-      system(s.latin1());
-    }
-    else
-    {
-      if (global_debug>2) printf("Setting delpath to 0\n");
-      delpath=0;
-    }
-
-  }
-  else
-  {
-    res=LoadBitmap(picpath+QString(QCString("/lskat/")));
-  }
+  if (global_debug>1) printf("path=%s\n",path.latin1());
+  res=LoadBitmap(path);
   if (res==0) return false;
   return true;
 }
@@ -571,7 +533,7 @@ int LSkatDoc::LoadBitmap(QString path)
   if (global_debug>5) printf("Loading bitmaps\n");
   for (i=0;i<NO_OF_CARDS;i++)
   {
-    buf.sprintf("%s%d.bmp",path.latin1(),i+1);
+    buf.sprintf("%s%d.png",path.latin1(),i+1);
  		if(!mPixCard[i].load(buf))
     {
 		    printf("Fatal error: bitmap %s not found \n",buf.latin1());
@@ -580,7 +542,7 @@ int LSkatDoc::LoadBitmap(QString path)
 
   for (i=0;i<NO_OF_TRUMPS;i++)
   {
-    buf.sprintf("%st%d.bmp",path.latin1(),i+1);
+    buf.sprintf("%st%d.png",path.latin1(),i+1);
  		if(!mPixTrump[i].load(buf))
     {
 		    printf("Fatal error: bitmap %s not found \n",buf.latin1());
@@ -592,7 +554,7 @@ int LSkatDoc::LoadBitmap(QString path)
   bool founddeck=false;
   for (i=0;i<NO_OF_DECKS;i++)
   {
-    buf.sprintf("%sdeck%d.bmp",path.latin1(),i+1);
+    buf.sprintf("%sdeck%d.png",path.latin1(),i+1);
     // do not raise error on missing decks
     if (!mPixDeck[i].load(buf)) hasdeck[i]=false;
     else
@@ -607,14 +569,14 @@ int LSkatDoc::LoadBitmap(QString path)
   }
   for (i=0;i<3;i++)
   {
-    buf.sprintf("%stype%d.bmp",path.latin1(),i+1);
+    buf.sprintf("%stype%d.png",path.latin1(),i+1);
     if (!mPixType[i].load(buf))
     {
         printf("Fatal error: bitmap %s not found \n",buf.latin1());
     }
   }
 
-  buf.sprintf("%sbackground.bmp",path.latin1());
+  buf.sprintf("%sbackground.png",path.latin1());
 
   mPixBackground.load(buf);
   if (!mPixBackground.load(buf))
@@ -624,7 +586,7 @@ int LSkatDoc::LoadBitmap(QString path)
 
   for (i=0;i<NO_OF_ANIM;i++)
   {
-    buf.sprintf("%s4000%02d.bmp",path.latin1(),i);
+    buf.sprintf("%s4000%02d.png",path.latin1(),i);
  		if(!mPixAnim[i].load(buf))
     {
 		    printf("Fatal error: bitmap %s not found \n",buf.latin1());

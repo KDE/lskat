@@ -734,7 +734,6 @@ void LSkatView::moveTimerReady()
 {
   QPoint pos;
   QString ld,s;
-  int res;
   if (cardmovecnt>=MOVECOUNTER)
   {
     LSkatApp *m=(LSkatApp *) parentWidget();

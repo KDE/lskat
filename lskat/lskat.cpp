@@ -47,9 +47,10 @@ LSkatApp::LSkatApp()
   config=kapp->config();
 
    // localise data file
-   QString file=QCString("lskat/lskatpic.taz");
-   mGrafix=kapp->dirs()->findResource(QCString("data"),file); 
-   if (mGrafix.isNull()) mGrafix=QCString("lskatpic.taz");
+   QString file=QCString("lskat/grafix/1.png");
+   mGrafix=kapp->dirs()->findResourceDir(QCString("data"),file); 
+   if (mGrafix.isNull()) mGrafix=QCString("grafix/");
+   else mGrafix+=QCString("lskat/grafix/");
    if (global_debug>3) printf("Localised datafile=%s\n",mGrafix.latin1());
 
 
