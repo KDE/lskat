@@ -734,10 +734,10 @@ void LSkatDoc::ReadConfig(KConfig *config)
   // For the release version you can remove the aruments to the following two
   // functions !!!!
   cardPath=config->readEntry("cardpath",
-               KCardDialog::getDefaultCardpath(KCardDialog::ProbeDefaultDir,
+               KCardDialog::getDefaultCardPath(KCardDialog::ProbeDefaultDir,
                                                "../../carddecks/cards1/"));
   deckPath=config->readEntry("deckpath",
-                KCardDialog::getDefaultDeckpath(KCardDialog::ProbeDefaultDir,
+                KCardDialog::getDefaultDeckPath(KCardDialog::ProbeDefaultDir,
                                                "../../carddecks/decks/")
                 +QString::fromLatin1("deck0.png"));
 
