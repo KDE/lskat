@@ -17,9 +17,8 @@
 #ifndef _KPROCESSCONNECT_H_
 #define _KPROCESSCONNECT_H_
 
-#include <qstrlist.h>
 #include <kprocess.h>
-#include <ksock.h>
+//#include <ksock.h>
 // #include "KEInput.h"
 #include "KEMessage.h"
 #include "KChildConnect.h"

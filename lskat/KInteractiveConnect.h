@@ -17,7 +17,6 @@
 #ifndef _KINTERACTIVECONNECT_H_
 #define _KINTERACTIVECONNECT_H_
 
-#include <qobject.h>
 #include "KEMessage.h"
 #include "KChildConnect.h"
 

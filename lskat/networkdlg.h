@@ -23,7 +23,7 @@
 //#include <unistd.h>
 #include <kapplication.h>
 #include <qlabel.h>
-#include <kconfig.h>
+//#include <kconfig.h>
 #include <qdialog.h>
 //#include <qtooltip.h>
 //#include <kmsgbox.h>

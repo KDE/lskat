@@ -94,7 +94,6 @@
 #define SOMAXCONN 5
 #endif
 
-#include <qapplication.h>
 #include <qsocketnotifier.h>
 
 #ifndef UNIX_PATH_MAX

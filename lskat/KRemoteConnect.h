@@ -17,11 +17,10 @@
 #ifndef _KREMOTECONNECT_H_
 #define _KREMOTECONNECT_H_
 
-#include <qobject.h>
 //#include <ksock.h>
 #include "KEMessage.h"
 #include "KRSocket.h"
-#include "ksock.h"
+//#include "ksock.h"
 #include "KChildConnect.h"
 
 

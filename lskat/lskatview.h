@@ -24,10 +24,8 @@
 
 // include files for Qt
 #include <qwidget.h>
-#include <qpixmap.h>
 #include <qrect.h>
 #include <qdatetime.h>
-#include <qtimer.h>
 
 #include "lskat.h"
 

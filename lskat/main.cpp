@@ -18,8 +18,6 @@
 #include <stdlib.h>
 #include <kcmdlineargs.h>
 #include <klocale.h>
-#include <kstandarddirs.h>
-#include <kinstance.h>
 #include <kaboutdata.h>
 
 #include "lskat.h"

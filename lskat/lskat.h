@@ -30,7 +30,6 @@
 #include <kapplication.h>
 #include <kmainwindow.h>
 #include <kaccel.h>
-#include <kaction.h>
 
 #include "KEInput.h"
 #include "KEMessage.h"
@@ -204,6 +203,9 @@ class LSkatApp : public KMainWindow
   void slotStatusTimer(void);
   /** Triggers the process timer */
   void slotProcTimer(void);
+
+protected slots:
+  void slotKeyBindings();
 
 protected: // Protected attributes
   

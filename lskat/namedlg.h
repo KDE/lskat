@@ -9,7 +9,6 @@
 #ifndef NAMEDLG_H
 #define NAMEDLG_H
 
-#include <qvariant.h>
 #include <kdialogbase.h>
 class QVBoxLayout; 
 class QHBoxLayout; 

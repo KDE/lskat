@@ -9,7 +9,6 @@
 #ifndef ABOUTDLG_H
 #define ABOUTDLG_H
 
-#include <qvariant.h>
 #include <qdialog.h>
 #include "movielabel.h"
 class QVBoxLayout; 

@@ -11,7 +11,7 @@
     <Separator />
     <Action name="game_exit"/>
   </Menu>
-  <Menu name="options"><text>&amp;Settings</text>
+  <Menu name="settings"><text>&amp;Settings</text>
     <Action name="show_statusbar"/>
     <Separator />
     <Action name="startplayer"/>

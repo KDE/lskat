@@ -21,7 +21,6 @@
 #include <qrect.h>
 #include <qpoint.h>
 #include <qstring.h>
-#include <qwidget.h>
 #include <qpainter.h>
 #include <qdatetime.h>
 #include <kmessagebox.h>

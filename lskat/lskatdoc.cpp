@@ -18,7 +18,6 @@
 // include files for Qt
 #include <qdir.h>
 #include <qfileinfo.h>
-#include <qwidget.h>
 #include <time.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -28,7 +27,6 @@
 
 // include files for KDE
 #include <klocale.h>
-#include <kmessagebox.h>
 
 // application specific includes
 #include "lskatdoc.h"

@@ -9,8 +9,6 @@
 #ifndef MOVIELABEL_H
 #define MOVIELABEL_H
 
-#include <qvariant.h>
-#include <qdialog.h>
 #include <qwidget.h>
 #include <qlabel.h>
 #include <qasyncio.h>
