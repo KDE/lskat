@@ -209,9 +209,7 @@ public:
   int stat_games[2];    // how many games
   int stat_brk[2];    // how many games aborted
 
-
   int cardvalues[14];
-
 	
   public slots:
     /** calls repaint() on all views connected to the document object and is called by the view by which the document has been changed.
@@ -229,7 +227,6 @@ public:
     QString title;
     QString absFilePath;
     QString deckPath,cardPath;
-
 };
 
 #endif // LSKATDOC_H

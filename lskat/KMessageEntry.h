@@ -14,13 +14,11 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
 #ifndef _KMESSAGEENTRY_H_
 #define _KMESSAGEENTRY_H_
 
-#include <string.h>
 #include "KConnectTypes.h"
-
-
 
 class KMessageEntry
 {

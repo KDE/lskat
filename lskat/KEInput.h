@@ -17,7 +17,6 @@
 #ifndef _KEINPUT_H_
 #define _KEINPUT_H_
 
-#include <string.h>
 #include <qptrlist.h>
 #include <qobject.h>
 #include <qtimer.h>
