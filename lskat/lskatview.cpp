@@ -25,6 +25,7 @@
 #include <qpainter.h>
 #include <qdatetime.h>
 #include <kmessagebox.h>
+#include <kdebug.h>
 #include <klocale.h>
 #include <math.h>
 #include <stdio.h>
@@ -51,6 +52,7 @@
 #define CARD_X_MOVE2  450  // psoiton of second moved card
 #define CARD_Y_MOVE2  190
 
+// Probably most unnecessary and unused now
 #define STATUS_X0     15   // pos in status win
 #define STATUS_X1     60
 #define STATUS_X2     100
@@ -106,9 +108,9 @@ LSkatView::LSkatView(QWidget *parent, const char *name) : QWidget(parent, name)
   setBackgroundMode(PaletteBase);
   // setBackgroundMode(NoBackground);
 
-  status_rect1=QRect(400,CARD_Y_OFFSET+5,180,100);
-  status_rect2=QRect(400,325,180,100);
-  status_rect3=QRect(CARD_X_OFFSET+30,CARD_Y_OFFSET+5+100+15,
+  status_rect1=QRect(412,CARD_Y_OFFSET+5,180,95+20);
+  status_rect2=QRect(412,310,180,95+20);
+  status_rect3=QRect(CARD_X_OFFSET+60,CARD_Y_OFFSET+5+100+15+20,
                      400,320-100-CARD_Y_OFFSET-30);
 
 
@@ -243,6 +245,7 @@ void LSkatView::drawIntro(QPainter *p)
     QPoint point,point1,p2;
     QString s;
     QFont font(QCString("lucida"),48,QFont::Normal,false);
+    font.setPixelSize(48);
 
     p->setFont(font);
 
@@ -345,17 +348,20 @@ void LSkatView::drawDeck(QPainter *p)
 void LSkatView::drawFinal(QPainter *p)
 {
   int sc1,sc0,pt0,pt1;
-  QString ld;
   QPoint p1,p2;
   int trump;
   QRect r;
+  QString ld;
+  int ts[10];
 
   QFont font24(QCString("Helvetica"),24,QFont::Normal,false);
   QFont font14(QCString("Helvetica"),14,QFont::Normal,false);
-  QFont font12(QCString("Helvetica"),12,QFont::Normal,false);
+  //QFont font12(QCString("Helvetica"),12,QFont::Normal,false);
+  font24.setPixelSize(24);
+  font14.setPixelSize(14);
 
-	p1=status_rect3.topLeft();
-	p2=status_rect3.bottomRight();
+	//p1=status_rect3.topLeft();
+	//p2=status_rect3.bottomRight();
 
   sc0=getDocument()->GetScore(0);
   sc1=getDocument()->GetScore(1);
@@ -371,109 +377,187 @@ void LSkatView::drawFinal(QPainter *p)
   else if (sc1==60) pt1=1;
   else pt1=0;
 
+
   trump=getDocument()->GetTrump();
 
-  p->drawRect(status_rect3);
-  drawBorder(p,status_rect3,0,4,0);
-  drawBorder(p,status_rect3,10,1,1);
 
-  p->setPen(black);
-  p->setFont(font24);
   
-  ld=QString(i18n("Game over"));
-  //p->drawText(p1.x()+FINAL_X0,p1.y()+FINAL_Y0,ld);
-  r=status_rect3;
-  r.moveBy(0,FINAL_Y0-24);
-  p->drawText(r,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,ld);
+  QString line1,line2,line3,line4,line5;
+  QString col1_3,col2_3,col3_3,col4_3;
+  QString col1_4,col2_4,col3_4,col4_4;
+  QRect sumrect;
+  QRect rect;
+  QRect brect1,brect2,brect3,brect4,brect5;
+  QRect brect1_3,brect2_3,brect3_3,brect4_3;
+  QRect brect1_4,brect2_4,brect3_4,brect4_4;
 
-  p->drawPixmap(p1+QPoint(FINAL_XT1,FINAL_YT),
-    getDocument()->mPixTrump[trump]);
-  p->drawPixmap(p1+QPoint(FINAL_XT2-p1.x()+p2.x(),FINAL_YT),
-    getDocument()->mPixTrump[trump]);
-
+  // Calculate geometry
+  line1=QString(i18n("Game over"));
+  rect=p->window();
+  //rect1.moveBy(0,FINAL_Y0-24);
+  p->setFont(font24);
+  brect1=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line1);
+  QRect wrect=p->window();
+  sumrect=brect1;
 
   if (sc0+sc1!=120)  // aborted
   {
+    line2=i18n("Game was aborted - no winner");
+    int hp=getDocument()->mPixTrump[trump].height()+5;
+    rect=QRect(0,hp>sumrect.height()?hp:sumrect.height(),p->window().width(),p->window().height());
     p->setFont(font14);
-    p->setPen(COL_PLAYER);
-    ld=QString(i18n("Game was aborted - no winner"));
-    r=status_rect3;
-    r.moveBy(0,FINAL_Y1-14);
-    p->drawText(r,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,ld);
-    // p->drawText(p1.x()+FINAL_X1,p1.y()+FINAL_Y1,ld);
+    brect2=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line2);
+    sumrect|=brect2;
   }
   else
   {
-    p->setFont(font14);
-    p->setPen(COL_PLAYER);
-    r=status_rect3;
-    r.moveBy(0,FINAL_Y2-14);
     if (sc0==sc1)
     {
-      ld=QString(i18n("      Game is drawn"));
-      p->drawText(r,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,ld);
-      //p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
+      line2=i18n("      Game is drawn");
     }
     else if (sc0>sc1)
     {
-      ld=i18n("Player 1 - %1 won ").arg(getDocument()->GetName(0));
-      //p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
+      line2=i18n("Player 1 - %1 won ").arg(getDocument()->GetName(0));
     }
     else
     {
-      ld=i18n("Player 2 - %1 won ").arg(getDocument()->GetName(1));
-      //p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
+      line2=i18n("Player 2 - %1 won ").arg(getDocument()->GetName(1));
     }
-    p->drawText(r,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,ld);
+    int hp=getDocument()->mPixTrump[trump].height()+5;
+    rect=QRect(0,hp>sumrect.height()?hp:sumrect.height(),p->window().width(),p->window().height());
     p->setFont(font14);
-    p->setPen(Qt::black);
+    brect2=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line2);
+    sumrect|=brect2;
 
-    ld=i18n("Score:");
-    p->drawText(p1.x()+FINAL_X3,p1.y()+FINAL_Y3,ld);
+    p->setFont(font14);
+    col1_3=i18n("Score:");
+    col1_4=QString(" ");
+    rect=QRect(0,0,p->window().width(),p->window().height());
+    brect1_3=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,col1_3);
+    ts[0]=brect1_3.width()+10;
 
-    ld=getDocument()->GetName(0);
-    p->drawText(p1.x()+FINAL_X4,p1.y()+FINAL_Y3,ld);
+    col2_3=getDocument()->GetName(0);
+    rect=QRect(0,0,p->window().width(),p->window().height());
+    brect2_3=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,col2_3);
 
-    ld=getDocument()->GetName(1);
-    p->drawText(p1.x()+FINAL_X4,p1.y()+FINAL_Y4,ld);
+    col2_4=getDocument()->GetName(1);
+    rect=QRect(0,0,p->window().width(),p->window().height());
+    brect2_4=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,col2_4);
+    rect=brect2_3|brect2_4;
+    ts[1]=ts[0]+rect.width()+10;
 
-    ld.sprintf("%d",sc0);
-    p->drawText(p1.x()+FINAL_X5,p1.y()+FINAL_Y3,ld);
+    
+    col3_3.sprintf("%d",sc0);
+    rect=QRect(0,0,p->window().width(),p->window().height());
+    brect3_3=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,col3_3);
 
-    ld.sprintf("%d",sc1);
-    p->drawText(p1.x()+FINAL_X5,p1.y()+FINAL_Y4,ld);
+    col3_4.sprintf("%d",sc1);
+    rect=QRect(0,0,p->window().width(),p->window().height());
+    brect3_4=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,col3_4);
+    rect=brect3_3|brect3_4;
+    ts[2]=ts[1]+rect.width()+30;
 
-    ld.sprintf("%d",pt0);
-    ld+=i18n(" points");
-    p->drawText(p1.x()+FINAL_X6,p1.y()+FINAL_Y3,ld);
+    col4_3=i18n("%1 points").arg(pt0);
+    rect=QRect(0,0,p->window().width(),p->window().height());
+    brect4_3=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,col4_3);
 
-    ld.sprintf("%d",pt1);
-    ld+=i18n(" points");
-    p->drawText(p1.x()+FINAL_X6,p1.y()+FINAL_Y4,ld);
+    col4_4=i18n("%1 points").arg(pt1);
+    rect=QRect(0,0,p->window().width(),p->window().height());
+    brect4_4=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,col4_4);
 
+    rect=brect4_3|brect4_4;
+    ts[3]=ts[2]+rect.width()+10;
+    ts[4]=0;
+
+    line3=col1_3+QString("\t")+col2_3+QString("\t")+col3_3+QString("\t")+col4_3;
+    line4=col1_4+QString("\t")+col2_4+QString("\t")+col3_4+QString("\t")+col4_4;
+    brect3=QRect(sumrect.left(),sumrect.bottom()+10,ts[3],brect4_3.height());
+    brect4=QRect(sumrect.left(),sumrect.bottom()+10+brect4_3.height()+6,ts[3],brect4_4.height());
+    sumrect|=brect3;
+    sumrect|=brect4;
+
+
+    p->setFont(font14);
     if (sc0>=120)
     {
-      ld=i18n("%1 won to nil.  Congratulations!").arg(getDocument()->GetName(0));
-      p->drawText(p1.x()+FINAL_X7,p1.y()+FINAL_Y7,ld);
+      line5=i18n("%1 won to nil.  Congratulations!").arg(getDocument()->GetName(0));
+      rect=QRect(0,sumrect.height()+10,p->window().width(),p->window().height());
+      brect5=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line5);
+      sumrect|=brect5;
     }
     else if (sc0>=90)
     {
-      ld=i18n("%1 won over 90 points. Super!").arg(getDocument()->GetName(0));
-      p->drawText(p1.x()+FINAL_X7,p1.y()+FINAL_Y7,ld);
+      line5=i18n("%1 won over 90 points. Super!").arg(getDocument()->GetName(0));
+      rect=QRect(0,sumrect.height()+10,p->window().width(),p->window().height());
+      brect5=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line5);
+      sumrect|=brect5;
     }
     if (sc1>=120)
     {
-      ld=i18n("%1 won to nil.  Congratulations!").arg(getDocument()->GetName(1));
-      p->drawText(p1.x()+FINAL_X7,p1.y()+FINAL_Y7,ld);
+      line5=i18n("%1 won to nil.  Congratulations!").arg(getDocument()->GetName(1));
+      rect=QRect(0,sumrect.height()+10,p->window().width(),p->window().height());
+      brect5=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line5);
+      sumrect|=brect5;
     }
     else if (sc1>=90)
     {
-      ld=i18n("%1 won over 90 points. Super!").arg(getDocument()->GetName(1));
-      p->drawText(p1.x()+FINAL_X7,p1.y()+FINAL_Y7,ld);
+      line5=i18n("%1 won over 90 points. Super!").arg(getDocument()->GetName(1));
+      rect=QRect(0,sumrect.height()+10,p->window().width(),p->window().height());
+      brect5=p->boundingRect(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line5);
+      sumrect|=brect5;
     }
-
-
   }
+  
+  QPoint offset=QPoint(status_rect3.left()-sumrect.left(),status_rect3.top());
+  sumrect.moveBy(offset.x(),offset.y());
+  
+  // draw actual strings and symbols
+  QRect borderrect=QRect(sumrect.left()-20,sumrect.top()-20,sumrect.width()+40,sumrect.height()+40);
+  p->drawRect(borderrect);
+  drawBorder(p,borderrect,0,4,0);
+  drawBorder(p,borderrect,10,1,1);
+
+
+  p->setPen(black);
+  p->setFont(font24);
+  rect=sumrect;
+  rect.setTop(brect1.top()+offset.y());
+  //brect1.moveBy(offset.x(),offset.y());
+  p->drawText(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line1);
+
+  p->setFont(font14);
+  p->setPen(COL_PLAYER);
+  rect=sumrect;
+  rect.setTop(brect2.top()+offset.y());
+  //brect2.moveBy(offset.x(),offset.y());
+  p->drawText(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line2);
+
+  p->drawPixmap(sumrect.topLeft()+QPoint(-5,-5), getDocument()->mPixTrump[trump]);
+  p->drawPixmap(sumrect.topLeft()+QPoint(5,-5)+QPoint(sumrect.width()-getDocument()->mPixTrump[trump].width(),0),
+                getDocument()->mPixTrump[trump]);
+
+
+  if (!col1_3.isNull())
+  {
+    p->setTabArray(ts);
+    p->setFont(font14);
+    p->setPen(Qt::black);
+    rect=sumrect;
+    rect.setTop(brect3.top()+offset.y());
+    p->drawText(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop|Qt::ExpandTabs,line3);
+    rect=sumrect;
+    rect.setTop(brect4.top()+offset.y());
+    p->drawText(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop|Qt::ExpandTabs,line4);
+  }
+  if (!line5.isNull()) 
+  {
+    p->setFont(font14);
+    p->setPen(Qt::black);
+    rect=sumrect;
+    rect.setTop(brect5.top()+offset.y());
+    p->drawText(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line5);
+  }
+
 
 }
 
@@ -482,129 +566,127 @@ void LSkatView::drawStatus(QPainter *p)
 {
   QPoint p1,p2;
   int trump;
+  QRect drawrect;
+  // For loop
+  QRect srect[2];
+  srect[0]=status_rect1;
+  srect[1]=status_rect2;
 
   QFont font10(QCString("Helvetica"),11,QFont::Normal,false);
+  font10.setPixelSize(14);
   p->setFont(font10);
 
   trump=getDocument()->GetTrump();
 
-  // Draw border and field
-  p->setPen(COL_STATUSBORDER);
-  p->setBrush(COL_STATUSFIELD);
-
-  p->drawRect(status_rect1);
-  drawBorder(p,status_rect1,0,4,0);
-	drawBorder(p,status_rect1,10,1,1);
-
-  p->drawRect(status_rect2);
-  drawBorder(p,status_rect2,0,4,0);
-	drawBorder(p,status_rect2,10,1,1);
 
   // draw text
   QString ld;
+  QString line1,line2,line3,line4,line2a,line2b,line2c;
+  QRect sumrect,rect,rect2,brect1,brect2,brect3,brect4;
+  QPoint pa;
 
-	p->setPen(black);
-
-  // Player 1 -------------------
-	p1=status_rect1.topLeft();
-	p2=status_rect1.bottomRight();
-
-  if (getDocument()->GetStartPlayer()==0) p->setPen(COL_PLAYER);
-  ld=QString(i18n("Player 1"))+QString(QCString(" - "))+getDocument()->GetName(0);
-	p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y0,ld);
-  p->setPen(black);
-
-  if (getDocument()->IsRunning())
+  for (int pl=0;pl<2;pl++)
   {
-    ld=i18n("Score:");
-    p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y1,ld);
-    ld.sprintf("%3d",getDocument()->GetScore(0));
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y1,ld);
+    drawrect=QRect(srect[pl].left()+14,srect[pl].top()+14,srect[pl].width()-28,srect[pl].height()-28);
+    p1=drawrect.topLeft();
+    p2=drawrect.bottomRight();
 
-    ld=i18n("Move:");
-    p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y2,ld);
-    ld.sprintf("%3d",getDocument()->GetMoveNo());
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y2,ld);
+    // Draw border and field
+    p->setPen(COL_STATUSBORDER);
+    p->setBrush(COL_STATUSFIELD);
+    p->drawRect(srect[pl]);
+    drawBorder(p,srect[pl],0,4,0);
+    drawBorder(p,srect[pl],10,1,1);
 
-    if (getDocument()->GetStartPlayer()==0)
-      p->drawPixmap(p1+QPoint(STATUS_XT,STATUS_YT),getDocument()->mPixTrump[trump]);
-  }
-  else // draw all time score
-  {
-    ld=i18n("Points:");
-    p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y1,ld);
-    ld.sprintf("%d",getDocument()->GetStatPoints(0));
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y1,ld);
 
-    ld=i18n("Won:");
-    p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y2,ld);
-    ld.sprintf("%d",getDocument()->GetStatWon(0));
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y2,ld);
+    // Player pl -------------------
+    // line1=QString(i18n("Player 1"))+QString(QCString(" - "))+getDocument()->GetName(0);
+    line1=getDocument()->GetName(pl);
+    brect1=p->boundingRect(drawrect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line1);
+    sumrect=brect1;
 
-    ld=i18n("Games:");
-    p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y3,ld);
-    ld.sprintf("%d",getDocument()->GetStatGames(0));
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y3,ld);
+    if (getDocument()->IsRunning())
+    {
+      // Geometry and strings
+      line2=i18n("Score:");
+      rect=QRect(drawrect.left(),sumrect.bottom()+16,drawrect.width(),drawrect.height()-sumrect.height());
+      brect2=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2);
+      sumrect|=brect2;
+      line3=i18n("Move:");
+      rect=QRect(drawrect.left(),sumrect.bottom()+10,drawrect.width(),drawrect.height()-sumrect.height());
+      brect3=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line3);
+      sumrect|=brect3;
 
-    /*
-    ld=QString("1000")+i18n(" aborted");
-    p->drawText(p1.x()+STATUS_X2,p1.y()+STATUS_Y3,ld);
-    ld.sprintf("%3d",getDocument()->GetMoveNo());
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y3,ld);
-    */
+      rect=brect2|brect3;
+      rect.setWidth(rect.width()+10);
+      line2a.sprintf("%3d",getDocument()->GetScore(pl));
+      line2b.sprintf("%3d",getDocument()->GetMoveNo());
+      
+      // paint
+      if (getDocument()->GetStartPlayer()==pl) p->setPen(COL_PLAYER);
+      else p->setPen(black);
+      p->drawText(brect1,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line1);
+      p->setPen(black);
+      p->drawText(brect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2);
+      p->drawText(brect3,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line3);
+      rect2=QRect(brect2.left()+rect.width(),brect2.top(),drawrect.width()-brect2.width()-rect.width(),brect2.height());
+      p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2a);
+      rect2=QRect(brect3.left()+rect.width(),brect3.top(),drawrect.width()-brect3.width()-rect.width(),brect3.height());
+      p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2b);
+    
+      pa=QPoint(drawrect.width()-getDocument()->mPixTrump[trump].width(),drawrect.height()-getDocument()->mPixTrump[trump].height());
+      if (getDocument()->GetStartPlayer()==pl)
+        p->drawPixmap(p1+pa+QPoint(3,3),getDocument()->mPixTrump[trump]);
 
-  }
+      pa=QPoint(drawrect.width()-getDocument()->mPixType[getDocument()->GetPlayedBy(pl)-1].width(),0);
+      p->drawPixmap(p1+pa+QPoint(3,-3), getDocument()->mPixType[getDocument()->GetPlayedBy(pl)-1]);
+    }
+    else // draw all time score
+    {
+      // Geometry and strings
+      line2=i18n("Points:");
+      rect=QRect(drawrect.left(),sumrect.bottom()+6,drawrect.width(),drawrect.height()-sumrect.height());
+      brect2=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2);
+      sumrect|=brect2;
 
-  p->drawPixmap(p1+QPoint(STATUS_XTYPE,STATUS_YTYPE),
-        getDocument()->mPixType[getDocument()->GetPlayedBy(0)-1]);
+      line3=i18n("Won:");
+      rect=QRect(drawrect.left(),sumrect.bottom()+6,drawrect.width(),drawrect.height()-sumrect.height());
+      brect3=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line3);
+      sumrect|=brect3;
 
-  // Player 2 -------------------
-	p->setPen(black);
-	p1=status_rect2.topLeft();
-	p2=status_rect2.bottomRight();
+      line4=i18n("Games:");
+      rect=QRect(drawrect.left(),sumrect.bottom()+6,drawrect.width(),drawrect.height()-sumrect.height());
+      brect4=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line4);
+      sumrect|=brect4;
 
-  if (getDocument()->GetStartPlayer()==1) p->setPen(COL_PLAYER);
-  ld=QString(i18n("Player 2"))+QString(QCString(" - "))+getDocument()->GetName(1);
-	p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y0,ld);
-  p->setPen(black);
+      rect=brect2|brect3|brect4;
+      rect.setWidth(rect.width()+10);
+      line2a.sprintf("%d",getDocument()->GetStatPoints(pl));
+      line2b.sprintf("%d",getDocument()->GetStatWon(pl));
+      line2c.sprintf("%d",getDocument()->GetStatGames(pl));
 
-  if (getDocument()->IsRunning())
-  {
-    ld=i18n("Score:");
-    p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y1,ld);
-    ld.sprintf("%3d",getDocument()->GetScore(1));
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y1,ld);
+      // paint
+      p->setPen(COL_PLAYER);
+      p->drawText(brect1,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line1);
+      p->setPen(black);
+      p->drawText(brect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2);
+      p->drawText(brect3,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line3);
+      p->drawText(brect4,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line4);
+      rect2=QRect(brect2.left()+rect.width(),brect2.top(),drawrect.width()-brect2.width()-rect.width(),brect2.height());
+      p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2a);
+      rect2=QRect(brect3.left()+rect.width(),brect3.top(),drawrect.width()-brect3.width()-rect.width(),brect3.height());
+      p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2b);
+      rect2=QRect(brect4.left()+rect.width(),brect4.top(),drawrect.width()-brect4.width()-rect.width(),brect4.height());
+      p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2c);
 
-    ld=i18n("Move:");
-    p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y2,ld);
-    ld.sprintf("%3d",getDocument()->GetMoveNo());
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y2,ld);
+      pa=QPoint(drawrect.width()-getDocument()->mPixType[getDocument()->GetPlayedBy(pl)-1].width(),0);
+      p->drawPixmap(p1+pa+QPoint(3,-3), getDocument()->mPixType[getDocument()->GetPlayedBy(pl)-1]);
 
-    if (getDocument()->GetStartPlayer()==1)
-      p->drawPixmap(p1+QPoint(STATUS_XT,STATUS_YT),getDocument()->mPixTrump[trump]);
-  }
-  else
-  {
-    ld=i18n("Points:");
-    p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y1,ld);
-    ld.sprintf("%d",getDocument()->GetStatPoints(1));
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y1,ld);
+    }
 
-    ld=i18n("Won:");
-    p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y2,ld);
-    ld.sprintf("%d",getDocument()->GetStatWon(1));
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y2,ld);
-
-    ld=i18n("Games:");
-    p->drawText(p1.x()+STATUS_X0,p1.y()+STATUS_Y3,ld);
-    ld.sprintf("%d",getDocument()->GetStatGames(1));
-    p->drawText(p1.x()+STATUS_X1,p1.y()+STATUS_Y3,ld);
-  }
-
-  p->drawPixmap(p1+QPoint(STATUS_XTYPE,STATUS_YTYPE),
-        getDocument()->mPixType[getDocument()->GetPlayedBy(1)-1]);
-
+  }// end pl
 }
+
 // paint function
 void LSkatView::Paint(QPainter *p)
 {
