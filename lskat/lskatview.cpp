@@ -465,7 +465,7 @@ void LSkatView::drawStatus(QPainter *p)
   QPoint p1,p2;
   int trump;
 
-  QFont font10(QCString("Helvetica"),9,QFont::Normal,false);
+  QFont font10(QCString("Helvetica"),11,QFont::Normal,false);
   p->setFont(font10);
 
   trump=getDocument()->GetTrump();
