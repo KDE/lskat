@@ -106,13 +106,13 @@ KRServerSocket::KRServerSocket( const char *_path, int optname, int value, int l
   notifier( 0L ), sock( -1 )
 {
   domain = PF_UNIX;
-  
+
   if ( !init ( _path,optname,value,level ) )
   {
     qFatal("Error constructing PF_UNIX domain server socket\n");
     return;
   }
-    
+
   notifier = new QSocketNotifier( sock, QSocketNotifier::Read );
   connect( notifier, SIGNAL( activated(int) ), this, SLOT( slotAccept(int) ) );
 }
@@ -121,13 +121,13 @@ KRServerSocket::KRServerSocket( const char *_path ) :
   notifier( 0L ), sock( -1 )
 {
   domain = PF_UNIX;
-  
+
   if ( !init ( _path ) )
   {
     qFatal("Error constructing PF_UNIX domain server socket\n");
     return;
   }
-    
+
   notifier = new QSocketNotifier( sock, QSocketNotifier::Read );
   connect( notifier, SIGNAL( activated(int) ), this, SLOT( slotAccept(int) ) );
 }
@@ -142,7 +142,7 @@ KRServerSocket::KRServerSocket( unsigned short int _port ) :
     // fatal("Error constructing\n");
     return;
   }
-    
+
   notifier = new QSocketNotifier( sock, QSocketNotifier::Read );
   connect( notifier, SIGNAL( activated(int) ), this, SLOT( slotAccept(int) ) );
 }
@@ -157,7 +157,7 @@ KRServerSocket::KRServerSocket( unsigned short int _port,int optname,int value,i
     // fatal("Error constructing\n");
     return;
   }
-    
+
   notifier = new QSocketNotifier( sock, QSocketNotifier::Read );
   connect( notifier, SIGNAL( activated(int) ), this, SLOT( slotAccept(int) ) );
 }
@@ -171,14 +171,14 @@ bool KRServerSocket::init( const char *_path,int optname,int value,int level )
 {
   if ( domain != PF_UNIX )
     return false;
-  
+
   int l = strlen( _path );
   if ( l > UNIX_PATH_MAX - 1 )
-  {      
+  {
     kdWarning() << "Too long PF_UNIX domain name: " << _path << endl;
     return false;
-  }  
-    
+  }
+
   sock = ::socket( PF_UNIX, SOCK_STREAM, 0 );
   if (sock < 0)
   {
@@ -196,12 +196,12 @@ bool KRServerSocket::init( const char *_path,int optname,int value,int level )
   }
   // end Heni
 
-  unlink(_path );   
+  unlink(_path );
 
   struct sockaddr_un name;
   name.sun_family = AF_UNIX;
   strcpy( name.sun_path, _path );
-    
+
   if ( bind( sock, (struct sockaddr*) &name,sizeof( name ) ) < 0 )
   {
     kdWarning() << "Could not bind to socket." << endl;
@@ -209,7 +209,7 @@ bool KRServerSocket::init( const char *_path,int optname,int value,int level )
     sock = -1;
     return false;
   }
-  
+
   if ( chmod( _path, 0600) < 0 )
   {
     kdWarning() << "Could not setupt premissions for server socket." << endl;
@@ -217,7 +217,7 @@ bool KRServerSocket::init( const char *_path,int optname,int value,int level )
     sock = -1;
     return false;
   }
-               
+
   if ( listen( sock, SOMAXCONN ) < 0 )
   {
     kdWarning() << "Error listening on socket." << endl;
@@ -235,13 +235,13 @@ bool KRServerSocket::init( unsigned short int _port )
 }
 bool KRServerSocket::init( unsigned short int _port,int optname,int value,int level )
 {
-  if ( 
+  if (
 #ifdef INET6
       ( domain != PF_INET6 ) &&
 #endif
       ( domain != PF_INET  ) )
     return false;
- 
+
   sock = ::socket( domain, SOCK_STREAM, 0 );
   if (sock < 0)
   {
@@ -262,7 +262,7 @@ bool KRServerSocket::init( unsigned short int _port,int optname,int value,int le
   if (domain == AF_INET) {
 
     sockaddr_in name;
-    
+
     name.sin_family = domain;
     name.sin_port = htons( _port );
     name.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -317,7 +317,7 @@ unsigned long KRServerSocket::ipv4_addr()
 {
   if ( domain != PF_INET )
     return 0;
-  
+
   sockaddr_in name; ksize_t len = sizeof(name);
   getsockname(sock, (struct sockaddr *) &name, &len);
   if (name.sin_family == AF_INET) // It's IPv4
@@ -333,12 +333,12 @@ unsigned long KRServerSocket::ipv4_addr()
 void KRServerSocket::slotAccept( int )
 {
   if ( domain == PF_INET )
-  {      
+  {
     ksockaddr_in clientname;
     int new_sock;
-    
+
     ksize_t size = sizeof(clientname);
-    
+
     if ((new_sock = accept (sock, (struct sockaddr *) &clientname, &size)) < 0)
     {
       kdWarning() << "Error accepting" << endl;
@@ -348,12 +348,12 @@ void KRServerSocket::slotAccept( int )
     emit accepted( new KSocket( new_sock ) );
   }
   else if ( domain == PF_UNIX )
-  {      
+  {
     struct sockaddr_un clientname;
     int new_sock;
-    
+
     ksize_t size = sizeof(clientname);
-    
+
     if ((new_sock = accept (sock, (struct sockaddr *) &clientname, &size)) < 0)
     {
       kdWarning() << "Error accepting" << endl;
@@ -366,10 +366,9 @@ void KRServerSocket::slotAccept( int )
 
 KRServerSocket::~KRServerSocket()
 {
-  if ( notifier )
-	delete notifier; 
-  
-  close( sock ); 
+    delete notifier;
+
+  close( sock );
 }
 
 #include "KRSocket.moc"
