@@ -1,8 +1,9 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
-<!ENTITY kappname "&lskat;">
-<!ENTITY % English "INCLUDE" > <!-- change language only here -->
-<!ENTITY % addindex "IGNORE">
+  <!ENTITY kappname "&lskat;"> 
+  <!ENTITY package "kdegames"> 
+  <!ENTITY % English "INCLUDE" > <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
 ]>
 
 <book lang="&language;">
@@ -171,13 +172,13 @@ The game is won if you have more than 60 points. With both players having
 <informaltable>
 <tgroup cols="2">
 <thead>
-<row><entry> Points </entry><entry>Score</entry></row>
+<row><entry>Points</entry><entry>Score</entry></row>
 </thead>
 <tbody>
-<row><entry> 60 </entry><entry> 1 </entry></row>
-<row><entry> 61..90 </entry><entry> 2 </entry></row>
-<row><entry> 91..119 </entry><entry> 3 </entry></row>
-<row><entry> 120 </entry><entry> 4 </entry></row>
+<row><entry>60</entry><entry>1</entry></row>
+<row><entry>61..90</entry><entry>2</entry></row>
+<row><entry>91..119</entry><entry>3</entry></row>
+<row><entry>120</entry><entry>4</entry></row>
 </tbody>
 </tgroup>
 </informaltable>
@@ -221,8 +222,8 @@ changed. But you can enter nearly any number there.
 <shortcut>
 <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
 </shortcut>
-<guimenu><accel>G</accel>ame</guimenu>
-<guimenuitem><accel>N</accel>ew</guimenuitem></menuchoice></term>
+<guimenu>Game</guimenu>
+<guimenuitem>New</guimenuitem></menuchoice></term>
 <listitem>
 <para>
 <action>Starts a new game.</action> In a network game this option is
@@ -234,8 +235,8 @@ automatically started by the server.
 
 <varlistentry>
 <term><menuchoice>
-<guimenu><accel>G</accel>ame</guimenu>
-<guimenuitem><accel>E</accel>nd Game</guimenuitem>
+<guimenu>Game</guimenu>
+<guimenuitem>End Game</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 <action>Aborts a running game.</action>
@@ -244,8 +245,8 @@ automatically started by the server.
 
 <varlistentry>
 <term><menuchoice>
-<guimenu><accel>F</accel>ile</guimenu>
-<guimenuitem><accel>C</accel>lear statistics...</guimenuitem>
+<guimenu>File</guimenu>
+<guimenuitem>Clear statistics...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 <action>Clears the all time game memory.</action> This statistic is
@@ -260,8 +261,8 @@ option.
 <shortcut>
 <keycombo action="simul">&Ctrl;<keycap>M</keycap></keycombo>
 </shortcut>
-<guimenu><accel>G</accel>ame</guimenu>
-<guimenuitem>Send <accel>M</accel>essage</guimenuitem>
+<guimenu>Game</guimenu>
+<guimenuitem>Send Message</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 If connected to another game in a remote session this
@@ -275,8 +276,8 @@ player.</action>
 <shortcut>
 <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
 </shortcut>
-<guimenu><accel>G</accel>ame</guimenu>
-<guimenuitem><accel>Q</accel>uit</guimenuitem>
+<guimenu>Game</guimenu>
+<guimenuitem>Quit</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>
 Quits the program.</action>
@@ -292,8 +293,8 @@ Quits the program.</action>
 <variablelist>
 <varlistentry>
 <term><menuchoice>
-<guimenu><accel>S</accel>ettings</guimenu>
-<guimenuitem><accel>S</accel>tatusbar</guimenuitem>
+<guimenu>Settings</guimenu>
+<guimenuitem>Statusbar</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>
 Shows or hides the statusbar.
@@ -302,7 +303,7 @@ Shows or hides the statusbar.
 
 <varlistentry>
 <term><menuchoice>
-<guimenu><accel>S</accel>ettings</guimenu>
+<guimenu>Settings</guimenu>
 <guisubmenu>Startplayer</guisubmenu></menuchoice></term>
 <listitem><para>
 Selects whether player 1 (top) or player two (bottom)
@@ -312,8 +313,8 @@ begins the next game.
 
 <varlistentry>
 <term><menuchoice>
-<guimenu><accel>S</accel>ettings</guimenu>
-<guisubmenu>Player <accel>1</accel> played by</guisubmenu>
+<guimenu>Settings</guimenu>
+<guisubmenu>Player 1 played by</guisubmenu>
 </menuchoice></term>
 <listitem>
 <para>
@@ -339,7 +340,7 @@ For this option choose <guimenuitem>Remote</guimenuitem>.
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice><guimenu><accel>S</accel>ettings</guimenu><guisubmenu>Player <accel>2</accel> played by</guisubmenu></menuchoice></term>
+<term><menuchoice><guimenu>Settings</guimenu><guisubmenu>Player 2 played by</guisubmenu></menuchoice></term>
 <listitem><para>
 Same as <guimenuitem>Player 1 options, only this refers to Player 2.</guimenuitem>.
 </para></listitem>
@@ -347,8 +348,8 @@ Same as <guimenuitem>Player 1 options, only this refers to Player 2.</guimenuite
 
 <varlistentry>
 <term><menuchoice>
-<guimenu><accel>S</accel>ettings</guimenu>
-<guisubmenu><accel>L</accel>evel</guisubmenu>
+<guimenu>Settings</guimenu>
+<guisubmenu>Level</guisubmenu>
 </menuchoice></term>
 <listitem><para>
 <action>Selects the level of the computer player.</action>
@@ -357,8 +358,8 @@ Same as <guimenuitem>Player 1 options, only this refers to Player 2.</guimenuite
 
 <varlistentry>
 <term><menuchoice>
-<guimenu><accel>S</accel>ettings</guimenu>
-<guimenuitem>Select <accel>C</accel>arddeck</guimenuitem></menuchoice></term>
+<guimenu>Settings</guimenu>
+<guimenuitem>Select Carddeck</guimenuitem></menuchoice></term>
 <listitem><para>
 <action>
 Choose the face and back of the carddeck used for playing.</action> You
@@ -369,8 +370,8 @@ can select these in a preview dialog showing all carddecks installed for
 
 <varlistentry>
 <term><menuchoice>
-<guimenu><accel>S</accel>ettings</guimenu>
-<guimenuitem>Change <accel>N</accel>ames...</guimenuitem>
+<guimenu>Settings</guimenu>
+<guimenuitem>Change Names...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 <action>Change the names of the players.</action>
@@ -383,61 +384,9 @@ can select these in a preview dialog showing all carddecks installed for
 <sect1 id="help">
 <title>The <guimenuitem>Help</guimenuitem> Menu</title>
 
-<variablelist>
-<varlistentry>
-<term><menuchoice>
-<shortcut><keycap>F1</keycap></shortcut>
-<guimenu><accel>H</accel>elp</guimenu>
-<guimenuitem><accel>C</accel>ontents</guimenuitem></menuchoice></term>
-<listitem>
-<para>This invokes the &kde; help system starting at the the top of this
-help file.</para>
-</listitem>
-</varlistentry>
 
-<varlistentry>
-<term><anchor id="whats-this"/><menuchoice>
-<shortcut>
-<keycombo action="simul">&Shift;<keycap>F1</keycap></keycombo></shortcut>
-<guimenu><accel>H</accel>elp</guimenu>
-<guimenuitem>What's <accel>T</accel>his?</guimenuitem>
-</menuchoice></term>
-<listitem><para>
-This changes the mouse cursor to a combination arrow and question mark.
-Clicking on items within &lskat; with this arrow will open a help window
-(if one exists for the particular item) explaining the item's function.
-</para>
-</listitem>
-</varlistentry>
-<varlistentry>
-<term><anchor id="bug-report"/><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>R</accel>eport Bug</guimenuitem></menuchoice></term>
-<listitem><para>If you find an error in the program, or you have an idea on how
-to improve the game, clicking this option will let you send an official bug
-report to the &kde; team.</para>
+&help.menu.documentation;
 
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><anchor id="about-lskat"/><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout Lieutnant sKat</guimenuitem></menuchoice></term>
-<listitem>
-<para>This will display version and author information.</para>
-</listitem>
-</varlistentry>
-
-<varlistentry>
-<term><anchor id="about-kde"/><menuchoice>
-<guimenu><accel>H</accel>elp</guimenu>
-<guimenuitem>About <accel>K</accel>DE</guimenuitem></menuchoice></term>
-<listitem>
-<para>
-This displays the &kde; version and other basic information.
-</para>
-</listitem>
-</varlistentry>
-</variablelist>
 </sect1>
 
 </chapter>
@@ -469,41 +418,14 @@ Documentation converted to &kde; 2.0 by Mike McBride
 
 <appendix id="installation">
 <title>Installation</title>
-<sect1 id="getting-lskat">
-<title>How to obtain lskat</title>
 
-<para>
-&lskat; can be found in the package kdegames on
-<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, 
-the main ftp site of the KDE project.</para>
-</sect1>
-
-<sect1 id="Requirements">
-<title>Requirements</title>
-<para>
-In order to successfully compile &lskat;, you need KDE 2.0 </para>
-<para>
-All required libraries as well as &lskat; itself can be found on
-<ulink 
-url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>.</para>
-</sect1>
+&install.intro.documentation;
 
 
 <sect1 id="Compilation">
 <title>Compilation and Installation</title>
 
-<para>In order to compile and install &lskat; on your system, extract the package
-and type the following commands in the base directory of the &lskat;
-distribution: </para>
-
-<screen width="40">
-<prompt>%</prompt> <userinput>cd kdegames</userinput>
-<prompt>%</prompt> <userinput>./configure</userinput>
-<prompt>%</prompt> <userinput>make</userinput>
-<prompt>%</prompt> <userinput>make install</userinput>
-</screen>
-
-<para>Since &lskat; uses <application>autoconf</application> and <application>automake</application> you should have no trouble compiling it.</para>
+&install.compile.documentation;
 
 </sect1>
 </appendix>
