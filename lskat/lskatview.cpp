@@ -552,7 +552,6 @@ void LSkatView::drawFinal(QPainter *p)
     rect=sumrect;
     rect.setTop(brect3.top()+offset.y());
     
-    rect.setWidth(rect.width()+1);
     // Workaround for the next line where the ExpandTab crashes!!!
     drawTabText(p,rect,line3,ts);
     // p->drawText(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop|Qt::ExpandTabs,line3);
