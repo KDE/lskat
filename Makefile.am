@@ -13,4 +13,4 @@ apps_DATA = lskat.desktop
 EXTRA_DIST = $(apps_DATA)
 
 install-data-local:
-	rm -rf $(kde_appsdir)/Games/lskat.desktop
+	rm -rf $(DESTDIR)$(kde_appsdir)/Games/lskat.desktop
