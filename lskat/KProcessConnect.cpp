@@ -45,7 +45,7 @@ KProcessConnect::KProcessConnect()
 KProcessConnect::~KProcessConnect()
 {
   Exit();
-  if (process) delete process;
+  delete process;
 //  printf("DESTRUCTRING KPROCESSCONNECT\n");
 }
 
