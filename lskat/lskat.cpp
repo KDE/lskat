@@ -192,7 +192,7 @@ void LSkatApp::initGUI()
   ACTION("game_exit")->setStatusText(i18n("Exiting..."));
   ACTION("game_exit")->setWhatsThis(i18n("Quits the program."));
 
-  (void)new KToggleAction(i18n("&Statusbar"),0,this,SLOT(slotViewStatusBar()),
+  (void)new KToggleAction(i18n("&Show Statusbar"),0,this,SLOT(slotViewStatusBar()),
                       actionCollection(), "show_statusbar");
   ACTION("show_statusbar")->setStatusText(i18n("Toggle the statusbar..."));
   ACTION("show_statusbar")->setWhatsThis(i18n("Toggle the statusbar..."));

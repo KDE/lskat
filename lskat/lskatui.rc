@@ -11,10 +11,9 @@
     <Separator />
     <Action name="game_exit"/>
   </Menu>
-  <Menu name="mview"><text>&amp;View</text>
+  <Menu name="options"><text>&amp;Settings</text>
     <Action name="show_statusbar"/>
-  </Menu>
-  <Menu name="options"><text>&amp;Options</text>
+    <Separator />
     <Action name="startplayer"/>
     <Action name="player1"/>
     <Action name="player2"/>
