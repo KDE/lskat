@@ -111,8 +111,8 @@ void lgame::Init()
       h=GetHeight(player,i);
       for (j=h;j<2;j++)
       {
-        card=GetCard(player,i,j);
-        played[card]=1;
+        card=GetCard(player,i,j+1);
+        if (card>=0) played[card]=1;
       }
     }
   }
