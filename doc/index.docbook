@@ -50,7 +50,7 @@
 <title>Overview</title>
 
 <para>
-Lieutnant skat (from German <foreignphrase
+Lieutenant skat (from German <foreignphrase
 lang="de">Offiziersskat</foreignphrase>) is a card game for two
 players. It is roughly played according to the rules of
 <firstterm>Skat</firstterm> but with only two players and simplified
@@ -141,7 +141,7 @@ holding for any <emphasis>trump</emphasis>):</para>
 
 <para>
 The player who wins both cards will add their value to his score. The
-value of the card are:</para>
+values of the cards are:</para>
 
 <informaltable>
 <tgroup cols="2">
@@ -176,8 +176,8 @@ The game is won if you have more than 60 points. With both players having
 </thead>
 <tbody>
 <row><entry>60</entry><entry>1</entry></row>
-<row><entry>61..90</entry><entry>2</entry></row>
-<row><entry>91..119</entry><entry>3</entry></row>
+<row><entry>61...90</entry><entry>2</entry></row>
+<row><entry>91...119</entry><entry>3</entry></row>
 <row><entry>120</entry><entry>4</entry></row>
 </tbody>
 </tgroup>
@@ -191,8 +191,8 @@ The game is won if you have more than 60 points. With both players having
 
 <para>
 It is possible to play the game over a network connection with another
-computer. To do so both player on both computers have to select one
-color played by a human player and the other by the remote player. Who
+computer. To do so both players on both computers have to select one
+color played by the local player and the other by the remote player. Who
 chooses which side does not matter. It even does not matter if both
 choose to play the same player as this will automatically be
 interchanged by the game.
@@ -204,8 +204,8 @@ new network game. Also all its game data will be transfered to the
 client computer. You can force your computer to be server if you do not
 supply a hostname in the network dialog. This dialog pops up if you
 start a new network game. As a client you enter the hostname of the
-machine the server is running. The port needs usually not be
-changed. But you can enter nearly any number there.
+machine on which the server is running. The port does not usually need to be
+changed, but you can enter any valid port number there.
 </para>
 
 </chapter>
@@ -323,12 +323,12 @@ following:
 </para>
 
 <para>
-A local player using the mouse as input device.  For this option, choose
+A local player using the mouse as input device. For this option, choose
 <guimenuitem>Player</guimenuitem>.
 </para> 
 
 <para>
-The computer.  For this option, choose
+The computer. For this option, choose
 <guimenuitem>computer</guimenuitem>.
 </para>
 
