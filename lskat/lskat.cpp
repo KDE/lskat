@@ -1166,7 +1166,7 @@ void LSkatApp::NewGame()
   if (!res) 
   {
     KMessageBox::error(this,
-      i18n("Cannot start player 1. Maybe the network conenction\n"
+      i18n("Cannot start player 1. Maybe the network connection\n"
            "failed or the computer player process file is not\n"
            "found.\n"));
     return ;
@@ -1175,7 +1175,7 @@ void LSkatApp::NewGame()
   if (!res) 
   {
     KMessageBox::error(this,
-      i18n("Cannot start player 2. Maybe the network conenction\n"
+      i18n("Cannot start player 2. Maybe the network connection\n"
            "failed or the computer player process file is not\n"
            "found.\n"));
     return ;
