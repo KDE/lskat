@@ -780,7 +780,7 @@ void LSkatDoc::WriteConfig(KConfig *config)
   config->writeEntry("port",port);
   config->writeEntry("process",procfile);
   config->writePathEntry("tmppath",picpath);
-  config->writePathEntry("delpath",delpath);
+  config->writeEntry("delpath",delpath);
   config->writeEntry("Name1",names[0]);
   config->writeEntry("Name2",names[1]);
 
