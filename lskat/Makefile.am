@@ -16,5 +16,5 @@ rc_DATA = lskatui.rc
 
 
 messages: rc.cpp
-	$(XGETTEXT) `find . -name \*.h -o -name \*.cpp -o -name \*.cc` -o $(podir)/lskat.pot 
+	$(XGETTEXT) *.cpp -o $(podir)/lskat.pot 
 
