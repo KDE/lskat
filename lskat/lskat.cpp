@@ -674,7 +674,7 @@ void LSkatApp::slotStatusNames(){
   if (!doc->IsRunning()) msg=i18n("No game running");
   else
   {
-    msg=i18n("%1 to move ...").arg(doc->GetName(doc->GetCurrentPlayer()));
+    msg=i18n("%1 to move...").arg(doc->GetName(doc->GetCurrentPlayer()));
   }
   slotStatusMover(msg);
 }
@@ -765,7 +765,7 @@ bool LSkatApp::MakeInputDevice(int no)
           }
           else
           {
-            s=i18n("Offering remote connection on port %1 ...").arg(port);
+            s=i18n("Offering remote connection on port %1...").arg(port);
           }
           progress=new QProgressDialog(s, i18n("Abort"), tim, this,0,true );
           progress->setCaption(i18n("Lieutnant Skat"));
