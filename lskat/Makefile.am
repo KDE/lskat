@@ -15,6 +15,6 @@ rcdir = $(kde_datadir)/lskat
 rc_DATA = lskatui.rc
 
 
-messages:
+messages: rc.cpp
 	$(XGETTEXT) `find . -name \*.h -o -name \*.cpp -o -name \*.cc` -o $(podir)/lskat.pot 
 
