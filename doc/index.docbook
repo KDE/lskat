@@ -1,12 +1,12 @@
 <!DOCTYPE book PUBLIC  "-//KDE//DTD DocBook V3.1-Based Variant V1.0//EN" [
-  <!ENTITY kapp "<application>LSkat</application>">
-  <!ENTITY kappname "&kapp;" -- this only *seems* redundant -->
+  <!ENTITY kappname "&lskat;" -- this only *seems* redundant -->
+  <!ENTITY % English "INCLUDE">
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Application-Variable Entities V1.0//EN">
+  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Documentation V1.0//EN">
   %ents;
 ]>
 
-<book lang="en">
+<book lang="&language;">
 <bookinfo>
 <title>Lieutnant Skat</title>
 <authorgroup>
@@ -17,18 +17,18 @@
 <address><email>martin@heni-online.de</email></address>
 </affiliation>
 </author>
-<othercredit>
+<othercredit role="reviewer">
 <firstname>Mike</firstname><surname>McBride</surname>
 <contrib>Reviewer</contrib>
 <affiliation><address><email>mpmcbride7@yahoo.com</email></address></affiliation>
 </othercredit>
 </authorgroup>
 
-<date>25/11/2000</date>
+<date>18/12/2000</date>
 <releaseinfo>0.09.00</releaseinfo>
 
 <abstract>
-<para>This documentation describes &kapp; version 0.9</para>
+<para>This documentation describes &lskat; version 0.9</para>
 </abstract>
 
 <keywordset>
@@ -54,47 +54,6 @@ only two players and simplified rules.  </para>
 and half of them open. Both players try to win more than 60 of the 120 possible
 points. After 16 moves all cards are played and the game ends.</para>
 
-</chapter>
-
-<chapter id="Installation">
-<title>Installation</title>
-<sect1 id="getting-lskat">
-<title>How to obtain lskat</title>
-
-<para>
-&kapp; can be found in the package kdegames on
-<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, 
-the main ftp site of the KDE project.</para>
-</sect1>
-
-<sect1 id="Requirements">
-<title>Requirements</title>
-<para>
-In order to successfully compile &kapp;, you need KDE 2.0 </para>
-<para>
-All required libraries as well as &kapp; itself can be found on
-<ulink 
-url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>.</para>
-</sect1>
-
-
-<sect1 id="Compilation">
-<title>Compilation and installation</title>
-
-<para>In order to compile and install &kapp; on your system, extract the package
-and type the following commands in the base directory of the &kapp;
-distribution: </para>
-
-<screen width="40">
-<prompt>%</prompt> <userinput>cd kdegames</userinput>
-<prompt>%</prompt> <userinput>./configure</userinput>
-<prompt>%</prompt> <userinput>make</userinput>
-<prompt>%</prompt> <userinput>make install</userinput>
-</screen>
-      
-<para>Since &kapp; uses <application>autoconf</application> and <application>automake</application> you should have no trouble compiling it.</para>
-
-</sect1>
 </chapter>
 
 <chapter id="rules">
@@ -228,16 +187,16 @@ can enter nearly any number there.
 
 <chapter id="menus">
 <title>Menus</title>
-<sect1 id="file-menu"><title>File Menu</title>
+<sect1 id="file-menu"><title><guimenu>File</guimenu> Menu</title>
 <variablelist>
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo><keycap>F2</keycap></keycombo>
+<keycap>F2</keycap>
 </shortcut>
-<guimenu>File</guimenu><guimenuitem>New Game</guimenuitem></menuchoice></term>
+<guimenu><accel>F</accel>ile</guimenu><guimenuitem><accel>N</accel>ew</guimenuitem></menuchoice></term>
   <listitem><para>
-     Starts a new game. In a network game this option is
+     <action>Starts a new game.</action> In a network game this option is
      only available for the network server. The network client
      will be automatically started by the server.
   </para></listitem>
@@ -245,17 +204,17 @@ can enter nearly any number there.
 <varlistentry>
   <term><menuchoice>
   <shortcut>
-<keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>W</keycap></keycombo>
 </shortcut>
-<guimenu>File</guimenu><guimenuitem>End Game</guimenuitem></menuchoice></term>
+<guimenu><accel>F</accel>ile</guimenu><guimenuitem><accel>E</accel>nd Game</guimenuitem></menuchoice></term>
   <listitem><para>
-     Aborts a running game.
+     <action>Aborts a running game.</action>
   </para></listitem>
 </varlistentry>
 <varlistentry>
-  <term><menuchoice><guimenu>File</guimenu><guimenuitem>Clear statistics...</guimenuitem></menuchoice></term>
+  <term><menuchoice><guimenu><accel>F</accel>ile</guimenu><guimenuitem><accel>C</accel>lear statistics...</guimenuitem></menuchoice></term>
   <listitem><para>
-     Clears the all time game memory. This statistic is
+     <action>Clears the all time game memory.</action> This statistic is
      usually saved when the game ended and shows the amount of
      played and won games per player. This is cleared with this menu
      option.
@@ -264,80 +223,79 @@ can enter nearly any number there.
 <varlistentry>
   <term><menuchoice>
   <shortcut>
-<keycombo><keycap>Ctrl</keycap><keycap>M</keycap></keycombo>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>M</keycap></keycombo>
 </shortcut>
-<guimenu>File</guimenu><guimenuitem>Send Message</guimenuitem></menuchoice></term>
+<guimenu><accel>F</accel>ile</guimenu><guimenuitem>Send <accel>M</accel>essage</guimenuitem></menuchoice></term>
   <listitem><para>
      If connected to another game in a remote session this
-     option allows you to send a message to the remote player.
+     option allows you to <action>send a message to the remote player.</action>
   </para></listitem>
 </varlistentry>
 <varlistentry>
   <term><menuchoice>
   <shortcut>
-<keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
 </shortcut>
-  <guimenu>File</guimenu><guimenuitem>Exit</guimenuitem></menuchoice></term>
-  <listitem><para>
-     Quits the program.
+  <guimenu><accel>F</accel>ile</guimenu><guimenuitem><accel>Q</accel>uit</guimenuitem></menuchoice></term>
+  <listitem><para><action>
+     Quits the program.</action>
   </para></listitem>
 </varlistentry>
 </variablelist>
 </sect1>
-<sect1 id="view-menu"><title>View Menu</title>
+<sect1 id="view-menu"><title><guimenu>View</guimenu> Menu</title>
 <variablelist>
 <varlistentry>
-<term><menuchoice><guimenu>View</guimenu><guimenuitem>View statusbar</guimenuitem></menuchoice></term>
-  <listitem><para>
-     Shows or hides the statusbar.</para></listitem>
+<term><menuchoice><guimenu><accel>V</accel>iew</guimenu><guimenuitem><accel>S</accel>tatusbar</guimenuitem></menuchoice></term>
+  <listitem><para><action>
+     Shows or hides the statusbar.</action></para></listitem>
 </varlistentry>
 </variablelist>
 </sect1>
-<sect1 id="option-menu"><title>Options Menu</title>
+<sect1 id="option-menu"><title><guimenu>Options</guimenu> Menu</title>
 <variablelist>
 <varlistentry>
-  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Startplayer</guimenuitem></menuchoice></term>
+  <term><menuchoice><guimenu><accel>O</accel>ptions</guimenu><guisubmenu>Startplayer</guisubmenu></menuchoice></term>
   <listitem><para>
      Selects whether player 1 (top) or player two (bottom)
      begins the next game.
   </para></listitem>
 </varlistentry>
 <varlistentry>
-  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Player 1 played by</guimenuitem></menuchoice></term>
+  <term><menuchoice><guimenu><accel>O</accel>ptions</guimenu><guisubmenu>Player <accel>1</accel> played by</guisubmenu></menuchoice></term>
   <listitem><para>
      Chooses who should play for player 1 (top). It can be either
-     <guilabel>player</guilabel>, <abbrev>i.e.</abbrev> a local player using the mouse
-     as input device, <guilabel>computer</guilabel>, <abbrev>i.e.</abbrev> the computer
-     plays this player or <guilabel>remote</guilabel>, <abbrev>i.e.</abbrev> a remote
+     <guimenuitem>player</guimenuitem>, &ie; a local player using the mouse
+     as input device, <guimenuitem>computer</guimenuitem>,&ie; the computer
+     plays this player or <guimenuitem>remote</guimenuitem>, &ie; a remote
      connection to another computer will be build.
   </para></listitem>
 </varlistentry>
 <varlistentry>
-  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Player 2 played by</guimenuitem></menuchoice></term>
+  <term><menuchoice><guimenu><accel>O</accel>ptions</guimenu><guisubmenu>Player <accel>2</accel> played by</guisubmenu></menuchoice></term>
   <listitem><para>
      Same as <guimenuitem>Player 1 played by</guimenuitem>.
   </para></listitem>
 </varlistentry>
 <varlistentry>
-  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Level</guimenuitem></menuchoice></term>
+  <term><menuchoice><guimenu><accel>O</accel>ptions</guimenu><guisubmenu>Level</guisubmenu></menuchoice></term>
   <listitem><para>
-     Selects the level of the computer player.
+     <action>Selects the level of the computer player.</action>
   </para></listitem>
 </varlistentry>
 <varlistentry>
-  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Select carddeck</guimenuitem></menuchoice></term>
+  <term><menuchoice><guimenu><accel>O</accel>ptions</guimenu><guimenuitem>Select
+  <accel>C</accel>arddeck</guimenuitem></menuchoice></term>
   <listitem><para>
-     Choose the background of the carddeck. You can use your own graphics
-     here, if you replace the files <filename>deck1.bmp</filename> to
-     <filename>deck6.bmp</filename> in the graphics directory by any
-     graphic of the size 72x96 pixel. Nonexistent graphics will be not
-     available in the menu.
+     <action>Choose the frontside and backside of the carddeck used for playing.</action> You
+  can select these in a preview dialog showing all carddecks installed for KDE.
   </para></listitem>
 </varlistentry>
 <varlistentry>
-  <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Change names...</guimenuitem></menuchoice></term>
+  <term><menuchoice><guimenu><accel>O</accel>ptions</guimenu><guimenuitem>Change
+  <accel>N</accel>ames...</guimenuitem></menuchoice></term>
   <listitem><para>
-     Change the names of the players.
+     <action>Change the names of the players.</action>
   </para></listitem>
 </varlistentry>
 </variablelist>
@@ -348,26 +306,26 @@ can enter nearly any number there.
 <variablelist>
 <varlistentry>
 <term><anchor id="contents"><menuchoice>
-<shortcut><keycombo><keycap>F1</keycap></keycombo></shortcut>
-<guimenu>Help</guimenu><guimenuitem>Contents</guimenuitem></menuchoice></term>
+<shortcut><keycap>F1</keycap></shortcut>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>C</accel>ontents</guimenuitem></menuchoice></term>
 <listitem>
-<para>This invokes the KDE help system starting at the the top of this help file.</para>
+<para>This invokes the &kde; help system starting at the the top of this help file.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term><anchor id="bug-report"><menuchoice>
-<guimenu>Help</guimenu><guimenuitem>Report Bug.</guimenuitem></menuchoice></term>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>R</accel>eport Bug</guimenuitem></menuchoice></term>
 <listitem><para>If you find an error in the program, or you have an idea on how
 to improve the game, clicking this option will let you send an official bug
-report to the KDE team.</para>
+report to the &kde; team.</para>
 
 </listitem>
 </varlistentry>
 
 <varlistentry>
 <term><anchor id="about-lskat"><menuchoice>
-<guimenu>Help</guimenu><guimenuitem>About lskat</guimenuitem></menuchoice></term>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem><accel>A</accel>bout lskat</guimenuitem></menuchoice></term>
 <listitem>
 <para>This will display version and author information.</para>
 </listitem>
@@ -375,7 +333,7 @@ report to the KDE team.</para>
 
 <varlistentry>
 <term><anchor id="about-kde"><menuchoice>
-<guimenu>Help</guimenu><guimenuitem>About KDE</guimenuitem></menuchoice></term>
+<guimenu><accel>H</accel>elp</guimenu><guimenuitem>About <accel>K</accel>DE</guimenuitem></menuchoice></term>
 <listitem>
 <para>This displays the KDE version and other basic information.</para>
 </listitem>
@@ -389,7 +347,7 @@ report to the KDE team.</para>
 <title>Credits and License</title>
 
 <para>
-&kapp;
+&lskat;
 </para>
 <para>
 Program copyright 2000 Martin Heni <email>martin@heni-online.de</email>
@@ -401,8 +359,53 @@ Documentation copyright 2000 Martin Heni <email>martin@heni-online.de</email>
 Documentation converted to KDE 2.0 by Mike McBride <email>mpmcbride7@yahoo.com</email>
 </para>
 
-&license-links;
+&underFDL;
+&underGPL;
+
 </chapter>
+
+
+<appendix id="installation">
+<title>Installation</title>
+<sect1 id="getting-lskat">
+<title>How to obtain lskat</title>
+
+<para>
+&lskat; can be found in the package kdegames on
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, 
+the main ftp site of the KDE project.</para>
+</sect1>
+
+<sect1 id="Requirements">
+<title>Requirements</title>
+<para>
+In order to successfully compile &lskat;, you need KDE 2.0 </para>
+<para>
+All required libraries as well as &lskat; itself can be found on
+<ulink 
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>.</para>
+</sect1>
+
+
+<sect1 id="Compilation">
+<title>Compilation and installation</title>
+
+<para>In order to compile and install &lskat; on your system, extract the package
+and type the following commands in the base directory of the &lskat;
+distribution: </para>
+
+<screen width="40">
+<prompt>%</prompt> <userinput>cd kdegames</userinput>
+<prompt>%</prompt> <userinput>./configure</userinput>
+<prompt>%</prompt> <userinput>make</userinput>
+<prompt>%</prompt> <userinput>make install</userinput>
+</screen>
+      
+<para>Since &lskat; uses <application>autoconf</application> and <application>automake</application> you should have no trouble compiling it.</para>
+
+</sect1>
+</appendix>
+
 
 <![ %addindex; [ &kdedocindex; ]]>
 </book>
