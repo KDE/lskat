@@ -76,7 +76,4 @@ QString MsgDlg::GetMsg()
   return MultiLine->text();
 }
 
-
-
-
-
+#include "msgdlg.moc"

@@ -746,3 +746,5 @@ void LSkatDoc::WriteConfig(KConfig *config)
 
   config->sync();
 }
+
+#include "lskatdoc.moc"

@@ -109,7 +109,4 @@ void NameDlg::GetNames(QString &n1, QString &n2)
   n2.truncate(NAME_MAX_LEN);
 }
 
-
-
-
-
+#include "namedlg.moc"

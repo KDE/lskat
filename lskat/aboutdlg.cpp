@@ -28,3 +28,4 @@ aboutDlg::aboutDlg(EMovie *movie,QWidget *parent, const char *name) : QDialog(pa
 aboutDlg::~aboutDlg(){
 }
 
+#include "aboutdlg.moc"

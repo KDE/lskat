@@ -763,3 +763,5 @@ void LSkatView::updateStatus()
   update(status_rect1);
   update(status_rect2);
 }
+
+#include "lskatview.moc"

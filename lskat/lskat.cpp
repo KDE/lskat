@@ -43,7 +43,7 @@
 
 #include <stdlib.h>
 
-LSkatApp::LSkatApp()
+LSkatApp::LSkatApp() : KMainWindow(0)
 {
   config=kapp->config();
 
@@ -342,12 +342,12 @@ void LSkatApp::initDocument()
 void LSkatApp::initView()
 { 
   ////////////////////////////////////////////////////////////////////
-  // create the main widget here that is managed by KTMainWindow's view-region and
+  // create the main widget here that is managed by KMainWindow's view-region and
   // connect the widget to your document to display document contents.
 
   view = new LSkatView(this);
   doc->addView(view);
-  setView(view);	
+  setCentralWidget(view);	
   setCaption(i18n("Lieutnant Skat"));
 
 }
@@ -402,16 +402,12 @@ void LSkatApp::readOptions()
   bool bViewToolbar = config->readBoolEntry(QCString("Show Toolbar"), true);
   viewMenu->setItemChecked(ID_VIEW_TOOLBAR, bViewToolbar);
   if(!bViewToolbar)
-  {
-     enableToolBar(KToolBar::Hide);
-  }
+    toolBar()->hide();
 #endif	
   bool bViewStatusbar = config->readBoolEntry(QCString("Show Statusbar"), true);
   viewMenu->setItemChecked(ID_VIEW_STATUSBAR, bViewStatusbar);
   if(!bViewStatusbar)
-  {
-    enableStatusBar(KStatusBar::Hide);
-  }
+    statusBar()->hide();
 
 #ifdef USE_TOOLBAR
   // bar position settings
@@ -619,12 +615,12 @@ void LSkatApp::slotViewToolBar()
   if( viewMenu->isItemChecked(ID_VIEW_TOOLBAR))
   {
     viewMenu->setItemChecked(ID_VIEW_TOOLBAR, false);
-    enableToolBar(KToolBar::Hide);
+    toolBar()->hide();
   }
   else
   {
     viewMenu->setItemChecked(ID_VIEW_TOOLBAR, true);
-    enableToolBar(KToolBar::Show);
+    toolBar()->show();
   }		
 
   slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
@@ -702,12 +698,12 @@ void LSkatApp::slotViewStatusBar()
   if( viewMenu->isItemChecked(ID_VIEW_STATUSBAR))
   {
     viewMenu->setItemChecked(ID_VIEW_STATUSBAR, false);
-    enableStatusBar(KStatusBar::Hide);
+    statusBar()->hide();
   }
   else
   {
     viewMenu->setItemChecked(ID_VIEW_STATUSBAR, true);
-    enableStatusBar(KStatusBar::Show);
+    statusBar()->show();
   }
 
   slotStatusMsg(i18n(IDS_STATUS_DEFAULT));
@@ -1645,7 +1641,4 @@ void LSkatApp::SetGrafix(QString s)
   mGrafix=s;
 }
 
-
-
-
-
+#include "lskat.moc"
