@@ -178,7 +178,7 @@ void LSkatApp::initGUI()
                       actionCollection(), "end_game");
   ACTION("end_game")->setStatusText(i18n("Ending the current game..."));
   ACTION("end_game")->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
-  (void)new KAction(i18n("&Clear Statistics..."),"flag", 0, this, SLOT(slotFileStatistics()),
+  (void)new KAction(i18n("&Clear Statistics"),"flag", 0, this, SLOT(slotFileStatistics()),
                       actionCollection(), "clear_statistics");
   ACTION("clear_statistics")->setStatusText(i18n("Delete all time statistics..."));
   ACTION("clear_statistics")->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
