@@ -1,0 +1,112 @@
+<HTML>
+<HEAD>
+<TITLE>class KRServerSocket</TITLE>
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>class KRServerSocket</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1">Monitor a port for incoming TCP/IP connections.
+ <small><A HREF="#longdesc">More...</A></small></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		<TR><TH>Definition</TH><TD><code>#include &lt;<A HREF="KRSocket_h.html">KRSocket.h</A>&gt;</code></TD></TR>
+<TR><TH>Inherits</TH><TD>QObject</TD></TR>
+<TR><TH><A HREF="full-list-KRServerSocket.html">List of all Methods</A></TH></TR>
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<h4>Public Methods</h4><ul><LI>&nbsp;<b><A HREF="#ref1">KRServerSocket</A></b> ( unsigned short int _port ) 
+</LI>
+<LI>&nbsp;<b>KRServerSocket</b> ( unsigned short int _port, int optname, int value=1, int level=SOL_SOCKET) 
+</LI>
+<LI>&nbsp;<b><A HREF="#ref3">KRServerSocket</A></b> ( const char *_path ) 
+</LI>
+<LI>&nbsp;<b>KRServerSocket</b> ( const char *_path, int optname, int value=1, int level=SOL_SOCKET) 
+</LI>
+<LI>~&nbsp;<b><A HREF="#ref5">KRServerSocket</A></b> () 
+</LI>
+<LI>int &nbsp;<b><A HREF="#ref6">socket</A></b> ()  const
+</LI>
+<LI>unsigned short int &nbsp;<b><A HREF="#ref7">port</A></b> () 
+</LI>
+<LI>unsigned long &nbsp;<b><A HREF="#ref8">ipv4_addr</A></b> () 
+</LI>
+</ul><h4>Public Slots</h4><ul><LI>virtual  void &nbsp;<b><A HREF="#ref9">slotAccept</A></b> ( int ) 
+</LI>
+</ul><h4>Signals</h4><ul><LI>void &nbsp;<b><A HREF="#ref10">accepted</A></b> ( KSocket* ) 
+</LI>
+</ul><h4>Protected Methods</h4><ul><LI>bool &nbsp;<b>init</b> ( short unsigned int ) 
+</LI>
+<LI>bool &nbsp;<b>init</b> ( const char *_path ) 
+</LI>
+<LI>bool &nbsp;<b>init</b> ( const char *_path, int optname, int value=1, int level=SOL_SOCKET) 
+</LI>
+<LI>bool &nbsp;<b>init</b> ( short unsigned int, int optname, int value=1, int level=SOL_SOCKET) 
+</LI>
+</ul><h4>Protected Members</h4><ul><LI>QSocketNotifier *<b><A HREF="#ref15">notifier</A></b></LI>
+<LI>int <b><A HREF="#ref16">sock</A></b></LI>
+<LI>int <b>domain</b></LI>
+</ul><h4>Private Methods</h4><ul><LI>&nbsp;<b>KRServerSocket</b> (const <A HREF="KRServerSocket.html">KRServerSocket</A>&amp;) 
+</LI>
+<LI><A HREF="KRServerSocket.html">KRServerSocket</A>&amp; &nbsp;<b>operator=</b> (const <A HREF="KRServerSocket.html">KRServerSocket</A>&amp;) 
+</LI>
+</ul><h4>Private Members</h4><ul><LI>KRServerSocketPrivate *<b>d</b></LI>
+</ul><HR><A NAME="longdesc"><H2>Detailed Description</H2><p>
+ Monitor a port for incoming TCP/IP connections.
+</p><p> You can use a KRServerSocket to listen on a port for incoming
+ connections. When a connection arrived in the port, a KSocket
+ is created and the signal accepted is raised. Make sure you
+ always connect to this signal. If you dont the ServerSocket will
+ create new KSocket's and no one will delete them!
+</p><p> If socket() is -1 or less the socket was not created properly.
+</p><p></p><A NAME="KRServerSocket"></A><A NAME="ref1"></A><table width="100%"><tr bgcolor="#eeeeee"><td><strong>&nbsp;<underline>KRServerSocket</underline> ( unsigned short int _port )
+</strong></td></tr></table><p></p><p>
+ Constructor.
+</p><p><b>Parameters</b>:<TABLE BORDER="0" CELLPADDING="5">
+<TR><TD align="left" valign="top"><i>_port</i></TD><TD align="left" valign="top">the port number to monitor for incoming connections.
+     </TD></TR>
+</TABLE></P>
+<A NAME="KRServerSocket"></A><A NAME="ref3"></A><table width="100%"><tr bgcolor="#eeeeee"><td><strong>&nbsp;<underline>KRServerSocket</underline> ( const char *_path )
+</strong></td></tr></table><p></p><p>
+ Creates a UNIX domain server socket.
+     </p><A NAME="KRServerSocket"></A><A NAME="ref5"></A><table width="100%"><tr bgcolor="#eeeeee"><td><strong>~&nbsp;<underline>KRServerSocket</underline> ()
+</strong></td></tr></table><p></p><p> 
+ Destructor. Closes the socket if it was not already closed.
+     </p><A NAME="socket"></A><A NAME="ref6"></A><table width="100%"><tr bgcolor="#eeeeee"><td><strong>int &nbsp;<underline>socket</underline> ()
+</strong></td></tr></table><p> <small>[const]</small></p><p> 
+ Get the file descriptor assoziated with the socket.
+     </p><A NAME="port"></A><A NAME="ref7"></A><table width="100%"><tr bgcolor="#eeeeee"><td><strong>unsigned short int &nbsp;<underline>port</underline> ()
+</strong></td></tr></table><p></p><p> 
+ Returns the port number which is being monitored.
+     </p><A NAME="ipv4_addr"></A><A NAME="ref8"></A><table width="100%"><tr bgcolor="#eeeeee"><td><strong>unsigned long &nbsp;<underline>ipv4_addr</underline> ()
+</strong></td></tr></table><p></p><p> 
+ The address.
+     </p><A NAME="slotAccept"></A><A NAME="ref9"></A><table width="100%"><tr bgcolor="#eeeeee"><td><strong> void &nbsp;<underline>slotAccept</underline> ( int )
+</strong></td></tr></table><p> <small>[virtual slot]</small></p><p> 
+ Called when someone connected to our port.
+     </p><A NAME="accepted"></A><A NAME="ref10"></A><table width="100%"><tr bgcolor="#eeeeee"><td><strong>void &nbsp;<underline>accepted</underline> ( KSocket* )
+</strong></td></tr></table><p> <small>[signal]</small></p><p>
+ A connection has been accepted.
+ It is your task to delete the KSocket if it is no longer needed.
+     </p><A NAME="notifier"></A><A NAME="ref15"></A><table width="100%"><tr bgcolor="#eeeeee"><td><strong><A HREF="#QSocketNotifier">QSocketNotifier</A> * <underline>notifier</underline>
+</strong></td></tr></table><p> <small>[protected]</small></p><p> 
+ Notifies us when there is something to read on the port.
+     </p><A NAME="sock"></A><A NAME="ref16"></A><table width="100%"><tr bgcolor="#eeeeee"><td><strong>int  <underline>sock</underline>
+</strong></td></tr></table><p> <small>[protected]</small></p><p> 
+ The file descriptor for this socket. sock may be -1.
+ This indicates that it is not connected.
+     </p><HR><UL><LI><i>Version</i>: $Id$
+</LI><LI><i>Author</i>: Torben Weis &lt;weis@stud.uni-frankfurt.de&gt;
+</LI><LI><i>Generated</i>: martin@artemis on Sat May 13 09:27:40 2000, using kdoc 2.0a35.</LI></UL></BODY></HTML>

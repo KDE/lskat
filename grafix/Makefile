@@ -272,16 +272,6 @@ uninstall-local:
 
 
 
-
-
-
-
-
-
-
-
-
-
 #>+ 5
 force-reedit:
 		cd $(top_srcdir) && $(AUTOMAKE) --gnu --include-deps po/Makefile

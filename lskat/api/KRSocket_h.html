@@ -1,0 +1,233 @@
+<HTML>
+<HEAD>
+<TITLE>Source: KRSocket.h</TITLE>
+<META NAME="Generator" CONTENT="KDOC ">
+</HEAD>
+<BODY bgcolor="#ffffff" text="#000000" link="#0000ff" vlink="#000099" alink= "#ffffff">
+<TABLE WIDTH="100%" BORDER="0">
+<TR>
+<TD>
+	<TABLE BORDER="0">
+		<TR><TD valign="top" align="left" cellspacing="10">
+		<h1>Source: KRSocket.h</h1>
+		</TD>
+		<TD valign="top" align="right" colspan="1"></TD></TR>
+	</TABLE>
+	<HR>
+	<TABLE BORDER="0">
+		
+	</TABLE>
+	</TD>
+<TD align="right"><TABLE BORDER="0"><TR><TD><small><A HREF="index-long.html">Annotated List</small></TD></TR>
+<TR><TD><small><A HREF="header-list.html">Files</small></TD></TR>
+<TR><TD><small><A HREF="all-globals.html">Globals</small></TD></TR>
+<TR><TD><small><A HREF="hier.html">Hierarchy</small></TD></TR>
+<TR><TD><small><A HREF="index.html">Index</small></TD></TR>
+</TABLE></TD></TR></TABLE>
+<pre>
+/***************************************************************************
+                          KRSocket.h  -  description
+                             -------------------
+    begin                : Tue May 2 2000
+    copyright            : (C) 2000 by Martin Heni
+    email                : martin@heni-online.de
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+/***************************************************************************
+                          Kwin4  -  Four in a Row for KDE
+                             -------------------
+    begin                : March 2000 
+    copyright            : (C) 1995-2000 by Martin Heni
+    email                : martin@heni-online.de
+ ***************************************************************************/
+
+/***************************************************************************
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ ***************************************************************************/
+/*
+ *  This file is part of the KDE libraries
+ *  Copyright (C) 1997 Torben Weis (weis@kde.org)
+ *
+ *  This library is free software; you can redistribute it and/or
+ *  modify it under the terms of the GNU Library General Public
+ *  License as published by the Free Software Foundation; either
+ *  version 2 of the License, or (at your option) any later version.
+ *
+ *  This library is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ *  Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU Library General Public License
+ *  along with this library; see the file COPYING.LIB.  If not, write to
+ *  the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
+ *  Boston, MA 02111-1307, USA.
+ */
+#ifndef KRSOCK_H
+#define KRSOCK_H
+
+#include &lt;qobject.h&gt;
+#include &lt;sys/types.h&gt;
+// we define STRICT_ANSI to get rid of some warnings in glibc
+#ifndef __STRICT_ANSI__
+#define __STRICT_ANSI__
+#define _WE_DEFINED_IT_
+#endif
+#include &lt;sys/socket.h&gt;
+#ifdef _WE_DEFINED_IT_
+#undef __STRICT_ANSI__
+#undef _WE_DEFINED_IT_
+#endif
+
+#include &lt;sys/un.h&gt;
+
+#include &lt;netinet/in.h&gt;
+class QSocketNotifier;
+
+#ifdef INET6
+typedef sockaddr_in6 ksockaddr_in;
+#define KSOCK_DEFAULT_DOMAIN PF_INET6
+#else
+typedef sockaddr_in ksockaddr_in;
+#define KSOCK_DEFAULT_DOMAIN PF_INET
+#endif
+
+#include &lt;ksock.h&gt;
+
+typedef size_t ksize_t;
+
+class KRServerSocketPrivate;
+
+
+/**
+ * Monitor a port for incoming TCP/IP connections.
+ *
+ * You can use a KRServerSocket to listen on a port for incoming
+ * connections. When a connection arrived in the port, a KSocket
+ * is created and the signal accepted is raised. Make sure you
+ * always connect to this signal. If you dont the ServerSocket will
+ * create new KSocket's and no one will delete them!
+ *
+ * If socket() is -1 or less the socket was not created properly.
+ *
+ * @author Torben Weis &lt;weis@stud.uni-frankfurt.de&gt;
+ * @version $Id$
+ * @short Monitor a port for incoming TCP/IP connections.
+*/
+class KRServerSocket : public QObject
+{
+    Q_OBJECT
+public:
+    /**
+     * Constructor.
+     * @param _port	the port number to monitor for incoming connections.
+     */
+    KRServerSocket( unsigned short int _port );
+    KRServerSocket( unsigned short int _port, int optname, int value=1, int level=SOL_SOCKET);
+
+    /**
+     * Creates a UNIX domain server socket.
+     */
+    KRServerSocket( const char *_path );
+    KRServerSocket( const char *_path, int optname, int value=1, int level=SOL_SOCKET);
+  
+    /** 
+     * Destructor. Closes the socket if it was not already closed.
+     */
+    ~KRServerSocket();
+    
+    /** 
+     * Get the file descriptor assoziated with the socket.
+     */
+    int socket() const { return sock; }
+
+    /** 
+     * Returns the port number which is being monitored.
+     */
+    unsigned short int port();
+
+    /** 
+     * The address.
+     */
+    unsigned long ipv4_addr();
+
+public slots: 
+    /** 
+     * Called when someone connected to our port.
+     */
+    virtual void slotAccept( int );
+
+signals:
+    /**
+     * A connection has been accepted.
+     * It is your task to delete the KSocket if it is no longer needed.
+     */
+    void accepted( KSocket* );
+
+protected:
+    bool init( short unsigned int );
+    bool init( const char *_path );
+    bool init( const char *_path, int optname, int value=1, int level=SOL_SOCKET);
+    bool init( short unsigned int, int optname, int value=1, int level=SOL_SOCKET);
+  
+    /** 
+     * Notifies us when there is something to read on the port.
+     */
+    QSocketNotifier *notifier;
+    
+    /** 
+     * The file descriptor for this socket. sock may be -1.
+     * This indicates that it is not connected.
+     */    
+    int sock;  
+
+    int domain;
+
+private:
+    KRServerSocket(const KRServerSocket&amp;);
+    KRServerSocket&amp; operator=(const KRServerSocket&amp;);
+
+    KRServerSocketPrivate *d;
+};
+
+
+// Here are a whole bunch of hackish macros that allow one to
+// get at the correct member of ksockaddr_in
+
+#ifdef INET6
+#define get_sin_addr(x) x.sin6_addr
+#define get_sin_port(x) x.sin6_port
+#define get_sin_family(x) x.sin6_family
+#define get_sin_paddr(x) x-&gt;sin6_addr
+#define get_sin_pport(x) x-&gt;sin6_port
+#define get_sin_pfamily(x) x-&gt;sin6_family
+#else
+#define get_sin_addr(x) x.sin_addr
+#define get_sin_port(x) x.sin_port
+#define get_sin_family(x) x.sin_family
+#define get_sin_paddr(x) x-&gt;sin_addr
+#define get_sin_pport(x) x-&gt;sin_port
+#define get_sin_pfamily(x) x-&gt;sin_family
+#endif
+
+#endif
+</pre>
+<HR>
+	<table>
+	<tr><td><small>Generated by: martin@artemis on Sat May 13 09:27:40 2000, using kdoc 2.0a35.</small></td></tr>
+	</table>
+</BODY>
+</HTML>
