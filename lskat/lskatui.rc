@@ -1,8 +1,9 @@
 <!DOCTYPE kpartgui>
 <kpartgui name="standard_containers" version="4">
 <MenuBar>
-  <Menu name="file"><text>&amp;File</text>
+  <Menu name="game" noMerge="1"><text>&amp;Game</text>
     <Action name="new_game"/>
+    <Separator />
     <Action name="end_game"/>
     <Separator />
     <Action name="clear_statistics"/>
