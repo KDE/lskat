@@ -190,7 +190,7 @@ bool KRServerSocket::init( const char *_path,int optname,int value,int level )
   if (optname>0)
   {
    ksize_t len=sizeof(value);
-   if (-1==setsockopt(sock,level,optname,&value,len ))
+   if (-1==setsockopt(sock,level,optname,(char*)&value,len ))
    {
 	   kdWarning() << "Could not set socket options." << endl;
    }
@@ -253,7 +253,7 @@ bool KRServerSocket::init( unsigned short int _port,int optname,int value,int le
   if (optname>0)
   {
    ksize_t len=sizeof(value);
-   if (-1==setsockopt(sock,level,optname,&value,len ))
+   if (-1==setsockopt(sock,level,optname,(char*)&value,len ))
    {
 	   kdWarning() << "Could not set socket options." << endl;
    }
