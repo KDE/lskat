@@ -47,7 +47,7 @@ NetworkDlg::NetworkDlg( QWidget *parent, const char *name,const char * /*sufi*/ 
   QLabel *Label;
   QPushButton *PushButton;
 
-  setCaption(i18n("Configure Network Options..."));
+  setCaption(i18n("Configure Network Options"));
   setMinimumSize(330,260);
   setMaximumSize(330,260);
   resize( 330, 260 );
