@@ -22,6 +22,8 @@
 <contrib>Reviewer</contrib>
 <affiliation><address><email>mpmcbride7@yahoo.com</email></address></affiliation>
 </othercredit>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+
 </authorgroup>
 
 <date>03/02/2001</date>
@@ -368,6 +370,8 @@ Documentation copyright 2000 Martin Heni <email>martin@heni-online.de</email>
 <para>
 Documentation converted to KDE 2.0 by Mike McBride <email>mpmcbride7@yahoo.com</email>
 </para>
+
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 
 &underFDL;
 &underGPL;
