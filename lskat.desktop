@@ -1,0 +1,15 @@
+[Desktop Entry]
+Comment=Lieutnant Skat
+Comment[de]=Offiziersskat
+Comment[et]=Leitnant Skat
+Comment[hu]=Skat hadnagy
+Comment[sl]=Stotnik Skat
+Exec=lskat
+Icon=lskat
+Name=Lieutnant Skat
+Name[de]=Offiziersskat
+Name[et]=Leitnant Skat
+Name[hu]=Skat hadnagy
+Name[sl]=Stotnik Skat
+Terminal=0
+Type=Application

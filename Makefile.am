@@ -6,3 +6,8 @@ SUBDIRS = lskat grafix lskatproc
 # have all needed files, that a GNU package needs
 AUTOMAKE_OPTIONS = foreign 
 
+KDE_ICON = lskat
+
+appsdir = $(kde_appsdir)/Games
+apps_DATA = lskat.desktop
+EXTRA_DIST = $(apps_DATA)
