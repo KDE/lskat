@@ -66,7 +66,7 @@
 #define STATUS_XTYPE  135
 #define STATUS_YTYPE  12
 
-#define FINAL_XT1     15 
+#define FINAL_XT1     15
 #define FINAL_XT2     -55
 #define FINAL_YT      15
 
@@ -87,7 +87,7 @@
 #define FINAL_Y3      95
 #define FINAL_Y4      125
 
-#define FINAL_X7      30  
+#define FINAL_X7      30
 #define FINAL_Y7      155
 
 //#define COL_STATUSLIGHT  white
@@ -166,7 +166,7 @@ QPoint p1,p2;
 
 	if (mode==0) p->setPen(COL_STATUSLIGHT);
 	else if (mode==1) p->setPen(COL_STATUSDARK);
-	
+
 	for (i=0;i<width;i++)
 	{
 		p->moveTo(p1.x()+offset+i,p2.y()-offset-i);
@@ -220,7 +220,7 @@ void LSkatView::drawMove(QPainter *p)
     if (cardmoveunder>=0)
     {
       // turn new card
-      if ((double)cardmovecnt/(double)MOVECOUNTER>0.5) 
+      if ((double)cardmovecnt/(double)MOVECOUNTER>0.5)
       {
         QPixmap pix1(getDocument()->mPixCard[cardmoveunder]);
         int wid=pix1.width();
@@ -261,7 +261,6 @@ void LSkatView::drawIntro(QPainter *p)
     // Get a nice font
     QFont font = KGlobalSettings::generalFont();
     font.setPointSize(48);
-    font.setPixelSize(48);
     // Get the font info to determine text sizes
     QFontMetrics fontMetrics(font);
 
@@ -269,7 +268,7 @@ void LSkatView::drawIntro(QPainter *p)
 
     cnt=introcnt;
     if (cnt>NO_OF_CARDS) cnt=NO_OF_CARDS;
-    
+
 
     i=0;
     point=QPoint(20,20);
@@ -376,11 +375,9 @@ void LSkatView::drawFinal(QPainter *p)
   int ts[10];
 
   QFont font24 = KGlobalSettings::generalFont();
-  font24.setPixelSize(24);
   font24.setPointSize(24);
   QFont font14 = KGlobalSettings::generalFont();
-  font14.setPixelSize(14);
-  font14.setPointSize(14);
+  font14.setPointSize(13);
 
 	//p1=status_rect3.topLeft();
 	//p2=status_rect3.bottomRight();
@@ -403,7 +400,7 @@ void LSkatView::drawFinal(QPainter *p)
   trump=getDocument()->GetTrump();
 
 
-  
+
   QString line1,line2,line3,line4,line5;
   QString col1_3,col2_3,col3_3,col4_3;
   QString col1_4,col2_4,col3_4,col4_4;
@@ -468,7 +465,7 @@ void LSkatView::drawFinal(QPainter *p)
     rect=brect2_3|brect2_4;
     ts[1]=ts[0]+rect.width()+10;
 
-    
+
     col3_3.sprintf("%d",sc0);
     rect=QRect(0,0,p->window().width(),p->window().height());
     brect3_3=p->boundingRect(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,col3_3);
@@ -536,10 +533,10 @@ void LSkatView::drawFinal(QPainter *p)
     }
   }
 
-  
+
   QPoint offset=QPoint(status_rect3.left()-sumrect.left(),status_rect3.top());
   sumrect.moveBy(offset.x(),offset.y());
-  
+
   // draw actual strings and symbols
   QRect borderrect=QRect(sumrect.left()-20,sumrect.top()-20,sumrect.width()+40,sumrect.height()+40);
   p->drawRect(borderrect);
@@ -573,7 +570,7 @@ void LSkatView::drawFinal(QPainter *p)
     p->setPen(Qt::black);
     rect=sumrect;
     rect.setTop(brect3.top()+offset.y());
-    
+
     // Workaround for the next line where the ExpandTab crashes!!!
     drawTabText(p,rect,line3,ts);
     // p->drawText(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop|Qt::ExpandTabs,line3);
@@ -583,7 +580,7 @@ void LSkatView::drawFinal(QPainter *p)
     drawTabText(p,rect,line4,ts);
     // p->drawText(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop|Qt::ExpandTabs,line4);
   }
-  if (!line5.isNull()) 
+  if (!line5.isNull())
   {
     p->setFont(font14);
     p->setPen(Qt::black);
@@ -598,7 +595,7 @@ void LSkatView::drawFinal(QPainter *p)
 void LSkatView::drawTabText(QPainter *p,QRect rect,QString s,int *ts)
 {
   int lcnt=0;
-    
+
   // p->setPen(Qt::black);
   // p->drawRect(rect);
   while(s.length()>0 && (lcnt==0 || ts[lcnt-1]) )
@@ -632,8 +629,7 @@ void LSkatView::drawStatus(QPainter *p)
   srect[1]=status_rect2;
 
   QFont font10 = KGlobalSettings::generalFont();
-  font10.setPixelSize(14);
-  font10.setPointSize(14);
+  font10.setPointSize(13);
   p->setFont(font10);
 
   trump=getDocument()->GetTrump();
@@ -681,7 +677,7 @@ void LSkatView::drawStatus(QPainter *p)
       rect.setWidth(rect.width()+10);
       line2a.sprintf("%3d",getDocument()->GetScore(pl));
       line2b.sprintf("%3d",getDocument()->GetMoveNo());
-      
+
       // paint
       if (getDocument()->GetStartPlayer()==pl) p->setPen(COL_PLAYER);
       else p->setPen(black);
@@ -693,7 +689,7 @@ void LSkatView::drawStatus(QPainter *p)
       p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2a);
       rect2=QRect(brect3.left()+rect.width(),brect3.top(),drawrect.width()-brect3.width()-rect.width(),brect3.height());
       p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,line2b);
-    
+
       pa=QPoint(drawrect.width()-getDocument()->mPixTrump[trump].width(),drawrect.height()-getDocument()->mPixTrump[trump].height());
       if (getDocument()->GetStartPlayer()==pl)
         p->drawPixmap(p1+pa+QPoint(3,3),getDocument()->mPixTrump[trump]);
@@ -782,7 +778,7 @@ void LSkatView::paintEvent( QPaintEvent * e)
   {
     QPainter paint( this );
     paint.setClipRect(e->rect());
-    Paint( &paint );			
+    Paint( &paint );
   }
 }
 
@@ -892,7 +888,7 @@ void LSkatView::introTimerReady()
   }
   introcnt++;
   if (introcnt>NO_OF_CARDS*4)
-  {  
+  {
     introcnt=0;
     for (int i=0;i<NO_OF_CARDS;i++)
     {
@@ -931,7 +927,7 @@ void LSkatView::moveTimerReady()
     // Turning of the card
     if ( cardmoveunder>=0)
     {
-      update(QRect(cardorigin,getDocument()->cardsize)); 
+      update(QRect(cardorigin,getDocument()->cardsize));
     }
   }
 }
