@@ -250,7 +250,7 @@ bool KRServerSocket::init( unsigned short int _port,int optname,int value,int le
   // Heni - 05042000
   if (optname>0)
   {
-   socklen_t len=sizeof(value);
+   ksize_t len=sizeof(value);
    if (-1==setsockopt(sock,level,optname,&value,len ))
    {
 	   warning("Could not set socket options.\n");
