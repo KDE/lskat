@@ -24,7 +24,7 @@
 </othercredit>
 </authorgroup>
 
-<date>21/10/2000</date>
+<date>25/11/2000</date>
 <releaseinfo>0.09.00</releaseinfo>
 
 <abstract>
@@ -231,7 +231,11 @@ can enter nearly any number there.
 <sect1 id="file-menu"><title>File Menu</title>
 <variablelist>
 <varlistentry>
-<term><menuchoice><guimenu>File</guimenu><guimenuitem>New Game</guimenuitem></menuchoice></term>
+<term><menuchoice>
+<shortcut>
+<keycombo><keycap>F2</keycap></keycombo>
+</shortcut>
+<guimenu>File</guimenu><guimenuitem>New Game</guimenuitem></menuchoice></term>
   <listitem><para>
      Starts a new game. In a network game this option is
      only available for the network server. The network client
@@ -239,7 +243,11 @@ can enter nearly any number there.
   </para></listitem>
 </varlistentry>
 <varlistentry>
-  <term><menuchoice><guimenu>File</guimenu><guimenuitem>End Game</guimenuitem></menuchoice></term>
+  <term><menuchoice>
+  <shortcut>
+<keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo>
+</shortcut>
+<guimenu>File</guimenu><guimenuitem>End Game</guimenuitem></menuchoice></term>
   <listitem><para>
      Aborts a running game.
   </para></listitem>
@@ -254,14 +262,22 @@ can enter nearly any number there.
   </para></listitem>
 </varlistentry>
 <varlistentry>
-  <term><menuchoice><guimenu>File</guimenu><guimenuitem>Send Message</guimenuitem></menuchoice></term>
+  <term><menuchoice>
+  <shortcut>
+<keycombo><keycap>Ctrl</keycap><keycap>M</keycap></keycombo>
+</shortcut>
+<guimenu>File</guimenu><guimenuitem>Send Message</guimenuitem></menuchoice></term>
   <listitem><para>
      If connected to another game in a remote session this
      option allows you to send a message to the remote player.
   </para></listitem>
 </varlistentry>
 <varlistentry>
-  <term><menuchoice><guimenu>File</guimenu><guimenuitem>Exit</guimenuitem></menuchoice></term>
+  <term><menuchoice>
+  <shortcut>
+<keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
+</shortcut>
+  <guimenu>File</guimenu><guimenuitem>Exit</guimenuitem></menuchoice></term>
   <listitem><para>
      Quits the program.
   </para></listitem>
