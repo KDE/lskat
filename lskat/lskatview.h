@@ -22,10 +22,8 @@
 #include <config.h>
 #endif 
 
-// include files for Qt
 #include <qwidget.h>
 #include <qrect.h>
-#include <qdatetime.h>
 
 #include "lskat.h"
 
@@ -46,8 +44,6 @@ class LSkatView : public QWidget
   public:
     /** Constructor for the main view */
     LSkatView(QWidget *parent = 0, const char *name=0);
-    /** Destructor for the main view */
-    ~LSkatView();
 
     /** returns a pointer to the document connected to the view instance. Mind that this method requires a LSkatApp instance as a parent
      * widget to get to the window document pointer by calling the LSkatApp::getDocument() method.

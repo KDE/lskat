@@ -79,6 +79,5 @@ class KEInput : public QObject
   void signalPrepareProcessMove(KEMessage *msg);
   void signalPrepareInteractiveMove(KEMessage *msg);
 
-
 };
 #endif

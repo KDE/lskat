@@ -732,13 +732,12 @@ void LSkatDoc::ReadConfig(KConfig *config)
       name = QString::fromLocal8Bit( pw->pw_gecos );
   }
 
-
   config->setGroup("Parameter");
   host=config->readEntry("host");
   port=(unsigned short)config->readNumEntry("port",7432);
   procfile=config->readEntry("process",QCString("lskatproc"));
   names[0]=config->readEntry("Name1",i18n("Alice"));
-//  names[1]=config->readEntry("Name2",i18n("Bob"));
+  //  names[1]=config->readEntry("Name2",i18n("Bob"));
   names[1]=config->readEntry("Name2", name.isEmpty() ? i18n("Bob") : name);
 
 

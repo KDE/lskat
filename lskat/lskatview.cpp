@@ -114,8 +114,6 @@ LSkatView::LSkatView(QWidget *parent, const char *name) : QWidget(parent, name)
   status_rect3=QRect(CARD_X_OFFSET+60,CARD_Y_OFFSET+5+100+15+20,
                      400,320-100-CARD_Y_OFFSET-30);
 
-
-
   setBackgroundColor(QColor(0,0,128));
   setBackgroundPixmap( getDocument()->mPixBackground );
 
@@ -135,15 +133,10 @@ LSkatView::LSkatView(QWidget *parent, const char *name) : QWidget(parent, name)
   }
 }
 
-LSkatView::~LSkatView()
-{
-}
-
 // Access the document with the game data
 LSkatDoc *LSkatView::getDocument() const
 {
   LSkatApp *theApp=(LSkatApp *) parentWidget();
-
   return theApp->getDocument();
 }
 

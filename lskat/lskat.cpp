@@ -35,11 +35,8 @@
 #include "lskatdoc.h"
 #include "namedlg.h"
 #include "networkdlg.h"
-#include "aboutdlg.h"
-#include "movielabel.h"
 #include "msgdlg.h"
 #include <kcarddialog.h>
-
 
 #include <stdlib.h>
 #include <kstatusbar.h>
@@ -64,14 +61,14 @@ LSkatApp::LSkatApp() : KMainWindow(0)
   // call inits to invoke all other construction parts
   initGUI();
   initStatusBar();
-  setHelpMenuEnabled(false);
+  
+  setupGUI(KMainWindow::StatusBar | Save);
   createGUI(QString::null, false);
 
   initDocument();
   initView();
 
-  readOptions();
-
+  doc->ReadConfig(config);
 
   // Needs to be after readOptions as we read in default paths
   doc->LoadGrafix(mGrafix);
@@ -93,7 +90,6 @@ LSkatApp::LSkatApp() : KMainWindow(0)
 
   // better be last in init
   checkMenus();
-
 }
 
 LSkatApp::~LSkatApp()
@@ -120,14 +116,8 @@ void LSkatApp::checkMenus(int menu)
     {
       disableAction("send_message");
     }
-
   }
-  if (!menu || (menu&CheckViewMenu))
-  {
-    if (statusBar()->isHidden()) ((KToggleAction*)ACTION("show_statusbar"))->setChecked(false);
-    else ((KToggleAction*)ACTION("show_statusbar"))->setChecked(true);
-  }
-
+  
   if (!menu || (menu&CheckOptionsMenu))
   {
     ((KSelectAction *)ACTION("startplayer"))->setCurrentItem(doc->GetStartPlayer());
@@ -187,12 +177,6 @@ void LSkatApp::initGUI()
   ACTION("game_exit")->setStatusText(i18n("Exiting..."));
   ACTION("game_exit")->setWhatsThis(i18n("Quits the program."));
 
-  KToggleAction* act = new KToggleAction(i18n("&Show Statusbar"),0,this,SLOT(slotViewStatusBar()),
-                      actionCollection(), "show_statusbar");
-  act->setCheckedState(i18n("Hide Statusbar"));
-  ACTION("show_statusbar")->setStatusText(i18n("Toggle the statusbar..."));
-  ACTION("show_statusbar")->setWhatsThis(i18n("Toggle the statusbar..."));
-
   (void)new KSelectAction(i18n("Starting Player"),0,this,SLOT(slotStartplayer()),
                       actionCollection(), "startplayer");
   ACTION("startplayer")->setStatusText(i18n("Changing starting player..."));
@@ -243,9 +227,6 @@ void LSkatApp::initGUI()
 
   KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
 actionCollection());
-
-  KHelpMenu *helpMenu = new KHelpMenu(this, 0, true, actionCollection());
-  connect( helpMenu, SIGNAL(showAboutApplication()), this, SLOT(slotHelpAbout()));
 }
 
 
@@ -306,30 +287,6 @@ LSkatDoc *LSkatApp::getDocument() const
   return doc;
 }
 
-void LSkatApp::saveOptions()
-{
-  config->setGroup("General Options");
-  config->writeEntry("Geometry", size());
-  config->writeEntry("Show Statusbar",statusBar()->isVisible());
-  doc->WriteConfig(config);
-}
-
-
-void LSkatApp::readOptions()
-{
-  config->setGroup("General Options");
-  bool bViewStatusbar = config->readBoolEntry("Show Statusbar", true);
-  ((KToggleAction *)ACTION("show_statusbar"))->setChecked(bViewStatusbar);
-  if(!bViewStatusbar) statusBar()->hide();
-
-  QSize size=config->readSizeEntry("Geometry");
-  if(!size.isEmpty())
-  {
-    resize(size);
-  }
-  doc->ReadConfig(config);
-}
-
 void LSkatApp::saveProperties(KConfig *_cfg)
 {
   if(doc->getTitle()!=i18n("Untitled") && !doc->isModified())
@@ -387,7 +344,7 @@ bool LSkatApp::queryClose()
 
 bool LSkatApp::queryExit()
 {
-  saveOptions();
+  doc->WriteConfig(config);
   return true;
 }
 
@@ -395,11 +352,9 @@ bool LSkatApp::queryExit()
 // SLOT IMPLEMENTATION
 /////////////////////////////////////////////////////////////////////
 
-
 void LSkatApp::slotFileStatistics()
 {
    QString message;
-
    message=i18n("Do you really want to clear the all time "
                 "statistical data?");
 
@@ -409,6 +364,7 @@ void LSkatApp::slotFileStatistics()
     doc->slotUpdateAllViews(0);
   }
 }
+
 /** send message */
 void LSkatApp::slotFileMessage()
 {
@@ -433,8 +389,6 @@ void LSkatApp::slotFileMessage()
     delete msg;
   }
 }
-
-
 
 void LSkatApp::slotFileNew()
 {
@@ -466,15 +420,13 @@ void LSkatApp::slotFileEnd()
   slotStatusNames();
 }
 
-
 void LSkatApp::slotFileQuit()
 {
-  saveOptions();
+  doc->WriteConfig(config);
   if (view) view->close();
   close();
   kdDebug() << "slotFileQuit done"<<endl;
 }
-
 
 void LSkatApp::slotStartplayer()
 {
@@ -482,6 +434,7 @@ void LSkatApp::slotStartplayer()
   doc->SetStartPlayer(i);
   doc->UpdateViews(UPDATE_STATUS);
 }
+
 void LSkatApp::slotPlayer1By()
 {
   switch(((KSelectAction *)ACTION("player1"))->currentItem())
@@ -497,6 +450,7 @@ void LSkatApp::slotPlayer1By()
     break;
   }
 }
+
 void LSkatApp::slotPlayer2By()
 {
   switch(((KSelectAction *)ACTION("player2"))->currentItem())
@@ -512,6 +466,7 @@ void LSkatApp::slotPlayer2By()
     break;
   }
 }
+
 void LSkatApp::slotPlayer1(KG_INPUTTYPE i)
 {
   doc->SetPlayedBy(0,i);
@@ -528,6 +483,7 @@ void LSkatApp::slotPlayer1(KG_INPUTTYPE i)
   }
   doc->UpdateViews(UPDATE_STATUS);
 }
+
 void LSkatApp::slotPlayer2(KG_INPUTTYPE i)
 {
   doc->SetPlayedBy(1,i);
@@ -544,6 +500,7 @@ void LSkatApp::slotPlayer2(KG_INPUTTYPE i)
   }
   doc->UpdateViews(UPDATE_STATUS);
 }
+
 void LSkatApp::slotOptionsNames()
 {
   NameDlg *dlg=new NameDlg(this,QCString("Enter your name..."));
@@ -572,7 +529,6 @@ void LSkatApp::slotOptionsCardDeck()
     doc->SetCardDeckPath(s1,s2);
     doc->slotUpdateAllViews(0);
   }
-
 }
 
 void LSkatApp::slotLevel()
@@ -584,23 +540,11 @@ void LSkatApp::slotLevel()
   printf("Level set to %d\n",i);
 }
 
-void LSkatApp::slotViewStatusBar()
-{
-  ///////////////////////////////////////////////////////////////////
-  //turn Statusbar on or off
-  if (statusBar()->isVisible())
-  {
-    statusBar()->hide();
-  }
-  else
-  {
-    statusBar()->show();
-  }
-}
 void LSkatApp::slotClearStatusMsg()
 {
   slotStatusMsg(i18n("Ready"));
 }
+
 void LSkatApp::slotStatusMsg(const QString &text)
 {
   ///////////////////////////////////////////////////////////////////
@@ -624,7 +568,6 @@ void LSkatApp::slotStatusHelpMsg(const QString &text)
   // change status message of whole statusbar temporary (text, msec)
   statusBar()->message(text, 2000);
 }
-
 
 /** Triggers the processmove timer */
 void LSkatApp::slotProcTimer(void)
@@ -801,22 +744,6 @@ bool LSkatApp::MakeInputDevice(int no)
   return res;
 }
 
-void LSkatApp::slotHelpAbout()
-{
-  slotStatusMsg(i18n("About the program..."));
-
-  EMovie *movie=new EMovie;
-  movie->frameDelay=70;
-  movie->frameArray=doc->mPixAnim;
-  movie->frameCnt=NO_OF_ANIM;
-  aboutDlg *dlg=new aboutDlg(this);
-  dlg->SetMovie(movie);
-  dlg->exec();
-  delete movie;
-  slotStatusMsg(i18n("Ready"));
-}
-
-
 void LSkatApp::OptionsNetwork()
 {
   int res;
@@ -845,18 +772,21 @@ void LSkatApp::slotPrepareProcessMove(KEMessage *msg)
     msg->AddData(QCString("KLogSendMsg"),"process.log");
   PrepareGame(msg);
 }
+
 void LSkatApp::slotPrepareRemoteMove(KEMessage *)
 {
   if (global_debug>3)
     printf("+++ main should prepare remote move\n");
   slotStatusMsg(i18n("Waiting for remote player..."));
 }
+
 void LSkatApp::slotPrepareInteractiveMove(KEMessage *)
 {
   if (global_debug>3)
     printf("+++ main should prepare interactive move\n");
   slotStatusMsg(i18n("Please make your move..."));
 }
+
 void LSkatApp::slotReceiveInput(KEMessage *msg,int )
 {
   /*
@@ -1013,6 +943,7 @@ void LSkatApp::MoveFinished()
     }
     slotStatusNames();
 }
+
 void LSkatApp::Move(int x,int y,int player,bool remote)
 {
   KEMessage *msg;
@@ -1062,9 +993,12 @@ void LSkatApp::Move(int x,int y,int player,bool remote)
     return ;
   }
 }
+
 void LSkatApp::PrepareGame(KEMessage *msg)
 {
-  if (!msg) return ;
+  if (!msg)
+    return;
+
   msg->AddData(QCString("Cards"),(char *)doc->GetCardP(),NO_OF_CARDS*sizeof(int));
   msg->AddData(QCString("Startplayer"),(short)doc->GetStartPlayer());
   msg->AddData(QCString("CurrentPlayer"),(short)doc->GetCurrentPlayer());
@@ -1082,9 +1016,11 @@ void LSkatApp::PrepareGame(KEMessage *msg)
   msg->AddData(QCString("Sc2"),(short)doc->GetScore(1));
   msg->AddData(QCString("Level"),(short)doc->GetComputerLevel());
 }
+
 void LSkatApp::ExtractGame(KEMessage *msg)
 {
-  if (!msg) return ;
+  if (!msg)
+    return;
   // Do we have to switch players?
   bool switchit;
   short remote;

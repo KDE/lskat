@@ -101,13 +101,6 @@ class LSkatApp : public KMainWindow
     void PrepareGame(KEMessage *msg);
     void ExtractGame(KEMessage *msg);
 
-    /** save general Options like all bar positions and status as well as the geometry and the recent file list to the configuration
-     * file
-     */ 	
-    void saveOptions();
-    /** read general Options again and initialize all variables like the recent file list
-     */
-    void readOptions();
     /** initGUI creates the menubar and inserts the menupopups as well as creating the helpMenu.
      * @see KApplication#getHelpMenu
      */
@@ -158,9 +151,6 @@ class LSkatApp : public KMainWindow
     void slotPrepareInteractiveMove(KEMessage *msg);
     void slotReceiveInput(KEMessage *msg,int id);
 
-    void slotHelpAbout();
-
-
     /** clears the document in the actual view to reuse it as the new document */
     void slotFileNew();
     /** asks for saving if the file is modified, then closes the actual file and window*/
@@ -173,9 +163,6 @@ class LSkatApp : public KMainWindow
     void slotFileStatistics();
     /** Msg to remote player */
     void slotFileMessage();
-    /** toggles the statusbar
-     */
-    void slotViewStatusBar();
     /** changes the statusbar contents for the standard label permanently, used to indicate current actions.
      * @param text the text that is displayed in the statusbar
      */
@@ -223,7 +210,7 @@ protected: // Protected attributes
      * information such as filename and does the serialization of your files.
      */
     LSkatDoc *doc;
-
 };
  
 #endif // LSKAT_H
+
