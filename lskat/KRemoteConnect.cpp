@@ -281,9 +281,9 @@ void KRemoteConnect::socketWrite(KSocket *)
 
 bool KRemoteConnect::Exit()
 {
-  if (kSocket) delete kSocket;
-  if (kServerSocket) delete kServerSocket;
-  if (bufferMsg) delete bufferMsg;
+  delete kSocket;
+  delete kServerSocket;
+  delete bufferMsg;
   kSocket=0;
   kServerSocket=0;
   bufferMsg=0;

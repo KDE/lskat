@@ -40,7 +40,7 @@ KEInput::~KEInput()
   {
     RemoveInput(i);
   }
-  if (cTimer) delete cTimer;
+  delete cTimer;
 }
 
 int KEInput::QueryNumberOfInputs()
@@ -144,7 +144,7 @@ bool KEInput::SetInputDevice(int no, KG_INPUTTYPE type,KEMessage *msg)
           connect(playerArray[no].QueryProcessConnect(),SIGNAL(signalPrepareMove(KEMessage *,KG_INPUTTYPE)),
                   this,SLOT(slotPrepareMove(KEMessage *,KG_INPUTTYPE)));
         break;
-      default:  
+      default:
         break;
     }
   }
@@ -171,7 +171,7 @@ bool KEInput::Next(int number, bool force)
 {
   if (locked && !force) return FALSE;
   if (!IsInput(number)) return FALSE;
-  locked=TRUE; 
+  locked=TRUE;
 
   // printf("KEInput::Next %d OK  ... lock set!!\n",number);
 
@@ -193,7 +193,7 @@ bool KEInput::Next(int number, bool force)
         connect(cTimer,SIGNAL(timeout()),this,SLOT(slotTimerNextRemote()));
         cTimer->start(K_INPUT_DELAY,TRUE);
       }
-      else    
+      else
       {
         playerArray[number].QueryRemoteConnect()->Next();
       }
@@ -207,7 +207,7 @@ bool KEInput::Next(int number, bool force)
         connect(cTimer,SIGNAL(timeout()),this,SLOT(slotTimerNextProcess()));
         cTimer->start(K_INPUT_DELAY,TRUE);
       }
-      else    
+      else
         playerArray[number].QueryProcessConnect()->Next();
     break;
     default: return FALSE;
