@@ -690,59 +690,59 @@ void LSkatDoc::ClearStats()
 }
 void LSkatDoc::ReadConfig(KConfig *config)
 {
-  config->setGroup(QCString("Parameter"));
-  host=config->readEntry(QCString("host"),QCString(""));
-  port=(unsigned short)config->readNumEntry(QCString("port"),7432);
-  procfile=config->readEntry(QCString("process"),QCString("lskatproc"));
-  names[0]=config->readEntry(QCString("Name1"),QCString("Alice"));
-  names[1]=config->readEntry(QCString("Name2"),QCString("Bob"));
+  config->setGroup("Parameter");
+  host=config->readEntry("host",QCString(""));
+  port=(unsigned short)config->readNumEntry("port",7432);
+  procfile=config->readEntry("process",QCString("lskatproc"));
+  names[0]=config->readEntry("Name1",QCString("Alice"));
+  names[1]=config->readEntry("Name2",QCString("Bob"));
 
-  startplayer=config->readNumEntry(QCString("Startplayer"),0);
+  startplayer=config->readNumEntry("Startplayer",0);
   if (startplayer>1 || startplayer<0) startplayer=0;
   began_game=startplayer;
-  computerlevel=config->readNumEntry(QCString("Level"),2);
-  playedby[0]=(KG_INPUTTYPE)config->readNumEntry(QCString("Player1"),
+  computerlevel=config->readNumEntry("Level",2);
+  playedby[0]=(KG_INPUTTYPE)config->readNumEntry("Player1",
                                 (int)KG_INPUTTYPE_PROCESS);
-  playedby[1]=(KG_INPUTTYPE)config->readNumEntry(QCString("Player2"),
+  playedby[1]=(KG_INPUTTYPE)config->readNumEntry("Player2",
                                 (int)KG_INPUTTYPE_INTERACTIVE);
-  deckno=config->readNumEntry(QCString("Deck"),0);
+  deckno=config->readNumEntry("Deck",0);
 
-  stat_won[0]=config->readNumEntry(QCString("Stat1W"),0);
-  stat_won[1]=config->readNumEntry(QCString("Stat2W"),0);
-  stat_brk[0]=config->readNumEntry(QCString("Stat1B"),0);
-  stat_brk[1]=config->readNumEntry(QCString("Stat2B"),0);
-  stat_points[0]=config->readNumEntry(QCString("Stat1P"),0);
-  stat_points[1]=config->readNumEntry(QCString("Stat2P"),0);
-  stat_games[0]=config->readNumEntry(QCString("Stat1G"),0);
-  stat_games[1]=config->readNumEntry(QCString("Stat2G"),0);
+  stat_won[0]=config->readNumEntry("Stat1W",0);
+  stat_won[1]=config->readNumEntry("Stat2W",0);
+  stat_brk[0]=config->readNumEntry("Stat1B",0);
+  stat_brk[1]=config->readNumEntry("Stat2B",0);
+  stat_points[0]=config->readNumEntry("Stat1P",0);
+  stat_points[1]=config->readNumEntry("Stat2P",0);
+  stat_games[0]=config->readNumEntry("Stat1G",0);
+  stat_games[1]=config->readNumEntry("Stat2G",0);
 }
 
 /** write config file */
 void LSkatDoc::WriteConfig(KConfig *config)
 {
-  config->setGroup(QCString("Parameter"));
-  config->writeEntry(QCString("host"),host);
-  config->writeEntry(QCString("port"),port);
-  config->writeEntry(QCString("process"),procfile);
-  config->writeEntry(QCString("tmppath"),picpath);
-  config->writeEntry(QCString("delpath"),delpath);
-  config->writeEntry(QCString("Name1"),names[0]);
-  config->writeEntry(QCString("Name2"),names[1]);
+  config->setGroup("Parameter");
+  config->writeEntry("host",host);
+  config->writeEntry("port",port);
+  config->writeEntry("process",procfile);
+  config->writeEntry("tmppath",picpath);
+  config->writeEntry("delpath",delpath);
+  config->writeEntry("Name1",names[0]);
+  config->writeEntry("Name2",names[1]);
 
-  config->writeEntry(QCString("Startplayer"),startplayer);
-  config->writeEntry(QCString("Level"),computerlevel);
-  config->writeEntry(QCString("Player1"),(int)playedby[0]);
-  config->writeEntry(QCString("Player2"),(int)playedby[1]);
-  config->writeEntry(QCString("Deck"),deckno);
+  config->writeEntry("Startplayer",startplayer);
+  config->writeEntry("Level",computerlevel);
+  config->writeEntry("Player1",(int)playedby[0]);
+  config->writeEntry("Player2",(int)playedby[1]);
+  config->writeEntry("Deck",deckno);
 
-  config->writeEntry(QCString("Stat1W"),stat_won[0]);
-  config->writeEntry(QCString("Stat2W"),stat_won[1]);
-  config->writeEntry(QCString("Stat1B"),stat_brk[0]);
-  config->writeEntry(QCString("Stat2B"),stat_brk[1]);
-  config->writeEntry(QCString("Stat1P"),stat_points[0]);
-  config->writeEntry(QCString("Stat2P"),stat_points[1]);
-  config->writeEntry(QCString("Stat1G"),stat_games[0]);
-  config->writeEntry(QCString("Stat2G"),stat_games[1]);
+  config->writeEntry("Stat1W",stat_won[0]);
+  config->writeEntry("Stat2W",stat_won[1]);
+  config->writeEntry("Stat1B",stat_brk[0]);
+  config->writeEntry("Stat2B",stat_brk[1]);
+  config->writeEntry("Stat1P",stat_points[0]);
+  config->writeEntry("Stat2P",stat_points[1]);
+  config->writeEntry("Stat1G",stat_games[0]);
+  config->writeEntry("Stat2G",stat_games[1]);
 
   config->sync();
 }

@@ -380,14 +380,14 @@ LSkatDoc *LSkatApp::getDocument() const
 
 void LSkatApp::saveOptions()
 {	
-  config->setGroup(QCString("General Options"));
-  config->writeEntry(QCString("Geometry"), size());
+  config->setGroup("General Options");
+  config->writeEntry("Geometry", size());
 #ifdef USE_TOOLBAR
-  config->writeEntry(QCString("Show Toolbar"), toolBar()->isVisible());
-  config->writeEntry(QCString("ToolBarPos"), (int) toolBar()->barPos());
-  config->writeEntry(QCString("Recent Files"), recentFiles);
+  config->writeEntry("Show Toolbar", toolBar()->isVisible());
+  config->writeEntry("ToolBarPos", (int) toolBar()->barPos());
+  config->writeEntry("Recent Files", recentFiles);
 #endif
-  config->writeEntry(QCString("Show Statusbar"),statusBar()->isVisible());
+  config->writeEntry("Show Statusbar",statusBar()->isVisible());
   doc->WriteConfig(config);
 }
 
@@ -395,16 +395,16 @@ void LSkatApp::saveOptions()
 void LSkatApp::readOptions()
 {
 	
-  config->setGroup(QCString("General Options"));
+  config->setGroup("General Options");
 
 #ifdef USE_TOOLBAR
   // bar status settings
-  bool bViewToolbar = config->readBoolEntry(QCString("Show Toolbar"), true);
+  bool bViewToolbar = config->readBoolEntry("Show Toolbar", true);
   viewMenu->setItemChecked(ID_VIEW_TOOLBAR, bViewToolbar);
   if(!bViewToolbar)
     toolBar()->hide();
 #endif	
-  bool bViewStatusbar = config->readBoolEntry(QCString("Show Statusbar"), true);
+  bool bViewStatusbar = config->readBoolEntry("Show Statusbar", true);
   viewMenu->setItemChecked(ID_VIEW_STATUSBAR, bViewStatusbar);
   if(!bViewStatusbar)
     statusBar()->hide();
@@ -412,11 +412,11 @@ void LSkatApp::readOptions()
 #ifdef USE_TOOLBAR
   // bar position settings
   KToolBar::BarPosition toolBarPos;
-  toolBarPos=(KToolBar::BarPosition) config->readNumEntry(QCString("ToolBarPos"), KToolBar::Top);
+  toolBarPos=(KToolBar::BarPosition) config->readNumEntry("ToolBarPos", KToolBar::Top);
   toolBar()->setBarPos(toolBarPos);
 #endif	
 
-  QSize size=config->readSizeEntry(QCString("Geometry"));
+  QSize size=config->readSizeEntry("Geometry");
   if(!size.isEmpty())
   {
     resize(size);
@@ -434,8 +434,8 @@ void LSkatApp::saveProperties(KConfig *_cfg)
   else
   {
     QString filename=doc->getAbsFilePath();	
-    _cfg->writeEntry(QCString("filename"), filename);
-    _cfg->writeEntry(QCString("modified"), doc->isModified());
+    _cfg->writeEntry("filename", filename);
+    _cfg->writeEntry("modified", doc->isModified());
 		
     QString tempname = kapp->tempSaveName(filename);
     doc->saveDocument(tempname);
@@ -445,8 +445,8 @@ void LSkatApp::saveProperties(KConfig *_cfg)
 
 void LSkatApp::readProperties(KConfig* _cfg)
 {
-  QString filename = _cfg->readEntry(QCString("filename"), QCString(""));
-  bool modified = _cfg->readBoolEntry(QCString("modified"), false);
+  QString filename = _cfg->readEntry("filename", QCString(""));
+  bool modified = _cfg->readBoolEntry("modified", false);
   if(modified)
   {
     bool canRecover;
