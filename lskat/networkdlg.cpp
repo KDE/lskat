@@ -88,7 +88,6 @@ NetworkDlg::NetworkDlg( QWidget *parent, const char *name,const char * /*sufi*/ 
   connect( PushButton, SIGNAL(clicked()), SLOT(accept()) );
   PushButton->setText( i18n("OK" ));
   PushButton->setAutoRepeat( FALSE );
-  PushButton->setAutoResize( FALSE );
   PushButton->setDefault( TRUE );
 
   /*
@@ -97,7 +96,6 @@ NetworkDlg::NetworkDlg( QWidget *parent, const char *name,const char * /*sufi*/ 
   connect( PushButton, SIGNAL(clicked()), SLOT(reject()) );
   PushButton->setText( i18n("Cancel" ));
   PushButton->setAutoRepeat( FALSE );
-  PushButton->setAutoResize( FALSE );
   */
 
  // setBackgroundColor(DLGBACK);
