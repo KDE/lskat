@@ -75,7 +75,7 @@ LSkatApp::LSkatApp() : KMainWindow(0)
 
   readOptions();
 
-  
+
   // Needs to be after readOptions as we read in default paths
   doc->LoadGrafix(mGrafix);
 
@@ -170,7 +170,7 @@ void LSkatApp::checkMenus(int menu)
 void LSkatApp::initGUI()
 {
   QStringList list;
-  
+
   (void)KStdAction::openNew(this, SLOT(slotFileNew()), actionCollection(), "new_game");
   ACTION("new_game")->setStatusText(i18n("Starting a new game..."));
   ACTION("new_game")->setWhatsThis(i18n("Starting a new game..."));
@@ -190,8 +190,9 @@ void LSkatApp::initGUI()
   ACTION("game_exit")->setStatusText(i18n("Exiting..."));
   ACTION("game_exit")->setWhatsThis(i18n("Quits the program."));
 
-  (void)new KToggleAction(i18n("&Show Statusbar"),0,this,SLOT(slotViewStatusBar()),
+  KToggleAction* act = new KToggleAction(i18n("&Show Statusbar"),0,this,SLOT(slotViewStatusBar()),
                       actionCollection(), "show_statusbar");
+  act->setCheckedState(i18n("Hide Statusbar"));
   ACTION("show_statusbar")->setStatusText(i18n("Toggle the statusbar..."));
   ACTION("show_statusbar")->setWhatsThis(i18n("Toggle the statusbar..."));
 
@@ -228,7 +229,7 @@ void LSkatApp::initGUI()
   list.append(i18n("&Advanced"));
   list.append(i18n("&Hard"));
   ((KSelectAction *)ACTION("choose_level"))->setItems(list);
- 
+
   (void)new KAction(i18n("Select &Card Deck..."), 0, this, SLOT(slotOptionsCardDeck()),
                       actionCollection(), "select_carddeck");
   ACTION("select_carddeck")->setStatusText(i18n("Configure card decks..."));
@@ -248,7 +249,7 @@ void LSkatApp::initGUI()
   KHelpMenu *helpMenu = new KHelpMenu(this, 0, true, actionCollection());
   connect( helpMenu, SIGNAL(showAboutApplication()), this, SLOT(slotHelpAbout()));
 
-  
+
 }
 
 
@@ -299,7 +300,7 @@ void LSkatApp::enableAction(const char *s)
     KAction *act=actionCollection()->action(s);
     if (act) act->setEnabled(true);
   }
-    
+
 }
 void LSkatApp::disableAction(const char *s)
 {
@@ -495,7 +496,7 @@ void LSkatApp::slotPlayer1By()
 {
   switch(((KSelectAction *)ACTION("player1"))->currentItem())
   {
-    case 0: 
+    case 0:
         slotPlayer1(KG_INPUTTYPE_INTERACTIVE);
     break;
     case 1:
@@ -510,7 +511,7 @@ void LSkatApp::slotPlayer2By()
 {
   switch(((KSelectAction *)ACTION("player2"))->currentItem())
   {
-    case 0: 
+    case 0:
         slotPlayer2(KG_INPUTTYPE_INTERACTIVE);
     break;
     case 1:
@@ -597,7 +598,7 @@ void LSkatApp::slotViewStatusBar()
 {
   ///////////////////////////////////////////////////////////////////
   //turn Statusbar on or off
-  if (statusBar()->isVisible()) 
+  if (statusBar()->isVisible())
   {
     statusBar()->hide();
   }
