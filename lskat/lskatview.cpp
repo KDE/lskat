@@ -388,12 +388,12 @@ void LSkatView::drawFinal(QPainter *p)
     }
     else if (sc0>sc1)
     {
-      ld=i18n("Player 1 - ")+getDocument()->GetName(0)+i18n(" won");
+      ld=i18n("Player 1 - %1 won ").arg(getDocument()->GetName(0));
       p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
     }
     else
     {
-      ld=i18n("Player 2 - ")+getDocument()->GetName(1)+i18n(" won");
+      ld=i18n("Player 2 - %1 won ").arg(getDocument()->GetName(1));
       p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
     }
     p->setFont(font14);
@@ -424,22 +424,22 @@ void LSkatView::drawFinal(QPainter *p)
 
     if (sc0>=120)
     {
-      ld=getDocument()->GetName(0)+i18n(" won to nil. Congratulations!");
+      ld=i18n("%1 won to nil.  Congratulations!").arg(getDocument()->GetName(0));
       p->drawText(p1.x()+FINAL_X7,p1.y()+FINAL_Y7,ld);
     }
     else if (sc0>=90)
     {
-      ld=getDocument()->GetName(0)+i18n(" won over 90 points. Super !");
+      ld=i18n("%1 won over 90 points. Super !").arg(getDocument()->GetName(0));
       p->drawText(p1.x()+FINAL_X7,p1.y()+FINAL_Y7,ld);
     }
     if (sc1>=120)
     {
-      ld=getDocument()->GetName(1)+i18n(" won to nil. Congratulations!");
+      ld=i18n("%1 won to nil.  Congratulations!").arg(getDocument()->GetName(1));
       p->drawText(p1.x()+FINAL_X7,p1.y()+FINAL_Y7,ld);
     }
     else if (sc1>=90)
     {
-      ld=getDocument()->GetName(1)+i18n(" won over 90 points. Super !");
+      ld=i18n("%1 won over 90 points. Super !").arg(getDocument()->GetName(1));
       p->drawText(p1.x()+FINAL_X7,p1.y()+FINAL_Y7,ld);
     }
 

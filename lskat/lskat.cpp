@@ -1,4 +1,4 @@
-/***************************************************************************
+/*
                           lskat.cpp  -  description
                              -------------------
     begin                : Tue May  2 15:47:11 CEST 2000
@@ -206,11 +206,6 @@ void LSkatApp::initMenuBar()
 
       for (int i=0;i<NO_OF_DECKS;i++)
         popDeck->insertItem(i18n("Deck &%1").arg(i+1),ID_DECK_1+i);
-      /*
-      popDeck->insertItem(i18n("Deck &2"),ID_DECK_2);
-      popDeck->insertItem(i18n("Deck &3"),ID_DECK_3);
-      popDeck->insertItem(i18n("Deck &4"),ID_DECK_4);
-      */
 
       optionsMenu->insertItem(i18n("&Startplayer"),popStartplayer);
       optionsMenu->insertItem(i18n("Player &1 played by"),popPlayer1);
@@ -913,7 +908,7 @@ void LSkatApp::statusCallback(int id_)
     case ID_LEVEL_9:
     case ID_LEVEL_10:
          s.setNum((int)(id_-ID_LEVEL_1+1));
-         s=i18n("Set the level of the computer player to ")+s;
+         s=i18n("Set the level of the computer player to %1").arg(s);
          slotStatusHelpMsg(i18n(s));
          break;
 
@@ -927,7 +922,7 @@ void LSkatApp::statusCallback(int id_)
     case ID_DECK_8:
     case ID_DECK_9:
          s.setNum((int)(id_-ID_DECK_1+1));
-         s=i18n("Set the carddeck to ")+s;
+         s=i18n("Set the carddeck to %1").arg(s);
          slotStatusHelpMsg(i18n(s));
          break;
 
@@ -988,7 +983,7 @@ void LSkatApp::slotStatusNames(){
   if (!doc->IsRunning()) msg=i18n("No game running");
   else
   {
-    msg=doc->GetName(doc->GetCurrentPlayer())+i18n(" to move ...");
+    msg=i18n("%1 to move ...").arg(doc->GetName(doc->GetCurrentPlayer()));
   }
   slotStatusMover(msg);
 }
@@ -1240,19 +1235,16 @@ bool LSkatApp::MakeInputDevice(int no)
         if (!res)
         {
           QProgressDialog *progress;
-          QString s,p;
+          QString s;
           int tim,j;
           tim=10000;
-          p.setNum(port);
           if (host&&host.length()>0)
           {
-            s=i18n("Remote connection to ")+host
-              +QString(QCString(":"))+p+QString(QCString("...   "));
+            s=i18n("Remote connection to %1:%2...").arg(host).arg(port);
           }
           else
           {
-            s=QString(i18n("Offering remote connection on port "))+
-              p+QString(QCString("...   "));
+            s=i18n("Offering remote connection on port %1 ...").arg(port);
           }
           progress=new QProgressDialog(s, i18n("Abort"), tim, this,0,true );
           progress->setCaption(TITLE);
