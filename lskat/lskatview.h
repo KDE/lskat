@@ -77,6 +77,7 @@ class LSkatView : public QWidget
   protected slots:
   void moveTimerReady();
   void introTimerReady();
+  void drawTabText(QPainter *p,QRect rect,QString s,int *ts);
 
 
   private:

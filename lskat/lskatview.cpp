@@ -513,6 +513,7 @@ void LSkatView::drawFinal(QPainter *p)
       sumrect|=brect5;
     }
   }
+
   
   QPoint offset=QPoint(status_rect3.left()-sumrect.left(),status_rect3.top());
   sumrect.moveBy(offset.x(),offset.y());
@@ -550,10 +551,16 @@ void LSkatView::drawFinal(QPainter *p)
     p->setPen(Qt::black);
     rect=sumrect;
     rect.setTop(brect3.top()+offset.y());
-    p->drawText(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop|Qt::ExpandTabs,line3);
+    
+    rect.setWidth(rect.width()+1);
+    // Workaround for the next line where the ExpandTab crashes!!!
+    drawTabText(p,rect,line3,ts);
+    // p->drawText(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop|Qt::ExpandTabs,line3);
     rect=sumrect;
     rect.setTop(brect4.top()+offset.y());
-    p->drawText(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop|Qt::ExpandTabs,line4);
+    // Workaround for the next line where the ExpandTab crashes!!!
+    drawTabText(p,rect,line4,ts);
+    // p->drawText(rect,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop|Qt::ExpandTabs,line4);
   }
   if (!line5.isNull()) 
   {
@@ -563,8 +570,33 @@ void LSkatView::drawFinal(QPainter *p)
     rect.setTop(brect5.top()+offset.y());
     p->drawText(rect,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,line5);
   }
+}
 
-
+// This function is just a workaround for the QT function drawText
+// with Qt::EXpandTAbs eanbled. For some strange reasons this crashes...
+void LSkatView::drawTabText(QPainter *p,QRect rect,QString s,int *ts)
+{
+  int lcnt=0;
+    
+  // p->setPen(Qt::black);
+  // p->drawRect(rect);
+  while(s.length()>0 && (lcnt==0 || ts[lcnt-1]) )
+  {
+    int lpos=s.find("\t");
+    int rpos=s.length()-lpos-1;
+    if (lpos<0)
+    {
+      lpos=s.length();
+      rpos=0;
+    }
+    QString tmp=s.left(lpos);
+    s=s.right(rpos);
+    QRect rect2=rect;
+    if (lcnt>0)
+      rect2.setLeft(rect.left()+ts[lcnt-1]);
+    p->drawText(rect2,Qt::AlignLeft|Qt::SingleLine|Qt::AlignTop,tmp);
+    lcnt++;
+  }
 }
 
 // Draw the status field at the right side
