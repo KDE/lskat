@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 {
 
   global_debug=0;
-  KAboutData *aboutData=new KAboutData( "lskat", I18N_NOOP("Lieutnant Skat"),
+  KAboutData *aboutData=new KAboutData( "lskat", I18N_NOOP("Lieutenant Skat"),
                         "1.0",
                         I18N_NOOP("Card Game"),
                         KAboutData::License_GPL,

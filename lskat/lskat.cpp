@@ -195,9 +195,9 @@ void LSkatApp::initGUI()
   ACTION("show_statusbar")->setStatusText(i18n("Toggle the statusbar..."));
   ACTION("show_statusbar")->setWhatsThis(i18n("Toggle the statusbar..."));
 
-  (void)new KSelectAction(i18n("Startplayer"),0,this,SLOT(slotStartplayer()),
+  (void)new KSelectAction(i18n("Starting Player"),0,this,SLOT(slotStartplayer()),
                       actionCollection(), "startplayer");
-  ACTION("startplayer")->setStatusText(i18n("Changing startplayer..."));
+  ACTION("startplayer")->setStatusText(i18n("Changing starting player..."));
   ACTION("startplayer")->setWhatsThis(i18n("Chooses which player begins the next game."));
   list.clear();
   list.append(i18n("Player &1"));
@@ -229,10 +229,10 @@ void LSkatApp::initGUI()
   list.append(i18n("&Hard"));
   ((KSelectAction *)ACTION("choose_level"))->setItems(list);
  
-  (void)new KAction(i18n("Select &Carddeck..."), 0, this, SLOT(slotOptionsCardDeck()),
+  (void)new KAction(i18n("Select &Card Deck..."), 0, this, SLOT(slotOptionsCardDeck()),
                       actionCollection(), "select_carddeck");
-  ACTION("select_carddeck")->setStatusText(i18n("Configure carddecks..."));
-  ACTION("select_carddeck")->setWhatsThis(i18n("Choose how the cards should look like."));
+  ACTION("select_carddeck")->setStatusText(i18n("Configure card decks..."));
+  ACTION("select_carddeck")->setWhatsThis(i18n("Choose how the cards should look."));
 
   (void)new KAction(i18n("Change &Names..."), 0, this, SLOT(slotOptionsNames()),
                       actionCollection(), "change_names");
@@ -263,7 +263,7 @@ void LSkatApp::initStatusBar()
 
   slotStatusTime();
   slotStatusMover(i18n("(c) Martin Heni   "));
-  slotStatusMsg(i18n("Welcome to Lieutnant Skat"));
+  slotStatusMsg(i18n("Welcome to Lieutenant Skat"));
 
   // status bar clock
   statusTimer=new QTimer(this);
@@ -289,7 +289,7 @@ void LSkatApp::initView()
   view = new LSkatView(this);
   doc->addView(view);
   setCentralWidget(view);
-  setCaption(i18n("Lieutnant Skat"));
+  setCaption(i18n("Lieutenant Skat"));
 }
 
 void LSkatApp::enableAction(const char *s)
@@ -385,7 +385,7 @@ void LSkatApp::readProperties(KConfig* _cfg)
   }
 
   //QString caption=kapp->caption();
-  setCaption(i18n("Lieutnant Skat"));
+  setCaption(i18n("Lieutenant Skat"));
 }
 
 bool LSkatApp::queryClose()
@@ -766,7 +766,7 @@ bool LSkatApp::MakeInputDevice(int no)
             s=i18n("Offering remote connection on port %1...").arg(port);
           }
           progress=new QProgressDialog(s, i18n("Abort"), tim, this,0,true );
-          progress->setCaption(i18n("Lieutnant Skat"));
+          progress->setCaption(i18n("Lieutenant Skat"));
           for (j=0; j<tim; j++)
           {
             progress->setProgress( j );
@@ -1075,7 +1075,7 @@ void LSkatApp::Move(int x,int y,int player,bool remote)
   else if (res==-3)
   {
      KMessageBox::information(this,
-       i18n("Ehm, this move would not follow the rulebook.\n"
+       i18n("This move would not follow the rulebook.\n"
             "Better think again!\n"));
     return ;
   }

@@ -76,8 +76,8 @@ NetworkDlg::NetworkDlg( QWidget *parent, const char *name,const char * /*sufi*/ 
 
   Label=new QLabel(grp,"Label_3");
   Label->setGeometry(10,95,270,75);
-  Label->setText(i18n("You can leave the remote host input "
-  "empty.\nThen your computer acts as server only and\ndoes not "
+  Label->setText(i18n("You can leave the remote host entry "
+  "empty.\nYour computer then acts as a server only and\ndoes not "
   "try to connect to a remote host."));
 
 

@@ -29,7 +29,7 @@ aboutDlg::aboutDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
 {
     if ( !name ) setName( "aboutDlg" );
     resize( 315, 318 ); 
-    setCaption( i18n( "About Lieutnant sKat"  ) );
+    setCaption( i18n( "About Lieutenant Skat"  ) );
     vbox = new QVBoxLayout( this ); 
     vbox->setSpacing( 6 );
     vbox->setMargin( 11 );
@@ -58,14 +58,14 @@ aboutDlg::aboutDlg( QWidget* parent,  const char* name, bool modal, WFlags fl )
   hbox->addItem( spacer );
 
     TextLabel3 = new QLabel( Frame5, "TextLabel3" );
-    TextLabel3->setText( i18n( "Lieutnant\nSkat\n\nVersion %1"  ).arg(VERSION) );
+    TextLabel3->setText( i18n( "Lieutenant\nSkat\n\nVersion %1"  ).arg(VERSION) );
     TextLabel3->setAlignment( int( QLabel::AlignCenter ) );
     TextLabel3->setBackgroundColor(Qt::white);
     hbox->addWidget( TextLabel3 );
     vbox_2->addLayout( hbox );
 
     TextLabel4 = new QLabel( Frame5, "TextLabel4" );
-    TextLabel4->setText( i18n( "(c) 2000 Martin Heni\nEmail: martin@heni-online.de\n\nGame features:\n  - Multiplayer network game\n  - Up to two computer players\n\n\n Many thanks to Laura for betatesting!"  ) );
+    TextLabel4->setText( i18n( "(c) 2000 Martin Heni\nEmail: martin@heni-online.de\n\nGame features:\n  - Multiplayer network game\n  - Up to two computer players\n\n\n Many thanks to Laura for beta testing!"  ) );
     TextLabel4->setBackgroundColor(Qt::white);
     vbox_2->addWidget( TextLabel4 );
     vbox->addWidget( Frame5 );

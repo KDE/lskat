@@ -273,7 +273,7 @@ void LSkatView::drawIntro(QPainter *p)
     col2=2*col/3;
     col3=255-2*i;
     col4=2*col3/3;
-    s=i18n("Lieutnant Skat");
+    s=i18n("Lieutenant Skat");
     x=160;
     y=-20+(int)(200.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
     p->setPen(QColor(col4,col2,0));
@@ -822,13 +822,13 @@ void LSkatView::mousePressEvent( QMouseEvent *mouse )
     switch(getDocument()->random(4))
     {
       case 0:
-        m=i18n("Hold on..the other was not yet gone...");
+        m=i18n("Hold on... the other player hasn't been yet...");
       break;
       case 1:
         m=i18n("Hold your horses...");
       break;
       case 2:
-        m=i18n("Ah ah ah...only one go at a time...");
+        m=i18n("Ah ah ah... only one go at a time...");
       break;
       default:
         m=i18n("Please wait... it is not your turn.");
