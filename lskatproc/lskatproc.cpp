@@ -548,7 +548,7 @@ int lskatproc::GetComputerMove(lgame game,short &x,short &y,int rek)
       if (rek<2*cgame.level && !cgame.endgame)
       {
         // If we have the same startplayer the movesequence
-        // is not switched and we can take the negativ value
+        // is not switched and we can take the negative value
         // otherwise we play again, and have to take the poitiv value
         if (cgame.startplayer==startplayer)
         {

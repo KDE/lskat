@@ -71,7 +71,7 @@ bool KInteractiveConnect::SendMsg(KEMessage *msg)
   emit signalReceiveMsg(msg,QueryID());
   return true;
 }
-// Try not to use this..prodices just unneccessary string-msg
+// Try not to use this..prodices just unnecessary string-msg
 // conversion
 bool KInteractiveConnect::Send(QString str)
 {
