@@ -305,7 +305,7 @@ void LSkatView::drawDeck(QPainter *p)
 
 
         if (height==2)
-          p->drawPixmap(point-QPoint(CARD_X_DECK,CARD_Y_DECK),getDocument()->mPixDeck[getDocument()->GetDeckNo()]);
+          p->drawPixmap(point-QPoint(CARD_X_DECK,CARD_Y_DECK),getDocument()->mPixDeck);
 
         if (cardmovecnt<1 || x!=cardmovex || y!=cardmovey)
         {
@@ -313,12 +313,12 @@ void LSkatView::drawDeck(QPainter *p)
         }
         else
         {
-          if (height>0 ) p->drawPixmap(point,getDocument()->mPixDeck[getDocument()->GetDeckNo()]);
+          if (height>0 ) p->drawPixmap(point,getDocument()->mPixDeck);
         }
       }
       else
       {
-          p->drawPixmap(point,getDocument()->mPixDeck[getDocument()->GetDeckNo()]);
+          p->drawPixmap(point,getDocument()->mPixDeck);
       }
     }
   }

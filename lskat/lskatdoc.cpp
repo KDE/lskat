@@ -31,6 +31,7 @@
 #include "lskatdoc.h"
 #include "lskat.h"
 #include "lskatview.h"
+#include <kcarddialog.h>
 
 QList<LSkatView> *LSkatDoc::pViewList = 0L;
 
@@ -48,10 +49,11 @@ LSkatDoc::LSkatDoc(QWidget *parent, const char *name) : QObject(parent, name)
   wasgame=false;
   initrandom();
   // Allow translation of playernames
+  /*
   names[0]=i18n("Alice");
   names[1]=i18n("Bob");
+  */
 
-  deckno=0;
   for (i=0;i<14;i++) cardvalues[i]=0;
   cardvalues[(int)Ace]=11;
   cardvalues[(int)Ten]=10;
@@ -59,18 +61,20 @@ LSkatDoc::LSkatDoc(QWidget *parent, const char *name) : QObject(parent, name)
   cardvalues[(int)Queen]=3;
   cardvalues[(int)Jack]=2;
 
+  /*
   computerlevel=2;
   playedby[1]=KG_INPUTTYPE_INTERACTIVE;
   playedby[0]=KG_INPUTTYPE_PROCESS;
   // playedby[1]=KG_INPUTTYPE_INTERACTIVE;
+  */
 
-  for  (i=0;i<NO_OF_DECKS;i++) hasdeck[i]=false;
 
   isintro=1;
   server=false;
   port=7432;
   host="";
   remoteswitch=false;
+
 
   ClearStats();
 }
@@ -166,6 +170,34 @@ bool LSkatDoc::newDocument(KConfig *config,QString path)
   res=LoadBitmap(path);
   if (res==0) return false;
   return true;
+}
+
+bool LSkatDoc::LoadGrafix(QString path)
+{
+  int res;
+  res=LoadCards(cardPath);
+  if (res==0) return false;
+  res=LoadDeck(deckPath);
+  if (res==0) return false;
+  return true;
+}
+
+bool LSkatDoc::SetCardDeckPath(QString deck,QString card)
+{
+  bool update=false;
+  if (!deck.isNull() && deck!=deckPath)
+  {
+    update=true;
+    deckPath=deck;
+    LoadDeck(deckPath);
+  }
+  if (!card.isNull() && card!=cardPath)
+  {
+    update=true;
+    cardPath=card;
+    LoadCards(cardPath);
+  }
+  return update;
 }
 
 bool LSkatDoc::openDocument(const QString &filename, const char *format /*=0*/)
@@ -506,9 +538,10 @@ QString LSkatDoc::GetName(int no)  {return names[no];}
 int LSkatDoc::GetScore(int no) {return score[no];}
 
 int LSkatDoc::GetMoveNo() {return moveno;}
+/*
 void LSkatDoc::SetDeckNo(int no) {deckno=no;}
 int LSkatDoc::GetDeckNo() {return deckno;}
-bool LSkatDoc::HasDeck(int i) {return hasdeck[i];}
+*/
 
 
 int LSkatDoc::GetLastStartPlayer() {return laststartplayer;}
@@ -532,15 +565,6 @@ int LSkatDoc::LoadBitmap(QString path)
   int i;
   QString buf;
   if (global_debug>5) printf("Loading bitmaps\n");
-  for (i=0;i<NO_OF_CARDS;i++)
-  {
-    buf.sprintf("%s%d.png",path.latin1(),i+1);
- 		if(!mPixCard[i].load(buf))
-    {
-		    printf("Fatal error: bitmap %s not found \n",buf.latin1());
-    }
-  }
-
   for (i=0;i<NO_OF_TRUMPS;i++)
   {
     buf.sprintf("%st%d.png",path.latin1(),i+1);
@@ -550,24 +574,7 @@ int LSkatDoc::LoadBitmap(QString path)
     }
   }
 
-  cardsize=mPixCard[0].size();
 
-  bool founddeck=false;
-  for (i=0;i<NO_OF_DECKS;i++)
-  {
-    buf.sprintf("%sdeck%d.png",path.latin1(),i+1);
-    // do not raise error on missing decks
-    if (!mPixDeck[i].load(buf)) hasdeck[i]=false;
-    else
-    {
-      hasdeck[i]=true;
-      founddeck=true;
-    }
-  }
-  if (!founddeck)
-  {
-    printf("Fatal error: Could not load any deck!\n");
-  }
   for (i=0;i<3;i++)
   {
     buf.sprintf("%stype%d.png",path.latin1(),i+1);
@@ -595,6 +602,30 @@ int LSkatDoc::LoadBitmap(QString path)
   }
   return 1;
 }
+
+
+int LSkatDoc::LoadCards(QString path)
+{
+  QString buf;
+  for (int i=0;i<NO_OF_CARDS;i++)
+  {
+    buf.sprintf("%s%d.png",path.latin1(),i+1);
+ 		if(!mPixCard[i].load(buf))
+    {
+		    printf("Fatal error: bitmap %s not found \n",buf.latin1());
+        return 0;
+    }
+  }
+  cardsize=mPixCard[0].size();
+  return 1;
+}
+
+int LSkatDoc::LoadDeck(QString path)
+{
+  if (!mPixDeck.load(path))return 0;
+  return 1;
+}
+
 void LSkatDoc::SetInputHandler(KEInput *i)
 {
   inputHandler=i;
@@ -697,6 +728,22 @@ void LSkatDoc::ReadConfig(KConfig *config)
   names[0]=config->readEntry("Name1",i18n("Alice"));
   names[1]=config->readEntry("Name2",i18n("Bob"));
 
+
+  // This is for debug and testing as you can run it from the CVS without
+  // installing the carddecks !
+  // For the release version you can remove the aruments to the following two
+  // functions !!!!
+  cardPath=config->readEntry("cardpath",
+               KCardDialog::getDefaultCardpath(KCardDialog::ProbeDefaultDir,
+                                               "../../carddecks/cards1/"));
+  deckPath=config->readEntry("deckpath",
+                KCardDialog::getDefaultDeckpath(KCardDialog::ProbeDefaultDir,
+                                               "../../carddecks/decks/")
+                +QString::fromLatin1("deck0.png"));
+
+  // Debug only
+  printf("cardPath=%s\ndeckPath=%s\n",cardPath.latin1(),deckPath.latin1());
+
   startplayer=config->readNumEntry("Startplayer",0);
   if (startplayer>1 || startplayer<0) startplayer=0;
   began_game=startplayer;
@@ -705,7 +752,6 @@ void LSkatDoc::ReadConfig(KConfig *config)
                                 (int)KG_INPUTTYPE_PROCESS);
   playedby[1]=(KG_INPUTTYPE)config->readNumEntry("Player2",
                                 (int)KG_INPUTTYPE_INTERACTIVE);
-  deckno=config->readNumEntry("Deck",0);
 
   stat_won[0]=config->readNumEntry("Stat1W",0);
   stat_won[1]=config->readNumEntry("Stat2W",0);
@@ -733,7 +779,6 @@ void LSkatDoc::WriteConfig(KConfig *config)
   config->writeEntry("Level",computerlevel);
   config->writeEntry("Player1",(int)playedby[0]);
   config->writeEntry("Player2",(int)playedby[1]);
-  config->writeEntry("Deck",deckno);
 
   config->writeEntry("Stat1W",stat_won[0]);
   config->writeEntry("Stat2W",stat_won[1]);
@@ -743,6 +788,9 @@ void LSkatDoc::WriteConfig(KConfig *config)
   config->writeEntry("Stat2P",stat_points[1]);
   config->writeEntry("Stat1G",stat_games[0]);
   config->writeEntry("Stat2G",stat_games[1]);
+
+  config->writeEntry("cardpath",cardPath);
+  config->writeEntry("deckpath",deckPath);
 
   config->sync();
 }

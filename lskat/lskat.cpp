@@ -40,6 +40,8 @@
 #include "networkdlg.h"
 #include "aboutdlg.h"
 #include "msgdlg.h"
+#include <kcarddialog.h>
+
 
 #include <stdlib.h>
 
@@ -67,6 +69,8 @@ LSkatApp::LSkatApp() : KMainWindow(0)
   initView();
 	
   readOptions();
+  // Needs to be after readOptions as we read in default paths
+  doc->LoadGrafix(mGrafix);
 
   mInput=new KEInput(this);
   doc->SetInputHandler(mInput);
@@ -202,17 +206,20 @@ void LSkatApp::initMenuBar()
       popLevel->insertItem(i18n("&10"),ID_LEVEL_10);
       */
 
+      /*
     popDeck = new QPopupMenu;
       popDeck->setCheckable(TRUE);
 
       for (int i=0;i<NO_OF_DECKS;i++)
         popDeck->insertItem(i18n("Deck &%1").arg(i+1),ID_DECK_1+i);
+        */
 
       optionsMenu->insertItem(i18n("&Startplayer"),popStartplayer);
       optionsMenu->insertItem(i18n("Player &1 played by"),popPlayer1);
       optionsMenu->insertItem(i18n("Player &2 played by"),popPlayer2);
       optionsMenu->insertItem(i18n("&Level"),popLevel);
-      optionsMenu->insertItem(i18n("Select &carddeck"),popDeck);
+//      optionsMenu->insertItem(i18n("Select &carddeck"),popDeck);
+      optionsMenu->insertItem(i18n("Select &carddeck..."),ID_OPTIONS_CARDDECK);
       optionsMenu->insertItem(i18n("Change &Names..."),ID_OPTIONS_NAMES);
  
 
@@ -272,9 +279,11 @@ void LSkatApp::initMenuBar()
   connect(popLevel, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
   connect(popLevel, SIGNAL(aboutToShow()), SLOT(slotLevelToShow()));
 
+  /*
   connect(popDeck, SIGNAL(activated(int)), SLOT(commandCallback(int)));
   connect(popDeck, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
   connect(popDeck, SIGNAL(aboutToShow()), SLOT(slotDeckToShow()));
+  */
 
 }
 
@@ -659,6 +668,7 @@ void LSkatApp::slotPlayer2(KG_INPUTTYPE i)
 void LSkatApp::slotOptionsNames()
 {
   slotStatusMsg(i18n("Configure player names..."));
+
   NameDlg *dlg=new NameDlg(this,QCString("Enter your name..."));
   dlg->SetNames(doc->GetName(0),doc->GetName(1));
   if (dlg->exec()==QDialog::Accepted)
@@ -675,6 +685,29 @@ void LSkatApp::slotOptionsNames()
   slotStatusMsg(i18n("Ready"));
 }
 
+void LSkatApp::slotOptionsCardDeck()
+{
+  slotStatusMsg(i18n("Configure carddecks..."));
+
+  QString s1,s2;
+  int result;
+  s1=doc->GetDeckpath();
+  s2=doc->GetCardpath();
+  // This is for debug and testing as you can run it from the CVS without
+  // installing the carddecks !
+  result=KCardDialog::getCardDeck(s1,s2,0,KCardDialog::ProbeDefaultDir,
+           "../../carddecks/decks/","../../carddecks/");
+  // release version
+  // result=KCardDialog::getCardDeck(s1,s2);
+  if (result==QDialog::Accepted)
+  {
+    doc->SetCardDeckPath(s1,s2);
+    doc->slotUpdateAllViews(0);
+  }
+  	
+  slotStatusMsg(i18n("Ready"));
+}
+
 void LSkatApp::slotLevel(int i)
 {
   slotStatusMsg(i18n("Change level..."));
@@ -684,10 +717,12 @@ void LSkatApp::slotLevel(int i)
 }
 void LSkatApp::slotDeck(int i)
 {
+  /*
   slotStatusMsg(i18n("Change carddeck..."));
   doc->SetDeckNo(i);
   doc->slotUpdateAllViews(0);
   slotStatusMsg(i18n("Ready"));
+  */
 }
 
 void LSkatApp::slotViewStatusBar()
@@ -845,6 +880,9 @@ void LSkatApp::commandCallback(int id_)
     case ID_OPTIONS_NAMES:
         slotOptionsNames();
     break;
+    case ID_OPTIONS_CARDDECK:
+        slotOptionsCardDeck();
+    break;
 
     default:
          break;
@@ -953,6 +991,9 @@ void LSkatApp::statusCallback(int id_)
     case ID_OPTIONS_NAMES:
          slotStatusHelpMsg(i18n("Change the names of the players"));
     break;
+    case ID_OPTIONS_CARDDECK:
+         slotStatusHelpMsg(i18n("Change the carddeck"));
+    break;
     default:
          break;
   }
@@ -1052,6 +1093,7 @@ void LSkatApp::slotLevelToShow()
 }
 void LSkatApp::slotDeckToShow()
 {
+  /*
   int i;
   for (i=0;i<NO_OF_DECKS;i++)
   {
@@ -1063,6 +1105,7 @@ void LSkatApp::slotDeckToShow()
     uncheckCommand(ID_DECK_1+i);
   }
   checkCommand(ID_DECK_1+doc->GetDeckNo());
+  */
 }
 void LSkatApp::slotStartplayerToShow()
 {

@@ -40,7 +40,7 @@ typedef enum {Ace=0,King=1,Queen=2,Jack=3,Ten=4,Nine=5,Eight=6,Seven=7} CCARD;
 #define NO_OF_CARDS 32
 #define NO_OF_TILES 16
 #define NO_OF_TRUMPS 5
-#define NO_OF_DECKS 6
+//#define NO_OF_DECKS 6
 #define NO_OF_ANIM  24
 
 // Window update codes
@@ -225,6 +225,7 @@ class LSkatApp : public KMainWindow
     void slotPlayer1(KG_INPUTTYPE i);
     void slotPlayer2(KG_INPUTTYPE i);
     void slotOptionsNames();
+    void slotOptionsCardDeck();
   /** Triggers the status timer */
   void slotStatusTimer(void);
   /** Triggers the process timer */

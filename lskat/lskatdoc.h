@@ -66,7 +66,7 @@ class LSkatDoc : public QObject
     /** deletes the document's contents */
     void deleteContents();
     /** initializes the document generally */
-    bool newDocument(KConfig *config,QString file);
+    bool newDocument(KConfig *config,QString path);
     /** closes the acutal document */
     void closeDocument();
     /** loads the document by filename and format and emits the updateViews() signal */
@@ -109,9 +109,10 @@ class LSkatDoc : public QObject
    bool LegalMove(int card1, int card2);
    int WonMove(int card1,int card2);
    int CardValue(int card);
+   /*
    int GetDeckNo();
    void SetDeckNo(int no);
-   bool HasDeck(int i);
+   */
    int GetLastStartPlayer();
    KG_INPUTTYPE GetPlayedBy(int no);
    void SetPlayedBy(int no,KG_INPUTTYPE type);
@@ -153,8 +154,12 @@ class LSkatDoc : public QObject
    bool IsRemoteSwitch();
    void SetRemoteSwitch(bool b);
    QString GetProcess();
-
-
+   int LoadCards(QString path);
+   int LoadDeck(QString path);
+   bool SetCardDeckPath(QString deck,QString card);
+   QString GetDeckpath() {return deckPath;}
+   QString GetCardpath() {return cardPath;}
+   bool LoadGrafix(QString path);
 
   protected:
   void initrandom();
@@ -163,7 +168,7 @@ class LSkatDoc : public QObject
 public:
   QPixmap mPixCard[NO_OF_CARDS];
   QPixmap mPixTrump[NO_OF_TRUMPS];
-  QPixmap mPixDeck[NO_OF_DECKS];
+  QPixmap mPixDeck;
   QPixmap mPixBackground;
   QSize cardsize;
   QPixmap mPixType[3];
@@ -179,7 +184,6 @@ public:
   QString host;
   bool server;
   bool lock;
-  int deckno;
   int startplayer;
   int cardheight[16];
   int card[NO_OF_CARDS];
@@ -207,7 +211,6 @@ public:
 
 
   int cardvalues[14];
-  bool hasdeck[NO_OF_DECKS];
 
 	
   public slots:
@@ -225,6 +228,7 @@ public:
     bool modified;
     QString title;
     QString absFilePath;
+    QString deckPath,cardPath;
 
 };
 
