@@ -134,21 +134,21 @@ void LSkatApp::initMenuBar()
   // MENUBAR
   fileMenu = new QPopupMenu();
 //  fileMenu->insertSeparator();
-  fileMenu->insertItem(BarIcon(QCString("filenew")), i18n("&New game"), ID_FILE_NEW);
-  fileMenu->insertItem(BarIcon(QCString("stop")),i18n("&End game"), ID_FILE_CLOSE);
+  fileMenu->insertItem(SmallIcon("filenew"), i18n("&New game"), ID_FILE_NEW);
+  fileMenu->insertItem(SmallIcon("stop"),i18n("&End game"), ID_FILE_CLOSE);
   fileMenu->insertSeparator();
-  fileMenu->insertItem(BarIcon(QCString("flag")),i18n("&Clear statistics..."), ID_FILE_STATISTICS);
-  fileMenu->insertItem(BarIcon(QCString("openterm")),i18n("Send &Message..."), ID_FILE_MESSAGE);
+  fileMenu->insertItem(SmallIcon("flag"),i18n("&Clear statistics..."), ID_FILE_STATISTICS);
+  fileMenu->insertItem(SmallIcon("openterm"),i18n("Send &Message..."), ID_FILE_MESSAGE);
   fileMenu->insertSeparator();
   fileMenu->insertSeparator();
-  fileMenu->insertItem(BarIcon(QCString("exit")),i18n("E&xit"), ID_FILE_QUIT);
+  fileMenu->insertItem(SmallIcon("exit"),i18n("E&xit"), ID_FILE_QUIT);
 
 	
   ///////////////////////////////////////////////////////////////////
   // menuBar entry editMenu
   editMenu = new QPopupMenu();
-  editMenu->insertItem(BarIcon(QCString("undo")), i18n("&Undo move"), ID_EDIT_UNDO);
-  editMenu->insertItem(BarIcon(QCString("redo")), i18n("&Redo move"), ID_EDIT_REDO);
+  editMenu->insertItem(SmallIcon("undo"), i18n("&Undo move"), ID_EDIT_UNDO);
+  editMenu->insertItem(SmallIcon("redo"), i18n("&Redo move"), ID_EDIT_REDO);
 
   ///////////////////////////////////////////////////////////////////
   // menuBar entry viewMenu
@@ -284,16 +284,16 @@ void LSkatApp::initToolBar()
 
   ///////////////////////////////////////////////////////////////////
   // TOOLBAR
-  toolBar()->insertButton(BarIcon(QCString("filenew")), ID_FILE_NEW, true, i18n("New File"));
-  toolBar()->insertButton(BarIcon(QCString("fileopen")), ID_FILE_OPEN, true, i18n("Open File"));
-  toolBar()->insertButton(BarIcon(QCString("filesave")), ID_FILE_SAVE, true, i18n("Save File"));
-  toolBar()->insertButton(BarIcon(QCString("fileprint")), ID_FILE_PRINT, true, i18n("Print"));
+  toolBar()->insertButton(BarIcon("filenew"), ID_FILE_NEW, true, i18n("New File"));
+  toolBar()->insertButton(BarIcon("fileopen"), ID_FILE_OPEN, true, i18n("Open File"));
+  toolBar()->insertButton(BarIcon("filesave"), ID_FILE_SAVE, true, i18n("Save File"));
+  toolBar()->insertButton(BarIcon("fileprint"), ID_FILE_PRINT, true, i18n("Print"));
   toolBar()->insertSeparator();
-  toolBar()->insertButton(BarIcon(QCString("editcut")), ID_EDIT_CUT, true, i18n("Cut"));
-  toolBar()->insertButton(BarIcon(QCString("editcopy")), ID_EDIT_COPY, true, i18n("Copy"));
-  toolBar()->insertButton(BarIcon(QCString("editpaste")), ID_EDIT_PASTE, true, i18n("Paste"));
+  toolBar()->insertButton(BarIcon("editcut"), ID_EDIT_CUT, true, i18n("Cut"));
+  toolBar()->insertButton(BarIcon("editcopy"), ID_EDIT_COPY, true, i18n("Copy"));
+  toolBar()->insertButton(BarIcon("editpaste"), ID_EDIT_PASTE, true, i18n("Paste"));
   toolBar()->insertSeparator();
-  toolBar()->insertButton(BarIcon(QCString("help")), ID_HELP_CONTENTS, SIGNAL(clicked()),
+  toolBar()->insertButton(BarIcon("help"), ID_HELP_CONTENTS, SIGNAL(clicked()),
   				this, SLOT(appHelpActivated()), true,i18n("Help"));
 
   ///////////////////////////////////////////////////////////////////
@@ -470,7 +470,7 @@ void LSkatApp::readProperties(KConfig* _cfg)
     }
   }
 
-  QString caption=kapp->caption();	
+  //QString caption=kapp->caption();	
   setCaption(i18n("Lieutnant Skat"));
 }		
 
@@ -857,7 +857,7 @@ void LSkatApp::statusCallback(int id_)
   switch (id_)
   {
     case ID_FILE_NEW:
-         slotStatusHelpMsg(i18n("Creates a new document"));
+         slotStatusHelpMsg(i18n("Starts a new game"));
          break;
 
     case ID_FILE_STATISTICS:
@@ -869,7 +869,7 @@ void LSkatApp::statusCallback(int id_)
          break;
 
     case ID_FILE_CLOSE:
-         slotStatusHelpMsg(i18n("Closes the actual document"));
+         slotStatusHelpMsg(i18n("Ends the current game"));
          break;
 
     case ID_FILE_QUIT:
