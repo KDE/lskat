@@ -79,11 +79,10 @@ NameDlg::NameDlg( QWidget *parent, const char *name,bool /* modal */, WFlags /* 
     hbox_3->setMargin( 0 );
 
     text_player2 = new QLabel( player_names, "text_player2" );
-    text_player2->setText( i18n("Player 1" ) );
+    text_player2->setText( i18n("Player 2" ) );
     hbox_3->addWidget( text_player2 );
 
     edit_player2 = new QLineEdit( player_names, "edit_player2" );
-    edit_player2->setText( i18n( "Player 2"  ) );
     edit_player2->setMaxLength( NAME_MAX_LEN );
     QWhatsThis::add(  edit_player2, i18n( "Enter a player's name" ) );
     hbox_3->addWidget( edit_player2 );
