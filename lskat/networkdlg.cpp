@@ -28,7 +28,7 @@ extern const char* LSKAT_SERVICE;
 NetworkDlg::NetworkDlg( QWidget *parent, const char *name )
     : NetworkDlgBase( parent, name, TRUE )
 {
-  browser = new DNSSD::ServiceBrowser(LSKAT_SERVICE);
+  browser = new DNSSD::ServiceBrowser(QString::fromLatin1(LSKAT_SERVICE));
   connect(browser,SIGNAL(finished()),SLOT(gamesFound()));
   browser->startBrowse();
 }
