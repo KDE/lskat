@@ -1,19 +1,21 @@
 # Generated automatically from Makefile.in by configure.
 # KDE tags expanded automatically by am_edit - $Revision$ 
 # Generated automatically from Makefile.in by configure.
-DISTFILES= 1.bmp 10.bmp 11.bmp 12.bmp 13.bmp 14.bmp 15.bmp 16.bmp \
-17.bmp 18.bmp 19.bmp 2.bmp 20.bmp 21.bmp 22.bmp 23.bmp 24.bmp \
-25.bmp 26.bmp 27.bmp 28.bmp 29.bmp 3.bmp 30.bmp 31.bmp 32.bmp \
-4.bmp \
-400000.bmp 400001.bmp 400002.bmp 400003.bmp 400004.bmp 400005.bmp \
-400006.bmp 400007.bmp 400008.bmp 400009.bmp 400010.bmp 400011.bmp \
-400012.bmp 400013.bmp 400014.bmp 400015.bmp 400016.bmp 400017.bmp \
-400018.bmp 400019.bmp 400020.bmp 400021.bmp 400022.bmp 400023.bmp \
-400024.bmp \
-5.bmp 6.bmp 7.bmp 8.bmp 9.bmp background.bmp \
-deck1.bmp deck2.bmp deck3.bmp deck4.bmp \
-t1.bmp t2.bmp t3.bmp \
-t4.bmp t5.bmp tback.bmp type1.bmp type2.bmp type3.bmp 
+grafix_DATA = 1.png 10.png 11.png 12.png 13.png 14.png 15.png 16.png \
+17.png 18.png 19.png 2.png 20.png 21.png 22.png 23.png 24.png \
+25.png 26.png 27.png 28.png 29.png 3.png 30.png 31.png 32.png \
+4.png \
+400000.png 400001.png 400002.png 400003.png 400004.png 400005.png \
+400006.png 400007.png 400008.png 400009.png 400010.png 400011.png \
+400012.png 400013.png 400014.png 400015.png 400016.png 400017.png \
+400018.png 400019.png 400020.png 400021.png 400022.png 400023.png \
+400024.png \
+5.png 6.png 7.png 8.png 9.png background.png \
+deck1.png deck2.png deck3.png deck4.png \
+t1.png t2.png t3.png \
+t4.png t5.png tback.png type1.png type2.png type3.png 
 
-EXTRA_DIST =lskatpic.taz  
+grafixdir = $(kde_datadir)/lskat/grafix
+
+EXTRA_DIST = $(grafix_DATA)
 
