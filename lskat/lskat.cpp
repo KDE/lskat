@@ -51,7 +51,7 @@ LSkatApp::LSkatApp() : KMainWindow(0)
 
    // localise data file
    QString file=QString::fromLatin1("lskat/grafix/1.png");
-   mGrafix=kapp->dirs()->findResourceDir("data", file); 
+   mGrafix=kapp->dirs()->findResourceDir("data", file);
    if (mGrafix.isNull()) mGrafix = QCString("grafix/");
    else mGrafix+=QCString("lskat/grafix/");
    if (global_debug>3) printf("Localised datafile=%s\n",mGrafix.latin1());
@@ -67,7 +67,7 @@ LSkatApp::LSkatApp() : KMainWindow(0)
   initKeyAccel();
   initDocument();
   initView();
-	
+
   readOptions();
   // Needs to be after readOptions as we read in default paths
   doc->LoadGrafix(mGrafix);
@@ -83,7 +83,7 @@ LSkatApp::LSkatApp() : KMainWindow(0)
   connect(mInput,SIGNAL(signalReceiveInput(KEMessage *, int)),
           this,SLOT(slotReceiveInput(KEMessage *,int )));
 
-  setMinimumSize(640,480);   
+  setMinimumSize(640,480);
   setMaximumSize(800,600);
   resize( 640, 480 );
 
@@ -98,7 +98,7 @@ void LSkatApp::initKeyAccel()
 {
   keyAccel = new KAccel(this);
 
-	
+
   // fileMenu accelerators
   keyAccel->insertItem( i18n("Start Game"), QCString("StartGame"), Key_F2 );
   keyAccel->connectItem(QCString("StartGame"), this, SLOT(slotFileNew()));
@@ -128,8 +128,8 @@ void LSkatApp::initKeyAccel()
   editMenu->setAccel(keyAccel->currentKey(KStdAccel::action(KStdAccel::Redo)), ID_EDIT_REDO);
 
   keyAccel->connectItem(KStdAccel::Help, this, SLOT(appHelpActivated()));
-  			
-  keyAccel->readSettings();	
+
+  keyAccel->readSettings();
 }
 
 void LSkatApp::initMenuBar()
@@ -147,7 +147,7 @@ void LSkatApp::initMenuBar()
   fileMenu->insertSeparator();
   fileMenu->insertItem(SmallIcon("exit"),i18n("E&xit"), ID_FILE_QUIT);
 
-	
+
   ///////////////////////////////////////////////////////////////////
   // menuBar entry editMenu
   editMenu = new QPopupMenu();
@@ -221,7 +221,7 @@ void LSkatApp::initMenuBar()
 //      optionsMenu->insertItem(i18n("Select &carddeck"),popDeck);
       optionsMenu->insertItem(i18n("Select &carddeck..."),ID_OPTIONS_CARDDECK);
       optionsMenu->insertItem(i18n("Change &Names..."),ID_OPTIONS_NAMES);
- 
+
 
   ///////////////////////////////////////////////////////////////////
   // menuBar entry helpMenu
@@ -349,14 +349,14 @@ void LSkatApp::initDocument()
 }
 
 void LSkatApp::initView()
-{ 
+{
   ////////////////////////////////////////////////////////////////////
   // create the main widget here that is managed by KMainWindow's view-region and
   // connect the widget to your document to display document contents.
 
   view = new LSkatView(this);
   doc->addView(view);
-  setCentralWidget(view);	
+  setCentralWidget(view);
   setCaption(i18n("Lieutnant Skat"));
 
 }
@@ -388,7 +388,7 @@ LSkatDoc *LSkatApp::getDocument() const
 }
 
 void LSkatApp::saveOptions()
-{	
+{
   config->setGroup("General Options");
   config->writeEntry("Geometry", size());
 #ifdef USE_TOOLBAR
@@ -403,7 +403,7 @@ void LSkatApp::saveOptions()
 
 void LSkatApp::readOptions()
 {
-	
+
   config->setGroup("General Options");
 
 #ifdef USE_TOOLBAR
@@ -412,7 +412,7 @@ void LSkatApp::readOptions()
   viewMenu->setItemChecked(ID_VIEW_TOOLBAR, bViewToolbar);
   if(!bViewToolbar)
     toolBar()->hide();
-#endif	
+#endif
   bool bViewStatusbar = config->readBoolEntry("Show Statusbar", true);
   viewMenu->setItemChecked(ID_VIEW_STATUSBAR, bViewStatusbar);
   if(!bViewStatusbar)
@@ -423,7 +423,7 @@ void LSkatApp::readOptions()
   KToolBar::BarPosition toolBarPos;
   toolBarPos=(KToolBar::BarPosition) config->readNumEntry("ToolBarPos", KToolBar::Top);
   toolBar()->setBarPos(toolBarPos);
-#endif	
+#endif
 
   QSize size=config->readSizeEntry("Geometry");
   if(!size.isEmpty())
@@ -442,10 +442,10 @@ void LSkatApp::saveProperties(KConfig *_cfg)
   }
   else
   {
-    QString filename=doc->getAbsFilePath();	
+    QString filename=doc->getAbsFilePath();
     _cfg->writeEntry("filename", filename);
     _cfg->writeEntry("modified", doc->isModified());
-		
+
     QString tempname = kapp->tempSaveName(filename);
     doc->saveDocument(tempname);
   }
@@ -460,7 +460,7 @@ void LSkatApp::readProperties(KConfig* _cfg)
   {
     bool canRecover;
     QString tempname = kapp->checkRecoverFile(filename, canRecover);
-  	
+
     if(canRecover)
     {
       doc->openDocument(tempname);
@@ -479,9 +479,9 @@ void LSkatApp::readProperties(KConfig* _cfg)
     }
   }
 
-  //QString caption=kapp->caption();	
+  //QString caption=kapp->caption();
   setCaption(i18n("Lieutnant Skat"));
-}		
+}
 
 bool LSkatApp::queryClose()
 {
@@ -555,7 +555,7 @@ void LSkatApp::slotFileMessage()
       mInput->SendMsg(msg,1);
     delete msg;
   }
-	
+
   slotStatusMsg(i18n("Ready"));
 }
 
@@ -572,7 +572,7 @@ void LSkatApp::slotFileNew()
 void LSkatApp::slotFileClose()
 {
   slotStatusMsg(i18n("Ending game..."));
-  doc->EndGame(true);	
+  doc->EndGame(true);
   doc->slotUpdateAllViews(0);
   slotStatusMsg(i18n("Game ended...start a new one..."));
 
@@ -610,7 +610,7 @@ void LSkatApp::slotFileQuit()
       if(w && !w->close())
           break;
     }
-  }	
+  }
 //  slotStatusMsg(i18n("Ready"));
 }
 
@@ -630,7 +630,7 @@ void LSkatApp::slotViewToolBar()
   {
     viewMenu->setItemChecked(ID_VIEW_TOOLBAR, true);
     toolBar()->show();
-  }		
+  }
 
   slotStatusMsg(i18n("Ready"));
 }
@@ -681,7 +681,7 @@ void LSkatApp::slotOptionsNames()
     slotStatusNames();
   }
 
-  	
+
   slotStatusMsg(i18n("Ready"));
 }
 
@@ -693,10 +693,9 @@ void LSkatApp::slotOptionsCardDeck()
   int result;
   s1=doc->GetDeckpath();
   s2=doc->GetCardpath();
-  // This is for debug and testing as you can run it from the CVS without
-  // installing the carddecks !
-  result=KCardDialog::getCardDeck(s1,s2,0,KCardDialog::ProbeDefaultDir,
-           "../../carddecks/decks/","../../carddecks/");
+
+  result=KCardDialog::getCardDeck(s1,s2);
+
   // release version
   // result=KCardDialog::getCardDeck(s1,s2);
   if (result==QDialog::Accepted)
@@ -704,7 +703,7 @@ void LSkatApp::slotOptionsCardDeck()
     doc->SetCardDeckPath(s1,s2);
     doc->slotUpdateAllViews(0);
   }
-  	
+
   slotStatusMsg(i18n("Ready"));
 }
 
@@ -715,7 +714,7 @@ void LSkatApp::slotLevel(int i)
   doc->UpdateViews(UPDATE_STATUS);
   slotStatusMsg(i18n("Ready"));
 }
-void LSkatApp::slotDeck(int i)
+void LSkatApp::slotDeck(int )
 {
   /*
   slotStatusMsg(i18n("Change carddeck..."));
@@ -838,7 +837,7 @@ void LSkatApp::commandCallback(int id_)
     case ID_LEVEL_10:
          slotLevel(id_-ID_LEVEL_1+1);
          break;
-   
+
     case ID_DECK_1:
     case ID_DECK_2:
     case ID_DECK_3:
@@ -1206,7 +1205,7 @@ void LSkatApp::NewGame()
   doc->NewGame();
   doc->slotUpdateAllViews(0);
   res=MakeInputDevice(0);
-  if (!res) 
+  if (!res)
   {
     KMessageBox::error(this,
       i18n("Cannot start player 1. Maybe the network connection\n"
@@ -1215,7 +1214,7 @@ void LSkatApp::NewGame()
     return ;
   }
   res=MakeInputDevice(1);
-  if (!res) 
+  if (!res)
   {
     KMessageBox::error(this,
       i18n("Cannot start player 2. Maybe the network connection\n"
@@ -1264,7 +1263,7 @@ bool LSkatApp::MakeInputDevice(int no)
       msg=new KEMessage;
       PrepareGame(msg);
       // Build new connection
-      if ( mInput->QueryType(no)!=type || mInput->QueryStatus(no)<=0) 
+      if ( mInput->QueryType(no)!=type || mInput->QueryStatus(no)<=0)
       {
         OptionsNetwork();
         port=doc->QueryPort();
@@ -1345,7 +1344,7 @@ bool LSkatApp::MakeInputDevice(int no)
       res=mInput->SetInputDevice(no,KG_INPUTTYPE_PROCESS,msg);
       delete msg;
     }
- 
+
   }
   return res;
 }
@@ -1393,19 +1392,19 @@ void LSkatApp::slotPrepareProcessMove(KEMessage *msg)
     msg->AddData(QCString("KLogSendMsg"),"process.log");
   PrepareGame(msg);
 }
-void LSkatApp::slotPrepareRemoteMove(KEMessage *msg)
+void LSkatApp::slotPrepareRemoteMove(KEMessage *)
 {
   if (global_debug>3)
     printf("+++ main should prepare remote move\n");
   slotStatusMsg(i18n("Waiting for remote player..."));
 }
-void LSkatApp::slotPrepareInteractiveMove(KEMessage *msg)
+void LSkatApp::slotPrepareInteractiveMove(KEMessage *)
 {
   if (global_debug>3)
     printf("+++ main should prepare interactive move\n");
   slotStatusMsg(i18n("Please make your move..."));
 }
-void LSkatApp::slotReceiveInput(KEMessage *msg,int id)
+void LSkatApp::slotReceiveInput(KEMessage *msg,int )
 {
   /*
   if (global_debug>=0)
@@ -1478,7 +1477,7 @@ void LSkatApp::slotReceiveInput(KEMessage *msg,int id)
     KMessageBox::information(this,message);
     slotStatusMsg(message);
 
-    doc->EndGame(true);	
+    doc->EndGame(true);
     doc->slotUpdateAllViews(0);
     slotStatusNames();
   }
@@ -1567,7 +1566,7 @@ void LSkatApp::Move(int x,int y,int player,bool remote)
     printf("Move of %d to x=%d y=%d\n",player,x,y);
   if (x<0 || y<0 || x>7 || y>1 || player <0 || player>1)
   {
-     KMessageBox::error(this, 
+     KMessageBox::error(this,
        i18n("Severe internal error. Move to illegal position.\n"
             "Restart game and report bug to the developer.\n"));
     return ;
@@ -1593,7 +1592,7 @@ void LSkatApp::Move(int x,int y,int player,bool remote)
   }
   else if (res==-3)
   {
-     KMessageBox::information(this, 
+     KMessageBox::information(this,
        i18n("Ehm, this move would not follow the rulebook.\n"
             "Better think again!\n"));
     return ;
@@ -1672,7 +1671,7 @@ void LSkatApp::ExtractGame(KEMessage *msg)
       doc->SetCard(i,cards[i]);
     }
   }
-  
+
   doc->SetStartPlayer(start);
   doc->SetCurrentPlayer(start);
   doc->SetTrump((CCOLOUR)trump);

@@ -160,7 +160,7 @@ void LSkatDoc::closeDocument()
   deleteContents();
 }
 
-bool LSkatDoc::newDocument(KConfig *config,QString path)
+bool LSkatDoc::newDocument(KConfig *,QString path)
 {
   int res;
   modified=false;
@@ -172,7 +172,7 @@ bool LSkatDoc::newDocument(KConfig *config,QString path)
   return true;
 }
 
-bool LSkatDoc::LoadGrafix(QString path)
+bool LSkatDoc::LoadGrafix(QString )
 {
   int res;
   res=LoadCards(cardPath);
@@ -200,20 +200,20 @@ bool LSkatDoc::SetCardDeckPath(QString deck,QString card)
   return update;
 }
 
-bool LSkatDoc::openDocument(const QString &filename, const char *format /*=0*/)
+bool LSkatDoc::openDocument(const QString &filename, const char *)
 {
   QFileInfo fileInfo(filename);
   title=fileInfo.fileName();
-  absFilePath=fileInfo.absFilePath();	
+  absFilePath=fileInfo.absFilePath();
   /////////////////////////////////////////////////
   // TODO: Add your document opening code here
   /////////////////////////////////////////////////
-	
+
   modified=false;
   return true;
 }
 
-bool LSkatDoc::saveDocument(const QString &filename, const char *format /*=0*/)
+bool LSkatDoc::saveDocument(const QString &, const char *)
 {
   /////////////////////////////////////////////////
   // TODO: Add your document saving code here
@@ -242,8 +242,8 @@ void LSkatDoc::EvaluateGame()
   stat_games[1]++;
   if (score[0]==score[1]) // drawn
   {
-    stat_points[0]++; 
-    stat_points[1]++; 
+    stat_points[0]++;
+    stat_points[1]++;
   }
   else if (score[0]>score[1])
   {
@@ -734,12 +734,9 @@ void LSkatDoc::ReadConfig(KConfig *config)
   // For the release version you can remove the aruments to the following two
   // functions !!!!
   cardPath=config->readEntry("cardpath",
-               KCardDialog::getDefaultCardPath(KCardDialog::ProbeDefaultDir,
-                                               "../../carddecks/cards1/"));
+                             KCardDialog::getDefaultCardDir());
   deckPath=config->readEntry("deckpath",
-                KCardDialog::getDefaultDeckPath(KCardDialog::ProbeDefaultDir,
-                                               "../../carddecks/decks/")
-                +QString::fromLatin1("deck0.png"));
+                             KCardDialog::getDefaultDeck());
 
   // Debug only
   printf("cardPath=%s\ndeckPath=%s\n",cardPath.latin1(),deckPath.latin1());

@@ -75,12 +75,12 @@ bool KProcessConnect::Init(int id,KEMessage *msg)
   // create process
   process=new KProcess;
   *process << processname;
-  connect(process, SIGNAL(receivedStdout(KProcess *, char *, int )), 
+  connect(process, SIGNAL(receivedStdout(KProcess *, char *, int )),
                         this, SLOT(slotReceivedStdout(KProcess *, char * , int )));
-  connect(process, SIGNAL(processExited(KProcess *)), 
+  connect(process, SIGNAL(processExited(KProcess *)),
                         this, SLOT(slotProcessExited(KProcess *)));
   /*
-  connect(process, SIGNAL(wroteStdin(KProcess *)), 
+  connect(process, SIGNAL(wroteStdin(KProcess *)),
                         this, SLOT(slotWroteStdin(KProcess *)));
   */
 
@@ -95,7 +95,7 @@ bool KProcessConnect::Init(int id,KEMessage *msg)
   return running;
 }
 
-void KProcessConnect::slotReceivedStdout(KProcess *proc, char *buffer, int buflen)
+void KProcessConnect::slotReceivedStdout(KProcess *, char *buffer, int buflen)
 {
   QString s;
   char c;
@@ -134,14 +134,14 @@ void KProcessConnect::slotReceivedStdout(KProcess *proc, char *buffer, int bufle
     Receive(s);
   }
 }
-void KProcessConnect::slotProcessExited(KProcess *p)
+void KProcessConnect::slotProcessExited(KProcess *)
 {
   running=false;
   delete process;
   process=0;
   Init(QueryID());
 }
-void KProcessConnect::slotWroteStdin(KProcess *p)
+void KProcessConnect::slotWroteStdin(KProcess *)
 {
   printf("slotWroteStdin:: IS NEVER CALLED\n");
 }
@@ -167,7 +167,7 @@ bool KProcessConnect::Next()
   // printf("+- KProcessConnect::ProcessNext\n");
   KEMessage *msg=new KEMessage;
   // User fills message
-  emit signalPrepareMove(msg,KG_INPUTTYPE_PROCESS); 
+  emit signalPrepareMove(msg,KG_INPUTTYPE_PROCESS);
   result=SendMsg(msg);
   delete msg;
   return result;

@@ -74,12 +74,12 @@ bool tryserver;
   SetID(id);
   if (msg)
   {
-    if (msg->GetData(QCString("Port"),prt)) 
+    if (msg->GetData(QCString("Port"),prt))
     {
       port=(unsigned int)prt;
       msg->Remove(QCString("Port"));
     }
-    if (msg->GetData(QCString("IP"),p,size)) 
+    if (msg->GetData(QCString("IP"),p,size))
     {
       IP=QCString(p);
       msg->Remove(QCString("IP"));
@@ -89,7 +89,7 @@ bool tryserver;
   printf("Connecting to %s %u (remain=%d)\n",
       (const char *)IP,port,msg->QueryNumberOfKeys());
   */
-  
+
   // First try to connect to given host:socket
   // if no IP given only offer server
   tryserver=false;
@@ -274,7 +274,7 @@ void KRemoteConnect::socketRead(KSocket *sock)
 }
 
 
-void KRemoteConnect::socketWrite(KSocket *sock)
+void KRemoteConnect::socketWrite(KSocket *)
 {
  // printf("wrtie input on socket %p\n",sock);
 }
@@ -298,7 +298,7 @@ bool KRemoteConnect::Next()
   // create and send message
   KEMessage *msg=new KEMessage;
   // User fills message
-  emit signalPrepareMove(msg,KG_INPUTTYPE_REMOTE); 
+  emit signalPrepareMove(msg,KG_INPUTTYPE_REMOTE);
   result=SendMsg(msg);
   delete msg;
   return result;
@@ -309,7 +309,7 @@ bool KRemoteConnect::Send(QString str)
 {
   // connected?
   if (!kSocket || kSocket->socket()==-1) return false;
-  if (socketStatus<=0) return false; 
+  if (socketStatus<=0) return false;
 
   if (-1==write(kSocket->socket(),str.latin1(),str.length()+1))
   {

@@ -34,7 +34,7 @@ class KMessageEntry
     KGM_TYPE QueryType();
     int QuerySize();
     char *QueryData();
-    bool CopyData(int s,char *c);
+    bool CopyData(int s,const char *c);
     KMessageEntry();
     KMessageEntry(KMessageEntry &entry);
     KMessageEntry &operator=(KMessageEntry &entry);

@@ -40,11 +40,11 @@ bool KInteractiveConnect::Next()
 {
   // Dummy only for interactive
   KEMessage *msg=new KEMessage;
-  emit signalPrepareMove(msg,KG_INPUTTYPE_INTERACTIVE); 
+  emit signalPrepareMove(msg,KG_INPUTTYPE_INTERACTIVE);
   delete msg;
   return true;
 }
-bool KInteractiveConnect::Init(int id,KEMessage *msg)
+bool KInteractiveConnect::Init(int id,KEMessage *)
 {
   // emit signalReceiveMsg(msg);
   SetID(id);

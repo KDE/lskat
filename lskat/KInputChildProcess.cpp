@@ -41,7 +41,7 @@ bool KInputChildProcess::exec()
   do
   {
     // Wait for input
-    if (feof(stdin)) 
+    if (feof(stdin))
     {
       sleep(1);
       continue;
@@ -85,7 +85,7 @@ bool KInputChildProcess::IsTerminated()
   return terminateChild;
 }
 
-bool KInputChildProcess::ReceiveMsg(KEMessage *msg,int id)
+bool KInputChildProcess::ReceiveMsg(KEMessage *,int )
 {
   return false;
 }

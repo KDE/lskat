@@ -1,5 +1,5 @@
 /**********************************************************************
-            --- KDevelop (KDlgEdit)  generated file ---                
+            --- KDevelop (KDlgEdit)  generated file ---
 
             Last generated: Sun Apr 16 18:04:10 2000
 
@@ -52,7 +52,7 @@ void  aboutDlg::initDialog(){
 
 
 
-  
+
 
   QLabel_8= new QLabel(QGroupBox_1,"NoName");
   QLabel_8->setGeometry(10,80,200,25);
@@ -104,7 +104,7 @@ void QMovieLabel::Paint(QPainter *p)
 }
 
 // paint event
-void QMovieLabel::paintEvent( QPaintEvent * e)
+void QMovieLabel::paintEvent( QPaintEvent * )
 {
     QPixmap pm(this->rect().size());
     QPainter p;
@@ -131,7 +131,7 @@ void QMovieLabel::slotTimer(void)
   if (isVisible()) repaint(false);
   else mTimer->stop();
 }
-void QMovieLabel::showEvent(QShowEvent *event)
+void QMovieLabel::showEvent(QShowEvent *)
 {
   mTimer->start(mMovie->frameDelay,FALSE);
   cnt=0;
