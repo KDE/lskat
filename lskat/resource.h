@@ -86,6 +86,7 @@
 #define ID_LEVEL_10                 13419
 
 #define ID_OPTIONS_NAMES            13510
+#define ID_OPTIONS_CARDDECK         13520
 
 #define ID_DECK_1                   13600
 #define ID_DECK_2                   13601
