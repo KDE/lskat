@@ -32,6 +32,7 @@
 #include <khelpmenu.h>
 #include <kstdaction.h>
 #include <kaction.h>
+#include <kdebug.h>
 
 
 // application specific includes
@@ -480,19 +481,9 @@ void LSkatApp::slotFileEnd()
 void LSkatApp::slotFileQuit()
 {
   saveOptions();
-  // close the first window, the list makes the next one the first again.
-  // This ensures that queryClose() is called on each window to ask for closing
-  KMainWindow* w;
-  if(memberList)
-  {
-    for(w=memberList->first(); w!=0; w=memberList->first())
-    {
-      // only close the window if the closeEvent is accepted. If the user presses Cancel on the saveModified() dialog,
-      // the window and the application stay open.
-      if(w && !w->close())
-          break;
-    }
-  }
+  if (view) view->close();
+  close();
+  kdDebug() << "slotFileQuit done"<<endl;
 }
 
 
