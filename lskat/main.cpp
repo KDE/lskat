@@ -26,7 +26,7 @@ static KCmdLineOptions options[] =
 {
   { "d", 0, 0},
   { "debug <level>", I18N_NOOP("Enter debug level"), 0 },
-  { 0, 0, 0 }
+  KCmdLineLastOption
 };
 
 int global_debug;
@@ -57,12 +57,12 @@ int main(int argc, char *argv[])
   args->clear();
 
   KApplication app;
- 
+
   if (app.isRestored())
   {
     RESTORE(LSkatApp);
   }
-  else 
+  else
   {
     LSkatApp *lskat = new LSkatApp();
     lskat->show();
