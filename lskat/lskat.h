@@ -204,9 +204,6 @@ class LSkatApp : public KMainWindow
   /** Triggers the process timer */
   void slotProcTimer(void);
 
-protected slots:
-  void slotKeyBindings();
-
 protected: // Protected attributes
   
   enum CheckFlags {All=0,CheckFileMenu=1,CheckOptionsMenu=2,CheckViewMenu=4};

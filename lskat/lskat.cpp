@@ -28,8 +28,6 @@
 #include <kstdaction.h>
 #include <kaction.h>
 #include <kdebug.h>
-#include <kkeydialog.h>
-
 
 // application specific includes
 #include "lskat.h"
@@ -244,12 +242,11 @@ void LSkatApp::initGUI()
   connect(actionCollection(), SIGNAL(actionStatusText(const QString &)), SLOT(slotStatusMsg(const QString &)));
   connect(actionCollection(), SIGNAL(clearStatusText()), SLOT(slotClearStatusMsg()));
 
-  KStdAction::keyBindings(this, SLOT(slotKeyBindings()), actionCollection());
+  KStdAction::keyBindings(guiFactory(), SLOT(configureShortcuts()), 
+actionCollection());
 
   KHelpMenu *helpMenu = new KHelpMenu(this, 0, true, actionCollection());
   connect( helpMenu, SIGNAL(showAboutApplication()), this, SLOT(slotHelpAbout()));
-
-
 }
 
 
@@ -1164,11 +1161,6 @@ void LSkatApp::ExtractGame(KEMessage *msg)
 void LSkatApp::SetGrafix(QString s)
 {
   mGrafix=s;
-}
-
-void LSkatApp::slotKeyBindings()
-{
-  KKeyDialog::configure(actionCollection(), this);
 }
 
 #include "lskat.moc"
