@@ -52,7 +52,7 @@ NetworkDlg::NetworkDlg( QWidget *parent, const char *name,const char * /*sufi*/ 
   setMaximumSize(330,260);
   resize( 330, 260 );
 
-  grp = new QGroupBox(i18n("Remote settings"), this);
+  grp = new QGroupBox(i18n("Remote Settings"), this);
   grp->resize(290,175);
   grp->move(20,10);
 
