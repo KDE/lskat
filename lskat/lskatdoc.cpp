@@ -74,6 +74,7 @@ LSkatDoc::LSkatDoc(QWidget *parent, const char *name) : QObject(parent, name)
   server=false;
   port=7432;
   host="";
+  Name="";
   remoteswitch=false;
 
 
@@ -654,6 +655,10 @@ void LSkatDoc::SetHost(QString h)
 {
   host=h;
 }
+void LSkatDoc::SetName(const QString& n)
+{
+  Name=n;
+}
 void LSkatDoc::SetPort(short p)
 {
   port=p;
@@ -665,6 +670,10 @@ QString LSkatDoc::QueryHost()
 short LSkatDoc::QueryPort()
 {
   return port;
+}
+QString LSkatDoc::QueryName() const 
+{
+  return Name;
 }
 int *LSkatDoc::GetCardP()
 {
@@ -736,6 +745,7 @@ void LSkatDoc::ReadConfig(KConfig *config)
   host=config->readEntry("host");
   port=(unsigned short)config->readNumEntry("port",7432);
   procfile=config->readEntry("process",QCString("lskatproc"));
+  Name=config->readEntry("gamename");
   names[0]=config->readEntry("Name1",i18n("Alice"));
   //  names[1]=config->readEntry("Name2",i18n("Bob"));
   names[1]=config->readEntry("Name2", name.isEmpty() ? i18n("Bob") : name);
@@ -782,6 +792,7 @@ void LSkatDoc::WriteConfig(KConfig *config)
   config->writeEntry("delpath",delpath);
   config->writeEntry("Name1",names[0]);
   config->writeEntry("Name2",names[1]);
+  config->writeEntry("gamename",Name);
 
   config->writeEntry("Startplayer",startplayer);
   config->writeEntry("Level",computerlevel);

@@ -22,7 +22,7 @@
 #include "KRSocket.h"
 //#include "ksock.h"
 #include "KChildConnect.h"
-
+#include <dnssd/publicservice.h>
 
 
 
@@ -34,10 +34,12 @@ class KRemoteConnect: public KChildConnect
   KRServerSocket *kServerSocket;
   KSocket *kSocket;
   QString IP;
+  QString Name;
   ushort port;
   KR_STATUS socketStatus;
   char *buffer;
   KEMessage *bufferMsg;
+  DNSSD::PublicService *service;
 //  QString inputbuffer;
 //  bool input_pending;
 //  QStrList inputcache;

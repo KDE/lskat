@@ -655,6 +655,7 @@ bool LSkatApp::MakeInputDevice(int no)
   {
       QString host;
       short port;
+      QString Name;
       msg=new KEMessage;
       PrepareGame(msg);
       // Build new connection
@@ -663,8 +664,10 @@ bool LSkatApp::MakeInputDevice(int no)
         OptionsNetwork();
         port=doc->QueryPort();
         host=doc->QueryHost();
+	Name=doc->QueryName();
         msg->AddData(QCString("Port"),(short)port);
         msg->AddData(QCString("IP"),(char *)(host.latin1()));
+	msg->AddData(QCString("Name"),(const char *)(Name.utf8()));
         res=mInput->SetInputDevice(no,type,msg);
         if (!res)
         {
@@ -751,9 +754,11 @@ void LSkatApp::OptionsNetwork()
   NetworkDlg *dlg=new NetworkDlg(this,QCString("Configure a network game..."));
   dlg->SetPort(doc->QueryPort());
   dlg->SetHost(doc->QueryHost());
+  dlg->SetName(doc->QueryName());
   res=dlg->exec();
   doc->SetPort(dlg->QueryPort());
   doc->SetHost(dlg->QueryHost());
+  doc->SetName(dlg->QueryName());
   delete dlg;
 }
 

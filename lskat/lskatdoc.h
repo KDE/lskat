@@ -144,9 +144,11 @@ class LSkatDoc : public QObject
    bool IsServer();
    void SetServer(bool b);
    void SetHost(QString h);
+   void SetName(const QString& n);
    void SetPort(short p);
    QString QueryHost();
    short QueryPort();
+   QString QueryName() const;
    // Only for fast remote access
    int *GetCardP();
    int *GetCardHeightP();
@@ -182,6 +184,7 @@ public:
   KEInput *inputHandler;
   short port;
   QString host;
+  QString Name;
   bool server;
   bool lock;
   int startplayer;

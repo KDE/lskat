@@ -1,9 +1,8 @@
 /***************************************************************************
-                          FILENAME|  -  description
+                          networkdlg.cpp  -  description
                              -------------------
-    begin                : Thu Mar 30 2000
-    copyright            : (C) |1995-2000 by Martin Heni
-    email                : martin@heni-online.de
+    copyright            : (C) 2004 by Jakub Stachowski
+    email                : qbast@go2.pl
  ***************************************************************************/
 
 /***************************************************************************
@@ -14,118 +13,93 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-/*
-    Networkdlg.cpp
 
-    $Id$
-    
-    Confiugre game over IP
-    
-    (c) Martin Heni, martin@heni-online.de
-	      June 1999
-    
-    License: GPL
-
-*/
 
 #include "networkdlg.h"
-#include <qgroupbox.h>
-#include <kpushbutton.h>
-#include <kstdguiitem.h>
-#include <klocale.h>
+#include <qspinbox.h>
+#include <qlineedit.h>
+#include <qcombobox.h>
+#include <qbuttongroup.h>
+#include <qwidgetstack.h>
 
-
-
+extern const char* LSKAT_SERVICE;
 
 // Create the dialog 
-NetworkDlg::NetworkDlg( QWidget *parent, const char *name,const char * /*sufi*/ )
-    : QDialog( parent, name,TRUE )
+NetworkDlg::NetworkDlg( QWidget *parent, const char *name )
+    : NetworkDlgBase( parent, name, TRUE )
 {
-  QGroupBox* grp;
-  KApplication *app=KApplication::kApplication();
-  config=app->sessionConfig();
-  QString s;
-  QLabel *Label;
-  QPushButton *PushButton;
-
-  setCaption(i18n("Configure Network Options"));
-  setMinimumSize(330,260);
-  setMaximumSize(330,260);
-  resize( 330, 260 );
-
-  grp = new QGroupBox(i18n("Remote Settings"), this);
-  grp->resize(290,175);
-  grp->move(20,10);
-
-  IPEdit = new QLineEdit( grp, "Edit_2" );
-  IPEdit->setGeometry( 95, 25, 170, 30 );
-  IPEdit->setText(i18n( "localhost") );
-
-  Label=new QLabel(grp,"&host");
-  Label->setGeometry(10,25,85,30);
-  Label->setText(i18n("Remote host" ));
-
-
-  PortEdit = new QLineEdit( grp, "Edit_3" );
-  PortEdit->setGeometry( 95, 60, 50, 30 );
-  PortEdit->setText(i18n( "7442" ));
-  PortEdit->setMaxLength(5);
-
-  Label=new QLabel(grp,"&Port");
-  Label->setGeometry(10,60,85,30);
-  Label->setText(i18n("Port" ));
-
-  Label=new QLabel(grp,"Label_3");
-  Label->setGeometry(10,95,270,75);
-  Label->setText(i18n("You can leave the remote host entry "
-  "empty.\nYour computer then acts as a server only and\ndoes not "
-  "try to connect to a remote host."));
-
-
-
-
-  PushButton = new KPushButton( KStdGuiItem::ok(), this, "PushButton_1" );
-  PushButton->setGeometry( 130, 210, 65, 30 );
-  connect( PushButton, SIGNAL(clicked()), SLOT(accept()) );
-  PushButton->setAutoRepeat( FALSE );
-  PushButton->setDefault( TRUE );
-
-  /*
-  PushButton = new KPushButton( KStdGuiItem::cancel(), this, "PushButton_2" );
-  PushButton->setGeometry( 165, 210, 65, 30 );
-  connect( PushButton, SIGNAL(clicked()), SLOT(reject()) );
-  PushButton->setAutoRepeat( FALSE );
-  */
-
- // setBackgroundColor(DLGBACK);
+  browser = new DNSSD::ServiceBrowser(LSKAT_SERVICE);
+  connect(browser,SIGNAL(finished()),SLOT(gamesFound()));
+  browser->startBrowse();
 }
 
-void NetworkDlg::accept()
+NetworkDlg::~NetworkDlg()
 {
-  QDialog::accept();
+  delete browser;
 }
 
-void NetworkDlg::SetHost(QString s)
+void NetworkDlg::SetHost(const QString& host)
 {
-  IPEdit->setText( s );
+  hostname->setText(host);
 }
+
+void NetworkDlg::SetName(const QString& name)
+{
+  serverName->setText(name);
+}
+QString NetworkDlg::QueryName() const 
+{
+  return serverName->text();
+}
+
 void NetworkDlg::SetPort(unsigned short port)
 {
-  QString s;
-  s.setNum(port);
-  PortEdit->setText(s);
+  this->port->setValue(port);
 }
-unsigned short NetworkDlg::QueryPort()
+
+void NetworkDlg::gamesFound()
 {
-  QString s;
-  unsigned short port;
-  s=PortEdit->text();
-  port=(unsigned short)s.toInt();
-  return port;
+  bool autoselect=false;
+  if (!clientName->count() && group->selectedId()==1) autoselect=true;
+  clientName->clear();
+  QStringList names;
+  QValueList<DNSSD::RemoteService::Ptr>::ConstIterator itEnd = browser->services().end();
+  for (QValueList<DNSSD::RemoteService::Ptr>::ConstIterator it = browser->services().begin();
+    it!=itEnd; ++it) names << (*it)->serviceName();
+  clientName->insertStringList(names);
+  if (autoselect && clientName->count()) gameSelected(0);
 }
-QString NetworkDlg::QueryHost()
+
+void NetworkDlg::gameSelected(int nr)
 {
-  return IPEdit->text();
+ if (nr>=browser->services().count() || nr<0) return;
+ DNSSD::RemoteService::Ptr srv = browser->services()[nr];
+ if (!srv->isResolved() && !srv->resolve()) return;
+ hostname->setText(srv->hostName());
+ port->setValue(srv->port());
+}
+
+unsigned short NetworkDlg::QueryPort() const
+{
+  return port->value();
+}
+
+QString NetworkDlg::QueryHost() const
+{
+  return hostname->text();
+}
+
+void NetworkDlg::toggleServerClient()
+{
+  stack->raiseWidget(group->selectedId());
+  if (group->selectedId()==1) {
+    gameSelected(clientName->currentItem());
+    hostname->setEnabled(true);
+    }
+    else {
+      hostname->setText(QString::null);
+      hostname->setEnabled(false);
+    }
 }
 
 #include "networkdlg.moc"

@@ -39,6 +39,8 @@
 
 #include "KRemoteConnect.moc"
 
+const char* LSKAT_SERVICE = "_lskat._tcp";
+
 KRemoteConnect::KRemoteConnect()
   : KChildConnect()
 {
@@ -46,6 +48,7 @@ KRemoteConnect::KRemoteConnect()
   IP="localhost";
   socketStatus=KR_INVALID;
   kSocket=0;
+  service=0;
   kServerSocket=0;
   bufferMsg=0;
   buffer=new char[4097];
@@ -56,7 +59,8 @@ KRemoteConnect::~KRemoteConnect()
 {
   Exit();
   delete buffer;
-//  printf("DESTGRUCTING KRemoteConenct\n");
+  delete service;
+  printf("DESTGRUCTING KRemoteConenct\n");
 }
 
 KR_STATUS KRemoteConnect::QueryStatus()
@@ -83,6 +87,11 @@ bool tryserver;
     {
       IP=QCString(p);
       msg->Remove(QCString("IP"));
+    }
+    if (msg->GetData(QCString("Name"),p,size))
+    {
+      Name=QString::fromUtf8(p);
+      msg->Remove(QCString("Name"));
     }
   }
   /*
@@ -138,6 +147,8 @@ bool tryserver;
   {
     delete kSocket;
     kSocket=0;
+    delete service;
+    service = 0;
     // Store message
     if (msg->QueryNumberOfKeys()>0)
     {
@@ -173,6 +184,9 @@ bool KRemoteConnect::OfferServerSocket()
     socketStatus=KR_NO_SOCKET;
     return false;
   }
+  printf("Offering socket and publishing stuff\n");
+  service = new DNSSD::PublicService(Name,LSKAT_SERVICE,port);
+  service->publishAsync();
   connect(kServerSocket,SIGNAL(accepted(KSocket *)),
         this,SLOT(socketRequest(KSocket *)));
 

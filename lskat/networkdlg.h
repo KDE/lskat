@@ -1,9 +1,8 @@
 /***************************************************************************
-                          networkdlg  
+                         networkdlg.h  -  description
                              -------------------
-    begin                : March 2000 
-    copyright            : (C) 1995-2000 by Martin Heni
-    email                : martin@heni-online.de
+    copyright            : (C) 2004 by Jakub Stachowski
+    email                : qbast@go2.pl
  ***************************************************************************/
 
 /***************************************************************************
@@ -14,45 +13,36 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
-#ifndef __NETWORKDLG_H_
-#define __NETWORKDLG_H_
-#include <qlineedit.h>
-//#include <ktabctl.h>
-//#include <qkeycode.h>
-//#include <qmultilineedit.h>
-//#include <unistd.h>
-#include <kapplication.h>
-#include <qlabel.h>
-//#include <kconfig.h>
-#include <qdialog.h>
-//#include <qtooltip.h>
-//#include <kmsgbox.h>
-//#include <ktopwidget.h>
-//#include <kprocess.h>
-//#include <kstdaccel.h>
+
+#ifndef NETWORKDLG_H
+#define NETWORKDLG_H
+ 
 #include <qstring.h>
+#include <dnssd/servicebrowser.h>
+#include "networkdlgbase.h"
 
-class NetworkDlg : public QDialog
+
+class NetworkDlg : public NetworkDlgBase
 {
-  Q_OBJECT
-
-  public:
-   NetworkDlg (QWidget* parent = NULL,const char* name = NULL,const char *sufi=NULL);
-
-   void SetHost(QString s);
-   void SetPort(unsigned short port);
-   unsigned short QueryPort();
-   QString QueryHost();
-
-protected slots:
-    void accept();
-
-protected:
-    KConfig *config;
-    KApplication *app;
-    QLineEdit *PortEdit;
-//    QLineEdit *SPortEdit;
-    QLineEdit *IPEdit;
-
+   Q_OBJECT
+   
+   public:
+    NetworkDlg(QWidget* parent=NULL, const char* name=NULL);
+    ~NetworkDlg();
+    void SetName(const QString& name);
+    void SetHost(const QString& host);
+    void SetPort(unsigned short port);
+    QString QueryName() const;
+    unsigned short QueryPort() const;
+    QString QueryHost() const;
+   protected:
+    virtual void toggleServerClient();
+    virtual void gameSelected(int nr);
+   private slots:
+    void gamesFound();
+   private:
+    DNSSD::ServiceBrowser* browser;
 };
-#endif
+
+#endif // NETWORKDLG_H
+
