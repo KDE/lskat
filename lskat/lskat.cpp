@@ -48,9 +48,9 @@ LSkatApp::LSkatApp()
   config=kapp->config();
 
    // localise data file
-   QString file=QCString("lskat/grafix/1.png");
-   mGrafix=kapp->dirs()->findResourceDir(QCString("data"),file); 
-   if (mGrafix.isNull()) mGrafix=QCString("grafix/");
+   QString file=QString::fromLatin1("lskat/grafix/1.png");
+   mGrafix=kapp->dirs()->findResourceDir("data", file); 
+   if (mGrafix.isNull()) mGrafix = QCString("grafix/");
    else mGrafix+=QCString("lskat/grafix/");
    if (global_debug>3) printf("Localised datafile=%s\n",mGrafix.latin1());
 
@@ -321,7 +321,7 @@ void LSkatApp::initStatusBar()
 
   slotStatusTime();
   slotStatusMover(i18n("(c) Martin Heni   "));
-  slotStatusMsg(i18n("Welcome to ")+TITLE);
+  slotStatusMsg(i18n("Welcome to Lieutnant Skat"));
 
   // status bar clock
   statusTimer=new QTimer(this);
@@ -348,7 +348,7 @@ void LSkatApp::initView()
   view = new LSkatView(this);
   doc->addView(view);
   setView(view);	
-  setCaption(TITLE);
+  setCaption(i18n("Lieutnant Skat"));
 
 }
 
@@ -475,7 +475,7 @@ void LSkatApp::readProperties(KConfig* _cfg)
   }
 
   QString caption=kapp->caption();	
-  setCaption(TITLE);
+  setCaption(i18n("Lieutnant Skat"));
 }		
 
 bool LSkatApp::queryClose()
@@ -519,7 +519,7 @@ void LSkatApp::slotFileStatistics()
    message=i18n("Do you really want to clear the all time\n"
                 "statistical data?\n");
 
-  if (KMessageBox::Yes==KMessageBox::questionYesNo(this,message,TITLE))
+  if (KMessageBox::Yes==KMessageBox::questionYesNo(this,message))
   {
     doc->ClearStats();
     doc->slotUpdateAllViews(0);
@@ -910,7 +910,7 @@ void LSkatApp::statusCallback(int id_)
     case ID_LEVEL_10:
          s.setNum((int)(id_-ID_LEVEL_1+1));
          s=i18n("Set the level of the computer player to %1").arg(s);
-         slotStatusHelpMsg(i18n(s));
+         slotStatusHelpMsg(s);
          break;
 
     case ID_DECK_1:
@@ -924,7 +924,7 @@ void LSkatApp::statusCallback(int id_)
     case ID_DECK_9:
          s.setNum((int)(id_-ID_DECK_1+1));
          s=i18n("Set the carddeck to %1").arg(s);
-         slotStatusHelpMsg(i18n(s));
+         slotStatusHelpMsg(s);
          break;
 
     case ID_STARTPLAYER_1:
@@ -1172,7 +1172,7 @@ void LSkatApp::NewGame()
     KMessageBox::error(this,
       i18n("Cannot start player 1. Maybe the network conenction\n"
            "failed or the computer player process file is not\n"
-           "found.\n"),TITLE);
+           "found.\n"));
     return ;
   }
   res=MakeInputDevice(1);
@@ -1181,7 +1181,7 @@ void LSkatApp::NewGame()
     KMessageBox::error(this,
       i18n("Cannot start player 2. Maybe the network conenction\n"
            "failed or the computer player process file is not\n"
-           "found.\n"),TITLE);
+           "found.\n"));
     return ;
   }
   // Remote game is started when receiving the start mesage .. not here!
@@ -1239,7 +1239,7 @@ bool LSkatApp::MakeInputDevice(int no)
           QString s;
           int tim,j;
           tim=10000;
-          if (host&&host.length()>0)
+          if (!host.isEmpty())
           {
             s=i18n("Remote connection to %1:%2...").arg(host).arg(port);
           }
@@ -1248,7 +1248,7 @@ bool LSkatApp::MakeInputDevice(int no)
             s=i18n("Offering remote connection on port %1 ...").arg(port);
           }
           progress=new QProgressDialog(s, i18n("Abort"), tim, this,0,true );
-          progress->setCaption(TITLE);
+          progress->setCaption(i18n("Lieutnant Skat"));
           for (j=0; j<tim; j++)
           {
             progress->setProgress( j );
@@ -1398,16 +1398,16 @@ void LSkatApp::slotReceiveInput(KEMessage *msg,int id)
     {
       if (move==0)
       {
-        message=QString(i18n("Remote connection lost for player 1..."));
-        KMessageBox::information(this,message,TITLE);
-        slotStatusMsg(i18n(message));
+        message=i18n("Remote connection lost for player 1...");
+        KMessageBox::information(this,message);
+        slotStatusMsg(message);
         slotPlayer1(KG_INPUTTYPE_INTERACTIVE);
       }
       else
       {
-        message=QString(i18n("Remote connection lost for player 2..."));
-        KMessageBox::information(this,message,TITLE);
-        slotStatusMsg(i18n(message));
+        message=i18n("Remote connection lost for player 2...");
+        KMessageBox::information(this,message);
+        slotStatusMsg(message);
         slotPlayer2(KG_INPUTTYPE_INTERACTIVE);
       }
     }
@@ -1418,7 +1418,7 @@ void LSkatApp::slotReceiveInput(KEMessage *msg,int id)
     if (msg->GetData(QCString("Message"),p,size))
     {
       message=i18n("Message from remote player:\n")+p;
-      KMessageBox::information(this,message,TITLE);
+      KMessageBox::information(this,message);
       if (global_debug>3)
         printf("MESSAGE **** %s ****\n",message.latin1());
     }
@@ -1436,7 +1436,7 @@ void LSkatApp::slotReceiveInput(KEMessage *msg,int id)
 
     msg->GetData(QCString("EndGame"),move);
     message=i18n("Remote player ended game...");
-    KMessageBox::information(this,message,TITLE);
+    KMessageBox::information(this,message);
     slotStatusMsg(message);
 
     doc->EndGame(true);	
@@ -1530,7 +1530,7 @@ void LSkatApp::Move(int x,int y,int player,bool remote)
   {
      KMessageBox::error(this, 
        i18n("Severe internal error. Move to illegal position.\n"
-            "Restart game and report bug to the developer.\n"),TITLE);
+            "Restart game and report bug to the developer.\n"));
     return ;
   }
   int res=doc->PrepareMove(player,y*4+x);
@@ -1556,17 +1556,17 @@ void LSkatApp::Move(int x,int y,int player,bool remote)
   {
      KMessageBox::information(this, 
        i18n("Ehm, this move would not follow the rulebook.\n"
-            "Better think again!\n"),TITLE);
+            "Better think again!\n"));
     return ;
   }
   else if (res==-2)
   {
-     KMessageBox::information(this,i18n("It is not your turn.\n"),TITLE);
+     KMessageBox::information(this,i18n("It is not your turn.\n"));
     return ;
   }
   else
   {
-     KMessageBox::information(this, i18n("This move is not possible.\n"),TITLE);
+     KMessageBox::information(this, i18n("This move is not possible.\n"));
     return ;
   }
 }

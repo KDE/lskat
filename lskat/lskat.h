@@ -35,9 +35,6 @@
 #include "KEMessage.h"
 #include "KConnectTypes.h"
 
-#define TITLE QString(i18n("Lieutnant Skat"))
-#define LSKAT_VERSION "v0.9"
-
 typedef enum {Club=0,Spade=1,Heart=2,Diamond=3,Grand=4} CCOLOUR;
 typedef enum {Ace=0,King=1,Queen=2,Jack=3,Ten=4,Nine=5,Eight=6,Seven=7} CCARD;
 #define NO_OF_CARDS 32

@@ -21,7 +21,7 @@ aboutDlg::aboutDlg(EMovie *movie,QWidget *parent, const char *name) : QDialog(pa
 {
   mMovie=movie;
 	initDialog();
-	setCaption(TITLE);
+	setCaption(i18n("Lieutnant Skat"));
   connect( QPushButton_1, SIGNAL(clicked()), SLOT(accept()) );
 }
 

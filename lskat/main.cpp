@@ -38,8 +38,8 @@ int main(int argc, char *argv[])
 
   global_debug=0;
   KAboutData *aboutData=new KAboutData( "lskat", I18N_NOOP("LSkat"),
-                        LSKAT_VERSION,
-                        TITLE+i18n(": Two player network game"),
+                        "1.0",
+                        I18N_NOOP("Lieutnant Skat"),
                         KAboutData::License_GPL,
                         "(c) 2000, Martin Heni");
   aboutData->addAuthor("Martin Heni",0, "martin@heni-online.de");

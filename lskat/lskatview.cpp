@@ -254,7 +254,7 @@ void LSkatView::drawIntro(QPainter *p)
     col2=2*col/3;
     col3=255-2*i;
     col4=2*col3/3;
-    s=TITLE;
+    s=i18n("Lieutnant Skat");
     x=160;
     y=-20+(int)(200.0*sin(0.5*M_PI/(float)NO_OF_CARDS*cnt));
     p->setPen(QColor(col4,col2,0));
@@ -683,7 +683,7 @@ void LSkatView::mousePressEvent( QMouseEvent *mouse )
       default:
         m=i18n("Please wait... it is not your turn.");
     }
-     KMessageBox::information(this,m, TITLE);
+     KMessageBox::information(this,m);
   }
 }
 
