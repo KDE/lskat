@@ -330,6 +330,7 @@ void LSkatView::drawFinal(QPainter *p)
   QString ld;
   QPoint p1,p2;
   int trump;
+  QRect r;
 
   QFont font24(QCString("Helvetica"),24,QFont::Normal,false);
   QFont font14(QCString("Helvetica"),14,QFont::Normal,false);
@@ -362,7 +363,10 @@ void LSkatView::drawFinal(QPainter *p)
   p->setFont(font24);
   
   ld=QString(i18n("Game over"));
-  p->drawText(p1.x()+FINAL_X0,p1.y()+FINAL_Y0,ld);
+  //p->drawText(p1.x()+FINAL_X0,p1.y()+FINAL_Y0,ld);
+  r=status_rect3;
+  r.moveBy(0,FINAL_Y0-24);
+  p->drawText(r,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,ld);
 
   p->drawPixmap(p1+QPoint(FINAL_XT1,FINAL_YT),
     getDocument()->mPixTrump[trump]);
@@ -375,27 +379,34 @@ void LSkatView::drawFinal(QPainter *p)
     p->setFont(font14);
     p->setPen(COL_PLAYER);
     ld=QString(i18n("Game was aborted - no winner"));
-    p->drawText(p1.x()+FINAL_X1,p1.y()+FINAL_Y1,ld);
+    r=status_rect3;
+    r.moveBy(0,FINAL_Y1-14);
+    p->drawText(r,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,ld);
+    // p->drawText(p1.x()+FINAL_X1,p1.y()+FINAL_Y1,ld);
   }
   else
   {
     p->setFont(font14);
     p->setPen(COL_PLAYER);
+    r=status_rect3;
+    r.moveBy(0,FINAL_Y2-14);
     if (sc0==sc1)
     {
       ld=QString(i18n("      Game is drawn"));
-      p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
+      p->drawText(r,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,ld);
+      //p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
     }
     else if (sc0>sc1)
     {
       ld=i18n("Player 1 - %1 won ").arg(getDocument()->GetName(0));
-      p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
+      //p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
     }
     else
     {
       ld=i18n("Player 2 - %1 won ").arg(getDocument()->GetName(1));
-      p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
+      //p->drawText(p1.x()+FINAL_X2,p1.y()+FINAL_Y2,ld);
     }
+    p->drawText(r,Qt::AlignHCenter|Qt::SingleLine|Qt::AlignTop,ld);
     p->setFont(font14);
     p->setPen(Qt::black);
 
@@ -453,6 +464,9 @@ void LSkatView::drawStatus(QPainter *p)
 {
   QPoint p1,p2;
   int trump;
+
+  QFont font10(QCString("Helvetica"),9,QFont::Normal,false);
+  p->setFont(font10);
 
   trump=getDocument()->GetTrump();
 

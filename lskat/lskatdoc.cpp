@@ -737,7 +737,8 @@ void LSkatDoc::ReadConfig(KConfig *config)
   deckPath=config->readEntry("deckpath", KCardDialog::getDefaultDeck());
 
   // Debug only
-  printf("cardPath=%s\ndeckPath=%s\n",cardPath.latin1(),deckPath.latin1());
+  if (global_debug>3)
+    printf("cardPath=%s\ndeckPath=%s\n",cardPath.latin1(),deckPath.latin1());
 
   startplayer=config->readNumEntry("Startplayer",0);
   if (startplayer>1 || startplayer<0) startplayer=0;

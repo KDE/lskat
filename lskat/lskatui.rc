@@ -1,0 +1,26 @@
+<!DOCTYPE kpartgui>
+<kpartgui name="standard_containers" version="4">
+<MenuBar>
+  <Menu name="file"><text>&amp;File</text>
+    <Action name="new_game"/>
+    <Action name="end_game"/>
+    <Separator />
+    <Action name="clear_statistics"/>
+    <Action name="send_message"/>
+    <Separator />
+    <Action name="game_exit"/>
+  </Menu>
+  <Menu name="mview"><text>&amp;View</text>
+    <Action name="show_statusbar"/>
+  </Menu>
+  <Menu name="options"><text>&amp;Options</text>
+    <Action name="startplayer"/>
+    <Action name="player1"/>
+    <Action name="player2"/>
+    <Action name="choose_level"/>
+    <Action name="select_carddeck"/>
+    <Action name="change_names"/>
+  </Menu>
+</MenuBar>
+<StatusBar/>
+</kpartgui>

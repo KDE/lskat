@@ -17,8 +17,8 @@
 
 // include files for QT
 #include <qdir.h>
-#include <qprinter.h>
-#include <qpainter.h>
+//#include <qprinter.h>
+//#include <qpainter.h>
 #include <qprogressdialog.h>
 
 // include files for KDE
@@ -30,20 +30,28 @@
 #include <klocale.h>
 #include <kconfig.h>
 #include <khelpmenu.h>
+#include <kstdaction.h>
+#include <kaction.h>
+
 
 // application specific includes
 #include "lskat.h"
 #include "lskatview.h"
 #include "lskatdoc.h"
-#include "resource.h"
 #include "namedlg.h"
 #include "networkdlg.h"
 #include "aboutdlg.h"
+#include "movielabel.h"
 #include "msgdlg.h"
 #include <kcarddialog.h>
 
 
 #include <stdlib.h>
+
+#define ACTION(x)   (actionCollection()->action(x))
+#define ID_STATUS_MSG               1003
+#define ID_STATUS_MOVER              1002
+#define ID_STATUS_TIME               1001
 
 LSkatApp::LSkatApp() : KMainWindow(0)
 {
@@ -59,16 +67,17 @@ LSkatApp::LSkatApp() : KMainWindow(0)
 
   ///////////////////////////////////////////////////////////////////
   // call inits to invoke all other construction parts
-  initMenuBar();
-#ifdef USE_TOOLBAR
-  initToolBar();
-#endif
+  initGUI();
   initStatusBar();
-  initKeyAccel();
+  setHelpMenuEnabled(false);
+  createGUI(QString::null, false);
+
   initDocument();
   initView();
 
   readOptions();
+
+  
   // Needs to be after readOptions as we read in default paths
   doc->LoadGrafix(mGrafix);
 
@@ -87,6 +96,9 @@ LSkatApp::LSkatApp() : KMainWindow(0)
   setMaximumSize(800,600);
   resize( 640, 480 );
 
+  // better be last in init
+  checkMenus();
+
 }
 
 LSkatApp::~LSkatApp()
@@ -94,236 +106,157 @@ LSkatApp::~LSkatApp()
  delete mInput;
 }
 
-void LSkatApp::initKeyAccel()
+void LSkatApp::checkMenus(int menu)
 {
-  keyAccel = new KAccel(this);
+  if (!menu || (menu&CheckFileMenu))
+  {
+    if (doc->IsRunning()) disableAction("new_game");
+    else enableAction("new_game");
 
+    if (!doc->IsRunning()) disableAction("end_game");
+    else enableAction("end_game");
 
-  // fileMenu accelerators
-  keyAccel->insertItem( i18n("Start Game"), QCString("StartGame"), Key_F2 );
-  keyAccel->connectItem(QCString("StartGame"), this, SLOT(slotFileNew()));
-  keyAccel->changeMenuAccel(fileMenu, ID_FILE_NEW, QCString("StartGame"));
-  fileMenu->setAccel( Key_F2, ID_FILE_NEW);
+    if (doc->GetPlayedBy(0)==KG_INPUTTYPE_REMOTE ||
+        doc->GetPlayedBy(0)==KG_INPUTTYPE_REMOTE )
+    {
+      enableAction("send_message");
+    }
+    else
+    {
+      disableAction("send_message");
+    }
 
-  keyAccel->connectItem(KStdAccel::Close, this, SLOT(slotFileClose()));
-  keyAccel->changeMenuAccel(fileMenu, ID_FILE_CLOSE, KStdAccel::Close);
-  fileMenu->setAccel(keyAccel->currentKey(KStdAccel::action(KStdAccel::Close)), ID_FILE_CLOSE);
+  }
+  if (!menu || (menu&CheckViewMenu))
+  {
+    if (statusBar()->isHidden()) ((KToggleAction*)ACTION("show_statusbar"))->setChecked(false);
+    else ((KToggleAction*)ACTION("show_statusbar"))->setChecked(true);
+  }
 
-  keyAccel->connectItem(KStdAccel::Quit, this, SLOT(slotFileQuit()));
-  keyAccel->changeMenuAccel(fileMenu, ID_FILE_QUIT, KStdAccel::Quit);
-  fileMenu->setAccel(keyAccel->currentKey(KStdAccel::action(KStdAccel::Quit)), ID_FILE_QUIT);
+  if (!menu || (menu&CheckOptionsMenu))
+  {
+    ((KSelectAction *)ACTION("startplayer"))->setCurrentItem(doc->GetStartPlayer());
 
-  keyAccel->insertItem( i18n("Send Message"), QCString("Send Message"), CTRL+Key_M );
-  keyAccel->connectItem(QCString("Send Message"), this, SLOT(slotFileMessage()));
-  keyAccel->changeMenuAccel(fileMenu, ID_FILE_MESSAGE, QCString("Send Message") );
-  fileMenu->setAccel( CTRL + Key_M, ID_FILE_MESSAGE);
+    if (doc->IsRunning()) disableAction("startplayer");
+    else enableAction("startplayer");
 
-  // editMenu accelerators
-  keyAccel->connectItem(KStdAccel::Undo, this, SLOT(slotEditUndo()));
-  keyAccel->changeMenuAccel(editMenu, ID_EDIT_UNDO, KStdAccel::Undo );
-  editMenu->setAccel(keyAccel->currentKey(KStdAccel::action(KStdAccel::Undo)), ID_EDIT_UNDO);
+    if (doc->GetPlayedBy(0)==KG_INPUTTYPE_INTERACTIVE)
+      ((KSelectAction *)ACTION("player1"))->setCurrentItem(0);
+    else if (doc->GetPlayedBy(0)==KG_INPUTTYPE_PROCESS)
+      ((KSelectAction *)ACTION("player1"))->setCurrentItem(1);
+    else
+      ((KSelectAction *)ACTION("player1"))->setCurrentItem(2);
 
-  keyAccel->connectItem(KStdAccel::Redo, this, SLOT(slotEditRedo()));
-  keyAccel->changeMenuAccel(editMenu, ID_EDIT_REDO, KStdAccel::Redo );
-  editMenu->setAccel(keyAccel->currentKey(KStdAccel::action(KStdAccel::Redo)), ID_EDIT_REDO);
+    /*
+    if (doc->IsRunning()) disableAction("player1");
+    else enableAction("player1");
+    */
 
-  keyAccel->connectItem(KStdAccel::Help, this, SLOT(appHelpActivated()));
+    if (doc->GetPlayedBy(1)==KG_INPUTTYPE_INTERACTIVE)
+      ((KSelectAction *)ACTION("player2"))->setCurrentItem(0);
+    else if (doc->GetPlayedBy(1)==KG_INPUTTYPE_PROCESS)
+      ((KSelectAction *)ACTION("player2"))->setCurrentItem(1);
+    else
+      ((KSelectAction *)ACTION("player2"))->setCurrentItem(2);
 
-  keyAccel->readSettings();
-}
+    /*
+    if (doc->IsRunning()) disableAction("player2");
+    else enableAction("player2");
+    */
 
-void LSkatApp::initMenuBar()
-{
-  ///////////////////////////////////////////////////////////////////
-  // MENUBAR
-  fileMenu = new QPopupMenu();
-//  fileMenu->insertSeparator();
-  fileMenu->insertItem(SmallIcon("filenew"), i18n("&New game"), ID_FILE_NEW);
-  fileMenu->insertItem(SmallIcon("stop"),i18n("&End game"), ID_FILE_CLOSE);
-  fileMenu->insertSeparator();
-  fileMenu->insertItem(SmallIcon("flag"),i18n("&Clear statistics..."), ID_FILE_STATISTICS);
-  fileMenu->insertItem(SmallIcon("openterm"),i18n("Send &Message..."), ID_FILE_MESSAGE);
-  fileMenu->insertSeparator();
-  fileMenu->insertSeparator();
-  fileMenu->insertItem(SmallIcon("exit"),i18n("E&xit"), ID_FILE_QUIT);
-
-
-  ///////////////////////////////////////////////////////////////////
-  // menuBar entry editMenu
-  editMenu = new QPopupMenu();
-  editMenu->insertItem(SmallIcon("undo"), i18n("&Undo move"), ID_EDIT_UNDO);
-  editMenu->insertItem(SmallIcon("redo"), i18n("&Redo move"), ID_EDIT_REDO);
-
-  ///////////////////////////////////////////////////////////////////
-  // menuBar entry viewMenu
-  viewMenu = new QPopupMenu();
-  viewMenu->setCheckable(true);
-#ifdef USE_TOOLBAR
-  viewMenu->insertItem(i18n("&Toolbar"), ID_VIEW_TOOLBAR);
-#endif
-  viewMenu->insertItem(i18n("&Statusbar"), ID_VIEW_STATUSBAR);
-
-
-  ///////////////////////////////////////////////////////////////////
-  // menuBar entry optionsMenu
-    QPopupMenu *optionsMenu = new QPopupMenu;
-
-    popStartplayer = new QPopupMenu;
-      popStartplayer->setCheckable(TRUE);
-
-      popStartplayer->insertItem(i18n("Player &1"),ID_STARTPLAYER_1);
-      popStartplayer->insertItem(i18n("Player &2"),ID_STARTPLAYER_2);
-
-    popPlayer1 = new QPopupMenu;
-      popPlayer1->setCheckable(TRUE);
-
-      popPlayer1->insertItem(i18n("&Player"),ID_PLAYER1_PLAYER);
-      popPlayer1->insertItem(i18n("&Computer"),ID_PLAYER1_COMPUTER);
-      popPlayer1->insertItem(i18n("&Remote"),ID_PLAYER1_REMOTE);
-
-    popPlayer2 = new QPopupMenu;
-      popPlayer2->setCheckable(TRUE);
-
-      popPlayer2->insertItem(i18n("&Player"),ID_PLAYER2_PLAYER);
-      popPlayer2->insertItem(i18n("&Computer"),ID_PLAYER2_COMPUTER);
-      popPlayer2->insertItem(i18n("&Remote"),ID_PLAYER2_REMOTE);
-
-
-    popLevel = new QPopupMenu;
-      popLevel->setCheckable(TRUE);
-
-      popLevel->insertItem(i18n("&normal"),ID_LEVEL_1);
-      popLevel->insertItem(i18n("&advanced"),ID_LEVEL_2);
-      popLevel->insertItem(i18n("&hard"),ID_LEVEL_3);
-      popLevel->insertSeparator();
-      popLevel->insertItem(i18n("&experimental"),ID_LEVEL_4);
-      /*
-      popLevel->insertItem(i18n("&5"),ID_LEVEL_5);
-      popLevel->insertItem(i18n("&6"),ID_LEVEL_6);
-      popLevel->insertItem(i18n("&7"),ID_LEVEL_7);
-      popLevel->insertItem(i18n("&8"),ID_LEVEL_8);
-      popLevel->insertItem(i18n("&9"),ID_LEVEL_9);
-      popLevel->insertItem(i18n("&10"),ID_LEVEL_10);
-      */
-
-      /*
-    popDeck = new QPopupMenu;
-      popDeck->setCheckable(TRUE);
-
-      for (int i=0;i<NO_OF_DECKS;i++)
-        popDeck->insertItem(i18n("Deck &%1").arg(i+1),ID_DECK_1+i);
-        */
-
-      optionsMenu->insertItem(i18n("&Startplayer"),popStartplayer);
-      optionsMenu->insertItem(i18n("Player &1 played by"),popPlayer1);
-      optionsMenu->insertItem(i18n("Player &2 played by"),popPlayer2);
-      optionsMenu->insertItem(i18n("&Level"),popLevel);
-//      optionsMenu->insertItem(i18n("Select &carddeck"),popDeck);
-      optionsMenu->insertItem(i18n("Select &carddeck..."),ID_OPTIONS_CARDDECK);
-      optionsMenu->insertItem(i18n("Change &Names..."),ID_OPTIONS_NAMES);
-
-
-  ///////////////////////////////////////////////////////////////////
-  // menuBar entry helpMenu
- KHelpMenu *mHelpMenu = new KHelpMenu( this,0,false );
- helpMenu_=mHelpMenu->menu();
-
- //helpMenu_ = helpMenu();
- connect( mHelpMenu, SIGNAL(showAboutApplication()),
-      this, SLOT(slotHelpAbout()));
-
-  ///////////////////////////////////////////////////////////////////
-  // MENUBAR CONFIGURATION
-  // insert your popup menus with the according menubar entries in the order
-  // they will appear later from left to right
-  menuBar()->insertItem(i18n("&File"), fileMenu);
-//  menuBar()->insertItem(i18n("&Edit"), editMenu);
-  menuBar()->insertItem(i18n("&View"), viewMenu);
-  menuBar()->insertItem(i18n("&Options"), optionsMenu);
-
-  menuBar()->insertSeparator();
-  menuBar()->insertItem(i18n("&Help"), helpMenu_);
-
-  ///////////////////////////////////////////////////////////////////
-  // CONNECT THE MENU SLOTS WITH SIGNALS
-  // for execution slots and statusbar messages
-
-  connect(fileMenu, SIGNAL(activated(int)), SLOT(commandCallback(int)));
-  connect(fileMenu, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
-  connect(fileMenu, SIGNAL(aboutToShow()), SLOT(slotFileToShow()));
-
-  connect(editMenu, SIGNAL(activated(int)), SLOT(commandCallback(int)));
-  connect(editMenu, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
-  connect(editMenu, SIGNAL(aboutToShow()), SLOT(slotEditToShow()));
-
-  connect(viewMenu, SIGNAL(activated(int)), SLOT(commandCallback(int)));
-  connect(viewMenu, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
-
-  connect(optionsMenu, SIGNAL(activated(int)), SLOT(commandCallback(int)));
-  connect(optionsMenu, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
-  connect(optionsMenu, SIGNAL(aboutToShow()), SLOT(slotOptionsToShow()));
-
-  connect(popStartplayer, SIGNAL(activated(int)), SLOT(commandCallback(int)));
-  connect(popStartplayer, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
-  connect(popStartplayer, SIGNAL(aboutToShow()), SLOT(slotStartplayerToShow()));
-
-  connect(popPlayer1, SIGNAL(activated(int)), SLOT(commandCallback(int)));
-  connect(popPlayer1, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
-  connect(popPlayer1, SIGNAL(aboutToShow()), SLOT(slotPlayer1ToShow()));
-
-  connect(popPlayer2, SIGNAL(activated(int)), SLOT(commandCallback(int)));
-  connect(popPlayer2, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
-  connect(popPlayer2, SIGNAL(aboutToShow()), SLOT(slotPlayer2ToShow()));
-
-  connect(popLevel, SIGNAL(activated(int)), SLOT(commandCallback(int)));
-  connect(popLevel, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
-  connect(popLevel, SIGNAL(aboutToShow()), SLOT(slotLevelToShow()));
-
-  /*
-  connect(popDeck, SIGNAL(activated(int)), SLOT(commandCallback(int)));
-  connect(popDeck, SIGNAL(highlighted(int)), SLOT(statusCallback(int)));
-  connect(popDeck, SIGNAL(aboutToShow()), SLOT(slotDeckToShow()));
-  */
+    ((KSelectAction *)ACTION("choose_level"))->setCurrentItem(doc->GetComputerLevel()-1);
+  }
 
 }
 
-#ifdef USE_TOOLBAR
-void LSkatApp::initToolBar()
+void LSkatApp::initGUI()
 {
+  QStringList list;
+  
+  (void)KStdAction::openNew(this, SLOT(slotFileNew()), actionCollection(), "new_game");
+  ACTION("new_game")->setStatusText(i18n("Starting a new game..."));
+  ACTION("new_game")->setWhatsThis(i18n("Starting a new game..."));
+  (void)new KAction(i18n("&End Game"),"stop", 0, this, SLOT(slotFileEnd()),
+                      actionCollection(), "end_game");
+  ACTION("end_game")->setStatusText(i18n("Ending the current game..."));
+  ACTION("end_game")->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
+  (void)new KAction(i18n("&Clear Statistics..."),"flag", 0, this, SLOT(slotFileStatistics()),
+                      actionCollection(), "clear_statistics");
+  ACTION("clear_statistics")->setStatusText(i18n("Delete all time statistics..."));
+  ACTION("clear_statistics")->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
+  (void)new KAction(i18n("Send &Message..."), CTRL+Key_M, this, SLOT(slotFileMessage()),
+                      actionCollection(), "send_message");
+  ACTION("send_message")->setStatusText(i18n("Sending message to remote player..."));
+  ACTION("send_message")->setWhatsThis(i18n("Allows you to talk with a remote player."));
+  (void)KStdAction::quit(this, SLOT(slotFileQuit()), actionCollection(), "game_exit");
+  ACTION("game_exit")->setStatusText(i18n("Exiting..."));
+  ACTION("game_exit")->setWhatsThis(i18n("Quits the programm."));
 
-  ///////////////////////////////////////////////////////////////////
-  // TOOLBAR
-  toolBar()->insertButton(BarIcon("filenew"), ID_FILE_NEW, true, i18n("New File"));
-  toolBar()->insertButton(BarIcon("fileopen"), ID_FILE_OPEN, true, i18n("Open File"));
-  toolBar()->insertButton(BarIcon("filesave"), ID_FILE_SAVE, true, i18n("Save File"));
-  toolBar()->insertButton(BarIcon("fileprint"), ID_FILE_PRINT, true, i18n("Print"));
-  toolBar()->insertSeparator();
-  toolBar()->insertButton(BarIcon("editcut"), ID_EDIT_CUT, true, i18n("Cut"));
-  toolBar()->insertButton(BarIcon("editcopy"), ID_EDIT_COPY, true, i18n("Copy"));
-  toolBar()->insertButton(BarIcon("editpaste"), ID_EDIT_PASTE, true, i18n("Paste"));
-  toolBar()->insertSeparator();
-  toolBar()->insertButton(BarIcon("help"), ID_HELP_CONTENTS, SIGNAL(clicked()),
-  				this, SLOT(appHelpActivated()), true,i18n("Help"));
+  (void)new KToggleAction(i18n("&Statusbar"),0,this,SLOT(slotViewStatusBar()),
+                      actionCollection(), "show_statusbar");
+  ACTION("show_statusbar")->setStatusText(i18n("Toggle the statusbar..."));
+  ACTION("show_statusbar")->setWhatsThis(i18n("Toggle the statusbar..."));
 
-  ///////////////////////////////////////////////////////////////////
-  // INSERT YOUR APPLICATION SPECIFIC TOOLBARS HERE WITH toolBar(n)
+  (void)new KSelectAction(i18n("Startplayer"),0,this,SLOT(slotStartplayer()),
+                      actionCollection(), "startplayer");
+  ACTION("startplayer")->setStatusText(i18n("Changing startplayer..."));
+  ACTION("startplayer")->setWhatsThis(i18n("Chooses which player begins the next game."));
+  list.clear();
+  list.append(i18n("Player &1"));
+  list.append(i18n("Player &2"));
+  ((KSelectAction *)ACTION("startplayer"))->setItems(list);
 
+  (void)new KSelectAction(i18n("Player &1 played by"),0,this,SLOT(slotPlayer1By()),
+                      actionCollection(), "player1");
+  ACTION("player1")->setStatusText(i18n("Changing who plays player 1..."));
+  ACTION("player1")->setWhatsThis(i18n("Changing who plays player 1..."));
+  list.clear();
+  list.append(i18n("&Player"));
+  list.append(i18n("&Computer"));
+  list.append(i18n("&Remote"));
+  ((KSelectAction *)ACTION("player1"))->setItems(list);
+  (void)new KSelectAction(i18n("Player &2 played by"),0,this,SLOT(slotPlayer2By()),
+                      actionCollection(), "player2");
+  ACTION("player1")->setStatusText(i18n("Changing who plays player 2..."));
+  ACTION("player1")->setWhatsThis(i18n("Changing who plays player 2..."));
+  ((KSelectAction *)ACTION("player2"))->setItems(list);
 
-  ///////////////////////////////////////////////////////////////////
-  // CONNECT THE TOOLBAR SLOTS WITH SIGNALS - add new created toolbars by their according number
-  // connect for invoking the slot actions
-  connect(toolBar(), SIGNAL(clicked(int)), SLOT(commandCallback(int)));
-  // connect for the status help on holing icons pressed with the mouse button
-  connect(toolBar(), SIGNAL(pressed(int)), SLOT(statusCallback(int)));
+  (void)new KSelectAction(i18n("&Level"),0,this,SLOT(slotLevel()),
+                      actionCollection(), "choose_level");
+  ACTION("choose_level")->setStatusText(i18n("Change level..."));
+  ACTION("choose_level")->setWhatsThis(i18n("Change the strength of the computer player."));
+  list.clear();
+  list.append(i18n("&Normal"));
+  list.append(i18n("&Advanced"));
+  list.append(i18n("&Hard"));
+  ((KSelectAction *)ACTION("choose_level"))->setItems(list);
+ 
+  (void)new KAction(i18n("Select &Carddeck..."), 0, this, SLOT(slotOptionsCardDeck()),
+                      actionCollection(), "select_carddeck");
+  ACTION("select_carddeck")->setStatusText(i18n("Configure carddecks..."));
+  ACTION("select_carddeck")->setWhatsThis(i18n("Choose how the cards should look like."));
+
+  (void)new KAction(i18n("Change &Names..."), 0, this, SLOT(slotOptionsNames()),
+                      actionCollection(), "change_names");
+  ACTION("change_names")->setStatusText(i18n("Configure player names..."));
+  ACTION("change_names")->setWhatsThis(i18n("Configure player names..."));
+
+  actionCollection()->setHighlightingEnabled(true);
+  connect(actionCollection(), SIGNAL(actionStatusText(const QString &)), SLOT(slotStatusMsg(const QString &)));
+  connect(actionCollection(), SIGNAL(clearStatusText()), SLOT(slotClearStatusMsg()));
+
+  KHelpMenu *helpMenu = new KHelpMenu(this, 0, true, actionCollection());
+  connect( helpMenu, SIGNAL(showAboutApplication()), this, SLOT(slotHelpAbout()));
+
+  
 }
-#endif
+
 
 void LSkatApp::initStatusBar()
 {
   ///////////////////////////////////////////////////////////////////
   // STATUSBAR
-  // TODO: add your own items you need for displaying current application status.
- // statusBar()->setInsertOrder(KStatusBar::RightToLeft);
+  // statusBar()->setInsertOrder(KStatusBar::RightToLeft);
   statusBar()->insertItem(i18n("This leaves space for the mover"),ID_STATUS_MOVER,0,true);
   statusBar()->insertItem(i18n("23:45"),ID_STATUS_TIME,0,true);
   statusBar()->insertItem(i18n("Ready"), ID_STATUS_MSG);
@@ -353,34 +286,29 @@ void LSkatApp::initView()
   ////////////////////////////////////////////////////////////////////
   // create the main widget here that is managed by KMainWindow's view-region and
   // connect the widget to your document to display document contents.
-
   view = new LSkatView(this);
   doc->addView(view);
   setCentralWidget(view);
   setCaption(i18n("Lieutnant Skat"));
-
 }
 
-void LSkatApp::enableCommand(int id_)
+void LSkatApp::enableAction(const char *s)
 {
-  ///////////////////////////////////////////////////////////////////
-  // enable menu and toolbar functions by their ID's
-  menuBar()->setItemEnabled(id_, true);
-#ifdef USE_TOOLBAR
-  toolBar()->setItemEnabled(id_, true);
-#endif
+  if (s)
+  {
+    KAction *act=actionCollection()->action(s);
+    if (act) act->setEnabled(true);
+  }
+    
 }
-
-void LSkatApp::disableCommand(int id_)
+void LSkatApp::disableAction(const char *s)
 {
-  ///////////////////////////////////////////////////////////////////
-  // disable menu and toolbar functions by their ID's
-  menuBar()->setItemEnabled(id_, false);
-#ifdef USE_TOOLBAR
-  toolBar()->setItemEnabled(id_, false);
-#endif
+  if (s)
+  {
+    KAction *act=actionCollection()->action(s);
+    if (act) act->setEnabled(false);
+  }
 }
-
 
 LSkatDoc *LSkatApp::getDocument() const
 {
@@ -391,11 +319,6 @@ void LSkatApp::saveOptions()
 {
   config->setGroup("General Options");
   config->writeEntry("Geometry", size());
-#ifdef USE_TOOLBAR
-  config->writeEntry("Show Toolbar", toolBar()->isVisible());
-  config->writeEntry("ToolBarPos", (int) toolBar()->barPos());
-  config->writeEntry("Recent Files", recentFiles);
-#endif
   config->writeEntry("Show Statusbar",statusBar()->isVisible());
   doc->WriteConfig(config);
 }
@@ -403,27 +326,10 @@ void LSkatApp::saveOptions()
 
 void LSkatApp::readOptions()
 {
-
   config->setGroup("General Options");
-
-#ifdef USE_TOOLBAR
-  // bar status settings
-  bool bViewToolbar = config->readBoolEntry("Show Toolbar", true);
-  viewMenu->setItemChecked(ID_VIEW_TOOLBAR, bViewToolbar);
-  if(!bViewToolbar)
-    toolBar()->hide();
-#endif
   bool bViewStatusbar = config->readBoolEntry("Show Statusbar", true);
-  viewMenu->setItemChecked(ID_VIEW_STATUSBAR, bViewStatusbar);
-  if(!bViewStatusbar)
-    statusBar()->hide();
-
-#ifdef USE_TOOLBAR
-  // bar position settings
-  KToolBar::BarPosition toolBarPos;
-  toolBarPos=(KToolBar::BarPosition) config->readNumEntry("ToolBarPos", KToolBar::Top);
-  toolBar()->setBarPos(toolBarPos);
-#endif
+  ((KToggleAction *)ACTION("show_statusbar"))->setChecked(bViewStatusbar);
+  if(!bViewStatusbar) statusBar()->hide();
 
   QSize size=config->readSizeEntry("Geometry");
   if(!size.isEmpty())
@@ -438,7 +344,6 @@ void LSkatApp::saveProperties(KConfig *_cfg)
   if(doc->getTitle()!=i18n("Untitled") && !doc->isModified())
   {
     // saving to tempfile not necessary
-
   }
   else
   {
@@ -499,26 +404,9 @@ bool LSkatApp::queryExit()
 // SLOT IMPLEMENTATION
 /////////////////////////////////////////////////////////////////////
 
-void LSkatApp::slotEditUndo()
-{
-
-
-  slotStatusMsg(i18n("Undo move..."));
-  slotStatusMsg(i18n("Ready"));
-}
-
-void LSkatApp::slotEditRedo()
-{
-
-  slotStatusMsg(i18n("Redo move..."));
-
-  slotStatusMsg(i18n("Ready"));
-}
-
 
 void LSkatApp::slotFileStatistics()
 {
-  slotStatusMsg(i18n("Delete all time statistics..."));
    QString message;
 
    message=i18n("Do you really want to clear the all time\n"
@@ -529,13 +417,11 @@ void LSkatApp::slotFileStatistics()
     doc->ClearStats();
     doc->slotUpdateAllViews(0);
   }
-  slotStatusMsg(i18n("Ready"));
 }
 /** send message */
 void LSkatApp::slotFileMessage()
 {
   int res;
-  slotStatusMsg(i18n("Sending message to remote player..."));
 
   MsgDlg *dlg=new MsgDlg(this,QCString("Send message..."));
   res=dlg->exec();
@@ -555,23 +441,18 @@ void LSkatApp::slotFileMessage()
       mInput->SendMsg(msg,1);
     delete msg;
   }
-
-  slotStatusMsg(i18n("Ready"));
 }
 
 
 
 void LSkatApp::slotFileNew()
 {
-  slotStatusMsg(i18n("Starting a new game..."));
   NewGame();
-
-  slotStatusMsg(i18n("Ready"));
+  checkMenus(CheckFileMenu|CheckOptionsMenu);
 }
 
-void LSkatApp::slotFileClose()
+void LSkatApp::slotFileEnd()
 {
-  slotStatusMsg(i18n("Ending game..."));
   doc->EndGame(true);
   doc->slotUpdateAllViews(0);
   slotStatusMsg(i18n("Game ended...start a new one..."));
@@ -590,13 +471,13 @@ void LSkatApp::slotFileClose()
   if (mInput->QueryType(1)==KG_INPUTTYPE_PROCESS)
     mInput->SendMsg(msg,1);
   delete msg;
+  checkMenus(CheckFileMenu|CheckOptionsMenu);
   slotStatusNames();
 }
 
 
 void LSkatApp::slotFileQuit()
 {
-  slotStatusMsg(i18n("Exiting..."));
   saveOptions();
   // close the first window, the list makes the next one the first again.
   // This ensures that queryClose() is called on each window to ask for closing
@@ -611,64 +492,79 @@ void LSkatApp::slotFileQuit()
           break;
     }
   }
-//  slotStatusMsg(i18n("Ready"));
 }
 
 
-#ifdef USE_TOOLBAR
-void LSkatApp::slotViewToolBar()
+void LSkatApp::slotStartplayer()
 {
-  slotStatusMsg(i18n("Toggle the toolbar..."));
-  ///////////////////////////////////////////////////////////////////
-  // turn Toolbar on or off
-  if( viewMenu->isItemChecked(ID_VIEW_TOOLBAR))
-  {
-    viewMenu->setItemChecked(ID_VIEW_TOOLBAR, false);
-    toolBar()->hide();
-  }
-  else
-  {
-    viewMenu->setItemChecked(ID_VIEW_TOOLBAR, true);
-    toolBar()->show();
-  }
-
-  slotStatusMsg(i18n("Ready"));
-}
-#endif
-
-void LSkatApp::slotStartplayer(int i)
-{
-  slotStatusMsg(i18n("Changing startplayer..."));
+  int i=((KSelectAction *)ACTION("startplayer"))->currentItem();
   doc->SetStartPlayer(i);
   doc->UpdateViews(UPDATE_STATUS);
-  slotStatusMsg(i18n("Ready"));
+}
+void LSkatApp::slotPlayer1By()
+{
+  switch(((KSelectAction *)ACTION("player1"))->currentItem())
+  {
+    case 0: 
+        slotPlayer1(KG_INPUTTYPE_INTERACTIVE);
+    break;
+    case 1:
+        slotPlayer1(KG_INPUTTYPE_PROCESS);
+    break;
+    case 2:
+        slotPlayer1(KG_INPUTTYPE_REMOTE);
+    break;
+  }
+}
+void LSkatApp::slotPlayer2By()
+{
+  switch(((KSelectAction *)ACTION("player2"))->currentItem())
+  {
+    case 0: 
+        slotPlayer2(KG_INPUTTYPE_INTERACTIVE);
+    break;
+    case 1:
+        slotPlayer2(KG_INPUTTYPE_PROCESS);
+    break;
+    case 2:
+        slotPlayer2(KG_INPUTTYPE_REMOTE);
+    break;
+  }
 }
 void LSkatApp::slotPlayer1(KG_INPUTTYPE i)
 {
-  slotStatusMsg(i18n("Changing who plays player 1..."));
   doc->SetPlayedBy(0,i);
   if (doc->IsRunning())
   {
     MakeInputDevice(0);
+    // New: Start computer when switched during game
+    if (mInput->QueryType(0)!=KG_INPUTTYPE_REMOTE &&
+        doc->GetCurrentPlayer()==0 )
+    {
+      mInput->Unlock();
+      mInput->Next(doc->GetCurrentPlayer());
+    }
   }
   doc->UpdateViews(UPDATE_STATUS);
-  slotStatusMsg(i18n("Ready"));
 }
 void LSkatApp::slotPlayer2(KG_INPUTTYPE i)
 {
-  slotStatusMsg(i18n("Changing who plays player 2..."));
   doc->SetPlayedBy(1,i);
   if (doc->IsRunning())
   {
     MakeInputDevice(1);
+    // New: Start computer when switched during game
+    if (mInput->QueryType(0)!=KG_INPUTTYPE_REMOTE &&
+        doc->GetCurrentPlayer()==1 )
+    {
+      mInput->Unlock();
+      mInput->Next(doc->GetCurrentPlayer());
+    }
   }
   doc->UpdateViews(UPDATE_STATUS);
-  slotStatusMsg(i18n("Ready"));
 }
 void LSkatApp::slotOptionsNames()
 {
-  slotStatusMsg(i18n("Configure player names..."));
-
   NameDlg *dlg=new NameDlg(this,QCString("Enter your name..."));
   dlg->SetNames(doc->GetName(0),doc->GetName(1));
   if (dlg->exec()==QDialog::Accepted)
@@ -680,66 +576,48 @@ void LSkatApp::slotOptionsNames()
     doc->UpdateViews(UPDATE_STATUS);
     slotStatusNames();
   }
-
-
-  slotStatusMsg(i18n("Ready"));
 }
 
 void LSkatApp::slotOptionsCardDeck()
 {
-  slotStatusMsg(i18n("Configure carddecks..."));
-
   QString s1,s2;
   int result;
   s1=doc->GetDeckpath();
   s2=doc->GetCardpath();
 
   result=KCardDialog::getCardDeck(s1,s2);
-
-  // release version
-  // result=KCardDialog::getCardDeck(s1,s2);
   if (result==QDialog::Accepted)
   {
     doc->SetCardDeckPath(s1,s2);
     doc->slotUpdateAllViews(0);
   }
 
-  slotStatusMsg(i18n("Ready"));
 }
 
-void LSkatApp::slotLevel(int i)
+void LSkatApp::slotLevel()
 {
-  slotStatusMsg(i18n("Change level..."));
+  int i=((KSelectAction *)ACTION("choose_level"))->currentItem();
+  i++; // we start at 1
   doc->SetComputerLevel(i);
   doc->UpdateViews(UPDATE_STATUS);
-  slotStatusMsg(i18n("Ready"));
-}
-void LSkatApp::slotDeck(int )
-{
-  /*
-  slotStatusMsg(i18n("Change carddeck..."));
-  doc->SetDeckNo(i);
-  doc->slotUpdateAllViews(0);
-  slotStatusMsg(i18n("Ready"));
-  */
+  printf("Level set to %d\n",i);
 }
 
 void LSkatApp::slotViewStatusBar()
 {
-  slotStatusMsg(i18n("Toggle the statusbar..."));
   ///////////////////////////////////////////////////////////////////
   //turn Statusbar on or off
-  if( viewMenu->isItemChecked(ID_VIEW_STATUSBAR))
+  if (statusBar()->isVisible()) 
   {
-    viewMenu->setItemChecked(ID_VIEW_STATUSBAR, false);
     statusBar()->hide();
   }
   else
   {
-    viewMenu->setItemChecked(ID_VIEW_STATUSBAR, true);
     statusBar()->show();
   }
-
+}
+void LSkatApp::slotClearStatusMsg()
+{
   slotStatusMsg(i18n("Ready"));
 }
 void LSkatApp::slotStatusMsg(const QString &text)
@@ -782,222 +660,6 @@ void LSkatApp::slotStatusHelpMsg(const QString &text)
 }
 
 
-
-
-void LSkatApp::commandCallback(int id_)
-{
-  switch (id_)
-  {
-    case ID_FILE_NEW:
-    	 slotFileNew();
-         break;
-
-    case ID_FILE_CLOSE:
-         slotFileClose();
-         break;
-
-    case ID_FILE_STATISTICS:
-         slotFileStatistics();
-         break;
-
-    case ID_FILE_MESSAGE:
-         slotFileMessage();
-         break;
-
-    case ID_FILE_QUIT:
-         slotFileQuit();
-         break;
-
-     case ID_EDIT_UNDO:
-         slotEditUndo();
-         break;
-
-    case ID_EDIT_REDO:
-         slotEditRedo();
-         break;
-
-#ifdef USE_TOOLBAR
-    case ID_VIEW_TOOLBAR:
-         slotViewToolBar();
-         break;
-#endif
-
-    case ID_VIEW_STATUSBAR:
-         slotViewStatusBar();
-         break;
-    case ID_LEVEL_1:
-    case ID_LEVEL_2:
-    case ID_LEVEL_3:
-    case ID_LEVEL_4:
-    case ID_LEVEL_5:
-    case ID_LEVEL_6:
-    case ID_LEVEL_7:
-    case ID_LEVEL_8:
-    case ID_LEVEL_9:
-    case ID_LEVEL_10:
-         slotLevel(id_-ID_LEVEL_1+1);
-         break;
-
-    case ID_DECK_1:
-    case ID_DECK_2:
-    case ID_DECK_3:
-    case ID_DECK_4:
-    case ID_DECK_5:
-    case ID_DECK_6:
-    case ID_DECK_7:
-    case ID_DECK_8:
-    case ID_DECK_9:
-         slotDeck(id_-ID_DECK_1);
-         break;
-    case ID_STARTPLAYER_1:
-        slotStartplayer(0);
-    break;
-    case ID_STARTPLAYER_2:
-        slotStartplayer(1);
-    break;
-
-    case ID_PLAYER1_PLAYER:
-        slotPlayer1(KG_INPUTTYPE_INTERACTIVE);
-    break;
-    case ID_PLAYER1_COMPUTER:
-        slotPlayer1(KG_INPUTTYPE_PROCESS);
-    break;
-    case ID_PLAYER1_REMOTE:
-        slotPlayer1(KG_INPUTTYPE_REMOTE);
-    break;
-
-    case ID_PLAYER2_PLAYER:
-        slotPlayer2(KG_INPUTTYPE_INTERACTIVE);
-    break;
-    case ID_PLAYER2_COMPUTER:
-        slotPlayer2(KG_INPUTTYPE_PROCESS);
-    break;
-    case ID_PLAYER2_REMOTE:
-        slotPlayer2(KG_INPUTTYPE_REMOTE);
-    break;
-
-    case ID_OPTIONS_NAMES:
-        slotOptionsNames();
-    break;
-    case ID_OPTIONS_CARDDECK:
-        slotOptionsCardDeck();
-    break;
-
-    default:
-         break;
-  }
-}
-
-void LSkatApp::statusCallback(int id_)
-{
-  QString s;
-  switch (id_)
-  {
-    case ID_FILE_NEW:
-         slotStatusHelpMsg(i18n("Starts a new game"));
-         break;
-
-    case ID_FILE_STATISTICS:
-         slotStatusHelpMsg(i18n("Clear all time statistics..."));
-         break;
-
-    case ID_FILE_MESSAGE:
-         slotStatusHelpMsg(i18n("Sends a message to a remote player"));
-         break;
-
-    case ID_FILE_CLOSE:
-         slotStatusHelpMsg(i18n("Ends the current game"));
-         break;
-
-    case ID_FILE_QUIT:
-         slotStatusHelpMsg(i18n("Quits the application"));
-         break;
-
-    case ID_EDIT_UNDO:
-         slotStatusHelpMsg(i18n("Undoes a move"));
-         break;
-
-    case ID_EDIT_REDO:
-         slotStatusHelpMsg(i18n("Redoes a previously undone move"));
-         break;
-
-#ifdef USE_TOOLBAR
-    case ID_VIEW_TOOLBAR:
-         slotStatusHelpMsg(i18n("Enables/disables the toolbar"));
-         break;
-#endif
-
-    case ID_VIEW_STATUSBAR:
-         slotStatusHelpMsg(i18n("Enables/disables the statusbar"));
-         break;
-
-    case ID_LEVEL_1:
-    case ID_LEVEL_2:
-    case ID_LEVEL_3:
-    case ID_LEVEL_4:
-    case ID_LEVEL_5:
-    case ID_LEVEL_6:
-    case ID_LEVEL_7:
-    case ID_LEVEL_8:
-    case ID_LEVEL_9:
-    case ID_LEVEL_10:
-         s.setNum((int)(id_-ID_LEVEL_1+1));
-         s=i18n("Set the level of the computer player to %1").arg(s);
-         slotStatusHelpMsg(s);
-         break;
-
-    case ID_DECK_1:
-    case ID_DECK_2:
-    case ID_DECK_3:
-    case ID_DECK_4:
-    case ID_DECK_5:
-    case ID_DECK_6:
-    case ID_DECK_7:
-    case ID_DECK_8:
-    case ID_DECK_9:
-         s.setNum((int)(id_-ID_DECK_1+1));
-         s=i18n("Set the carddeck to %1").arg(s);
-         slotStatusHelpMsg(s);
-         break;
-
-    case ID_STARTPLAYER_1:
-         slotStatusHelpMsg(i18n("Player 1 starts the next game"));
-    break;
-    case ID_STARTPLAYER_2:
-         slotStatusHelpMsg(i18n("Player 2 starts the next game"));
-    break;
-
-    case ID_PLAYER1_PLAYER:
-         slotStatusHelpMsg(i18n("Player 1 played interactively"));
-    break;
-    case ID_PLAYER1_COMPUTER:
-         slotStatusHelpMsg(i18n("Player 1 played by the computer"));
-    break;
-    case ID_PLAYER1_REMOTE:
-         slotStatusHelpMsg(i18n("Player 1 played over network"));
-    break;
-
-    case ID_PLAYER2_PLAYER:
-         slotStatusHelpMsg(i18n("Player 2 played interactively"));
-    break;
-    case ID_PLAYER2_COMPUTER:
-         slotStatusHelpMsg(i18n("Player 2 played by the computer"));
-    break;
-    case ID_PLAYER2_REMOTE:
-         slotStatusHelpMsg(i18n("Player 2 played over network"));
-    break;
-
-    case ID_OPTIONS_NAMES:
-         slotStatusHelpMsg(i18n("Change the names of the players"));
-    break;
-    case ID_OPTIONS_CARDDECK:
-         slotStatusHelpMsg(i18n("Change the carddeck"));
-    break;
-    default:
-         break;
-  }
-}
-
 /** Triggers the processmove timer */
 void LSkatApp::slotProcTimer(void)
 {
@@ -1023,179 +685,6 @@ void LSkatApp::slotStatusNames(){
     msg=i18n("%1 to move ...").arg(doc->GetName(doc->GetCurrentPlayer()));
   }
   slotStatusMover(msg);
-}
-/** Check a menuitem */
-void LSkatApp::checkCommand(int id){
-  menuBar()->setItemChecked(id, true);
-}
-/** Uncheck Menuitem */
-void LSkatApp::uncheckCommand(int id){
-  menuBar()->setItemChecked(id, false);
-}
-/** Is the menuitem enabled? */
-bool LSkatApp::isEnabled(int id){
-  return menuBar()->isItemEnabled(id);
-
-}
-void LSkatApp::slotFileToShow()
-{
-  if (doc->IsRunning())
-  {
-    disableCommand(ID_FILE_NEW);
-    enableCommand(ID_FILE_CLOSE);
-  }
-  else
-  {
-    disableCommand(ID_FILE_CLOSE);
-    enableCommand(ID_FILE_NEW);
-  }
-  if (!doc->IsServer() &&
-      (
-       (mInput->QueryType(0)==KG_INPUTTYPE_REMOTE &&
-        doc->GetPlayedBy(0)==KG_INPUTTYPE_REMOTE)
-       ||
-       (mInput->QueryType(1)==KG_INPUTTYPE_REMOTE &&
-        doc->GetPlayedBy(1)==KG_INPUTTYPE_REMOTE)
-       )
-     )
-  {
-    disableCommand(ID_FILE_NEW);
-  }
-  if (mInput->QueryType(0)==KG_INPUTTYPE_REMOTE ||
-      mInput->QueryType(0)==KG_INPUTTYPE_REMOTE )
-  {
-    enableCommand(ID_FILE_MESSAGE);
-  }
-  else
-  {
-    disableCommand(ID_FILE_MESSAGE);
-  }
-
-}
-
-void LSkatApp::slotEditToShow()
-{
-
-}
-void LSkatApp::slotOptionsToShow()
-{
-}
-
-void LSkatApp::slotLevelToShow()
-{
-  int i;
-  for (i=0;i<10;i++)
-  {
-    uncheckCommand(ID_LEVEL_1+i);
-  }
- checkCommand(ID_LEVEL_1-1+doc->GetComputerLevel());
-}
-void LSkatApp::slotDeckToShow()
-{
-  /*
-  int i;
-  for (i=0;i<NO_OF_DECKS;i++)
-  {
-    if (doc->HasDeck(i)) enableCommand(ID_DECK_1+i);
-    else disableCommand(ID_DECK_1+i);
-  }
-  for (i=0;i<NO_OF_DECKS;i++)
-  {
-    uncheckCommand(ID_DECK_1+i);
-  }
-  checkCommand(ID_DECK_1+doc->GetDeckNo());
-  */
-}
-void LSkatApp::slotStartplayerToShow()
-{
-  if (doc->GetStartPlayer()==0)
-  {
-     checkCommand(ID_STARTPLAYER_1 );
-     uncheckCommand(ID_STARTPLAYER_2 );
-  }
-  else
-  {
-    uncheckCommand(ID_STARTPLAYER_1 );
-    checkCommand(ID_STARTPLAYER_2 );
-  }
-  if (doc->IsRunning())
-  {
-    disableCommand(ID_STARTPLAYER_1);
-    disableCommand(ID_STARTPLAYER_2);
-  }
-  else
-  {
-    enableCommand(ID_STARTPLAYER_1);
-    enableCommand(ID_STARTPLAYER_2);
-  }
-}
-void LSkatApp::slotPlayer1ToShow()
-{
-  uncheckCommand(ID_PLAYER1_PLAYER );
-  uncheckCommand(ID_PLAYER1_COMPUTER );
-  uncheckCommand(ID_PLAYER1_REMOTE );
-  if (doc->GetPlayedBy(0)==KG_INPUTTYPE_INTERACTIVE)
-  {
-     checkCommand(ID_PLAYER1_PLAYER );
-  }
-  else if (doc->GetPlayedBy(0)==KG_INPUTTYPE_PROCESS)
-  {
-    checkCommand(ID_PLAYER1_COMPUTER );
-  }
-  else
-  {
-    checkCommand(ID_PLAYER1_REMOTE );
-  }
-  if (doc->IsRunning())
-  {
-    disableCommand(ID_PLAYER1_PLAYER);
-    disableCommand(ID_PLAYER1_COMPUTER);
-    disableCommand(ID_PLAYER1_REMOTE);
-  }
-  else
-  {
-    enableCommand(ID_PLAYER1_PLAYER);
-    enableCommand(ID_PLAYER1_COMPUTER);
-    enableCommand(ID_PLAYER1_REMOTE);
-  }
-  if (doc->GetPlayedBy(1)==KG_INPUTTYPE_REMOTE)
-  {
-    disableCommand(ID_PLAYER1_REMOTE);
-  }
-}
-void LSkatApp::slotPlayer2ToShow()
-{
-  uncheckCommand(ID_PLAYER2_PLAYER );
-  uncheckCommand(ID_PLAYER2_COMPUTER );
-  uncheckCommand(ID_PLAYER2_REMOTE );
-  if (doc->GetPlayedBy(1)==KG_INPUTTYPE_INTERACTIVE)
-  {
-     checkCommand(ID_PLAYER2_PLAYER );
-  }
-  else if (doc->GetPlayedBy(1)==KG_INPUTTYPE_PROCESS)
-  {
-    checkCommand(ID_PLAYER2_COMPUTER );
-  }
-  else
-  {
-    checkCommand(ID_PLAYER2_REMOTE );
-  }
-  if (doc->IsRunning())
-  {
-    disableCommand(ID_PLAYER2_PLAYER);
-    disableCommand(ID_PLAYER2_COMPUTER);
-    disableCommand(ID_PLAYER2_REMOTE);
-  }
-  else
-  {
-    enableCommand(ID_PLAYER2_PLAYER);
-    enableCommand(ID_PLAYER2_COMPUTER);
-    enableCommand(ID_PLAYER2_REMOTE);
-  }
-  if (doc->GetPlayedBy(0)==KG_INPUTTYPE_REMOTE)
-  {
-    disableCommand(ID_PLAYER2_REMOTE);
-  }
 }
 
 void LSkatApp::NewGame()
@@ -1250,6 +739,7 @@ bool LSkatApp::MakeInputDevice(int no)
 {
   bool res=true;
   KEMessage *msg;
+  disableAction("send_message");
   KG_INPUTTYPE type=doc->GetPlayedBy(no);
   if (type==KG_INPUTTYPE_INTERACTIVE)
   {
@@ -1324,7 +814,7 @@ bool LSkatApp::MakeInputDevice(int no)
         res=true;
       }
       else res=false;
-
+      enableAction("send_message");
   }
   else if (type==KG_INPUTTYPE_PROCESS)
   {
@@ -1357,7 +847,8 @@ void LSkatApp::slotHelpAbout()
   movie->frameDelay=70;
   movie->frameArray=doc->mPixAnim;
   movie->frameCnt=NO_OF_ANIM;
-  aboutDlg *dlg=new aboutDlg(movie,this);
+  aboutDlg *dlg=new aboutDlg(this);
+  dlg->SetMovie(movie);
   dlg->exec();
   delete movie;
   slotStatusMsg(i18n("Ready"));
@@ -1530,6 +1021,7 @@ void LSkatApp::MoveFinished()
       // m->SetStatusBar(i18n("Game over"),3);
       //doc->SwitchStartPlayer();
       doc->slotUpdateAllViews(0);
+      checkMenus(CheckFileMenu|CheckOptionsMenu);
     }
     else if (doc->IsRunning()) // continue game
     {

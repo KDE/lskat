@@ -30,6 +30,7 @@
 #include <kapp.h>
 #include <kmainwindow.h>
 #include <kaccel.h>
+#include <kaction.h>
 
 #include "KEInput.h"
 #include "KEMessage.h"
@@ -74,23 +75,17 @@ class LSkatApp : public KMainWindow
 
   public:
     /** construtor of LSkatApp, calls all init functions to create the application.
-     * @see initMenuBar initToolBar
      */
     LSkatApp();
     ~LSkatApp();
     /** enables menuentries/toolbar items
      */
-    void enableCommand(int id_);
+    void enableAction(const char *);
     /** disables menuentries/toolbar items
      */
-    void disableCommand(int id_);
+    void disableAction(const char *);
     /** add a opened file to the recent file list and update recent_file_menu
      */
-  /** (Un)check Menuitem */
-  void uncheckCommand(int id);
-  void checkCommand(int id);
-  /** Is the menuitem enabled? */
-  bool isEnabled(int id);
     /** returns a pointer to the current document connected to the KMainWindow instance and is used by
      * the View class to access the document object's methods
      */	
@@ -114,19 +109,15 @@ class LSkatApp : public KMainWindow
     /** read general Options again and initialize all variables like the recent file list
      */
     void readOptions();
-    /** initKeyAccel creates the keyboard accelerator items for the available slots and changes the menu accelerators.
-     * @see KAccel
-     */
-    void initKeyAccel();
-    /** initMenuBar creates the menubar and inserts the menupopups as well as creating the helpMenu.
+    /** initGUI creates the menubar and inserts the menupopups as well as creating the helpMenu.
      * @see KApplication#getHelpMenu
      */
-    void initMenuBar();
+    void initGUI();
+    /** Checks all menus..usually done on init programm */
+    void checkMenus(int menu=0);
+
     /** this creates the toolbars.
      */
-#ifdef USE_TOOLBAR
-    void initToolBar();
-#endif
     /** sets up the statusbar for the main window by initialzing a statuslabel.
      */
     void initStatusBar();
@@ -171,14 +162,10 @@ class LSkatApp : public KMainWindow
     void slotHelpAbout();
 
 
-    /** switch argument for slot selection by menu or toolbar ID */
-    void commandCallback(int id_);
-    /** switch argument for Statusbar help entries on slot selection. Add your ID's help here for toolbars and menubar entries. */
-    void statusCallback(int id_);
     /** clears the document in the actual view to reuse it as the new document */
     void slotFileNew();
     /** asks for saving if the file is modified, then closes the actual file and window*/
-    void slotFileClose();
+    void slotFileEnd();
     /** closes all open windows by calling close() on each memberList item until the list is empty, then quits the application.
      * If queryClose() returns false because the user canceled the saveModified() dialog, the closing breaks.
      */
@@ -187,8 +174,6 @@ class LSkatApp : public KMainWindow
     void slotFileStatistics();
     /** Msg to remote player */
     void slotFileMessage();
-    /** toggles the toolbar
-     */
     /** toggles the statusbar
      */
     void slotViewStatusBar();
@@ -196,6 +181,7 @@ class LSkatApp : public KMainWindow
      * @param text the text that is displayed in the statusbar
      */
     void slotStatusMsg(const QString &text);
+    void slotClearStatusMsg();
     /** changes the status message of the whole statusbar for two seconds, then restores the last status. This is used to display
      * statusbar messages that give information about actions for toolbar icons and menuentries.
      * @param text the text that is displayed in the statusbar
@@ -206,24 +192,12 @@ class LSkatApp : public KMainWindow
     void slotStatusMover(const QString &text);
     void slotStatusTime();
 
-    /** Show menus? */
-    void slotFileToShow();
-    void slotEditToShow();
-    void slotOptionsToShow();
-    void slotLevelToShow();
-    void slotDeckToShow();
-    void slotStartplayerToShow();
-    void slotPlayer1ToShow();
-    void slotPlayer2ToShow();
-    /** Undo move */
-    void slotEditUndo();
-    /** Redo move */
-    void slotEditRedo();
-    void slotLevel(int i);
-    void slotDeck(int i);
-    void slotStartplayer(int i);
+    void slotLevel();
+    void slotStartplayer();
     void slotPlayer1(KG_INPUTTYPE i);
     void slotPlayer2(KG_INPUTTYPE i);
+    void slotPlayer1By();
+    void slotPlayer2By();
     void slotOptionsNames();
     void slotOptionsCardDeck();
   /** Triggers the status timer */
@@ -232,6 +206,9 @@ class LSkatApp : public KMainWindow
   void slotProcTimer(void);
 
 protected: // Protected attributes
+  
+  enum CheckFlags {All=0,CheckFileMenu=1,CheckOptionsMenu=2,CheckViewMenu=4};
+  
   /**  */
   /** Counts the time in the status bar */
   QTimer * statusTimer;
@@ -245,31 +222,6 @@ protected: // Protected attributes
 
     /** the configuration object of the application */
     KConfig *config;
-    /** the key accelerator container */
-    KAccel *keyAccel;
-    /** file_menu contains all items of the menubar entry "File" */
-    QPopupMenu *fileMenu;
-    /** the recent file menu containing the last five opened files */
-    QPopupMenu *recentFilesMenu;
-    /** edit_menu contains all items of the menubar entry "Edit" */
-    QPopupMenu *editMenu;
-    /** view_menu contains all items of the menubar entry "View" */
-    QPopupMenu *viewMenu;
-    /** help_menu contains all items of the menubar entry "Help" */
-    QPopupMenu *helpMenu_;
-    /** view is the main widget which represents your working area. The View
-     * class should handle all events of the view widget.  It is kept empty so
-     * you can create your view according to your application's needs by
-     * changing the view class.
-     */
-    /** options_menu contains all items of the menubar entry "Options" */
-    QPopupMenu *optionsMenu;
-    /** And its submenues */
-    QPopupMenu *popLevel;
-    QPopupMenu *popDeck;
-    QPopupMenu *popStartplayer;
-    QPopupMenu *popPlayer1;
-    QPopupMenu *popPlayer2;
 
     LSkatView *view;
     /** doc represents your actual document and is created only once. It keeps
