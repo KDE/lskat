@@ -246,7 +246,7 @@ automatically started by the server.
 <varlistentry>
 <term><menuchoice>
 <guimenu>Game</guimenu>
-<guimenuitem>Clear Statistics...</guimenuitem>
+<guimenuitem>Clear Statistics</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 <action>Clears the all time game memory.</action> This statistic is
@@ -262,7 +262,7 @@ option.
 <keycombo action="simul">&Ctrl;<keycap>M</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
-<guimenuitem>Send Message</guimenuitem>
+<guimenuitem>Send Message...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 If connected to another game in a remote session this
@@ -304,7 +304,7 @@ Shows or hides the statusbar.
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guisubmenu>Startplayer</guisubmenu></menuchoice></term>
+<guisubmenu>Starting Player</guisubmenu></menuchoice></term>
 <listitem><para>
 Selects whether player 1 (top) or player two (bottom)
 begins the next game.
@@ -314,7 +314,7 @@ begins the next game.
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guisubmenu>Player 1 played by</guisubmenu>
+<guisubmenu>Player 1 Played By</guisubmenu>
 </menuchoice></term>
 <listitem>
 <para>
@@ -322,27 +322,29 @@ Chooses who should play for player 1 (top). It can be one of the
 following:
 </para>
 
+<itemizedlist><listitem>
 <para>
 A local player using the mouse as input device. For this option, choose
 <guimenuitem>Player</guimenuitem>.
-</para> 
+</para></listitem>
 
-<para>
-The computer. For this option, choose
-<guimenuitem>computer</guimenuitem>.
-</para>
+<listitem><para>
+An artificual computer player. For this option, choose
+<guimenuitem>Computer</guimenuitem>.
+</para></listitem>
 
-<para>
+<listitem><para>
 A remote player, who is connected to this computer through a network.
 For this option choose <guimenuitem>Remote</guimenuitem>.
-</para>
+</para></listitem>
+</itemizedlist>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice><guimenu>Settings</guimenu><guisubmenu>Player 2 played by</guisubmenu></menuchoice></term>
+<term><menuchoice><guimenu>Settings</guimenu><guisubmenu>Player 2 Played By</guisubmenu></menuchoice></term>
 <listitem><para>
-Same as <guimenuitem>Player 1 options, only this refers to Player 2.</guimenuitem>.
+Same as the <guimenuitem>Player 1 Played By</guimenuitem> option, only this refers to Player 2.
 </para></listitem>
 </varlistentry>
 
@@ -359,7 +361,7 @@ Same as <guimenuitem>Player 1 options, only this refers to Player 2.</guimenuite
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Select Carddeck</guimenuitem></menuchoice></term>
+<guimenuitem>Select Card Deck</guimenuitem></menuchoice></term>
 <listitem><para>
 <action>
 Choose the face and back of the carddeck used for playing.</action> You
@@ -375,6 +377,17 @@ can select these in a preview dialog showing all carddecks installed for
 </menuchoice></term>
 <listitem><para>
 <action>Change the names of the players.</action>
+</para></listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Configure Shortcuts...</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+<action>Open a dialog which lets you redefine all the keyboard shortcuts.</action>
 </para></listitem>
 </varlistentry>
 
