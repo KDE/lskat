@@ -75,7 +75,7 @@ void  aboutDlg::initDialog(){
   QPushButton_1->setGeometry(110,250,100,30);
   QPushButton_1->setMinimumSize(0,0);
   QPushButton_1->setFocus();
-  QPushButton_1->setText(i18n("Ok"));
+  QPushButton_1->setText(i18n("OK"));
 
 }
 
