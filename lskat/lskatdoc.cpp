@@ -733,12 +733,8 @@ void LSkatDoc::ReadConfig(KConfig *config)
   // installing the carddecks !
   // For the release version you can remove the aruments to the following two
   // functions !!!!
-  cardPath=config->readEntry("cardpath",
-               KCardDialog::getDefaultCardPath(KCardDialog::ProbeDefaultDir,
-                "../../libkdegames/carddecks/cards_en/default/"));
-  deckPath=config->readEntry("deckpath",
-                KCardDialog::getDefaultDeck(KCardDialog::ProbeDefaultDir,
-                "../../libkdegames/carddecks/decks_en/panda.png"));
+  cardPath=config->readEntry("cardpath", KCardDialog::getDefaultCardDir());
+  deckPath=config->readEntry("deckpath", KCardDialog::getDefaultDeck());
 
   // Debug only
   printf("cardPath=%s\ndeckPath=%s\n",cardPath.latin1(),deckPath.latin1());
