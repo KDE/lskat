@@ -21,6 +21,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include "lskatproc.h"
+//Added by qt3to4:
+#include <Q3CString>
 
 #define MIN_TIME 1000  // usec
 
@@ -379,17 +381,17 @@ short x,y;
 
   SendDebug("Receiv Msg");
   // end of process
-  if (msg->HasKey(QCString("Terminate")))
+  if (msg->HasKey(Q3CString("Terminate")))
   {
     Terminate();
   }
   // Init of process
-  if (msg->HasKey(QCString("Init")))
+  if (msg->HasKey(Q3CString("Init")))
   {
     // No init necessary
   }
   // Make a move
-  if (msg->HasKey(QCString("Cards")))
+  if (msg->HasKey(Q3CString("Cards")))
   {
     SendDebug("Process HasKey(Cards)");
     // new game object
@@ -422,9 +424,9 @@ short x,y;
 
     // report move
     msg->RemoveAll();
-    msg->AddData(QCString("Move"),game.currentplayer);
-    msg->AddData(QCString("MoveX"),x);
-    msg->AddData(QCString("MoveY"),y);
+    msg->AddData(Q3CString("Move"),game.currentplayer);
+    msg->AddData(Q3CString("MoveX"),x);
+    msg->AddData(Q3CString("MoveY"),y);
 
     //timee=time(0);
     // Sleep a minimum amount to slow down moves
@@ -451,29 +453,29 @@ int lgame::ExtractGame(KEMessage *msg)
   char *p;
   int size;
 
-    msg->GetData(QCString("Startplayer"),startplayer);
-    msg->GetData(QCString("CurrentPlayer"),currentplayer);
-    msg->GetData(QCString("Cards"),p,size);
-    msg->GetData(QCString("Level"),level);
+    msg->GetData(Q3CString("Startplayer"),startplayer);
+    msg->GetData(Q3CString("CurrentPlayer"),currentplayer);
+    msg->GetData(Q3CString("Cards"),p,size);
+    msg->GetData(Q3CString("Level"),level);
     level--; // start with level 0
     for (i=0;i<NO_OF_CARDS;i++)
     {
       card[i]=((int *)p)[i];
     }
-    msg->GetData(QCString("Height"),p,size);
+    msg->GetData(Q3CString("Height"),p,size);
     for (i=0;i<NO_OF_TILES;i++)
     {
       cardheight[i]=((int *)p)[i];
     }
-    msg->GetData(QCString("Trump"),tmp);
+    msg->GetData(Q3CString("Trump"),tmp);
     trump=(CCOLOUR)tmp;
     short mm;
-    msg->GetData(QCString("CurrentMove"),mm);
+    msg->GetData(Q3CString("CurrentMove"),mm);
     curmove[1-currentplayer]=(int)mm;
     curmove[currentplayer]=-1;
-    msg->GetData(QCString("No"),movenumber);
-    msg->GetData(QCString("Sc1"),score[0]);
-    msg->GetData(QCString("Sc2"),score[1]);
+    msg->GetData(Q3CString("No"),movenumber);
+    msg->GetData(Q3CString("Sc1"),score[0]);
+    msg->GetData(Q3CString("Sc2"),score[1]);
     return 1;
 }
 
@@ -586,7 +588,7 @@ int lskatproc::GetComputerMove(lgame game,short &x,short &y,int rek)
 void lskatproc::SendDebug(const char *s)
 {
   KEMessage *msg=new KEMessage;
-  msg->AddData(QCString("Debug"),s);
+  msg->AddData(Q3CString("Debug"),s);
 //  msg->AddData("KLogSendMsg","debug.log");
 // DEBUG
 //  SendMsg(msg);

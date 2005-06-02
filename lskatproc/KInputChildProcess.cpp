@@ -10,7 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <qstring.h>
-
+#include <Q3CString>
 #include "KInputChildProcess.h"
 #include "KInputChildProcess.moc"
 
