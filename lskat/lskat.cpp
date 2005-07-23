@@ -358,7 +358,7 @@ void LSkatApp::slotFileStatistics()
    message=i18n("Do you really want to clear the all time "
                 "statistical data?");
 
-  if (KMessageBox::Yes==KMessageBox::questionYesNo(this,message))
+  if (KMessageBox::Yes==KMessageBox::questionYesNo(this,message,QString::null,KStdGuiItem::clear()))
   {
     doc->ClearStats();
     doc->slotUpdateAllViews(0);
