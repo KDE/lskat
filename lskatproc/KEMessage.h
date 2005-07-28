@@ -19,25 +19,25 @@
 
 #include <string.h>
 #include <qstring.h>
-#include <qstrlist.h>
-#include <qdict.h>
+#include <q3strlist.h>
+#include <q3dict.h>
 #include "KMessageEntry.h"
 
-#define KEMESSAGE_HEAD QString(QCString("BEGIN_V1000"))
-#define KEMESSAGE_TAIL QString(QCString("END_V1000"))
-#define KEMESSAGE_CR   QString(QCString("\n"))
-#define KEMESSAGE_SEP  QString(QCString(":::"))
+#define KEMESSAGE_HEAD QString(Q3CString("BEGIN_V1000"))
+#define KEMESSAGE_TAIL QString(Q3CString("END_V1000"))
+#define KEMESSAGE_CR   QString(Q3CString("\n"))
+#define KEMESSAGE_SEP  QString(Q3CString(":::"))
 
 class KEMessage
 {
   private:
-  QStrList keys;
-  QDict<KMessageEntry> dict;
+  Q3StrList keys;
+  Q3Dict<KMessageEntry> dict;
 
   protected:
   void AddEntry(QString key,KMessageEntry *entry);
   public:
-  QStrList *QueryKeys();
+  Q3StrList *QueryKeys();
   uint QueryNumberOfKeys();
   void AddDataType(QString key,int size,const char *data,KGM_TYPE type);
   void AddData(QString key,short data);
