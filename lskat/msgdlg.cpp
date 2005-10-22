@@ -60,7 +60,8 @@ MsgDlg::MsgDlg( QWidget *parent, const char *name,const char * /*sufi */ )
   connect( PushButton, SIGNAL(clicked()), SLOT(accept()) );
   PushButton->setAutoRepeat( FALSE );
 
-  PushButton = new KPushButton( KStdGuiItem::cancel(), this, "PushButton_2" );
+  PushButton = new KPushButton( KStdGuiItem::cancel(), this );
+  PushButton->setObjectName( "PushButton_2" );
   PushButton->setGeometry( 305, 120, 65, 30 );
   connect( PushButton, SIGNAL(clicked()), SLOT(reject()) );
   PushButton->setAutoRepeat( FALSE );
