@@ -1,3 +1,0 @@
-- Convert BMP graphics to PNG (done)
-- Checke QT QString-char * casting
-  (Its a bit of a QCString/QString mess right now)
