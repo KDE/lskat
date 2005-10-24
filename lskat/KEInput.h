@@ -17,10 +17,10 @@
 #ifndef _KEINPUT_H_
 #define _KEINPUT_H_
 
-#include <qptrlist.h>
+#include <q3ptrlist.h>
 #include <qobject.h>
 #include <qtimer.h>
-#include <qmemarray.h>
+#include <q3memarray.h>
 #include "KConnectEntry.h"
 #include "KRemoteConnect.h"
 #include "KProcessConnect.h"
@@ -40,10 +40,10 @@ class KEInput : public QObject
 //   KEMessage *mMsg;
    QTimer *cTimer;
 
-   QPtrList<KRemoteConnect> remoteList;
-   QPtrList<KProcessConnect> computerList;
-   QPtrList<KInteractiveConnect> interactiveList;
-   QMemArray<KConnectEntry> playerArray;
+   Q3PtrList<KRemoteConnect> remoteList;
+   Q3PtrList<KProcessConnect> computerList;
+   Q3PtrList<KInteractiveConnect> interactiveList;
+   Q3MemArray<KConnectEntry> playerArray;
 
   public:
    KEInput(QObject * parent=0);

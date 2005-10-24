@@ -19,8 +19,10 @@
 #include <qspinbox.h>
 #include <qlineedit.h>
 #include <qcombobox.h>
-#include <qbuttongroup.h>
-#include <qwidgetstack.h>
+#include <q3buttongroup.h>
+#include <q3widgetstack.h>
+//Added by qt3to4:
+#include <Q3ValueList>
 
 extern const char* LSKAT_SERVICE;
 
@@ -63,9 +65,9 @@ void NetworkDlg::gamesFound()
   if (!clientName->count() && group->selectedId()==1) autoselect=true;
   clientName->clear();
   QStringList names;
-  QValueList<DNSSD::RemoteService::Ptr>::ConstIterator itEnd = browser->services().end();
-  for (QValueList<DNSSD::RemoteService::Ptr>::ConstIterator it = browser->services().begin();
-    it!=itEnd; ++it) names << (*it)->serviceName();
+  foreach (DNSSD::RemoteService::Ptr it, browser->services())
+   names << it->serviceName();
+
   clientName->insertStringList(names);
   if (autoselect && clientName->count()) gameSelected(0);
 }

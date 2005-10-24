@@ -10,10 +10,15 @@
 #define NAMEDLG_H
 
 #include <kdialogbase.h>
+//Added by qt3to4:
+#include <QLabel>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QGridLayout>
 class QVBoxLayout; 
 class QHBoxLayout; 
 class QGridLayout; 
-class QGroupBox;
+class Q3GroupBox;
 class QLabel;
 class QLineEdit;
 class QPushButton;
@@ -23,12 +28,12 @@ class NameDlg : public KDialogBase
     Q_OBJECT
 
 public:
-    NameDlg( QWidget* parent = 0, const char* name = 0, bool modal = TRUE, WFlags fl = 0 );
+    NameDlg( QWidget* parent = 0, const char* name = 0, bool modal = TRUE, Qt::WFlags fl = 0 );
     ~NameDlg();
    void SetNames(QString n1,QString n2);
    void GetNames(QString &n1,QString &n2);
 
-    QGroupBox* player_names;
+    Q3GroupBox* player_names;
     QLabel* text_player1;
     QLineEdit* edit_player1;
     QLabel* text_player2;

@@ -16,7 +16,9 @@
  ***************************************************************************/
 
 // include files for QT
-#include <qprogressdialog.h>
+#include <q3progressdialog.h>
+//Added by qt3to4:
+#include <Q3CString>
 
 // include files for KDE
 #include <kstandarddirs.h>
@@ -52,8 +54,8 @@ LSkatApp::LSkatApp() : KMainWindow(0)
    // localise data file
    QString file=QString::fromLatin1("lskat/grafix/t1.png");
    mGrafix=kapp->dirs()->findResourceDir("data", file);
-   if (mGrafix.isNull()) mGrafix = QCString("grafix/");
-   else mGrafix+=QCString("lskat/grafix/");
+   if (mGrafix.isNull()) mGrafix = Q3CString("grafix/");
+   else mGrafix+=Q3CString("lskat/grafix/");
    if (global_debug>3) printf("Localised datafile=%s\n",mGrafix.latin1());
 
 
@@ -370,18 +372,18 @@ void LSkatApp::slotFileMessage()
 {
   int res;
 
-  MsgDlg *dlg=new MsgDlg(this,QCString("Send message..."));
+  MsgDlg *dlg=new MsgDlg(this,Q3CString("Send message..."));
   res=dlg->exec();
   if (res==QDialog::Accepted)
   {
     QString s;
     s=dlg->GetMsg();
-    if (!s || s.length()<1) s=QCString("...");
+    if (!s || s.length()<1) s=Q3CString("...");
     KEMessage *msg=new KEMessage;
 
     // printf("Msg: %s\n",(char *)msg);
 
-    msg->AddData(QCString("Message"),(char *)(s.latin1()));
+    msg->AddData(Q3CString("Message"),(char *)(s.latin1()));
      if (mInput->QueryType(0)==KG_INPUTTYPE_REMOTE)
       mInput->SendMsg(msg,0);
      if (mInput->QueryType(1)==KG_INPUTTYPE_REMOTE)
@@ -403,14 +405,14 @@ void LSkatApp::slotFileEnd()
   slotStatusMsg(i18n("Game ended...start a new one..."));
 
   KEMessage *msg=new KEMessage;
-  msg->AddData(QCString("EndGame"),(short)1);
+  msg->AddData(Q3CString("EndGame"),(short)1);
   if (mInput->QueryType(0)==KG_INPUTTYPE_REMOTE)
     mInput->SendMsg(msg,0);
   if (mInput->QueryType(1)==KG_INPUTTYPE_REMOTE)
     mInput->SendMsg(msg,1);
 
   msg->RemoveAll();
-  msg->AddData(QCString("Terminate"),(short)1);
+  msg->AddData(Q3CString("Terminate"),(short)1);
   if (mInput->QueryType(0)==KG_INPUTTYPE_PROCESS)
     mInput->SendMsg(msg,0);
   if (mInput->QueryType(1)==KG_INPUTTYPE_PROCESS)
@@ -503,7 +505,7 @@ void LSkatApp::slotPlayer2(KG_INPUTTYPE i)
 
 void LSkatApp::slotOptionsNames()
 {
-  NameDlg *dlg=new NameDlg(this,QCString("Enter your name..."));
+  NameDlg *dlg=new NameDlg(this,Q3CString("Enter your name..."));
   dlg->SetNames(doc->GetName(0),doc->GetName(1));
   if (dlg->exec()==QDialog::Accepted)
   {
@@ -665,13 +667,13 @@ bool LSkatApp::MakeInputDevice(int no)
         port=doc->QueryPort();
         host=doc->QueryHost();
 	Name=doc->QueryName();
-        msg->AddData(QCString("Port"),(short)port);
-        msg->AddData(QCString("IP"),(char *)(host.latin1()));
-	msg->AddData(QCString("Name"),(const char *)(Name.utf8()));
+        msg->AddData(Q3CString("Port"),(short)port);
+        msg->AddData(Q3CString("IP"),(char *)(host.latin1()));
+	msg->AddData(Q3CString("Name"),(const char *)(Name.utf8()));
         res=mInput->SetInputDevice(no,type,msg);
         if (!res)
         {
-          QProgressDialog *progress;
+          Q3ProgressDialog *progress;
           QString s;
           int tim,j;
           tim=10000;
@@ -683,7 +685,7 @@ bool LSkatApp::MakeInputDevice(int no)
           {
             s=i18n("Offering remote connection on port %1...").arg(port);
           }
-          progress=new QProgressDialog(s, i18n("Abort"), tim, this,0,true );
+          progress=new Q3ProgressDialog(s, i18n("Abort"), tim, this,0,true );
           progress->setCaption(i18n("Lieutenant Skat"));
           for (j=0; j<tim; j++)
           {
@@ -704,7 +706,7 @@ bool LSkatApp::MakeInputDevice(int no)
         {
           if (global_debug>10)
             printf("We want theother one to be client\n");
-          msg->AddData(QCString("Client"),(short)-1); // force client
+          msg->AddData(Q3CString("Client"),(short)-1); // force client
           mInput->SendMsg(msg,no);
         }
         // resp server
@@ -712,7 +714,7 @@ bool LSkatApp::MakeInputDevice(int no)
         {
           if (global_debug>10)
             printf("We want theother one to be server\n");
-          msg->AddData(QCString("Server"),(short)-1); // force server
+          msg->AddData(Q3CString("Server"),(short)-1); // force server
           mInput->SendMsg(msg,no);
         }
       }
@@ -737,7 +739,7 @@ bool LSkatApp::MakeInputDevice(int no)
         }
       if (path.isNull())  return false;
       msg=new KEMessage;
-      msg->AddData(QCString("ProcessName"),(char *)(path.latin1()));
+      msg->AddData(Q3CString("ProcessName"),(char *)(path.latin1()));
       // msg->AddData("ProcessName",doc->QueryProcessName());
       res=mInput->SetInputDevice(no,KG_INPUTTYPE_PROCESS,msg);
       delete msg;
@@ -751,7 +753,7 @@ void LSkatApp::OptionsNetwork()
 {
   int res;
 
-  NetworkDlg *dlg=new NetworkDlg(this,QCString("Configure a network game..."));
+  NetworkDlg *dlg=new NetworkDlg(this,Q3CString("Configure a network game..."));
   dlg->SetPort(doc->QueryPort());
   dlg->SetHost(doc->QueryHost());
   dlg->SetName(doc->QueryName());
@@ -768,13 +770,13 @@ void LSkatApp::slotPrepareProcessMove(KEMessage *msg)
     printf("+++ main should prepare process move\n");
   slotStatusMsg(i18n("Waiting for the computer to move..."));
 
-  msg->AddData(QCString("Hint"),(short)0);
-  msg->AddData(QCString("Move"),(short)1);
+  msg->AddData(Q3CString("Hint"),(short)0);
+  msg->AddData(Q3CString("Move"),(short)1);
 
   if (global_debug>3)
     printf("PREPARE GAME in processmove\n");
   if (global_debug>1)
-    msg->AddData(QCString("KLogSendMsg"),"process.log");
+    msg->AddData(Q3CString("KLogSendMsg"),"process.log");
   PrepareGame(msg);
 }
 
@@ -812,15 +814,15 @@ void LSkatApp::slotReceiveInput(KEMessage *msg,int )
   bool remotesend;
   int size;
 
-  if (msg->HasKey(QCString("Debug")))
+  if (msg->HasKey(Q3CString("Debug")))
   {
     char *debug;
-    msg->GetData(QCString("Debug"),debug,size);
+    msg->GetData(Q3CString("Debug"),debug,size);
     printf("Received Debug: %d <%s>\n",size,debug);
   }
-  if (msg->HasKey(QCString("ConnectionLost")))
+  if (msg->HasKey(Q3CString("ConnectionLost")))
   {
-    if (msg->GetData(QCString("ConnectionLost"),move))
+    if (msg->GetData(Q3CString("ConnectionLost"),move))
     {
       if (move==0)
       {
@@ -838,10 +840,10 @@ void LSkatApp::slotReceiveInput(KEMessage *msg,int )
       }
     }
   }
-  if (msg->HasKey(QCString("Message")))
+  if (msg->HasKey(Q3CString("Message")))
   {
     char *p;
-    if (msg->GetData(QCString("Message"),p,size))
+    if (msg->GetData(Q3CString("Message"),p,size))
     {
       message=i18n("Message from remote player:\n")+p;
       KMessageBox::information(this,message);
@@ -849,18 +851,18 @@ void LSkatApp::slotReceiveInput(KEMessage *msg,int )
         printf("MESSAGE **** %s ****\n",message.latin1());
     }
   }
-  if (msg->HasKey(QCString("EndGame")))
+  if (msg->HasKey(Q3CString("EndGame")))
   {
     KEMessage *msg2=new KEMessage;
 
-    msg2->AddData(QCString("Terminate"),(short)1);
+    msg2->AddData(Q3CString("Terminate"),(short)1);
     if (mInput->QueryType(0)==KG_INPUTTYPE_PROCESS)
       mInput->SendMsg(msg2,0);
     if (mInput->QueryType(1)==KG_INPUTTYPE_PROCESS)
       mInput->SendMsg(msg2,1);
     delete msg2;
 
-    msg->GetData(QCString("EndGame"),move);
+    msg->GetData(Q3CString("EndGame"),move);
     message=i18n("Remote player ended game...");
     KMessageBox::information(this,message);
     slotStatusMsg(message);
@@ -870,19 +872,19 @@ void LSkatApp::slotReceiveInput(KEMessage *msg,int )
     slotStatusNames();
   }
 
-  if (msg->HasKey(QCString("Move")))
+  if (msg->HasKey(Q3CString("Move")))
   {
      slotStatusMsg(i18n("Ready"));
-     msg->GetData(QCString("Move"),player);
-     msg->GetData(QCString("MoveX"),x);
-     msg->GetData(QCString("MoveY"),y);
-     remotesend=msg->HasKey(QCString("RemoteMove"));
+     msg->GetData(Q3CString("Move"),player);
+     msg->GetData(Q3CString("MoveX"),x);
+     msg->GetData(Q3CString("MoveY"),y);
+     remotesend=msg->HasKey(Q3CString("RemoteMove"));
      if (remotesend && doc->IsRemoteSwitch())
        player=1-player;
      Move((int)x,(int)y,(int)player,remotesend);
   }
   // Client key is automatically added by message system !!!
-  if (msg->HasKey(QCString("Client")))
+  if (msg->HasKey(Q3CString("Client")))
   {
     if (global_debug>5)
       printf("We are client and extracting game data now.\n");
@@ -895,7 +897,7 @@ void LSkatApp::slotReceiveInput(KEMessage *msg,int )
     mInput->Next(doc->GetStartPlayer());
   }
   // Server key is automatically added by message system !!!
-  if (msg->HasKey(QCString("Server")))
+  if (msg->HasKey(Q3CString("Server")))
   {
     if (global_debug>5)
       printf("We are server now.\n");
@@ -969,10 +971,10 @@ void LSkatApp::Move(int x,int y,int player,bool remote)
     {
       msg=new KEMessage;
       if (doc->IsRemoteSwitch()) player=1-player;
-      msg->AddData(QCString("Move"),(short)player);
-      msg->AddData(QCString("MoveX"),(short)x);
-      msg->AddData(QCString("MoveY"),(short)y);
-      msg->AddData(QCString("RemoteMove"),(short)1);
+      msg->AddData(Q3CString("Move"),(short)player);
+      msg->AddData(Q3CString("MoveX"),(short)x);
+      msg->AddData(Q3CString("MoveY"),(short)y);
+      msg->AddData(Q3CString("RemoteMove"),(short)1);
       if (mInput->QueryType(0)==KG_INPUTTYPE_REMOTE)
         mInput->SendMsg(msg,0);
       if (mInput->QueryType(1)==KG_INPUTTYPE_REMOTE)
@@ -1004,22 +1006,22 @@ void LSkatApp::PrepareGame(KEMessage *msg)
   if (!msg)
     return;
 
-  msg->AddData(QCString("Cards"),(char *)doc->GetCardP(),NO_OF_CARDS*sizeof(int));
-  msg->AddData(QCString("Startplayer"),(short)doc->GetStartPlayer());
-  msg->AddData(QCString("CurrentPlayer"),(short)doc->GetCurrentPlayer());
+  msg->AddData(Q3CString("Cards"),(char *)doc->GetCardP(),NO_OF_CARDS*sizeof(int));
+  msg->AddData(Q3CString("Startplayer"),(short)doc->GetStartPlayer());
+  msg->AddData(Q3CString("CurrentPlayer"),(short)doc->GetCurrentPlayer());
   if (doc->GetPlayedBy(0)==KG_INPUTTYPE_REMOTE)
-    msg->AddData(QCString("RemoteIs"),(short)0);
+    msg->AddData(Q3CString("RemoteIs"),(short)0);
   else if (doc->GetPlayedBy(1)==KG_INPUTTYPE_REMOTE)
-    msg->AddData(QCString("RemoteIs"),(short)1);
-  msg->AddData(QCString("Trump"),(short)doc->GetTrump());
+    msg->AddData(Q3CString("RemoteIs"),(short)1);
+  msg->AddData(Q3CString("Trump"),(short)doc->GetTrump());
   // For computer player
   // -1 or the current played card
-  msg->AddData(QCString("CurrentMove"),(short)doc->GetMove(doc->GetStartPlayer()));
-  msg->AddData(QCString("Height"),(char *)doc->GetCardHeightP(),NO_OF_CARDS/2*sizeof(int));
-  msg->AddData(QCString("No"),(short)doc->GetMoveNo());
-  msg->AddData(QCString("Sc1"),(short)doc->GetScore(0));
-  msg->AddData(QCString("Sc2"),(short)doc->GetScore(1));
-  msg->AddData(QCString("Level"),(short)doc->GetComputerLevel());
+  msg->AddData(Q3CString("CurrentMove"),(short)doc->GetMove(doc->GetStartPlayer()));
+  msg->AddData(Q3CString("Height"),(char *)doc->GetCardHeightP(),NO_OF_CARDS/2*sizeof(int));
+  msg->AddData(Q3CString("No"),(short)doc->GetMoveNo());
+  msg->AddData(Q3CString("Sc1"),(short)doc->GetScore(0));
+  msg->AddData(Q3CString("Sc2"),(short)doc->GetScore(1));
+  msg->AddData(Q3CString("Level"),(short)doc->GetComputerLevel());
 }
 
 void LSkatApp::ExtractGame(KEMessage *msg)
@@ -1029,7 +1031,7 @@ void LSkatApp::ExtractGame(KEMessage *msg)
   // Do we have to switch players?
   bool switchit;
   short remote;
-  msg->GetData(QCString("RemoteIs"),remote);
+  msg->GetData(Q3CString("RemoteIs"),remote);
   if (doc->GetPlayedBy(remote)==KG_INPUTTYPE_REMOTE) switchit=true;
   else switchit=false;
 
@@ -1038,10 +1040,10 @@ void LSkatApp::ExtractGame(KEMessage *msg)
   int *cards;
   char *p;
   short trump;
-  msg->GetData(QCString("Startplayer"),start);
-  msg->GetData(QCString("Cards"),p,size);
+  msg->GetData(Q3CString("Startplayer"),start);
+  msg->GetData(Q3CString("Cards"),p,size);
   cards=(int *)p;
-  msg->GetData(QCString("Trump"),trump);
+  msg->GetData(Q3CString("Trump"),trump);
   if (size!=NO_OF_CARDS*sizeof(int))
   {
     printf("Error: Transmission of cards failed..wrong sizes\n");

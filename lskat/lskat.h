@@ -24,7 +24,7 @@
 #endif
 
 // include files for Qt
-#include <qstrlist.h>
+#include <q3strlist.h>
 
 // include files for KDE 
 #include <kapplication.h>
@@ -200,7 +200,7 @@ protected: // Protected attributes
 
   private:
     /** contains the recently used filenames */
-    QStrList recentFiles;
+    Q3StrList recentFiles;
 
     /** the configuration object of the application */
     KConfig *config;

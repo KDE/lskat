@@ -18,6 +18,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "KEMessage.h"
+//Added by qt3to4:
+#include <Q3StrList>
+#include <Q3CString>
 
 void KEMessage::AddEntry(QString key,KMessageEntry *entry)
 {
@@ -129,7 +132,7 @@ QString KEMessage::EntryToString(char *key,KMessageEntry *entry)
   int size,i;
   KGM_TYPE type;
   char *data;
-  s=QCString("");
+  s=Q3CString("");
   if (!entry) return s;
   size=entry->QuerySize();
   type=entry->QueryType();
@@ -142,7 +145,7 @@ QString KEMessage::EntryToString(char *key,KMessageEntry *entry)
                 size,KEMESSAGE_SEP,
                 (int)type,KEMESSAGE_SEP);
   */
-  tmp=QCString(key);
+  tmp=Q3CString(key);
   s+=tmp;
   s+=KEMESSAGE_SEP;
   tmp.sprintf("%d",size);
@@ -226,7 +229,7 @@ QString KEMessage::ToString()
   s=KEMESSAGE_HEAD+KEMESSAGE_CR;
   for (it=keys.first();it!=0;it=keys.next())
   {
-    entry=dict.find(QCString(it));
+    entry=dict.find(Q3CString(it));
     s+=EntryToString(it,entry);
   }
   s+=KEMESSAGE_TAIL+KEMESSAGE_CR;
@@ -287,7 +290,7 @@ uint KEMessage::QueryNumberOfKeys()
 {
   return keys.count();
 }
-QStrList *KEMessage::QueryKeys()
+Q3StrList *KEMessage::QueryKeys()
 {
   return &keys;
 }
@@ -315,10 +318,10 @@ KEMessage &KEMessage::operator=(KEMessage &msg)
   // printf("Assigning = KEMessage from %p to %p\n",&msg,this);
   for (it=msg.keys.first();it!=0;it=msg.keys.next())
   {
-    entry=msg.dict.find(QCString(it));
+    entry=msg.dict.find(Q3CString(it));
     newentry=new KMessageEntry;
     *newentry=*entry;
-    AddEntry(QCString(it),newentry);
+    AddEntry(Q3CString(it),newentry);
 
   }
   // return *newmsg;

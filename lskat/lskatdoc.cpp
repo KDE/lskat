@@ -18,6 +18,9 @@
 // include files for Qt
 #include <qdir.h>
 #include <qfileinfo.h>
+//Added by qt3to4:
+#include <Q3CString>
+#include <Q3PtrList>
 #include <time.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -34,14 +37,14 @@
 #include "lskatview.h"
 #include <kcarddialog.h>
 
-QPtrList<LSkatView> *LSkatDoc::pViewList = 0L;
+Q3PtrList<LSkatView> *LSkatDoc::pViewList = 0L;
 
 LSkatDoc::LSkatDoc(QWidget *parent, const char *name) : QObject(parent, name)
 {
   int i;
   if(!pViewList)
   {
-    pViewList = new QPtrList<LSkatView>();
+    pViewList = new Q3PtrList<LSkatView>();
   }
 
   pViewList->setAutoDelete(true);
@@ -744,7 +747,7 @@ void LSkatDoc::ReadConfig(KConfig *config)
   config->setGroup("Parameter");
   host=config->readEntry("host");
   port=(unsigned short)config->readNumEntry("port",7432);
-  procfile=config->readEntry("process",QCString("lskatproc"));
+  procfile=config->readEntry("process",Q3CString("lskatproc"));
   Name=config->readEntry("gamename");
   names[0]=config->readEntry("Name1",i18n("Alice"));
   //  names[1]=config->readEntry("Name2",i18n("Bob"));

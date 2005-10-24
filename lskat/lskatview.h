@@ -24,6 +24,9 @@
 
 #include <qwidget.h>
 #include <qrect.h>
+//Added by qt3to4:
+#include <QMouseEvent>
+#include <QPaintEvent>
 #include "lskat.h"
 
 class LSkatDoc;

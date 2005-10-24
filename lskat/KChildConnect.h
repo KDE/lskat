@@ -18,7 +18,7 @@
 #define _KCHILDCONNECT_H_
 
 #include <qobject.h>
-#include <qstrlist.h>
+#include <q3strlist.h>
 #include "KEMessage.h"
 
 
@@ -27,7 +27,7 @@ class KChildConnect: public QObject
   Q_OBJECT
 
   protected:
-  QStrList inputcache;
+  Q3StrList inputcache;
   bool input_pending;
   QString inputbuffer;
   int ID;

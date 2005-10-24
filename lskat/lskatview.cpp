@@ -24,6 +24,10 @@
 #include <qstring.h>
 #include <qpainter.h>
 #include <qdatetime.h>
+//Added by qt3to4:
+#include <Q3CString>
+#include <QPaintEvent>
+#include <QMouseEvent>
 #include <kmessagebox.h>
 #include <kdebug.h>
 #include <klocale.h>
@@ -91,7 +95,7 @@
 #define FINAL_Y7      155
 
 //#define COL_STATUSLIGHT  white
-#define COL_STATUSBORDER black
+#define COL_STATUSBORDER Qt::black
 //#define COL_STATUSFIELD  QColor(192,192,192)
 //#define COL_STATUSDARK   QColor(65,65,65)
 #define COL_STATUSFIELD  QColor(130,130,255)
@@ -217,7 +221,7 @@ void LSkatView::drawMove(QPainter *p)
       {
         QPixmap pix1(getDocument()->mPixCard[cardmoveunder]);
         int wid=pix1.width();
-        QWMatrix m;
+        QMatrix m;
         m.scale(2.0*((double)cardmovecnt/(double)MOVECOUNTER-0.5),1.0);
         pix1=pix1.xForm(m);
         point=QPoint((wid-pix1.width())/2,0);
@@ -228,7 +232,7 @@ void LSkatView::drawMove(QPainter *p)
       {
         QPixmap pix1(getDocument()->mPixDeck);
         int wid=pix1.width();
-        QWMatrix m;
+        QMatrix m;
         m.scale(1.0-2.0*((double)cardmovecnt/(double)MOVECOUNTER),1.0);
         pix1=pix1.xForm(m);
         point=QPoint((wid-pix1.width())/2,0);
@@ -823,9 +827,9 @@ void LSkatView::mousePressEvent( QMouseEvent *mouse )
       !getDocument()->IsLocked())
   {
     KEMessage *msg=new KEMessage;
-    msg->AddData(QCString("Move"),(short)player);
-    msg->AddData(QCString("MoveX"),(short)mx);
-    msg->AddData(QCString("MoveY"),(short)my);
+    msg->AddData(Q3CString("Move"),(short)player);
+    msg->AddData(Q3CString("MoveX"),(short)mx);
+    msg->AddData(Q3CString("MoveY"),(short)my);
     getDocument()->QueryInputHandler()->SetInput(msg);
     delete msg;
   }

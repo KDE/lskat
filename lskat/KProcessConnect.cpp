@@ -34,6 +34,8 @@
 #include "KProcessConnect.h"
 
 #include "KProcessConnect.moc"
+//Added by qt3to4:
+#include <Q3CString>
 
 KProcessConnect::KProcessConnect()
   : KChildConnect()
@@ -57,13 +59,13 @@ bool KProcessConnect::Init(int id,KEMessage *msg)
   SetID(id);
   if (msg)
   {
-    if (!msg->GetData(QCString("ProcessName"),p,size)) return false; // no process name
+    if (!msg->GetData(Q3CString("ProcessName"),p,size)) return false; // no process name
     processname=p;
     /*
     printf("Found processname '%s' size %d size=%u\n",
        p,size,msg->QueryNumberOfKeys());
     */
-    msg->Remove(QCString("ProcessName"));
+    msg->Remove(Q3CString("ProcessName"));
   }
   if (processname.length()<1) return false;
 
@@ -179,7 +181,7 @@ bool KProcessConnect::Send(QString str)
   bool result;
   // printf("****** PROCESS:SEND\n");
   if (!running || !process) return false;
-  if (!str || str.length()<1) return true; // no need to send crap
+  if (str.isEmpty()) return true; // no need to send crap
   // TODO ..why?
   QString s;
   s=KEMESSAGE_CR+KEMESSAGE_CR;

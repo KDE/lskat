@@ -18,6 +18,8 @@
 #include "KChildConnect.h"
 
 #include "KChildConnect.moc"
+//Added by qt3to4:
+#include <Q3CString>
 
 KChildConnect::KChildConnect()
   : QObject(0,0)
@@ -40,12 +42,12 @@ bool KChildConnect::SendMsg(KEMessage *msg)
 {
   QString sendstring=msg->ToString();
   // Debug only
-  if (msg->HasKey(QCString("KLogSendMsg")))
+  if (msg->HasKey(Q3CString("KLogSendMsg")))
   {
     char *p;
     int size;
     FILE *fp;
-    msg->GetData(QCString("KLogSendMsg"),p,size);
+    msg->GetData(Q3CString("KLogSendMsg"),p,size);
     if (p && (fp=fopen(p,"a")) )
     {
       fprintf(fp,"------------------------------------\n");
@@ -104,7 +106,7 @@ void KChildConnect::Receive(QString input)
   char *it;
   for (it=inputcache.first();it!=0;it=inputcache.next())
   {
-    msg->AddString(QCString(it));
+    msg->AddString(Q3CString(it));
   }
 
 //  printf("+- CHILDprocess:: GOT MESSAGE::Emmiting slotReceiveMsg\n");

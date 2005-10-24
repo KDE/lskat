@@ -16,7 +16,7 @@
  ***************************************************************************/
 #ifndef __MSGDLG_H_
 #define __MSGDLG_H_
-#include <qmultilineedit.h>
+#include <q3multilineedit.h>
 #include <qstring.h>
 #include <qdialog.h>
 
@@ -31,7 +31,7 @@ class MsgDlg : public QDialog
 protected slots:
 
 protected:
-  QMultiLineEdit *MultiLine;
+  Q3MultiLineEdit *MultiLine;
 
 
 

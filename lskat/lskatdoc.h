@@ -25,7 +25,9 @@
 // include files for QT
 #include <qobject.h>
 #include <qstring.h>
-#include <qptrlist.h>
+#include <q3ptrlist.h>
+//Added by qt3to4:
+#include <QPixmap>
 
 #include <kconfig.h>
 #include "lskat.h"
@@ -222,7 +224,7 @@ public:
  	
   public:	
     /** the list of the views currently connected to the document */
-    static QPtrList<LSkatView> *pViewList;	
+    static Q3PtrList<LSkatView> *pViewList;	
 
   private:
     /** the modified flag of the current document */

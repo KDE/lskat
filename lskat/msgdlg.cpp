@@ -28,7 +28,9 @@
 
 */
 
-#include <qgroupbox.h>
+#include <q3groupbox.h>
+//Added by qt3to4:
+#include <Q3CString>
 #include <klocale.h>
 #include <kpushbutton.h>
 #include <kstdguiitem.h>
@@ -45,14 +47,14 @@ MsgDlg::MsgDlg( QWidget *parent, const char *name,const char * /*sufi */ )
   setMaximumSize(600,360);                                                        
   resize( 400, 160 );
 
-  QGroupBox* grp;
-  grp = new QGroupBox(i18n("Enter Message"), this);
+  Q3GroupBox* grp;
+  grp = new Q3GroupBox(i18n("Enter Message"), this);
   grp->resize(380,100);
   grp->move(10,10);
 
-  MultiLine = new QMultiLineEdit( grp, "MLineEdit" );
+  MultiLine = new Q3MultiLineEdit( grp, "MLineEdit" );
   MultiLine->setGeometry( 10, 20, 360, 70 );
-  MultiLine->setText(QCString("") );
+  MultiLine->setText(Q3CString("") );
 
   QPushButton *PushButton;
   PushButton = new QPushButton( i18n("Send" ), this, "PushButton_1" );

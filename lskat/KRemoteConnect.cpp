@@ -38,6 +38,8 @@
 #include "KRemoteConnect.h"
 
 #include "KRemoteConnect.moc"
+//Added by qt3to4:
+#include <Q3CString>
 
 const char* LSKAT_SERVICE = "_lskat._tcp";
 
@@ -78,20 +80,20 @@ bool tryserver;
   SetID(id);
   if (msg)
   {
-    if (msg->GetData(QCString("Port"),prt))
+    if (msg->GetData(Q3CString("Port"),prt))
     {
       port=(unsigned int)prt;
-      msg->Remove(QCString("Port"));
+      msg->Remove(Q3CString("Port"));
     }
-    if (msg->GetData(QCString("IP"),p,size))
+    if (msg->GetData(Q3CString("IP"),p,size))
     {
-      IP=QCString(p);
-      msg->Remove(QCString("IP"));
+      IP=Q3CString(p);
+      msg->Remove(Q3CString("IP"));
     }
-    if (msg->GetData(QCString("Name"),p,size))
+    if (msg->GetData(Q3CString("Name"),p,size))
     {
       Name=QString::fromUtf8(p);
-      msg->Remove(QCString("Name"));
+      msg->Remove(Q3CString("Name"));
     }
   }
   /*
@@ -127,7 +129,7 @@ bool tryserver;
       // Send msg if any
       if (msg->QueryNumberOfKeys()>0)
       {
-        msg->AddData(QCString("Server"),(short)QueryID());
+        msg->AddData(Q3CString("Server"),(short)QueryID());
         SendMsg(msg);
       }
 
@@ -220,7 +222,7 @@ void KRemoteConnect::socketRequest(KSocket *sock)
     if (bufferMsg)
     {
       // Delayed sending of init msg
-      bufferMsg->AddData(QCString("Client"),(short)QueryID());
+      bufferMsg->AddData(Q3CString("Client"),(short)QueryID());
       SendMsg(bufferMsg);
       delete bufferMsg;
       bufferMsg=0;
@@ -234,7 +236,7 @@ void KRemoteConnect::socketClosed(KSocket *sock)
   kSocket=0;
   socketStatus=KR_INVALID;
   KEMessage *msg=new KEMessage;
-  msg->AddData(QCString("ConnectionLost"),(short)QueryID());
+  msg->AddData(Q3CString("ConnectionLost"),(short)QueryID());
   emit signalReceiveMsg(msg,QueryID());
   delete msg;
 }
