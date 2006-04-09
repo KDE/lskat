@@ -1,0 +1,114 @@
+// Qt includes
+
+// KDE includes
+#include <kdebug.h>
+
+// Local includes
+#include "config_two.h"
+
+
+// Constructor for the engine
+ConfigTwo::ConfigTwo(QObject* parent)
+         : QObject(parent)
+{
+  // Create Players
+  mPlayers.clear();
+  mPlayers[0] = new Player(0, this);
+  mPlayers[1] = new Player(1, this);
+}
+
+
+// Resets the data
+void ConfigTwo::reset()
+{
+  mPlayers[0]->setName("Alice"); 
+  mPlayers[1]->setName("Bob"); 
+
+  // Default input types (must be after GUI and players)
+  setInputType(0, TypeMouseInput);
+  setInputType(1, TypeAiInput);
+}
+
+// Destructor
+ConfigTwo::~ConfigTwo()
+{
+  QHashIterator<int,Player*> it(mPlayers);
+  while(it.hasNext())
+  {
+    it.next();
+    Player* player = it.value();
+    delete player;
+  }
+  mPlayers.clear();
+}
+
+// Save properties
+void ConfigTwo::save(KConfig *cfg)
+{
+  cfg->setGroup("LSkatData");
+  cfg->writeEntry("input0", mInputTypes[0]);
+  cfg->writeEntry("input1", mInputTypes[1]);
+
+  // Save player
+  QHashIterator<int,Player*> it = playerIterator();
+  while(it.hasNext())
+  {
+    it.next();
+    Player* player = it.value();
+    int no = it.key();
+    cfg->setGroup(QString("LSkat_Player%1").arg(no));
+    player->save(cfg);
+  }
+}
+
+
+// Load properties
+void ConfigTwo::load(KConfig* cfg)
+{
+  reset();
+  cfg->setGroup("LSkatData");
+  int num;
+  num = cfg->readNumEntry("input0", (int)mInputTypes[0]);
+  setInputType(0, (InputDeviceType)num);
+  num = cfg->readNumEntry("input1", (int)mInputTypes[1]);
+  setInputType(1, (InputDeviceType)num);
+
+  // Load player
+  QHashIterator<int,Player*> it = playerIterator();
+  while(it.hasNext())
+  {
+    it.next();
+    Player* player = it.value();
+    int no = it.key();
+    cfg->setGroup(QString("LSkat_Player%1").arg(no));
+    player->load(cfg);
+  }
+}
+
+// Retrieve a player.
+Player* ConfigTwo::player(int no)
+{
+  if (!mPlayers.contains(no)) return 0;
+  return mPlayers[no];
+}
+
+// Retrieve player has iterator
+QHashIterator<int,Player*> ConfigTwo::playerIterator()
+{
+  QHashIterator<int,Player*> it(mPlayers);
+  return it;
+}
+
+
+// Retrieve input type of given player
+InputDeviceType ConfigTwo::inputType(int no)
+{
+  return mInputTypes[no];
+}
+
+// Set the input type for a given players
+void ConfigTwo::setInputType(int no, InputDeviceType type)
+{
+  mInputTypes[no] = type;
+  emit signalInputType(no, type);
+}

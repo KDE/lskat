@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=LSkat
+GenericName=Card Game
+Exec=lskat
+Icon=lskat
+MimeType=
+SwallowExec=
+SwallowTitle=
+Terminal=false
+Type=Application
+DocPath=lskat/index.html
+Categories=Qt;KDE;Game;CardGame;
