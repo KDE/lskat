@@ -75,5 +75,6 @@ void PlayerStatusWidget::setInputIcon(QPixmap* icon)
 QSize PlayerStatusWidget::sizeHint() const
 {
   QSize size =  ui.gridLayout->sizeHint();
+return size;
   return QSize(250,80); // TODO: No fixed size
 }

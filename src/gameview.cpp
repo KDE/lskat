@@ -27,6 +27,12 @@ GameView::GameView(QSize size, int advancePeriod, QWidget* parent)
 
   mPlayerWidgets.clear();
 
+  QPalette palette;
+  palette.setColor(QPalette::Active, QPalette::Background, QColor(0,0,128));
+  palette.setColor(QPalette::Inactive, QPalette::Background, QColor(0,0,128));
+  palette.setColor(QPalette::Disabled, QPalette::Background, QColor(0,0,128));
+  this->setPalette(palette);
+
   updateGeometry();
   adjustSize();
 }
