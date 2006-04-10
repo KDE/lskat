@@ -366,7 +366,7 @@ void DisplayTwo::showScore(int position, int score)
   TextSprite* text = new TextSprite(mCanvas);
   QFont font;
   font.setPixelSize(24);
-  text->setText(i18n("%1 points").arg(score));
+  text->setText(i18n("%1 points", score));
   text->setFont(font);
   text->setTextFlags(Qt::AlignCenter);
   text->setColor(QColor(255, 128, 0));

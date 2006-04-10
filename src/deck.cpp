@@ -230,21 +230,21 @@ QString Deck::name(int card)
 QString Deck::name(Suite suite, CardType type)
 {
     QString suiteName = i18n("unknown");
-    if (suite == Club) suiteName = i18n("suite name", "Clubs");
-    if (suite == Spade) suiteName = i18n("suite name", "Spades");
-    if (suite == Heart) suiteName = i18n("suite name", "Hearts");
-    if (suite == Diamond) suiteName = i18n("suite name", "Diamonds");
-    if (suite == Grand) suiteName = i18n("trump name", "Grand");
+    if (suite == Club) suiteName = i18nc("suite name", "Clubs");
+    if (suite == Spade) suiteName = i18nc("suite name", "Spades");
+    if (suite == Heart) suiteName = i18nc("suite name", "Hearts");
+    if (suite == Diamond) suiteName = i18nc("suite name", "Diamonds");
+    if (suite == Grand) suiteName = i18nc("trump name", "Grand");
     QString typeName = i18n("unknown");
-    if (type == Ace) typeName = i18n("card name", "Ace");
-    if (type == King) typeName = i18n("card name", "King");
-    if (type == Queen) typeName = i18n("card name", "Queen");
-    if (type == Jack) typeName = i18n("card name", "Jack");
-    if (type == Ten) typeName = i18n("card name", "Ten");
-    if (type == Nine) typeName = i18n("card name", "Nine");
-    if (type == Eight) typeName = i18n("card name", "Eight");
-    if (type == Seven) typeName = i18n("card name", "Seven");
+    if (type == Ace) typeName = i18nc("card name", "Ace");
+    if (type == King) typeName = i18nc("card name", "King");
+    if (type == Queen) typeName = i18nc("card name", "Queen");
+    if (type == Jack) typeName = i18nc("card name", "Jack");
+    if (type == Ten) typeName = i18nc("card name", "Ten");
+    if (type == Nine) typeName = i18nc("card name", "Nine");
+    if (type == Eight) typeName = i18nc("card name", "Eight");
+    if (type == Seven) typeName = i18nc("card name", "Seven");
 
-    return i18n("eg jack of clubs", "%1 of %2").arg(typeName).arg(suiteName);
+    return i18nc("eg jack of clubs", "%1 of %2", typeName, suiteName);
 }
 

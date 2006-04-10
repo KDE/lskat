@@ -231,40 +231,40 @@ int EngineTwo::evaluateGame()
   // First player won
   else if (points1 > points2)
   {
-    text = i18n("Player %1 won ").arg(player1->name());
+    text = i18n("Player %1 won ", player1->name());
 
     score1 = 2;
     player1->addWonGame(1);
     if (points1 >= 90)
     {  
       score1 += 1;  // Schneider
-      text = i18n("%1 won with 90 points. Super!").arg(player1->name());
+      text = i18n("%1 won with 90 points. Super!", player1->name());
     }
     // Do not use 'else if' here !
     if (points1 >= 120)
     {
       score1 += 1; // Schwarz
-      text = i18n("%1 won to nil. Congratulations!").arg(player1->name());
+      text = i18n("%1 won to nil. Congratulations!", player1->name());
     }
     winner = 0;
   }
   // Second player won
   else
   {
-    text = i18n("Player 2 - %1 won ").arg(player2->name());
+    text = i18n("Player 2 - %1 won ", player2->name());
 
     score2 = 2;
     player2->addWonGame(1);
     if (points2 >= 90)
     {
       score2 += 1;  // Schneider
-      text = i18n("%1 won with 90 points. Super!").arg(player2->name());
+      text = i18n("%1 won with 90 points. Super!", player2->name());
     }
     // Do not use 'else if' here !
     if (points2 >= 120)
     {
       score2 += 1; // Schwarz
-      text = i18n("%1 won to nil. Congratulations!").arg(player2->name());
+      text = i18n("%1 won to nil. Congratulations!", player2->name());
     }
     winner = 1;
   }
