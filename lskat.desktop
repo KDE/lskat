@@ -2,6 +2,7 @@
 Encoding=UTF-8
 Name=LSkat
 GenericName=Card Game
+GenericName[fr]=Jeu de cartes
 Exec=lskat
 Icon=lskat
 MimeType=
