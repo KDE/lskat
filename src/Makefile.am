@@ -22,9 +22,8 @@ rcdir = $(kde_datadir)/lskat
 rc_DATA = lskatui.rc
 
 lskat_LDFLAGS = $(all_libraries) $(KDE_RPATH)
-lskatproc_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
-kde_kcfg_DATA = lskat.kcfg
+#kde_kcfg_DATA = lskat.kcfg
 
 messages: rc.cpp
 	$(XGETTEXT) *.cpp -o $(podir)/lskat.pot 
