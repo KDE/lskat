@@ -1,14 +1,16 @@
-AM_CPPFLAGS = -DSRCDIR="\"/home/kde/kde35/KDE/kdegames/lskat\""
+#AM_CPPFLAGS = -DSRCDIR="\"/home/kde/kde35/KDE/kdegames/lskat\""
+AM_CPPFLAGS = -DSRCDIR="\"$(srcdir)/..\""
 
 bin_PROGRAMS = lskat 
 lskat_SOURCES = playerstatusform.ui playerstatuswidget.cpp  \
                 namedialog.ui namedialogwidget.cpp \
-                main.cpp mainwindow.cpp gameview.cpp canvasview.cpp  \
-                deck.cpp abstractdisplay.cpp display_two.cpp player.cpp \
-                cardsprite.cpp abstractinput.cpp mouseinput.cpp \
-                abstractengine.cpp engine_two.cpp textsprite.cpp \
-                display_intro.cpp aiinput.cpp rectanglesprite.cpp \
-                pixmapsprite.cpp config_two.cpp
+                gameview.cpp canvasview.cpp  \
+                mainwindow.cpp main.cpp deck.cpp config_two.cpp \
+                abstractdisplay.cpp display_intro.cpp display_two.cpp \
+                cardsprite.cpp pixmapsprite.cpp rectanglesprite.cpp textsprite.cpp \
+                abstractengine.cpp engine_two.cpp  \
+                player.cpp abstractinput.cpp mouseinput.cpp aiinput.cpp
+
 
 lskat_LDADD   = $(LIB_KFILE) $(LIB_KDEGAMES)
 lskat_DEPENDENCIES = $(LIB_KDEGAMES_DEP)
