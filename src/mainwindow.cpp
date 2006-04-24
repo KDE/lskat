@@ -40,6 +40,7 @@
 #include <khelpmenu.h>
 #include <kcarddialog.h>
 #include <krandom.h>
+#include <kglobal.h>
 
 // Application specific includes
 #include "mainwindow.h"
@@ -86,12 +87,12 @@ Mainwindow::Mainwindow(QWidget* parent)
   mGrafixDir = kapp->dirs()->findResourceDir("data", file)+"lskat/grafix/";
 
   // Debug
-  kdDebug() << "SRCDIR="<<SRCDIR<<endl;
-  kdDebug() << "GrafixDir="<<mGrafixDir << endl;
+  kDebug() << "SRCDIR="<<SRCDIR<<endl;
+  kDebug() << "GrafixDir="<<mGrafixDir << endl;
 
 
   // Our config
-  mConfig=kapp->config();
+  mConfig=KGlobal::config();
 
   // Overall view
   mView          = new GameView(QSize(600, 570), ADVANCE_PERDIOD, this);
@@ -117,7 +118,7 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // Get the card deck
   long seed = KRandom::random();
-  kdDebug() << "Random seed " << seed << endl;
+  kDebug() << "Random seed " << seed << endl;
   mDeck = new Deck(seed, this);
   mDeck->loadCards(mCardDir);
   mDeck->loadCardBackside(mDeckGrafix);
@@ -142,7 +143,7 @@ Mainwindow::~Mainwindow()
   if (mLSkatConfig) delete mLSkatConfig;
   if (mDeck) delete mDeck;
   if (mView) delete mView;
-  kdDebug() << "Destructor Mainwindow" << endl;
+  kDebug() << "Destructor Mainwindow" << endl;
 }
 
 // Called by KMainWindow when the last window of the application is 
@@ -189,8 +190,8 @@ void Mainwindow::readProperties(KConfig* cfg)
   QDir dir(mCardDir);
   if (!dir.exists()) mCardDir = dcd;
 
-  kdDebug() << "set mDeckGrafix=" << mDeckGrafix << endl;
-  kdDebug() << "set mCardDir=" << mCardDir << endl;
+  kDebug() << "set mDeckGrafix=" << mDeckGrafix << endl;
+  kDebug() << "set mCardDir=" << mCardDir << endl;
 
   int no = cfg->readNumEntry("startplayer", 0);
   setStartPlayer(no);
@@ -228,7 +229,7 @@ AbstractInput* Mainwindow::createInput(
   }
   else
   {
-    kdFatal() << "Unpupported input device type " << inputType << endl;
+    kFatal() << "Unpupported input device type " << inputType << endl;
   }
 
   return input;         
@@ -270,7 +271,7 @@ void Mainwindow::startGame()
 // Here a game over is signalled
 void Mainwindow::gameOver(int winner)
 {
-  kdDebug() << "GameOver:: Winner= " << winner << endl;
+  kDebug() << "GameOver:: Winner= " << winner << endl;
 }
 
 
@@ -354,7 +355,7 @@ void Mainwindow::initGUI()
 void Mainwindow::menuStartplayer()
 {
   int i=((KSelectAction *)ACTION("startplayer"))->currentItem();
-  kdDebug() << "Set startplayer to " << i << endl;
+  kDebug() << "Set startplayer to " << i << endl;
   setStartPlayer(i);
 }
 
@@ -362,7 +363,7 @@ void Mainwindow::menuStartplayer()
 void Mainwindow::menuPlayer1By()
 {
   int i = ((KSelectAction *)ACTION("player1"))->currentItem();
-  kdDebug() << "Player 1 by " << i << endl;
+  kDebug() << "Player 1 by " << i << endl;
   mLSkatConfig->setInputType(0, (InputDeviceType)i);
 }
 
@@ -370,7 +371,7 @@ void Mainwindow::menuPlayer1By()
 void Mainwindow::menuPlayer2By()
 {
   int i = ((KSelectAction *)ACTION("player2"))->currentItem();
-  kdDebug() << "Player 2 by " << i << endl;
+  kDebug() << "Player 2 by " << i << endl;
   mLSkatConfig->setInputType(1, (InputDeviceType)i);
 }
 
@@ -383,7 +384,7 @@ void Mainwindow::menuCardDeck()
   result=KCardDialog::getCardDeck(s1,s2);
   if (result==QDialog::Accepted)
   {
-    kdDebug() << "Card deck to " << s1 << " and " << s2 << endl;
+    kDebug() << "Card deck to " << s1 << " and " << s2 << endl;
     bool change = false; // Avoid unecessary changes
     if (!s1.isEmpty() && s1 != mDeckGrafix)
     {
@@ -426,7 +427,7 @@ void Mainwindow::menuClearStatistics()
 // Abort a game
 void Mainwindow::menuEndGame()
 {
-   kdDebug() << "EXIT" << endl;
+   kDebug() << "EXIT" << endl;
    if (mEngine)
    {
      mEngine->stopGame();
@@ -437,7 +438,7 @@ void Mainwindow::menuEndGame()
 // Start a new game
 void Mainwindow::menuNewLSkatGame()
 {
-  kdDebug() << "NEW LSKAT" << endl;
+  kDebug() << "NEW LSKAT" << endl;
 
   Player* p1 = mLSkatConfig->player(0);
   Player* p2 = mLSkatConfig->player(1);
@@ -488,7 +489,7 @@ void Mainwindow::menuNewLSkatGame()
 // Change the player names in a dialog
 void Mainwindow::menuPlayerNames()
 {
-  kdDebug() << "Change player names" << endl;
+  kDebug() << "Change player names" << endl;
   NameDialogWidget dlg(this);
   for (int i=0;i<2;i++)
   {
@@ -513,14 +514,14 @@ void Mainwindow::menuPlayerNames()
 void Mainwindow::setStartPlayer(int no)
 {
   mStartPlayer = no;
-  kdDebug() << "Set startplayer to " << mStartPlayer << endl;
+  kDebug() << "Set startplayer to " << mStartPlayer << endl;
   ((KSelectAction *)ACTION("startplayer"))->setCurrentItem(mStartPlayer);
 }
 
 // Set the input type for a given player number.
 void Mainwindow::setInputType(int no, InputDeviceType type)
 {
-  kdDebug() << "setInputType " << no << " to " << (int)type << endl;
+  kDebug() << "setInputType " << no << " to " << (int)type << endl;
   Player* p = 0;
   // Player 1
   if (no == 0)

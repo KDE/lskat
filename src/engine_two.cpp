@@ -56,11 +56,11 @@ void EngineTwo::gameLoopStart()
 // Here: inputId == playerNumber
 void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
 {
-  kdDebug() << "Engine got player input: card= " << cardNumber
+  kDebug() << "Engine got player input: card= " << cardNumber
             << " Player= " << playerNumber << " Id=" << inputId << endl;
   if (playerNumber != mCurrentPlayer)
   {
-    kdDebug() << "EngineTwo::playerInput: Input from wrong player" << endl;
+    kDebug() << "EngineTwo::playerInput: Input from wrong player" << endl;
     return;
   }
 
@@ -79,7 +79,7 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
   // Check whether player still has this card
   if (card < 0)
   {
-    kdDebug() << "EngineTwo::playerInput: Card " << cardNumber + 8*height
+    kDebug() << "EngineTwo::playerInput: Card " << cardNumber + 8*height
               << " not available anymore "<< endl;
     return;
   }
@@ -87,7 +87,7 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
   // TODO: Remove this, Debug current card 
   Suite   suite = mDeck->getSuite(card);
   CardType type = mDeck->getCardType(card);
-  kdDebug() << "Gameloop "<<mCurrentPlayer <<" plays " << mDeck->name(suite, type) << endl;
+  kDebug() << "Gameloop "<<mCurrentPlayer <<" plays " << mDeck->name(suite, type) << endl;
 
 
 
@@ -97,7 +97,7 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
     //   Check (card of player 1), (card of player 2), (player 2)
     if (!isLegalMove(mCurrentMoveCards[FirstPlayerTurn], card, playerNumber))
     {
-      kdDebug() << "EngineTwo::playerInput: Card " << cardNumber + 8*height
+      kDebug() << "EngineTwo::playerInput: Card " << cardNumber + 8*height
                 << " is not a valid move "<< endl;
       return;
     }
@@ -169,9 +169,9 @@ void EngineTwo::gameLoopFinish()
     player->addWonCard(mCurrentMoveCards[FirstPlayerTurn]);
     player->addWonCard(mCurrentMoveCards[SecondPlayerTurn]);
     
-    kdDebug() << "Winner = " << winner << " current = " << mCurrentPlayer <<endl;
-    kdDebug() << "   He has won " << player->noOfMovesWon() << " moves." << endl;
-    kdDebug() << "   He has " << player->points() << " points." << endl;
+    kDebug() << "Winner = " << winner << " current = " << mCurrentPlayer <<endl;
+    kDebug() << "   He has won " << player->noOfMovesWon() << " moves." << endl;
+    kDebug() << "   He has " << player->points() << " points." << endl;
     // Switch move phase (half moves)
     mCurrentMovePhase = FirstPlayerTurn;
   }
@@ -186,7 +186,7 @@ void EngineTwo::gameLoopFinish()
   // Check whether the game is over
   if (gameOver())
   {
-    kdDebug()  << "GAME OVER " << endl;
+    kDebug()  << "GAME OVER " << endl;
     mGameStatus = Stopped;
     mDisplay->showMove(-1);
     int winner = evaluateGame();
@@ -206,7 +206,7 @@ void EngineTwo::gameLoopFinish()
 // Check whether the game is over
 bool EngineTwo::gameOver()
 {
-  kdDebug() << "Move number in game over " << mMoveNumber << endl;
+  kDebug() << "Move number in game over " << mMoveNumber << endl;
   // Check number of moves. If all moves are done game is over.
   if (mMoveNumber >= 31) return true;
   return false;
@@ -468,8 +468,8 @@ int EngineTwo::whoWonMove(int card1,int card2)
     return 1;
   }
 
-  if (suite1 == mTrump) kdDebug() << "FIRST card wins TRUMP" << endl;
-  if (suite2 == mTrump) kdDebug() << "SECOND card wins TRUMP" << endl;
+  if (suite1 == mTrump) kDebug() << "FIRST card wins TRUMP" << endl;
+  if (suite2 == mTrump) kDebug() << "SECOND card wins TRUMP" << endl;
 
   // If cards are not of the same suite a trump wins
   if (suite1 == mTrump) return 0;

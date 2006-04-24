@@ -89,7 +89,7 @@ DisplayTwo::DisplayTwo(QString grafixDir, Deck* deck, Q3Canvas* canvas, QObject*
   mMovePixmap = new QPixmap();
   if (!mMovePixmap->load(filename))
   {
-    kdError() << "Cannot load file " << filename << endl;
+    kError() << "Cannot load file " << filename << endl;
   }
 }
 
@@ -154,12 +154,12 @@ void DisplayTwo::deal(Player* player, int position)
 {
   if (position != 0 && position != 1)
   {
-    kdFatal() << "Wrong player position " << position << endl;
+    kFatal() << "Wrong player position " << position << endl;
     return ;
   }
   if (!player)
   {
-    kdFatal() << "No player given " << endl;
+    kFatal() << "No player given " << endl;
     return ;
   }
 
@@ -281,7 +281,7 @@ CardSprite* DisplayTwo::getCardSprite(int cardValue)
   CardSprite* sprite =  mCards[cardValue];
   if (!sprite)
   {
-    kdFatal() << "Could not find cardsprite for card value " << cardValue 
+    kFatal() << "Could not find cardsprite for card value " << cardValue 
               << " Stored are " << mCards.size() << " sprites " 
               << endl;
     return 0;
@@ -407,6 +407,6 @@ void DisplayTwo::showMove(int no)
     sprite->hide();
   }
 
-  kdDebug() << "Display start sprite to " << no << endl;
+  kDebug() << "Display start sprite to " << no << endl;
   if (no>=0) mMoveSprites[no]->show();
 }

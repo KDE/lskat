@@ -84,7 +84,7 @@ PlayerStatusWidget* GameView::statusWidget(int pos)
 {
   if (!mPlayerWidgets.contains(pos))
   {
-    kdFatal() << "Player status widget " << pos << "does not exists" << endl;
+    kFatal() << "Player status widget " << pos << "does not exists" << endl;
     return 0;
   }
   return mPlayerWidgets[pos];

@@ -74,7 +74,7 @@ CardSprite* AbstractDisplay::createSprite(int no)
 {
   if (!mDeck)
   {
-    kdFatal() << "createSprite::No deck set " << endl;
+    kFatal() << "createSprite::No deck set " << endl;
     return (CardSprite*)0;
   }
 
@@ -109,7 +109,7 @@ void AbstractDisplay::updateSpriteGraphics()
 {
   if (!mDeck)
   {
-    kdFatal() << "updateSpriteGraphics::No deck set " << endl;
+    kFatal() << "updateSpriteGraphics::No deck set " << endl;
     return;
   }
   QHashIterator<int,CardSprite*> it(mCards);

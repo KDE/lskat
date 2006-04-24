@@ -210,7 +210,7 @@ void CardSprite::advance(int phase)
     {
       mAnimationCnt--;
       if (mAnimationState == 0)
-       kdDebug() << "Start moving sprite " << this << endl;
+       kDebug() << "Start moving sprite " << this << endl;
     }
     // Then move to target position
     else

@@ -85,11 +85,11 @@ QPixmap* Deck::cardPixmap(int no)
 // Load the card backside from a given file
 bool Deck::loadCardBackside(QString filename)
 {
-  kdDebug() << "Loading backside image " << filename << endl;
+  kDebug() << "Loading backside image " << filename << endl;
   QPixmap* pm = new QPixmap();
   if (!pm->load(filename))
   {
-    kdError() << "Cannot load file " << filename << endl;
+    kError() << "Cannot load file " << filename << endl;
     return false;
   }
   if (mCardBackside) delete mCardBackside;
@@ -100,7 +100,7 @@ bool Deck::loadCardBackside(QString filename)
 // Load the trump icons from a directory
 bool Deck::loadTrump(QString dir)
 {
-  kdDebug() << "Loading trump images " << dir << endl;
+  kDebug() << "Loading trump images " << dir << endl;
   mTrumpIcons.clear();
 
   for (int i=0;i<5;i++)
@@ -109,7 +109,7 @@ bool Deck::loadTrump(QString dir)
     QString file = dir+"/"+QString("t%1.png").arg(i);
     if (!pm->load(file))
     {
-      kdError() << "Cannot load file " << file << endl;
+      kError() << "Cannot load file " << file << endl;
       return false;
     }
     if (mTrumpIcons.contains((Suite)i)) delete mTrumpIcons[(Suite)i];
@@ -137,12 +137,12 @@ bool Deck::loadCards(QString cardPath)
   for (int i=0;i<NUMBER_OF_CARDS;i++)
   {
     QString filename = cardPath+"/"+QString("%1.png").arg(i+1);
-    //kdDebug() << "Loading image " << filename << endl;
+    //kDebug() << "Loading image " << filename << endl;
     QPixmap* pm = new QPixmap();
     if (!pm->load(filename))
     {
       mCardPixmaps.clear();
-      kdError() << "Cannot load file " << filename << endl;
+      kError() << "Cannot load file " << filename << endl;
       maxCardSize = QSize(0,0);
       return false;
     }
@@ -205,7 +205,7 @@ int Deck::drawCard()
 {
   if (mCards.size() < 1)
   {
-    kdFatal() << "No more cards to draw from card deck " << endl;
+    kFatal() << "No more cards to draw from card deck " << endl;
   }
   int card = mCards.takeFirst();
   return card;

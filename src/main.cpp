@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
   if (args->isSet("debug"))
   {
    // global_debug=QString(args->getOption("debug")).toInt();
-   // kdDebug(12010) << "Debug level set to " << global_debug << endl;
+   // kDebug(12010) << "Debug level set to " << global_debug << endl;
   }
   
   KApplication application(true);

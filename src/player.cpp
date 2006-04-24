@@ -98,7 +98,7 @@ void Player::deal(int amount)
 {
   if (!mDeck) 
   {
-    kdFatal() << "No deck set to player." << endl;
+    kFatal() << "No deck set to player." << endl;
     return;
   }
   mCards.clear();
@@ -168,7 +168,7 @@ void Player::deleteCard(int cardPosition)
 {
   if (cardPosition >= mCards.size())
   {
-    kdFatal() << "Player " << mId << " tries to delete non esxisting card position " 
+    kFatal() << "Player " << mId << " tries to delete non esxisting card position " 
               << cardPosition <<" >= " << mCards.size() << endl;
   }
   mCards[cardPosition] = -1;
@@ -179,7 +179,7 @@ void Player::addCard(int cardPosition, int card)
 {
   if (cardPosition >= mCards.size())
   {
-    kdFatal() << "Player " << mId << " tries to add to esxisting card position " 
+    kFatal() << "Player " << mId << " tries to add to esxisting card position " 
               << cardPosition <<" >= " << mCards.size() << endl;
   }
   mCards[cardPosition] = card;
@@ -190,7 +190,7 @@ int Player::getCard(int playerNumber)
 {
   if (playerNumber >= mCards.size())
   {
-    kdFatal() << "Player " << mId << " tries to get non esxisting card " 
+    kFatal() << "Player " << mId << " tries to get non esxisting card " 
               << playerNumber <<" >= " << mCards.size() << endl;
   }
   
@@ -226,7 +226,7 @@ int Player::getWonCard(int no)
 {
   if (no>=mWonCards.size())
   {
-    kdFatal() << "Player::getWonCard This card " << no << " is not available. "
+    kFatal() << "Player::getWonCard This card " << no << " is not available. "
               << "Only " << mWonCards.size() << " cards stored." << endl;
     return -1;
   }

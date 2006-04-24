@@ -39,7 +39,7 @@ AiInput::AiInput(EngineTwo* engine, QString dir, QObject* parent)
   mInputIcon = new QPixmap();
   if (!mInputIcon->load(filename))
   {
-    kdError() << "Cannot load file " << filename << endl;
+    kError() << "Cannot load file " << filename << endl;
   }
 
   // Store engine
@@ -60,13 +60,13 @@ void AiInput::aiTurn()
   // Turn was stopped meanwhile
   if (!mInputAllowed) return;
 
-  kdDebug() << "==================================================="<<endl;
-  kdDebug() << "AI TURN START " <<mInputAllowed<< endl;
+  kDebug() << "==================================================="<<endl;
+  kDebug() << "AI TURN START " <<mInputAllowed<< endl;
 
   // Check we are the right player
   if (mId != mEngine->currentPlayer())
   {
-    kdFatal() << "AI plays for wrong player " << endl;
+    kFatal() << "AI plays for wrong player " << endl;
     return;
   }
 
@@ -77,21 +77,21 @@ void AiInput::aiTurn()
   // Initiate move
   if (mEngine->currentMovePhase() == EngineTwo::FirstPlayerTurn)
   {
-    kdDebug() << "Performing initiual move "<<mId << endl;
+    kDebug() << "Performing initiual move "<<mId << endl;
     move = initiateMove(mId, board);
   }
   // Respond to move
   else
   {
-    kdDebug() << "Performing answer move "<<mId << endl;
+    kDebug() << "Performing answer move "<<mId << endl;
     move = answerMove(mId, board);
   }
 
 
   // Send out move
-  kdDebug() << "AI player " << mId << " moves to " << move.move << endl;
+  kDebug() << "AI player " << mId << " moves to " << move.move << endl;
   if (move.move>=0) emit signalPlayerInput(mId, mId, move.move);
-  else kdError() << "Illegal AI Move ??? " << endl;
+  else kError() << "Illegal AI Move ??? " << endl;
 }
 
 
@@ -164,11 +164,11 @@ AiInput::Move AiInput::initiateMove(int p, const AiInput::Board& board)
     if (card < 0) continue; // Illegal move
     // Store move
     current.playedCard = card;
-    kdDebug() << "First mover try move on " << m << " ("<<Deck::name(card) <<endl;
+    kDebug() << "First mover try move on " << m << " ("<<Deck::name(card) <<endl;
     AiInput::Move answer = answerMove(1-p, current);
     // Negate answering moves value to get our rating
     double rating = -answer.value;
-    kdDebug() << "First mover yields rating of " << rating << endl;
+    kDebug() << "First mover yields rating of " << rating << endl;
     // New best move?
     if (rating > maxMove.value)
     {
@@ -191,7 +191,7 @@ AiInput::Move AiInput::answerMove(int p, const AiInput::Board& board)
   for (int m=0; m<8; m++)
   {
     AiInput::Board current(board);
-   // kdDebug() << "CARD "<<m<< " is " 
+   // kDebug() << "CARD "<<m<< " is " 
     //          << Deck::name(current.cards[p][m]) << " on top of " 
     //          << Deck::name(current.cards[p][m+8]) << endl;
 
@@ -209,7 +209,7 @@ AiInput::Move AiInput::answerMove(int p, const AiInput::Board& board)
 
     // Check move winner
     int winner = mEngine->whoWonMove(current.playedCard, card);
-    kdDebug() << "   Card " << m<< " (" << Deck::name(card) << ") is valid " 
+    kDebug() << "   Card " << m<< " (" << Deck::name(card) << ") is valid " 
               << " countering " << Deck::name(current.playedCard)<<" with "
               << " winner (0:other, 1:we) " << winner << endl;
     int deltaPoints = 0;
@@ -229,7 +229,7 @@ AiInput::Move AiInput::answerMove(int p, const AiInput::Board& board)
     double rating = evaluteGame(p, current);
 
 
-    kdDebug() << "   Points after 2nd move "<<m<<" would be we: " 
+    kDebug() << "   Points after 2nd move "<<m<<" would be we: " 
               << current.points[p] << " other: " << current.points[1-p] 
               << " rating is thus " << rating << endl;
     // New best move?
