@@ -27,6 +27,4 @@ lskat_LDFLAGS = $(all_libraries) $(KDE_RPATH)
 
 #kde_kcfg_DATA = lskat.kcfg
 
-messages: rc.cpp
-	$(XGETTEXT) *.cpp -o $(podir)/lskat.pot 
 
