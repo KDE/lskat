@@ -19,8 +19,8 @@
 */
 
 // Qt includes
-#include <qpoint.h>
-#include <qfont.h>
+#include <QPoint>
+#include <QFont>
 
 // KDE includes
 #include <klocale.h>
