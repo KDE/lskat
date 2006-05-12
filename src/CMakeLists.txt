@@ -1,4 +1,3 @@
-kde4_header()
 
 include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkdegames/kgame )
 
@@ -39,4 +38,3 @@ install_targets( /bin lskat )
 
 install_files( ${DATA_INSTALL_DIR}/lskat FILES lskatui.rc )
 
-kde4_footer()
