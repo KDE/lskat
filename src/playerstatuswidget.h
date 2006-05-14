@@ -28,7 +28,7 @@
 #include <kdebug.h>
 
 // Local includes
-#include "playerstatusform.h"
+#include "ui_playerstatusform.h"
 
 using namespace Ui;
 

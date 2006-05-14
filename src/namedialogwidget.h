@@ -28,7 +28,7 @@
 #include <kdebug.h>
 
 // Local includes
-#include "namedialog.h"
+#include "ui_namedialog.h"
 
 using namespace Ui;
 

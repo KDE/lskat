@@ -32,6 +32,7 @@
 #include <kdebug.h>
 #include <kstdaction.h>
 #include <kaction.h>
+#include <kactioncollection.h>
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
 #include <kiconloader.h>
@@ -41,6 +42,7 @@
 #include <kcarddialog.h>
 #include <krandom.h>
 #include <kglobal.h>
+#include <ktoolbar.h>
 
 // Application specific includes
 #include "mainwindow.h"
@@ -193,7 +195,7 @@ void Mainwindow::readProperties(KConfig* cfg)
   kDebug() << "set mDeckGrafix=" << mDeckGrafix << endl;
   kDebug() << "set mCardDir=" << mCardDir << endl;
 
-  int no = cfg->readNumEntry("startplayer", 0);
+  int no = cfg->readEntry("startplayer", 0);
   setStartPlayer(no);
   mLSkatConfig->load(cfg);
 }
