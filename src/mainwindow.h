@@ -178,7 +178,7 @@ class Mainwindow : public KMainWindow
     /** The cards directory */
     QString mCardDir;
     /** The card deck backside */
-    QString mDeckGrafix;;
+    QString mDeckGrafix;
     /** Current game mode (Intro, LSkat, ...) */
     GameMode mGameMode;
     /** Who starts the next game round */
