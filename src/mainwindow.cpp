@@ -80,18 +80,12 @@ Mainwindow::Mainwindow(QWidget* parent)
   mView    = 0;
 
 
-  // Add directories where data can be found (ui.rc + graphics)
-  KGlobal::dirs()->addResourceDir("data", SRCDIR + QString::fromLatin1("/.."));
-  KGlobal::dirs()->addResourceDir("appdata", SRCDIR + QString::fromLatin1("/.."));
-
   // Find resource directory
   QString file=QString::fromLatin1("lskat/grafix/t0.png");
   mGrafixDir = kapp->dirs()->findResourceDir("data", file)+"lskat/grafix/";
 
   // Debug
-  kDebug() << "SRCDIR="<<SRCDIR<<endl;
   kDebug() << "GrafixDir="<<mGrafixDir << endl;
-
 
   // Our config
   mConfig=KGlobal::config();
