@@ -66,8 +66,8 @@ ConfigTwo::~ConfigTwo()
 void ConfigTwo::save(KConfig *cfg)
 {
   cfg->setGroup("LSkatData");
-  cfg->writeEntry("input0", mInputTypes[0]);
-  cfg->writeEntry("input1", mInputTypes[1]);
+  cfg->writeEntry("input0", (int)mInputTypes[0]);
+  cfg->writeEntry("input1", (int)mInputTypes[1]);
 
   // Save player
   QHashIterator<int,Player*> it = playerIterator();
