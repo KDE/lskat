@@ -297,3 +297,5 @@ void Player::refresh()
   if (mInput) emit signalUpdateInput(mInput->inputIcon());
   if (mDeck) emit signalUpdateTrump(mDeck->trumpIcon(mTrump));
 }
+
+#include "player.moc"

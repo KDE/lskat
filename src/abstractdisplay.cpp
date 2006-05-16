@@ -144,3 +144,5 @@ void AbstractDisplay::clearSprites()
   }
 }
 
+
+#include "abstractdisplay.moc"

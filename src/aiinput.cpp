@@ -258,3 +258,5 @@ AiInput::Board::Board(const AiInput::Board& board)
    whoseTurn = board.whoseTurn;
    firstPlay = board.firstPlay;     
 }
+
+#include "aiinput.moc"

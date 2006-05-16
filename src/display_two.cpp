@@ -410,3 +410,5 @@ void DisplayTwo::showMove(int no)
   kDebug() << "Display start sprite to " << no << endl;
   if (no>=0) mMoveSprites[no]->show();
 }
+
+#include "display_two.moc"

@@ -269,3 +269,5 @@ QString Deck::name(Suite suite, CardType type)
     return i18nc("eg jack of clubs", "%1 of %2", typeName, suiteName);
 }
 
+
+#include "deck.moc"

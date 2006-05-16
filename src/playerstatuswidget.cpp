@@ -98,3 +98,5 @@ QSize PlayerStatusWidget::sizeHint() const
 return size;
   return QSize(250,80); // TODO: No fixed size
 }
+
+#include "playerstatuswidget.moc"

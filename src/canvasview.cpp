@@ -82,3 +82,5 @@ void CanvasView::mousePressEvent(QMouseEvent *ev)
   QPoint point = ev->pos();
   emit signalLeftMousePress(point);
 }
+
+#include "canvasview.moc"

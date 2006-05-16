@@ -90,3 +90,5 @@ PlayerStatusWidget* GameView::statusWidget(int pos)
   return mPlayerWidgets[pos];
 }
 
+
+#include "gameview.moc"

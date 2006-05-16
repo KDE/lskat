@@ -479,3 +479,5 @@ int EngineTwo::whoWonMove(int card1,int card2)
   return 0;
 }
 
+
+#include "engine_two.moc"

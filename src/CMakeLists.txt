@@ -24,9 +24,10 @@ set( lskat_SRCS
     mouseinput.cpp
     aiinput.cpp )
 
-kde4_automoc( ${lskat_SRCS} )
 
 kde4_add_ui_files( lskat_SRCS playerstatusform.ui namedialog.ui )
+
+kde4_automoc( ${lskat_SRCS} )
 
 kde4_add_executable( lskat ${lskat_SRCS} )
 

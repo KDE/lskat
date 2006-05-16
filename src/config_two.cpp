@@ -132,3 +132,5 @@ void ConfigTwo::setInputType(int no, InputDeviceType type)
   mInputTypes[no] = type;
   emit signalInputType(no, type);
 }
+
+#include "config_two.moc"
