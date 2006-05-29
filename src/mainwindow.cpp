@@ -281,18 +281,16 @@ void Mainwindow::initGUI()
   ACTION("new_game")->setWhatsThis(i18n("Start a new game."));
 
   // Clear all time statistics
-  (void)new KAction(i18n("&Clear Statistics"), "flag", 
-                         0, this, SLOT(menuClearStatistics()),
-                         actionCollection(), "clear_statistics");
-  ACTION("clear_statistics")->setToolTip(i18n("Delete all time statistics..."));
-  ACTION("clear_statistics")->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
+  KAction* clearStatAct = new KAction( KIcon("flag"), i18n("&Clear Statistics"), actionCollection(), "clear_statistics");
+  connect(clearStatAct, SIGNAL(triggered(bool)), this, SLOT(menuClearStatistics()));
+  clearStatAct->setToolTip(i18n("Delete all time statistics..."));
+  clearStatAct->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
 
   // End a game
-  (void)new KAction(i18n("End game"),"stop", 0,
-                    this, SLOT(menuEndGame()),
-                    actionCollection(), "end_game");
-  ACTION("end_game")->setToolTip(i18n("Ending the current game..."));
-  ACTION("end_game")->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
+  KAction* endGameAct = new KAction( KIcon("stop"), i18n("End game"), actionCollection(), "end_game");
+  connect(endGameAct, SIGNAL(triggered(bool)), this, SLOT(menuEndGame()));
+  endGameAct->setToolTip(i18n("Ending the current game..."));
+  endGameAct->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
 
   // Quite the program
   KStdGameAction::quit(this, SLOT(close()),
@@ -302,46 +300,43 @@ void Mainwindow::initGUI()
 
 
   // Determine start player
-  (void)new KSelectAction(i18n("Starting Player"),0,
-                          this,SLOT(menuStartplayer()),
-                          actionCollection(), "startplayer");
-  ACTION("startplayer")->setToolTip(i18n("Changing starting player..."));
-  ACTION("startplayer")->setWhatsThis(i18n("Chooses which player begins the next game."));
+  KSelectAction* startPlayerAct = new KSelectAction(i18n("Starting Player"), actionCollection(), "startplayer");
+  connect(startPlayerAct, SIGNAL(triggered(bool)), this, SLOT(menuStartplayer()));
+  startPlayerAct->setToolTip(i18n("Changing starting player..."));
+  startPlayerAct->setWhatsThis(i18n("Chooses which player begins the next game."));
   QStringList list;
   list.clear();
   list.append(i18n("Player &1"));
   list.append(i18n("Player &2"));
-  ((KSelectAction *)ACTION("startplayer"))->setItems(list);
+  startPlayerAct->setItems(list);
 
   
   // Determine who player player 1
-  (void)new KSelectAction(i18n("Player &1 Played By"),0,this,SLOT(menuPlayer1By()),
-                      actionCollection(), "player1");
-  ACTION("player1")->setToolTip(i18n("Changing who plays player 1..."));
-  ACTION("player1")->setWhatsThis(i18n("Changing who plays player 1."));
+  KSelectAction* player1Act = new KSelectAction(i18n("Player &1 Played By"), actionCollection(), "player1");
+  connect(player1Act, SIGNAL(triggered(bool)), this, SLOT(menuPlayer1By()));
+  player1Act->setToolTip(i18n("Changing who plays player 1..."));
+  player1Act->setWhatsThis(i18n("Changing who plays player 1."));
   list.clear();
   list.append(i18n("&Mouse"));
   list.append(i18n("&Computer"));
-  ((KSelectAction *)ACTION("player1"))->setItems(list);
+  player1Act->setItems(list);
 
-  // Determine who player player 1
-  (void)new KSelectAction(i18n("Player &2 Played By"),0,this,SLOT(menuPlayer2By()),
-                      actionCollection(), "player2");
-  ACTION("player1")->setToolTip(i18n("Changing who plays player 2..."));
-  ACTION("player1")->setWhatsThis(i18n("Changing who plays player 2."));
-  ((KSelectAction *)ACTION("player2"))->setItems(list);
+  // Determine who player player 2
+  KSelectAction* player2Act = new KSelectAction(i18n("Player &2 Played By"), actionCollection(), "player2");
+  connect(player2Act, SIGNAL(triggered(bool)), this, SLOT(menuPlayer2By()));
+  player2Act->setToolTip(i18n("Changing who plays player 2..."));
+  player2Act->setWhatsThis(i18n("Changing who plays player 2."));
+  player2Act->setItems(list);
 
  // Choose card deck
- (void)new KAction(i18n("Select &Card Deck..."), 0, this, SLOT(menuCardDeck()),
-                      actionCollection(), "select_carddeck");
-  ACTION("select_carddeck")->setToolTip(i18n("Configure card decks..."));
-  ACTION("select_carddeck")->setWhatsThis(i18n("Choose how the cards should look."));
+ KAction* selectDeckAct = new KAction(i18n("Select &Card Deck..."), actionCollection(), "select_carddeck");
+  connect(selectDeckAct, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
+  selectDeckAct->setToolTip(i18n("Configure card decks..."));
+  selectDeckAct->setWhatsThis(i18n("Choose how the cards should look."));
 
   // Change player names
-  (void)new KAction(i18n("&Change Player Names"),0, 
-                    this, SLOT(menuPlayerNames()), 
-                    actionCollection(), "change_names");
-
+  KAction* changeNamesAct = new KAction(i18n("&Change Player Names"), actionCollection(), "change_names");
+  connect(changeNamesAct, SIGNAL(triggered(bool)), this, SLOT(menuPlayerNames()));
 }
 
 
