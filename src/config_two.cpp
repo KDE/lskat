@@ -88,9 +88,9 @@ void ConfigTwo::load(KConfig* cfg)
   reset();
   cfg->setGroup("LSkatData");
   int num;
-  num = cfg->readNumEntry("input0", (int)mInputTypes[0]);
+  num = cfg->readEntry("input0", (int)mInputTypes[0]);
   setInputType(0, (InputDeviceType)num);
-  num = cfg->readNumEntry("input1", (int)mInputTypes[1]);
+  num = cfg->readEntry("input1", (int)mInputTypes[1]);
   setInputType(1, (InputDeviceType)num);
 
   // Load player

@@ -68,9 +68,9 @@ void Player::save(KConfig *cfg)
 void Player::load(KConfig* cfg)
 {
   mName          = cfg->readEntry("name", mName);
-  mGamesWon      = cfg->readNumEntry("gameswon", mGamesWon);
-  mScore         = cfg->readNumEntry("score", mScore);
-  mNumberOfGames = cfg->readNumEntry("noofgames", mNumberOfGames);
+  mGamesWon      = cfg->readEntry("gameswon", mGamesWon);
+  mScore         = cfg->readEntry("score", mScore);
+  mNumberOfGames = cfg->readEntry("noofgames", mNumberOfGames);
 
   // Emit signals
   refresh();
