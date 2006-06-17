@@ -31,7 +31,7 @@
  
 #include <kmainwindow.h>
 #include <kconfig.h>
-#include <kdialogbase.h>
+#include <kdialog.h>
 #include <kdemacros.h>
 #include "abstractinput.h"
 
