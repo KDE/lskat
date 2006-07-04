@@ -37,5 +37,5 @@ install_targets( /bin lskat )
 
 ########### install files ###############
 
-install_files( ${DATA_INSTALL_DIR}/lskat FILES lskatui.rc )
+install( FILES lskatui.rc  DESTINATION  ${DATA_INSTALL_DIR}/lskat )
 
