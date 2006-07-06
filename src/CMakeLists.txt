@@ -33,7 +33,7 @@ kde4_add_executable( lskat ${lskat_SRCS} )
 
 target_link_libraries( lskat kdegames )
 
-install_targets( /bin lskat )
+install(TARGETS lskat  DESTINATION  ${BIN_INSTALL_DIR} )
 
 ########### install files ###############
 
