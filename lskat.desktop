@@ -1,8 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=LSkat
+Name[x-test]=xxLSkatxx
 GenericName=Card Game
 GenericName[fr]=Jeu de cartes
+GenericName[x-test]=xxCard Gamexx
 Exec=lskat
 Icon=lskat
 MimeType=
