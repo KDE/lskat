@@ -35,7 +35,7 @@
 #include <kactioncollection.h>
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
-#include <kiconloader.h>
+#include <kicon.h>
 #include <kmenubar.h>
 #include <klocale.h>
 #include <khelpmenu.h>
