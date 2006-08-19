@@ -85,8 +85,8 @@ class DisplayTwo : public AbstractDisplay
      */
     void remove(int winnerPosition, int cardNumber, int delta);
   
-    /** Returns the time in milli seconds used for shuffling the
-     *  inital cards.
+    /** Returns the time in milliseconds used for shuffling the
+     *  initial cards.
      *  @return The time in milliseconds.
      */
     int shuffleTime();

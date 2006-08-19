@@ -211,7 +211,7 @@ void DisplayTwo::deal(Player* player, int position)
 }// end initPlayer
 
 
-// Returns the time in milli seconds used for shuffling the inital cards
+// Returns the time in milliseconds used for shuffling the initial cards
 int DisplayTwo::shuffleTime()
 {
   return 32*TIME_DELAY_SHUFFLE*mAdvancePeriod + TIME_DELAY_AFTER_SHUFFLE*mAdvancePeriod;

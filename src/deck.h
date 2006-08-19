@@ -107,7 +107,7 @@ class Deck : public QObject
      void shuffle();
 
      /** Draw a random trump from all cards. This is
-      *  done by drawing a random card and chosing its
+      *  done by drawing a random card and choosing its
       *  suite as trump. In case a Jack is drawn a Grand
       * is made trump.
       */

@@ -55,7 +55,7 @@ AbstractDisplay::~AbstractDisplay()
   // Do not delete static cards for performance reasons
 }
 
-// Store the deck object for accesing the card deck
+// Store the deck object for accessing the card deck
 void AbstractDisplay::setDeck(Deck* deck)
 {
   mDeck = deck;
@@ -87,7 +87,7 @@ CardSprite* AbstractDisplay::createSprite(int no)
 // Create all sprites and store them for later access
 void AbstractDisplay::createSprites()
 {
-  // Only create sprites once (unless explicitely reset)
+  // Only create sprites once (unless explicitly reset)
   if (mCards.size() > 0) return;
 
   // Loop all cards

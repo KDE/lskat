@@ -93,7 +93,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   // Overall view
   mView          = new GameView(QSize(600, 570), ADVANCE_PERDIOD, this);
 
-  // Create menues etc
+  // Create menus etc
   initGUI();
 
   // Create GUI
@@ -376,7 +376,7 @@ void Mainwindow::menuCardDeck()
   if (result==QDialog::Accepted)
   {
     kDebug() << "Card deck to " << s1 << " and " << s2 << endl;
-    bool change = false; // Avoid unecessary changes
+    bool change = false; // Avoid unnecessary changes
     if (!s1.isEmpty() && s1 != mDeckGrafix)
     {
       mDeckGrafix = s1;
