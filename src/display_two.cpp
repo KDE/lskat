@@ -52,13 +52,13 @@
 #define BOARD_HEIGHT_SEP_Y    10
 
 // The play area of player 1/2. Here the cards are
-// moved to when a move is done.
+// setPosd to when a move is done.
 #define BOARD_PLAY_1_X       450       
 #define BOARD_PLAY_1_Y       200       
 #define BOARD_PLAY_2_X       480       
 #define BOARD_PLAY_2_Y       250       
 
-// Delta of move sprites to play area
+// Delta of setPos sprites to play area
 #define BOARD_MOVE_X          25
 
 // Where to remove the cards for player 1/2 after
@@ -78,11 +78,11 @@
 
 
 // Constructor for the engine
-DisplayTwo::DisplayTwo(QString grafixDir, Deck* deck, Q3Canvas* canvas, QObject* parent)
+DisplayTwo::DisplayTwo(QString grafixDir, Deck* deck, QGraphicsScene* canvas, QObject* parent)
     : AbstractDisplay(grafixDir, deck, canvas, parent)
 {
   // Choose a background color
-  canvas->setBackgroundColor(QColor(0,0,128));
+  canvas->setBackgroundBrush(QColor(0,0,128));
 
   // Load move icon
   QString filename = grafixDir+ QString("moveicon.png");
@@ -113,37 +113,40 @@ void DisplayTwo::start()
   RectangleSprite* rect;
 
   rect = new RectangleSprite(3, QColor(20,20,148), mCanvas);
-  rect->setSize(size.width()+BOARD_PLAY_2_X-BOARD_PLAY_1_X+6,
+  rect->setRect(0,0, 
+                size.width()+BOARD_PLAY_2_X-BOARD_PLAY_1_X+6,
                 size.height()+BOARD_PLAY_2_Y-BOARD_PLAY_1_Y+6);
-  rect->move(BOARD_PLAY_1_X-3, BOARD_PLAY_1_Y-3);
+  rect->setPos(BOARD_PLAY_1_X-3, BOARD_PLAY_1_Y-3);
   rect->show();
   mSprites.append(rect);
 
   rect = new RectangleSprite(3, QColor(20,20,148), mCanvas);
-  rect->setSize(4*size.width()+3*BOARD_CARD_SEP_X+4*BOARD_HEIGHT_SEP_X-10,
+  rect->setRect(0,0,
+                4*size.width()+3*BOARD_CARD_SEP_X+4*BOARD_HEIGHT_SEP_X-10,
                 2*size.height()+BOARD_CARD_SEP_Y+2*BOARD_HEIGHT_SEP_Y+10);
-  rect->move(BOARD_START_1_X-10, BOARD_START_1_Y-10);
+  rect->setPos(BOARD_START_1_X-10, BOARD_START_1_Y-10);
   rect->show();
   mSprites.append(rect);
 
   rect = new RectangleSprite(3, QColor(20,20,148), mCanvas);
-  rect->setSize(4*size.width()+3*BOARD_CARD_SEP_X+4*BOARD_HEIGHT_SEP_X-10,
+  rect->setRect(0,0,
+                4*size.width()+3*BOARD_CARD_SEP_X+4*BOARD_HEIGHT_SEP_X-10,
                 2*size.height()+BOARD_CARD_SEP_Y+2*BOARD_HEIGHT_SEP_Y+10);
-  rect->move(BOARD_START_2_X-10, BOARD_START_2_Y-10);
+  rect->setPos(BOARD_START_2_X-10, BOARD_START_2_Y-10);
   rect->show();
   mSprites.append(rect);
   
   PixmapSprite* sprite;
-  sprite = PixmapSprite::create(mCanvas, mMovePixmap);
-  sprite->setZ(300);
-  sprite->move(BOARD_MOVE_X, 
+  sprite = new PixmapSprite(*mMovePixmap, mCanvas);
+  sprite->setZValue(300);
+  sprite->setPos(BOARD_MOVE_X, 
                BOARD_START_1_Y);
   sprite->hide();
   mMoveSprites[0] = sprite;
 
-  sprite = PixmapSprite::create(mCanvas, mMovePixmap);
-  sprite->setZ(300);
-  sprite->move(BOARD_MOVE_X, 
+  sprite = new PixmapSprite(*mMovePixmap, mCanvas);
+  sprite->setZValue(300);
+  sprite->setPos(BOARD_MOVE_X, 
                BOARD_START_2_Y+2*size.height()+BOARD_CARD_SEP_Y);
   sprite->hide();
   mMoveSprites[1] = sprite;
@@ -195,14 +198,14 @@ void DisplayTwo::deal(Player* player, int position)
                                      size.height()*y + BOARD_CARD_SEP_Y*y);
         // Add shift for stacked cards
         pos += h*QPoint(BOARD_HEIGHT_SEP_X, BOARD_HEIGHT_SEP_Y);
-        sprite->setZ(50-10*h);
-        sprite->move(BOARD_DECK_X, BOARD_DECK_Y);
+        sprite->setZValue(50-10*h);
+        sprite->setPos(BOARD_DECK_X, BOARD_DECK_Y);
         sprite->show();
         int delay = position + 2*x + 8*y + 16*(1-h);
         delay *=  TIME_DELAY_SHUFFLE; // [canvas cycles]
-        // Move to the target position. The moves is started with
+        // Move to the target position. The setPos is started with
         // a little delay and depending on the last argument the
-        // backside or frontside is shown after the move
+        // backside or frontside is shown after the setPos
         sprite->setShuffleMove(pos.x(), pos.y(), delay, h==0);
         // Store sprite
       }// next x
@@ -294,9 +297,9 @@ CardSprite* DisplayTwo::getCardSprite(int cardValue)
 void DisplayTwo::play(int cardNumber, int playerNumber, int phase)
 {
   CardSprite* sprite = getCardSprite(cardNumber);
-  // Set z coordinate depending on move phase, that is latter cards will
+  // Set z coordinate depending on setPos phase, that is latter cards will
   // be put on top
-  sprite->setZ(100 + 5*phase);
+  sprite->setZValue(100 + 5*phase);
   if (playerNumber == 0)
   {
     sprite->setMove(BOARD_PLAY_1_X, BOARD_PLAY_1_Y);
@@ -321,7 +324,7 @@ void DisplayTwo::remove(int winnerPosition, int cardNumber, int delta)
 {
   CardSprite* sprite = getCardSprite(cardNumber);
   // Pile cards on top of each other
-  sprite->setZ(100 + delta);
+  sprite->setZValue(100 + delta);
   if (winnerPosition == 0)
   {
     sprite->setRemove(BOARD_REMOVE_1_X + delta*3, BOARD_REMOVE_1_Y+ delta*1);
@@ -350,11 +353,11 @@ void DisplayTwo::showText(QString s)
   TextSprite* text = new TextSprite(mCanvas);
   QFont font;
   font.setPixelSize(20);
-  text->setText(s);
+  text->setPlainText(s);
   text->setFont(font);
-  text->setTextFlags(Qt::AlignCenter);
-  text->setColor(QColor(255, 128, 0));
-  text->move(x, y);
+  //text->setTextFlags(Qt::AlignCenter);
+  text->setDefaultTextColor(QColor(255, 128, 0));
+  text->setPos(x, y);
   text->show();
   mSprites.append(text);
 }
@@ -386,17 +389,17 @@ void DisplayTwo::showScore(int position, int score)
   TextSprite* text = new TextSprite(mCanvas);
   QFont font;
   font.setPixelSize(24);
-  text->setText(i18n("%1 points", score));
+  text->setPlainText(i18n("%1 points", score));
   text->setFont(font);
-  text->setTextFlags(Qt::AlignCenter);
-  text->setColor(QColor(255, 128, 0));
-  text->move(x, y);
+  //text->setTextFlags(Qt::AlignCenter);
+  text->setDefaultTextColor(QColor(255, 128, 0));
+  text->setPos(x, y);
   text->show();
   mSprites.append(text);
 }
 
 
-// Show the move icon for the given player
+// Show the setPos icon for the given player
 void DisplayTwo::showMove(int no)
 {
   QHashIterator<int,PixmapSprite*> it(mMoveSprites);

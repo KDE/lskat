@@ -21,20 +21,20 @@
 */
 
 // Qt includes
-#include <Q3CanvasText>
+#include <QGraphicsTextItem>
 
 
 /**
  * The sprite for a card on the canvas.
  */
-class TextSprite : public Q3CanvasText
+class TextSprite : public QGraphicsTextItem
 {
 
   public:
     /** Constructor for the sprite.
      *  @param parent The parent canvas
      */
-    TextSprite(Q3Canvas* canvas);
+    TextSprite(QGraphicsScene* canvas);
 
   private:
 

@@ -21,29 +21,19 @@
 */
 
 // Qt includes
-#include <Q3CanvasSprite>
+#include <QGraphicsPixmapItem>
 
 
 /**
  * The sprite for a pixmap on the canvas.
  */
-class PixmapSprite : public Q3CanvasSprite
+class PixmapSprite : public QGraphicsPixmapItem
 {
 
   public:
     /** Constructor for the sprite.
-     *  TODO
      */
-    PixmapSprite(Q3CanvasPixmapArray* a, Q3Canvas* canvas);
-
-    /** Factory constructor method for a new sprite. 
-     *  @param canvas The canvas
-     *  @param pixmap  The pixmap.
-     *  @return The generated sprite object.
-     */
-    static PixmapSprite* create(Q3Canvas* canvas, QPixmap* pixmap);
-  
-
+    PixmapSprite(const QPixmap& pixmap, QGraphicsScene* canvas);
 };
 
 #endif

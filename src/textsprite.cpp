@@ -29,10 +29,10 @@
 #include "textsprite.h"
 
 // Constructor for the view
-TextSprite::TextSprite(Q3Canvas* canvas)
-    : Q3CanvasText(canvas)
+TextSprite::TextSprite(QGraphicsScene* canvas)
+    : QGraphicsTextItem(0, canvas)
 {
-  setZ(200);
+  setZValue(200.0);
   hide();
 }
 

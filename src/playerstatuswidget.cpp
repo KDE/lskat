@@ -35,6 +35,14 @@ PlayerStatusWidget::PlayerStatusWidget(Player* player, QWidget* parent)
 {
   ui.setupUi(this);
 
+  // Force palette background color
+  QPalette pal = palette();
+  pal.setColor(QPalette::Base, QColor(128,128,255));
+  pal.setColor(QPalette::Window, QColor(128,128,255));
+  setPalette(pal);
+  setAutoFillBackground ( true );
+
+  if (!player) return;
   // Connect status widget to player
   connect(player, SIGNAL(signalUpdatePoints(int)),
           this, SLOT(setPoints(int)));
@@ -95,8 +103,7 @@ void PlayerStatusWidget::setInputIcon(QPixmap* icon)
 QSize PlayerStatusWidget::sizeHint() const
 {
   QSize size =  ui.gridLayout->sizeHint();
-return size;
-  return QSize(250,80); // TODO: No fixed size
+  return size;
 }
 
 #include "playerstatuswidget.moc"

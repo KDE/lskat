@@ -43,11 +43,11 @@
 #define WAIT_CNT2       70  /* Wait this * timer ms */
 
 // Constructor for the engine
-DisplayIntro::DisplayIntro(QString grafixDir, Deck* deck, Q3Canvas* canvas, QObject* parent)
+DisplayIntro::DisplayIntro(QString grafixDir, Deck* deck, QGraphicsScene* canvas, QObject* parent)
     : AbstractDisplay(grafixDir, deck, canvas, parent)
 {
   // Choose a background color
-  canvas->setBackgroundColor(QColor(0,0,128));
+  canvas->setBackgroundBrush(QColor(0,0,128));
 
   mTimer = new QTimer(this);
   connect(mTimer, SIGNAL(timeout()), this, SLOT(loop()));
@@ -74,74 +74,74 @@ void DisplayIntro::start()
   font.setBold(true);
 
   // Canvas size
-  QSize cSize   = mCanvas->size();   // Canvas size
+  QSize cSize   = QSize(int(mCanvas->width()),int(mCanvas->height()));   // Canvas size
   int x = cSize.width()/2;
   int y = cSize.height()/2;
 
   // Display text sprites
   // Text: Lieutenant Skat (bright)
   text = new TextSprite(mCanvas);
-  text->setText(s1);
+  text->setPlainText(s1);
   text->setFont(font);
-  text->setTextFlags(Qt::AlignCenter);
-  text->setColor(QColor(255, 128, 0));
-  text->move(x, y-100);
-  text->setZ(200);
+//  text->setTextFlags(Qt::AlignCenter);
+  text->setDefaultTextColor(QColor(255, 128, 0));
+  text->setPos(x, y-100);
+  text->setZValue(200);
   text->show();
   mSprites.append(text);
 
   // Text: Lieutenant Skat (dark)
   text = new TextSprite(mCanvas);
-  text->setText(s1);
+  text->setPlainText(s1);
   text->setFont(font);
-  text->setTextFlags(Qt::AlignCenter);
-  text->setColor(QColor(10, 10, 0));
-  text->move(x-3, y+3-100);
-  text->setZ(190);
+//  text->setTextFlags(Qt::AlignCenter);
+  text->setDefaultTextColor(QColor(10, 10, 0));
+  text->setPos(x-3, y+3-100);
+  text->setZValue(190);
   text->show();
   mSprites.append(text);
 
   // Text: for (bright)
   text = new TextSprite(mCanvas);
-  text->setText(s2);
+  text->setPlainText(s2);
   text->setFont(font);
-  text->setTextFlags(Qt::AlignCenter);
-  text->setColor(QColor(255, 128, 0));
-  text->move(x, y);
-  text->setZ(200);
+//  text->setTextFlags(Qt::AlignCenter);
+  text->setDefaultTextColor(QColor(255, 128, 0));
+  text->setPos(x, y);
+  text->setZValue(200);
   text->show();
   mSprites.append(text);
 
   // Text: for (dark)
   text = new TextSprite(mCanvas);
-  text->setText(s2);
+  text->setPlainText(s2);
   text->setFont(font);
-  text->setTextFlags(Qt::AlignCenter);
-  text->setColor(QColor(15, 15, 0));
-  text->move(x-3, y+3);
-  text->setZ(190);
+//  text->setTextFlags(Qt::AlignCenter);
+  text->setDefaultTextColor(QColor(15, 15, 0));
+  text->setPos(x-3, y+3);
+  text->setZValue(190);
   text->show();
   mSprites.append(text);
 
   // Text: KDE (bright)
   text = new TextSprite(mCanvas);
-  text->setText(s3);
+  text->setPlainText(s3);
   text->setFont(font);
-  text->setTextFlags(Qt::AlignCenter);
-  text->setColor(QColor(255, 128, 0));
-  text->move(x, y+100);
-  text->setZ(200);
+//  text->setTextFlags(Qt::AlignCenter);
+  text->setDefaultTextColor(QColor(255, 128, 0));
+  text->setPos(x, y+100);
+  text->setZValue(200);
   text->show();
   mSprites.append(text);
 
   // Text: KDE (dark)
   text = new TextSprite(mCanvas);
-  text->setText(s3);
+  text->setPlainText(s3);
   text->setFont(font);
-  text->setTextFlags(Qt::AlignCenter);
-  text->setColor(QColor(15, 15, 0));
-  text->move(x-3, y+3+100);
-  text->setZ(190);
+//  text->setTextFlags(Qt::AlignCenter);
+  text->setDefaultTextColor(QColor(15, 15, 0));
+  text->setPos(x-3, y+3+100);
+  text->setZValue(190);
   text->show();
   mSprites.append(text);
 
@@ -160,7 +160,7 @@ void DisplayIntro::loop()
 
   // Sizes
   QSize size    = mDeck->cardSize(); // Card size
-  QSize cSize   = mCanvas->size();   // Canvas size
+  QSize cSize   = QSize(int(mCanvas->width()), int(mCanvas->height()));   // Canvas size
   QPoint offset = QPoint(BOARD_OFFSET_X, BOARD_OFFSET_Y);
 
   // Display a card
@@ -182,8 +182,8 @@ void DisplayIntro::loop()
       point += QPoint(int(-x), mAnimCnt*10);
     }
     sprite->setBackside();
-    sprite->move(point.x(), point.y());
-    sprite->setZ(50+mAnimCnt);
+    sprite->setPos(point.x(), point.y());
+    sprite->setZValue(50+mAnimCnt);
     sprite->show();
     mAnimCnt++;
   }

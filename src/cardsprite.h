@@ -21,23 +21,24 @@
 */
 
 // Qt includes
-#include <Q3CanvasSprite>
-#include <Q3CanvasPixmapArray>
+#include <QGraphicsPixmapItem>
+#include <QList>
 #include <QPoint>
+#include <QPointF>
 #include <QPixmap>
 
 
 /**
  * The sprite for a card on the canvas.
  */
-class CardSprite : public Q3CanvasSprite
+class CardSprite : public QGraphicsPixmapItem
 {
 
   public:
     /** Constructor for the sprite.
      *  @param parent The parent window
      */
-    CardSprite(Q3CanvasPixmapArray* a, Q3Canvas* canvas);
+    CardSprite(const QPixmap* front, const QPixmap* back, QGraphicsScene* canvas);
 
     // Possible animation states of the sprite
     enum AnimationState {Idle, Turning, Moving, Removing,
@@ -52,7 +53,7 @@ class CardSprite : public Q3CanvasSprite
      void setBackside();
 
 
-     /** Standard Q3CanvasItem advance method
+     /** Standard advance method
       *  @param phase Advance phase
       */
      virtual void advance(int phase);
@@ -107,16 +108,28 @@ class CardSprite : public Q3CanvasSprite
      *  @param back   The backside pixmap.
      *  @return The generated sprite object.
      */
-    static CardSprite* create(Q3Canvas* canvas, QPixmap* front, QPixmap* back);
+    static CardSprite* create(QGraphicsScene* canvas, const QPixmap* front, const QPixmap* back);
+
+    /** Set the current frame.
+     *  @param no The frame number 0..n-1
+     */
+    void setFrame(int no);
+
+    /** Retrieve the current frame number.
+     *  @return The frame number 0..n-1.
+     */
+     int frame() {return mCurrentFrame;}
   
   protected:
     /** Load and create card pixmap array. This method create the in-between
      *  sprites necessary.
-     *  @param front  The frontside pixmap.
-     *  @param back   The backside pixmap.
-     *  @return The generated canvas pixmap array.
+     *  @param front      The frontside pixmap.
+     *  @param back       The backside pixmap.
+     *  @param spriteList The resulting pixmap list
+     *  @param hotspots   The resulting hotspot offset list
      */
-    static Q3CanvasPixmapArray* createPixmapArray(QPixmap* front, QPixmap* back);
+    static void createPixmapArray(const QPixmap* front, const QPixmap* back,
+                                  QList<QPixmap>& spriteList, QList<QPointF>& hotspots);
 
     /** Set target position and calculate moving speed.
      *  @param tx Target x
@@ -143,8 +156,11 @@ class CardSprite : public Q3CanvasSprite
     double mMoveSpeedY;
     // Front/Backside flag
     bool mFrontFlag;
-    // Store our pixmap array
-    Q3CanvasPixmapArray* mPixmapArray;
+    // Store our pixmap array and its offset values
+    QList<QPixmap> mFrames;
+    QList<QPointF> mHotspots;
+    // The current frame
+    int mCurrentFrame;
 
 
 

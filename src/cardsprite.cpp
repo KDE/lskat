@@ -22,8 +22,6 @@
 #include <math.h>
 
 // Qt includes
-#include <Q3ValueList>
-#include <Q3PointArray>
 #include <QPoint>
 #include <QMatrix>
 
@@ -46,11 +44,12 @@
 
 
 // Constructor for the view
-CardSprite::CardSprite(Q3CanvasPixmapArray* a, Q3Canvas* canvas)
-    : Q3CanvasSprite(a, canvas)
+CardSprite::CardSprite(const QPixmap* front, const QPixmap* back, QGraphicsScene* canvas)
+    : QGraphicsPixmapItem(0, canvas)
 {
+  createPixmapArray(front, back, mFrames, mHotspots);
   mAnimationState = Idle;
-  mPixmapArray = a;
+  mCurrentFrame = 0;
 }
 
 // Stop all movment and animation
@@ -121,7 +120,19 @@ void CardSprite::setFrontside()
 void CardSprite::setBackside()
 {
   // Choose card back frame (last one in the animation sequence)
-  setFrame(frameCount()-1);
+  setFrame(mFrames.size()-1);
+}
+
+// Set a new bitmap into the sprite. If the number is the same as the
+// current one, nothing is done.
+void CardSprite::setFrame(int no)
+{
+  if (no == mCurrentFrame) return;
+  if (no<0 || no >=mFrames.count()) return;
+  setPixmap(mFrames.at(no));
+  resetMatrix();
+  translate(-mHotspots.at(no).x(), -mHotspots.at(no).y());
+  mCurrentFrame = no;
 }
 
 
@@ -136,26 +147,25 @@ bool CardSprite::deltaMove()
   // Check arrival at target
   if (dx*dx + dy*dy < mMoveSpeedX*mMoveSpeedX + mMoveSpeedY*mMoveSpeedY)
   {
-    move(mMoveTarget.x(), mMoveTarget.y());
+    setPos(mMoveTarget.x(), mMoveTarget.y());
     return true;
   }
   // Move towards target by given velocity
   else
   {
-    setX( x() + mMoveSpeedX );
-    setY( y() + mMoveSpeedY );
+    setPos( x() + mMoveSpeedX, y() + mMoveSpeedY );
     return false;
   }
 }
 
 
-// CanvasItem advance method (see Q3CanvasItem)
+// CanvasItem advance method 
 void CardSprite::advance(int phase)
 {
   // Ignore phase 0 (collisions)
   if (phase == 0)
   {
-    Q3CanvasSprite::advance(phase);
+    QGraphicsItem::advance(phase);
     return ;
   }
 
@@ -169,7 +179,7 @@ void CardSprite::advance(int phase)
       mAnimationCnt = 0;
       // Check whether animation is over
       if ( (mFrontFlag && frame() == 0) ||
-           (!mFrontFlag && frame() == frameCount()-1) )
+           (!mFrontFlag && frame() == mFrames.size()-1) )
       {
         mAnimationState = Idle;
       }
@@ -225,20 +235,21 @@ void CardSprite::advance(int phase)
     }
   }// end if ShuffleMove
 
-  Q3CanvasSprite::advance(phase);
+  QGraphicsItem::advance(phase);
 }
 
 
 // Load and create card pixmap array
-Q3CanvasPixmapArray* CardSprite::createPixmapArray(QPixmap* front, QPixmap* back)
+void CardSprite::createPixmapArray(const QPixmap* front, const QPixmap* back,
+                                   QList<QPixmap>& spriteList, QList<QPointF>& hotspots)
 {
-  // List necessary to construct pixmap array
-  Q3ValueList<QPixmap> spriteList;
-  Q3PointArray hotspots;
+  // Clear lists
+  spriteList.clear();
+  hotspots.clear();
 
   // Append front card
   spriteList.append(front->copy());
-  hotspots.append(QPoint(0,0));
+  hotspots.append(QPointF(0.0,0.0));
 
   // Turn the frontside of the card 0..90 degree
   for (int i=1;i<STEPS_TURN_CARD;i++)
@@ -255,7 +266,7 @@ Q3CanvasPixmapArray* CardSprite::createPixmapArray(QPixmap* front, QPixmap* back
     int dx = front->width()-pm.width();
     // Append to lists
     spriteList.append(pm);
-    hotspots.append(QPoint(-dx/2,0));
+    hotspots.append(QPointF(-dx/2.0,0.0));
   }
 
   // Turn the backside of the card 90..eps degree
@@ -273,23 +284,18 @@ Q3CanvasPixmapArray* CardSprite::createPixmapArray(QPixmap* front, QPixmap* back
     int dx = front->width()-pm.width();
     // Append to lists
     spriteList.append(pm);
-    hotspots.append(QPoint(-dx/2,0));
+    hotspots.append(QPointF(-dx/2.0,0.0));
   }
 
   // Append back card
   spriteList.append(back->copy());
-  hotspots.append(QPoint(0,0));
-
-  Q3CanvasPixmapArray* a = new Q3CanvasPixmapArray(spriteList, hotspots);
-  return a;
+  hotspots.append(QPointF(0.0,0.0));
 }
 
 // Factory constructor method for a new card sprite.
-CardSprite* CardSprite::create(Q3Canvas* canvas, QPixmap* front, QPixmap* back)
+CardSprite* CardSprite::create(QGraphicsScene* canvas, const QPixmap* front, const QPixmap* back)
 {
-  Q3CanvasPixmapArray* a = CardSprite::createPixmapArray(front, back);
-  CardSprite* sprite = new CardSprite(a,canvas);
-  sprite->setAnimated(true);
+  CardSprite* sprite = new CardSprite(front, back, canvas);
   sprite->hide();
   return sprite;
 }
@@ -300,10 +306,7 @@ void CardSprite::updateGraphics(QPixmap* front, QPixmap* back)
   // Get rid of old graphics
   bool vis = isVisible();
   hide();
-  if (mPixmapArray) delete mPixmapArray;
-  Q3CanvasPixmapArray* a = createPixmapArray(front, back);
-  setSequence(a);
-  mPixmapArray = a;
+  createPixmapArray(front, back, mFrames, mHotspots);
   setVisible(vis);
 }
 

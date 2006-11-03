@@ -36,7 +36,7 @@
 #include "abstractinput.h"
 
 // Forward declararion
-class GameView;
+class CanvasView;
 class Deck;
 class AbstractEngine;
 class AbstractDisplay;
@@ -163,7 +163,7 @@ class Mainwindow : public KMainWindow
     /** The game display */
     AbstractDisplay* mDisplay;
     /** The main view */
-    GameView* mView;
+    CanvasView* mView;
     /** The card deck */
     Deck* mDeck;
     /** The grafix directory */

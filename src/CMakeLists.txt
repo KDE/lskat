@@ -4,7 +4,6 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkdeg
 set( lskat_SRCS 
     playerstatuswidget.cpp
     namedialogwidget.cpp
-    gameview.cpp
     canvasview.cpp
     mainwindow.cpp
     main.cpp
@@ -27,7 +26,7 @@ set( lskat_SRCS
 
 kde4_add_ui_files( lskat_SRCS playerstatusform.ui namedialog.ui )
 
-kde4_automoc(${lskat_SRCS})
+kde4_automoc( lskat ${lskat_SRCS} )
 
 kde4_add_executable( lskat ${lskat_SRCS} )
 

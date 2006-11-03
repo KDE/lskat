@@ -46,7 +46,7 @@
 
 // Application specific includes
 #include "mainwindow.h"
-#include "gameview.h"
+#include "canvasview.h"
 #include "abstractengine.h"
 #include "engine_two.h"
 #include "display_two.h"
@@ -91,7 +91,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   mConfig=KGlobal::config();
 
   // Overall view
-  mView          = new GameView(QSize(600, 570), ADVANCE_PERDIOD, this);
+  mView          = new CanvasView(QSize(880, 670), ADVANCE_PERDIOD, this);
 
   // Create menus etc
   initGUI();
@@ -99,7 +99,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   // Create GUI
   setupGUI(Keys|Create);
   toolBar()->hide();
-  statusBar()->hide();
+  statusBar()->show();
   adjustSize();
   setAutoSaveSettings(); 
 
@@ -123,12 +123,17 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // Create intro
   mGameMode      = Intro;
-  mDisplay       = new DisplayIntro(mGrafixDir, mDeck, mView->canvas(), this);
+  mDisplay       = new DisplayIntro(mGrafixDir, mDeck, mView->scene(), this);
   mDisplay->setAdvancePeriod(ADVANCE_PERDIOD);
   setCentralWidget(mView);
 
+  adjustSize();
+
   // Start intro
   mDisplay->start();
+
+  statusBar()->showMessage(i18n("Welcome to Skat! Please start a new game."));
+
 }
 
 // Destructor
@@ -208,13 +213,14 @@ AbstractInput* Mainwindow::createInput(
   if (inputType == TypeMouseInput)
   {
     MouseInput* mouseInput = new MouseInput(mGrafixDir, this);
-    connect((QObject*)mView->canvasView(), SIGNAL(signalLeftMousePress(QPoint)),
+    connect((QObject*)mView, SIGNAL(signalLeftMousePress(QPoint)),
             mouseInput, SLOT(mousePress(QPoint)));
     connect(mouseInput, SIGNAL(signalConvertMousePress(QPoint,int&,int&)),
             display, SLOT(convertMousePress(QPoint,int&,int&)));
     connect(mouseInput, SIGNAL(signalPlayerInput(int,int,int)),
             engine, SLOT(playerInput(int,int,int) ));
     input = mouseInput;
+    kDebug() << "Create MOUSE INPUT " << endl;
   }
   else if (inputType == TypeAiInput)
   {
@@ -222,6 +228,7 @@ AbstractInput* Mainwindow::createInput(
     connect(aiInput, SIGNAL(signalPlayerInput(int,int,int)),
             engine, SLOT(playerInput(int,int,int) ));
     input = aiInput;
+    kDebug() << "Create AI INPUT " << endl;
   }
   else
   {
@@ -262,12 +269,15 @@ void Mainwindow::startGame()
 
   // Start player for next game
   setStartPlayer(1-mStartPlayer);
+
+  statusBar()->clearMessage();
 }
 
 // Here a game over is signalled
 void Mainwindow::gameOver(int winner)
 {
   kDebug() << "GameOver:: Winner= " << winner << endl;
+  statusBar()->showMessage(i18n("Please start a new game."));
 }
 
 
@@ -301,7 +311,7 @@ void Mainwindow::initGUI()
 
   // Determine start player
   KSelectAction* startPlayerAct = new KSelectAction(i18n("Starting Player"), actionCollection(), "startplayer");
-  connect(startPlayerAct, SIGNAL(triggered(bool)), this, SLOT(menuStartplayer()));
+  connect(startPlayerAct, SIGNAL(triggered(int)), this, SLOT(menuStartplayer()));
   startPlayerAct->setToolTip(i18n("Changing starting player..."));
   startPlayerAct->setWhatsThis(i18n("Chooses which player begins the next game."));
   QStringList list;
@@ -313,7 +323,7 @@ void Mainwindow::initGUI()
   
   // Determine who player player 1
   KSelectAction* player1Act = new KSelectAction(i18n("Player &1 Played By"), actionCollection(), "player1");
-  connect(player1Act, SIGNAL(triggered(bool)), this, SLOT(menuPlayer1By()));
+  connect(player1Act, SIGNAL(triggered(int)), this, SLOT(menuPlayer1By()));
   player1Act->setToolTip(i18n("Changing who plays player 1..."));
   player1Act->setWhatsThis(i18n("Changing who plays player 1."));
   list.clear();
@@ -323,7 +333,7 @@ void Mainwindow::initGUI()
 
   // Determine who player player 2
   KSelectAction* player2Act = new KSelectAction(i18n("Player &2 Played By"), actionCollection(), "player2");
-  connect(player2Act, SIGNAL(triggered(bool)), this, SLOT(menuPlayer2By()));
+  connect(player2Act, SIGNAL(triggered(int)), this, SLOT(menuPlayer2By()));
   player2Act->setToolTip(i18n("Changing who plays player 2..."));
   player2Act->setWhatsThis(i18n("Changing who plays player 2."));
   player2Act->setItems(list);
@@ -452,13 +462,13 @@ void Mainwindow::menuNewLSkatGame()
 
 
     // Create new stuff
-    PlayerStatusWidget* playerWdiget1 = new PlayerStatusWidget(p1, mView);
-    PlayerStatusWidget* playerWdiget2 = new PlayerStatusWidget(p2, mView);
-    mView->setStatusWidget(0, playerWdiget1);
-    mView->setStatusWidget(2, playerWdiget2);
+    PlayerStatusWidget* playerWidget1 = new PlayerStatusWidget(p1, this);
+    PlayerStatusWidget* playerWidget2 = new PlayerStatusWidget(p2, this);
+    mView->setStatusWidget(0, playerWidget1);
+    mView->setStatusWidget(2, playerWidget2);
 
 
-    mDisplay     = new DisplayTwo(mGrafixDir, mDeck, mView->canvas(), this);
+    mDisplay     = new DisplayTwo(mGrafixDir, mDeck, mView->scene(), this);
     mDisplay->setAdvancePeriod(ADVANCE_PERDIOD);
     mEngine  = new EngineTwo(this, mDeck, (DisplayTwo*)mDisplay);
     connect(mEngine, SIGNAL(signalGameOver(int)), this, SLOT(gameOver(int)));

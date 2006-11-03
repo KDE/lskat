@@ -32,10 +32,10 @@
 #define MAX_ANIM_CNT 160
 
 // Constructor for the view
-RectangleSprite::RectangleSprite(int width, QColor color, Q3Canvas* canvas)
-    : Q3CanvasRectangle(canvas)
+RectangleSprite::RectangleSprite(int width, QColor color, QGraphicsScene* canvas)
+    : QGraphicsRectItem(0, canvas)
 {
-  setZ(-50);
+  setZValue(-50);
 
   QPen pen(color);
   pen.setWidth(width);
@@ -47,8 +47,8 @@ RectangleSprite::RectangleSprite(int width, QColor color, Q3Canvas* canvas)
 }
 
 
-// CanvasItem advance method (see Q3CanvasItem)
+// CanvasItem advance method 
 void RectangleSprite::advance(int phase)
 {
-   Q3CanvasRectangle::advance(phase);
+   QGraphicsItem::advance(phase);
 }

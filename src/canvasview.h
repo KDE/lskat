@@ -23,17 +23,22 @@
 // Qt includes
 #include <QWidget>
 #include <QPixmap>
-#include <Q3Canvas>
+#include <QGraphicsView>
+#include <QGraphicsScene>
+#include <QGraphicsSceneMouseEvent>
 #include <QSize>
 #include <QPoint>
+#include <QHash>
 #include <QResizeEvent>
 
+// Forward declaration
+class PlayerStatusWidget;
 
 /**
  * The view object which shows the graphics in a
  * canvas view.
  */
-class CanvasView : public Q3CanvasView
+class CanvasView : public QGraphicsView
 {
   Q_OBJECT
 
@@ -45,15 +50,31 @@ class CanvasView : public Q3CanvasView
      */
     CanvasView(QSize size, int advancePeriod, QWidget* parent = 0);
 
-    /** 
-     * Destructor for the canvas view 
+    /** Retrive the status widget of a player 
+     *  @param pos The widget position number (0,1,...)
+     *  @return The widget.
      */
-    ~CanvasView();
+    PlayerStatusWidget* statusWidget(int pos);
 
-     void mousePressEvent(QMouseEvent *ev);
+    /** Store and display a new status widget at the given position.
+     *  Old widgets on this position are removed and destroyed.
+     *  @param pos The position on the screen (0,1,2)
+     *  @param widget The new widget
+     */
+    void setStatusWidget(int pos, PlayerStatusWidget* widget);
+
+ protected:
+    /** React to mouse clicks
+     *  @param ev The mouse event
+     */
+    void mousePressEvent(QMouseEvent *event);
 
 
   public slots:  
+    /** The update and advance for the canvas. 
+     *  This is called by a timer at regular intervals.
+     */
+    void updateAndAdvance();
 
   signals:
     void signalLeftMousePress(QPoint point);
@@ -64,8 +85,11 @@ class CanvasView : public Q3CanvasView
      * are resized. We adapt the canvas then.
      * @param e The resize event
      */
-    void resizeEvent(QResizeEvent* e);
+    // TODO void resizeEvent(QResizeEvent* e);
 
+  private:
+    // The status widgets
+    QHash<int,PlayerStatusWidget*> mPlayerWidgets;
 };
 
 #endif

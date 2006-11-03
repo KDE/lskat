@@ -21,7 +21,8 @@
 */
 
 // Qt includes
-#include <Q3Canvas>
+#include <QGraphicsScene>
+#include <QGraphicsItem>
 #include <QList>
 #include <QHash>
 
@@ -52,7 +53,7 @@ class AbstractDisplay : public QObject
      *  @param canvas The parent canvas
      *  @param parent The parent object
      */
-    AbstractDisplay(QString grafixDir, Deck* deck, Q3Canvas* canvas, QObject* parent);
+    AbstractDisplay(QString grafixDir, Deck* deck, QGraphicsScene* canvas, QObject* parent);
 
     /** Destructor.
     */
@@ -130,11 +131,11 @@ class AbstractDisplay : public QObject
     /** The card deck */
     Deck* mDeck;
     /** The work canvas */
-    Q3Canvas* mCanvas;
+    QGraphicsScene* mCanvas;
     /** Canvas advance period */
     int mAdvancePeriod;
     /** Text sprite list */
-    QList<Q3CanvasItem*> mSprites;
+    QList<QGraphicsItem*> mSprites;
     /** Store the card sprite indexed by the card value */
     static QHash<int,CardSprite*> mCards;
     /** Grafic directory */

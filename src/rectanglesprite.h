@@ -21,14 +21,14 @@
 */
 
 // Qt includes
-#include <Q3CanvasRectangle>
+#include <QGraphicsRectItem>
 #include <QColor>
 
 
 /**
  * The sprite for canvas rectangle
  */
-class RectangleSprite : public Q3CanvasRectangle
+class RectangleSprite : public QGraphicsRectItem
 {
 
   public:
@@ -37,9 +37,9 @@ class RectangleSprite : public Q3CanvasRectangle
      *  @param color The boeder color
      *  @param parent The parent canvas
      */
-    RectangleSprite(int width, QColor color, Q3Canvas* canvas);
+    RectangleSprite(int width, QColor color, QGraphicsScene* canvas);
 
-     /** Standard Q3CanvasItem advance method
+     /** Standard advance method
       *  @param phase Advance phase
       */
      virtual void advance(int phase);

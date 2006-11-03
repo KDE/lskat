@@ -21,6 +21,7 @@
 // Qt includes
 #include <QPoint>
 #include <QFont>
+#include <QTimer>
 
 // KDE includes
 #include <klocale.h>
@@ -30,48 +31,60 @@
 
 // Local includes
 #include "canvasview.h"
+#include "playerstatuswidget.h"
 
 
 
 // Constructor for the view
 CanvasView::CanvasView(QSize size, int advancePeriod, QWidget* parent)
-          : Q3CanvasView(parent)
+          : QGraphicsView(parent)
 {
   // We do not need scrolling so switch it off
-  setResizePolicy(Q3ScrollView::Manual);
-  setVScrollBarMode(AlwaysOff);
-  setHScrollBarMode(AlwaysOff);
+  setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+  setCacheMode(QGraphicsView::CacheBackground);
 
   // Create a new canvas for this view
-  Q3Canvas *canvas=new Q3Canvas(this);
+  QGraphicsScene *canvas=new QGraphicsScene(this);
 
-  // Remove flicker by double buffering
-  canvas->setDoubleBuffering(true);
   // Update/advance every 25ms
-  canvas->setAdvancePeriod(advancePeriod);
+  QTimer *timer = new QTimer(this);
+  connect(timer, SIGNAL(timeout()), this, SLOT(updateAndAdvance()));
+  timer->start(advancePeriod);
+  
   // assign the canvas to the view
-  setCanvas(canvas);
+  setScene(canvas);
 
   // Set size and position of the view and the canvas:
   // they are reseized once a level is loaded
   setFixedSize(size);
-  canvas->resize(this->width(), this->height()); 
+  canvas->setSceneRect(0, 0, this->width(), this->height()); 
+
+  setInteractive(true);
+
+
+  mPlayerWidgets.clear();
+ // PlayerStatusWidget* playerWdiget1 = new PlayerStatusWidget(0, this);
+}
+
+
+// Advance and update canvas
+void CanvasView::updateAndAdvance()
+{
+  scene()->advance();
+  scene()->update();
 }
 
 
 // Slot called by the framework when the window is
 // resized.
-void CanvasView::resizeEvent (QResizeEvent* e)
-{
-  // Adapt the canvas size to the window size
-  if (canvas()) canvas()->resize(e->size().width(),
-                                 e->size().height());
-}
-
-// Standard destructor
-CanvasView::~CanvasView()
-{
-}
+//void CanvasView::resizeEvent (QResizeEvent* e)
+//{
+//  // Adapt the canvas size to the window size
+//  if (canvas()) canvas()->setSceneRect(0,0,
+//                                       e->size().width(),
+//                                       e->size().height());
+//}
 
 
 // mouse click event
@@ -79,8 +92,37 @@ void CanvasView::mousePressEvent(QMouseEvent *ev)
 {
   if (ev->button() != Qt::LeftButton) return ;
 
-  QPoint point = ev->pos();
-  emit signalLeftMousePress(point);
+  QPointF point = ev->pos();
+  emit signalLeftMousePress(point.toPoint());
 }
+
+void CanvasView::setStatusWidget(int pos, PlayerStatusWidget* widget)
+{
+  // Remove old widget
+  if (mPlayerWidgets.contains(pos))
+  {
+    PlayerStatusWidget* old = mPlayerWidgets[pos];
+    delete old;
+  }
+  mPlayerWidgets[pos] = widget;
+  widget->setParent(this);
+  // Add spacing
+  widget->move(width()-widget->width() -10 , pos*widget->height() + 10 );
+  widget->show();
+  update();
+}
+
+
+// Retrive the status widget of a player 
+PlayerStatusWidget* CanvasView::statusWidget(int pos)
+{
+  if (!mPlayerWidgets.contains(pos))
+  {
+    kFatal() << "Player status widget " << pos << "does not exists" << endl;
+    return 0;
+  }
+  return mPlayerWidgets[pos];
+}
+
 
 #include "canvasview.moc"

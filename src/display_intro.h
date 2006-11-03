@@ -21,7 +21,7 @@
 */
 
 // Qt includes
-#include <Q3Canvas>
+#include <QGraphicsScene>
 #include <QTimer>
 
 
@@ -52,7 +52,7 @@ class DisplayIntro : public AbstractDisplay
      *  @param canvas The parent canvas
      *  @param parent The parent object
      */
-    DisplayIntro(QString grafixDir, Deck* deck, Q3Canvas* canvas, QObject* parent);
+    DisplayIntro(QString grafixDir, Deck* deck, QGraphicsScene* canvas, QObject* parent);
 
     /** Start the intro.
     */

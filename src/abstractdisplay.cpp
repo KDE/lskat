@@ -35,7 +35,7 @@
 QHash<int,CardSprite*> AbstractDisplay::mCards;
 
 // Constructor for the engine
-AbstractDisplay::AbstractDisplay(QString grafixDir, Deck* deck, Q3Canvas* canvas, QObject* parent)
+AbstractDisplay::AbstractDisplay(QString grafixDir, Deck* deck, QGraphicsScene* canvas, QObject* parent)
     : QObject(parent)
 {
   // Store our working canvas
@@ -138,7 +138,7 @@ void AbstractDisplay::clearSprites()
 {
   while(!mSprites.isEmpty())
   {
-    Q3CanvasItem* item = mSprites.takeFirst();
+    QGraphicsItem* item = mSprites.takeFirst();
     item->hide();
     delete item;
   }
