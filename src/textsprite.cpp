@@ -34,5 +34,17 @@ TextSprite::TextSprite(QGraphicsScene* canvas)
 {
   setZValue(200.0);
   hide();
+  resetMatrix();
+}
+
+
+// Switch center aligned or left aligned text
+void TextSprite::setCenterAlign(bool b)
+{
+  resetMatrix();
+  if (b)
+  {
+    translate(-boundingRect().width()/2.0, 0.0);
+  }
 }
 

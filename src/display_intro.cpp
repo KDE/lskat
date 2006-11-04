@@ -83,7 +83,7 @@ void DisplayIntro::start()
   text = new TextSprite(mCanvas);
   text->setPlainText(s1);
   text->setFont(font);
-//  text->setTextFlags(Qt::AlignCenter);
+  text->setCenterAlign(true);
   text->setDefaultTextColor(QColor(255, 128, 0));
   text->setPos(x, y-100);
   text->setZValue(200);
@@ -94,7 +94,7 @@ void DisplayIntro::start()
   text = new TextSprite(mCanvas);
   text->setPlainText(s1);
   text->setFont(font);
-//  text->setTextFlags(Qt::AlignCenter);
+  text->setCenterAlign(true);
   text->setDefaultTextColor(QColor(10, 10, 0));
   text->setPos(x-3, y+3-100);
   text->setZValue(190);
@@ -105,7 +105,7 @@ void DisplayIntro::start()
   text = new TextSprite(mCanvas);
   text->setPlainText(s2);
   text->setFont(font);
-//  text->setTextFlags(Qt::AlignCenter);
+  text->setCenterAlign(true);
   text->setDefaultTextColor(QColor(255, 128, 0));
   text->setPos(x, y);
   text->setZValue(200);
@@ -116,7 +116,7 @@ void DisplayIntro::start()
   text = new TextSprite(mCanvas);
   text->setPlainText(s2);
   text->setFont(font);
-//  text->setTextFlags(Qt::AlignCenter);
+  text->setCenterAlign(true);
   text->setDefaultTextColor(QColor(15, 15, 0));
   text->setPos(x-3, y+3);
   text->setZValue(190);
@@ -127,7 +127,7 @@ void DisplayIntro::start()
   text = new TextSprite(mCanvas);
   text->setPlainText(s3);
   text->setFont(font);
-//  text->setTextFlags(Qt::AlignCenter);
+  text->setCenterAlign(true);
   text->setDefaultTextColor(QColor(255, 128, 0));
   text->setPos(x, y+100);
   text->setZValue(200);
@@ -138,7 +138,7 @@ void DisplayIntro::start()
   text = new TextSprite(mCanvas);
   text->setPlainText(s3);
   text->setFont(font);
-//  text->setTextFlags(Qt::AlignCenter);
+  text->setCenterAlign(true);
   text->setDefaultTextColor(QColor(15, 15, 0));
   text->setPos(x-3, y+3+100);
   text->setZValue(190);

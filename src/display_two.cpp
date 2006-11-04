@@ -355,7 +355,7 @@ void DisplayTwo::showText(QString s)
   font.setPixelSize(20);
   text->setPlainText(s);
   text->setFont(font);
-  //text->setTextFlags(Qt::AlignCenter);
+  text->setCenterAlign(true);
   text->setDefaultTextColor(QColor(255, 128, 0));
   text->setPos(x, y);
   text->show();
@@ -391,7 +391,7 @@ void DisplayTwo::showScore(int position, int score)
   font.setPixelSize(24);
   text->setPlainText(i18n("%1 points", score));
   text->setFont(font);
-  //text->setTextFlags(Qt::AlignCenter);
+  text->setCenterAlign(true);
   text->setDefaultTextColor(QColor(255, 128, 0));
   text->setPos(x, y);
   text->show();

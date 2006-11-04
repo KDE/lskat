@@ -36,6 +36,12 @@ class TextSprite : public QGraphicsTextItem
      */
     TextSprite(QGraphicsScene* canvas);
 
+    /** Should the text be drawn center aligned or not.
+     *  Default is left aligned.
+     *  @param b True for aligned text.
+     */
+    void setCenterAlign(bool b);
+
   private:
 
 };
