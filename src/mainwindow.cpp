@@ -91,7 +91,8 @@ Mainwindow::Mainwindow(QWidget* parent)
   mConfig=KGlobal::config();
 
   // Overall view
-  mView          = new CanvasView(QSize(880, 670), ADVANCE_PERDIOD, this);
+  mCanvas        = new QGraphicsScene(this);
+  mView          = new CanvasView(QSize(880, 675), ADVANCE_PERDIOD, mCanvas, this);
 
   // Create menus etc
   initGUI();
@@ -123,7 +124,7 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // Create intro
   mGameMode      = Intro;
-  mDisplay       = new DisplayIntro(mGrafixDir, mDeck, mView->scene(), this);
+  mDisplay       = new DisplayIntro(mGrafixDir, mDeck, mCanvas, this);
   mDisplay->setAdvancePeriod(ADVANCE_PERDIOD);
   setCentralWidget(mView);
 
@@ -144,7 +145,7 @@ Mainwindow::~Mainwindow()
   if (mLSkatConfig) delete mLSkatConfig;
   if (mDeck) delete mDeck;
   if (mView) delete mView;
-  kDebug() << "Destructor Mainwindow" << endl;
+  kDebug() << "Destructor Mainwindow done" << endl;
 }
 
 // Called by KMainWindow when the last window of the application is 
@@ -356,7 +357,6 @@ void Mainwindow::initGUI()
 void Mainwindow::menuStartplayer()
 {
   int i=((KSelectAction *)ACTION("startplayer"))->currentItem();
-  kDebug() << "Set startplayer to " << i << endl;
   setStartPlayer(i);
 }
 
@@ -364,7 +364,6 @@ void Mainwindow::menuStartplayer()
 void Mainwindow::menuPlayer1By()
 {
   int i = ((KSelectAction *)ACTION("player1"))->currentItem();
-  kDebug() << "Player 1 by " << i << endl;
   mLSkatConfig->setInputType(0, (InputDeviceType)i);
 }
 
@@ -372,7 +371,6 @@ void Mainwindow::menuPlayer1By()
 void Mainwindow::menuPlayer2By()
 {
   int i = ((KSelectAction *)ACTION("player2"))->currentItem();
-  kDebug() << "Player 2 by " << i << endl;
   mLSkatConfig->setInputType(1, (InputDeviceType)i);
 }
 
@@ -385,7 +383,7 @@ void Mainwindow::menuCardDeck()
   result=KCardDialog::getCardDeck(s1,s2);
   if (result==QDialog::Accepted)
   {
-    kDebug() << "Card deck to " << s1 << " and " << s2 << endl;
+    kDebug() << "NEW CARDDECK: " << s1 << " and " << s2 << endl;
     bool change = false; // Avoid unnecessary changes
     if (!s1.isEmpty() && s1 != mDeckGrafix)
     {
@@ -399,7 +397,11 @@ void Mainwindow::menuCardDeck()
       mDeck->loadCards(mCardDir);
       change = true;
     }
-    if (change) mDisplay->updateSpriteGraphics();
+    if (change)
+    {
+      mDisplay->updateSpriteGraphics();
+      mView->update(); // Be on the safe side and update
+    }
   }
 }
 
@@ -428,7 +430,6 @@ void Mainwindow::menuClearStatistics()
 // Abort a game
 void Mainwindow::menuEndGame()
 {
-   kDebug() << "EXIT" << endl;
    if (mEngine)
    {
      mEngine->stopGame();
@@ -439,7 +440,6 @@ void Mainwindow::menuEndGame()
 // Start a new game
 void Mainwindow::menuNewLSkatGame()
 {
-  kDebug() << "NEW LSKAT" << endl;
 
   Player* p1 = mLSkatConfig->player(0);
   Player* p2 = mLSkatConfig->player(1);
@@ -468,7 +468,7 @@ void Mainwindow::menuNewLSkatGame()
     mView->setStatusWidget(2, playerWidget2);
 
 
-    mDisplay     = new DisplayTwo(mGrafixDir, mDeck, mView->scene(), this);
+    mDisplay     = new DisplayTwo(mGrafixDir, mDeck, mCanvas, this);
     mDisplay->setAdvancePeriod(ADVANCE_PERDIOD);
     mEngine  = new EngineTwo(this, mDeck, (DisplayTwo*)mDisplay);
     connect(mEngine, SIGNAL(signalGameOver(int)), this, SLOT(gameOver(int)));
@@ -490,7 +490,6 @@ void Mainwindow::menuNewLSkatGame()
 // Change the player names in a dialog
 void Mainwindow::menuPlayerNames()
 {
-  kDebug() << "Change player names" << endl;
   NameDialogWidget dlg(this);
   for (int i=0;i<2;i++)
   {
@@ -515,14 +514,12 @@ void Mainwindow::menuPlayerNames()
 void Mainwindow::setStartPlayer(int no)
 {
   mStartPlayer = no;
-  kDebug() << "Set startplayer to " << mStartPlayer << endl;
   ((KSelectAction *)ACTION("startplayer"))->setCurrentItem(mStartPlayer);
 }
 
 // Set the input type for a given player number.
 void Mainwindow::setInputType(int no, InputDeviceType type)
 {
-  kDebug() << "setInputType " << no << " to " << (int)type << endl;
   Player* p = 0;
   // Player 1
   if (no == 0)

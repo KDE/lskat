@@ -219,8 +219,7 @@ void CardSprite::advance(int phase)
     if (mAnimationCnt > 0)
     {
       mAnimationCnt--;
-      if (mAnimationState == 0)
-       kDebug() << "Start moving sprite " << this << endl;
+      // if (mAnimationState == 0) kDebug() << "Start moving sprite " << this << endl;
     }
     // Then move to target position
     else
@@ -308,5 +307,9 @@ void CardSprite::updateGraphics(QPixmap* front, QPixmap* back)
   hide();
   createPixmapArray(front, back, mFrames, mHotspots);
   setVisible(vis);
+
+  // Copy new image to current pixmap and update sprite
+  setPixmap(mFrames.at(mCurrentFrame));
+  update();
 }
 

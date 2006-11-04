@@ -78,18 +78,18 @@
 
 
 // Constructor for the engine
-DisplayTwo::DisplayTwo(QString grafixDir, Deck* deck, QGraphicsScene* canvas, QObject* parent)
-    : AbstractDisplay(grafixDir, deck, canvas, parent)
+DisplayTwo::DisplayTwo(QString grafixDir, Deck* deck, QGraphicsScene* scene, QObject* parent)
+    : AbstractDisplay(grafixDir, deck, scene, parent)
 {
   // Choose a background color
-  canvas->setBackgroundBrush(QColor(0,0,128));
+  mCanvas->setBackgroundBrush(QColor(0,0,128));
 
   // Load move icon
   QString filename = grafixDir+ QString("moveicon.png");
   mMovePixmap = new QPixmap();
   if (!mMovePixmap->load(filename))
   {
-    kError() << "Cannot load file " << filename << endl;
+    kFatal() << "Cannot load file " << filename << endl;
   }
 }
 
@@ -410,7 +410,6 @@ void DisplayTwo::showMove(int no)
     sprite->hide();
   }
 
-  kDebug() << "Display start sprite to " << no << endl;
   if (no>=0) mMoveSprites[no]->show();
 }
 

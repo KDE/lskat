@@ -36,37 +36,33 @@
 
 
 // Constructor for the view
-CanvasView::CanvasView(QSize size, int advancePeriod, QWidget* parent)
-          : QGraphicsView(parent)
+CanvasView::CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, QWidget* parent)
+          : QGraphicsView(scene, parent)
 {
   // We do not need scrolling so switch it off
   setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   setCacheMode(QGraphicsView::CacheBackground);
 
-  // Create a new canvas for this view
-  QGraphicsScene *canvas=new QGraphicsScene(this);
 
   // Update/advance every 25ms
   QTimer *timer = new QTimer(this);
   connect(timer, SIGNAL(timeout()), this, SLOT(updateAndAdvance()));
   timer->start(advancePeriod);
   
-  // assign the canvas to the view
-  setScene(canvas);
+  // Set size and position of the view and the canvas:
+  // they are reseized once a level is loaded
+  //setFixedSize(size);
+  setMinimumSize(size);
 
   // Set size and position of the view and the canvas:
   // they are reseized once a level is loaded
-  setFixedSize(size);
-  canvas->setSceneRect(0, 0, this->width(), this->height()); 
+  scene->setSceneRect(0, 0, this->width(), this->height()); 
+  adjustSize();
 
   setInteractive(true);
-
-
   mPlayerWidgets.clear();
- // PlayerStatusWidget* playerWdiget1 = new PlayerStatusWidget(0, this);
 }
-
 
 // Advance and update canvas
 void CanvasView::updateAndAdvance()
@@ -78,13 +74,23 @@ void CanvasView::updateAndAdvance()
 
 // Slot called by the framework when the window is
 // resized.
-//void CanvasView::resizeEvent (QResizeEvent* e)
-//{
-//  // Adapt the canvas size to the window size
-//  if (canvas()) canvas()->setSceneRect(0,0,
-//                                       e->size().width(),
-//                                       e->size().height());
-//}
+void CanvasView::resizeEvent (QResizeEvent* e)
+{
+  //kDebug() << "++++ CanvasView::resizeEvent "<<e->size().width()<<" , "<< e->size().height() <<endl;
+  // Adapt the canvas size to the window size
+  if (scene())
+  {
+    scene()->setSceneRect(0,0, e->size().width(), e->size().height());
+
+    // Realign score widget
+    QHashIterator<int,PlayerStatusWidget*> it(mPlayerWidgets);
+    while(it.hasNext())
+    {
+      it.next();
+      moveStatusWidget(it.value(), it.key());
+    }
+  }
+}
 
 
 // mouse click event
@@ -107,9 +113,16 @@ void CanvasView::setStatusWidget(int pos, PlayerStatusWidget* widget)
   mPlayerWidgets[pos] = widget;
   widget->setParent(this);
   // Add spacing
-  widget->move(width()-widget->width() -10 , pos*widget->height() + 10 );
+  moveStatusWidget(widget, pos);
   widget->show();
   update();
+}
+
+
+// Position score widgets at window border
+void CanvasView::moveStatusWidget(QWidget* widget, int pos)
+{
+  widget->move(width()-widget->width() -10 , pos*widget->height() + 10 );
 }
 
 

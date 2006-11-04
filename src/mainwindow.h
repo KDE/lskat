@@ -42,6 +42,7 @@ class AbstractEngine;
 class AbstractDisplay;
 class Player;
 class ConfigTwo;
+class QGraphicsScene;
 
 using namespace InputDevice;
 
@@ -172,6 +173,8 @@ class Mainwindow : public KMainWindow
     ConfigTwo* mLSkatConfig;
     /** Application config */
     KConfig* mConfig;
+    /** The graphics scene */
+    QGraphicsScene* mCanvas;
 
     
     // Properties to be saved 

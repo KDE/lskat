@@ -53,7 +53,7 @@ void MouseInput::mousePress(QPoint point)
   // Check whether the move is for the right player
   if (playerNumber == mId)
   {
-    kDebug() << "MouseInput:: Convert to " << playerNumber << ", " << cardNumber << endl;
+    //kDebug() << "MouseInput:: Convert to " << playerNumber << ", " << cardNumber << endl;
     emit signalPlayerInput(mId, playerNumber, cardNumber);
   }
 }

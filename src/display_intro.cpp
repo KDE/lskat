@@ -43,11 +43,11 @@
 #define WAIT_CNT2       70  /* Wait this * timer ms */
 
 // Constructor for the engine
-DisplayIntro::DisplayIntro(QString grafixDir, Deck* deck, QGraphicsScene* canvas, QObject* parent)
-    : AbstractDisplay(grafixDir, deck, canvas, parent)
+DisplayIntro::DisplayIntro(QString grafixDir, Deck* deck, QGraphicsScene* scene, QObject* parent)
+    : AbstractDisplay(grafixDir, deck, scene, parent)
 {
   // Choose a background color
-  canvas->setBackgroundBrush(QColor(0,0,128));
+  mCanvas->setBackgroundBrush(QColor(0,0,128));
 
   mTimer = new QTimer(this);
   connect(mTimer, SIGNAL(timeout()), this, SLOT(loop()));

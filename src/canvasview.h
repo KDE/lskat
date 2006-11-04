@@ -46,9 +46,10 @@ class CanvasView : public QGraphicsView
     /** Constructor for the canvas view.
      *  @param size The canvas fixed size
      *  @param advancePeriod The canvas advance period
+     *  @param scene The graphics scene
      *  @param parent The parent window
      */
-    CanvasView(QSize size, int advancePeriod, QWidget* parent = 0);
+    CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, QWidget* parent = 0);
 
     /** Retrive the status widget of a player 
      *  @param pos The widget position number (0,1,...)
@@ -69,6 +70,12 @@ class CanvasView : public QGraphicsView
      */
     void mousePressEvent(QMouseEvent *event);
 
+    /** Position score widgets at window border
+     *  @param widget The Player status widget
+     *  @param pos    The positon of the windwo 0,1,2
+     */
+    void moveStatusWidget(QWidget* widget, int pos);
+
 
   public slots:  
     /** The update and advance for the canvas. 
@@ -85,7 +92,7 @@ class CanvasView : public QGraphicsView
      * are resized. We adapt the canvas then.
      * @param e The resize event
      */
-    // TODO void resizeEvent(QResizeEvent* e);
+    void resizeEvent(QResizeEvent* e);
 
   private:
     // The status widgets

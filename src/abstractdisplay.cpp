@@ -35,15 +35,19 @@
 QHash<int,CardSprite*> AbstractDisplay::mCards;
 
 // Constructor for the engine
-AbstractDisplay::AbstractDisplay(QString grafixDir, Deck* deck, QGraphicsScene* canvas, QObject* parent)
+AbstractDisplay::AbstractDisplay(QString grafixDir, Deck* deck, QGraphicsScene* scene, QObject* parent)
     : QObject(parent)
 {
-  // Store our working canvas
+  // Store our working directory
   mGrafixDir = grafixDir;
-  mCanvas = canvas;
-  setDeck(deck);
-  createSprites();
+  // Store the scene
+  mCanvas = scene;
 
+  // Set up deck
+  setDeck(deck);
+
+  // Initialize sprites
+  createSprites();
   mSprites.clear();
 }
 

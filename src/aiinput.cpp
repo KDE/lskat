@@ -115,6 +115,7 @@ AiInput::Board AiInput::getBoardFromEngine()
   return b;
 }
 
+
 // Game evaluation ratings
 #define RATING_SCHWARZ      100000.0
 #define RATING_SCHNEIDER     70000.0

@@ -50,10 +50,10 @@ class AbstractDisplay : public QObject
     /** Constructor for the engine
      *  @param grafixDir The grafic directory
      *  @param deck The card deck
-     *  @param canvas The parent canvas
+     *  @param scene The graphics scene to work with
      *  @param parent The parent object
      */
-    AbstractDisplay(QString grafixDir, Deck* deck, QGraphicsScene* canvas, QObject* parent);
+    AbstractDisplay(QString grafixDir, Deck* deck, QGraphicsScene* scene, QObject* parent);
 
     /** Destructor.
     */
@@ -110,6 +110,12 @@ class AbstractDisplay : public QObject
      *  deck graphicsh changed.
      */
     virtual void updateSpriteGraphics();
+
+
+    /** Retrieve the graphics scene of this display.
+     *  @return The QGraphicsScene of this display.
+     */
+    QGraphicsScene* canvas() {return  mCanvas;} 
 
   
   public slots:
