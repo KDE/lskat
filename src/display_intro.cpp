@@ -229,7 +229,7 @@ void DisplayIntro::loop()
   {
     for (int i=0; i<no; i++)
     {
-      double r = 0.7*sqrt(cSize.width()*cSize.width() + cSize.height()*cSize.height());
+      double r = 0.7*sqrt(double(cSize.width()*cSize.width() + cSize.height()*cSize.height()));
       double x = r*cos(double(i)/double(no-1)*M_PI*2.0) + cSize.width()/2.0;
       double y = r*sin(double(i)/double(no-1)*M_PI*2.0) + cSize.height()/2.0;
       CardSprite* sprite = mCards[i];
