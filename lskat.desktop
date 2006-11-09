@@ -81,6 +81,7 @@ Name[pt]=Tenente Skat
 Name[pt_BR]=Tenente Skat
 Name[sl]=Poročnik Skat
 Name[sv]=Officersskat
+Name[uk]=Лейтенант Скет
 Terminal=false
 Type=Application
 DocPath=lskat/index.html
