@@ -68,7 +68,10 @@ CanvasView::CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, QWi
 void CanvasView::updateAndAdvance()
 {
   scene()->advance();
-  scene()->update();
+  //NOTE regarding QGV porting
+  //QGV will handle dirty rects for us
+  //Calling update will just dirty the view and cause a full redraw, killing performance
+  //scene()->update();
 }
 
 
