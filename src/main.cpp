@@ -29,6 +29,7 @@
 #include <kdebug.h>
 #include <kaboutdata.h>
 #include <klocale.h>
+#include <kglobal.h>
 
 #include "mainwindow.h"
 
