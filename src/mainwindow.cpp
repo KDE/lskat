@@ -30,7 +30,7 @@
 #include <kfiledialog.h>
 #include <khelpmenu.h>
 #include <kdebug.h>
-#include <kstdaction.h>
+#include <kstandardaction.h>
 #include <kaction.h>
 #include <kactioncollection.h>
 #include <kstatusbar.h>
