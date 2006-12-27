@@ -415,7 +415,7 @@ void Mainwindow::menuClearStatistics()
   if (KMessageBox::Yes==KMessageBox::questionYesNo(this,
                                                    message,
                                                    QString::null,
-                                                   KStdGuiItem::clear()))
+                                                   KStandardGuiItem::clear()))
   {
     QHashIterator<int,Player*> it = mLSkatConfig->playerIterator();
     while(it.hasNext())
