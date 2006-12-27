@@ -25,7 +25,7 @@
 
 // Include files for KDE
 #include <kapplication.h>
-#include <kstdgameaction.h>
+#include <kstandardgameaction.h>
 #include <kmessagebox.h>
 #include <kfiledialog.h>
 #include <khelpmenu.h>
@@ -286,7 +286,7 @@ void Mainwindow::gameOver(int winner)
 void Mainwindow::initGUI()
 {
   // Start a new game
-  KStdGameAction::gameNew(this, SLOT(menuNewLSkatGame()),
+  KStandardGameAction::gameNew(this, SLOT(menuNewLSkatGame()),
                           actionCollection(), "new_game");
   ACTION("new_game")->setToolTip(i18n("Starting a new game..."));
   ACTION("new_game")->setWhatsThis(i18n("Start a new game."));
@@ -304,7 +304,7 @@ void Mainwindow::initGUI()
   endGameAct->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
 
   // Quite the program
-  KStdGameAction::quit(this, SLOT(close()),
+  KStandardGameAction::quit(this, SLOT(close()),
                        actionCollection(), "game_exit");
   ACTION("game_exit")->setToolTip(i18n("Exiting..."));
   ACTION("game_exit")->setWhatsThis(i18n("Quits the program."));
