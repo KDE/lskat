@@ -70,7 +70,7 @@ using namespace InputDevice;
  * Construct the main application window 
  */
 Mainwindow::Mainwindow(QWidget* parent) 
-          : KMainWindow(parent, 0)
+          : KMainWindow(parent)
 //, view(0), engine(0), mChat(0), mMyChatDlg(0)
 {
   // Reset stuff
