@@ -67,9 +67,9 @@
 using namespace InputDevice;
 
 /**
- * Construct the main application window 
+ * Construct the main application window
  */
-Mainwindow::Mainwindow(QWidget* parent) 
+Mainwindow::Mainwindow(QWidget* parent)
           : KMainWindow(parent)
 //, view(0), engine(0), mChat(0), mMyChatDlg(0)
 {
@@ -102,7 +102,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   toolBar()->hide();
   statusBar()->show();
   adjustSize();
-  setAutoSaveSettings(); 
+  setAutoSaveSettings();
 
   // The LSkat config
   mLSkatConfig = new ConfigTwo(this);
@@ -148,7 +148,7 @@ Mainwindow::~Mainwindow()
   kDebug() << "Destructor Mainwindow done" << endl;
 }
 
-// Called by KMainWindow when the last window of the application is 
+// Called by KMainWindow when the last window of the application is
 bool Mainwindow::queryExit()
 {
   if (mEngine)
@@ -204,7 +204,7 @@ void Mainwindow::readProperties(KConfig* cfg)
 
 // Create a input with the given type
 AbstractInput* Mainwindow::createInput(
-                                 InputDeviceType inputType, 
+                                 InputDeviceType inputType,
                                  AbstractDisplay* display,
                                  AbstractEngine* engine)
 {
@@ -236,13 +236,13 @@ AbstractInput* Mainwindow::createInput(
     kFatal() << "Unpupported input device type " << inputType << endl;
   }
 
-  return input;         
+  return input;
 }
 
 
-// Start a new game 
+// Start a new game
 void Mainwindow::startGame()
-{   
+{
   // Deal cards to player - Shuffle card deck and reset pile
   mDeck->shuffle();
 
@@ -262,11 +262,11 @@ void Mainwindow::startGame()
     player->setTrump(trump);
   }
 
-  // Start display 
+  // Start display
   mDisplay->start();
 
   // Start the game engine
-  mEngine->startGame(trump, mStartPlayer); 
+  mEngine->startGame(trump, mStartPlayer);
 
   // Start player for next game
   setStartPlayer(1-mStartPlayer);
@@ -282,36 +282,43 @@ void Mainwindow::gameOver(int winner)
 }
 
 
-// Setup the GUI 
+// Setup the GUI
 void Mainwindow::initGUI()
 {
+  QAction *action;
+
   // Start a new game
-  KStandardGameAction::gameNew(this, SLOT(menuNewLSkatGame()),
-                          actionCollection(), "new_game");
+  action = KStandardGameAction::gameNew(this, SLOT(menuNewLSkatGame()), this);
+  actionCollection()->addAction("new_game", action);
   ACTION("new_game")->setToolTip(i18n("Starting a new game..."));
   ACTION("new_game")->setWhatsThis(i18n("Start a new game."));
 
   // Clear all time statistics
-  KAction* clearStatAct = new KAction( KIcon("flag"), i18n("&Clear Statistics"), actionCollection(), "clear_statistics");
+  QAction* clearStatAct = actionCollection()->addAction("clear_statistics");
+  clearStatAct->setIcon(KIcon("flag"));
+  clearStatAct->setText(i18n("&Clear Statistics"));
   connect(clearStatAct, SIGNAL(triggered(bool)), this, SLOT(menuClearStatistics()));
   clearStatAct->setToolTip(i18n("Delete all time statistics..."));
   clearStatAct->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
 
   // End a game
-  KAction* endGameAct = new KAction( KIcon("stop"), i18n("End game"), actionCollection(), "end_game");
+  QAction* endGameAct = actionCollection()->addAction("end_game");
+  endGameAct->setIcon(KIcon("stop"));
+  endGameAct->setText(i18n("End game"));
   connect(endGameAct, SIGNAL(triggered(bool)), this, SLOT(menuEndGame()));
   endGameAct->setToolTip(i18n("Ending the current game..."));
   endGameAct->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
 
   // Quite the program
-  KStandardGameAction::quit(this, SLOT(close()),
-                       actionCollection(), "game_exit");
+  action = KStandardGameAction::quit(this, SLOT(close()), this);
+  actionCollection()->addAction("game_exit", action);
   ACTION("game_exit")->setToolTip(i18n("Exiting..."));
   ACTION("game_exit")->setWhatsThis(i18n("Quits the program."));
 
 
   // Determine start player
-  KSelectAction* startPlayerAct = new KSelectAction(i18n("Starting Player"), actionCollection(), "startplayer");
+  KSelectAction* startPlayerAct = new KSelectAction(i18n("Starting Player"), this);
+  actionCollection()->addAction("startplayer", startPlayerAct);
   connect(startPlayerAct, SIGNAL(triggered(int)), this, SLOT(menuStartplayer()));
   startPlayerAct->setToolTip(i18n("Changing starting player..."));
   startPlayerAct->setWhatsThis(i18n("Chooses which player begins the next game."));
@@ -321,9 +328,10 @@ void Mainwindow::initGUI()
   list.append(i18n("Player &2"));
   startPlayerAct->setItems(list);
 
-  
+
   // Determine who player player 1
-  KSelectAction* player1Act = new KSelectAction(i18n("Player &1 Played By"), actionCollection(), "player1");
+  KSelectAction* player1Act = new KSelectAction(i18n("Player &1 Played By"), this);
+  actionCollection()->addAction("player1", player1Act);
   connect(player1Act, SIGNAL(triggered(int)), this, SLOT(menuPlayer1By()));
   player1Act->setToolTip(i18n("Changing who plays player 1..."));
   player1Act->setWhatsThis(i18n("Changing who plays player 1."));
@@ -333,20 +341,23 @@ void Mainwindow::initGUI()
   player1Act->setItems(list);
 
   // Determine who player player 2
-  KSelectAction* player2Act = new KSelectAction(i18n("Player &2 Played By"), actionCollection(), "player2");
+  KSelectAction* player2Act = new KSelectAction(i18n("Player &2 Played By"), this);
+  actionCollection()->addAction("player2", player2Act);
   connect(player2Act, SIGNAL(triggered(int)), this, SLOT(menuPlayer2By()));
   player2Act->setToolTip(i18n("Changing who plays player 2..."));
   player2Act->setWhatsThis(i18n("Changing who plays player 2."));
   player2Act->setItems(list);
 
- // Choose card deck
- KAction* selectDeckAct = new KAction(i18n("Select &Card Deck..."), actionCollection(), "select_carddeck");
+  // Choose card deck
+  QAction* selectDeckAct = actionCollection()->addAction("select_carddeck");
+  selectDeckAct->setText(i18n("Select &Card Deck..."));
   connect(selectDeckAct, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
   selectDeckAct->setToolTip(i18n("Configure card decks..."));
   selectDeckAct->setWhatsThis(i18n("Choose how the cards should look."));
 
   // Change player names
-  KAction* changeNamesAct = new KAction(i18n("&Change Player Names"), actionCollection(), "change_names");
+  QAction* changeNamesAct = actionCollection()->addAction("change_names");
+  changeNamesAct->setText(i18n("&Change Player Names"));
   connect(changeNamesAct, SIGNAL(triggered(bool)), this, SLOT(menuPlayerNames()));
 }
 
@@ -472,7 +483,7 @@ void Mainwindow::menuNewLSkatGame()
     mDisplay->setAdvancePeriod(ADVANCE_PERDIOD);
     mEngine  = new EngineTwo(this, mDeck, (DisplayTwo*)mDisplay);
     connect(mEngine, SIGNAL(signalGameOver(int)), this, SLOT(gameOver(int)));
-             
+
     mEngine->addPlayer(0, p1);
     mEngine->addPlayer(1, p2);
   }// end if
@@ -498,7 +509,7 @@ void Mainwindow::menuPlayerNames()
   }
 
   int result = dlg.exec();
-  
+
   if (result == QDialog::Accepted)
   {
     for (int i=0;i<2;i++)
