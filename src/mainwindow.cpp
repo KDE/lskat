@@ -82,13 +82,13 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // Find resource directory
   QString file=QString::fromLatin1("lskat/grafix/t0.png");
-  mGrafixDir = kapp->dirs()->findResourceDir("data", file)+"lskat/grafix/";
+  mGrafixDir = KGlobal::mainComponent().dirs()->findResourceDir("data", file)+"lskat/grafix/";
 
   // Debug
   kDebug() << "GrafixDir="<<mGrafixDir << endl;
 
   // Our config
-  mConfig=KGlobal::config();
+  mConfig=KGlobal::config().data();
 
   // Overall view
   mCanvas        = new QGraphicsScene(this);
@@ -111,7 +111,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   mLSkatConfig->reset();
 
   // Read game properties and set default values
-  readProperties(mConfig);
+  readProperties(mConfig.data());
 
   // Get the card deck
   long seed = KRandom::random();
@@ -155,7 +155,7 @@ bool Mainwindow::queryExit()
   {
     mEngine->stopGame();
   }
-  saveProperties(mConfig);
+  saveProperties(mConfig.data());
   return true;
 }
 
