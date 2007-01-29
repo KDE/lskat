@@ -172,7 +172,7 @@ class Mainwindow : public KMainWindow
     /** LSkat config */
     ConfigTwo* mLSkatConfig;
     /** Application config */
-    KConfig* mConfig;
+    KSharedConfigPtr mConfig;
     /** The graphics scene */
     QGraphicsScene* mCanvas;
 
