@@ -5,7 +5,6 @@ Name[x-test]=xxLSkatxx
 GenericName=Card Game
 GenericName[el]=Παιχνίδι καρτών
 GenericName[fr]=Jeu de cartes
-GenericName[ja]=カードゲーム
 GenericName[x-test]=xxCard Gamexx
 Exec=lskat
 Icon=lskat
