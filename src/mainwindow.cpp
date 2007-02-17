@@ -38,7 +38,6 @@
 #include <kicon.h>
 #include <kmenubar.h>
 #include <klocale.h>
-#include <khelpmenu.h>
 #include <kcarddialog.h>
 #include <krandom.h>
 #include <kglobal.h>
