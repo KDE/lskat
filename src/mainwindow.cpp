@@ -111,7 +111,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   mLSkatConfig->reset();
 
   // Read game properties and set default values
-  readProperties(mConfig.data());
+  readProperties(mConfig->group(QString()));
 
   // Get the card deck
   long seed = KRandom::random();
@@ -155,26 +155,28 @@ bool Mainwindow::queryExit()
   {
     mEngine->stopGame();
   }
-  saveProperties(mConfig.data());
+  KConfigGroup cg(mConfig, QString());
+  saveProperties(cg);
   return true;
 }
 
 
 // Save properties
-void Mainwindow::saveProperties(KConfig *cfg)
+void Mainwindow::saveProperties(KConfigGroup &cfg)
 {
-    cfg->setGroup("ProgramData");
-    cfg->writePathEntry("carddir", mCardDir);
-    cfg->writePathEntry("deck",    mDeckGrafix);
-    cfg->writeEntry("startplayer", mStartPlayer);
-    mLSkatConfig->save(cfg);
+    cfg.changeGroup("ProgramData");
+    cfg.writePathEntry("carddir", mCardDir);
+    cfg.writePathEntry("deck",    mDeckGrafix);
+    cfg.writeEntry("startplayer", mStartPlayer);
+    mLSkatConfig->save(dynamic_cast<KConfig*>(cfg.config()));
 }
 
 
 // Load properties
-void Mainwindow::readProperties(KConfig* cfg)
+void Mainwindow::readProperties(const KConfigGroup& cfg)
 {
-  cfg->setGroup("ProgramData");
+  KConfigGroup cg = cfg;
+  cg.changeGroup("ProgramData");
 
   // Get default card data
   QString dcd = KCardDialog::getDefaultCardDir();
@@ -183,8 +185,8 @@ void Mainwindow::readProperties(KConfig* cfg)
   dd = KGlobal::dirs()->findResourceDir("cards", dd)+dd;
 
   // Read card path
-  mCardDir    = cfg->readPathEntry("carddir", dcd);
-  mDeckGrafix = cfg->readPathEntry("deck", dd);
+  mCardDir    = cg.readPathEntry("carddir", dcd);
+  mDeckGrafix = cg.readPathEntry("deck", dd);
 
   // Check for path existence
   QFile file(mDeckGrafix);
@@ -195,9 +197,9 @@ void Mainwindow::readProperties(KConfig* cfg)
   kDebug() << "set mDeckGrafix=" << mDeckGrafix << endl;
   kDebug() << "set mCardDir=" << mCardDir << endl;
 
-  int no = cfg->readEntry("startplayer", 0);
+  int no = cg.readEntry("startplayer", 0);
   setStartPlayer(no);
-  mLSkatConfig->load(cfg);
+  mLSkatConfig->load(dynamic_cast<KConfig*>(cfg.config()));
 }
 
 
