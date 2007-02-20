@@ -134,13 +134,13 @@ class Mainwindow : public KMainWindow
     /** Saves the window properties 
      * @see KMainWindow#saveProperties
      */
-    virtual void saveProperties(KConfig *cfg);
+    virtual void saveProperties(KConfigGroup &cfg);
 
     /** Reads the session config file and restores the application's
      *  state.
      * @see KMainWindow#readProperties
      */
-    virtual void readProperties(KConfig *cfg);
+    virtual void readProperties(const KConfigGroup &cfg);
 
     /** Called by KMainWindow when the last window of the application is 
      * going to be closed.
