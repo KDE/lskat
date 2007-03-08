@@ -304,7 +304,7 @@ void Mainwindow::initGUI()
 
   // End a game
   QAction* endGameAct = actionCollection()->addAction("end_game");
-  endGameAct->setIcon(KIcon("stop"));
+  endGameAct->setIcon(KIcon("process-stop"));
   endGameAct->setText(i18n("End game"));
   connect(endGameAct, SIGNAL(triggered(bool)), this, SLOT(menuEndGame()));
   endGameAct->setToolTip(i18n("Ending the current game..."));
