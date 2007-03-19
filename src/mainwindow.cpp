@@ -24,7 +24,6 @@
 #include <QFile>
 
 // Include files for KDE
-#include <kapplication.h>
 #include <kstandardgameaction.h>
 #include <kmessagebox.h>
 #include <kfiledialog.h>
