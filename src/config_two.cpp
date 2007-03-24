@@ -65,9 +65,9 @@ ConfigTwo::~ConfigTwo()
 // Save properties
 void ConfigTwo::save(KConfig *cfg)
 {
-  cfg->setGroup("LSkatData");
-  cfg->writeEntry("input0", (int)mInputTypes[0]);
-  cfg->writeEntry("input1", (int)mInputTypes[1]);
+  KConfigGroup group = cfg->group("LSkatData");
+  group.writeEntry("input0", (int)mInputTypes[0]);
+  group.writeEntry("input1", (int)mInputTypes[1]);
 
   // Save player
   QHashIterator<int,Player*> it = playerIterator();
@@ -86,11 +86,11 @@ void ConfigTwo::save(KConfig *cfg)
 void ConfigTwo::load(KConfig* cfg)
 {
   reset();
-  cfg->setGroup("LSkatData");
+  KConfigGroup group = cfg->group("LSkatData");
   int num;
-  num = cfg->readEntry("input0", (int)mInputTypes[0]);
+  num = group.readEntry("input0", (int)mInputTypes[0]);
   setInputType(0, (InputDeviceType)num);
-  num = cfg->readEntry("input1", (int)mInputTypes[1]);
+  num = group.readEntry("input1", (int)mInputTypes[1]);
   setInputType(1, (InputDeviceType)num);
 
   // Load player
