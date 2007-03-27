@@ -63,7 +63,7 @@ class DisplayIntro : public AbstractDisplay
      * @param player The player object
      * @param position The position to place the player (0,1)
      */
-    void deal(Player* , int ) {};
+    void deal(Player* , int ) {}
 
     /** Play a card on the display. The card is moved from
      *  its current position to the card deposit.
@@ -71,27 +71,27 @@ class DisplayIntro : public AbstractDisplay
      * @param playerNumber The player number (0-1)
      * @param phase Movement phase (1st part, 2nd part, etc) [optional]
      */
-    void play(int , int , int ) {};
+    void play(int , int , int ) {}
 
     /** Turn a card on the display. The card is flipped backside
      *  to frontside.
      * @param cardNumber The card number (0-7)
      */
-    void turn(int ) {};
+    void turn(int ) {}
 
     /** Remove the given card from the display.
      * @param winnerPosition  The position of the winner (0,1)
      * @param cardNumber The number of the card
      * @param delta Card offset from target position (0,1,2,...)
      */
-    void remove(int , int , int ) {};
+    void remove(int , int , int ) {}
   
   public slots:
     /** Convert the position of a mouse click to a logical
       * game position, that is position (up/down) and a 
       * card number (0-7)
       */
-    void convertMousePress(QPoint , int& , int& ) {};
+    void convertMousePress(QPoint , int& , int& ) {}
 
     void loop();
 

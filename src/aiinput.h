@@ -58,7 +58,7 @@ class AiInput : public AbstractInput
     {
       public:
         /** Constructor */
-        Board() {};
+        Board() {}
         /** Copy constructor */
         Board(const Board& board);
         int cards[2][16]; /** Cards of both players or -1 for used cards */
