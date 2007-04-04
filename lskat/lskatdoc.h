@@ -58,9 +58,9 @@ class LSkatDoc : public QObject
     /** removes a view from the list of currently connected views */
     void removeView(LSkatView *view);
     /** sets the modified flag for the document after a modifying action on the view connected to the document.*/
-    void setModified(bool _m=true){ modified=_m; };
+    void setModified(bool _m=true){ modified=_m; }
     /** returns if the document is modified or not. Use this to determine if your document needs saving by the user on closing.*/
-    bool isModified(){ return modified; };
+    bool isModified(){ return modified; }
     /** "save modified" - asks the user for saving if the document is modified */
     bool saveModified();	
     /** deletes the document's contents */
