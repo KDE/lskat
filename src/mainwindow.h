@@ -19,7 +19,7 @@
 
                           Lskat
                           -----
-    begin                : March 2000 
+    begin                : March 2000
     copyright            : (C) 1995-2006 by Martin Heni
     email                : kde@heni-online.de
  ***************************************************************************/
@@ -28,8 +28,8 @@
 #define LSKAT_H
 
 #include <QHash>
- 
-#include <kmainwindow.h>
+
+#include <kxmlguiwindow.h>
 #include <kconfig.h>
 #include <kdialog.h>
 #include <kdemacros.h>
@@ -49,7 +49,7 @@ using namespace InputDevice;
 /**
  * The main application window.
  */
-class Mainwindow : public KMainWindow
+class Mainwindow : public KXmlGuiWindow
 {
 
   Q_OBJECT
@@ -59,11 +59,11 @@ class Mainwindow : public KMainWindow
     enum GameMode    {Intro=0,LSkat=1,Skat=2};
 
     /** Construct the main window.
-     *  @param The parent widget 
+     *  @param The parent widget
      */
     Mainwindow(QWidget *parent=0);
 
-    /** Destructor 
+    /** Destructor
      */
     ~Mainwindow();
 
@@ -114,7 +114,7 @@ class Mainwindow : public KMainWindow
       * @return The new input device.
       */
     AbstractInput* createInput(
-                         InputDevice::InputDeviceType inputType, 
+                         InputDevice::InputDeviceType inputType,
                          AbstractDisplay* display,
                          AbstractEngine* engine);
 
@@ -131,7 +131,7 @@ class Mainwindow : public KMainWindow
      */
     void setStartPlayer(int no);
 
-    /** Saves the window properties 
+    /** Saves the window properties
      * @see KMainWindow#saveProperties
      */
     virtual void saveProperties(KConfigGroup &cfg);
@@ -142,7 +142,7 @@ class Mainwindow : public KMainWindow
      */
     virtual void readProperties(const KConfigGroup &cfg);
 
-    /** Called by KMainWindow when the last window of the application is 
+    /** Called by KMainWindow when the last window of the application is
      * going to be closed.
      * @see KMainWindow#queryExit
      * @see KMainWindow#closeEvent
@@ -158,7 +158,7 @@ class Mainwindow : public KMainWindow
 
 
   private:
-    // Attributes not to be saved 
+    // Attributes not to be saved
     /** The game engine */
     AbstractEngine* mEngine;
     /** The game display */
@@ -176,8 +176,8 @@ class Mainwindow : public KMainWindow
     /** The graphics scene */
     QGraphicsScene* mCanvas;
 
-    
-    // Properties to be saved 
+
+    // Properties to be saved
     /** The cards directory */
     QString mCardDir;
     /** The card deck backside */
@@ -187,6 +187,6 @@ class Mainwindow : public KMainWindow
     /** Who starts the next game round */
     int mStartPlayer;
 };
- 
-#endif 
+
+#endif
 
