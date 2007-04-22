@@ -34,6 +34,7 @@
 
 // Local includes
 #include "thememanager.h"
+#include "deck.h"
 
 // Constructor for the theme manager
 ThemeManager::ThemeManager(QString cards, QString deck, bool svg, QString themefile, QObject* parent, int initialSize)
@@ -41,11 +42,15 @@ ThemeManager::ThemeManager(QString cards, QString deck, bool svg, QString themef
 {
   mScale = initialSize;
   mAspectRatio = 1.0;
+  mCardAspectRatio = 1.0;
   mSVGCards = svg;
   mCardFile = cards;
   mDeckFile = deck;
+  mRenderer = 0;
+  mCardRenderer = 0;
 
-  updateTheme(themefile);
+  // updateTheme(themefile);
+  updateCardTheme(themefile, cards, deck);
 }
 
 
@@ -71,15 +76,42 @@ void ThemeManager::updateTheme(Themable* ob)
 
 
 // Update a pixmap card deck 
-void ThemeManager::updatePixmapCardTheme(QString cards, QString deck)
+void ThemeManager::updateCardTheme(QString cards, QString deck)
+{
+  updateCardTheme(mThemeFile, cards, deck);
+}
+void ThemeManager::updateCardTheme(QString themefile, QString cards, QString deck)
 {
   kDebug() << "ThemeManager Pixmap cards: "<< endl;
   kDebug() << "  Cards = " << cards << endl;
   kDebug() << "  Deck  = " << deck << endl;
-  mSVGCards = false;
+
+  KConfig cardInfo( cards+"/index.desktop", KConfig::OnlyLocal);
+  KConfigGroup group(&cardInfo, "KDE Backdeck");
+  QPointF cardSize   = group.readEntry("BackSize", QPointF(1.0,1.0));
+  QString svg        = group.readEntry("SVG", QString());
+  kDebug() << "cardSize = " << cardSize << endl;
+
+  mSVGCards = !svg.isNull();
+  kDebug() << "SVG = " << svg << " is " << mSVGCards << endl;
   mCardFile = cards;
   mDeckFile = deck;
-  updateTheme(mThemeFile);
+
+  QString svgfile = cards+"/"+svg;
+
+  mCardRenderer = 0;
+  if (mSVGCards)
+  {
+    mCardRenderer = new KSvgRenderer(this);
+    bool result   = mCardRenderer->load(svgfile);
+    if (!result) 
+    {
+      kFatal() << "Cannot open file " << svgfile << endl;
+    }
+    kDebug() << "Rendering " << svgfile << endl;
+  }
+
+  updateTheme(themefile);
 }
 
 
@@ -101,18 +133,18 @@ void ThemeManager::updateTheme(QString themefile)
   svgfile = KStandardDirs::locate("data", svgfile);
   kDebug() << "Reading SVG master file  = " << svgfile << endl;
 
-  mAspectRatio =  config("general").readEntry("aspect-ratio", 1.0);
-  kDebug() << "Aspect ration = " << mAspectRatio << endl;
+  mAspectRatio     =  config("general").readEntry("aspect-ratio", 1.0);
+  mCardAspectRatio =  config("general").readEntry("card-aspect-ratio", 1.0);
+  kDebug() << "Aspect ration = " << mAspectRatio << " Cards aspect=" << mCardAspectRatio<< endl;
 
 
 
-  mRenderer = new QSvgRenderer(this);
+  mRenderer = new KSvgRenderer(this);
   bool result = mRenderer->load(svgfile);
   if (!result) 
   {
     kFatal() << "Cannot open file " << svgfile << endl;
   }
-  kDebug() << "Renderer " << mRenderer<<" = " << result << endl;
 
   // Notify all theme objects of a change
   QHashIterator<Themable*, int> it(mObjects);
@@ -156,17 +188,63 @@ KConfigGroup ThemeManager::config(QString id)
    return grp;
 }
 
+
+QString ThemeManager::calcCardSVGId(int no)
+{
+    const static char *ids[] = { "back",
+                               "1_club", "1_spade", "1_heart", "1_diamond",
+                               "king_club", "king_spade", "king_heart", "king_diamond",
+                               "queen_club", "queen_spade", "queen_heart", "queen_diamond",
+                               "jack_club", "jack_spade", "jack_heart", "jack_diamond",
+                               "10_club", "10_spade", "10_heart", "10_diamond",
+                               "9_club", "9_spade", "9_heart", "9_diamond",
+                               "8_club", "8_spade", "8_heart", "8_diamond",
+                               "7_club", "7_spade", "7_heart", "7_diamond",
+                               "6_club", "6_spade", "6_heart", "6_diamond",
+                               "5_club", "5_spade", "5_heart", "5_diamond",
+                               "4_club", "4_spade", "4_heart", "4_diamond",
+                               "3_club", "3_spade", "3_heart", "3_diamond",
+                               "2_club", "2_spade", "2_heart", "2_diamond",
+                               0 };
+  return QString(ids[no]);
+}
+
 const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
 {
-  QString dir = mCardFile;
+  // Card no
   int no = 4*cardtype+suite+1;
-  QString file = QString("%1.png").arg(no);
+
   QPixmap pm;
-  if (!pm.load(dir+"/"+file))
+  // SVG cards
+  if (mSVGCards)
   {
-    kError() << "Cannot load card file " << dir+file << endl;
+    QString svgid = calcCardSVGId(no);
+    QSize size = QSize(int(width), int(width/mCardAspectRatio) );
+    // kDebug() << "Card " << Deck::name((Suite)suite, (CardType)cardtype) << " => "<< svgid << "S="<<size<< endl;
+    pm = getPixmap(mCardRenderer, svgid, size);
   }
-  return pm.scaledToWidth(int(width), Qt::SmoothTransformation);
+  // Pixmap cards
+  else
+  {
+    QString dir = mCardFile;
+    QString file = QString("%1.png").arg(no);
+    if (!pm.load(dir+"/"+file))
+    {
+      kError() << "Cannot load card file " << dir+file << endl;
+    }
+  }
+
+  // Scale to card aspect ratio if severly wrong
+  double aspect = double(pm.width())/double(pm.height());
+  if (aspect/mCardAspectRatio >1.05 || aspect/mCardAspectRatio < 0.95)
+  {
+    //kWarning() << "Wrong card aspect ratio " << aspect << " vs " << mCardAspectRatio << endl;
+    return pm.scaled(int(width), int(width/mCardAspectRatio), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+  }
+  else
+  {
+    return pm.scaledToWidth(int(width), Qt::SmoothTransformation);
+  }
 }
 
 const QPixmap ThemeManager::getCardback(double width)
@@ -177,12 +255,23 @@ const QPixmap ThemeManager::getCardback(double width)
   {
     kError() << "Cannot load deck file " << file << endl;
   }
-  return pm.scaledToWidth(int(width), Qt::SmoothTransformation);
+
+  // Scale to card aspect ratio if severly wrong
+  double aspect = double(pm.width())/double(pm.height());
+  if (aspect/mCardAspectRatio >1.05 || aspect/mCardAspectRatio < 0.95)
+  {
+    //kWarning() << "Wrong deck aspect ratio " << aspect << " vs " << mCardAspectRatio << endl;
+    return pm.scaled(int(width), int(width/mCardAspectRatio), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+  }
+  else
+  {
+    return pm.scaledToWidth(int(width), Qt::SmoothTransformation);
+  }
 }
 
 
 // Get a pixmap when its size is given (this can distort the image)
-const QPixmap ThemeManager::getPixmap(QString svgid, QSize size)
+const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, QString svgid, QSize size)
 {
   if (size.width() < 1 || size.height() < 1) 
     kFatal() << "ThemeManager::getPixmap Cannot create svgid ID " << svgid << " with zero size " << size << endl;
@@ -203,7 +292,7 @@ const QPixmap ThemeManager::getPixmap(QString svgid, QSize size)
   QImage image(size, QImage::Format_ARGB32_Premultiplied);
   image.fill(0);
   QPainter p(&image);
-  mRenderer->render(&p, svgid);
+  renderer->render(&p, svgid);
   pixmap = QPixmap::fromImage(image);
   if (pixmap.isNull())
     kFatal() << "ThemeManager::getPixmap Cannot load svgid ID " << svgid << endl;
@@ -214,6 +303,11 @@ const QPixmap ThemeManager::getPixmap(QString svgid, QSize size)
   return pixmap;
 }
 
+// Get a pixmap when its size is given (this can distort the image)
+const QPixmap ThemeManager::getPixmap(QString svgid, QSize size)
+{
+  return getPixmap(mRenderer, svgid, size);
+}
 
 // Get a pixmap when only width is given (this keeps the aspect ratio)
 const QPixmap ThemeManager::getPixmap(QString svgid, double width)

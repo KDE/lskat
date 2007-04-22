@@ -22,11 +22,11 @@
 
 // Qt includes
 #include <QObject>
-#include <QSvgRenderer>
 #include <QHash>
 
 // KDE includes
 #include <kconfig.h>
+#include <KSvgRenderer>
 
 
 class ThemeManager;
@@ -176,7 +176,7 @@ class ThemeManager : public QObject
       * @param cards The card dir
       * @param deck  The deck file
       */
-    void updatePixmapCardTheme(QString cards, QString deck);
+    void updateCardTheme(QString cards, QString deck);
     
     /** Forces an update to all theme objects. That is their
       * changeTheme() method is called. Before this a (new)
@@ -199,10 +199,32 @@ class ThemeManager : public QObject
       */
     double aspectRatio() {return mAspectRatio;}
     
+   protected:
+    /** Load a pixmap from the SVG theme file. Its filename is given in the
+      * "general" section of the theme file as "svgfile". The pixmap is scaled
+      * to the given size.
+      * @param renderer The SVG renderer to use
+      * @param svgid    The ID of the SVG item to be rendered as pixmap
+      * @param size     The size of the resulting pixmap
+      * @return The new pixmap.
+      */
+    const QPixmap getPixmap(KSvgRenderer* renderer, QString svgid, QSize size);
+
+    /** Forces an update to the card theme objects. 
+      * @param themefile The theme rc file
+      * @param cards     The card dir
+      * @param deck      The deck file
+      */
+    void updateCardTheme(QString themefile, QString cards, QString deck);
+
+    QString calcCardSVGId(int no);
 
    private:
      // The used SVG rendered
-     QSvgRenderer* mRenderer;
+     KSvgRenderer* mRenderer;
+
+     // The card SVG rendered
+     KSvgRenderer* mCardRenderer;
      
      // Storage of all theme objects [object,1] [TODO: Alist might suffice]
      QHash<Themable*,int> mObjects;
@@ -227,6 +249,10 @@ class ThemeManager : public QObject
 
      // The aspect ration
      double mAspectRatio;
+
+     // The card aspect ration
+     double mCardAspectRatio;
+
 
      // The theme file
      QString mThemeFile;

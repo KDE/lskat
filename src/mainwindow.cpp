@@ -403,7 +403,8 @@ void Mainwindow::menuCardDeck()
   QString s1,s2;
   int result;
 
-  result=KCardDialog::getCardDeck(s1,s2);
+  KCardDialog::CardFlags flags = KCardDialog::CardFlags(KCardDialog::Both|KCardDialog::SVGCards);
+  result=KCardDialog::getCardDeck(s1,s2, this, flags);
   if (result==QDialog::Accepted)
   {
     kDebug() << "NEW CARDDECK: " << s1 << " and " << s2 << endl;
@@ -420,7 +421,7 @@ void Mainwindow::menuCardDeck()
     }
     if (change)
     {
-      mTheme->updatePixmapCardTheme(mCardDir, mDeckGrafix);
+      mTheme->updateCardTheme(mCardDir, mDeckGrafix);
       mView->update(); // Be on the safe side and update
     }
   }
