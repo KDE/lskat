@@ -41,6 +41,7 @@
 #include <krandom.h>
 #include <kglobal.h>
 #include <ktoolbar.h>
+#include <kselectaction.h>
 
 // Application specific includes
 #include "mainwindow.h"
