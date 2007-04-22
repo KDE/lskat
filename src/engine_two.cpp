@@ -294,7 +294,6 @@ int EngineTwo::evaluateGame()
   player2->addScore(score2);
 
   // Display game over data
-  mDisplay->clearSprites();
   mDisplay->showText(text);
   mDisplay->showScore(0, score1);
   mDisplay->showScore(1, score2);

@@ -41,10 +41,14 @@ class MouseInput : public AbstractInput
 
   public:
     /** Constructor for the input
-     *  @param dir  The grafix icon directory
      *  @param parent The parent object
      */
-    MouseInput(QString dir, QObject* parent);
+    MouseInput(QObject* parent);
+
+    /** Retrieve the type of device.
+      * @return The decice type.
+      */
+    virtual InputDevice::InputDeviceType type() {return InputDevice::TypeMouseInput;}
 
   public slots:  
     /** Recevied a mouse press event 

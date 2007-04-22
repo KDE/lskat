@@ -68,6 +68,8 @@ void ConfigTwo::save(KConfig *cfg)
   KConfigGroup group = cfg->group("LSkatData");
   group.writeEntry("input0", (int)mInputTypes[0]);
   group.writeEntry("input1", (int)mInputTypes[1]);
+  kDebug() << "Save input 0 = " << (int)mInputTypes[0] << endl;
+  kDebug() << "Save input 1 = " << (int)mInputTypes[1] << endl;
 
   // Save player
   QHashIterator<int,Player*> it = playerIterator();
@@ -76,8 +78,8 @@ void ConfigTwo::save(KConfig *cfg)
     it.next();
     Player* player = it.value();
     int no = it.key();
-    cfg->setGroup(QString("LSkat_Player%1").arg(no));
-    player->save(cfg);
+    KConfigGroup playercfg = cfg->group(QString("LSkat_Player%1").arg(no));
+    player->save(playercfg);
   }
 }
 
@@ -89,8 +91,10 @@ void ConfigTwo::load(KConfig* cfg)
   KConfigGroup group = cfg->group("LSkatData");
   int num;
   num = group.readEntry("input0", (int)mInputTypes[0]);
+  kDebug() << "Load input 0 = " << num << endl;
   setInputType(0, (InputDeviceType)num);
   num = group.readEntry("input1", (int)mInputTypes[1]);
+  kDebug() << "Load input 1 = " << num << endl;
   setInputType(1, (InputDeviceType)num);
 
   // Load player
@@ -100,8 +104,8 @@ void ConfigTwo::load(KConfig* cfg)
     it.next();
     Player* player = it.value();
     int no = it.key();
-    cfg->setGroup(QString("LSkat_Player%1").arg(no));
-    player->load(cfg);
+    KConfigGroup playercfg = cfg->group(QString("LSkat_Player%1").arg(no));
+    player->load(playercfg);
   }
 }
 
@@ -129,6 +133,7 @@ InputDeviceType ConfigTwo::inputType(int no)
 // Set the input type for a given players
 void ConfigTwo::setInputType(int no, InputDeviceType type)
 {
+  kDebug() << "Setinput " << no << " to " << (int)type<< endl;
   mInputTypes[no] = type;
   emit signalInputType(no, type);
 }

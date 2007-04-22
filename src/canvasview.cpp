@@ -31,14 +31,16 @@
 
 // Local includes
 #include "canvasview.h"
-#include "playerstatuswidget.h"
-
+#include "thememanager.h"
 
 
 // Constructor for the view
-CanvasView::CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, QWidget* parent)
+CanvasView::CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent)
           : QGraphicsView(scene, parent)
 {
+  // Store attributes    
+  mTheme         = theme;
+
   // We do not need scrolling so switch it off
   setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -52,16 +54,14 @@ CanvasView::CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, QWi
   
   // Set size and position of the view and the canvas:
   // they are reseized once a level is loaded
-  //setFixedSize(size);
-  setMinimumSize(size);
-
-  // Set size and position of the view and the canvas:
-  // they are reseized once a level is loaded
+  resize(size);
   scene->setSceneRect(0, 0, this->width(), this->height()); 
   adjustSize();
 
   setInteractive(true);
-  mPlayerWidgets.clear();
+
+  // Scale theme
+  mTheme->rescale(this->width());
 }
 
 // Advance and update canvas
@@ -77,22 +77,28 @@ void CanvasView::updateAndAdvance()
 
 // Slot called by the framework when the window is
 // resized.
-void CanvasView::resizeEvent (QResizeEvent* e)
+void CanvasView::resizeEvent(QResizeEvent* e)
 {
-  //kDebug() << "++++ CanvasView::resizeEvent "<<e->size().width()<<" , "<< e->size().height() <<endl;
   // Adapt the canvas size to the window size
   if (scene())
   {
     scene()->setSceneRect(0,0, e->size().width(), e->size().height());
-
-    // Realign score widget
-    QHashIterator<int,PlayerStatusWidget*> it(mPlayerWidgets);
-    while(it.hasNext())
-    {
-      it.next();
-      moveStatusWidget(it.value(), it.key());
-    }
   }
+
+
+  QSizeF size = QSizeF(e->size());
+  // Rescale on minimum fitting aspect ratio either width or height limiting
+  double aspect = size.width() / size.height();
+  if (aspect > mTheme->aspectRatio()) mTheme->rescale(int(e->size().height()*mTheme->aspectRatio()));
+  else mTheme->rescale(int(e->size().width()));
+}
+
+// Our subclassed (temporary) QGraphicsView paintEvent, see header file
+void CanvasView::paintEvent(QPaintEvent* event)
+{
+    QPaintEvent* newEvent = new QPaintEvent(event->region().boundingRect());
+    QGraphicsView::paintEvent(newEvent);
+    delete newEvent;
 }
 
 
@@ -105,40 +111,6 @@ void CanvasView::mousePressEvent(QMouseEvent *ev)
   emit signalLeftMousePress(point.toPoint());
 }
 
-void CanvasView::setStatusWidget(int pos, PlayerStatusWidget* widget)
-{
-  // Remove old widget
-  if (mPlayerWidgets.contains(pos))
-  {
-    PlayerStatusWidget* old = mPlayerWidgets[pos];
-    delete old;
-  }
-  mPlayerWidgets[pos] = widget;
-  widget->setParent(this);
-  // Add spacing
-  moveStatusWidget(widget, pos);
-  widget->show();
-  update();
-}
-
-
-// Position score widgets at window border
-void CanvasView::moveStatusWidget(QWidget* widget, int pos)
-{
-  widget->move(width()-widget->width() -10 , pos*widget->height() + 10 );
-}
-
-
-// Retrive the status widget of a player 
-PlayerStatusWidget* CanvasView::statusWidget(int pos)
-{
-  if (!mPlayerWidgets.contains(pos))
-  {
-    kFatal() << "Player status widget " << pos << "does not exists" << endl;
-    return 0;
-  }
-  return mPlayerWidgets[pos];
-}
 
 
 #include "canvasview.moc"

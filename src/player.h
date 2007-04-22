@@ -54,6 +54,8 @@ class Player : public QObject
      */
      virtual ~Player();
 
+     int id() {return mId;}
+
     /** Retrive card value at given logical position
      *  @param playerNumber (0..max number of cards of player)
      *  @return Card number
@@ -138,17 +140,23 @@ class Player : public QObject
       */
     void addWonGame(int amount);
 
+    int wonGames();
+
     /** Add a number of games to the over all 
       * player statistic.
       * @param amount The amount of games
       */
     void addGame(int amount);
 
+    int games();
+
     /** Add a score to the over all 
      *  player statistic.
      *  @param amount The score amount
      */
     void addScore(int amount);
+
+    int score();
 
     /** Retrieve the input device of the player 
      *  @return The input device.
@@ -178,47 +186,24 @@ class Player : public QObject
       */
      void setTrump(Suite trump); 
 
+     Suite trump();
+
      /** Saves the properties 
       * @param cfg The config object.
       */
-     void save(KConfig *cfg);
+     void save(KConfigGroup& config);
 
      /** Read properties.
       * @param cfg The config object.
       */
-     void load(KConfig *cfg);
+     void load(KConfigGroup& config);
 
   signals:
-    /** Notify change of points.
-     *  @param points The new points.
+    /** Notify change of player data.
+     *  @param p This player
+     *  @param id The player id
      */
-    void signalUpdatePoints(int points);
-
-    /** Notify change of name.
-     *  @param name The new name.
-     */
-    void signalUpdateName(QString name);
-
-    /** Notify change of games.
-     *  @param amountWon The amount of won games.
-     *  @param amountGames The total amount of games.
-     */
-    void signalUpdateGames(int amountWon, int amountGames);
-
-    /** Notify change of score.
-     *  @param amount The new score.
-     */
-    void signalUpdateScore(int score);
-
-    /** Notify change of input device.
-     *  @param amount The new input.
-     */
-    void signalUpdateInput(QPixmap* icon);
-
-    /** Notify change of trump icon
-     *  @param amount The new trump icon.
-     */
-    void signalUpdateTrump(QPixmap* icon);
+    void signalUpdate(Player* p);
 
   private:
     /** Players input device */

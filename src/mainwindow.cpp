@@ -55,8 +55,10 @@
 #include "player.h"
 #include "mouseinput.h"
 #include "aiinput.h"
-#include "playerstatuswidget.h"
 #include "namedialogwidget.h"
+
+// Configuration file
+#include "config-src.h"
 
 // Forward declarations
 #define ADVANCE_PERDIOD 20
@@ -78,30 +80,18 @@ Mainwindow::Mainwindow(QWidget* parent)
   mDisplay = 0;
   mView    = 0;
 
+  #ifdef SRC_DIR
+  kDebug() << "Found SRC_DIR =" << SRC_DIR << endl;
+  KGlobal::dirs()->addResourceDir("data",QString(SRC_DIR)+QString("/grafix/"));
+  QString theme = KStandardDirs::locate("data", "default.rc");
+  kDebug() << "theme =" << theme << endl;
+  #endif
 
-  // Find resource directory
-  QString file=QString::fromLatin1("lskat/grafix/t0.png");
-  mGrafixDir = KGlobal::mainComponent().dirs()->findResourceDir("data", file)+"lskat/grafix/";
-
-  // Debug
-  kDebug() << "GrafixDir="<<mGrafixDir << endl;
-
-  // Our config
-  mConfig=KGlobal::config().data();
-
-  // Overall view
-  mCanvas        = new QGraphicsScene(this);
-  mView          = new CanvasView(QSize(880, 675), ADVANCE_PERDIOD, mCanvas, this);
+  mThemeDirName = KGlobal::dirs()->findResourceDir("data","default.rc");
+  kDebug() << "THEME DIR IS " << mThemeDirName << endl;
 
   // Create menus etc
   initGUI();
-
-  // Create GUI
-  setupGUI(Keys|Create);
-  toolBar()->hide();
-  statusBar()->show();
-  adjustSize();
-  setAutoSaveSettings();
 
   // The LSkat config
   mLSkatConfig = new ConfigTwo(this);
@@ -109,23 +99,33 @@ Mainwindow::Mainwindow(QWidget* parent)
           this, SLOT(setInputType(int,InputDeviceType)));
   mLSkatConfig->reset();
 
-  // Read game properties and set default values
-  readProperties(mConfig->group(QString()));
+  // Read game properties and set default values (after config)
+  readProperties();
+
 
   // Get the card deck
   long seed = KRandom::random();
   kDebug() << "Random seed " << seed << endl;
   mDeck = new Deck(seed, this);
-  mDeck->loadCards(mCardDir);
-  mDeck->loadCardBackside(mDeckGrafix);
-  mDeck->loadTrump(mGrafixDir);
 
+  // Theme
+  mTheme  = new ThemeManager(mCardDir, mDeckGrafix, false, "default.rc", this);
+
+  // Overall view
+  mCanvas        = new QGraphicsScene(this);
+  mView          = new CanvasView(QSize(880, 675), ADVANCE_PERDIOD, mCanvas, mTheme, this);
 
   // Create intro
   mGameMode      = Intro;
-  mDisplay       = new DisplayIntro(mGrafixDir, mDeck, mCanvas, this);
-  mDisplay->setAdvancePeriod(ADVANCE_PERDIOD);
+  mDisplay       = new DisplayIntro(mDeck, mCanvas, mTheme, ADVANCE_PERDIOD, mView);
   setCentralWidget(mView);
+
+  // Create GUI
+  setupGUI(Keys|Create);
+  toolBar()->hide();
+  statusBar()->show();
+  adjustSize();
+  setAutoSaveSettings();
 
   adjustSize();
 
@@ -139,11 +139,15 @@ Mainwindow::Mainwindow(QWidget* parent)
 // Destructor
 Mainwindow::~Mainwindow()
 {
+  kDebug() << "Destructor Mainwindow start" << endl;
+  saveProperties();
   if (mEngine) delete mEngine;
   if (mDisplay) delete mDisplay;
   if (mLSkatConfig) delete mLSkatConfig;
   if (mDeck) delete mDeck;
   if (mView) delete mView;
+  if (mCanvas) delete mCanvas;
+  if (mTheme) delete mTheme;
   kDebug() << "Destructor Mainwindow done" << endl;
 }
 
@@ -154,28 +158,35 @@ bool Mainwindow::queryExit()
   {
     mEngine->stopGame();
   }
-  KConfigGroup cg(mConfig, QString());
-  saveProperties(cg);
+  saveProperties();
   return true;
 }
 
 
 // Save properties
-void Mainwindow::saveProperties(KConfigGroup &cfg)
+void Mainwindow::saveProperties()
 {
-    cfg.changeGroup("ProgramData");
-    cfg.writePathEntry("carddir", mCardDir);
-    cfg.writePathEntry("deck",    mDeckGrafix);
-    cfg.writeEntry("startplayer", mStartPlayer);
-    mLSkatConfig->save(dynamic_cast<KConfig*>(cfg.config()));
+  KConfig *config = KGlobal::config().data();
+
+  // Program data
+  KConfigGroup cfg = config->group("ProgramData");
+  cfg.writePathEntry("carddir", mCardDir);
+  cfg.writePathEntry("deck",    mDeckGrafix);
+  cfg.writeEntry("startplayer", mStartPlayer);
+
+  // LSkat data
+  mLSkatConfig->save(config);
+  config->sync();
 }
 
 
 // Load properties
-void Mainwindow::readProperties(const KConfigGroup& cfg)
+void Mainwindow::readProperties()
 {
-  KConfigGroup cg = cfg;
-  cg.changeGroup("ProgramData");
+  KConfig *config = KGlobal::config().data();
+
+  // Program data
+  KConfigGroup cfg = config->group("ProgramData");
 
   // Get default card data
   QString dcd = KCardDialog::getDefaultCardDir();
@@ -184,8 +195,8 @@ void Mainwindow::readProperties(const KConfigGroup& cfg)
   dd = KGlobal::dirs()->findResourceDir("cards", dd)+dd;
 
   // Read card path
-  mCardDir    = cg.readPathEntry("carddir", dcd);
-  mDeckGrafix = cg.readPathEntry("deck", dd);
+  mCardDir    = cfg.readPathEntry("carddir", dcd);
+  mDeckGrafix = cfg.readPathEntry("deck", dd);
 
   // Check for path existence
   QFile file(mDeckGrafix);
@@ -196,9 +207,9 @@ void Mainwindow::readProperties(const KConfigGroup& cfg)
   kDebug() << "set mDeckGrafix=" << mDeckGrafix << endl;
   kDebug() << "set mCardDir=" << mCardDir << endl;
 
-  int no = cg.readEntry("startplayer", 0);
+  int no = cfg.readEntry("startplayer", 0);
   setStartPlayer(no);
-  mLSkatConfig->load(dynamic_cast<KConfig*>(cfg.config()));
+  mLSkatConfig->load(config);
 }
 
 
@@ -214,7 +225,7 @@ AbstractInput* Mainwindow::createInput(
   // Create the player input
   if (inputType == TypeMouseInput)
   {
-    MouseInput* mouseInput = new MouseInput(mGrafixDir, this);
+    MouseInput* mouseInput = new MouseInput(this);
     connect((QObject*)mView, SIGNAL(signalLeftMousePress(QPoint)),
             mouseInput, SLOT(mousePress(QPoint)));
     connect(mouseInput, SIGNAL(signalConvertMousePress(QPoint,int&,int&)),
@@ -226,7 +237,7 @@ AbstractInput* Mainwindow::createInput(
   }
   else if (inputType == TypeAiInput)
   {
-    AiInput* aiInput = new AiInput((EngineTwo*)engine, mGrafixDir, this);
+    AiInput* aiInput = new AiInput((EngineTwo*)engine, this);
     connect(aiInput, SIGNAL(signalPlayerInput(int,int,int)),
             engine, SLOT(playerInput(int,int,int) ));
     input = aiInput;
@@ -400,18 +411,16 @@ void Mainwindow::menuCardDeck()
     if (!s1.isEmpty() && s1 != mDeckGrafix)
     {
       mDeckGrafix = s1;
-      mDeck->loadCardBackside(mDeckGrafix);
       change = true;
     }
     if (!s2.isEmpty() && s2 != mCardDir)
     {
       mCardDir    = s2;
-      mDeck->loadCards(mCardDir);
       change = true;
     }
     if (change)
     {
-      mDisplay->updateSpriteGraphics();
+      mTheme->updatePixmapCardTheme(mCardDir, mDeckGrafix);
       mView->update(); // Be on the safe side and update
     }
   }
@@ -452,7 +461,6 @@ void Mainwindow::menuEndGame()
 // Start a new game
 void Mainwindow::menuNewLSkatGame()
 {
-
   Player* p1 = mLSkatConfig->player(0);
   Player* p2 = mLSkatConfig->player(1);
 
@@ -472,18 +480,13 @@ void Mainwindow::menuNewLSkatGame()
     if (mDisplay) delete mDisplay;
     if (mEngine) delete mEngine;
 
-
-    // Create new stuff
-    PlayerStatusWidget* playerWidget1 = new PlayerStatusWidget(p1, this);
-    PlayerStatusWidget* playerWidget2 = new PlayerStatusWidget(p2, this);
-    mView->setStatusWidget(0, playerWidget1);
-    mView->setStatusWidget(2, playerWidget2);
-
-
-    mDisplay     = new DisplayTwo(mGrafixDir, mDeck, mCanvas, this);
-    mDisplay->setAdvancePeriod(ADVANCE_PERDIOD);
+    mDisplay     = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERDIOD, mView);
     mEngine  = new EngineTwo(this, mDeck, (DisplayTwo*)mDisplay);
     connect(mEngine, SIGNAL(signalGameOver(int)), this, SLOT(gameOver(int)));
+
+    // Connect player score widget updates
+    connect(p1, SIGNAL(signalUpdate(Player*)), mDisplay, SLOT(updatePlayer(Player*)));
+    connect(p2, SIGNAL(signalUpdate(Player*)), mDisplay, SLOT(updatePlayer(Player*)));
 
     mEngine->addPlayer(0, p1);
     mEngine->addPlayer(1, p2);
@@ -528,6 +531,7 @@ void Mainwindow::setStartPlayer(int no)
   mStartPlayer = no;
   ((KSelectAction *)ACTION("startplayer"))->setCurrentItem(mStartPlayer);
 }
+
 
 // Set the input type for a given player number.
 void Mainwindow::setInputType(int no, InputDeviceType type)

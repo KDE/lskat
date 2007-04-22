@@ -31,46 +31,13 @@
 
 // Local includes
 #include "display_two.h"
+#include "abstractinput.h"
 #include "cardsprite.h"
 #include "textsprite.h"
-#include "rectanglesprite.h"
 #include "pixmapsprite.h"
+#include "scoresprite.h"
 
 
-// Board geometry
-// Start play cards of player 1/2
-#define BOARD_START_1_X       50
-#define BOARD_START_1_Y       30
-#define BOARD_START_2_X       50
-#define BOARD_START_2_Y      300
-// Separation betweem two cards on the board
-#define BOARD_CARD_SEP_X      20
-#define BOARD_CARD_SEP_Y      20
-// Separation between stacked cards, to allows seeing the
-// lower card
-#define BOARD_HEIGHT_SEP_X    10
-#define BOARD_HEIGHT_SEP_Y    10
-
-// The play area of player 1/2. Here the cards are
-// setPosd to when a move is done.
-#define BOARD_PLAY_1_X       450       
-#define BOARD_PLAY_1_Y       200       
-#define BOARD_PLAY_2_X       480       
-#define BOARD_PLAY_2_Y       250       
-
-// Delta of setPos sprites to play area
-#define BOARD_MOVE_X          25
-
-// Where to remove the cards for player 1/2 after
-// a mvoe has be done (the players local pile)
-#define BOARD_REMOVE_1_X       460
-#define BOARD_REMOVE_1_Y       10
-#define BOARD_REMOVE_2_X       460
-#define BOARD_REMOVE_2_Y       450
-
-// Where is the card deck before shuffling
-#define BOARD_DECK_X         465
-#define BOARD_DECK_Y         225
 
 // Delay in canvas update cycle for each card in shuffling
 #define TIME_DELAY_SHUFFLE        5 /* in canvas cycles */
@@ -78,28 +45,77 @@
 
 
 // Constructor for the engine
-DisplayTwo::DisplayTwo(QString grafixDir, Deck* deck, QGraphicsScene* scene, QObject* parent)
-    : AbstractDisplay(grafixDir, deck, scene, parent)
+DisplayTwo::DisplayTwo(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod, QGraphicsView* parent)
+    : Themable("display_two",theme), AbstractDisplay(deck, scene, theme, advancePeriod, parent)
+
 {
   // Choose a background color
   mCanvas->setBackgroundBrush(QColor(0,0,128));
 
-  // Load move icon
-  QString filename = grafixDir+ QString("moveicon.png");
-  mMovePixmap = new QPixmap();
-  if (!mMovePixmap->load(filename))
-  {
-    kFatal() << "Cannot load file " << filename << endl;
-  }
+  // Create move icon
+  mMoveSprites[0] = new PixmapSprite("moveicon0", mTheme, mAdvancePeriod, 0, mCanvas);
+  if (!mMoveSprites[0]) kFatal() << "Cannot load sprite " << "moveicon" << endl;
+  mSprites.append(mMoveSprites[0]);
+
+  mMoveSprites[1] = new PixmapSprite("moveicon1", mTheme, mAdvancePeriod, 1, mCanvas);
+  if (!mMoveSprites[1]) kFatal() << "Cannot load sprite " << "moveicon" << endl;
+  mSprites.append(mMoveSprites[1]);
+
+  // Create score board
+  mScoreBoard[0] = new ScoreSprite("scoreboard0", mTheme, mAdvancePeriod, 0, mCanvas);
+  if (!mScoreBoard[0]) kFatal() << "Cannot load sprite " << "scoreboard0" << endl;
+  mSprites.append(mScoreBoard[0]);
+
+  mScoreBoard[1] = new ScoreSprite("scoreboard1", mTheme, mAdvancePeriod, 1, mCanvas);
+  if (!mScoreBoard[1]) kFatal() << "Cannot load sprite " << "scoreboard0" << endl;
+  mSprites.append(mScoreBoard[1]);
+
+  mCardArea[0] = new PixmapSprite("cardarea0", mTheme, mAdvancePeriod, 0, mCanvas);
+  if (!mCardArea[0]) kFatal() << "Cannot load sprite " << "cardarea0" << endl;
+  mSprites.append(mCardArea[0]);
+
+  mCardArea[1] = new PixmapSprite("cardarea1", mTheme, mAdvancePeriod, 1, mCanvas);
+  if (!mCardArea[1]) kFatal() << "Cannot load sprite " << "cardarea1" << endl;
+  mSprites.append(mCardArea[1]);
+
+  mPlayArea = new PixmapSprite("playarea", mTheme, mAdvancePeriod, 0, mCanvas);
+  if (!mPlayArea) kFatal() << "Cannot load sprite " << "playarea" << endl;
+  mSprites.append(mPlayArea);
+
+  mText[0] = new TextSprite("scoretext0", mTheme, mCanvas);
+  if (!mText[0]) kFatal() << "Cannot load sprite " << "scoretext0" << endl;
+  mSprites.append(mText[0]);
+
+  mText[1] = new TextSprite("scoretext1", mTheme, mCanvas);
+  if (!mText[1]) kFatal() << "Cannot load sprite " << "scoretext1" << endl;
+  mSprites.append(mText[1]);
+
+  mText[2] = new TextSprite("resulttext", mTheme, mCanvas);
+  if (!mText[2]) kFatal() << "Cannot load sprite " << "resulttext" << endl;
+  mSprites.append(mText[2]);
+
+    // Redraw
+  if (theme) theme->updateTheme(this);
+  
+}
+
+// Called by thememanager when theme or theme geometry changes. Redraw and resize
+// this display.
+void DisplayTwo::changeTheme()
+{
+  // Retrieve theme data
+  KConfigGroup config = thememanager()->config(id());
+
+  // Retrieve background pixmap
+  QString bgsvgid = config.readEntry("background-svgid");
+  QPixmap pixmap  = thememanager()->getPixmap(bgsvgid, mCanvas->sceneRect().size().toSize());
+  mCanvas->setBackgroundBrush(pixmap);
+  mView->update();
 }
 
 // Start display
 void DisplayTwo::start()
 {
-  // Clear display text and rectangles
-  clearSprites();
-  mMoveSprites.clear();
-
   // Stop all card sprites
   for (int i=0; i<mCards.size(); i++)
   {
@@ -107,50 +123,33 @@ void DisplayTwo::start()
     sprite->stop();
   }
 
-  // Card size
-  QSize size   = mDeck->cardSize();
+  mMoveSprites[0]->hide();
+  mMoveSprites[1]->hide();
+  mScoreBoard[0]->show();
+  mScoreBoard[1]->show();
+  mCardArea[0]->show();
+  mCardArea[1]->show();
+  mPlayArea->show();
+  mText[0]->hide();
+  mText[1]->hide();
+  mText[2]->hide();
 
-  RectangleSprite* rect;
-
-  rect = new RectangleSprite(3, QColor(20,20,148), mCanvas);
-  rect->setRect(0,0, 
-                size.width()+BOARD_PLAY_2_X-BOARD_PLAY_1_X+6,
-                size.height()+BOARD_PLAY_2_Y-BOARD_PLAY_1_Y+6);
-  rect->setPos(BOARD_PLAY_1_X-3, BOARD_PLAY_1_Y-3);
-  rect->show();
-  mSprites.append(rect);
-
-  rect = new RectangleSprite(3, QColor(20,20,148), mCanvas);
-  rect->setRect(0,0,
-                4*size.width()+3*BOARD_CARD_SEP_X+4*BOARD_HEIGHT_SEP_X-10,
-                2*size.height()+BOARD_CARD_SEP_Y+2*BOARD_HEIGHT_SEP_Y+10);
-  rect->setPos(BOARD_START_1_X-10, BOARD_START_1_Y-10);
-  rect->show();
-  mSprites.append(rect);
-
-  rect = new RectangleSprite(3, QColor(20,20,148), mCanvas);
-  rect->setRect(0,0,
-                4*size.width()+3*BOARD_CARD_SEP_X+4*BOARD_HEIGHT_SEP_X-10,
-                2*size.height()+BOARD_CARD_SEP_Y+2*BOARD_HEIGHT_SEP_Y+10);
-  rect->setPos(BOARD_START_2_X-10, BOARD_START_2_Y-10);
-  rect->show();
-  mSprites.append(rect);
-  
-  PixmapSprite* sprite;
-  sprite = new PixmapSprite(*mMovePixmap, mCanvas);
-  sprite->setZValue(300);
-  sprite->setPos(BOARD_MOVE_X, 
-               BOARD_START_1_Y);
-  sprite->hide();
-  mMoveSprites[0] = sprite;
-
-  sprite = new PixmapSprite(*mMovePixmap, mCanvas);
-  sprite->setZValue(300);
-  sprite->setPos(BOARD_MOVE_X, 
-               BOARD_START_2_Y+2*size.height()+BOARD_CARD_SEP_Y);
-  sprite->hide();
-  mMoveSprites[1] = sprite;
 }
+
+
+// Connect a player with the score widget
+void DisplayTwo::updatePlayer(Player* player)
+{
+  int id = player->id();
+  mScoreBoard[id]->setPlayerName(player->name());
+  mScoreBoard[id]->setPoints(player->points());
+  mScoreBoard[id]->setScore(player->score());
+  mScoreBoard[id]->setGames(player->wonGames(), player->games());
+//  mScoreBoard[id]->setTurn();
+  mScoreBoard[id]->setInput(player->input()->type());
+  mScoreBoard[id]->setTrump(player->trump());
+}
+
 
 // Init a player on a given screen/board position (0,1)
 void DisplayTwo::deal(Player* player, int position)
@@ -166,14 +165,17 @@ void DisplayTwo::deal(Player* player, int position)
     return ;
   }
 
-  // Retrieve size of a card
-  QSize size   = mDeck->cardSize();
+  KConfigGroup config = thememanager()->config(id());
+  QPointF deck_pos       = config.readEntry("deck-pos", QPointF(1.0,1.0));
+
   // Start offset for display
-  QPoint offset = QPoint(BOARD_START_1_X, BOARD_START_1_Y);
+  QPointF board_pos       = config.readEntry("board-pos1", QPointF(1.0,1.0));
+  QPointF board_sep       = config.readEntry("board-sep", QPointF(1.0,1.0));
+  QPointF board_shift     = config.readEntry("board-shift", QPointF(1.0,1.0));
   // Offset for second player
   if (position == 1)
   {
-    offset =  QPoint(BOARD_START_2_X, BOARD_START_2_Y);
+    board_pos  = config.readEntry("board-pos2", QPointF(1.0,1.0));
   }
 
 
@@ -194,19 +196,18 @@ void DisplayTwo::deal(Player* player, int position)
         // Create sprite with card correct card image
         CardSprite* sprite = mCards[cardNo];
         // Move sprite to correct board playerNumber
-        QPoint pos = offset + QPoint(size.width()*x  + BOARD_CARD_SEP_X*x,
-                                     size.height()*y + BOARD_CARD_SEP_Y*y);
+        QPointF pos = board_pos + QPointF(x*board_sep.x(),y*board_sep.y());
         // Add shift for stacked cards
-        pos += h*QPoint(BOARD_HEIGHT_SEP_X, BOARD_HEIGHT_SEP_Y);
+        pos += h*board_shift;
         sprite->setZValue(50-10*h);
-        sprite->setPos(BOARD_DECK_X, BOARD_DECK_Y);
+        sprite->setPosition(deck_pos);
         sprite->show();
         int delay = position + 2*x + 8*y + 16*(1-h);
         delay *=  TIME_DELAY_SHUFFLE; // [canvas cycles]
         // Move to the target position. The setPos is started with
         // a little delay and depending on the last argument the
         // backside or frontside is shown after the setPos
-        sprite->setShuffleMove(pos.x(), pos.y(), delay, h==0);
+        sprite->setShuffleMove(pos, delay, h==0);
         // Store sprite
       }// next x
     }// next y
@@ -224,50 +225,51 @@ int DisplayTwo::shuffleTime()
 // Convert a mouse coordinate back to card numbers
 void DisplayTwo::convertMousePress(QPoint mouse, int& playerNumber, int& cardNumber)
 {
-  // Card size
-  QSize size   = mDeck->cardSize();
-  // Resulting coordinates
-  int x = -1;
-  int y = -1;
+  double scale = thememanager()->getScale();
+  double x = mouse.x() / scale;
+  double y = mouse.y() / scale;
 
-  // Out of board at top
-  if (mouse.y() < BOARD_START_1_Y)
+  // Check play area 1
+  KConfigGroup config0 = thememanager()->config("cardarea0");
+  QPointF pos0         = config0.readEntry("pos", QPointF(1.0,1.0));
+  double  width0       = config0.readEntry("width", 1.0);
+  double  height0      = config0.readEntry("height", 1.0);
+
+  double x0 = (x-pos0.x())/width0;
+  double y0 = (y-pos0.y())/height0;
+
+  // Check play area 2
+  KConfigGroup config1 = thememanager()->config("cardarea1");
+  QPointF pos1         = config1.readEntry("pos", QPointF(1.0,1.0));
+  double  width1       = config1.readEntry("width", 1.0);
+  double  height1      = config1.readEntry("height", 1.0);
+
+  double x1 = (x-pos1.x())/width1;
+  double y1 = (y-pos1.y())/height1;
+
+
+  // Check in area 1
+  if (x0>=0.0 && x0<1.0 && y0>=0.0 && y0<1.0)
   {
-    playerNumber = -1;
-    return;
-  }
-  // Upper set
-  else if (mouse.y() < BOARD_START_2_Y)
-  {
+    int dx = int(x0*4.0);
+    int dy = int(y0*2.0);
     playerNumber = 0;
-    // Substract offset
-    x = mouse.x() - BOARD_START_1_X;
-    y = mouse.y() - BOARD_START_1_Y;
-    // Divide by cardsize and spacing
-    x /= size.width()  + BOARD_CARD_SEP_X; 
-    y /= size.height() + BOARD_CARD_SEP_Y; 
-  }
-  // Lower set
-  else
-  {
-    playerNumber = 1;
-    // Substract offset
-    x = mouse.x() - BOARD_START_2_X;
-    y = mouse.y() - BOARD_START_2_Y;
-    // Divide by cardsize and spacing
-    x /= size.width()  + BOARD_CARD_SEP_X; 
-    y /= size.height() + BOARD_CARD_SEP_Y; 
-  }
-
-  // Out of board 
-  if (y<0 || y>1 || x<0 || x>3)
-  {
-    playerNumber = -1;
+    cardNumber = dx + 4*dy;
     return;
   }
 
-  // Resulting card number
-  cardNumber = x + 4*y;
+  // Check in area 2
+  if (x1>=0.0 && x1<1.0 && y1>=0.0 && y1<1.0)
+  {
+    int dx = int(x1*4.0);
+    int dy = int(y1*2.0);
+    playerNumber = 1;
+    cardNumber = dx + 4*dy;
+    return;
+  }
+
+  playerNumber = -1;
+  return;
 }
 
 
@@ -296,17 +298,22 @@ CardSprite* DisplayTwo::getCardSprite(int cardValue)
 // Play a frontside card to the play area
 void DisplayTwo::play(int cardNumber, int playerNumber, int phase)
 {
+  KConfigGroup config = thememanager()->config(id());
+  QPointF play_pos_1     = config.readEntry("play-pos1", QPointF(1.0,1.0));
+  QPointF play_pos_2     = config.readEntry("play-pos2", QPointF(1.0,1.0));
+  double deal_move_time  = config.readEntry("deal-move-time", 1.0);
+
   CardSprite* sprite = getCardSprite(cardNumber);
   // Set z coordinate depending on setPos phase, that is latter cards will
   // be put on top
   sprite->setZValue(100 + 5*phase);
   if (playerNumber == 0)
   {
-    sprite->setMove(BOARD_PLAY_1_X, BOARD_PLAY_1_Y);
+    sprite->setMove(play_pos_1, deal_move_time);
   }
   else
   {
-    sprite->setMove(BOARD_PLAY_2_X, BOARD_PLAY_2_Y);
+    sprite->setMove(play_pos_2, deal_move_time);
   }
 }
 
@@ -322,80 +329,45 @@ void DisplayTwo::turn(int cardNumber)
 // Remove the given card from the display.
 void DisplayTwo::remove(int winnerPosition, int cardNumber, int delta)
 {
-  CardSprite* sprite = getCardSprite(cardNumber);
+  KConfigGroup config = thememanager()->config(id());
+  QPointF stack_pos1  = config.readEntry("stack-pos1", QPointF(1.0,1.0));
+  QPointF stack_pos2  = config.readEntry("stack-pos2", QPointF(1.0,1.0));
+  QPointF stack_shift = config.readEntry("stack-shift", QPointF(1.0,1.0));
+  double remove_time  = config.readEntry("remove-time", 1.0);
+  CardSprite* sprite  = getCardSprite(cardNumber);
   // Pile cards on top of each other
   sprite->setZValue(100 + delta);
+  QPointF pos;
   if (winnerPosition == 0)
   {
-    sprite->setRemove(BOARD_REMOVE_1_X + delta*3, BOARD_REMOVE_1_Y+ delta*1);
+    pos = QPointF(stack_pos1.x() + delta*stack_shift.x(),
+                  stack_pos1.y() + delta*stack_shift.y());
   }
   else
   {
-    sprite->setRemove(BOARD_REMOVE_2_X + delta*3, BOARD_REMOVE_2_Y+ delta*1);
+    pos = QPointF(stack_pos2.x() + delta*stack_shift.x(),
+                  stack_pos2.y() + delta*stack_shift.y());
   }
+  sprite->setRemove(pos, remove_time);
 }
 
 // Display a text on the game board.
 void DisplayTwo::showText(QString s)
 {
-  double x;
-  double y;
-  x = BOARD_START_1_X;
-  y = BOARD_START_1_Y;
-
-  QSize size   = mDeck->cardSize();
-
-  x += 2.5*size.width();
-  y += 2.5*size.height();
-  
-
-  // Display text sprite
-  TextSprite* text = new TextSprite(mCanvas);
-  QFont font;
-  font.setPixelSize(20);
-  text->setPlainText(s);
-  text->setFont(font);
-  text->setCenterAlign(true);
-  text->setDefaultTextColor(QColor(255, 128, 0));
-  text->setPos(x, y);
-  text->show();
-  mSprites.append(text);
+  mText[2]->setText(s);
+  mText[2]->show();
 }
 
 
 // Display the score on the game board
 void DisplayTwo::showScore(int position, int score)
 {
-  double x;
-  double y;
-  if (position == 0)
+  if (position<0 || position>1)
   {
-    x = BOARD_START_1_X;
-    y = BOARD_START_1_Y;
+    kFatal() << "Wrong position (0,1) for showScore = " << position<< endl;
   }
-  else
-  {
-    x = BOARD_START_2_X;
-    y = BOARD_START_2_Y;
-  }
-
-  QSize size   = mDeck->cardSize();
-
-  x += 2.5*size.width();
-  y += size.height();
-  
-
-  // Display text sprite
-  TextSprite* text = new TextSprite(mCanvas);
-  QFont font;
-  font.setPixelSize(24);
-  text->setPlainText(i18n("%1 points", score));
-  text->setFont(font);
-  text->setCenterAlign(true);
-  text->setDefaultTextColor(QColor(255, 128, 0));
-  text->setPos(x, y);
-  text->show();
-  mSprites.append(text);
+  mText[position]->setText(i18nc("Resulting score of a game","%1 points", score));
+  mText[position]->show();
 }
 
 
@@ -410,7 +382,10 @@ void DisplayTwo::showMove(int no)
     sprite->hide();
   }
 
-  if (no>=0) mMoveSprites[no]->show();
+  if (no>=0)
+  {
+    mMoveSprites[no]->show();
+  }
 }
 
 #include "display_two.moc"

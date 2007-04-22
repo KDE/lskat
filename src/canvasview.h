@@ -32,7 +32,7 @@
 #include <QResizeEvent>
 
 // Forward declaration
-class PlayerStatusWidget;
+class ThemeManager;
 
 /**
  * The view object which shows the graphics in a
@@ -49,33 +49,13 @@ class CanvasView : public QGraphicsView
      *  @param scene The graphics scene
      *  @param parent The parent window
      */
-    CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, QWidget* parent = 0);
-
-    /** Retrive the status widget of a player 
-     *  @param pos The widget position number (0,1,...)
-     *  @return The widget.
-     */
-    PlayerStatusWidget* statusWidget(int pos);
-
-    /** Store and display a new status widget at the given position.
-     *  Old widgets on this position are removed and destroyed.
-     *  @param pos The position on the screen (0,1,2)
-     *  @param widget The new widget
-     */
-    void setStatusWidget(int pos, PlayerStatusWidget* widget);
+    CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent = 0);
 
  protected:
     /** React to mouse clicks
      *  @param ev The mouse event
      */
     void mousePressEvent(QMouseEvent *event);
-
-    /** Position score widgets at window border
-     *  @param widget The Player status widget
-     *  @param pos    The positon of the windwo 0,1,2
-     */
-    void moveStatusWidget(QWidget* widget, int pos);
-
 
   public slots:  
     /** The update and advance for the canvas. 
@@ -94,9 +74,14 @@ class CanvasView : public QGraphicsView
      */
     void resizeEvent(QResizeEvent* e);
 
+    /** Paint function for the widget, temporary fix while we wait for QGV 4.3
+      * @param event The paint event
+      */
+    void paintEvent(QPaintEvent* event);
+
   private:
-    // The status widgets
-    QHash<int,PlayerStatusWidget*> mPlayerWidgets;
+    // Theme manager
+    ThemeManager* mTheme;
 };
 
 #endif

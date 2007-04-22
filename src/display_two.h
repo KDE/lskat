@@ -30,17 +30,20 @@
 
 // local includes
 #include "abstractdisplay.h"
+#include "thememanager.h"
 #include "deck.h"
 #include "player.h"
 
 // Forward declaration
 class PixmapSprite;
+class ScoreSprite;
+class TextSprite;
 
 
 /**
  * The display engine for a two player game.
  */
-class DisplayTwo : public AbstractDisplay
+class DisplayTwo : public AbstractDisplay, public virtual Themable
 {
   Q_OBJECT
 
@@ -51,11 +54,16 @@ class DisplayTwo : public AbstractDisplay
      *  @param scene The graphics scene to work with
      *  @param parent The parent object
      */
-    DisplayTwo(QString grafixDir, Deck* deck, QGraphicsScene* scene, QObject* parent);
+    DisplayTwo(Deck* deck, QGraphicsScene* scene, ThemeManager* mTheme, int advancePeriod,  QGraphicsView* parent);
 
     /** Start the display.
      */
     void start(); 
+
+    /** Main theme function. Called by the theme manager. Redraw and resize 
+      * display.
+      */
+    virtual void changeTheme();
 
 
     /* Init a player on a given position. Create sprites etc.
@@ -114,6 +122,8 @@ class DisplayTwo : public AbstractDisplay
       */
     void convertMousePress(QPoint mouse, int& playerNumber, int& cardNumber);
 
+    void updatePlayer(Player*);
+
   protected:
     void calcXYFromNumber(int cardNumber, int& x, int& y);
     CardSprite* getCardSprite(int cardValue);
@@ -125,6 +135,11 @@ class DisplayTwo : public AbstractDisplay
     /** Pixmap for movement sprite */
     QPixmap* mMovePixmap;
     QHash<int,PixmapSprite*> mMoveSprites;
+       // The score sprite
+    ScoreSprite*  mScoreBoard[2];
+    PixmapSprite* mCardArea[2];
+    PixmapSprite* mPlayArea;
+    TextSprite*   mText[3];
 };
 
 #endif

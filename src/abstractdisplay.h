@@ -23,6 +23,7 @@
 // Qt includes
 #include <QGraphicsScene>
 #include <QGraphicsItem>
+#include <QGraphicsView>
 #include <QList>
 #include <QHash>
 
@@ -36,7 +37,8 @@ class Deck;
 class Player;
 class CardSprite;
 class TextSprite;
-class RectangleSprite;
+class ThemeManager;
+
 
 
 /**
@@ -51,9 +53,10 @@ class AbstractDisplay : public QObject
      *  @param grafixDir The grafic directory
      *  @param deck The card deck
      *  @param scene The graphics scene to work with
+     *  @param advancePeriod The advance period [ms]
      *  @param parent The parent object
      */
-    AbstractDisplay(QString grafixDir, Deck* deck, QGraphicsScene* scene, QObject* parent);
+    AbstractDisplay(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod, QGraphicsView* parent);
 
     /** Destructor.
     */
@@ -63,11 +66,6 @@ class AbstractDisplay : public QObject
      *  @param deck The deck
      */
     void setDeck(Deck* deck);  
-
-    /** Set the advance period 
-     *  @param advancePeriod The advance period
-     */
-    void setAdvancePeriod(int advancePeriod);
 
     /** Reset the display. Clear all sprites etc.
     */
@@ -102,16 +100,6 @@ class AbstractDisplay : public QObject
      */
     virtual void remove(int winnerPosition, int cardNumber, int delta) = 0;
 
-    /** Removes all text/rectangle/etc sprites from the display (except cards).
-     */
-    virtual void clearSprites();
-
-    /** Reload all card sprite graphics. This must be called if the
-     *  deck graphicsh changed.
-     */
-    virtual void updateSpriteGraphics();
-
-
     /** Retrieve the graphics scene of this display.
      *  @return The QGraphicsScene of this display.
      */
@@ -122,15 +110,10 @@ class AbstractDisplay : public QObject
     virtual void convertMousePress(QPoint mouse, int& position, int& number) = 0;
 
   protected:
-    /** Create a Canvas sprite for a given card number
-     * @param no The sprite card number
-    */
-    virtual CardSprite* createSprite(int no);
-
     /** Create the sprites for all possible cards and store them
       * here.
       */
-    virtual void createSprites();
+    virtual void createCardSprites();
 
 
   protected:
@@ -138,15 +121,17 @@ class AbstractDisplay : public QObject
     Deck* mDeck;
     /** The work canvas */
     QGraphicsScene* mCanvas;
+    // The graphics view
+    QGraphicsView* mView;
     /** Canvas advance period */
     int mAdvancePeriod;
     /** Text sprite list */
     QList<QGraphicsItem*> mSprites;
     /** Store the card sprite indexed by the card value */
     static QHash<int,CardSprite*> mCards;
-    /** Grafic directory */
-    QString mGrafixDir;
-
+    /** Theme manager */
+    ThemeManager* mTheme;
 };
+
 
 #endif

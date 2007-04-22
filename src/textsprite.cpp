@@ -28,23 +28,84 @@
 // Local includes
 #include "textsprite.h"
 
-// Constructor for the view
-TextSprite::TextSprite(QGraphicsScene* canvas)
-    : QGraphicsTextItem(0, canvas)
+// Constructor for the sprite
+TextSprite::TextSprite(QString text, QString id, ThemeManager* theme, QGraphicsScene* scene)
+           :  Themable(id, theme), QGraphicsTextItem(0, scene)
 {
-  setZValue(200.0);
+  setPlainText(text);
   hide();
-  resetMatrix();
+ 
+  if (theme) theme->updateTheme(this);
 }
 
 
-// Switch center aligned or left aligned text
-void TextSprite::setCenterAlign(bool b)
+// Constructor for the sprite
+TextSprite::TextSprite(QString id, ThemeManager* theme, QGraphicsScene* scene)
+           :  Themable(id, theme), QGraphicsTextItem(0, scene)
 {
+  hide();
+ 
+  if (theme) theme->updateTheme(this);
+}
+
+void TextSprite::setText(QString text)
+{
+  setPlainText(text);
+  thememanager()->updateTheme(this);
+}
+
+
+// Main themable function. Called for any theme change. The sprites needs to
+// resiez and redraw here.
+void TextSprite::changeTheme()
+{
+
+  // Get scaling change
+  double scale    = thememanager()->getScale();
+  setScale(scale);
+
+  // Retrieve theme data from configuration
+  KConfigGroup config = thememanager()->config(id());
+
+  // Size
+  double width  = config.readEntry("width", 1.0);
+  double height = config.readEntry("height", 0.0);
+  width *= scale;
+  height *= scale;
+
+  // Position
+  QPointF pos = config.readEntry("pos", QPointF(1.0,1.0));
+  pos *= scale;
+  setPos(pos.x(), pos.y());
+
+  // z-Value
+  double zValue = config.readEntry("zValue", 0.0);
+  setZValue(zValue);
+
+  // Text font
+  bool bold = config.readEntry("bold", false);
+  QFont font;
+  font.setPixelSize(int(height));
+  font.setBold(bold);
+  setFont(font);
+  if (width < boundingRect().width())
+  {
+    setTextWidth(width);   
+  }
+
+  // Retrieve font color
+  QColor fontColor;
+  fontColor = config.readEntry("fontColor", QColor(Qt::white));
+  setDefaultTextColor(fontColor);
+
+  // Centering
+  bool center = config.readEntry("center", false);
   resetMatrix();
-  if (b)
+  if (center)
   {
     translate(-boundingRect().width()/2.0, 0.0);
   }
+
+  update();
 }
 

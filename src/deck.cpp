@@ -40,133 +40,19 @@ Deck::Deck(long seed, QObject* parent)
 {
   // Set the random seed
   mRandom.setSeed(seed);
-
-  // Clear stuff
-  mCardBackside = 0;
-  mCardPixmaps.clear();
-  mTrumpIcons.clear();
+  shuffle();
 }
 
 // Destructor
 Deck::~Deck()
 {
-  if (mCardBackside) delete mCardBackside;
-
-  for (int i=0;i<mCardPixmaps.size();i++)
-  {
-    if (mCardPixmaps[i]) delete mCardPixmaps[i];
-  }
-  mCardPixmaps.clear();
-
-  QHashIterator<Suite,QPixmap*> it(mTrumpIcons);
-  while(it.hasNext())
-  {
-    it.next();
-    QPixmap* pm = it.value();
-    if (pm) delete pm;
-  }
-  mTrumpIcons.clear();
 }
-
-
-
-// Retrieve the backside pixmap
-QPixmap* Deck::backsidePixmap()
-{
-  return mCardBackside;
-}
-
-QPixmap* Deck::cardPixmap(int no)
-{
-  return mCardPixmaps[no];
-}
-
-
-// Load the card backside from a given file
-bool Deck::loadCardBackside(QString filename)
-{
-  kDebug() << "Loading backside image " << filename << endl;
-  QPixmap* pm = new QPixmap();
-  if (!pm->load(filename))
-  {
-    kError() << "Cannot load file " << filename << endl;
-    return false;
-  }
-  if (mCardBackside) delete mCardBackside;
-  mCardBackside = pm;
-  return true;
-}
-
-// Load the trump icons from a directory
-bool Deck::loadTrump(QString dir)
-{
-  kDebug() << "Loading trump images " << dir << endl;
-  mTrumpIcons.clear();
-
-  for (int i=0;i<5;i++)
-  {
-    QPixmap* pm = new QPixmap();
-    QString file = dir+"/"+QString("t%1.png").arg(i);
-    if (!pm->load(file))
-    {
-      kError() << "Cannot load file " << file << endl;
-      return false;
-    }
-    if (mTrumpIcons.contains((Suite)i)) delete mTrumpIcons[(Suite)i];
-    mTrumpIcons[(Suite)i] = pm;
-  }// next i
-  
-  return true;
-}
-
-
-// Load a set of cards from the given path
-bool Deck::loadCards(QString cardPath)
-{
-  // Max size of images in cased they are not even
-  int maxHeight = 0;
-  int maxWidth  = 0;
-
-  // Clear out old stuff
-  for (int i=0;i<mCardPixmaps.size();i++)
-  {
-    if (mCardPixmaps[i]) delete mCardPixmaps[i];
-  }
-  mCardPixmaps.clear();
-
-  for (int i=0;i<NUMBER_OF_CARDS;i++)
-  {
-    QString filename = cardPath+"/"+QString("%1.png").arg(i+1);
-    //kDebug() << "Loading image " << filename << endl;
-    QPixmap* pm = new QPixmap();
-    if (!pm->load(filename))
-    {
-      mCardPixmaps.clear();
-      kError() << "Cannot load file " << filename << endl;
-      maxCardSize = QSize(0,0);
-      return false;
-    }
-    mCardPixmaps.append(pm);
-    if (pm->width() > maxWidth) maxWidth = pm->width();
-    if (pm->height() > maxHeight) maxHeight = pm->height();
-  }
-
-  maxCardSize = QSize(maxWidth, maxHeight);
-  return true;
-}
-
-// Retrieve the size of a card pixmap.
-QSize Deck::cardSize()
-{
-  return maxCardSize;
-}
-
 
 // Retrieve number of cards in this deck.
 int Deck::cardNumber()
 {
   // Use pixmaps as this is the same size but earlier filled.
-  return mCardPixmaps.size();
+  return mCards.size();
 }
 
 // Draw a random trump from all cards. 
@@ -233,12 +119,6 @@ int Deck::getCardValue(int card)
   if (type == Queen) return 3;
   if (type == Jack) return  2;
   return 0;
-}
-
-// Retrive the pixmap icon belonging to trump
-QPixmap* Deck::trumpIcon(Suite suite)
-{
-  return mTrumpIcons[suite];
 }
 
 QString Deck::name(int card)

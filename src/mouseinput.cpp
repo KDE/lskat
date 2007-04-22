@@ -29,15 +29,9 @@
 
 
 // Constructor for the engine
-MouseInput::MouseInput(QString dir, QObject* parent)
+MouseInput::MouseInput(QObject* parent)
     : AbstractInput(parent)
 {
-  QString filename = dir+ QString("mouseinput.png");
-  mInputIcon = new QPixmap();
-  if (!mInputIcon->load(filename))
-  {
-    kError() << "Cannot load file " << filename << endl;
-  }
 }
 
 // Mouse press received

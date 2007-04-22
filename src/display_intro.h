@@ -30,6 +30,7 @@
 
 // local includes
 #include "abstractdisplay.h"
+#include "thememanager.h"
 #include "deck.h"
 
 // Forward declaration
@@ -38,7 +39,7 @@
 /**
  * The display engine for a two player game.
  */
-class DisplayIntro : public AbstractDisplay
+class DisplayIntro : public AbstractDisplay, public virtual Themable
 {
   Q_OBJECT
 
@@ -52,7 +53,12 @@ class DisplayIntro : public AbstractDisplay
      *  @param scene The graphics scene to work with
      *  @param parent The parent object
      */
-    DisplayIntro(QString grafixDir, Deck* deck, QGraphicsScene* scene, QObject* parent);
+    DisplayIntro(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod, QGraphicsView* parent);
+
+    /** Main theme function. Called by the theme manager. Redraw and resize 
+      * display.
+      */
+    virtual void changeTheme();
 
     /** Start the intro.
     */

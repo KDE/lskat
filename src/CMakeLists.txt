@@ -2,7 +2,7 @@
 include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkdegames/kgame )
 
 set( lskat_SRCS 
-    playerstatuswidget.cpp
+    thememanager.cpp
     namedialogwidget.cpp
     canvasview.cpp
     mainwindow.cpp
@@ -14,7 +14,7 @@ set( lskat_SRCS
     display_two.cpp
     cardsprite.cpp
     pixmapsprite.cpp
-    rectanglesprite.cpp
+    scoresprite.cpp
     textsprite.cpp
     abstractengine.cpp
     engine_two.cpp
@@ -24,7 +24,9 @@ set( lskat_SRCS
     aiinput.cpp )
 
 
-kde4_add_ui_files( lskat_SRCS playerstatusform.ui namedialog.ui )
+kde4_add_ui_files( lskat_SRCS namedialog.ui )
+
+configure_file(config-src.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
 
 kde4_automoc( lskat ${lskat_SRCS} )
 

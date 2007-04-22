@@ -39,15 +39,20 @@ class AiInput : public AbstractInput
 
   public:
     /** Constructor for the input
-     *  @param dir  The grafix icon directory
+     *  @param engine  The game engine
      *  @param parent The parent object
      */
-    AiInput(EngineTwo* engine, QString dir, QObject* parent);
+    AiInput(EngineTwo* engine, QObject* parent);
 
     /** Allow or disallow input with this device 
       * @param allowed True if input is allowed
       */
     void setInputAllowed(bool allowed);  
+
+    /** Retrieve the type of device.
+      * @return The decice type.
+      */
+    virtual InputDevice::InputDeviceType type() {return InputDevice::TypeAiInput;}
 
 
   public slots:  

@@ -40,6 +40,7 @@ Player::Player(int id, QObject* parent)
   mPoints = 0;
   mDeck = 0;
   mInput = 0;
+  mTrump = Club;
   
   // Reset internal variables - override by load games
   setName("");
@@ -55,22 +56,22 @@ Player::~Player()
 }
 
 // Save properties
-void Player::save(KConfig *cfg)
+void Player::save(KConfigGroup& config)
 {
-  cfg->writeEntry("name", mName);
-  cfg->writeEntry("gameswon", mGamesWon);
-  cfg->writeEntry("score", mScore);
-  cfg->writeEntry("noofgames", mNumberOfGames);
+  config.writeEntry("name", mName);
+  config.writeEntry("gameswon", mGamesWon);
+  config.writeEntry("score", mScore);
+  config.writeEntry("noofgames", mNumberOfGames);
 }
 
 
 // Load properties
-void Player::load(KConfig* cfg)
+void Player::load(KConfigGroup& config)
 {
-  mName          = cfg->readEntry("name", mName);
-  mGamesWon      = cfg->readEntry("gameswon", mGamesWon);
-  mScore         = cfg->readEntry("score", mScore);
-  mNumberOfGames = cfg->readEntry("noofgames", mNumberOfGames);
+  mName          = config.readEntry("name", mName);
+  mGamesWon      = config.readEntry("gameswon", mGamesWon);
+  mScore         = config.readEntry("score", mScore);
+  mNumberOfGames = config.readEntry("noofgames", mNumberOfGames);
 
   // Emit signals
   refresh();
@@ -114,10 +115,7 @@ void Player::deal(int amount)
   setPoints(0);
   mWonCards.clear();
 
-  // TODO: Is this good to do like this?
-  // Emit signals for score and games
-  addGame(0);
-  addScore(0);
+  refresh();
 }
 
 // Retrieve the input device of the player 
@@ -145,7 +143,7 @@ void Player::setInput(AbstractInput* input)
   // Restore turn status
   mInput->setInputAllowed(oldTurnAllowed);
 
-  emit signalUpdateInput(mInput->inputIcon());
+  refresh();
 }
 
 // Set this player to start a turn 
@@ -243,7 +241,7 @@ int Player::points()
 void Player::setPoints(int points)
 {
   mPoints = points;
-  emit signalUpdatePoints(mPoints);
+  refresh();
 }
 
 // Retrive the player's name
@@ -256,46 +254,61 @@ QString Player::name()
 void Player::setName(QString name)
 {
   mName = name;
-  emit signalUpdateName(mName);
+  refresh();
 }
 
 // Add a number of won games to the overall statistic
 void Player::addWonGame(int amount)
 {
   mGamesWon += amount;
-  emit signalUpdateGames(mGamesWon, mNumberOfGames);
+  refresh();
+}
+
+int Player::wonGames()
+{
+  return mGamesWon;
 }
 
 // Add a number of games to the overall statistic
 void Player::addGame(int amount)
 {
   mNumberOfGames += amount;
-  emit signalUpdateGames(mGamesWon, mNumberOfGames);
+  refresh();
+}
+
+int Player::games()
+{
+  return mNumberOfGames;
 }
 
 // Add a score to the overall statistic
 void Player::addScore(int amount)
 {
   mScore += amount;
-  emit signalUpdateScore(mScore);
+  refresh();
 }
+
+int Player::score()
+{
+  return mScore;
+}
+
 
 void Player::setTrump(Suite trump)
 {
   mTrump = trump;
-  if (mDeck) emit signalUpdateTrump(mDeck->trumpIcon(mTrump));
+  refresh();
+}
+
+Suite Player::trump()
+{
+  return mTrump;
 }
 
 // Emit all signals for GUI
 void Player::refresh()
 {
-  emit signalUpdateName(mName);
-  emit signalUpdateGames(mGamesWon, mNumberOfGames);
-  emit signalUpdatePoints(mPoints);
-  emit signalUpdateScore(mScore);
-
-  if (mInput) emit signalUpdateInput(mInput->inputIcon());
-  if (mDeck) emit signalUpdateTrump(mDeck->trumpIcon(mTrump));
+  emit signalUpdate(this);
 }
 
 #include "player.moc"

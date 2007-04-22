@@ -32,16 +32,9 @@
 
 
 // Constructor for the engine
-AiInput::AiInput(EngineTwo* engine, QString dir, QObject* parent)
+AiInput::AiInput(EngineTwo* engine, QObject* parent)
     : AbstractInput(parent)
 {
-  QString filename = dir+ QString("aiinput.png");
-  mInputIcon = new QPixmap();
-  if (!mInputIcon->load(filename))
-  {
-    kError() << "Cannot load file " << filename << endl;
-  }
-
   // Store engine
   mEngine = engine;
 }

@@ -23,26 +23,33 @@
 // Qt includes
 #include <QGraphicsTextItem>
 
+// Local includes
+#include "thememanager.h"
+
 
 /**
  * The sprite for a card on the canvas.
  */
-class TextSprite : public QGraphicsTextItem
+class TextSprite : public QGraphicsTextItem, public virtual Themable
 {
 
   public:
     /** Constructor for the sprite.
      *  @param parent The parent canvas
      */
-    TextSprite(QGraphicsScene* canvas);
+    TextSprite(QString text, QString id, ThemeManager* theme, QGraphicsScene* scene);
+    TextSprite(QString id, ThemeManager* theme, QGraphicsScene* scene);
 
-    /** Should the text be drawn center aligned or not.
-     *  Default is left aligned.
-     *  @param b True for aligned text.
-     */
-    void setCenterAlign(bool b);
+    void setText(QString text);
+
+    /** Main theme manager function. Called when any theme change like
+      * a new theme or a theme size change occurs. This object needs to
+      * resiez and redraw then.
+      */
+    virtual void changeTheme();
 
   private:
+    
 
 };
 

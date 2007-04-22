@@ -43,13 +43,64 @@
 #define SHUFFLEMOVE_TIME 5.0  /* 0.025s */        
 
 
+// Theme manager stuff
+#define THEME_ID "card"
+
+
 // Constructor for the view
-CardSprite::CardSprite(const QPixmap* front, const QPixmap* back, QGraphicsScene* canvas)
-    : QGraphicsPixmapItem(0, canvas)
+CardSprite::CardSprite(const Suite suite, const CardType cardtype, ThemeManager* theme, int advancePeriod, QGraphicsScene* scene)
+    :  Themable(THEME_ID, theme), QGraphicsPixmapItem(0, scene)
+
 {
-  createPixmapArray(front, back, mFrames, mHotspots);
+  // TODO: createPixmapArray(front, back, mFrames, mHotspots);
   mAnimationState = Idle;
-  mCurrentFrame = 0;
+  mCurrentFrame   = 0;
+  mAdvancePeriod  = advancePeriod;
+  mSuite          = suite;
+  mCardType       = cardtype;
+  mFrames.clear();
+}
+
+// Main themable function. Called for any theme change. The sprites needs to
+// resiez and redraw here.
+void CardSprite::changeTheme()
+{
+  // Get scaling change
+  double oldscale = this->getScale();
+  double scale = thememanager()->getScale();
+  setScale(scale);
+
+  // Retrieve theme data from configuration
+  KConfigGroup config = thememanager()->config(id());
+  double width = config.readEntry("width", 1.0);
+  width *= scale;
+  mWidth = width; // Store for later use
+
+  // Z-value by program only
+  // Nothing to do
+
+  // Animation
+  int startFrame      = config.readEntry("start-frame", 0);
+  int endFrame        = config.readEntry("end-frame", 0);
+  mDelay              = config.readEntry("animation-delay", 0);
+
+  // Pos py program only
+  setPos(x()*scale/oldscale, y()*scale/oldscale);
+
+  // Frames (loaded on demand)
+  mFrames.clear();
+  mHotspots.clear();
+  QPixmap nullPixmap;
+  for (int i=startFrame;i<=endFrame;i++)
+  {
+    mFrames.append(nullPixmap);
+    mHotspots.append(QPointF(0.0,0.0));
+  }
+
+  
+  // Set pixmap to sprite
+  setFrame(mCurrentFrame, true);
+  update();
 }
 
 // Stop all movment and animation
@@ -69,41 +120,49 @@ void CardSprite::setTurning(bool front)
 }
 
 // Set target position and calculate moving speed.
-void CardSprite::calcTargetAndSpeed(int tx, int ty, double time)
+void CardSprite::calcTargetAndSpeed(QPointF pos, double time)
 {
-  mMoveTarget     = QPoint(tx, ty);
+  double scale = getScale();
+  mMoveTarget  = pos;
   // Calculate move speed so that the duration for the move
   // is fixed
-  double dx    = mMoveTarget.x()-x();
-  double dy    = mMoveTarget.y()-y();
+  double dx    = mMoveTarget.x()-x()/scale;
+  double dy    = mMoveTarget.y()-y()/scale;
   double angle = atan2(dy,dx);
-  mMoveSpeedX = cos(angle)* sqrt(dx*dx + dy*dy) / time;
-  mMoveSpeedY = sin(angle)*sqrt(dx*dx + dy*dy) / time;
+  mMoveSpeedX  = cos(angle)* sqrt(dx*dx + dy*dy) / time;
+  mMoveSpeedY  = sin(angle)*sqrt(dx*dx + dy*dy) / time;
+}
+
+// Move the sprite to the given relative position
+void CardSprite::setPosition(QPointF pos)
+{
+  mStart          = pos;
+  setPos(mStart.x()*getScale(), mStart.y()*getScale());
 }
 
 // Move the sprite slowly to the target area. Stop
 // movement if it arrived there.
-void CardSprite::setMove(int tx, int ty)
+void CardSprite::setMove(QPointF pos, double time)
 {
   mAnimationState = Moving;
   mAnimationCnt   = 0;
-  calcTargetAndSpeed(tx, ty, MOVE_TIME);
+  calcTargetAndSpeed(pos, time);
 }
 
 // Move the sprite slowly to the target area. Stop
 // movement and remove sprite if it arrived there.
-void CardSprite::setRemove(int tx, int ty)
+void CardSprite::setRemove(QPointF pos, double time)
 {
-  calcTargetAndSpeed(tx, ty, REMOVE_TIME);
   mAnimationState = Removing;
+  calcTargetAndSpeed(pos, time);
 }
 
 // Delay before moving, then move the sprite fast to the
 // target area. Stop movement and depending on the last
 // argument turn backside/frontside sprite if it arrived there.
-void CardSprite::setShuffleMove(int tx, int ty, int delay, bool front)
+void CardSprite::setShuffleMove(QPointF pos, int delay, bool front)
 {
-  calcTargetAndSpeed(tx, ty, SHUFFLEMOVE_TIME);
+  calcTargetAndSpeed(pos, SHUFFLEMOVE_TIME);
   mAnimationState = ShuffleMove;
   mAnimationCnt   = delay;
   mFrontFlag      = front;
@@ -123,37 +182,83 @@ void CardSprite::setBackside()
   setFrame(mFrames.size()-1);
 }
 
-// Set a new bitmap into the sprite. If the number is the same as the
-// current one, nothing is done.
-void CardSprite::setFrame(int no)
+int CardSprite::count()
 {
-  if (no == mCurrentFrame) return;
-  if (no<0 || no >=mFrames.count()) return;
-  setPixmap(mFrames.at(no));
-  resetMatrix();
-  translate(-mHotspots.at(no).x(), -mHotspots.at(no).y());
-  mCurrentFrame = no;
+  return mFrames.count();
 }
 
+// Set a new bitmap into the sprite. If the number is the same as the
+// current one, nothing is done.
+void CardSprite::setFrame(int no, bool force)
+{
+  if (!force && no == mCurrentFrame) return;
+  if (no<0 || no >=mFrames.count()) return;
+
+  // Calulate Pixmap (only done if necessary)
+  calcFrame(no);
+  
+  // Set frame pixmap
+  QPixmap pixmap = mFrames.at(no);
+  setPixmap(pixmap);
+
+  // Translation
+  resetMatrix();
+  translate(mHotspots[no].x(), mHotspots[no].y());
+
+  mCurrentFrame = no;
+  update();
+}
+
+void CardSprite::calcFrame(int no)
+{
+  QPixmap pixmap = mFrames.at(no);
+  if (pixmap.isNull())
+  {
+    double dx = 0.0;  
+    double dy = 0.0; 
+    // Frontside
+    if (no == 0) 
+    {
+      pixmap = thememanager()->getCard(mSuite, mCardType, mWidth);
+    }
+    // Backside
+    else if (no >= mFrames.count()-1) 
+    {
+      pixmap = thememanager()->getCardback(mWidth);
+    }
+    // Animation
+    else
+    {
+      QPixmap front = thememanager()->getCard(mSuite, mCardType, mWidth);
+      QPixmap back  = thememanager()->getCardback(mWidth);
+      pixmap = createCard(front, back, no, mFrames.count());
+      dx = (front.width()-pixmap.width())/2.0;
+      dy = (front.height()-pixmap.height())/2.0;
+    }
+    mFrames[no]   = pixmap;
+    mHotspots[no] = QPointF(dx, dy);
+  }
+}
 
 // Perform a move by a delta given by the sprites velocity.
 // Returns true if the target position is reached
 bool CardSprite::deltaMove()
 {
   // Calculate difference vector
-  double dx    = mMoveTarget.x()-x();
-  double dy    = mMoveTarget.y()-y();
+  double scale = getScale();
+  double dx    = mMoveTarget.x()-x()/scale;
+  double dy    = mMoveTarget.y()-y()/scale;
 
   // Check arrival at target
   if (dx*dx + dy*dy < mMoveSpeedX*mMoveSpeedX + mMoveSpeedY*mMoveSpeedY)
   {
-    setPos(mMoveTarget.x(), mMoveTarget.y());
+    setPosition(mMoveTarget);
     return true;
   }
   // Move towards target by given velocity
   else
   {
-    setPos( x() + mMoveSpeedX, y() + mMoveSpeedY );
+    setPosition(QPointF( x()/scale + mMoveSpeedX, y()/scale + mMoveSpeedY));
     return false;
   }
 }
@@ -219,7 +324,6 @@ void CardSprite::advance(int phase)
     if (mAnimationCnt > 0)
     {
       mAnimationCnt--;
-      // if (mAnimationState == 0) kDebug() << "Start moving sprite " << this << endl;
     }
     // Then move to target position
     else
@@ -238,78 +342,38 @@ void CardSprite::advance(int phase)
 }
 
 
-// Load and create card pixmap array
-void CardSprite::createPixmapArray(const QPixmap* front, const QPixmap* back,
-                                   QList<QPixmap>& spriteList, QList<QPointF>& hotspots)
+
+// Create turn animation, i.e. card combined out of backside and frontside
+QPixmap CardSprite::createCard(const QPixmap front, const QPixmap back, int curNo, int count)
 {
-  // Clear lists
-  spriteList.clear();
-  hotspots.clear();
-
-  // Append front card
-  spriteList.append(front->copy());
-  hotspots.append(QPointF(0.0,0.0));
-
+  int halfCount = count/2;
   // Turn the frontside of the card 0..90 degree
-  for (int i=1;i<STEPS_TURN_CARD;i++)
+  if (curNo < halfCount)  
   {
     QMatrix m;
     // Get an angle eps..90 deg for the values i is running
-    double angle = (double)i/(double)STEPS_TURN_CARD*90.0;
+    double angle = (double)curNo/(double)halfCount*90.0;
     // Conversion to rad
     angle = angle/180.0*M_PI;
     // Scale pixmap to simulate rotating card
     m.scale(cos(angle), 1.0);
-    QPixmap pm = front->transformed(m, Qt::SmoothTransformation);
-    // Find translation (difference in sizes) to compensate with hotspot
-    int dx = front->width()-pm.width();
-    // Append to lists
-    spriteList.append(pm);
-    hotspots.append(QPointF(-dx/2.0,0.0));
+    QPixmap pm = front.transformed(m, Qt::SmoothTransformation);
+    return pm;
   }
 
   // Turn the backside of the card 90..eps degree
-  for (int i=1;i<STEPS_TURN_CARD;i++)
+  else
   {
     QMatrix m;
     // Get an angle 0..90 deg for the values i is running
-    double angle = 90.0-((double)i/(double)STEPS_TURN_CARD*90.0);
+    double angle = 90.0-((double)(curNo-halfCount+1)/(double)halfCount*90.0);
     // Conversion to rad
     angle = angle/180.0*M_PI;
     // Scale pixmap to simulate rotating card
     m.scale(cos(angle), 1.0);
-    QPixmap pm = back->transformed(m, Qt::SmoothTransformation);
-    // Find translation (difference in sizes) to compensate with hotspot
-    int dx = front->width()-pm.width();
-    // Append to lists
-    spriteList.append(pm);
-    hotspots.append(QPointF(-dx/2.0,0.0));
+    QPixmap pm = back.transformed(m, Qt::SmoothTransformation);
+    return pm;
   }
-
-  // Append back card
-  spriteList.append(back->copy());
-  hotspots.append(QPointF(0.0,0.0));
 }
 
-// Factory constructor method for a new card sprite.
-CardSprite* CardSprite::create(QGraphicsScene* canvas, const QPixmap* front, const QPixmap* back)
-{
-  CardSprite* sprite = new CardSprite(front, back, canvas);
-  sprite->hide();
-  return sprite;
-}
-
-// Update the sprites card graphics by the pixmaps 
-void CardSprite::updateGraphics(QPixmap* front, QPixmap* back)
-{
-  // Get rid of old graphics
-  bool vis = isVisible();
-  hide();
-  createPixmapArray(front, back, mFrames, mHotspots);
-  setVisible(vis);
-
-  // Copy new image to current pixmap and update sprite
-  setPixmap(mFrames.at(mCurrentFrame));
-  update();
-}
 

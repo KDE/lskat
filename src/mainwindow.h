@@ -27,13 +27,18 @@
 #ifndef LSKAT_H
 #define LSKAT_H
 
+// Qt includes
 #include <QHash>
-
+ 
+// KDE includes
 #include <kxmlguiwindow.h>
 #include <kconfig.h>
 #include <kdialog.h>
 #include <kdemacros.h>
+
+// Local includes
 #include "abstractinput.h"
+#include "thememanager.h"
 
 // Forward declararion
 class CanvasView;
@@ -134,13 +139,13 @@ class Mainwindow : public KXmlGuiWindow
     /** Saves the window properties
      * @see KMainWindow#saveProperties
      */
-    virtual void saveProperties(KConfigGroup &cfg);
+    virtual void saveProperties();
 
     /** Reads the session config file and restores the application's
      *  state.
      * @see KMainWindow#readProperties
      */
-    virtual void readProperties(const KConfigGroup &cfg);
+    virtual void readProperties();
 
     /** Called by KMainWindow when the last window of the application is
      * going to be closed.
@@ -167,14 +172,14 @@ class Mainwindow : public KXmlGuiWindow
     CanvasView* mView;
     /** The card deck */
     Deck* mDeck;
-    /** The grafix directory */
-    QString mGrafixDir;
     /** LSkat config */
     ConfigTwo* mLSkatConfig;
-    /** Application config */
-    KSharedConfigPtr mConfig;
     /** The graphics scene */
     QGraphicsScene* mCanvas;
+    // The theme manager used
+    ThemeManager* mTheme;
+    // The directory for the theme files
+    QString mThemeDirName;
 
 
     // Properties to be saved

@@ -29,33 +29,43 @@
 #include "deck.h"
 #include "cardsprite.h"
 #include "textsprite.h"
-#include "rectanglesprite.h"
+#include "thememanager.h"
 
 // Define static attributes
 QHash<int,CardSprite*> AbstractDisplay::mCards;
 
 // Constructor for the engine
-AbstractDisplay::AbstractDisplay(QString grafixDir, Deck* deck, QGraphicsScene* scene, QObject* parent)
+AbstractDisplay::AbstractDisplay(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod, QGraphicsView* parent)
     : QObject(parent)
 {
-  // Store our working directory
-  mGrafixDir = grafixDir;
   // Store the scene
   mCanvas = scene;
+  // Store the view
+  mView = parent;
+  // Store advance period
+  mAdvancePeriod = advancePeriod;
+  // Store theme manager
+  mTheme = theme;
 
   // Set up deck
   setDeck(deck);
 
   // Initialize sprites
-  createSprites();
+  createCardSprites();
   mSprites.clear();
+
 }
 
 
 // Destructor.
 AbstractDisplay::~AbstractDisplay()
 {
-  clearSprites();
+  while(!mSprites.isEmpty())
+  {
+    QGraphicsItem* item = mSprites.takeFirst();
+    item->hide();
+    delete item;
+  }
   // Do not delete static cards for performance reasons
 }
 
@@ -73,23 +83,9 @@ void AbstractDisplay::reset()
 }
 
 
-// Create a Canvas sprite for a given card number
-CardSprite* AbstractDisplay::createSprite(int no)
-{
-  if (!mDeck)
-  {
-    kFatal() << "createSprite::No deck set " << endl;
-    return (CardSprite*)0;
-  }
-
-  QPixmap* front = mDeck->cardPixmap(no);
-  QPixmap* back  = mDeck->backsidePixmap();
-  CardSprite* sprite = CardSprite::create(mCanvas, front, back);
-  return sprite;
-}
 
 // Create all sprites and store them for later access
-void AbstractDisplay::createSprites()
+void AbstractDisplay::createCardSprites()
 {
   // Only create sprites once (unless explicitly reset)
   if (mCards.size() > 0) return;
@@ -98,7 +94,9 @@ void AbstractDisplay::createSprites()
   for (int cardNo=0; cardNo<mDeck->cardNumber(); cardNo++)
   {
     // Create sprite with card correct card image
-    CardSprite* sprite = createSprite(cardNo);
+    Suite suite        = Suite(cardNo%4);
+    CardType cardtype  = CardType(cardNo/4);
+    CardSprite* sprite = new CardSprite(suite, cardtype, mTheme, mAdvancePeriod, mCanvas);
     sprite->setBackside();
     // Display sprite
     sprite->hide();
@@ -107,46 +105,5 @@ void AbstractDisplay::createSprites()
     mCards[cardNo] = sprite;
   }// next
 }
-
-// Reload all card sprite graphics
-void AbstractDisplay::updateSpriteGraphics()
-{
-  if (!mDeck)
-  {
-    kFatal() << "updateSpriteGraphics::No deck set " << endl;
-    return;
-  }
-  QHashIterator<int,CardSprite*> it(mCards);
-  while(it.hasNext())
-  {
-    it.next();
-    CardSprite* sprite = it.value();
-    int no = it.key();
-
-    QPixmap* front = mDeck->cardPixmap(no);
-    QPixmap* back  = mDeck->backsidePixmap();
-    sprite->updateGraphics(front, back);
-  }
-}
-
-
-// Set the advance period 
-void AbstractDisplay::setAdvancePeriod(int advancePeriod)
-{
-  mAdvancePeriod = advancePeriod;
-}
-
-
-// Removes all text sprites from the display.
-void AbstractDisplay::clearSprites()
-{
-  while(!mSprites.isEmpty())
-  {
-    QGraphicsItem* item = mSprites.takeFirst();
-    item->hide();
-    delete item;
-  }
-}
-
 
 #include "abstractdisplay.moc"

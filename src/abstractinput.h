@@ -29,12 +29,11 @@
 // local includes
 
 // Forward declaration
-class QPixmap;
 
 namespace InputDevice
 {
     /** Determine the type of input to use for the player */
-    enum InputDeviceType {TypeMouseInput = 0, TypeAiInput = 1};
+    typedef enum {TypeMouseInput = 0, TypeAiInput = 1} InputDeviceType;
 }
 
 /**
@@ -67,10 +66,10 @@ class AbstractInput : public QObject
       */
     virtual void setId(int id);
 
-    /** Retrieve the icon associated with this device 
-     *  @return The input icon.
-     */
-    QPixmap* inputIcon() {return mInputIcon;}
+    /** Retrieve the type of device.
+      * @return The decice type.
+      */
+    virtual InputDevice::InputDeviceType type() = 0;
 
   signals:
     /** Signals the availability of player input
@@ -82,8 +81,6 @@ class AbstractInput : public QObject
     int mId;
     /** Is input allowed ? */
     bool mInputAllowed;
-    /** The input icon */
-    QPixmap* mInputIcon;
 
 };
 
