@@ -22,7 +22,7 @@
 
 // Qt includes
 #include <QObject>
-#include <QString>
+
 
 // KDE includes
 #include <kdebug.h>

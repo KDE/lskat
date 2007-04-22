@@ -21,7 +21,7 @@
 */
 
 // Qt includes
-#include <QString>
+
 #include <QWidget>
 #include <QHash>
 

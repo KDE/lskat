@@ -19,7 +19,7 @@
 */
 
 // Include files for Qt
-#include <QString>
+
 #include <QDir>
 #include <QFile>
 
