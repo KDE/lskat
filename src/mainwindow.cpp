@@ -130,7 +130,8 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   statusBar()->showMessage(i18n("Welcome to Skat! Please start a new game."));
 
-    // Skip intro?
+
+  // Skip intro?
   if (global_skip_intro)
   {
     menuNewLSkatGame();
@@ -138,7 +139,9 @@ Mainwindow::Mainwindow(QWidget* parent)
   // Start game automatically in demo mode
   else if (global_demo_mode)
   {
-    QTimer::singleShot(11500, this,SLOT(menuNewLSkatGame()));
+    // Start intro
+    mDisplay->start();
+    QTimer::singleShot(12500, this,SLOT(menuNewLSkatGame()));
   }
   else
   {
