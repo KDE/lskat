@@ -34,16 +34,17 @@
 
 // Local includes
 #include "thememanager.h"
+#include "lskatglobal.h"
 #include "deck.h"
 
 // Constructor for the theme manager
-ThemeManager::ThemeManager(QString cards, QString deck, bool svg, QString themefile, QObject* parent, int initialSize)
+ThemeManager::ThemeManager(QString cards, QString deck, QString themefile, QObject* parent, int initialSize)
     : QObject(parent)
 {
   mScale = initialSize;
   mAspectRatio = 1.0;
   mCardAspectRatio = 1.0;
-  mSVGCards = svg;
+  mSVGCards = false;
   mCardFile = cards;
   mDeckFile = deck;
   mRenderer = 0;
@@ -162,7 +163,7 @@ void ThemeManager::rescale(int scale)
 {
   if (scale==mScale) return;
   mScale = scale;
-  kDebug() << "Rescale to " << scale<<endl;
+  if (global_debug > 1) kDebug() << "Rescale to " << scale<<endl;
 
   QHashIterator<Themable*, int> it(mObjects);
   while (it.hasNext())

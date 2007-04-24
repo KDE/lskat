@@ -358,6 +358,7 @@ void EngineTwo::stopGame()
 // Switch the current player to the given player number.
 void EngineTwo::activatePlayer(int playerNumber)
 {
+  
   // Disable inputs for two players
   for (int i=0;i<2;i++)
   {
@@ -368,6 +369,8 @@ void EngineTwo::activatePlayer(int playerNumber)
   player->startTurn();
   mDisplay->showMove(playerNumber);
   mCurrentPlayer = playerNumber;
+
+  emit signalNextPlayer(player);
 }
 
 

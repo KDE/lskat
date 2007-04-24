@@ -111,6 +111,10 @@ class Mainwindow : public KXmlGuiWindow
      */
     void gameOver(int winner);
 
+    /** Next players turn.
+      */
+    void nextPlayer(Player* player);  
+
   protected:
     /** A new input device is created.
       * @param inputType The type of input

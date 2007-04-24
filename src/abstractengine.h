@@ -89,6 +89,16 @@ class AbstractEngine : public QObject
     */
     virtual void playerInput(int id, int position, int number) = 0;
 
+  signals:
+    /** The game over signal.
+     *  @param winner The game winner (0,1,-1:drawn, -2:abort)
+     */
+    void signalGameOver(int winner);
+
+    /** A players turn is about to start.
+      * @param player The new player
+      */
+    void signalNextPlayer(Player* player); 
 
   protected:
     /** Current game status */

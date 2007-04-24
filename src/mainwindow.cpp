@@ -45,6 +45,7 @@
 
 // Application specific includes
 #include "mainwindow.h"
+#include "lskatglobal.h"
 #include "canvasview.h"
 #include "abstractengine.h"
 #include "engine_two.h"
@@ -109,7 +110,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   mDeck = new Deck(seed, this);
 
   // Theme
-  mTheme  = new ThemeManager(mCardDir, mDeckGrafix, false, "default.rc", this);
+  mTheme  = new ThemeManager(mCardDir, mDeckGrafix, "default.rc", this);
 
   // Overall view
   mCanvas        = new QGraphicsScene(this);
@@ -121,18 +122,29 @@ Mainwindow::Mainwindow(QWidget* parent)
   setCentralWidget(mView);
 
   // Create GUI
-  setupGUI(Keys|Create);
+  setupGUI();
+  //setupGUI(Keys|Create);
   toolBar()->hide();
   statusBar()->show();
-  adjustSize();
   setAutoSaveSettings();
 
-  adjustSize();
-
-  // Start intro
-  mDisplay->start();
-
   statusBar()->showMessage(i18n("Welcome to Skat! Please start a new game."));
+
+    // Skip intro?
+  if (global_skip_intro)
+  {
+    menuNewLSkatGame();
+  }
+  // Start game automatically in demo mode
+  else if (global_demo_mode)
+  {
+    QTimer::singleShot(11500, this,SLOT(menuNewLSkatGame()));
+  }
+  else
+  {
+    // Start intro
+    mDisplay->start();
+  }
 
 }
 
@@ -222,6 +234,12 @@ AbstractInput* Mainwindow::createInput(
 {
    AbstractInput* input = 0;
 
+  // Always use AI input in demo mode
+  if (global_demo_mode)
+  {
+    inputType = TypeAiInput;
+  }
+
   // Create the player input
   if (inputType == TypeMouseInput)
   {
@@ -283,16 +301,28 @@ void Mainwindow::startGame()
   // Start player for next game
   setStartPlayer(1-mStartPlayer);
 
-  statusBar()->clearMessage();
+//  statusBar()->clearMessage();
 }
 
 // Here a game over is signalled
-void Mainwindow::gameOver(int winner)
+void Mainwindow::gameOver(int /*winner*/)
 {
-  kDebug() << "GameOver:: Winner= " << winner << endl;
-  statusBar()->showMessage(i18n("Please start a new game."));
+  statusBar()->showMessage(i18n("Game Over. Please start a new game."));
+
+  // Automatically restart game in demo mode
+  if (global_demo_mode)
+  {
+    QTimer::singleShot(10000, this,SLOT(menuNewLSkatGame()));
+  }
 }
 
+// Show next player
+void Mainwindow::nextPlayer(Player* player)
+{
+  int no       = player->id()+1;
+  QString name = player->name();
+  statusBar()->showMessage(i18nc("Player name and number","Next move for %1 (player %2)", name, no));
+}
 
 // Setup the GUI
 void Mainwindow::initGUI()
@@ -304,6 +334,7 @@ void Mainwindow::initGUI()
   actionCollection()->addAction("new_game", action);
   ACTION("new_game")->setToolTip(i18n("Starting a new game..."));
   ACTION("new_game")->setWhatsThis(i18n("Start a new game."));
+  if (global_demo_mode) action->setEnabled(false);
 
   // Clear all time statistics
   QAction* clearStatAct = actionCollection()->addAction("clear_statistics");
@@ -312,6 +343,7 @@ void Mainwindow::initGUI()
   connect(clearStatAct, SIGNAL(triggered(bool)), this, SLOT(menuClearStatistics()));
   clearStatAct->setToolTip(i18n("Delete all time statistics..."));
   clearStatAct->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
+  if (global_demo_mode) clearStatAct->setEnabled(false);
 
   // End a game
   QAction* endGameAct = actionCollection()->addAction("end_game");
@@ -320,6 +352,7 @@ void Mainwindow::initGUI()
   connect(endGameAct, SIGNAL(triggered(bool)), this, SLOT(menuEndGame()));
   endGameAct->setToolTip(i18n("Ending the current game..."));
   endGameAct->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
+  if (global_demo_mode) endGameAct->setEnabled(false);
 
   // Quite the program
   action = KStandardGameAction::quit(this, SLOT(close()), this);
@@ -339,6 +372,7 @@ void Mainwindow::initGUI()
   list.append(i18n("Player &1"));
   list.append(i18n("Player &2"));
   startPlayerAct->setItems(list);
+  if (global_demo_mode) startPlayerAct->setEnabled(false);
 
 
   // Determine who player player 1
@@ -351,6 +385,7 @@ void Mainwindow::initGUI()
   list.append(i18n("&Mouse"));
   list.append(i18n("&Computer"));
   player1Act->setItems(list);
+  if (global_demo_mode) player1Act->setEnabled(false);
 
   // Determine who player player 2
   KSelectAction* player2Act = new KSelectAction(i18n("Player &2 Played By"), this);
@@ -359,6 +394,7 @@ void Mainwindow::initGUI()
   player2Act->setToolTip(i18n("Changing who plays player 2..."));
   player2Act->setWhatsThis(i18n("Changing who plays player 2."));
   player2Act->setItems(list);
+  if (global_demo_mode) player2Act->setEnabled(false);
 
   // Choose card deck
   QAction* selectDeckAct = actionCollection()->addAction("select_carddeck");
@@ -371,6 +407,7 @@ void Mainwindow::initGUI()
   QAction* changeNamesAct = actionCollection()->addAction("change_names");
   changeNamesAct->setText(i18n("&Change Player Names"));
   connect(changeNamesAct, SIGNAL(triggered(bool)), this, SLOT(menuPlayerNames()));
+  if (global_demo_mode) changeNamesAct->setEnabled(false);
 }
 
 
@@ -452,10 +489,11 @@ void Mainwindow::menuClearStatistics()
 // Abort a game
 void Mainwindow::menuEndGame()
 {
-   if (mEngine)
-   {
-     mEngine->stopGame();
-   }
+  if (mEngine)
+  {
+    mEngine->stopGame();
+  }
+
 }
 
 
@@ -484,6 +522,7 @@ void Mainwindow::menuNewLSkatGame()
     mDisplay     = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERDIOD, mView);
     mEngine  = new EngineTwo(this, mDeck, (DisplayTwo*)mDisplay);
     connect(mEngine, SIGNAL(signalGameOver(int)), this, SLOT(gameOver(int)));
+    connect(mEngine, SIGNAL(signalNextPlayer(Player*)), this, SLOT(nextPlayer(Player*)));
 
     // Connect player score widget updates
     connect(p1, SIGNAL(signalUpdate(Player*)), mDisplay, SLOT(updatePlayer(Player*)));
@@ -498,6 +537,8 @@ void Mainwindow::menuNewLSkatGame()
   p1->setInput(input1);
   AbstractInput* input2 = createInput(mLSkatConfig->inputType(1), mDisplay, mEngine);
   p2->setInput(input2);
+
+  statusBar()->showMessage(i18n("Dealing cards..."));
 
   // Start game
   startGame();

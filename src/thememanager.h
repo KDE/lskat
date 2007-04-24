@@ -111,7 +111,7 @@ class ThemeManager : public QObject
       * @param parent      The parent object
       * @param initialSize Initial theme size, can be arbitrary.
       */
-    ThemeManager(QString cards, QString deck, bool svg, QString themefile, QObject* parent, int initialSize = 1);
+    ThemeManager(QString cards, QString deck, QString themefile, QObject* parent, int initialSize = 1);
 
     const QPixmap getCard(int suite, int cardtype, double width);
     const QPixmap getCardback(double width);

@@ -99,12 +99,6 @@ class EngineTwo : public AbstractEngine
      */
     int whoWonMove(int card1,int card2);
 
-  signals:
-    /** The game over signal.
-     *  @param winner The game winner (0,1,-1:drawn, -2:abort)
-     */
-    void signalGameOver(int winner);
-    
 
   protected slots:
     /** First part of the game loop
