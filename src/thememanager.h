@@ -225,6 +225,9 @@ class ThemeManager : public QObject
 
      // The card SVG rendered
      KSvgRenderer* mCardRenderer;
+
+     // The deck SVG rendered
+     KSvgRenderer* mDeckRenderer;
      
      // Storage of all theme objects [object,1] [TODO: Alist might suffice]
      QHash<Themable*,int> mObjects;
@@ -241,9 +244,6 @@ class ThemeManager : public QObject
      // The deck configration file
      QString mDeckFile;
 
-     // PNG or SVG cards
-     bool mSVGCards;
-     
      // The current theme scale
      int mScale;
 

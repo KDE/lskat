@@ -27,6 +27,7 @@
 #include <QPainter>
 #include <QColor>
 #include <QRectF>
+#include <QDir>
 
 // KDE includes
 #include <kdebug.h>
@@ -44,11 +45,11 @@ ThemeManager::ThemeManager(QString cards, QString deck, QString themefile, QObje
   mScale = initialSize;
   mAspectRatio = 1.0;
   mCardAspectRatio = 1.0;
-  mSVGCards = false;
   mCardFile = cards;
   mDeckFile = deck;
   mRenderer = 0;
   mCardRenderer = 0;
+  mDeckRenderer = 0;
 
   // updateTheme(themefile);
   updateCardTheme(themefile, cards, deck);
@@ -87,21 +88,21 @@ void ThemeManager::updateCardTheme(QString themefile, QString cards, QString dec
   kDebug() << "  Cards = " << cards << endl;
   kDebug() << "  Deck  = " << deck << endl;
 
+  // Cards
+  mCardFile = cards;
+
   KConfig cardInfo( cards+"/index.desktop", KConfig::OnlyLocal);
-  KConfigGroup group(&cardInfo, "KDE Backdeck");
-  QPointF cardSize   = group.readEntry("BackSize", QPointF(1.0,1.0));
-  QString svg        = group.readEntry("SVG", QString());
+  KConfigGroup cardGroup(&cardInfo, "KDE Backdeck");
+  QPointF cardSize   = cardGroup.readEntry("BackSize", QPointF(1.0,1.0));
+  QString cardSVG    = cardGroup.readEntry("SVG", QString());
   kDebug() << "cardSize = " << cardSize << endl;
 
-  mSVGCards = !svg.isNull();
-  kDebug() << "SVG = " << svg << " is " << mSVGCards << endl;
-  mCardFile = cards;
-  mDeckFile = deck;
+  kDebug() << "SVG card = " << cardSVG << " is " << (!cardSVG.isNull()) << endl;
 
-  QString svgfile = cards+"/"+svg;
+  QString svgfile = cards+"/"+cardSVG;
 
   mCardRenderer = 0;
-  if (mSVGCards)
+  if (!cardSVG.isNull())
   {
     mCardRenderer = new KSvgRenderer(this);
     bool result   = mCardRenderer->load(svgfile);
@@ -111,6 +112,38 @@ void ThemeManager::updateCardTheme(QString themefile, QString cards, QString dec
     }
     kDebug() << "Rendering " << svgfile << endl;
   }
+
+
+  // Deck
+  mDeckFile = deck;
+  QString deckIndex = deck;
+  deckIndex.replace(".png",".desktop");
+
+  // Cards
+  KConfig deckInfo( deckIndex, KConfig::OnlyLocal);
+  KConfigGroup deckGroup(&deckInfo, "KDE Cards");
+  QString deckSVG  = deckGroup.readEntry("SVG", QString());
+
+  QString deckDir = deck;
+  int pos = deck.lastIndexOf(QDir::separator());
+  if (pos > 0) deckDir = deck.left(pos);
+
+
+  svgfile = deckDir+"/"+deckSVG;
+  kDebug() << "SVG deck = " << deckSVG << " is " << (!deckSVG.isNull()) << endl;
+
+  mDeckRenderer = 0;
+  if (!deckSVG.isNull())
+  {
+    mDeckRenderer = new KSvgRenderer(this);
+    bool result   = mDeckRenderer->load(svgfile);
+    if (!result) 
+    {
+      kFatal() << "Cannot open file " << svgfile << endl;
+    }
+    kDebug() << "Rendering " << svgfile << endl;
+  }
+
 
   updateTheme(themefile);
 }
@@ -217,7 +250,7 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
 
   QPixmap pm;
   // SVG cards
-  if (mSVGCards)
+  if (mCardRenderer)
   {
     QString svgid = calcCardSVGId(no);
     QSize size = QSize(int(width), int(width/mCardAspectRatio) );
@@ -250,11 +283,22 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
 
 const QPixmap ThemeManager::getCardback(double width)
 {
-  QString file = mDeckFile;
   QPixmap pm;
-  if (!pm.load(file))
+  // SVG deck
+  if (mDeckRenderer)
   {
-    kError() << "Cannot load deck file " << file << endl;
+    QString svgid = "deck";
+    QSize size = QSize(int(width), int(width/mCardAspectRatio) );
+    pm = getPixmap(mDeckRenderer, svgid, size);
+  }
+  // Pixmap deck
+  else
+  {
+    QString file = mDeckFile;
+    if (!pm.load(file))
+    {
+      kError() << "Cannot load deck file " << file << endl;
+    }
   }
 
   // Scale to card aspect ratio if severly wrong
