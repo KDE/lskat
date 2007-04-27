@@ -38,6 +38,8 @@
 #include "lskatglobal.h"
 #include "deck.h"
 
+#define CARDBACK_SVGID "back"
+
 // Constructor for the theme manager
 ThemeManager::ThemeManager(QString cards, QString deck, QString themefile, QObject* parent, int initialSize)
     : QObject(parent)
@@ -262,9 +264,18 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
   {
     QString dir = mCardFile;
     QString file = QString("%1.png").arg(no);
-    if (!pm.load(dir+"/"+file))
+    if (mPixmapCache.contains(file))
+    {
+      pm = mPixmapCache[file]; 
+    }
+    else if (!pm.load(dir+"/"+file))
     {
       kError() << "Cannot load card file " << dir+file << endl;
+    }
+    else
+    {
+      // Cache image
+      mPixmapCache[file] = pm;
     }
   }
 
@@ -273,7 +284,8 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
   if (aspect/mCardAspectRatio >1.05 || aspect/mCardAspectRatio < 0.95)
   {
     //kWarning() << "Wrong card aspect ratio " << aspect << " vs " << mCardAspectRatio << endl;
-    return pm.scaled(int(width), int(width/mCardAspectRatio), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    return pm.scaled(int(width), int(width/mCardAspectRatio),
+                     Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   }
   else
   {
@@ -287,7 +299,7 @@ const QPixmap ThemeManager::getCardback(double width)
   // SVG deck
   if (mDeckRenderer)
   {
-    QString svgid = "deck";
+    QString svgid = QString(CARDBACK_SVGID);
     QSize size = QSize(int(width), int(width/mCardAspectRatio) );
     pm = getPixmap(mDeckRenderer, svgid, size);
   }
@@ -295,9 +307,18 @@ const QPixmap ThemeManager::getCardback(double width)
   else
   {
     QString file = mDeckFile;
-    if (!pm.load(file))
+    if (mPixmapCache.contains(file))
+    {
+      pm = mPixmapCache[file]; 
+    }
+    else if (!pm.load(file))
     {
       kError() << "Cannot load deck file " << file << endl;
+    }
+    else
+    {
+      // Cache image
+      mPixmapCache[file] = pm;
     }
   }
 
@@ -306,7 +327,8 @@ const QPixmap ThemeManager::getCardback(double width)
   if (aspect/mCardAspectRatio >1.05 || aspect/mCardAspectRatio < 0.95)
   {
     //kWarning() << "Wrong deck aspect ratio " << aspect << " vs " << mCardAspectRatio << endl;
-    return pm.scaled(int(width), int(width/mCardAspectRatio), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    return pm.scaled(int(width), int(width/mCardAspectRatio), 
+                     Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   }
   else
   {
