@@ -124,7 +124,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   // Create GUI
   setupGUI();
   //setupGUI(Keys|Create);
-  toolBar()->hide();
+  //toolBar()->show();
   statusBar()->show();
   setAutoSaveSettings();
 

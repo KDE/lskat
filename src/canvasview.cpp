@@ -32,6 +32,7 @@
 // Local includes
 #include "canvasview.h"
 #include "thememanager.h"
+#include "lskatglobal.h"
 
 
 // Constructor for the view
@@ -79,6 +80,8 @@ void CanvasView::updateAndAdvance()
 // resized.
 void CanvasView::resizeEvent(QResizeEvent* e)
 {
+  if (global_debug > 2) kDebug() <<"RESIZE EVENT " << e->size() << endl;
+
   // Adapt the canvas size to the window size
   if (scene())
   {
@@ -89,6 +92,7 @@ void CanvasView::resizeEvent(QResizeEvent* e)
   QSizeF size = QSizeF(e->size());
   // Rescale on minimum fitting aspect ratio either width or height limiting
   double aspect = size.width() / size.height();
+  if (global_debug > 2) kDebug() << "Aspect=" << aspect << " theme aspect="<< mTheme->aspectRatio() << endl;
   if (aspect > mTheme->aspectRatio()) mTheme->rescale(int(e->size().height()*mTheme->aspectRatio()));
   else mTheme->rescale(int(e->size().width()));
 }

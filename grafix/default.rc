@@ -3,7 +3,7 @@
 # SVG file to load (path relative to this file) which contains all SVG items
 svgfile=default.svg
 # Game aspect ratio
-aspect-ratio=1.6
+aspect-ratio=1.35
 # Card aspect ratio
 card-aspect-ratio=0.75
 

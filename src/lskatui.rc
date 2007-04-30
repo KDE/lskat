@@ -21,4 +21,9 @@
   </Menu>
 </MenuBar>
 
+<ToolBar name="mainToolBar"><text>Main Toolbar</text>
+  <Action name="new_game"/>
+  <Action name="end_game"/>
+</ToolBar>
+
 </kpartgui>
