@@ -29,9 +29,9 @@ play-pos1=0.615,0.300
 # Position of played card player 2 [0..1] 
 play-pos2=0.635,0.310
 # Position of finished cards for player 1 [0..1]
-stack-pos1=0.59,0.045
+stack-pos1=0.580,0.015
 # Position of finished cards for player 2 [0..1]
-stack-pos2=0.59,0.520
+stack-pos2=0.580,0.490
 # Shift position for finished cards [0..1]
 stack-shift=0.006,0.006
 # Time for removing the cards [ms]  TODO Change
@@ -362,7 +362,7 @@ width=0.8
 # Height of the text
 height=0.032
 # Position of the text
-pos=0.270,0.350
+pos=0.270,0.345
 # Z-Value
 zValue=500.0
 # Bold?
