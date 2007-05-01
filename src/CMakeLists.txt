@@ -4,7 +4,7 @@ include_directories( ${CMAKE_SOURCE_DIR}/libkdegames ${CMAKE_SOURCE_DIR}/libkdeg
 set( lskat_SRCS 
     thememanager.cpp
     namedialogwidget.cpp
-    canvasview.cpp
+    gameview.cpp
     mainwindow.cpp
     main.cpp
     deck.cpp

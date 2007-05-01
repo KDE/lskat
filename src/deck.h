@@ -31,22 +31,21 @@
 #include <kdebug.h>
 #include <krandomsequence.h>
 
-// Forward declaration
 
+/** The card, suite and trump names 
+  */
 namespace CardDeck
 {
-    /** The suite and trump names 
-    */
+    // Suite names
     enum Suite    {Club=0,Spade=1,Heart=2,Diamond=3,Grand=4};
+    // Card types.
     enum CardType {Ace=0,King=1,Queen=2,Jack=3,Ten=4,Nine=5,Eight=6,Seven=7};
 }
 
 using namespace CardDeck;
 
-/**
- * The view object for the game.
- * This class servers as a container for the actual
- * canvas view and the control buttons.
+/** The deck stores a card deck, handles random functions like
+ *  shuffling and deals the cards.
  */
 class Deck : public QObject
 {
@@ -54,9 +53,9 @@ class Deck : public QObject
 
   public:
 
-    /** Constructor for the main view.
+    /** Constructor for the deck.
      *  @param seed The random seed
-     *  @param parent The parent window
+     *  @param parent The parent object
      */
     Deck(long seed, QObject* parent);
 
@@ -77,6 +76,7 @@ class Deck : public QObject
      *  done by drawing a random card and choosing its
      *  suite as trump. In case a Jack is drawn a Grand
      * is made trump.
+     *  @return A random trump.
      */
     Suite randomTrump(); 
 
@@ -85,7 +85,7 @@ class Deck : public QObject
      */
      int drawCard();
 
-    /** Get the suite of a given card (number)
+    /** Get the suite (Club, ...) of a given card (number)
      *  @param card The card number
      *  @return The suite.
      */
@@ -99,11 +99,11 @@ class Deck : public QObject
 
     /** Get the value in points of the given card (number).
      *  @param card The card number
-     *  @return The card value (0, 2, 3, 4, 10, 11).
+     *  @return The card value [0, 2, 3, 4, 10, 11].
      */
     static int getCardValue(int card);
 
-    /** Returns a verbose name for a card
+    /** Returns a verbose name for a card.
      *  @param suite The card suite
      *  @param type  The card type
      *  @return A descriptive string.

@@ -28,11 +28,12 @@
 #include "mouseinput.h"
 
 
-// Constructor for the engine
+// Constructor for the input
 MouseInput::MouseInput(QObject* parent)
     : AbstractInput(parent)
 {
 }
+
 
 // Mouse press received
 void MouseInput::mousePress(QPoint point)
@@ -51,7 +52,6 @@ void MouseInput::mousePress(QPoint point)
     emit signalPlayerInput(mId, playerNumber, cardNumber);
   }
 }
-
 
 
 #include "mouseinput.moc"

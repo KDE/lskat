@@ -113,7 +113,18 @@ class ThemeManager : public QObject
       */
     ThemeManager(QString cards, QString deck, QString themefile, QObject* parent, int initialSize = 1);
 
+    /** Get the pixmap for a card.
+      * @param suite    The suite of the card [Club, ...]
+      * @param cardtype The type of the card [Ace, ...]
+      * @param width    The width of the card [pixels]
+      * @return The new pixmap.
+      */
     const QPixmap getCard(int suite, int cardtype, double width);
+
+    /** Get a backside of the card.
+      * @param width    The width of the card back [pixels]
+      * @return The new pixmap.
+      */
     const QPixmap getCardback(double width);
 
     /** Load a pixmap from the SVG theme file. Its filename is given in the
@@ -217,6 +228,11 @@ class ThemeManager : public QObject
       */
     void updateCardTheme(QString themefile, QString cards, QString deck);
 
+    /** Retrive the SVGid for a card number. This effectively maps
+      * the 'old' PNG cards to the new SVG card ids. For example
+      * Ace of clubs is PNG card '1' or SVG id'1_club'
+      * @param no  The card number [1-52]
+      */
     QString calcCardSVGId(int no);
 
    private:
@@ -252,7 +268,6 @@ class ThemeManager : public QObject
 
      // The card aspect ration
      double mCardAspectRatio;
-
 
      // The theme file
      QString mThemeFile;

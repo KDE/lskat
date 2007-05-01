@@ -97,9 +97,9 @@ class ConfigTwo : public QObject
     void signalInputType(int no, InputDeviceType type);
 
   private:
-    /** Current player */
+    // Current player 
     QHash<int,Player*> mPlayers;
-    /** Input types */
+    // Input types 
     QHash<int,InputDeviceType> mInputTypes;
 
 };

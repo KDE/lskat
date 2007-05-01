@@ -32,7 +32,7 @@ AbstractInput::AbstractInput(QObject* parent)
     : QObject(parent)
 {
   mInputAllowed = false;
-  mId = -1;
+  mId           = -1;
 }
 
 
@@ -55,5 +55,6 @@ bool AbstractInput::inputAllowed()
 {
   return mInputAllowed;
 }
+
 
 #include "abstractinput.moc"

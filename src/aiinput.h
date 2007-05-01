@@ -23,11 +23,9 @@
 // KDE includes
 #include <kdebug.h>
 
-// local includes
+// Local includes
 #include "abstractinput.h"
 #include "engine_two.h"
-
-// Forward declaration
 
 
 /**
@@ -56,26 +54,41 @@ class AiInput : public AbstractInput
 
 
   public slots:  
+    /** AI turn is performed.
+      */
     void aiTurn();
 
   private:
+    /** AI storage of the game board.
+      */
     class Board
     {
       public:
         /** Constructor */
         Board() {}
-        /** Copy constructor */
+        /** Copy constructor
+         *  @param board Another board
+         */
         Board(const Board& board);
-        int cards[2][16]; /** Cards of both players or -1 for used cards */
-        int playedCard;   /** Currently played card of first player or -1 */
-        int points[2];    /** Points of both players */
-        int whoseTurn;    /** Whose turn is it 0/1 UNUSED */
-        bool firstPlay;   /** True if first player movement phase UNUSED */
+        /** Cards of both players or -1 for used cards */
+        int cards[2][16]; 
+        /** Currently played card of first player or -1 */
+        int playedCard; 
+        /** Points of both players */
+        int points[2]; 
+        /** Whose turn is it 0/1 UNUSED */
+        int whoseTurn; 
+        /** True if first player movement phase UNUSED */
+        bool firstPlay; 
     };
+    /** AI representation of a move.
+      */
     class Move
     {
       public:
+        /** The move value */
         double value;
+        /** The move position */
         int move;
     };
 
@@ -89,14 +102,14 @@ class AiInput : public AbstractInput
     /** Initiate a new move as first player.
      *  @param p The current player number.
      *  @param board The current game board. 
-     *  @return The best move
+     *  @return The best move.
      */
     Move initiateMove(int p, const Board& board);
 
     /** Answer a move as second player.
      *  @param p The current player number.
      *  @param board The current game board. 
-     *  @return The best move
+     *  @return The best move.
      */
     Move answerMove(int p, const Board& board);
 
@@ -107,8 +120,8 @@ class AiInput : public AbstractInput
      */
     double evaluteGame(int p, const AiInput::Board current);
 
-  signals:  
   private:
+    /** The game engine used */
     EngineTwo* mEngine;
 };
 

@@ -21,13 +21,13 @@
 */
 
 // Qt includes
-
 #include <QWidget>
 #include <QHash>
 
 // KDE includes
 #include <kdebug.h>
 
+// Local includes
 #include "deck.h"
 
 // Forward declaration
@@ -86,8 +86,11 @@ class AbstractEngine : public QObject
   public slots:
 
     /** Player input available 
-    */
-    virtual void playerInput(int id, int position, int number) = 0;
+     * @param inputId      The input device id
+     * @þaram playerNumber The player number [0-1]
+     * @þaram cardNumber   The card number [0-7]
+     */
+    virtual void playerInput(int inputId, int playerNumber, int cardNumber) = 0;
 
   signals:
     /** The game over signal.

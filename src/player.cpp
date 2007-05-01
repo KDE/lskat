@@ -31,29 +31,31 @@
 
 
 
-// Constructor for the view
+// Constructor for the player
 Player::Player(int id, QObject* parent)
     : QObject(parent)
 {
-  mId    = id;
+  mId     = id;
   mCards.clear();
   mPoints = 0;
-  mDeck = 0;
-  mInput = 0;
-  mTrump = Club;
+  mDeck   = 0;
+  mInput  = 0;
+  mTrump  = Club;
   
-  // Reset internal variables - override by load games
+  // Reset internal variables - they are set by 'load' 
   setName("");
-  mScore = 0;
+  mScore         = 0;
   mNumberOfGames = 0;
-  mGamesWon = 0;
+  mGamesWon      = 0;
 }
+
 
 // Destructor 
 Player::~Player()
 {
   if (mInput) delete mInput;
 }
+
 
 // Save properties
 void Player::save(KConfigGroup& config)
@@ -85,6 +87,7 @@ void Player::setDeck(Deck* deck)
   mDeck = deck;
 }
 
+
 // Clear the all time statistics of this player.
 void Player::clear()
 {
@@ -93,6 +96,7 @@ void Player::clear()
   mGamesWon = 0;
   refresh();
 }
+
 
 // Deal a number of cards to this player 
 void Player::deal(int amount)
@@ -118,11 +122,13 @@ void Player::deal(int amount)
   refresh();
 }
 
+
 // Retrieve the input device of the player 
 AbstractInput* Player::input()
 {
   return mInput;
 }
+
 
 // Set the input device of the player 
 void Player::setInput(AbstractInput* input)
@@ -146,6 +152,7 @@ void Player::setInput(AbstractInput* input)
   refresh();
 }
 
+
 // Set this player to start a turn 
 void Player::startTurn()
 {
@@ -158,7 +165,6 @@ void Player::stopTurn()
 {
   mInput->setInputAllowed(false);
 }
-
    
 
 // Remove a card from the given position. Typically if the
@@ -172,6 +178,7 @@ void Player::deleteCard(int cardPosition)
   mCards[cardPosition] = -1;
 }
 
+
 // Add a card to the player
 void Player::addCard(int cardPosition, int card)
 {
@@ -182,6 +189,7 @@ void Player::addCard(int cardPosition, int card)
   }
   mCards[cardPosition] = card;
 }
+
 
 // Retrive card value at given logical position
 int Player::getCard(int playerNumber)
@@ -196,17 +204,20 @@ int Player::getCard(int playerNumber)
   return card;
 }
 
+
 // Increases the numebr of moves one for this player
 void Player::increaseMovesWon(int amount)
 {
   mMovesWon += amount;
 }
 
+
 // Retrive the number of won moves for this player
 int Player::noOfMovesWon()
 {
   return mMovesWon;
 }
+
 
 // Adds a card which is one in a move to this player.
 void Player::addWonCard(int card)
@@ -218,6 +229,7 @@ void Player::addWonCard(int card)
   int value = mDeck->getCardValue(card);
   setPoints(points() + value);
 }
+
 
 // Retrieve a card won by this player.
 int Player::getWonCard(int no)
@@ -231,11 +243,13 @@ int Player::getWonCard(int no)
   return mWonCards[no];
 }
 
+
 // Retrive the amount of points this player has
 int Player::points()
 {
   return mPoints;
 }
+
 
 // Set the points of the player.
 void Player::setPoints(int points)
@@ -244,11 +258,13 @@ void Player::setPoints(int points)
   refresh();
 }
 
+
 // Retrive the player's name
 QString Player::name()
 {
   return mName;
 }
+
 
 // Set the name of the player.
 void Player::setName(QString name)
@@ -257,6 +273,7 @@ void Player::setName(QString name)
   refresh();
 }
 
+
 // Add a number of won games to the overall statistic
 void Player::addWonGame(int amount)
 {
@@ -264,10 +281,13 @@ void Player::addWonGame(int amount)
   refresh();
 }
 
+
+// Get amount of won games
 int Player::wonGames()
 {
   return mGamesWon;
 }
+
 
 // Add a number of games to the overall statistic
 void Player::addGame(int amount)
@@ -276,10 +296,13 @@ void Player::addGame(int amount)
   refresh();
 }
 
+
+// Get number of games
 int Player::games()
 {
   return mNumberOfGames;
 }
+
 
 // Add a score to the overall statistic
 void Player::addScore(int amount)
@@ -288,22 +311,27 @@ void Player::addScore(int amount)
   refresh();
 }
 
+// Get score
 int Player::score()
 {
   return mScore;
 }
 
 
+// Set trump
 void Player::setTrump(Suite trump)
 {
   mTrump = trump;
   refresh();
 }
 
+
+// Get trump
 Suite Player::trump()
 {
   return mTrump;
 }
+
 
 // Emit all signals for GUI
 void Player::refresh()

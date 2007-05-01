@@ -86,6 +86,7 @@ void Deck::shuffle()
    }
 }
 
+
 // Draw a card from the deck
 int Deck::drawCard()
 {
@@ -97,17 +98,20 @@ int Deck::drawCard()
   return card;
 }
 
+
 // Return the suite of a given card (number)
 Suite Deck::getSuite(int card)
 {
   return (Suite)(card%4);
 }
 
+
 // Return the card type (ace, king, ...) of a given card (number)
 CardType Deck::getCardType(int card)
 {
   return (CardType)(card/4);
 }
+
 
 // Get the value in points of the given card (number).
 int Deck::getCardValue(int card)
@@ -121,11 +125,14 @@ int Deck::getCardValue(int card)
   return 0;
 }
 
+
+// Get verbose name of a vard
 QString Deck::name(int card)
 {
   if (card < 0) return i18n("no valid card");
   return name(getSuite(card), getCardType(card));
 }
+
 
 // Returns a verbose name for a card
 QString Deck::name(Suite suite, CardType type)

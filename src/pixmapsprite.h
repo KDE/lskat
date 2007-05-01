@@ -1,7 +1,7 @@
 #ifndef PIXMAP_SPRITE_H
 #define PIXMAP_SPRITE_H
 /*
-   This file is part of the KDE games kwin4 program
+   This file is part of the KDE games lskat program
    Copyright (c) 2006 Martin Heni <kde@heni-online.de>
 
    This library is free software; you can redistribute it and/or

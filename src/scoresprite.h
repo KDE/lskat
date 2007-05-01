@@ -88,11 +88,6 @@ class ScoreSprite : public PixmapSprite
       */ 
     void setGames(int won, int all);
 
-     /** Define who's turn it is next
-      * @param status True if it our turn
-      */    
-    void setTurn(bool status);
-    
     /** Store input device for a player.
       * @param device  The device number [0-2]
       */ 
@@ -128,9 +123,6 @@ class ScoreSprite : public PixmapSprite
 
     // Frame  number of the input device sprite
     int mTrumpFrame;
-
-    // Is it my turn?
-    int mTurn;
 
 };
 

@@ -18,8 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-// General includes
-
 // Qt includes
 
 // KDE includes
@@ -28,9 +26,10 @@
 // Local includes
 #include "textsprite.h"
 
+
 // Constructor for the sprite
 TextSprite::TextSprite(QString text, QString id, ThemeManager* theme, QGraphicsScene* scene)
-           :  Themable(id, theme), QGraphicsTextItem(0, scene)
+          : Themable(id, theme), QGraphicsTextItem(0, scene)
 {
   setPlainText(text);
   hide();
@@ -41,12 +40,13 @@ TextSprite::TextSprite(QString text, QString id, ThemeManager* theme, QGraphicsS
 
 // Constructor for the sprite
 TextSprite::TextSprite(QString id, ThemeManager* theme, QGraphicsScene* scene)
-           :  Themable(id, theme), QGraphicsTextItem(0, scene)
+          : Themable(id, theme), QGraphicsTextItem(0, scene)
 {
   hide();
  
   if (theme) theme->updateTheme(this);
 }
+
 
 void TextSprite::setText(QString text)
 {
@@ -56,7 +56,7 @@ void TextSprite::setText(QString text)
 
 
 // Main themable function. Called for any theme change. The sprites needs to
-// resiez and redraw here.
+// resize and redraw here.
 void TextSprite::changeTheme()
 {
 

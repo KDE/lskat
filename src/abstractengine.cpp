@@ -42,15 +42,12 @@ void AbstractEngine::addPlayer(int no, Player* player)
   mPlayers[no] = player;
 }
 
+
 // Retrieve the player of the given number.
 Player* AbstractEngine::player(int no)
 {
   return mPlayers[no];
 }
-
-
-
-
 
 
 #include "abstractengine.moc"

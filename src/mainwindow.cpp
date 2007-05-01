@@ -46,7 +46,7 @@
 // Application specific includes
 #include "mainwindow.h"
 #include "lskatglobal.h"
-#include "canvasview.h"
+#include "gameview.h"
 #include "abstractengine.h"
 #include "engine_two.h"
 #include "display_two.h"
@@ -64,16 +64,15 @@
 // Forward declarations
 #define ADVANCE_PERDIOD 20
 
+// Shortcut to access the actions
 #define ACTION(x)   (actionCollection()->action(x))
 
 using namespace InputDevice;
 
-/**
- * Construct the main application window
- */
+
+// Construct the main application window
 Mainwindow::Mainwindow(QWidget* parent)
           : KXmlGuiWindow(parent)
-//, view(0), engine(0), mChat(0), mMyChatDlg(0)
 {
   // Reset stuff
   mDeck    = 0;
@@ -88,6 +87,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   kDebug() << "theme =" << theme << endl;
   #endif
 
+  // Theme file
   mThemeDirName = KGlobal::dirs()->findResourceDir("data","default.rc");
   kDebug() << "THEME DIR IS " << mThemeDirName << endl;
 
@@ -106,15 +106,15 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // Get the card deck
   long seed = KRandom::random();
-  kDebug() << "Random seed " << seed << endl;
+  if (global_debug > 0) kDebug() << "Random seed " << seed << endl;
   mDeck = new Deck(seed, this);
 
-  // Theme
+  // Theme manager
   mTheme  = new ThemeManager(mCardDir, mDeckGrafix, "default.rc", this);
 
   // Overall view
   mCanvas        = new QGraphicsScene(this);
-  mView          = new CanvasView(QSize(880, 675), ADVANCE_PERDIOD, mCanvas, mTheme, this);
+  mView          = new GameView(QSize(880, 675), ADVANCE_PERDIOD, mCanvas, mTheme, this);
 
   // Create intro
   mGameMode      = Intro;
@@ -128,7 +128,6 @@ Mainwindow::Mainwindow(QWidget* parent)
   setAutoSaveSettings();
 
   statusBar()->showMessage(i18n("Welcome to Skat! Please start a new game."));
-
 
   // Skip intro?
   if (global_skip_intro)
@@ -153,7 +152,6 @@ Mainwindow::Mainwindow(QWidget* parent)
 // Destructor
 Mainwindow::~Mainwindow()
 {
-  kDebug() << "Destructor Mainwindow start" << endl;
   saveProperties();
   if (mEngine) delete mEngine;
   if (mDisplay) delete mDisplay;
@@ -162,8 +160,8 @@ Mainwindow::~Mainwindow()
   if (mView) delete mView;
   if (mCanvas) delete mCanvas;
   if (mTheme) delete mTheme;
-  kDebug() << "Destructor Mainwindow done" << endl;
 }
+
 
 // Called by KMainWindow when the last window of the application is
 bool Mainwindow::queryExit()
@@ -218,14 +216,16 @@ void Mainwindow::readProperties()
   QDir dir(mCardDir);
   if (!dir.exists()) mCardDir = dcd;
 
-  kDebug() << "set mDeckGrafix=" << mDeckGrafix << endl;
-  kDebug() << "set mCardDir=" << mCardDir << endl;
+  if (global_debug > 0)
+  {
+    kDebug() << "set mDeckGrafix=" << mDeckGrafix << endl;
+    kDebug() << "set mCardDir=" << mCardDir << endl;
+  }
 
   int no = cfg.readEntry("startplayer", 0);
   setStartPlayer(no);
   mLSkatConfig->load(config);
 }
-
 
 
 // Create a input with the given type
@@ -253,7 +253,7 @@ AbstractInput* Mainwindow::createInput(
     connect(mouseInput, SIGNAL(signalPlayerInput(int,int,int)),
             engine, SLOT(playerInput(int,int,int) ));
     input = mouseInput;
-    kDebug() << "Create MOUSE INPUT " << endl;
+    if (global_debug > 0) kDebug() << "Create MOUSE INPUT " << endl;
   }
   else if (inputType == TypeAiInput)
   {
@@ -261,7 +261,7 @@ AbstractInput* Mainwindow::createInput(
     connect(aiInput, SIGNAL(signalPlayerInput(int,int,int)),
             engine, SLOT(playerInput(int,int,int) ));
     input = aiInput;
-    kDebug() << "Create AI INPUT " << endl;
+    if (global_debug > 0) kDebug() << "Create AI INPUT " << endl;
   }
   else
   {
@@ -275,6 +275,9 @@ AbstractInput* Mainwindow::createInput(
 // Start a new game
 void Mainwindow::startGame()
 {
+  // Enable game action
+  ACTION("end_game")->setEnabled(true);
+
   // Deal cards to player - Shuffle card deck and reset pile
   mDeck->shuffle();
 
@@ -303,12 +306,14 @@ void Mainwindow::startGame()
   // Start player for next game
   setStartPlayer(1-mStartPlayer);
 
-//  statusBar()->clearMessage();
+  //  statusBar()->clearMessage();
 }
+
 
 // Here a game over is signalled
 void Mainwindow::gameOver(int /*winner*/)
 {
+  ACTION("end_game")->setEnabled(false);
   statusBar()->showMessage(i18n("Game Over. Please start a new game."));
 
   // Automatically restart game in demo mode
@@ -318,6 +323,7 @@ void Mainwindow::gameOver(int /*winner*/)
   }
 }
 
+
 // Show next player
 void Mainwindow::nextPlayer(Player* player)
 {
@@ -325,6 +331,7 @@ void Mainwindow::nextPlayer(Player* player)
   QString name = player->name();
   statusBar()->showMessage(i18nc("Player name and number","Next move for %1 (player %2)", name, no));
 }
+
 
 // Setup the GUI
 void Mainwindow::initGUI()
@@ -339,22 +346,23 @@ void Mainwindow::initGUI()
   if (global_demo_mode) action->setEnabled(false);
 
   // Clear all time statistics
-  QAction* clearStatAct = actionCollection()->addAction("clear_statistics");
-  clearStatAct->setIcon(KIcon("flag"));
-  clearStatAct->setText(i18n("&Clear Statistics"));
-  connect(clearStatAct, SIGNAL(triggered(bool)), this, SLOT(menuClearStatistics()));
-  clearStatAct->setToolTip(i18n("Delete all time statistics..."));
-  clearStatAct->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
-  if (global_demo_mode) clearStatAct->setEnabled(false);
+  action = actionCollection()->addAction("clear_statistics");
+  ACTION("clear_statistics")->setIcon(KIcon("flag"));
+  ACTION("clear_statistics")->setText(i18n("&Clear Statistics"));
+  connect(ACTION("clear_statistics"), SIGNAL(triggered(bool)), this, SLOT(menuClearStatistics()));
+  ACTION("clear_statistics")->setToolTip(i18n("Delete all time statistics..."));
+  ACTION("clear_statistics")->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
+  if (global_demo_mode) ACTION("clear_statistics")->setEnabled(false);
 
   // End a game
-  QAction* endGameAct = actionCollection()->addAction("end_game");
-  endGameAct->setIcon(KIcon("process-stop"));
-  endGameAct->setText(i18n("End game"));
-  connect(endGameAct, SIGNAL(triggered(bool)), this, SLOT(menuEndGame()));
-  endGameAct->setToolTip(i18n("Ending the current game..."));
-  endGameAct->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
-  if (global_demo_mode) endGameAct->setEnabled(false);
+  action = actionCollection()->addAction("end_game");
+  ACTION("end_game")->setIcon(KIcon("process-stop"));
+  ACTION("end_game")->setText(i18n("End game"));
+  connect(ACTION("end_game"), SIGNAL(triggered(bool)), this, SLOT(menuEndGame()));
+  ACTION("end_game")->setToolTip(i18n("Ending the current game..."));
+  ACTION("end_game")->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
+  if (global_demo_mode) ACTION("end_game")->setEnabled(false);
+  else ACTION("end_game")->setEnabled(false);
 
   // Quite the program
   action = KStandardGameAction::quit(this, SLOT(close()), this);
@@ -399,21 +407,19 @@ void Mainwindow::initGUI()
   if (global_demo_mode) player2Act->setEnabled(false);
 
   // Choose card deck
-  QAction* selectDeckAct = actionCollection()->addAction("select_carddeck");
-  selectDeckAct->setText(i18n("Select &Card Deck..."));
-  connect(selectDeckAct, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
-  selectDeckAct->setToolTip(i18n("Configure card decks..."));
-  selectDeckAct->setWhatsThis(i18n("Choose how the cards should look."));
+  action = actionCollection()->addAction("select_carddeck");
+  ACTION("select_carddeck")->setText(i18n("Select &Card Deck..."));
+  connect(ACTION("select_carddeck"), SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
+  ACTION("select_carddeck")->setToolTip(i18n("Configure card decks..."));
+  ACTION("select_carddeck")->setWhatsThis(i18n("Choose how the cards should look."));
 
   // Change player names
-  QAction* changeNamesAct = actionCollection()->addAction("change_names");
-  changeNamesAct->setText(i18n("&Change Player Names"));
-  connect(changeNamesAct, SIGNAL(triggered(bool)), this, SLOT(menuPlayerNames()));
-  if (global_demo_mode) changeNamesAct->setEnabled(false);
+  action = actionCollection()->addAction("change_names");
+  ACTION("change_names")->setText(i18n("&Change Player Names"));
+  connect(ACTION("change_names"), SIGNAL(triggered(bool)), this, SLOT(menuPlayerNames()));
+  if (global_demo_mode) ACTION("change_names")->setEnabled(false);
 }
 
-
-// Slots
 
 // Choose start player
 void Mainwindow::menuStartplayer()
@@ -422,6 +428,7 @@ void Mainwindow::menuStartplayer()
   setStartPlayer(i);
 }
 
+
 // Select input for player 1
 void Mainwindow::menuPlayer1By()
 {
@@ -429,12 +436,14 @@ void Mainwindow::menuPlayer1By()
   mLSkatConfig->setInputType(0, (InputDeviceType)i);
 }
 
+
 // Select input for player 2
 void Mainwindow::menuPlayer2By()
 {
   int i = ((KSelectAction *)ACTION("player2"))->currentItem();
   mLSkatConfig->setInputType(1, (InputDeviceType)i);
 }
+
 
 // Choose a card deck
 void Mainwindow::menuCardDeck()
@@ -446,7 +455,7 @@ void Mainwindow::menuCardDeck()
   result=KCardDialog::getCardDeck(s1,s2, this, flags);
   if (result==QDialog::Accepted)
   {
-    kDebug() << "NEW CARDDECK: " << s1 << " and " << s2 << endl;
+    if (global_debug > 0) kDebug() << "NEW CARDDECK: " << s1 << " and " << s2 << endl;
     bool change = false; // Avoid unnecessary changes
     if (!s1.isEmpty() && s1 != mDeckGrafix)
     {
@@ -465,6 +474,7 @@ void Mainwindow::menuCardDeck()
     }
   }
 }
+
 
 // Clear all time statistics
 void Mainwindow::menuClearStatistics()
@@ -487,6 +497,7 @@ void Mainwindow::menuClearStatistics()
     }
   }
 }
+
 
 // Abort a game
 void Mainwindow::menuEndGame()
@@ -545,6 +556,7 @@ void Mainwindow::menuNewLSkatGame()
   // Start game
   startGame();
 }
+
 
 // Change the player names in a dialog
 void Mainwindow::menuPlayerNames()

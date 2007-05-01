@@ -36,22 +36,23 @@
 // Forward declaration
 
 
-/**
- * The display engine for a two player game.
+/** The display engine for the intro graphics animation.
  */
 class DisplayIntro : public AbstractDisplay, public virtual Themable
 {
   Q_OBJECT
 
   public:
+    /** Animation state of the intro display */
     enum AnimState {Idle, Putting, Turning, Waiting, Clearing, Waiting2};
 
   
-    /** Constructor for the engine
-     *  @param grafixDir The grafic directory
-     *  @param deck The card deck
-     *  @param scene The graphics scene to work with
-     *  @param parent The parent object
+    /** Constructor for the display.
+     *  @param deck          The card deck
+     *  @param scene         The graphics scene to work with
+     *  @param theme         The theme manager
+     *  @param advancePeriod The advance period [ms]
+     *  @param parent        The parent object
      */
     DisplayIntro(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod, QGraphicsView* parent);
 
@@ -65,51 +66,50 @@ class DisplayIntro : public AbstractDisplay, public virtual Themable
     void start();
 
 
-    /* Init a player on a given position. Create sprites etc.
+    /* Deal cards - unused.
      * @param player The player object
      * @param position The position to place the player (0,1)
      */
-    void deal(Player* , int ) {}
+    void deal(Player* /*player*/, int /*position*/) {}
 
-    /** Play a card on the display. The card is moved from
-     *  its current position to the card deposit.
+    /** Play a card on the display - unsused.
      * @param cardNumber The card number (0-7)
      * @param playerNumber The player number (0-1)
      * @param phase Movement phase (1st part, 2nd part, etc) [optional]
      */
-    void play(int , int , int ) {}
+    void play(int /*cardNumber*/, int /*playerNumber*/, int /*phase*/) {}
 
-    /** Turn a card on the display. The card is flipped backside
-     *  to frontside.
+    /** Turn a card on the display - unused.
      * @param cardNumber The card number (0-7)
      */
-    void turn(int ) {}
+    void turn(int /*cardNumber*/) {}
 
-    /** Remove the given card from the display.
+    /** Remove the given card from the display - unused.
      * @param winnerPosition  The position of the winner (0,1)
      * @param cardNumber The number of the card
      * @param delta Card offset from target position (0,1,2,...)
      */
-    void remove(int , int , int ) {}
+    void remove(int /*winnerPosition*/, int /*cardNumber*/, int /*delta*/) {}
   
   public slots:
     /** Convert the position of a mouse click to a logical
-      * game position, that is position (up/down) and a 
-      * card number (0-7)
+      * game position - unused.
+      * @param mouse        The mouse coordinates [screen coordinates]
+      * @param playerNumber The resulting player number [0-1]
+      * @param cardNumber   The resulting card number [0-7]
       */
-    void convertMousePress(QPoint , int& , int& ) {}
+    void convertMousePress(QPoint /*mouse*/, int& /*playerNumber*/, int& /*cardNumber*/) {}
 
+    /** Animation loop. Called by timer.
+      */
     void loop();
 
-  protected:
-
-
   private:
-    /** Timer for animation loop */
+    // Timer for animation loop 
     QTimer* mTimer;
-    /** Animation counter */
+    // Animation counter 
     int mAnimCnt;
-    /** Animation state */
+    // Animation state 
     AnimState mState;
 };
 

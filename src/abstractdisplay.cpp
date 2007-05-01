@@ -35,11 +35,12 @@
 QHash<int,CardSprite*> AbstractDisplay::mCards;
 
 // Constructor for the engine
-AbstractDisplay::AbstractDisplay(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod, QGraphicsView* parent)
-    : QObject(parent)
+AbstractDisplay::AbstractDisplay(Deck* deck, QGraphicsScene* scene, ThemeManager* theme,
+                                 int advancePeriod, QGraphicsView* parent)
+               : QObject(parent)
 {
   // Store the scene
-  mCanvas = scene;
+  mScene = scene;
   // Store the view
   mView = parent;
   // Store advance period
@@ -53,7 +54,6 @@ AbstractDisplay::AbstractDisplay(Deck* deck, QGraphicsScene* scene, ThemeManager
   // Initialize sprites
   createCardSprites();
   mSprites.clear();
-
 }
 
 
@@ -69,6 +69,7 @@ AbstractDisplay::~AbstractDisplay()
   // Do not delete static cards for performance reasons
 }
 
+
 // Store the deck object for accessing the card deck
 void AbstractDisplay::setDeck(Deck* deck)
 {
@@ -83,7 +84,6 @@ void AbstractDisplay::reset()
 }
 
 
-
 // Create all sprites and store them for later access
 void AbstractDisplay::createCardSprites()
 {
@@ -96,7 +96,7 @@ void AbstractDisplay::createCardSprites()
     // Create sprite with card correct card image
     Suite suite        = Suite(cardNo%4);
     CardType cardtype  = CardType(cardNo/4);
-    CardSprite* sprite = new CardSprite(suite, cardtype, mTheme, mAdvancePeriod, mCanvas);
+    CardSprite* sprite = new CardSprite(suite, cardtype, mTheme, mAdvancePeriod, mScene);
     sprite->setBackside();
     // Display sprite
     sprite->hide();

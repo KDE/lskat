@@ -26,9 +26,8 @@
 // KDE includes
 #include <kdebug.h>
 
-// local includes
+// Local includes
 
-// Forward declaration
 
 namespace InputDevice
 {
@@ -37,7 +36,7 @@ namespace InputDevice
 }
 
 /**
- * Abstract input device
+ * Abstract input device for the game.
  */
 class AbstractInput : public QObject
 {
@@ -71,10 +70,15 @@ class AbstractInput : public QObject
       */
     virtual InputDevice::InputDeviceType type() = 0;
 
+
   signals:
     /** Signals the availability of player input
+     * @param inputId      The input device id
+     * @þaram playerNumber The player number [0-1]
+     * @þaram cardNumber   The card number [0-7]
     */
-   void signalPlayerInput(int id, int position, int number);
+   void signalPlayerInput(int id, int playerNumber, int cardNumber);
+
 
   protected:
     /** Player id to whom this input belongs */

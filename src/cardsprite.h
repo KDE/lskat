@@ -40,11 +40,15 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
 
   public:
     /** Constructor for the sprite.
-     *  @param parent The parent window
-     */
+      * @param suite         The suite of the card to use [Club, ...]
+      * @param type          The card type [Ace, ...]
+      * @param theme         The theme manager
+      * @param advancePeriod The scene advance period [ms]
+      * @param scene         The scene object
+      */
     CardSprite(const Suite suite, const CardType type, ThemeManager* theme, int advancePeriod, QGraphicsScene* scene);
 
-    // Possible animation states of the sprite
+    /** Possible animation states of the sprite */
     enum AnimationState {Idle, Turning, Moving, Removing,
                          ShuffleMove};
 
@@ -62,7 +66,6 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
      */
      void setBackside();
 
-
      /** Standard advance method
       *  @param phase Advance phase
       */
@@ -79,29 +82,31 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
 
      /** Move the sprite slowly to the target area. Stop
        * movement if it arrived there.
-       * @param tx Target x
-       * @param ty Target y
+       * @param pos  Target position [0..1] 
+       * @param time Time for the move [ms]
        */
      void setMove(QPointF pos, double time);
 
+     /** Set the position of the sprite.
+       * @param pos  Target position [0..1] 
+       */
      void setPosition(QPointF pos);
 
      /** Move the sprite slowly to the target area. Stop
        * movement and hide sprite if it arrived there.
-       * @param tx Target x
-       * @param ty Target y
+       * @param pos  Target position [0..1] 
+       * @param time Time for the move [ms]
        */
      void setRemove(QPointF pos, double time);
 
      /** Delay before moving, then move the sprite fast to the
        * target area. Stop movement and depending on the last
        * argument turn backside/frontside sprite if it arrived there.
-       * @param tx Target x
-       * @param ty Target y
-       * @param delay The Move start delay 
-       * @param front Shoe frontside(true) or backside
+       * @param pos  Target position [0..1] 
+       * @param delay The Move start delay [ms]
+       * @param front Show frontside(true) or backside
        */
-     void setShuffleMove(QPointF pos, int delay, bool front);
+     void setShuffleMove(QPointF pos, double delay, bool front);
 
     /** Set the current frame.
      *  @param no The frame number 0..n-1
@@ -109,10 +114,14 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
      */
     void setFrame(int no, bool force=false);
 
-    void calcFrame(int no);
-
+    /** Retrieve the maximum frame number.
+      * @param The frame count.
+      */
     int count();
 
+    /** Retreive the card id, a combination of suite and card type.
+      *@param The card id.
+      */
     int cardid() {return mCardType*4+mSuite;}
 
     /** Retrieve the current frame number.
@@ -121,12 +130,24 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
      int frame() {return mCurrentFrame;}
   
   protected:
+    /** Calculate a sprite frame (for turning sprites).
+      * Called when the frame is asked for.
+      * @param no The frame number.
+      */
+    void calcFrame(int no);
+
+    /** Create the pixmap for one frame of the frame turning animation.
+      * @param front    The front pixmap
+      * @þaram back     The back pixmap
+      * @param curNo    Which number in the animation sequence [0..count]
+      * @param count    How many frames in the animation
+      * @return The calculated pixmap.
+      */
     QPixmap createCard(const QPixmap front, const QPixmap back, int curNo, int count);
 
     /** Set target position and calculate moving speed.
-     *  @param tx Target x [0..1]
-     *  @param ty Target y [0..1]
-     *  @param time The movement speed [canvas cycles to reach target]
+     *  @param pos Target [0..1, 0..1]
+     *  @param time The movement speed [ms]
      */
      void calcTargetAndSpeed(QPointF pos, double time);
 
@@ -139,32 +160,34 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
   private:
     // Type of animation
     AnimationState mAnimationState;  
-    // Counter of animation
-    int mAnimationCnt;
+    // Counter of animation [ms]
+    double mTime;
     // Target point for movment
     QPointF mMoveTarget;
-    // Movement speed
+    // Movement speed X
     double mMoveSpeedX;
+    // Movement speed Y
     double mMoveSpeedY;
     // Front/Backside flag
     bool mFrontFlag;
-    // Store our pixmap array and its offset values
+    // Store our pixmap array
     QList<QPixmap> mFrames;
+    // Store our pixmap offset values
     QList<QPointF> mHotspots;
-    // The current frame
+    // The current frame number
     int mCurrentFrame;
 
-    // Theme data
+    // Sprite advance period [ms]
     int mAdvancePeriod;
-    int mDelay;
+    // Card width
     double mWidth;
+    // Suite of card
     Suite mSuite;
+    // Type of card
     CardType mCardType;
 
-    /** The position of the sprite [rel 0..1, rel 0..1]
-     */
+    // The position of the sprite [rel 0..1, rel 0..1]
     QPointF mStart;
-
 
 };
 

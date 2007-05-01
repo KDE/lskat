@@ -38,66 +38,69 @@
 #include "scoresprite.h"
 
 
-
-// Delay in canvas update cycle for each card in shuffling
-#define TIME_DELAY_SHUFFLE        5 /* in canvas cycles */
-#define TIME_DELAY_AFTER_SHUFFLE  5 /* Extra delay after shuffling */
+// Display defines
+#define TIME_DELAY_SHUFFLE       100 /* Delay time in shuffling in [ms] */
+#define TIME_DELAY_AFTER_SHUFFLE 100 /* Extra delay after shuffling [ms] */
 
 
 // Constructor for the engine
-DisplayTwo::DisplayTwo(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod, QGraphicsView* parent)
-    : Themable("display_two",theme), AbstractDisplay(deck, scene, theme, advancePeriod, parent)
+DisplayTwo::DisplayTwo(Deck* deck, QGraphicsScene* theScene, ThemeManager* theme,
+                       int advancePeriod, QGraphicsView* parent)
+          : Themable("display_two",theme), AbstractDisplay(deck, theScene, theme, advancePeriod, parent)
 
 {
   // Choose a background color
-  mCanvas->setBackgroundBrush(QColor(0,0,128));
+  scene()->setBackgroundBrush(QColor(0,0,128));
 
   // Create move icon
-  mMoveSprites[0] = new PixmapSprite("moveicon0", mTheme, mAdvancePeriod, 0, mCanvas);
+  mMoveSprites[0] = new PixmapSprite("moveicon0", mTheme, mAdvancePeriod, 0, scene());
   if (!mMoveSprites[0]) kFatal() << "Cannot load sprite " << "moveicon" << endl;
   mSprites.append(mMoveSprites[0]);
 
-  mMoveSprites[1] = new PixmapSprite("moveicon1", mTheme, mAdvancePeriod, 1, mCanvas);
+  mMoveSprites[1] = new PixmapSprite("moveicon1", mTheme, mAdvancePeriod, 1, scene());
   if (!mMoveSprites[1]) kFatal() << "Cannot load sprite " << "moveicon" << endl;
   mSprites.append(mMoveSprites[1]);
 
   // Create score board
-  mScoreBoard[0] = new ScoreSprite("scoreboard0", mTheme, mAdvancePeriod, 0, mCanvas);
+  mScoreBoard[0] = new ScoreSprite("scoreboard0", mTheme, mAdvancePeriod, 0, scene());
   if (!mScoreBoard[0]) kFatal() << "Cannot load sprite " << "scoreboard0" << endl;
   mSprites.append(mScoreBoard[0]);
 
-  mScoreBoard[1] = new ScoreSprite("scoreboard1", mTheme, mAdvancePeriod, 1, mCanvas);
+  mScoreBoard[1] = new ScoreSprite("scoreboard1", mTheme, mAdvancePeriod, 1, scene());
   if (!mScoreBoard[1]) kFatal() << "Cannot load sprite " << "scoreboard0" << endl;
   mSprites.append(mScoreBoard[1]);
 
-  mCardArea[0] = new PixmapSprite("cardarea0", mTheme, mAdvancePeriod, 0, mCanvas);
+  // Create card area
+  mCardArea[0] = new PixmapSprite("cardarea0", mTheme, mAdvancePeriod, 0, scene());
   if (!mCardArea[0]) kFatal() << "Cannot load sprite " << "cardarea0" << endl;
   mSprites.append(mCardArea[0]);
 
-  mCardArea[1] = new PixmapSprite("cardarea1", mTheme, mAdvancePeriod, 1, mCanvas);
+  mCardArea[1] = new PixmapSprite("cardarea1", mTheme, mAdvancePeriod, 1, scene());
   if (!mCardArea[1]) kFatal() << "Cannot load sprite " << "cardarea1" << endl;
   mSprites.append(mCardArea[1]);
 
-  mPlayArea = new PixmapSprite("playarea", mTheme, mAdvancePeriod, 0, mCanvas);
+  // Create play area
+  mPlayArea = new PixmapSprite("playarea", mTheme, mAdvancePeriod, 0, scene());
   if (!mPlayArea) kFatal() << "Cannot load sprite " << "playarea" << endl;
   mSprites.append(mPlayArea);
 
-  mText[0] = new TextSprite("scoretext0", mTheme, mCanvas);
+  // Create text sprites
+  mText[0] = new TextSprite("scoretext0", mTheme, scene());
   if (!mText[0]) kFatal() << "Cannot load sprite " << "scoretext0" << endl;
   mSprites.append(mText[0]);
 
-  mText[1] = new TextSprite("scoretext1", mTheme, mCanvas);
+  mText[1] = new TextSprite("scoretext1", mTheme, scene());
   if (!mText[1]) kFatal() << "Cannot load sprite " << "scoretext1" << endl;
   mSprites.append(mText[1]);
 
-  mText[2] = new TextSprite("resulttext", mTheme, mCanvas);
+  mText[2] = new TextSprite("resulttext", mTheme, scene());
   if (!mText[2]) kFatal() << "Cannot load sprite " << "resulttext" << endl;
   mSprites.append(mText[2]);
 
     // Redraw
   if (theme) theme->updateTheme(this);
-  
 }
+
 
 // Called by thememanager when theme or theme geometry changes. Redraw and resize
 // this display.
@@ -108,10 +111,11 @@ void DisplayTwo::changeTheme()
 
   // Retrieve background pixmap
   QString bgsvgid = config.readEntry("background-svgid");
-  QPixmap pixmap  = thememanager()->getPixmap(bgsvgid, mCanvas->sceneRect().size().toSize());
-  mCanvas->setBackgroundBrush(pixmap);
+  QPixmap pixmap  = thememanager()->getPixmap(bgsvgid, scene()->sceneRect().size().toSize());
+  scene()->setBackgroundBrush(pixmap);
   mView->update();
 }
+
 
 // Start display
 void DisplayTwo::start()
@@ -123,6 +127,7 @@ void DisplayTwo::start()
     sprite->stop();
   }
 
+  // Hide or show sprites
   mMoveSprites[0]->hide();
   mMoveSprites[1]->hide();
   mScoreBoard[0]->show();
@@ -145,7 +150,6 @@ void DisplayTwo::updatePlayer(Player* player)
   mScoreBoard[id]->setPoints(player->points());
   mScoreBoard[id]->setScore(player->score());
   mScoreBoard[id]->setGames(player->wonGames(), player->games());
-//  mScoreBoard[id]->setTurn();
   mScoreBoard[id]->setInput(player->input()->type());
   mScoreBoard[id]->setTrump(player->trump());
 }
@@ -202,8 +206,8 @@ void DisplayTwo::deal(Player* player, int position)
         sprite->setZValue(50-10*h);
         sprite->setPosition(deck_pos);
         sprite->show();
-        int delay = position + 2*x + 8*y + 16*(1-h);
-        delay *=  TIME_DELAY_SHUFFLE; // [canvas cycles]
+        double delay = position + 2*x + 8*y + 16*(1-h);
+        delay *=  TIME_DELAY_SHUFFLE; // [ms]
         // Move to the target position. The setPos is started with
         // a little delay and depending on the last argument the
         // backside or frontside is shown after the setPos
@@ -218,7 +222,7 @@ void DisplayTwo::deal(Player* player, int position)
 // Returns the time in milliseconds used for shuffling the initial cards
 int DisplayTwo::shuffleTime()
 {
-  return 32*TIME_DELAY_SHUFFLE*mAdvancePeriod + TIME_DELAY_AFTER_SHUFFLE*mAdvancePeriod;
+  return 32*TIME_DELAY_SHUFFLE + TIME_DELAY_AFTER_SHUFFLE;
 }
 
 
@@ -279,6 +283,7 @@ void DisplayTwo::calcXYFromNumber(int cardNumber, int& x, int& y)
   x = cardNumber % 4;
   y = cardNumber / 4;
 }
+
 
 // Get a cardsprite given the card value
 CardSprite* DisplayTwo::getCardSprite(int cardValue)
@@ -351,6 +356,7 @@ void DisplayTwo::remove(int winnerPosition, int cardNumber, int delta)
   sprite->setRemove(pos, remove_time);
 }
 
+
 // Display a text on the game board.
 void DisplayTwo::showText(QString s)
 {
@@ -387,5 +393,6 @@ void DisplayTwo::showMove(int no)
     mMoveSprites[no]->show();
   }
 }
+
 
 #include "display_two.moc"

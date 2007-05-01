@@ -34,14 +34,15 @@
 #include "cardsprite.h"
 #include "textsprite.h"
 
-#define WAIT_CNT       100  /* Wait this * timer ms */
+#define WAIT_CNT       100  /* Wait this [ms] before clearing board */
 
-// Constructor for the engine
-DisplayIntro::DisplayIntro(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod, QGraphicsView* parent)
-    : Themable("display_intro",theme), AbstractDisplay(deck, scene, theme, advancePeriod, parent)
+// Constructor for the display
+DisplayIntro::DisplayIntro(Deck* deck, QGraphicsScene* theScene, ThemeManager* theme,
+                           int advancePeriod, QGraphicsView* parent)
+            : Themable("display_intro",theme), AbstractDisplay(deck, theScene, theme, advancePeriod, parent)
 {
   // Choose a background color
-  mCanvas->setBackgroundBrush(QColor(0,0,128));
+  scene()->setBackgroundBrush(QColor(0,0,128));
 
   mTimer = new QTimer(this);
   connect(mTimer, SIGNAL(timeout()), this, SLOT(loop()));
@@ -50,6 +51,7 @@ DisplayIntro::DisplayIntro(Deck* deck, QGraphicsScene* scene, ThemeManager* them
    // Redraw
   if (theme) theme->updateTheme(this);
 }
+
 
 // Called by thememanager when theme or theme geometry changes. Redraw and resize
 // this display.
@@ -60,10 +62,11 @@ void DisplayIntro::changeTheme()
   
   // Retrieve background pixmap
   QString bgsvgid = config.readEntry("background-svgid");
-  QPixmap pixmap  = thememanager()->getPixmap(bgsvgid, mCanvas->sceneRect().size().toSize());
-  mCanvas->setBackgroundBrush(pixmap);
+  QPixmap pixmap  = thememanager()->getPixmap(bgsvgid, scene()->sceneRect().size().toSize());
+  scene()->setBackgroundBrush(pixmap);
   mView->update();
 }
+
 
 // Start the intro.
 void DisplayIntro::start()
@@ -72,32 +75,37 @@ void DisplayIntro::start()
   mState   = Putting;
   mTimer->start(50);
 
-  QString s1 = i18n("Lieutenant Skat");
-  QString s2 = i18n("for");
-  QString s3 = i18n("K D E");
+  QString s1 = i18nc("Title of the game - line 1", "Lieutenant Skat");
+  QString s2 = i18nc("Title of the game - line 2", "for");
+  QString s3 = i18nc("Title of the game - line 3", "K D E");
 
-  // Text sprite
-  TextSprite* text1a = new TextSprite(s1, "name-front", mTheme, mCanvas);
+  // Text sprite title foreground
+  TextSprite* text1a = new TextSprite(s1, "name-front", mTheme, scene());
   mSprites.append(text1a);
   text1a->show();
 
-  TextSprite* text1b = new TextSprite(s1, "name-back", mTheme, mCanvas);
+  // Text sprite title background
+  TextSprite* text1b = new TextSprite(s1, "name-back", mTheme, scene());
   mSprites.append(text1b);
   text1b->show();
 
-  TextSprite* text2a = new TextSprite(s2, "for-front", mTheme, mCanvas);
+  // Text sprite title foreground
+  TextSprite* text2a = new TextSprite(s2, "for-front", mTheme, scene());
   mSprites.append(text2a);
   text2a->show();
 
-  TextSprite* text2b = new TextSprite(s2, "for-back", mTheme, mCanvas);
+  // Text sprite title background
+  TextSprite* text2b = new TextSprite(s2, "for-back", mTheme, scene());
   mSprites.append(text2b);
   text2b->show();
 
-  TextSprite* text3a = new TextSprite(s3, "kde-front", mTheme, mCanvas);
+  // Text sprite title foreground
+  TextSprite* text3a = new TextSprite(s3, "kde-front", mTheme, scene());
   mSprites.append(text3a);
   text3a->show();
 
-  TextSprite* text3b = new TextSprite(s3, "kde-back", mTheme, mCanvas);
+  // Text sprite title background
+  TextSprite* text3b = new TextSprite(s3, "kde-back", mTheme, scene());
   mSprites.append(text3b);
   text3b->show();
 
@@ -108,12 +116,15 @@ void DisplayIntro::start()
   }
 }
 
+
+// Animation loop
 void DisplayIntro::loop()
 {
   int no = mCards.size();
   // Catch no card error
   if (no<1) return;
 
+  // Retrieve theme data
   KConfigGroup cardconfig = thememanager()->config("card");
   double card_width       = cardconfig.readEntry("width", 1.0);
   KConfigGroup config     = thememanager()->config(id());
@@ -123,7 +134,6 @@ void DisplayIntro::loop()
   double time_clear_out   = config.readEntry("time-clear-out", 1.0);
   double aspectRatio      = thememanager()->aspectRatio();
 
-  // Sizes
   // Display a card
   if (mAnimCnt < no && mState == Putting)
   {
@@ -149,31 +159,37 @@ void DisplayIntro::loop()
     sprite->show();
     mAnimCnt++;
   }
+  // Change state to turning
   else if (mState == Putting)
   {
     mState   = Turning;
     mAnimCnt = 0;
   }
+  // Turn cards
   else if (mAnimCnt < no && mState == Turning)
   {
     CardSprite* sprite = mCards[mAnimCnt];
     sprite->setTurning(true);
     mAnimCnt++;
   }
+  // Change state to waiting
   else if (mState == Turning)
   {
     mState   = Waiting;
     mAnimCnt = 0;
   }
+  // Wait
   else if (mAnimCnt < WAIT_CNT && mState == Waiting)
   {
     mAnimCnt++;
   }
+  // Change state to clearing the board
   else if (mState == Waiting)
   {
     mState   = Clearing;
     mAnimCnt = 0;
   }
+  // Clear the board, step 1
   else if (mAnimCnt == 0 && mState == Clearing)
   {
     for (int i=0; i<no; i++)
@@ -183,10 +199,12 @@ void DisplayIntro::loop()
     }
     mAnimCnt++;
   }
+  // Clear the board, step 2
   else if (mAnimCnt < 30 && mState == Clearing)
   {
     mAnimCnt++;
   }
+  // Clear the board, step 3 and change state to waiting
   else if (mState == Clearing)
   {
     for (int i=0; i<no; i++)
@@ -200,10 +218,12 @@ void DisplayIntro::loop()
     mState = Waiting2;
     mAnimCnt = 0;
   }
+  // Wait
   else if (mAnimCnt < WAIT_CNT && mState == Waiting2)
   {
     mAnimCnt++;
   }
+  // Restart cycle
   else if (mState == Waiting2)
   {
     for (int i=0; i<no; i++)
@@ -217,7 +237,6 @@ void DisplayIntro::loop()
   }
 
 }
-
 
 
 #include "display_intro.moc"

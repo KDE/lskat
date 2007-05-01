@@ -41,7 +41,7 @@
 #include "thememanager.h"
 
 // Forward declararion
-class CanvasView;
+class GameView;
 class Deck;
 class AbstractEngine;
 class AbstractDisplay;
@@ -51,12 +51,10 @@ class QGraphicsScene;
 
 using namespace InputDevice;
 
-/**
- * The main application window.
+/** The main application window.
  */
 class Mainwindow : public KXmlGuiWindow
 {
-
   Q_OBJECT
 
   public:
@@ -135,7 +133,7 @@ class Mainwindow : public KXmlGuiWindow
      */
     void startGame();
 
-    /** Set the start player.
+    /** Set-up the start player.
      *  @param no The start player.
      */
     void setStartPlayer(int no);
@@ -168,17 +166,17 @@ class Mainwindow : public KXmlGuiWindow
 
   private:
     // Attributes not to be saved
-    /** The game engine */
+    // The game engine 
     AbstractEngine* mEngine;
-    /** The game display */
+    // The game display 
     AbstractDisplay* mDisplay;
-    /** The main view */
-    CanvasView* mView;
-    /** The card deck */
+    // The main view 
+    GameView* mView;
+    // The card deck 
     Deck* mDeck;
-    /** LSkat config */
+    // LSkat config 
     ConfigTwo* mLSkatConfig;
-    /** The graphics scene */
+    // The graphics scene 
     QGraphicsScene* mCanvas;
     // The theme manager used
     ThemeManager* mTheme;
@@ -187,13 +185,13 @@ class Mainwindow : public KXmlGuiWindow
 
 
     // Properties to be saved
-    /** The cards directory */
+    // The cards directory 
     QString mCardDir;
-    /** The card deck backside */
+    // The card deck backside 
     QString mDeckGrafix;
-    /** Current game mode (Intro, LSkat, ...) */
+    // Current game mode (Intro, LSkat, ...) 
     GameMode mGameMode;
-    /** Who starts the next game round */
+    // Who starts the next game round/
     int mStartPlayer;
 };
 

@@ -26,14 +26,11 @@
 // KDE includes
 #include <kdebug.h>
 
-// local includes
+// Local includes
 #include "abstractinput.h"
 
-// Forward declaration
 
-
-/**
- * Mouse input device
+/** Mouse input device
  */
 class MouseInput : public AbstractInput
 {
@@ -52,15 +49,18 @@ class MouseInput : public AbstractInput
 
   public slots:  
     /** Recevied a mouse press event 
-     *  @param x x position
-     *  @param y y position
-     */
+      * @param x x position
+      * @param y y position
+      */
     void mousePress(QPoint point);
 
   signals:  
-    /** Convert mouse coordinate *
-    */
-    void signalConvertMousePress(QPoint mouse, int& position, int &number);
+    /** Convert mouse coordinate. 
+      * @param mouse The mouse position [screen coordinates]
+      * @param playerNumber The player number [0-1]
+      * @param cardNumber   The card number [0-7]
+      */
+    void signalConvertMousePress(QPoint mouse, int& playerNumber, int &cardNumber);
 };
 
 #endif

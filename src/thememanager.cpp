@@ -38,20 +38,22 @@
 #include "lskatglobal.h"
 #include "deck.h"
 
+
+// SVG id for accessing the backside of a card
 #define CARDBACK_SVGID "back"
 
 // Constructor for the theme manager
 ThemeManager::ThemeManager(QString cards, QString deck, QString themefile, QObject* parent, int initialSize)
     : QObject(parent)
 {
-  mScale = initialSize;
-  mAspectRatio = 1.0;
+  mScale           = initialSize;
+  mAspectRatio     = 1.0;
   mCardAspectRatio = 1.0;
-  mCardFile = cards;
-  mDeckFile = deck;
-  mRenderer = 0;
-  mCardRenderer = 0;
-  mDeckRenderer = 0;
+  mCardFile        = cards;
+  mDeckFile        = deck;
+  mRenderer        = 0;
+  mCardRenderer    = 0;
+  mDeckRenderer    = 0;
 
   // updateTheme(themefile);
   updateCardTheme(themefile, cards, deck);
@@ -230,6 +232,7 @@ KConfigGroup ThemeManager::config(QString id)
 }
 
 
+// Convert 'old' cardnumber [1-31] to SVG id of SVG card files
 QString ThemeManager::calcCardSVGId(int no)
 {
     const static char *ids[] = { "back",
@@ -250,6 +253,8 @@ QString ThemeManager::calcCardSVGId(int no)
   return QString(ids[no]);
 }
 
+
+// Get the pixmap for a card , given suite, type and the desired card width in pixel
 const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
 {
   // Card no
@@ -298,6 +303,8 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
   }
 }
 
+
+// Get the pixmap for a card back, given the desired card width in pixel
 const QPixmap ThemeManager::getCardback(double width)
 {
   QPixmap pm;
@@ -375,11 +382,13 @@ const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, QString svgid, QSi
   return pixmap;
 }
 
+
 // Get a pixmap when its size is given (this can distort the image)
 const QPixmap ThemeManager::getPixmap(QString svgid, QSize size)
 {
   return getPixmap(mRenderer, svgid, size);
 }
+
 
 // Get a pixmap when only width is given (this keeps the aspect ratio)
 const QPixmap ThemeManager::getPixmap(QString svgid, double width)

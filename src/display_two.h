@@ -28,7 +28,7 @@
 // KDE includes
 #include <kdebug.h>
 
-// local includes
+// Local includes
 #include "abstractdisplay.h"
 #include "thememanager.h"
 #include "deck.h"
@@ -40,8 +40,7 @@ class ScoreSprite;
 class TextSprite;
 
 
-/**
- * The display engine for a two player game.
+/** The display engine for a two player game.
  */
 class DisplayTwo : public AbstractDisplay, public virtual Themable
 {
@@ -49,9 +48,10 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
 
   public:
     /** Constructor for the engine
-     *  @param grafixDir The grafic directory
      *  @param deck The card deck
      *  @param scene The graphics scene to work with
+     *  @param theme The theme manager
+     *  @param advancePeriod The advance period [ms]
      *  @param parent The parent object
      */
     DisplayTwo(Deck* deck, QGraphicsScene* scene, ThemeManager* mTheme, int advancePeriod,  QGraphicsView* parent);
@@ -64,7 +64,6 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
       * display.
       */
     virtual void changeTheme();
-
 
     /* Init a player on a given position. Create sprites etc.
      * @param player The player object
@@ -95,7 +94,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
   
     /** Returns the time in milliseconds used for shuffling the
      *  initial cards.
-     *  @return The time in milliseconds.
+     *  @return The time in milliseconds [ms].
      */
     int shuffleTime();
 
@@ -119,26 +118,44 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
     /** Convert the position of a mouse click to a logical
       * game position, that is position (up/down) and a 
       * card number (0-7)
+      * @param mouse        The mouse coordinates [screen coordinates]
+      * @param playerNumber The resulting player number [0-1]
+      * @param cardNumber   The resulting card number [0-7]
       */
     void convertMousePress(QPoint mouse, int& playerNumber, int& cardNumber);
 
+    /** Connect a player with the score widget by setting the player properties
+      * to the score board.
+      * @param player The player to set
+      */
     void updatePlayer(Player*);
 
   protected:
+    /** Calculate the x,y position values from a card number.
+      * @param cardNumber The card number [0-7]
+      * @param x          The board x coordinate [0-3]
+      * @param y          The board y coordinate [0-1]
+      */
     void calcXYFromNumber(int cardNumber, int& x, int& y);
-    CardSprite* getCardSprite(int cardValue);
-    CardSprite* getCardSprite(int position, int h, int cardNumber);
-    CardSprite* getCardSprite(int position, int h, int y, int x);
 
+    /** Get a card sprite for a card value.
+      * @param The card value [0-31]
+      * @return The sprite.
+      */
+    CardSprite* getCardSprite(int cardValue);
 
   private:
-    /** Pixmap for movement sprite */
+    // Pixmap for movement sprite 
     QPixmap* mMovePixmap;
+    // Store all move sprites
     QHash<int,PixmapSprite*> mMoveSprites;
-       // The score sprite
+    // The score sprites
     ScoreSprite*  mScoreBoard[2];
+    // The card area background sprites
     PixmapSprite* mCardArea[2];
+    // The play area background sprite
     PixmapSprite* mPlayArea;
+    // The text sprites
     TextSprite*   mText[3];
 };
 

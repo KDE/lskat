@@ -36,9 +36,9 @@ class ThemeManager;
 
 /**
  * The view object which shows the graphics in a
- * canvas view.
+ * Qt graphics view.
  */
-class CanvasView : public QGraphicsView
+class GameView : public QGraphicsView
 {
   Q_OBJECT
 
@@ -47,12 +47,13 @@ class CanvasView : public QGraphicsView
      *  @param size The canvas fixed size
      *  @param advancePeriod The canvas advance period
      *  @param scene The graphics scene
+     *  @param theme The theme manager
      *  @param parent The parent window
      */
-    CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent = 0);
+    GameView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent = 0);
 
  protected:
-    /** React to mouse clicks
+    /** React to mouse clicks.
      *  @param ev The mouse event
      */
     void mousePressEvent(QMouseEvent *event);
@@ -64,11 +65,14 @@ class CanvasView : public QGraphicsView
     void updateAndAdvance();
 
   signals:
+    /** Emit the signal on mouse clicks.
+      * @param point The mouse coordinate.
+      */
     void signalLeftMousePress(QPoint point);
 
   protected:
     /**
-     * Will be called by the Qt CanvasView when its contents
+     * Will be called by the Qt View when its contents
      * are resized. We adapt the canvas then.
      * @param e The resize event
      */

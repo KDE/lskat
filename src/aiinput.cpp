@@ -26,6 +26,7 @@
 #include <kdebug.h>
 
 // Local includes
+#include "lskatglobal.h"
 #include "aiinput.h"
 #include "player.h"
 #include "deck.h"
@@ -38,6 +39,7 @@ AiInput::AiInput(EngineTwo* engine, QObject* parent)
   // Store engine
   mEngine = engine;
 }
+
 
 // Allow or disallow input with this device 
 void AiInput::setInputAllowed(bool allowed)
@@ -53,8 +55,8 @@ void AiInput::aiTurn()
   // Turn was stopped meanwhile
   if (!mInputAllowed) return;
 
-  kDebug() << "==================================================="<<endl;
-  kDebug() << "AI TURN START " <<mInputAllowed<< endl;
+  if (global_debug > 5) kDebug() << "==================================================="<<endl;
+  if (global_debug > 5) kDebug() << "AI TURN START " <<mInputAllowed<< endl;
 
   // Check we are the right player
   if (mId != mEngine->currentPlayer())
@@ -70,19 +72,19 @@ void AiInput::aiTurn()
   // Initiate move
   if (mEngine->currentMovePhase() == EngineTwo::FirstPlayerTurn)
   {
-    kDebug() << "Performing initiual move "<<mId << endl;
+    if (global_debug > 5) kDebug() << "Performing initiual move "<<mId << endl;
     move = initiateMove(mId, board);
   }
   // Respond to move
   else
   {
-    kDebug() << "Performing answer move "<<mId << endl;
+    if (global_debug > 5) kDebug() << "Performing answer move "<<mId << endl;
     move = answerMove(mId, board);
   }
 
 
   // Send out move
-  kDebug() << "AI player " << mId << " moves to " << move.move << endl;
+  if (global_debug > 5) kDebug() << "AI player " << mId << " moves to " << move.move << endl;
   if (move.move>=0) emit signalPlayerInput(mId, mId, move.move);
   else kError() << "Illegal AI Move ??? " << endl;
 }
@@ -158,11 +160,11 @@ AiInput::Move AiInput::initiateMove(int p, const AiInput::Board& board)
     if (card < 0) continue; // Illegal move
     // Store move
     current.playedCard = card;
-    kDebug() << "First mover try move on " << m << " ("<<Deck::name(card) <<endl;
+    if (global_debug > 5) kDebug() << "First mover try move on " << m << " ("<<Deck::name(card) <<endl;
     AiInput::Move answer = answerMove(1-p, current);
     // Negate answering moves value to get our rating
     double rating = -answer.value;
-    kDebug() << "First mover yields rating of " << rating << endl;
+    if (global_debug > 5) kDebug() << "First mover yields rating of " << rating << endl;
     // New best move?
     if (rating > maxMove.value)
     {
@@ -173,6 +175,7 @@ AiInput::Move AiInput::initiateMove(int p, const AiInput::Board& board)
   
   return maxMove;
 }
+
 
 // Answer a move as second player
 AiInput::Move AiInput::answerMove(int p, const AiInput::Board& board)
@@ -203,9 +206,10 @@ AiInput::Move AiInput::answerMove(int p, const AiInput::Board& board)
 
     // Check move winner
     int winner = mEngine->whoWonMove(current.playedCard, card);
-    kDebug() << "   Card " << m<< " (" << Deck::name(card) << ") is valid " 
-              << " countering " << Deck::name(current.playedCard)<<" with "
-              << " winner (0:other, 1:we) " << winner << endl;
+    if (global_debug > 5)
+      kDebug() << "   Card " << m<< " (" << Deck::name(card) << ") is valid " 
+                << " countering " << Deck::name(current.playedCard)<<" with "
+                << " winner (0:other, 1:we) " << winner << endl;
     int deltaPoints = 0;
     deltaPoints += Deck::getCardValue(current.playedCard);
     deltaPoints += Deck::getCardValue(card);
@@ -223,9 +227,10 @@ AiInput::Move AiInput::answerMove(int p, const AiInput::Board& board)
     double rating = evaluteGame(p, current);
 
 
-    kDebug() << "   Points after 2nd move "<<m<<" would be we: " 
-              << current.points[p] << " other: " << current.points[1-p] 
-              << " rating is thus " << rating << endl;
+    if (global_debug > 5)
+      kDebug() << "   Points after 2nd move "<<m<<" would be we: " 
+                << current.points[p] << " other: " << current.points[1-p] 
+                << " rating is thus " << rating << endl;
     // New best move?
     if (rating > maxMove.value)
     {
@@ -252,5 +257,6 @@ AiInput::Board::Board(const AiInput::Board& board)
    whoseTurn = board.whoseTurn;
    firstPlay = board.firstPlay;     
 }
+
 
 #include "aiinput.moc"

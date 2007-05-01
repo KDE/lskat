@@ -50,9 +50,9 @@ class AbstractDisplay : public QObject
 
   public:
     /** Constructor for the engine
-     *  @param grafixDir The grafic directory
      *  @param deck The card deck
      *  @param scene The graphics scene to work with
+     *  @param theme The theme manager
      *  @param advancePeriod The advance period [ms]
      *  @param parent The parent object
      */
@@ -77,19 +77,15 @@ class AbstractDisplay : public QObject
 
     /** Play a card on the display. The card is moved from
      *  its current position to the card deposit.
-     * @param playerNumber  The player number
-     * @param height Top (0) or bottm (1) card
-     * @param cardNumber The card number (0-7)
-     * @param playerNumber The player number (0-1)
+     * @param cardNumber  The card number [0-7 ]
+     * @param playerNumber  The player number [0-1]
      * @param phase Movement phase (1st part, 2nd part, etc) [optional]
      */
     virtual void play(int cardNumber, int playerNumber, int phase) = 0;
 
     /** Turn a card on the display. The card is flipped backside
      *  to frontside.
-     * @param playerNumber  The player number
-     * @param height Top (0) or bottm (1) card
-     * @param cardNumber The card number (0-7)
+     * @param cardNumber The card number [0-7]
      */
     virtual void turn(int cardNumber) = 0;
 
@@ -103,15 +99,18 @@ class AbstractDisplay : public QObject
     /** Retrieve the graphics scene of this display.
      *  @return The QGraphicsScene of this display.
      */
-    QGraphicsScene* canvas() {return  mCanvas;} 
+    QGraphicsScene* scene() {return  mScene;} 
 
   
   public slots:
-    virtual void convertMousePress(QPoint mouse, int& position, int& number) = 0;
+    /** Convert the mouse position to a card number for one of the players.
+      * @param mouse        The mouse coordinates [screen coordinates]
+      * @param playerNumber The resulting player number [0-1]
+      * @param cardNumber   The resulting card number [0-7]
+      */
+    virtual void convertMousePress(QPoint mouse, int& playerNumber, int& cardNumber) = 0;
 
-  protected:
-    /** Create the sprites for all possible cards and store them
-      * here.
+    /** Load all card sprites.
       */
     virtual void createCardSprites();
 
@@ -120,10 +119,10 @@ class AbstractDisplay : public QObject
     /** The card deck */
     Deck* mDeck;
     /** The work canvas */
-    QGraphicsScene* mCanvas;
+    QGraphicsScene* mScene;
     // The graphics view
     QGraphicsView* mView;
-    /** Canvas advance period */
+    /** Canvas advance period [ms]*/
     int mAdvancePeriod;
     /** Text sprite list */
     QList<QGraphicsItem*> mSprites;

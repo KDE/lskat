@@ -57,10 +57,6 @@ class NameDialogWidget : public QDialog
      */
     QString name(int pos); 
 
-
-  public slots:  
-
-
   private:
     // The UI dialog
     NameDialog ui;

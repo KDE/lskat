@@ -27,19 +27,30 @@
 #include "thememanager.h"
 
 
-/**
- * The sprite for a card on the canvas.
+/** The sprite for a text on the canvas.
  */
 class TextSprite : public QGraphicsTextItem, public virtual Themable
 {
 
   public:
     /** Constructor for the sprite.
-     *  @param parent The parent canvas
-     */
+      * @param text   The  text to display
+      * @param id     The theme id for the text
+      * @param theme  The theme manager
+      * @parma scene  The graphics scene to use
+      */
     TextSprite(QString text, QString id, ThemeManager* theme, QGraphicsScene* scene);
+
+    /** Constructor for the sprite.
+      * @param id     The theme id for the text
+      * @param theme  The theme manager
+      * @parma scene  The graphics scene to use
+      */
     TextSprite(QString id, ThemeManager* theme, QGraphicsScene* scene);
 
+    /** Set a new text to the sprite.
+      * @param text The text to display
+      */
     void setText(QString text);
 
     /** Main theme manager function. Called when any theme change like
@@ -47,9 +58,6 @@ class TextSprite : public QGraphicsTextItem, public virtual Themable
       * resiez and redraw then.
       */
     virtual void changeTheme();
-
-  private:
-    
 
 };
 

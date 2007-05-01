@@ -22,12 +22,13 @@
 
 // KDE includes
 #include <kdebug.h>
+#include <klocale.h>
 
 // Local includes
 #include "config_two.h"
 
 
-// Constructor for the engine
+// Constructor for the configuration
 ConfigTwo::ConfigTwo(QObject* parent)
          : QObject(parent)
 {
@@ -41,13 +42,14 @@ ConfigTwo::ConfigTwo(QObject* parent)
 // Resets the data
 void ConfigTwo::reset()
 {
-  mPlayers[0]->setName("Alice"); 
-  mPlayers[1]->setName("Bob"); 
+  mPlayers[0]->setName(i18nc("Default player name", "Alice")); 
+  mPlayers[1]->setName(i18nc("Default player name","Bob")); 
 
   // Default input types (must be after GUI and players)
   setInputType(0, TypeMouseInput);
   setInputType(1, TypeAiInput);
 }
+
 
 // Destructor
 ConfigTwo::~ConfigTwo()
@@ -61,6 +63,7 @@ ConfigTwo::~ConfigTwo()
   }
   mPlayers.clear();
 }
+
 
 // Save properties
 void ConfigTwo::save(KConfig *cfg)
@@ -105,6 +108,7 @@ void ConfigTwo::load(KConfig* cfg)
   }
 }
 
+
 // Retrieve a player.
 Player* ConfigTwo::player(int no)
 {
@@ -112,7 +116,8 @@ Player* ConfigTwo::player(int no)
   return mPlayers[no];
 }
 
-// Retrieve player has iterator
+
+// Retrieve player as iterator
 QHashIterator<int,Player*> ConfigTwo::playerIterator()
 {
   QHashIterator<int,Player*> it(mPlayers);
@@ -126,11 +131,13 @@ InputDeviceType ConfigTwo::inputType(int no)
   return mInputTypes[no];
 }
 
+
 // Set the input type for a given players
 void ConfigTwo::setInputType(int no, InputDeviceType type)
 {
   mInputTypes[no] = type;
   emit signalInputType(no, type);
 }
+
 
 #include "config_two.moc"

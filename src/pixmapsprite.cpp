@@ -31,6 +31,7 @@
 // Local includes
 #include "pixmapsprite.h"
 
+
 // Constructor for the sprite
 PixmapSprite::PixmapSprite(QString id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* canvas)
     :  Themable(id, theme), QGraphicsPixmapItem(0, canvas)

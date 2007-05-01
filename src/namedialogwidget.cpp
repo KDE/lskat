@@ -22,18 +22,19 @@
 #include <QWidget>
 
 // KDE includes
-#include <klocale.h>
 #include <kdebug.h>
 
 // Local includes
 #include "namedialogwidget.h"
 
-// Constructor for the view
+
+// Constructor for the widget
 NameDialogWidget::NameDialogWidget(QWidget* parent)
                   : QDialog(parent)
 {
   ui.setupUi(this);
 }
+
 
 // Set a default names to the widget
 void NameDialogWidget::setName(int pos, QString name)
@@ -48,6 +49,7 @@ void NameDialogWidget::setName(int pos, QString name)
   }
 }
 
+
 // Retrieve the name from the widget.
 QString NameDialogWidget::name(int pos)
 {
@@ -60,8 +62,5 @@ QString NameDialogWidget::name(int pos)
     return ui.editPlayer2->text();
   }
 }
-
-
-
 
 #include "namedialogwidget.moc"

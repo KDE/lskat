@@ -33,6 +33,7 @@
 // Local includes
 #include "scoresprite.h"
 
+
 // Constructor for the score sprite
 ScoreSprite::ScoreSprite(QString id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene)
            :  Themable(id, theme), PixmapSprite(advancePeriod, no, scene)
@@ -51,9 +52,6 @@ ScoreSprite::ScoreSprite(QString id, ThemeManager* theme, int advancePeriod, int
   if (!mTrump) kFatal() << "Cannot load sprite " << "scoretrump" << endl;
   mTrump->setParentItem(this);
   mTrumpFrame = 0;
-
-  // Default turn is nobody
-  mTurn  = -1;
 
   // Redraw us
   if (theme) theme->updateTheme(this);
@@ -87,22 +85,20 @@ void ScoreSprite::changeTheme()
 
   // Retrieve theme data
   KConfigGroup config = thememanager()->config(id());
-  QPointF posName    = config.readEntry("posName", QPointF(1.0,1.0));
-  QPointF posPoints  = config.readEntry("posPoints", QPointF(1.0,1.0));
-  QPointF posScore   = config.readEntry("posScore", QPointF(1.0,1.0));
-  QPointF posGames   = config.readEntry("posGames", QPointF(1.0,1.0));
-//  QPointF posInput   = config.readEntry("posInput", QPointF(1.0,1.0));
- // QPointF posTrump   = config.readEntry("posTrump", QPointF(1.0,1.0));
+  QPointF posName     = config.readEntry("posName", QPointF(1.0,1.0));
+  QPointF posPoints   = config.readEntry("posPoints", QPointF(1.0,1.0));
+  QPointF posScore    = config.readEntry("posScore", QPointF(1.0,1.0));
+  QPointF posGames    = config.readEntry("posGames", QPointF(1.0,1.0));
 
   // Calculate proper font size
   double fontHeightPoints = config.readEntry("fontHeightPoints", 1.0);
-  fontHeightPoints *= height;
-  double fontHeight = config.readEntry("fontHeight", 1.0);
-  fontHeight *= height;
-  double fontWidthUpper = config.readEntry("fontWidthUpper", 1.0);
-  double fontWidthLower = config.readEntry("fontWidthLower", 1.0);
-  fontWidthUpper *= width;
-  fontWidthLower *= width;
+  fontHeightPoints       *= height;
+  double fontHeight       = config.readEntry("fontHeight", 1.0);
+  fontHeight             *= height;
+  double fontWidthUpper   = config.readEntry("fontWidthUpper", 1.0);
+  double fontWidthLower   = config.readEntry("fontWidthLower", 1.0);
+  fontWidthUpper         *= width;
+  fontWidthLower         *= width;
 
   
   // Retrieve font color
@@ -114,8 +110,6 @@ void ScoreSprite::changeTheme()
   mPoints->setPos(posPoints.x()*width, posPoints.y()*height);
   mScore->setPos(posScore.x()*width, posScore.y()*height);
   mGames->setPos(posGames.x()*width, posGames.y()*height);
- // mInput->setPos(posInput.x()*width, posInput.y()*height);
- // mTrump->setPos(posTrump.x()*width, posTrump.y()*height);
 
   // Create and set current font
   QFont fontPoints;
@@ -141,9 +135,6 @@ void ScoreSprite::changeTheme()
 
   // Restore the frame of the input device sprite
   if (mInputFrame>=0) mInput->setFrame(mInputFrame);
-
-  // Update next player
-  if (mTurn>=0) setTurn(mTurn);
 }
 
 
@@ -190,7 +181,6 @@ void ScoreSprite::setGames(int won, int all)
 }
 
 
-
 // Store and display input device
 void ScoreSprite::setInput(int device)
 {
@@ -199,6 +189,7 @@ void ScoreSprite::setInput(int device)
   mInput->show();
   update();
 }
+
 
 // Store and display trump icon
 void ScoreSprite::setTrump(int suite)
@@ -210,31 +201,5 @@ void ScoreSprite::setTrump(int suite)
 }
 
 
-
-// Store and display current player. This is done by coloring the
-// name text sprite.
-void ScoreSprite::setTurn(bool status)
-{
-  // Retrieve theme data
-  KConfigGroup config     = thememanager()->config(id());
-  QColor fontColorActive  = config.readEntry("fontColorActive", QColor(Qt::white));
-  QColor fontColor        = config.readEntry("fontColorPlayer", QColor(Qt::white));
-
-  // Store data
-  if (status) mTurn = 1;
-  else mTurn = 0;
-
-  // Switch color
-  if (status)
-  {
-    mName->setDefaultTextColor(fontColorActive);
-  }
-  else
-  {
-    mName->setDefaultTextColor(fontColor);
-  }
-
-  update();
-}
 
 

@@ -37,8 +37,7 @@ class AbstractInput;
 using namespace CardDeck;
 
 
-/**
- * The player of the game.
+/** A player of the game.
  */
 class Player : public QObject
 {
@@ -46,6 +45,7 @@ class Player : public QObject
 
   public:
     /** Constructor for the player
+     *  @param id     The player number
      *  @param parent The parent object
      */
     Player(int id, QObject* parent=0);
@@ -54,6 +54,9 @@ class Player : public QObject
      */
      virtual ~Player();
 
+     /** Retrive the player numner.
+       * @return The id.
+       */
      int id() {return mId;}
 
     /** Retrive card value at given logical position
@@ -88,7 +91,7 @@ class Player : public QObject
      */
     void deal(int amount); 
 
-    /** Increases the numebr of moves one for this player.
+    /** Increases the number of moves one for this player.
      *  @param amount Increase by this amount (default 1)
      */
     void increaseMovesWon(int amount = 1);
@@ -134,28 +137,37 @@ class Player : public QObject
      */
     void setName(QString name);
 
-    /** Add a number of won games to the over all 
+    /** Add a number of won games to the overall 
       * player statistic.
       * @param amount The amount of won games
       */
     void addWonGame(int amount);
 
+    /** Retrieve the number of won games.
+      * @return The number of games won.
+      */
     int wonGames();
 
-    /** Add a number of games to the over all 
+    /** Add a number of games to the overall 
       * player statistic.
       * @param amount The amount of games
       */
     void addGame(int amount);
 
+    /** Retrieve the number of games.
+      * @param The overall number of games.
+      */
     int games();
 
-    /** Add a score to the over all 
+    /** Add a score to the overall 
      *  player statistic.
      *  @param amount The score amount
      */
     void addScore(int amount);
 
+    /** Retrieve the overall score.
+      * @return The score.
+      */
     int score();
 
     /** Retrieve the input device of the player 
@@ -173,7 +185,7 @@ class Player : public QObject
       */
      void setDeck(Deck* deck); 
 
-     /** Refresh GUI by emitting all signals.
+     /** Refresh GUI by emitting a signal.
      */
      void refresh();
 
@@ -186,6 +198,9 @@ class Player : public QObject
       */
      void setTrump(Suite trump); 
 
+     /** Retrieve the trump.
+       * @return The trump suite.
+       */
      Suite trump();
 
      /** Saves the properties 
@@ -201,36 +216,35 @@ class Player : public QObject
   signals:
     /** Notify change of player data.
      *  @param p This player
-     *  @param id The player id
      */
     void signalUpdate(Player* p);
 
   private:
-    /** Players input device */
+    // Players input device 
     AbstractInput* mInput;
-    /** Card deck */
+    // Card deck 
     Deck* mDeck;
-    /** Our cards */
+    // Our cards 
     QVector<int> mCards;
-    /** Our won cards */
+    // Our won cards 
     QList<int>   mWonCards;
-    /** Our points */
+    // Our points 
     int mPoints;
-    /** Our id */
+    // Our id 
     int mId;
-    /** Number of moves won in the current game */
+    // Number of moves won in the current game 
     int mMovesWon;
-    /** The current trump */
+    // The current trump 
     Suite mTrump;
 
-    // These quantities need to be saved
-    /** Our name */
+    // These attributes need to be saved
+    // Our name
     QString mName;
-    /** Overall games won for this player */
+    // Overall games won for this player 
     int mGamesWon;
-    /** Overall score for this player */
+    // Overall score for this player 
     int mScore;
-    /** Overall number of games for this player */
+    // Overall number of games for this player 
     int mNumberOfGames;
 };
 

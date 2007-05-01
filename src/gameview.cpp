@@ -30,25 +30,27 @@
 #include <kstandarddirs.h>
 
 // Local includes
-#include "canvasview.h"
+#include "gameview.h"
 #include "thememanager.h"
 #include "lskatglobal.h"
 
 
 // Constructor for the view
-CanvasView::CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent)
-          : QGraphicsView(scene, parent)
+GameView::GameView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent)
+        : QGraphicsView(scene, parent)
 {
   // Store attributes    
-  mTheme         = theme;
+  mTheme  = theme;
 
   // We do not need scrolling so switch it off
   setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+  // Cache on
   setCacheMode(QGraphicsView::CacheBackground);
 
 
-  // Update/advance every 25ms
+  // Update/advance in [ms]
   QTimer *timer = new QTimer(this);
   connect(timer, SIGNAL(timeout()), this, SLOT(updateAndAdvance()));
   timer->start(advancePeriod);
@@ -59,14 +61,16 @@ CanvasView::CanvasView(QSize size, int advancePeriod, QGraphicsScene* scene, The
   scene->setSceneRect(0, 0, this->width(), this->height()); 
   adjustSize();
 
+  // Enable mouse
   setInteractive(true);
 
   // Scale theme
   mTheme->rescale(this->width());
 }
 
+
 // Advance and update canvas
-void CanvasView::updateAndAdvance()
+void GameView::updateAndAdvance()
 {
   scene()->advance();
   //NOTE regarding QGV porting
@@ -78,7 +82,7 @@ void CanvasView::updateAndAdvance()
 
 // Slot called by the framework when the window is
 // resized.
-void CanvasView::resizeEvent(QResizeEvent* e)
+void GameView::resizeEvent(QResizeEvent* e)
 {
   if (global_debug > 2) kDebug() <<"RESIZE EVENT " << e->size() << endl;
 
@@ -97,8 +101,9 @@ void CanvasView::resizeEvent(QResizeEvent* e)
   else mTheme->rescale(int(e->size().width()));
 }
 
+
 // Our subclassed (temporary) QGraphicsView paintEvent, see header file
-void CanvasView::paintEvent(QPaintEvent* event)
+void GameView::paintEvent(QPaintEvent* event)
 {
     QPaintEvent* newEvent = new QPaintEvent(event->region().boundingRect());
     QGraphicsView::paintEvent(newEvent);
@@ -106,8 +111,8 @@ void CanvasView::paintEvent(QPaintEvent* event)
 }
 
 
-// mouse click event
-void CanvasView::mousePressEvent(QMouseEvent *ev)
+// Mouse click event
+void GameView::mousePressEvent(QMouseEvent *ev)
 {
   if (ev->button() != Qt::LeftButton) return ;
 
@@ -116,5 +121,4 @@ void CanvasView::mousePressEvent(QMouseEvent *ev)
 }
 
 
-
-#include "canvasview.moc"
+#include "gameview.moc"

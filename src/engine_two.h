@@ -37,8 +37,7 @@ class DisplayTwo;
 using namespace CardDeck;
 
 
-/**
- * The game engine for two players
+/** The game engine for two players
  */
 class EngineTwo : public AbstractEngine
 {
@@ -82,6 +81,11 @@ class EngineTwo : public AbstractEngine
 
   public slots:
 
+    /** Player input available 
+     * @param inputId      The input device id
+     * @þaram playerNumber The player number [0-1]
+     * @þaram cardNumber   The card number [0-7]
+     */
     virtual void playerInput(int inputId, int playerNumber, int cardNumber);
 
     /** Check whether the two cards played are legal, supposed the
@@ -101,11 +105,11 @@ class EngineTwo : public AbstractEngine
 
 
   protected slots:
-    /** First part of the game loop
+    /** First part of the game loop.
     */
     void gameLoopStart();
 
-    /** Second part of the game loop
+    /** Second part of the game loop.
     */
     void gameLoopFinish();
 
@@ -137,7 +141,6 @@ class EngineTwo : public AbstractEngine
     MoveState mCurrentMovePhase;
     // Current move number (counting half moves)
     int mMoveNumber;
-
     // Trump color
     Suite mTrump;
     
