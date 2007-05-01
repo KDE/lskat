@@ -110,7 +110,8 @@ Mainwindow::Mainwindow(QWidget* parent)
   mDeck = new Deck(seed, this);
 
   // Theme manager
-  mTheme  = new ThemeManager(mCardDir, mDeckGrafix, "default.rc", this);
+  mTheme  = new ThemeManager(mCardDir, mDeckGrafix, KCardDialog::deckSVGFilePath(mDeckGrafix), 
+                             "default.rc", this);
 
   // Overall view
   mCanvas        = new QGraphicsScene(this);
@@ -205,6 +206,7 @@ void Mainwindow::readProperties()
   dcd = KGlobal::dirs()->findResourceDir("cards", dcd)+dcd;
   QString dd = KCardDialog::getDefaultDeck();
   dd = KGlobal::dirs()->findResourceDir("cards", dd)+dd;
+
 
   // Read card path
   mCardDir    = cfg.readPathEntry("carddir", dcd);
@@ -469,7 +471,7 @@ void Mainwindow::menuCardDeck()
     }
     if (change)
     {
-      mTheme->updateCardTheme(mCardDir, mDeckGrafix);
+      mTheme->updateCardTheme(mCardDir, mDeckGrafix, KCardDialog::deckSVGFilePath(mDeckGrafix));
       mView->update(); // Be on the safe side and update
     }
   }

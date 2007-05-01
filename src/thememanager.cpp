@@ -28,6 +28,7 @@
 #include <QColor>
 #include <QRectF>
 #include <QDir>
+#include <QFileInfo>
 
 // KDE includes
 #include <kdebug.h>
@@ -43,7 +44,8 @@
 #define CARDBACK_SVGID "back"
 
 // Constructor for the theme manager
-ThemeManager::ThemeManager(QString cards, QString deck, QString themefile, QObject* parent, int initialSize)
+ThemeManager::ThemeManager(QString cards, QString deck, QString deckSVG, 
+                           QString themefile, QObject* parent, int initialSize)
     : QObject(parent)
 {
   mScale           = initialSize;
@@ -56,7 +58,7 @@ ThemeManager::ThemeManager(QString cards, QString deck, QString themefile, QObje
   mDeckRenderer    = 0;
 
   // updateTheme(themefile);
-  updateCardTheme(themefile, cards, deck);
+  updateCardTheme(themefile, cards, deck, deckSVG);
 }
 
 
@@ -81,29 +83,32 @@ void ThemeManager::updateTheme(Themable* ob)
 }
 
 
-// Update a pixmap card deck 
-void ThemeManager::updateCardTheme(QString cards, QString deck)
+// Update card deck and card set
+void ThemeManager::updateCardTheme(QString cards, QString deck, QString deckSVG)
 {
-  updateCardTheme(mThemeFile, cards, deck);
+  updateCardTheme(mThemeFile, cards, deck, deckSVG);
 }
-void ThemeManager::updateCardTheme(QString themefile, QString cards, QString deck)
+
+
+// Update card deck and card set
+void ThemeManager::updateCardTheme(QString themefile, QString cards, QString deck, QString deckSVG)
 {
   kDebug() << "ThemeManager Pixmap cards: "<< endl;
-  kDebug() << "  Cards = " << cards << endl;
-  kDebug() << "  Deck  = " << deck << endl;
+  kDebug() << "  Cards   = " << cards << endl;
+  kDebug() << "  Deck    = " << deck << endl;
+  kDebug() << "  DeckSVG = " << deckSVG << endl;
 
   // Cards
   mCardFile = cards;
 
   KConfig cardInfo( cards+"/index.desktop", KConfig::OnlyLocal);
   KConfigGroup cardGroup(&cardInfo, "KDE Backdeck");
-  QPointF cardSize   = cardGroup.readEntry("BackSize", QPointF(1.0,1.0));
+  // QPointF cardSize   = cardGroup.readEntry("BackSize", QPointF(1.0,1.0));
   QString cardSVG    = cardGroup.readEntry("SVG", QString());
-  kDebug() << "cardSize = " << cardSize << endl;
-
   kDebug() << "SVG card = " << cardSVG << " is " << (!cardSVG.isNull()) << endl;
 
-  QString svgfile = cards+"/"+cardSVG;
+  QFileInfo svgInfo(QDir(cards), cardSVG);
+  QString svgfile = svgInfo.filePath();
 
   mCardRenderer = 0;
   if (!cardSVG.isNull())
@@ -114,38 +119,22 @@ void ThemeManager::updateCardTheme(QString themefile, QString cards, QString dec
     {
       kFatal() << "Cannot open file " << svgfile << endl;
     }
-    kDebug() << "Rendering " << svgfile << endl;
+    kDebug() << "Rendering cards " << svgfile << endl;
   }
 
 
   // Deck
-  mDeckFile = deck;
-  QString deckIndex = deck;
-  deckIndex.replace(".png",".desktop");
-
-  // Cards
-  KConfig deckInfo( deckIndex, KConfig::OnlyLocal);
-  KConfigGroup deckGroup(&deckInfo, "KDE Cards");
-  QString deckSVG  = deckGroup.readEntry("SVG", QString());
-
-  QString deckDir = deck;
-  int pos = deck.lastIndexOf(QDir::separator());
-  if (pos > 0) deckDir = deck.left(pos);
-
-
-  svgfile = deckDir+"/"+deckSVG;
-  kDebug() << "SVG deck = " << deckSVG << " is " << (!deckSVG.isNull()) << endl;
-
+  mDeckFile     = deck;
   mDeckRenderer = 0;
   if (!deckSVG.isNull())
   {
     mDeckRenderer = new KSvgRenderer(this);
-    bool result   = mDeckRenderer->load(svgfile);
+    bool result   = mDeckRenderer->load(deckSVG);
     if (!result) 
     {
-      kFatal() << "Cannot open file " << svgfile << endl;
+      kFatal() << "Cannot open file " << deckSVG << endl;
     }
-    kDebug() << "Rendering " << svgfile << endl;
+    kDebug() << "Rendering deck " << deckSVG << endl;
   }
 
 

@@ -109,11 +109,13 @@ class ThemeManager : public QObject
     /** Constructor for the theme manager.
       * @param cards       Directory of the cards 
       * @param deck        Filename of the deck PNG file
+      * @param deckSVG     Filename to the SVG card back (or null string for PNG)
       * @param themefile   The theme configuration file
       * @param parent      The parent object
       * @param initialSize Initial theme size, can be arbitrary.
       */
-    ThemeManager(QString cards, QString deck, QString themefile, QObject* parent, int initialSize = 1);
+    ThemeManager(QString cards, QString deck, QString deckSVG, QString themefile,
+                 QObject* parent, int initialSize = 1);
 
     /** Get the pixmap for a card.
       * @param suite    The suite of the card [Club, ...]
@@ -188,8 +190,9 @@ class ThemeManager : public QObject
     /** Forces an update to the card theme objects. 
       * @param cards The card dir
       * @param deck  The deck file
+      * @param deckSVG     Filename to the SVG card back (or null string for PNG)
       */
-    void updateCardTheme(QString cards, QString deck);
+    void updateCardTheme(QString cards, QString deck, QString deckSVG);
     
     /** Forces an update to all theme objects. That is their
       * changeTheme() method is called. Before this a (new)
@@ -227,8 +230,9 @@ class ThemeManager : public QObject
       * @param themefile The theme rc file
       * @param cards     The card dir
       * @param deck      The deck file
+      * @param deckSVG     Filename to the SVG card back (or null string for PNG)
       */
-    void updateCardTheme(QString themefile, QString cards, QString deck);
+    void updateCardTheme(QString themefile, QString cards, QString deck, QString deckSVG);
 
     /** Retrive the SVGid for a card number. This effectively maps
       * the 'old' PNG cards to the new SVG card ids. For example
