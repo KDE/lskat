@@ -115,12 +115,12 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
     void setFrame(int no, bool force=false);
 
     /** Retrieve the maximum frame number.
-      * @param The frame count.
+      * @return The frame count.
       */
     int count();
 
     /** Retreive the card id, a combination of suite and card type.
-      *@param The card id.
+      *@return The card id.
       */
     int cardid() {return mCardType*4+mSuite;}
 
@@ -138,7 +138,7 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
 
     /** Create the pixmap for one frame of the frame turning animation.
       * @param front    The front pixmap
-      * @þaram back     The back pixmap
+      * @param back     The back pixmap
       * @param curNo    Which number in the animation sequence [0..count]
       * @param count    How many frames in the animation
       * @return The calculated pixmap.
@@ -152,7 +152,7 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
      void calcTargetAndSpeed(QPointF pos, double time);
 
      /** Perform a move by a delta given by the sprites velocity.
-      *  @param return True if the target position is reached false otherwise.
+      *  @return True if the target position is reached false otherwise.
       */
      bool deltaMove();
     

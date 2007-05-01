@@ -49,8 +49,7 @@ class MouseInput : public AbstractInput
 
   public slots:  
     /** Recevied a mouse press event 
-      * @param x x position
-      * @param y y position
+      * @param point The position [screen coordiantes]
       */
     void mousePress(QPoint point);
 

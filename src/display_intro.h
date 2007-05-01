@@ -73,30 +73,20 @@ class DisplayIntro : public AbstractDisplay, public virtual Themable
     void deal(Player* /*player*/, int /*position*/) {}
 
     /** Play a card on the display - unsused.
-     * @param cardNumber The card number (0-7)
-     * @param playerNumber The player number (0-1)
-     * @param phase Movement phase (1st part, 2nd part, etc) [optional]
      */
     void play(int /*cardNumber*/, int /*playerNumber*/, int /*phase*/) {}
 
     /** Turn a card on the display - unused.
-     * @param cardNumber The card number (0-7)
      */
     void turn(int /*cardNumber*/) {}
 
     /** Remove the given card from the display - unused.
-     * @param winnerPosition  The position of the winner (0,1)
-     * @param cardNumber The number of the card
-     * @param delta Card offset from target position (0,1,2,...)
      */
     void remove(int /*winnerPosition*/, int /*cardNumber*/, int /*delta*/) {}
   
   public slots:
     /** Convert the position of a mouse click to a logical
       * game position - unused.
-      * @param mouse        The mouse coordinates [screen coordinates]
-      * @param playerNumber The resulting player number [0-1]
-      * @param cardNumber   The resulting card number [0-7]
       */
     void convertMousePress(QPoint /*mouse*/, int& /*playerNumber*/, int& /*cardNumber*/) {}
 

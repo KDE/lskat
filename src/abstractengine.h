@@ -87,8 +87,8 @@ class AbstractEngine : public QObject
 
     /** Player input available 
      * @param inputId      The input device id
-     * @þaram playerNumber The player number [0-1]
-     * @þaram cardNumber   The card number [0-7]
+     * @param playerNumber The player number [0-1]
+     * @param cardNumber   The card number [0-7]
      */
     virtual void playerInput(int inputId, int playerNumber, int cardNumber) = 0;
 

@@ -83,8 +83,8 @@ class EngineTwo : public AbstractEngine
 
     /** Player input available 
      * @param inputId      The input device id
-     * @þaram playerNumber The player number [0-1]
-     * @þaram cardNumber   The card number [0-7]
+     * @param playerNumber The player number [0-1]
+     * @param cardNumber   The card number [0-7]
      */
     virtual void playerInput(int inputId, int playerNumber, int cardNumber);
 
@@ -116,7 +116,7 @@ class EngineTwo : public AbstractEngine
   protected:
     /** Active the current player to the given player number.
       * Enable inputs etc.
-      * @param number The new player playerNumber
+      * @param playerNumber The new player playerNumber
       */
     void activatePlayer(int playerNumber);
 

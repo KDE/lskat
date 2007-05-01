@@ -155,7 +155,7 @@ class Player : public QObject
     void addGame(int amount);
 
     /** Retrieve the number of games.
-      * @param The overall number of games.
+      * @return The overall number of games.
       */
     int games();
 
@@ -204,12 +204,12 @@ class Player : public QObject
      Suite trump();
 
      /** Saves the properties 
-      * @param cfg The config object.
+      * @param config The config group object.
       */
      void save(KConfigGroup& config);
 
      /** Read properties.
-      * @param cfg The config object.
+      * @param config The config group object.
       */
      void load(KConfigGroup& config);
 

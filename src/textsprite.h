@@ -37,14 +37,14 @@ class TextSprite : public QGraphicsTextItem, public virtual Themable
       * @param text   The  text to display
       * @param id     The theme id for the text
       * @param theme  The theme manager
-      * @parma scene  The graphics scene to use
+      * @param scene  The graphics scene to use
       */
     TextSprite(QString text, QString id, ThemeManager* theme, QGraphicsScene* scene);
 
     /** Constructor for the sprite.
       * @param id     The theme id for the text
       * @param theme  The theme manager
-      * @parma scene  The graphics scene to use
+      * @param scene  The graphics scene to use
       */
     TextSprite(QString id, ThemeManager* theme, QGraphicsScene* scene);
 

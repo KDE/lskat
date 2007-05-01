@@ -62,9 +62,9 @@ class Mainwindow : public KXmlGuiWindow
     enum GameMode    {Intro=0,LSkat=1,Skat=2};
 
     /** Construct the main window.
-     *  @param The parent widget
-     */
-    Mainwindow(QWidget *parent=0);
+      * @param parent The parent widget
+      */
+    Mainwindow(QWidget* parent=0);
 
     /** Destructor
      */

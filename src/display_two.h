@@ -54,7 +54,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
      *  @param advancePeriod The advance period [ms]
      *  @param parent The parent object
      */
-    DisplayTwo(Deck* deck, QGraphicsScene* scene, ThemeManager* mTheme, int advancePeriod,  QGraphicsView* parent);
+    DisplayTwo(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod,  QGraphicsView* parent);
 
     /** Start the display.
      */
@@ -128,7 +128,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
       * to the score board.
       * @param player The player to set
       */
-    void updatePlayer(Player*);
+    void updatePlayer(Player* player);
 
   protected:
     /** Calculate the x,y position values from a card number.
@@ -139,7 +139,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
     void calcXYFromNumber(int cardNumber, int& x, int& y);
 
     /** Get a card sprite for a card value.
-      * @param The card value [0-31]
+      * @param cardValue The card value [0-31]
       * @return The sprite.
       */
     CardSprite* getCardSprite(int cardValue);

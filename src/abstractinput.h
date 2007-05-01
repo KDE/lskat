@@ -73,9 +73,9 @@ class AbstractInput : public QObject
 
   signals:
     /** Signals the availability of player input
-     * @param inputId      The input device id
-     * @þaram playerNumber The player number [0-1]
-     * @þaram cardNumber   The card number [0-7]
+     * @param id           The input device id
+     * @param playerNumber The player number [0-1]
+     * @param cardNumber   The card number [0-7]
     */
    void signalPlayerInput(int id, int playerNumber, int cardNumber);
 

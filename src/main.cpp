@@ -24,6 +24,24 @@
     email                : kde@heni-online.de
  ***************************************************************************/
 
+/** \mainpage LSkat API Documentation
+  *
+  * \section intro_sec Introduction
+  *
+  * This is the API documentation for the KDE game 'lskat'.
+  *
+  * \section design_sec Design
+  *
+  * The design diagram shows the dependencies for the key classes of
+  * the Lskat program.
+  * The coloring of the classes shows roughly their function in the 
+  * groups (program, document and engine, display, QGraphics).
+  *
+  * \image html lskatclasses.png "Class diagram for LSkat"
+  *
+  * 
+  */
+
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kdebug.h>

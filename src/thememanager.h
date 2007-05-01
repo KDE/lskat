@@ -107,6 +107,8 @@ class ThemeManager : public QObject
 
   public:
     /** Constructor for the theme manager.
+      * @param cards       Directory of the cards 
+      * @param deck        Filename of the deck PNG file
       * @param themefile   The theme configuration file
       * @param parent      The parent object
       * @param initialSize Initial theme size, can be arbitrary.

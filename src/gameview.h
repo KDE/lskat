@@ -54,7 +54,7 @@ class GameView : public QGraphicsView
 
  protected:
     /** React to mouse clicks.
-     *  @param ev The mouse event
+     *  @param event The mouse event
      */
     void mousePressEvent(QMouseEvent *event);
 
