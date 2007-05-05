@@ -94,6 +94,13 @@ void AiInput::aiTurn()
 AiInput::Board AiInput::getBoardFromEngine()
 {
   Board b;
+  int cnt = 0;
+  // Reset array
+  for (int i=0; i<32; i++)
+  {
+    b.playedCards[i] = -1;
+  } 
+
   for (int i=0; i<2; i++)
   {
     Player* p = mEngine->player(i);
@@ -103,7 +110,14 @@ AiInput::Board AiInput::getBoardFromEngine()
       b.cards[i][c] = card;
       b.points[i]  = p->points();
     }
+    for (int c=0; c<p->noOfMovesWon()*2; c++)
+    {
+      int card = p->getWonCard(c);
+      b.playedCards[cnt] = card;
+      cnt++;
+    }
   }
+   
   b.whoseTurn = mEngine->currentPlayer();
   b.firstPlay = mEngine->currentMovePhase() == EngineTwo::FirstPlayerTurn;
   b.playedCard = mEngine->playedCard(0);

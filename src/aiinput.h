@@ -72,6 +72,8 @@ class AiInput : public AbstractInput
         Board(const Board& board);
         /** Cards of both players or -1 for used cards */
         int cards[2][16]; 
+        /** Already played cards */
+        int playedCards[32];
         /** Currently played card of first player or -1 */
         int playedCard; 
         /** Points of both players */
