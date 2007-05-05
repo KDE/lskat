@@ -111,7 +111,7 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // Theme manager
   mTheme  = new ThemeManager(mCardDir, mDeckGrafix, KCardDialog::deckSVGFilePath(mDeckGrafix), 
-                             "default.rc", this);
+                             "default.rc", this, this->width());
 
   // Overall view
   mCanvas        = new QGraphicsScene(this);
@@ -147,6 +147,7 @@ Mainwindow::Mainwindow(QWidget* parent)
     // Start intro
     mDisplay->start();
   }
+  if (global_debug > 0) kDebug() << "Mainwindow setup constructor done" << endl;
 
 }
 
@@ -515,6 +516,8 @@ void Mainwindow::menuEndGame()
 // Start a new game
 void Mainwindow::menuNewLSkatGame()
 {
+  kDebug() << "Mainwindow::menuNewLSkatGame()"<<endl;
+
   Player* p1 = mLSkatConfig->player(0);
   Player* p2 = mLSkatConfig->player(1);
 

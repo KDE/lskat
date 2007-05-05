@@ -65,7 +65,7 @@ GameView::GameView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeMa
   setInteractive(true);
 
   // Scale theme
-  mTheme->rescale(this->width());
+  //mTheme->rescale(this->width());
 }
 
 
@@ -90,6 +90,16 @@ void GameView::resizeEvent(QResizeEvent* e)
   if (scene())
   {
     scene()->setSceneRect(0,0, e->size().width(), e->size().height());
+  }
+
+  // TODO: If nothing works displaywise remove following if statement !!!!!
+  // TODO: This is a bit brave and avoids the first resize as we always get
+  // TODO: two resizes on program start.
+  static bool firstResize = true;
+  if (firstResize)
+  {
+    firstResize = false;
+    return;
   }
 
 

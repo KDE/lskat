@@ -97,7 +97,6 @@ void AbstractDisplay::createCardSprites()
     Suite suite        = Suite(cardNo%4);
     CardType cardtype  = CardType(cardNo/4);
     CardSprite* sprite = new CardSprite(suite, cardtype, mTheme, mAdvancePeriod, mScene);
-    sprite->setBackside();
     // Display sprite
     sprite->hide();
 

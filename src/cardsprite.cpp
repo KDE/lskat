@@ -48,11 +48,14 @@ CardSprite::CardSprite(const Suite suite, const CardType cardtype, ThemeManager*
 
 {
   mAnimationState = Idle;
-  mCurrentFrame   = 0;
+  mCurrentFrame   = -1; // Frame will be set to backside
   mAdvancePeriod  = advancePeriod;
   mSuite          = suite;
   mCardType       = cardtype;
   mFrames.clear();
+
+  // Redraw
+  if (theme) theme->updateTheme(this);
 }
 
 
@@ -90,6 +93,9 @@ void CardSprite::changeTheme()
     mFrames.append(nullPixmap);
     mHotspots.append(QPointF(0.0,0.0));
   }
+
+  // Start with backside to save calculation time
+  if (mCurrentFrame < 0) mCurrentFrame = endFrame;
 
   
   // Set pixmap to sprite
@@ -166,6 +172,7 @@ void CardSprite::setRemove(QPointF pos, double time)
 // argument turn backside/frontside sprite if it arrived there.
 void CardSprite::setShuffleMove(QPointF pos, double delay, bool front)
 {
+  setBackside();
   calcTargetAndSpeed(pos, SHUFFLEMOVE_TIME);
   mAnimationState = ShuffleMove;
   mTime           = delay;

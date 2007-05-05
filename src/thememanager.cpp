@@ -194,7 +194,7 @@ void ThemeManager::rescale(int scale)
   }
   //if (scale==mScale) return;
   mScale = scale;
-  if (global_debug > 1) kDebug() << "Rescale to " << scale<<endl;
+  if (global_debug > 1) kDebug() << "THEMEMANAGER:: Rescale to " << scale<<endl;
 
   QHashIterator<Themable*, int> it(mObjects);
   while (it.hasNext())
@@ -341,10 +341,14 @@ const QPixmap ThemeManager::getCardback(double width)
 // Get a pixmap when its size is given (this can distort the image)
 const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, QString svgid, QSize size)
 {
-  if (size.width() < 1 || size.height() < 1) 
-    kFatal() << "ThemeManager::getPixmap Cannot create svgid ID " << svgid << " with zero size " << size << endl;
-  
   QPixmap pixmap;
+  if (size.width() < 1 || size.height() < 1) 
+  {
+    if (global_debug >1)
+      kDebug() << "ThemeManager::getPixmap Cannot create svgid ID " << svgid << " with zero size " << size << endl;
+    return pixmap;
+  }
+  
 
   //  Cached pixmap?
   if (mPixmapCache.contains(svgid))

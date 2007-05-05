@@ -109,6 +109,7 @@ void DisplayTwo::changeTheme()
   // Retrieve theme data
   KConfigGroup config = thememanager()->config(id());
 
+
   // Retrieve background pixmap
   QString bgsvgid = config.readEntry("background-svgid");
   QPixmap pixmap  = thememanager()->getPixmap(bgsvgid, scene()->sceneRect().size().toSize());

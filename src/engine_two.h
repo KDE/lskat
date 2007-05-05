@@ -137,6 +137,8 @@ class EngineTwo : public AbstractEngine
     Deck* mDeck;
     // Current move cards
     int mCurrentMoveCards[2];
+    // Current cards to turn at end of move (or -1)
+    int mCurrentTurnCards[2];
     // Move phase (1st player or 2nd player)
     MoveState mCurrentMovePhase;
     // Current move number (counting half moves)

@@ -125,7 +125,11 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
   if (height == 0)
   {
     int backcard = player->getCard(cardNumber + 8);
-    mDisplay->turn(backcard);
+    mCurrentTurnCards[mCurrentMovePhase] = backcard;
+  }
+  else
+  {
+    mCurrentTurnCards[mCurrentMovePhase] = -1;
   }
 
 
@@ -153,6 +157,11 @@ void EngineTwo::gameLoopFinish()
   // If second move phase, remove cards
   if (mCurrentMovePhase == SecondPlayerTurn)
   {
+    // Turn cards if available
+    if (mCurrentTurnCards[FirstPlayerTurn] >= 0)
+      mDisplay->turn(mCurrentTurnCards[FirstPlayerTurn]);
+    if (mCurrentTurnCards[SecondPlayerTurn] >= 0)
+      mDisplay->turn(mCurrentTurnCards[SecondPlayerTurn]);
 
     // Switch the current player if second player one
     int winner = whoWonMove(mCurrentMoveCards[FirstPlayerTurn],
