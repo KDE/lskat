@@ -46,6 +46,9 @@ GameView::GameView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeMa
   setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
   setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+  // Frame off
+  setFrameStyle(QFrame::NoFrame);
+
   // Cache on
   setCacheMode(QGraphicsView::CacheBackground);
 
