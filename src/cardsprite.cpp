@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "cardsprite.h"
+
 // General includes
 #include <math.h>
 
@@ -27,9 +29,6 @@
 
 // KDE includes
 #include <kdebug.h>
-
-// Local includes
-#include "cardsprite.h"
 
 // Delay for card turning animation [ms]
 #define ANIM_CNT_TURNING          20.0 

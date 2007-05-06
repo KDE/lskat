@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "mainwindow.h"
+
 // Include files for Qt
 
 #include <QDir>
@@ -44,7 +46,6 @@
 #include <kselectaction.h>
 
 // Application specific includes
-#include "mainwindow.h"
 #include "lskatglobal.h"
 #include "gameview.h"
 #include "abstractengine.h"
@@ -488,7 +489,7 @@ void Mainwindow::menuClearStatistics()
 
   if (KMessageBox::Yes==KMessageBox::questionYesNo(this,
                                                    message,
-                                                   QString::null,
+                                                   QString(),
                                                    KStandardGuiItem::clear()))
   {
     QHashIterator<int,Player*> it = mLSkatConfig->playerIterator();

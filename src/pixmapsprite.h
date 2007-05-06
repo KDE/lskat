@@ -85,7 +85,7 @@ class PixmapSprite : public QGraphicsPixmapItem, public virtual Themable
       */
     void setFrame(int no, bool force=false);
     
-    /** Initalize and start a frame animation between the start and end frame.
+    /** Initialize and start a frame animation between the start and end frame.
       * The delay between the frames is given in [ms]. After the last frame
       * is displayed the animation starts with the first frame.
       * @param start   The start frame number

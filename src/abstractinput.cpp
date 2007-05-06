@@ -18,13 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "abstractinput.h"
+
 // Qt includes
 
 // KDE includes
 #include <kdebug.h>
-
-// Local includes
-#include "abstractinput.h"
 
 
 // Constructor for the engine

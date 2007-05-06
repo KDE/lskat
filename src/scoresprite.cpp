@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "scoresprite.h"
+
 // General includes
 #include <math.h>
 
@@ -29,10 +31,6 @@
 #include <kdebug.h>
 #include <kconfig.h>
 #include <klocale.h>
-
-// Local includes
-#include "scoresprite.h"
-
 
 // Constructor for the score sprite
 ScoreSprite::ScoreSprite(QString id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene)

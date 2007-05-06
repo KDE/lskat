@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "display_two.h"
+
 // Qt includes
 #include <QSize>
 #include <QPoint>
@@ -30,7 +32,6 @@
 #include <klocalizedstring.h>
 
 // Local includes
-#include "display_two.h"
 #include "abstractinput.h"
 #include "cardsprite.h"
 #include "textsprite.h"

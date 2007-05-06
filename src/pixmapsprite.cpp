@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "pixmapsprite.h"
+
 // General includes
 #include <math.h>
 
@@ -27,9 +29,6 @@
 // KDE includes
 #include <kdebug.h>
 #include <kconfig.h>
-
-// Local includes
-#include "pixmapsprite.h"
 
 
 // Constructor for the sprite

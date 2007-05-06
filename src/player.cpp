@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "player.h"
+
 // Qt includes
 
 // KDE includes
@@ -25,11 +27,8 @@
 #include <kdebug.h>
 
 // Local includes
-#include "player.h"
 #include "abstractinput.h"
 #include "deck.h"
-
-
 
 // Constructor for the player
 Player::Player(int id, QObject* parent)

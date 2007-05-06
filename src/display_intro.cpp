@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "display_intro.h"
+
 // General includes
 #include <math.h>
 
@@ -30,7 +32,6 @@
 #include <kdebug.h>
 
 // Local includes
-#include "display_intro.h"
 #include "cardsprite.h"
 #include "textsprite.h"
 

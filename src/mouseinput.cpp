@@ -18,14 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "mouseinput.h"
+
 // Qt includes
 #include <QPixmap>
 
 // KDE includes
 #include <kdebug.h>
-
-// Local includes
-#include "mouseinput.h"
 
 
 // Constructor for the input

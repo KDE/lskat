@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "aiinput.h"
+
 // Qt includes
 #include <QPixmap>
 #include <QTimer>
@@ -27,7 +29,6 @@
 
 // Local includes
 #include "lskatglobal.h"
-#include "aiinput.h"
 #include "player.h"
 #include "deck.h"
 

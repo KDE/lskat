@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "gameview.h"
+
 // Qt includes
 #include <QPoint>
 #include <QFont>
@@ -30,7 +32,6 @@
 #include <kstandarddirs.h>
 
 // Local includes
-#include "gameview.h"
 #include "thememanager.h"
 #include "lskatglobal.h"
 

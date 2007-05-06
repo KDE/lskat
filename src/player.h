@@ -48,7 +48,7 @@ class Player : public QObject
      *  @param id     The player number
      *  @param parent The parent object
      */
-    Player(int id, QObject* parent=0);
+    explicit Player(int id, QObject* parent=0);
 
     /** Destructor 
      */

@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "thememanager.h"
+
 // General includes
 // #include <typeinfo>
 
@@ -35,17 +37,15 @@
 #include <kstandarddirs.h>
 
 // Local includes
-#include "thememanager.h"
 #include "lskatglobal.h"
 #include "deck.h"
-
 
 // SVG id for accessing the backside of a card
 #define CARDBACK_SVGID "back"
 
 // Constructor for the theme manager
-ThemeManager::ThemeManager(QString cards, QString deck, QString deckSVG, 
-                           QString themefile, QObject* parent, int initialSize)
+ThemeManager::ThemeManager(const QString &cards, const QString &deck, const QString &deckSVG, 
+                           const QString &themefile, QObject* parent, int initialSize)
     : QObject(parent)
 {
   mScale           = initialSize;
@@ -84,14 +84,14 @@ void ThemeManager::updateTheme(Themable* ob)
 
 
 // Update card deck and card set
-void ThemeManager::updateCardTheme(QString cards, QString deck, QString deckSVG)
+void ThemeManager::updateCardTheme(const QString &cards, const QString &deck, const QString &deckSVG)
 {
   updateCardTheme(mThemeFile, cards, deck, deckSVG);
 }
 
 
 // Update card deck and card set
-void ThemeManager::updateCardTheme(QString themefile, QString cards, QString deck, QString deckSVG)
+void ThemeManager::updateCardTheme(const QString &themefile, const QString &cards, const QString &deck, const QString &deckSVG)
 {
   kDebug() << "ThemeManager Pixmap cards: "<< endl;
   kDebug() << "  Cards   = " << cards << endl;
@@ -144,7 +144,7 @@ void ThemeManager::updateCardTheme(QString themefile, QString cards, QString dec
 
 // Update the theme file and refresh all registered objects. Used 
 // to really change the theme.
-void ThemeManager::updateTheme(QString themefile)
+void ThemeManager::updateTheme(const QString &themefile)
 {
   // Empty cache
   mPixmapCache.clear();
@@ -214,7 +214,7 @@ double ThemeManager::getScale()
 
 
 // Retreive the current theme configuration file.
-KConfigGroup ThemeManager::config(QString id)
+KConfigGroup ThemeManager::config(const QString &id)
 {
    KConfigGroup grp = mConfig->group(id); 
    return grp;
@@ -267,7 +267,7 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
     {
       pm = mPixmapCache[file]; 
     }
-    else if (!pm.load(dir+"/"+file))
+    else if (!pm.load(dir+'/'+file))
     {
       kError() << "Cannot load card file " << dir+file << endl;
     }
@@ -339,7 +339,7 @@ const QPixmap ThemeManager::getCardback(double width)
 
 
 // Get a pixmap when its size is given (this can distort the image)
-const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, QString svgid, QSize size)
+const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, const QString &svgid, const QSize &size)
 {
   QPixmap pixmap;
   if (size.width() < 1 || size.height() < 1) 
@@ -377,14 +377,14 @@ const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, QString svgid, QSi
 
 
 // Get a pixmap when its size is given (this can distort the image)
-const QPixmap ThemeManager::getPixmap(QString svgid, QSize size)
+const QPixmap ThemeManager::getPixmap(const QString &svgid, const QSize &size)
 {
   return getPixmap(mRenderer, svgid, size);
 }
 
 
 // Get a pixmap when only width is given (this keeps the aspect ratio)
-const QPixmap ThemeManager::getPixmap(QString svgid, double width)
+const QPixmap ThemeManager::getPixmap(const QString &svgid, double width)
 {
   QRectF rect   = mRenderer->boundsOnElement(svgid);
   double factor = width/rect.width();
@@ -395,7 +395,7 @@ const QPixmap ThemeManager::getPixmap(QString svgid, double width)
 
 // Get a pixmap with original properties and a scale factor given with respect to
 // another SVG item.
-const QPixmap ThemeManager::getPixmap(QString svgid, QString svgref, double refwidth)
+const QPixmap ThemeManager::getPixmap(const QString &svgid, const QString &svgref, double refwidth)
 {
   QRectF refrect    = mRenderer->boundsOnElement(svgref);
   QRectF rect       = mRenderer->boundsOnElement(svgid);
@@ -417,7 +417,7 @@ Themable::Themable()
 
 // Constructs a themeable interface given its id and the master theme manager. 
 // This automatically registeres the object with the manager.
-Themable::Themable(QString id, ThemeManager* thememanager)
+Themable::Themable(const QString &id, ThemeManager* thememanager)
 {
   mScale        = 1.0;
   mId           = id;

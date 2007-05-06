@@ -18,14 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "namedialogwidget.h"
+
 // Qt includes
 #include <QWidget>
 
 // KDE includes
 #include <kdebug.h>
-
-// Local includes
-#include "namedialogwidget.h"
 
 
 // Constructor for the widget

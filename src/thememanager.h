@@ -49,7 +49,7 @@ class Themable
        * @param id           The user defined theme id 
        * @param thememanager The used theme manager
        */
-     Themable(QString id, ThemeManager* thememanager);
+     Themable(const QString &id, ThemeManager* thememanager);
      
      /** Destructor 
       */
@@ -114,7 +114,7 @@ class ThemeManager : public QObject
       * @param parent      The parent object
       * @param initialSize Initial theme size, can be arbitrary.
       */
-    ThemeManager(QString cards, QString deck, QString deckSVG, QString themefile,
+      ThemeManager(const QString &cards, const QString &deck, const QString &deckSVG, const QString &themefile,
                  QObject* parent, int initialSize = 1);
 
     /** Get the pixmap for a card.
@@ -138,7 +138,7 @@ class ThemeManager : public QObject
       * @param size   The size of the resulting pixmap
       * @return The new pixmap.
       */
-    const QPixmap getPixmap(QString svgid, QSize size);
+    const QPixmap getPixmap(const QString &svgid, const QSize &size);
     
     /** Load a pixmap from the SVG theme file. Its filename is given in the
       * "general" section of the theme file as "svgfile". The pixmap is scaled
@@ -148,7 +148,7 @@ class ThemeManager : public QObject
       * @param width  The width of the resulting pixmap
       * @return The new pixmap.
       */
-    const QPixmap getPixmap(QString svgid, double width);
+    const QPixmap getPixmap(const QString &svgid, double width);
     
      /** Load a pixmap from the SVG theme file. Its filename is given in the
       * "general" section of the theme file as "svgfile". The pixmap is scaled
@@ -159,7 +159,7 @@ class ThemeManager : public QObject
       * @param refwidth  The width of the resulting pixmap in relation to the reference item
       * @return The new pixmap.
       */
-    const QPixmap getPixmap(QString svgid, QString svgref, double refwidth);
+    const QPixmap getPixmap(const QString &svgid, const QString &svgref, double refwidth);
     
     /** Retreive the current scale of the theme.
       * @return The scale.
@@ -169,7 +169,7 @@ class ThemeManager : public QObject
     /** Retrieve the current theme configuration object.
       * @return The configuration object.
       */
-    KConfigGroup config(QString id);
+    KConfigGroup config(const QString &id);
 
     /** Register an object with the theme manager.
       * @param ob The object to be registered.
@@ -192,7 +192,7 @@ class ThemeManager : public QObject
       * @param deck  The deck file
       * @param deckSVG     Filename to the SVG card back (or null string for PNG)
       */
-    void updateCardTheme(QString cards, QString deck, QString deckSVG);
+    void updateCardTheme(const QString &cards, const QString &deck, const QString &deckSVG);
     
     /** Forces an update to all theme objects. That is their
       * changeTheme() method is called. Before this a (new)
@@ -200,7 +200,7 @@ class ThemeManager : public QObject
       * is used to really change one theme over to another one.
       * @param themefile The theme file to load
       */
-    void updateTheme(QString themefile);
+    void updateTheme(const QString &themefile);
     
     /** Change the scale of the theme and update all registered
       * theme objects. If the scale did not change no action is
@@ -224,7 +224,7 @@ class ThemeManager : public QObject
       * @param size     The size of the resulting pixmap
       * @return The new pixmap.
       */
-    const QPixmap getPixmap(KSvgRenderer* renderer, QString svgid, QSize size);
+    const QPixmap getPixmap(KSvgRenderer* renderer, const QString &svgid, const QSize &size);
 
     /** Forces an update to the card theme objects. 
       * @param themefile The theme rc file
@@ -232,7 +232,7 @@ class ThemeManager : public QObject
       * @param deck      The deck file
       * @param deckSVG     Filename to the SVG card back (or null string for PNG)
       */
-    void updateCardTheme(QString themefile, QString cards, QString deck, QString deckSVG);
+    void updateCardTheme(const QString &themefile, const QString &cards, const QString &deck, const QString &deckSVG);
 
     /** Retrive the SVGid for a card number. This effectively maps
       * the 'old' PNG cards to the new SVG card ids. For example
@@ -257,13 +257,13 @@ class ThemeManager : public QObject
      // The cache of all pixmap objects [id,pixmap]
      QHash<QString,QPixmap> mPixmapCache;
      
-     // The theme configration file
+     // The theme configuration file
      KConfig* mConfig;
 
-     // The card configration file
+     // The card configuration file
      QString mCardFile;
 
-     // The deck configration file
+     // The deck configuration file
      QString mDeckFile;
 
      // The current theme scale

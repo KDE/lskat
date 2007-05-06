@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "abstractdisplay.h"
+
 // Qt includes
 
 // KDE includes
@@ -25,7 +27,6 @@
 #include <kdebug.h>
 
 // Local includes
-#include "abstractdisplay.h"
 #include "deck.h"
 #include "cardsprite.h"
 #include "textsprite.h"

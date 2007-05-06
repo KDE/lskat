@@ -18,14 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "textsprite.h"
+
 // Qt includes
 
 // KDE includes
 #include <kdebug.h>
-
-// Local includes
-#include "textsprite.h"
-
 
 // Constructor for the sprite
 TextSprite::TextSprite(QString text, QString id, ThemeManager* theme, QGraphicsScene* scene)

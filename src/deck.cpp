@@ -18,15 +18,14 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "deck.h"
+
 // Qt includes
 
 // KDE includes
 #include <klocale.h>
 #include <kdebug.h>
 #include <klocalizedstring.h>
-
-// Local includes
-#include "deck.h"
 
 // How many cards
 #define NUMBER_OF_CARDS   32

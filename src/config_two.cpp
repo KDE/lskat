@@ -18,14 +18,13 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "config_two.h"
+
 // Qt includes
 
 // KDE includes
 #include <kdebug.h>
 #include <klocale.h>
-
-// Local includes
-#include "config_two.h"
 
 
 // Constructor for the configuration

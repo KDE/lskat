@@ -18,13 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "abstractengine.h"
+
 // Qt includes
 
 // KDE includes
 #include <kdebug.h>
-
-// Local includes
-#include "abstractengine.h"
 
 
 // Constructor for the game document/engine

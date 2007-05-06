@@ -18,6 +18,8 @@
    Boston, MA 02110-1301, USA.
 */
 
+#include "engine_two.h"
+
 // Qt includes
 #include <QTimer>
 
@@ -26,7 +28,6 @@
 #include <klocalizedstring.h>
 
 // Local includes
-#include "engine_two.h"
 #include "lskatglobal.h"
 #include "display_two.h"
 
