@@ -29,6 +29,7 @@
 #include <QSize>
 #include <QPoint>
 #include <QHash>
+#include <QList>
 #include <QResizeEvent>
 
 // Forward declaration
@@ -64,6 +65,10 @@ class GameView : public QGraphicsView
      */
     void updateAndAdvance();
 
+    /** Rescale the theme (update theme SVG graphics).
+      */
+    void rescaleTheme();  
+
   signals:
     /** Emit the signal on mouse clicks.
       * @param point The mouse coordinate.
@@ -71,8 +76,7 @@ class GameView : public QGraphicsView
     void signalLeftMousePress(QPoint point);
 
   protected:
-    /**
-     * Will be called by the Qt View when its contents
+    /** Will be called by the Qt View when its contents
      * are resized. We adapt the canvas then.
      * @param e The resize event
      */
@@ -83,9 +87,12 @@ class GameView : public QGraphicsView
       */
     void paintEvent(QPaintEvent* event);
 
+
   private:
     // Theme manager
     ThemeManager* mTheme;
+    // Theme Queue
+    QList<int> mThemeQueue;
 };
 
 #endif

@@ -70,6 +70,7 @@ GameView::GameView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeMa
 
   // Scale theme
   //mTheme->rescale(this->width());
+  mThemeQueue.clear();
 }
 
 
@@ -96,23 +97,41 @@ void GameView::resizeEvent(QResizeEvent* e)
     scene()->setSceneRect(0,0, e->size().width(), e->size().height());
   }
 
-  // TODO: If nothing works displaywise remove following if statement !!!!!
-  // TODO: This is a bit brave and avoids the first resize as we always get
-  // TODO: two resizes on program start.
-  static bool firstResize = true;
-  if (firstResize)
-  {
-    firstResize = false;
-    return;
-  }
-
 
   QSizeF size = QSizeF(e->size());
   // Rescale on minimum fitting aspect ratio either width or height limiting
   double aspect = size.width() / size.height();
   if (global_debug > 2) kDebug() << "Aspect=" << aspect << " theme aspect="<< mTheme->aspectRatio() << endl;
-  if (aspect > mTheme->aspectRatio()) mTheme->rescale(int(e->size().height()*mTheme->aspectRatio()));
-  else mTheme->rescale(int(e->size().width()));
+
+  double width = 0.0;
+  if (aspect > mTheme->aspectRatio()) width = e->size().height()*mTheme->aspectRatio();
+  else width = e->size().width();
+
+  // Pixel rescale
+  double oldScale = mTheme->getScale();
+  resetTransform();
+  resetCachedContent();
+  scale(double(width/oldScale), double(width/oldScale));
+  mThemeQueue.prepend(int(width));
+
+
+  QTimer::singleShot(300, this, SLOT(rescaleTheme()) );
+}
+
+
+// Rescale the theme (update theme SVG graphics) from the theme list
+void GameView::rescaleTheme()
+{
+  if (mThemeQueue.size() == 0)
+  {
+    if (global_debug > 2) kDebug() << "Swallowing rescale event ***********************" << endl;
+    return;
+  }
+  resetTransform();
+  int width = mThemeQueue.first();
+  if (global_debug > 2) kDebug() << "Theme queue size=" << mThemeQueue.size() << " Rescale width to " << width << endl;
+  mThemeQueue.clear();
+  mTheme->rescale(width);
 }
 
 
