@@ -36,7 +36,7 @@ NameDialogWidget::NameDialogWidget(QWidget* parent)
 
 
 // Set a default names to the widget
-void NameDialogWidget::setName(int pos, QString name)
+void NameDialogWidget::setName(int pos, const QString &name)
 {
   if (pos == 0)
   {

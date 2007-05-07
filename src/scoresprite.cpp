@@ -33,7 +33,7 @@
 #include <klocale.h>
 
 // Constructor for the score sprite
-ScoreSprite::ScoreSprite(QString id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene)
+ScoreSprite::ScoreSprite(const QString &id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene)
            :  Themable(id, theme), PixmapSprite(advancePeriod, no, scene)
 {
   // Create all sub sprites
@@ -145,7 +145,7 @@ void ScoreSprite::advance(int phase)
 
 
 // Store and display the name of a player
-void ScoreSprite::setPlayerName(QString s)
+void ScoreSprite::setPlayerName(const QString &s)
 {
   mName->setPlainText(s);
   update();

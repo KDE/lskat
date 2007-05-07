@@ -360,7 +360,7 @@ void DisplayTwo::remove(int winnerPosition, int cardNumber, int delta)
 
 
 // Display a text on the game board.
-void DisplayTwo::showText(QString s)
+void DisplayTwo::showText(const QString &s)
 {
   mText[2]->setText(s);
   mText[2]->show();

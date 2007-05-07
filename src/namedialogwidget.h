@@ -49,7 +49,7 @@ class NameDialogWidget : public QDialog
      *  @param pos The name position (0,1)
      *  @param name The name to set
      */
-    void setName(int pos, QString name);
+    void setName(int pos, const QString &name);
 
     /** Retrieve the name from the widget.
      *  @param pos The name position (0,1)

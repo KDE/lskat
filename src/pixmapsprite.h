@@ -50,7 +50,7 @@ class PixmapSprite : public QGraphicsPixmapItem, public virtual Themable
      * @param no            A user defined ID number
      * @param scene        The graphics scene   
      */
-    PixmapSprite(QString id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene);
+    PixmapSprite(const QString &id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene);
     
     /** Possible animation states of the sprite
      */
@@ -104,7 +104,7 @@ class PixmapSprite : public QGraphicsPixmapItem, public virtual Themable
       * Thus the position is scaled with the scale from the theme manager.
       * @param pos  The position of the sprite [0..1, 0..1]
       */
-    void setPosition(QPointF pos);
+    void setPosition(const QPointF &pos);
 
     /** Reads a theme configuration item of type double and of the given 
       * name.
@@ -112,7 +112,7 @@ class PixmapSprite : public QGraphicsPixmapItem, public virtual Themable
       * @param item  The theme configuration item name
       * @return The read double value.
       */
-    double getDoubleValue(QString item);
+    double getDoubleValue(const QString &item);
 
   protected:
 

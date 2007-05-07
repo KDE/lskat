@@ -26,7 +26,7 @@
 #include <kdebug.h>
 
 // Constructor for the sprite
-TextSprite::TextSprite(QString text, QString id, ThemeManager* theme, QGraphicsScene* scene)
+TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager* theme, QGraphicsScene* scene)
           : Themable(id, theme), QGraphicsTextItem(0, scene)
 {
   setPlainText(text);
@@ -37,7 +37,7 @@ TextSprite::TextSprite(QString text, QString id, ThemeManager* theme, QGraphicsS
 
 
 // Constructor for the sprite
-TextSprite::TextSprite(QString id, ThemeManager* theme, QGraphicsScene* scene)
+TextSprite::TextSprite(const QString &id, ThemeManager* theme, QGraphicsScene* scene)
           : Themable(id, theme), QGraphicsTextItem(0, scene)
 {
   hide();
@@ -46,7 +46,7 @@ TextSprite::TextSprite(QString id, ThemeManager* theme, QGraphicsScene* scene)
 }
 
 
-void TextSprite::setText(QString text)
+void TextSprite::setText(const QString &text)
 {
   setPlainText(text);
   thememanager()->updateTheme(this);

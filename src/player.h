@@ -135,7 +135,7 @@ class Player : public QObject
      *  Emits the signal signalUpdateName(int)
      *  @param name The new name.
      */
-    void setName(QString name);
+    void setName(const QString &name);
 
     /** Add a number of won games to the overall 
       * player statistic.

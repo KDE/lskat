@@ -266,7 +266,7 @@ QString Player::name()
 
 
 // Set the name of the player.
-void Player::setName(QString name)
+void Player::setName(const QString &name)
 {
   mName = name;
   refresh();

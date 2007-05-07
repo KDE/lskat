@@ -107,7 +107,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
     /** Display a text on the game board.
      * @param text The text to display
      */
-    void showText(QString text);
+    void showText(const QString &text);
 
     /** Show the move icon for the given player
      *  @param no The player number (-1: show none)

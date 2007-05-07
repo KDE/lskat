@@ -60,7 +60,7 @@
 #include "namedialogwidget.h"
 
 // Configuration file
-#include "config-src.h"
+#include <config-src.h>
 
 // Forward declarations
 #define ADVANCE_PERDIOD 20
@@ -538,8 +538,8 @@ void Mainwindow::menuNewLSkatGame()
     if (mDisplay) delete mDisplay;
     if (mEngine) delete mEngine;
 
-    mDisplay     = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERDIOD, mView);
-    mEngine  = new EngineTwo(this, mDeck, (DisplayTwo*)mDisplay);
+    mDisplay = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERDIOD, mView);
+    mEngine = new EngineTwo(this, mDeck, (DisplayTwo*)mDisplay);
     connect(mEngine, SIGNAL(signalGameOver(int)), this, SLOT(gameOver(int)));
     connect(mEngine, SIGNAL(signalNextPlayer(Player*)), this, SLOT(nextPlayer(Player*)));
 

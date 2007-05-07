@@ -46,7 +46,7 @@ class ScoreSprite : public PixmapSprite
       * @param no              A used defined number (unused)
       * @param scene           The graphics scene
       */
-    ScoreSprite(QString id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene);
+    ScoreSprite(const QString &id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene);
     
     /** Destructor 
       */
@@ -70,7 +70,7 @@ class ScoreSprite : public PixmapSprite
     /** Store the player name.
       * @param s  The name
       */ 
-    void setPlayerName(QString s);
+    void setPlayerName(const QString &s);
     
     /** Store the amounts of points for a player.
       * @param points The amount of current points.

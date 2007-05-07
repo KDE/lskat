@@ -39,19 +39,19 @@ class TextSprite : public QGraphicsTextItem, public virtual Themable
       * @param theme  The theme manager
       * @param scene  The graphics scene to use
       */
-    TextSprite(QString text, QString id, ThemeManager* theme, QGraphicsScene* scene);
+    TextSprite(const QString &text, const QString &id, ThemeManager* theme, QGraphicsScene* scene);
 
     /** Constructor for the sprite.
       * @param id     The theme id for the text
       * @param theme  The theme manager
       * @param scene  The graphics scene to use
       */
-    TextSprite(QString id, ThemeManager* theme, QGraphicsScene* scene);
+    TextSprite(const QString &id, ThemeManager* theme, QGraphicsScene* scene);
 
     /** Set a new text to the sprite.
       * @param text The text to display
       */
-    void setText(QString text);
+    void setText(const QString &text);
 
     /** Main theme manager function. Called when any theme change like
       * a new theme or a theme size change occurs. This object needs to

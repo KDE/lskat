@@ -32,7 +32,7 @@
 
 
 // Constructor for the sprite
-PixmapSprite::PixmapSprite(QString id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* canvas)
+PixmapSprite::PixmapSprite(const QString &id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* canvas)
     :  Themable(id, theme), QGraphicsPixmapItem(0, canvas)
 {
   hide();
@@ -156,7 +156,7 @@ void PixmapSprite::changeTheme()
 
 
 // Debug only: Retrieve double value from configuration file
-double PixmapSprite::getDoubleValue(QString item)
+double PixmapSprite::getDoubleValue(const QString &item)
 {
   KConfigGroup config = thememanager()->config(id());
   return config.readEntry(item, 0.0);
@@ -164,7 +164,7 @@ double PixmapSprite::getDoubleValue(QString item)
 
 
 // Move the sprite to the given relative position
-void PixmapSprite::setPosition(QPointF pos)
+void PixmapSprite::setPosition(const QPointF &pos)
 {
   mStart          = pos;
   setPos(mStart.x()*getScale(), mStart.y()*getScale());
