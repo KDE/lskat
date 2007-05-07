@@ -93,6 +93,8 @@ class GameView : public QGraphicsView
     ThemeManager* mTheme;
     // Theme Queue
     QList<int> mThemeQueue;
+    // Theme queue delay time [ms]
+    long mQueueDelay;
 };
 
 #endif

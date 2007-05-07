@@ -24,6 +24,7 @@
 #include <QPoint>
 #include <QFont>
 #include <QTimer>
+#include <QTime>
 
 // KDE includes
 #include <klocale.h>
@@ -71,6 +72,7 @@ GameView::GameView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeMa
   // Scale theme
   //mTheme->rescale(this->width());
   mThemeQueue.clear();
+  mQueueDelay = 300;  // [ms]
 }
 
 
@@ -115,7 +117,7 @@ void GameView::resizeEvent(QResizeEvent* e)
   mThemeQueue.prepend(int(width));
 
 
-  QTimer::singleShot(300, this, SLOT(rescaleTheme()) );
+  QTimer::singleShot(mQueueDelay, this, SLOT(rescaleTheme()) );
 }
 
 
@@ -127,11 +129,20 @@ void GameView::rescaleTheme()
     if (global_debug > 2) kDebug() << "Swallowing rescale event ***********************" << endl;
     return;
   }
+
+  QTime t;
+  t.start();
+
   resetTransform();
   int width = mThemeQueue.first();
   if (global_debug > 2) kDebug() << "Theme queue size=" << mThemeQueue.size() << " Rescale width to " << width << endl;
   mThemeQueue.clear();
   mTheme->rescale(width);
+
+  mQueueDelay = 150; // [ms]
+
+
+   if (global_debug > 2) kDebug() << "Time elapsed: "<< t.elapsed() << " ms " << endl;
 }
 
 
