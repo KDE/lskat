@@ -49,7 +49,7 @@ EngineTwo::EngineTwo(QWidget* parent, Deck* deck, DisplayTwo* display)
 // Inital part of the game loop. Prepare new move etc
 void EngineTwo::gameLoopStart()
 {
-  kDebug() << "GAME LOOP START " << endl;
+  if (global_debug > 1) kDebug() << "GAME LOOP START " << endl;
   if (!isGameRunning()) return;
 
   // Switch to the current player
@@ -356,7 +356,6 @@ void EngineTwo::startGame(Suite trump, int startPlayer)
 
   // Delayed call to game loop start via display signal 'dealingDone'
   // (see constructor)
-  // QTimer::singleShot(mDisplay->shuffleTime(), this, SLOT(gameLoopStart()) );
 }
 
 
