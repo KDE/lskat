@@ -41,12 +41,15 @@ EngineTwo::EngineTwo(QWidget* parent, Deck* deck, DisplayTwo* display)
   mDisplay       = display;
   mDeck          = deck;
   mCurrentPlayer = 0;
+
+  connect(mDisplay, SIGNAL(dealingDone()), this, SLOT(gameLoopStart()));
 }
 
 
 // Inital part of the game loop. Prepare new move etc
 void EngineTwo::gameLoopStart()
 {
+  kDebug() << "GAME LOOP START " << endl;
   if (!isGameRunning()) return;
 
   // Switch to the current player
@@ -351,8 +354,9 @@ void EngineTwo::startGame(Suite trump, int startPlayer)
       mDisplay->deal(player, p);
   }
 
-  // Delayed call to game loop start
-  QTimer::singleShot(mDisplay->shuffleTime(), this, SLOT(gameLoopStart()) );
+  // Delayed call to game loop start via display signal 'dealingDone'
+  // (see constructor)
+  // QTimer::singleShot(mDisplay->shuffleTime(), this, SLOT(gameLoopStart()) );
 }
 
 
@@ -457,7 +461,7 @@ bool EngineTwo::isLegalMove(int card1, int card2, int playerNumber)
 // The first card was played first and take precendence
 // when possible. The function returns 0 if the first
 // card won, 1 if the second card won.
-int EngineTwo::whoWonMove(int card1,int card2)
+int EngineTwo::whoWonMove(int card1, int card2)
 {
   Suite suite1   = mDeck->getSuite(card1);
   Suite suite2   = mDeck->getSuite(card2);

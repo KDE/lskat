@@ -20,6 +20,9 @@
 
 #include "gameview.h"
 
+// General includes
+#include <math.h>
+
 // Qt includes
 #include <QPoint>
 #include <QFont>
@@ -72,7 +75,7 @@ GameView::GameView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeMa
   // Scale theme
   //mTheme->rescale(this->width());
   mThemeQueue.clear();
-  mQueueDelay = 300;  // [ms]
+  mTimeStart.start();
 }
 
 
@@ -91,7 +94,12 @@ void GameView::updateAndAdvance()
 // resized.
 void GameView::resizeEvent(QResizeEvent* e)
 {
-  if (global_debug > 2) kDebug() <<"RESIZE EVENT " << e->size() << endl;
+  QTime t;
+  t.start();
+  if (global_debug > 2) kDebug() <<"RESIZE EVENT " << e->size() << " oldSize="<< e->oldSize() <<" at " << t.msecsTo(mTimeStart) << endl;
+  double diffW = double(e->oldSize().width()-e->size().width());
+  double diffH = double(e->oldSize().height()-e->size().height());
+  double delta = fabs(diffW) + fabs(diffH); 
 
   // Adapt the canvas size to the window size
   if (scene())
@@ -103,7 +111,6 @@ void GameView::resizeEvent(QResizeEvent* e)
   QSizeF size = QSizeF(e->size());
   // Rescale on minimum fitting aspect ratio either width or height limiting
   double aspect = size.width() / size.height();
-  if (global_debug > 2) kDebug() << "Aspect=" << aspect << " theme aspect="<< mTheme->aspectRatio() << endl;
 
   double width = 0.0;
   if (aspect > mTheme->aspectRatio()) width = e->size().height()*mTheme->aspectRatio();
@@ -112,12 +119,15 @@ void GameView::resizeEvent(QResizeEvent* e)
   // Pixel rescale
   double oldScale = mTheme->getScale();
   resetTransform();
-  resetCachedContent();
-  scale(double(width/oldScale), double(width/oldScale));
+  if (width > oldScale) scale(double(width/oldScale), double(width/oldScale));
   mThemeQueue.prepend(int(width));
+  if (global_debug > 2) kDebug() << "Quequed resize, aspect=" << aspect << " theme aspect="<< mTheme->aspectRatio() << endl;
 
+  long queueDelay = 0;
+  if (delta < 15) queueDelay = 750;
+  else if (delta < 35) queueDelay = 500;
 
-  QTimer::singleShot(mQueueDelay, this, SLOT(rescaleTheme()) );
+  QTimer::singleShot(queueDelay, this, SLOT(rescaleTheme()) );
 }
 
 
@@ -126,21 +136,19 @@ void GameView::rescaleTheme()
 {
   if (mThemeQueue.size() == 0)
   {
-    if (global_debug > 2) kDebug() << "Swallowing rescale event ***********************" << endl;
+    if (global_debug > 2) kDebug() << "***************** Swallowing rescale event ***********************" << endl;
     return;
   }
 
   QTime t;
   t.start();
 
+  if (global_debug > 2) kDebug() << "Theme queue rescale start at "  << t.msecsTo(mTimeStart) << endl;
   resetTransform();
   int width = mThemeQueue.first();
   if (global_debug > 2) kDebug() << "Theme queue size=" << mThemeQueue.size() << " Rescale width to " << width << endl;
   mThemeQueue.clear();
   mTheme->rescale(width);
-
-  mQueueDelay = 150; // [ms]
-
 
    if (global_debug > 2) kDebug() << "Time elapsed: "<< t.elapsed() << " ms " << endl;
 }

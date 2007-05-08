@@ -70,13 +70,19 @@ class EngineTwo : public AbstractEngine
     /** Retrieve the current move phase.
      *  @return The move phase.
      */
-     MoveState currentMovePhase() {return mCurrentMovePhase;}
+     MoveState currentMovePhase() const {return mCurrentMovePhase;}
 
      /** Retrieve the currently played card 
       *  @param no Which card (0,1)
       *  @return The played card.
       */
-     int playedCard(int no) {return mCurrentMoveCards[no];}
+     int playedCard(int no) const {return mCurrentMoveCards[no];}
+
+
+     /** Retreive the current trump color.
+       * @return The trump suite.
+       */
+     Suite trump() const {return mTrump;}
 
 
   public slots:

@@ -21,11 +21,8 @@
 #include "display_two.h"
 
 // Qt includes
-#include <QSize>
 #include <QPoint>
-#include <QPen>
-#include <QBrush>
-#include <QLinearGradient>
+#include <QTimer>
 
 // KDE includes
 #include <kdebug.h>
@@ -41,7 +38,7 @@
 
 // Display defines
 #define TIME_DELAY_SHUFFLE       100 /* Delay time in shuffling in [ms] */
-#define TIME_DELAY_AFTER_SHUFFLE 100 /* Extra delay after shuffling [ms] */
+#define TIME_DELAY_AFTER_SHUFFLE 500 /* Extra delay after shuffling [ms] */
 
 
 // Constructor for the engine
@@ -218,13 +215,39 @@ void DisplayTwo::deal(Player* player, int position)
       }// next x
     }// next y
   }// next h
-}// end initPlayer
+
+  // Check dealing for only one player to avoid double timer events
+  if (position == 1)
+  {
+    QTimer::singleShot(100, this,SLOT(checkShuffle()));
+  }
+}
 
 
-// Returns the time in milliseconds used for shuffling the initial cards
-int DisplayTwo::shuffleTime()
+// Check whether all cardsprites are idle
+void DisplayTwo::checkShuffle()
 {
-  return 32*TIME_DELAY_SHUFFLE + TIME_DELAY_AFTER_SHUFFLE;
+  bool idle = true;
+  // Check whether the sprites are idle
+  for (int i=0; i<32; i++)
+  {
+    CardSprite* sprite = mCards[i];
+    if (!sprite->isIdle())
+    {
+      idle = false;
+      break;
+    }
+  }
+
+  // If sprites are not idle repeat check otherwise emit 'done' signal
+  if (!idle)
+  {
+    QTimer::singleShot(100, this,SLOT(checkShuffle()));
+  }
+  else
+  {
+    emit dealingDone();
+  }
 }
 
 

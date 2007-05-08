@@ -30,6 +30,7 @@
 #include <QPoint>
 #include <QHash>
 #include <QList>
+#include <QTime>
 #include <QResizeEvent>
 
 // Forward declaration
@@ -94,7 +95,7 @@ class GameView : public QGraphicsView
     // Theme Queue
     QList<int> mThemeQueue;
     // Theme queue delay time [ms]
-    long mQueueDelay;
+    QTime mTimeStart;
 };
 
 #endif

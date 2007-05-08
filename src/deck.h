@@ -110,11 +110,23 @@ class Deck : public QObject
      */
     static QString name(Suite suite, CardType type);
 
-    /** Returns a verbose name for a card
+    /** Returns a verbose name for a card.
      *  @param card The card as integer
      *  @return A descriptive string.
      */
     static QString name(int card);
+
+    /** Returns a verbose name for a card type.
+     *  @param type The card type (e.g. Ace)
+     *  @return A descriptive string.
+     */
+    static QString name(CardType type);
+
+    /** Returns a verbose name for a suite.
+     *  @param suite The suite (e.g. Heart)
+     *  @return A descriptive string.
+     */
+    static QString name(Suite suite);
 
   private:
     // Array of card numbers

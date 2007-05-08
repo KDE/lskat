@@ -128,6 +128,11 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
      *  @return The frame number 0..n-1.
      */
      int frame() {return mCurrentFrame;}
+
+     /** Check whether the sprite is idle,
+       * @return True if idle.
+       */
+     bool isIdle() {return mAnimationState == Idle;}  
   
   protected:
     /** Calculate a sprite frame (for turning sprites).

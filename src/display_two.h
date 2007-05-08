@@ -92,12 +92,6 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
      */
     void remove(int winnerPosition, int cardNumber, int delta);
   
-    /** Returns the time in milliseconds used for shuffling the
-     *  initial cards.
-     *  @return The time in milliseconds [ms].
-     */
-    int shuffleTime();
-
     /** Display the score on the game board.
      * @param position Which player position
      * @param score The score to display
@@ -129,6 +123,17 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
       * @param player The player to set
       */
     void updatePlayer(Player* player);
+
+
+    /** Checks whether the shuffling is still ongoing (timer).
+      */
+    void checkShuffle();  
+
+  signals:
+    /** Signal is emitted when the dealing animation is done.
+      * Game can logically start then.
+      */
+    void dealingDone();
 
   protected:
     /** Calculate the x,y position values from a card number.
