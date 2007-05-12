@@ -343,37 +343,28 @@ void Mainwindow::initGUI()
   QAction *action;
 
   // Start a new game
-  action = KStandardGameAction::gameNew(this, SLOT(menuNewLSkatGame()), this);
-  actionCollection()->addAction("new_game", action);
-  ACTION("new_game")->setToolTip(i18n("Starting a new game..."));
-  ACTION("new_game")->setWhatsThis(i18n("Start a new game."));
+  action = KStandardGameAction::gameNew(this, SLOT(menuNewLSkatGame()), actionCollection());
+  action->setWhatsThis(i18n("Start a new game."));
   if (global_demo_mode) action->setEnabled(false);
 
   // Clear all time statistics
   action = actionCollection()->addAction("clear_statistics");
-  ACTION("clear_statistics")->setIcon(KIcon("flag"));
-  ACTION("clear_statistics")->setText(i18n("&Clear Statistics"));
+  action->setIcon(KIcon("flag"));
+  action->setText(i18n("&Clear Statistics"));
   connect(ACTION("clear_statistics"), SIGNAL(triggered(bool)), this, SLOT(menuClearStatistics()));
-  ACTION("clear_statistics")->setToolTip(i18n("Delete all time statistics..."));
-  ACTION("clear_statistics")->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
-  if (global_demo_mode) ACTION("clear_statistics")->setEnabled(false);
+  action->setToolTip(i18n("Delete all time statistics..."));
+  action->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
+  if (global_demo_mode) action->setEnabled(false);
 
   // End a game
-  action = actionCollection()->addAction("end_game");
-  ACTION("end_game")->setIcon(KIcon("process-stop"));
-  ACTION("end_game")->setText(i18n("End game"));
-  connect(ACTION("end_game"), SIGNAL(triggered(bool)), this, SLOT(menuEndGame()));
-  ACTION("end_game")->setToolTip(i18n("Ending the current game..."));
-  ACTION("end_game")->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
-  if (global_demo_mode) ACTION("end_game")->setEnabled(false);
-  else ACTION("end_game")->setEnabled(false);
+  action = KStandardGameAction::end(this, SLOT(menuEndGame()), actionCollection());
+  action->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
+  if (global_demo_mode) action->setEnabled(false);
+  else action->setEnabled(false);
 
-  // Quite the program
-  action = KStandardGameAction::quit(this, SLOT(close()), this);
-  actionCollection()->addAction("game_exit", action);
-  ACTION("game_exit")->setToolTip(i18n("Exiting..."));
-  ACTION("game_exit")->setWhatsThis(i18n("Quits the program."));
-
+  // Quit the program
+  action = KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+  action->setWhatsThis(i18n("Quits the program."));
 
   // Determine start player
   KSelectAction* startPlayerAct = new KSelectAction(i18n("Starting Player"), this);
@@ -412,16 +403,16 @@ void Mainwindow::initGUI()
 
   // Choose card deck
   action = actionCollection()->addAction("select_carddeck");
-  ACTION("select_carddeck")->setText(i18n("Select &Card Deck..."));
-  connect(ACTION("select_carddeck"), SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
-  ACTION("select_carddeck")->setToolTip(i18n("Configure card decks..."));
-  ACTION("select_carddeck")->setWhatsThis(i18n("Choose how the cards should look."));
+  action->setText(i18n("Select &Card Deck..."));
+  connect(action, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
+  action->setToolTip(i18n("Configure card decks..."));
+  action->setWhatsThis(i18n("Choose how the cards should look."));
 
   // Change player names
   action = actionCollection()->addAction("change_names");
-  ACTION("change_names")->setText(i18n("&Change Player Names"));
-  connect(ACTION("change_names"), SIGNAL(triggered(bool)), this, SLOT(menuPlayerNames()));
-  if (global_demo_mode) ACTION("change_names")->setEnabled(false);
+  action->setText(i18n("&Change Player Names"));
+  connect(action, SIGNAL(triggered(bool)), this, SLOT(menuPlayerNames()));
+  if (global_demo_mode) action->setEnabled(false);
 }
 
 
