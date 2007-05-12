@@ -41,7 +41,7 @@
 
 
 // Constructor for the view
-GameView::GameView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent)
+GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent)
         : QGraphicsView(scene, parent)
 {
   // Store attributes    

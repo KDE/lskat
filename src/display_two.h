@@ -116,7 +116,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
       * @param playerNumber The resulting player number [0-1]
       * @param cardNumber   The resulting card number [0-7]
       */
-    void convertMousePress(QPoint mouse, int& playerNumber, int& cardNumber);
+    void convertMousePress(const QPoint &mouse, int& playerNumber, int& cardNumber);
 
     /** Connect a player with the score widget by setting the player properties
       * to the score board.

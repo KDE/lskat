@@ -252,7 +252,7 @@ void DisplayTwo::checkShuffle()
 
 
 // Convert a mouse coordinate back to card numbers
-void DisplayTwo::convertMousePress(QPoint mouse, int& playerNumber, int& cardNumber)
+void DisplayTwo::convertMousePress(const QPoint &mouse, int& playerNumber, int& cardNumber)
 {
   double scale = thememanager()->getScale();
   double x = mouse.x() / scale;

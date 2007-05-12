@@ -362,7 +362,7 @@ void CardSprite::advance(int phase)
 
 
 // Create turn animation, i.e. card combined out of backside and frontside
-QPixmap CardSprite::createCard(const QPixmap front, const QPixmap back, int curNo, int count)
+QPixmap CardSprite::createCard(const QPixmap &front, const QPixmap &back, int curNo, int count)
 {
   int halfCount = count/2;
   // Turn the frontside of the card 0..90 degree

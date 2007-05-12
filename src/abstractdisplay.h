@@ -108,7 +108,7 @@ class AbstractDisplay : public QObject
       * @param playerNumber The resulting player number [0-1]
       * @param cardNumber   The resulting card number [0-7]
       */
-    virtual void convertMousePress(QPoint mouse, int& playerNumber, int& cardNumber) = 0;
+    virtual void convertMousePress(const QPoint &mouse, int& playerNumber, int& cardNumber) = 0;
 
     /** Load all card sprites.
       */

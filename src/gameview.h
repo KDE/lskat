@@ -52,7 +52,7 @@ class GameView : public QGraphicsView
      *  @param theme The theme manager
      *  @param parent The parent window
      */
-    GameView(QSize size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent = 0);
+    GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent = 0);
 
  protected:
     /** React to mouse clicks.

@@ -35,7 +35,7 @@ MouseInput::MouseInput(QObject* parent)
 
 
 // Mouse press received
-void MouseInput::mousePress(QPoint point)
+void MouseInput::mousePress(const QPoint &point)
 {
   int playerNumber;
   int cardNumber;

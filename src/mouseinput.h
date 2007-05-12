@@ -51,7 +51,7 @@ class MouseInput : public AbstractInput
     /** Recevied a mouse press event 
       * @param point The position [screen coordiantes]
       */
-    void mousePress(QPoint point);
+    void mousePress(const QPoint &point);
 
   signals:  
     /** Convert mouse coordinate. 

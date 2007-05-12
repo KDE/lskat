@@ -88,7 +88,7 @@ class DisplayIntro : public AbstractDisplay, public virtual Themable
     /** Convert the position of a mouse click to a logical
       * game position - unused.
       */
-    void convertMousePress(QPoint /*mouse*/, int& /*playerNumber*/, int& /*cardNumber*/) {}
+    void convertMousePress(const QPoint& /*mouse*/, int& /*playerNumber*/, int& /*cardNumber*/) {}
 
     /** Animation loop. Called by timer.
       */

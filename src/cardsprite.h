@@ -148,7 +148,7 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
       * @param count    How many frames in the animation
       * @return The calculated pixmap.
       */
-    QPixmap createCard(const QPixmap front, const QPixmap back, int curNo, int count);
+    QPixmap createCard(const QPixmap &front, const QPixmap &back, int curNo, int count);
 
     /** Set target position and calculate moving speed.
      *  @param pos Target [0..1, 0..1]
