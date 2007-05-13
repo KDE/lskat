@@ -323,7 +323,7 @@ void Mainwindow::gameOver(int /*winner*/)
   // Automatically restart game in demo mode
   if (global_demo_mode)
   {
-    QTimer::singleShot(10000, this,SLOT(menuNewLSkatGame()));
+    QTimer::singleShot(10000, this, SLOT(menuNewLSkatGame()));
   }
 }
 
@@ -333,7 +333,7 @@ void Mainwindow::nextPlayer(Player* player)
 {
   int no       = player->id()+1;
   QString name = player->name();
-  statusBar()->showMessage(i18nc("Player name and number","Next move for %1 (player %2)", name, no));
+  statusBar()->showMessage(i18nc("Player name and number", "Next move for %1 (player %2)", name, no));
 }
 
 
@@ -344,7 +344,6 @@ void Mainwindow::initGUI()
 
   // Start a new game
   action = KStandardGameAction::gameNew(this, SLOT(menuNewLSkatGame()), actionCollection());
-  action->setWhatsThis(i18n("Start a new game."));
   if (global_demo_mode) action->setEnabled(false);
 
   // Clear all time statistics
