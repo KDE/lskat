@@ -348,11 +348,7 @@ void Mainwindow::initGUI()
   if (global_demo_mode) action->setEnabled(false);
 
   // Clear all time statistics
-  action = actionCollection()->addAction("clear_statistics");
-  action->setIcon(KIcon("flag"));
-  action->setText(i18n("&Clear Statistics"));
-  connect(ACTION("clear_statistics"), SIGNAL(triggered(bool)), this, SLOT(menuClearStatistics()));
-  action->setToolTip(i18n("Delete all time statistics..."));
+  action = KStandardGameAction::clearStatistics(this, SLOT(menuClearStatistics()), actionCollection());
   action->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
   if (global_demo_mode) action->setEnabled(false);
 
