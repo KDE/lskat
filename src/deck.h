@@ -97,6 +97,13 @@ class Deck : public QObject
      */
     static CardType getCardType(int card);
 
+    /** Get the card number (0,1,...) of a card given by suite and type.
+     *  @param suite The card suite (Club,...)
+     *  @param type The card type (Ace,...)
+     *  @return The card number.
+     */
+    static int getCard(Suite suite, CardType type);
+
     /** Get the value in points of the given card (number).
      *  @param card The card number
      *  @return The card value [0, 2, 3, 4, 10, 11].

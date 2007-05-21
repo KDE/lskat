@@ -280,7 +280,8 @@ AbstractInput* Mainwindow::createInput(
 void Mainwindow::startGame()
 {
   // Enable game action
-  ACTION("end_game")->setEnabled(true);
+  QString endName = KStandardGameAction::name(KStandardGameAction::End);
+  ACTION(endName)->setEnabled(true);
 
   // Deal cards to player - Shuffle card deck and reset pile
   mDeck->shuffle();
@@ -317,7 +318,8 @@ void Mainwindow::startGame()
 // Here a game over is signalled
 void Mainwindow::gameOver(int /*winner*/)
 {
-  ACTION("end_game")->setEnabled(false);
+  QString endName = KStandardGameAction::name(KStandardGameAction::End);
+  ACTION(endName)->setEnabled(false);
   statusBar()->showMessage(i18n("Game Over. Please start a new game."));
 
   // Automatically restart game in demo mode

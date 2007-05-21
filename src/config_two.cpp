@@ -105,6 +105,7 @@ void ConfigTwo::load(KConfig* cfg)
     KConfigGroup playercfg = cfg->group(QString("LSkat_Player%1").arg(no));
     player->load(playercfg);
   }
+
 }
 
 

@@ -19,6 +19,7 @@
 */
 
 #include "deck.h"
+#include "lskatglobal.h"
 
 // Qt includes
 
@@ -38,7 +39,9 @@ Deck::Deck(long seed, QObject* parent)
     : QObject(parent)
 {
   // Set the random seed
-  mRandom.setSeed(seed);
+   mRandom.setSeed(seed);
+  // TODO: Hardcoded
+  // mRandom.setSeed(global_debug);
   shuffle();
 }
 
@@ -62,6 +65,9 @@ Suite Deck::randomTrump()
   Suite suite = getSuite(card);
   CardType type = getCardType(card);
   if (type == Jack) return Grand;
+
+  // TODO: Hardcoded test
+  //return Grand;
   return suite;
 }
 
@@ -83,6 +89,32 @@ void Deck::shuffle()
      int c2 = mRandom.getLong(NUMBER_OF_CARDS);
      mCards.swap(c1, c2);
    }
+
+
+   // TODO: Hardcoded deck
+   return;
+   static int c[] = {
+   Ten, Spade, Seven, Diamond, Ten, Diamond, Ten, Club,  
+   Eight, Club, Nine, Club, Nine, Heart, Jack, Heart,
+   Eight, Spade, Seven, Heart, Nine, Spade, Jack, Spade,
+   Ace, Diamond, Eight, Heart, Queen, Spade, Ten, Heart,
+
+   Ace, Club, Ace, Heart, Queen, Club, Jack, Diamond,
+   King, Heart, Ace, Spade, Queen, Diamond, Jack, Club,
+   King, Club, Nine, Diamond, Seven, Spade, Queen, Heart,
+   Eight, Diamond, Seven, Club, King, Spade, King, Diamond
+   };
+
+   mCards.clear();
+   // Fill card deck with ordered cards
+   for (int i=0; i<NUMBER_OF_CARDS; i++)
+   {
+     int card = c[2*i];
+     int suite = c[2*i+1];
+     int cc = getCard(Suite(suite),CardType(card));
+
+     mCards.append(cc);
+   }
 }
 
 
@@ -95,6 +127,11 @@ int Deck::drawCard()
   }
   int card = mCards.takeFirst();
   return card;
+}
+
+int Deck::getCard(Suite suite, CardType type)
+{
+  return 4*int(type)+int(suite);
 }
 
 

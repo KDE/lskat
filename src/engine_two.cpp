@@ -95,9 +95,9 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
   // Remove this, Debug current card 
   if (global_debug > 0)
   {
-    Suite   suite = mDeck->getSuite(card);
-    CardType type = mDeck->getCardType(card);
-    kDebug() << "Gameloop "<<mCurrentPlayer <<" plays " << mDeck->name(suite, type) << endl;
+    Suite   suite = Deck::getSuite(card);
+    CardType type = Deck::getCardType(card);
+    kDebug() << "Gameloop "<<mCurrentPlayer <<" plays " << Deck::name(suite, type) << endl;
   }
 
 
@@ -169,7 +169,8 @@ void EngineTwo::gameLoopFinish()
 
     // Switch the current player if second player one
     int winner = whoWonMove(mCurrentMoveCards[FirstPlayerTurn],
-                            mCurrentMoveCards[SecondPlayerTurn]);
+                            mCurrentMoveCards[SecondPlayerTurn],
+                            mTrump);
     // The first mover won. This means to switch the current player back
     // to him.  Otherwise the current player stays untouched, that is the
     // second player plays again.
@@ -407,10 +408,10 @@ void EngineTwo::activatePlayer(int playerNumber)
 // plays a legal card)
 bool EngineTwo::isLegalMove(int card1, int card2, int playerNumber)
 {
-  Suite suite1   = mDeck->getSuite(card1);
-  Suite suite2   = mDeck->getSuite(card2);
-  CardType type1 = mDeck->getCardType(card1);
-  CardType type2 = mDeck->getCardType(card2);
+  Suite suite1   = Deck::getSuite(card1);
+  Suite suite2   = Deck::getSuite(card2);
+  CardType type1 = Deck::getCardType(card1);
+  CardType type2 = Deck::getCardType(card2);
 
   // Force trump colour as Jacks count as Trump
   if (type1 == Jack) suite1 = mTrump;
@@ -439,8 +440,8 @@ bool EngineTwo::isLegalMove(int card1, int card2, int playerNumber)
     if (card < 0) continue;
 
     // Analyse card
-    Suite suite   = mDeck->getSuite(card);
-    CardType type = mDeck->getCardType(card);
+    Suite suite   = Deck::getSuite(card);
+    CardType type = Deck::getCardType(card);
 
     // Force trump colour as Jacks count as Trump
     if (type == Jack) suite = mTrump;
@@ -460,12 +461,12 @@ bool EngineTwo::isLegalMove(int card1, int card2, int playerNumber)
 // The first card was played first and take precendence
 // when possible. The function returns 0 if the first
 // card won, 1 if the second card won.
-int EngineTwo::whoWonMove(int card1, int card2)
+int EngineTwo::whoWonMove(int card1, int card2, Suite trump) 
 {
-  Suite suite1   = mDeck->getSuite(card1);
-  Suite suite2   = mDeck->getSuite(card2);
-  CardType type1 = mDeck->getCardType(card1);
-  CardType type2 = mDeck->getCardType(card2);
+  Suite suite1   = Deck::getSuite(card1);
+  Suite suite2   = Deck::getSuite(card2);
+  CardType type1 = Deck::getCardType(card1);
+  CardType type2 = Deck::getCardType(card2);
 
   // Two jacks
   if (type1 == Jack && type2 == Jack)
@@ -500,13 +501,13 @@ int EngineTwo::whoWonMove(int card1, int card2)
 
   if (global_debug > 0)
   {
-    if (suite1 == mTrump) kDebug() << "FIRST card wins TRUMP" << endl;
-    if (suite2 == mTrump) kDebug() << "SECOND card wins TRUMP" << endl;
+    if (suite1 == trump) kDebug() << "FIRST card wins TRUMP" << endl;
+    if (suite2 == trump) kDebug() << "SECOND card wins TRUMP" << endl;
   }
 
   // If cards are not of the same suite a trump wins
-  if (suite1 == mTrump) return 0;
-  if (suite2 == mTrump) return 1;
+  if (suite1 == trump) return 0;
+  if (suite2 == trump) return 1;
 
   // In all other cases the first card wins
   return 0;

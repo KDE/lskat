@@ -106,8 +106,10 @@ class EngineTwo : public AbstractEngine
     /** Check who won a move, the first or the second card.
      *  @param card1 Card value played by first mover
      *  @param card2 Card value played by latter mover
+     *  @param trump Current trump suite
+     *  @return The winning player [0,1]
      */
-    int whoWonMove(int card1,int card2);
+    static int whoWonMove(int card1,int card2, Suite trump);
 
 
   protected slots:

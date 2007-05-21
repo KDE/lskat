@@ -26,6 +26,7 @@
 // Local includes
 #include "abstractinput.h"
 #include "engine_two.h"
+#include "deck.h"
 
 
 /**
@@ -70,10 +71,41 @@ class AiInput : public AbstractInput
          *  @param board Another board
          */
         Board(const Board& board);
+
+        /** Retreive card of given player on given position
+          * @param p   player [0,1]
+          * @param pos Position [0-7]
+          * @return The card id.
+          */
+        int card(int p, int pos) const;
+
+        /** Take aways card of given player on given position
+          * @param p   player [0,1]
+          * @param pos Position [0-7]
+          * @return The card id.
+          */
+        int takeCard(int p, int pos);
+
+        /** Check amount of cards at position, that is
+          * card on top (2), bottom (1), or none at all (0)
+          * @param p   player [0,1]
+          * @param pos Position [0-7]
+          * @return The amount of cards.
+          */
+        int cardsAtPos(int p, int pos) const;
+
+        /** Analyse board, e.g. count how many of each suite.
+          */
+        void analyse();
+
         /** Cards of both players or -1 for used cards */
         int cards[2][16]; 
         /** Already played cards */
         int playedCards[32];
+        /** How many cards of each suite (4==Trump color) */
+        int amountOfSuite[2][5]; 
+        /** How many cards of each type  */
+        int amountOfCardType[2][8]; 
         /** Currently played card of first player or -1 */
         int playedCard; 
         /** Points of both players */
@@ -82,6 +114,8 @@ class AiInput : public AbstractInput
         int whoseTurn; 
         /** True if first player movement phase UNUSED */
         bool firstPlay; 
+        /** Trump color */
+        Suite trump;
     };
     /** AI representation of a move.
       */
@@ -120,7 +154,17 @@ class AiInput : public AbstractInput
      *  @param current The current game board
      *  @return The rating for this situation.
      */
-    double evaluteGame(int p, const AiInput::Board current);
+    double evaluteGame(int p, const AiInput::Board& current);
+
+    int findCard(const AiInput::Board& current, Suite sSuite, CardType sCardType) const;
+    int amountOfWinningCards(int p, Suite sSuite, const AiInput::Board& current) const;
+    bool wouldWinMove(int p, int card, const AiInput::Board& current) const;
+    double checkRulebase(int p, int card,  const AiInput::Board& current) const;
+    bool hasAmount(int player, Suite suite, int min, int max, const AiInput::Board& current) const;
+    int amountOfOpenCards(int p, const AiInput::Board& current) const;
+    bool isLegalMove(int card1, int card2, int pl, const AiInput::Board& current) const;
+
+
 
   private:
     /** The game engine used */
