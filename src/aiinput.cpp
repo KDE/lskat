@@ -142,7 +142,7 @@ const double RATING_AMOUNT_GRANDCARD    = 15.0*RATING_ONE_POINT;
 const double RATING_AMOUNT_OPENCARD     = 1.5*RATING_ONE_POINT;
 const double RATING_AMOUNT_ACES         = 3.0*RATING_ONE_POINT;
 const double RATING_AMOUNT_TENS         = 1.0*RATING_ONE_POINT;
-const double RATING_AMOUNT_JACKS        = 7.5*RATING_ONE_POINT;
+const double RATING_AMOUNT_JACKS        = 8.5*RATING_ONE_POINT;
 const double RATING_GOOD_MISSING_SUITE  = 3.5*RATING_ONE_POINT;
 
 const double RATING_JACK_OF_CLUBS       = 0.8*RATING_ONE_POINT;
@@ -250,7 +250,7 @@ AiInput::Move AiInput::initiateMove(int p, const AiInput::Board& board)
     double rating = -answer.value;
     if (global_debug > 5) kDebug() << "First mover yields rating of " << rating << endl;
 
-    rating += checkRulebase(p, card, board);
+    rating += rulebaseFirstMover(p, card, board);
     if (global_debug > 5) kDebug() << "  rulesbase correction to  "<<rating  << endl;
 
     // New best move?
@@ -307,7 +307,7 @@ AiInput::Move AiInput::answerMove(int p, const AiInput::Board& board)
     }
 
     double rating = evaluteGame(p, current);
-    rating += checkRulebase(p, card, board);
+    rating += rulebaseAnswerMover(p, card, board);
 
 
     if (global_debug > 5)
@@ -573,11 +573,11 @@ const double RULE_PULL_TRUMP      =   10.0*RATING_ONE_POINT;
 // Save trumps
 const double RULE_SAVE_TRUMP      =  -10.0*RATING_ONE_POINT;
 // Stay first mover
-const double RULE_FIRST_MOVER     =    5.0*RATING_ONE_POINT;
+const double RULE_FIRST_MOVER     =    4.0*RATING_ONE_POINT;
 
 
 // Rule based override over board evaluation to tackle special szenarios
-double AiInput::checkRulebase(int p, int card,  const AiInput::Board& current) const
+double AiInput::rulebaseFirstMover(int p, int card,  const AiInput::Board& current) const
 {
   double result = 0.0;
   Suite suite   = Deck::getSuite(card);
@@ -694,6 +694,51 @@ double AiInput::checkRulebase(int p, int card,  const AiInput::Board& current) c
       else result += 0.5*RULE_SAVE_TRUMP;
     }
   }
+
+  return result;
+}
+
+// Rule based override over board evaluation to tackle special szenarios
+double AiInput::rulebaseAnswerMover(int p, int card,  const AiInput::Board& current) const
+{
+  double result = 0.0;
+  Suite suite   = Deck::getSuite(card);
+  CardType type = Deck::getCardType(card);
+  Suite altSuite  = (suite==current.trump || type == Jack)?Grand:suite;
+
+  // Check whether we win the move    
+  if (wouldWinMove(p, card, current))
+  {
+    if (global_debug>1) kDebug() << "TRIGGER ANSWER RULE: Becoming first mover " << Deck::name(card) << endl;
+    result += RULE_FIRST_MOVER;
+  }
+
+  // Saving Ace to try to catch free ten
+  if (type == Ace &&
+      suite != current.trump &&
+      (1-p) == findCard(current, suite, Ten) &&
+      hasAmount(1-p, suite, 1, 2, current) &&
+      hasAmount(p, suite, 2, 3, current)
+     )
+  {
+    if (global_debug>1) kDebug() << "TRIGGER ANSWER RULE: Hunting Ten with " << Deck::name(card) << endl;
+    result += RULE_HUNTER_ACE;
+  }
+
+  // Saving additional cards for hunter Ace
+  if (suite != current.trump &&
+       type != Jack &&
+       type != Ace &&
+      (1-p) == findCard(current, suite, Ten) &&
+      (p) == findCard(current, suite, Ace) &&
+      hasAmount(1-p, suite, 1, 2, current) 
+     )
+  {
+    if (global_debug>1) kDebug() << "TRIGGER ANSWER RULE: Supporting Hunter ACE with " << Deck::name(card) << endl;
+    if (hasAmount(1-p, suite, 1, 1, current)) result += RULE_SUPPORT_ACE;
+    else result += 0.75*RULE_SUPPORT_ACE;
+  }
+
 
   return result;
 }

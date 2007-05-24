@@ -159,7 +159,8 @@ class AiInput : public AbstractInput
     int findCard(const AiInput::Board& current, Suite sSuite, CardType sCardType) const;
     int amountOfWinningCards(int p, Suite sSuite, const AiInput::Board& current) const;
     bool wouldWinMove(int p, int card, const AiInput::Board& current) const;
-    double checkRulebase(int p, int card,  const AiInput::Board& current) const;
+    double rulebaseFirstMover(int p, int card,  const AiInput::Board& current) const;
+    double rulebaseAnswerMover(int p, int card,  const AiInput::Board& current) const;
     bool hasAmount(int player, Suite suite, int min, int max, const AiInput::Board& current) const;
     int amountOfOpenCards(int p, const AiInput::Board& current) const;
     bool isLegalMove(int card1, int card2, int pl, const AiInput::Board& current) const;
