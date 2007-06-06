@@ -108,7 +108,7 @@ int main(int argc, char *argv[])
     global_demo_mode = true;
     kDebug(12010) << "Running in demo mode " << global_demo_mode << endl;
   }
-  
+  args->clear();  
   KApplication application(true);
   KGlobal::locale()->insertCatalog("libkdegames");
 
