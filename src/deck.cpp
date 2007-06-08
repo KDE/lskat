@@ -67,7 +67,7 @@ Suite Deck::randomTrump()
   if (type == Jack) return Grand;
 
   // TODO: Hardcoded test
-  return Diamond;
+  // return Diamond;
   return suite;
 }
 
@@ -92,7 +92,7 @@ void Deck::shuffle()
 
 
    // TODO: Hardcoded deck
-  // return;
+   return;
    static int c[] = {
    Ten, Spade, Seven, Diamond, Ten, Diamond, Jack, Club, 
    Eight, Club, Nine, Club, Nine, Heart, Jack, Diamond,
