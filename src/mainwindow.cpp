@@ -44,6 +44,7 @@
 #include <kglobal.h>
 #include <ktoolbar.h>
 #include <kselectaction.h>
+#include <kapplication.h>
 
 // Application specific includes
 #include "lskatglobal.h"
@@ -63,10 +64,13 @@
 #include <config-src.h>
 
 // Forward declarations
-#define ADVANCE_PERDIOD 20
+const int ADVANCE_PERDIOD =  20;
 
 // Shortcut to access the actions
 #define ACTION(x)   (actionCollection()->action(x))
+
+// Name of the theme
+const QString THEMENAME = "default.rc";
 
 using namespace InputDevice;
 
@@ -76,21 +80,36 @@ Mainwindow::Mainwindow(QWidget* parent)
           : KXmlGuiWindow(parent)
 {
   // Reset stuff
-  mDeck    = 0;
-  mEngine  = 0;
-  mDisplay = 0;
-  mView    = 0;
+  mDeck        = 0;
+  mEngine      = 0;
+  mDisplay     = 0;
+  mView        = 0;
+  mLSkatConfig = 0;
+  mCanvas      = 0;
+  mTheme       = 0;
+
+  // Add resource type to grafix
+  KGlobal::dirs()->addResourceType("lskattheme", "appdata", "grafix/");
 
   #ifdef SRC_DIR
   kDebug() << "Found SRC_DIR =" << SRC_DIR << endl;
-  KGlobal::dirs()->addResourceDir("data",QString(SRC_DIR)+QString("/grafix/"));
-  QString theme = KStandardDirs::locate("data", "default.rc");
-  kDebug() << "theme =" << theme << endl;
+  KGlobal::dirs()->addResourceDir("lskattheme",QString(SRC_DIR)+QString("/grafix/"));
   #endif
 
   // Theme file
-  mThemeDirName = KGlobal::dirs()->findResourceDir("data","default.rc");
+  mThemeDirName = KGlobal::dirs()->findResourceDir("lskattheme",THEMENAME);
   kDebug() << "THEME DIR IS " << mThemeDirName << endl;
+
+  // Check theme file
+  QString theme = KStandardDirs::locate("lskattheme", THEMENAME);
+  kDebug() << "theme file =" << theme << endl;
+  if (theme.isEmpty())
+  {
+    KMessageBox::error(this, i18n("Installation error: No theme file found."));
+    QTimer::singleShot(0, this,SLOT(close()));
+    return;
+  }
+
 
   // Create menus etc
   initGUI();
@@ -112,7 +131,13 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // Theme manager
   mTheme  = new ThemeManager(mCardDir, mDeckGrafix, KCardDialog::deckSVGFilePath(mDeckGrafix), 
-                             "default.rc", this, this->width());
+                             THEMENAME, this, this->width());
+  if (mTheme->checkTheme() != 0)
+  {
+    KMessageBox::error(this, i18n("Installation error: Theme file error."));
+    QTimer::singleShot(0, this,SLOT(close()));
+    return;
+  }
 
   // Overall view
   mCanvas        = new QGraphicsScene(this);

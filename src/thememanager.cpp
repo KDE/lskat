@@ -76,6 +76,15 @@ void ThemeManager::unregisterTheme(Themable* ob)
 }
 
 
+// Check whether the theme is alright
+int ThemeManager::checkTheme()
+{
+  // Check theme
+  if (mRenderer == 0) return 1;
+  return 0; // Ok
+}
+
+
 // Force an refresh of the theme object given
 void ThemeManager::updateTheme(Themable* ob)
 {
@@ -151,13 +160,13 @@ void ThemeManager::updateTheme(const QString &themefile)
   mThemeFile = themefile;
 
   // Process dirs
-  QString rcfile = KStandardDirs::locate("data", themefile);
+  QString rcfile = KStandardDirs::locate("lskattheme", themefile);
   kDebug() << "ThemeManager LOAD with theme "<<rcfile << endl;
 
   // Read config and SVG file for theme
   mConfig = new KConfig(rcfile, KConfig::NoGlobals);
   QString svgfile = config("general").readEntry("svgfile");
-  svgfile = KStandardDirs::locate("data", svgfile);
+  svgfile = KStandardDirs::locate("lskattheme", svgfile);
   kDebug() << "Reading SVG master file  = " << svgfile << endl;
 
   mAspectRatio     =  config("general").readEntry("aspect-ratio", 1.0);
@@ -170,6 +179,7 @@ void ThemeManager::updateTheme(const QString &themefile)
   bool result = mRenderer->load(svgfile);
   if (!result) 
   {
+    mRenderer = 0;
     kFatal() << "Cannot open file " << svgfile << endl;
   }
 

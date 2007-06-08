@@ -214,6 +214,11 @@ class ThemeManager : public QObject
       * @return The aspect ratio (x/y).
       */
     double aspectRatio() {return mAspectRatio;}
+
+    /** Check whether the theme is properly initialized.
+      * @return 0 if everything is alright
+      */
+    int checkTheme();
     
    protected:
     /** Load a pixmap from the SVG theme file. Its filename is given in the
