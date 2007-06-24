@@ -91,9 +91,11 @@ Mainwindow::Mainwindow(QWidget* parent)
   // Add resource type to grafix
   KGlobal::dirs()->addResourceType("lskattheme", "appdata", "grafix/");
 
+  #ifndef NDEBUG
   #ifdef SRC_DIR
   kDebug() << "Found SRC_DIR =" << SRC_DIR << endl;
   KGlobal::dirs()->addResourceDir("lskattheme",QString(SRC_DIR)+QString("/grafix/"));
+  #endif
   #endif
 
   // Theme file
