@@ -88,7 +88,7 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
   {
     if (global_debug > 0)
       kDebug() << "EngineTwo::playerInput: Card" << cardNumber + 8*height
-                << "not available anymore "<< endl;
+                << "not available anymore ";
     return;
   }
 
@@ -110,7 +110,7 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
     {
       if (global_debug > 0)
         kDebug() << "EngineTwo::playerInput: Card" << cardNumber + 8*height
-                  << "is not a valid move "<< endl;
+                  << "is not a valid move ";
       return;
     }
   }
@@ -193,7 +193,7 @@ void EngineTwo::gameLoopFinish()
     
     if (global_debug > 0)
     {
-      kDebug() << "Winner =" << winner << "current =" << mCurrentPlayer <<endl;
+      kDebug() << "Winner =" << winner << "current =" << mCurrentPlayer;
       kDebug() << "   He has won" << player->noOfMovesWon() << "moves.";
       kDebug() << "   He has" << player->points() << "points.";
     }
