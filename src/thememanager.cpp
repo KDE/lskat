@@ -102,10 +102,10 @@ void ThemeManager::updateCardTheme(const QString &cards, const QString &deck, co
 // Update card deck and card set
 void ThemeManager::updateCardTheme(const QString &themefile, const QString &cards, const QString &deck, const QString &deckSVG)
 {
-  kDebug() << "ThemeManager Pixmap cards: "<< endl;
-  kDebug() << "  Cards   = " << cards << endl;
-  kDebug() << "  Deck    = " << deck << endl;
-  kDebug() << "  DeckSVG = " << deckSVG << endl;
+  kDebug() << "ThemeManager Pixmap cards: ";
+  kDebug() << "  Cards   =" << cards;
+  kDebug() << "  Deck    =" << deck;
+  kDebug() << "  DeckSVG =" << deckSVG;
 
   // Cards
   mCardFile = cards;
@@ -114,7 +114,7 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
   KConfigGroup cardGroup(&cardInfo, "KDE Backdeck");
   // QPointF cardSize   = cardGroup.readEntry("BackSize", QPointF(1.0,1.0));
   QString cardSVG    = cardGroup.readEntry("SVG", QString());
-  kDebug() << "SVG card = " << cardSVG << " is " << (!cardSVG.isNull()) << endl;
+  kDebug() << "SVG card =" << cardSVG << "is" << (!cardSVG.isNull());
 
   QFileInfo svgInfo(QDir(cards), cardSVG);
   QString svgfile = svgInfo.filePath();
@@ -126,9 +126,9 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
     bool result   = mCardRenderer->load(svgfile);
     if (!result) 
     {
-      kFatal() << "Cannot open file " << svgfile << endl;
+      kFatal() << "Cannot open file" << svgfile;
     }
-    kDebug() << "Rendering cards " << svgfile << endl;
+    kDebug() << "Rendering cards" << svgfile;
   }
 
 
@@ -141,9 +141,9 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
     bool result   = mDeckRenderer->load(deckSVG);
     if (!result) 
     {
-      kFatal() << "Cannot open file " << deckSVG << endl;
+      kFatal() << "Cannot open file" << deckSVG;
     }
-    kDebug() << "Rendering deck " << deckSVG << endl;
+    kDebug() << "Rendering deck" << deckSVG;
   }
 
 
@@ -161,17 +161,17 @@ void ThemeManager::updateTheme(const QString &themefile)
 
   // Process dirs
   QString rcfile = KStandardDirs::locate("lskattheme", themefile);
-  kDebug() << "ThemeManager LOAD with theme "<<rcfile << endl;
+  kDebug() << "ThemeManager LOAD with theme "<<rcfile;
 
   // Read config and SVG file for theme
   mConfig = new KConfig(rcfile, KConfig::NoGlobals);
   QString svgfile = config("general").readEntry("svgfile");
   svgfile = KStandardDirs::locate("lskattheme", svgfile);
-  kDebug() << "Reading SVG master file  = " << svgfile << endl;
+  kDebug() << "Reading SVG master file  =" << svgfile;
 
   mAspectRatio     =  config("general").readEntry("aspect-ratio", 1.0);
   mCardAspectRatio =  config("general").readEntry("card-aspect-ratio", 1.0);
-  kDebug() << "Aspect ration = " << mAspectRatio << " Cards aspect=" << mCardAspectRatio<< endl;
+  kDebug() << "Aspect ration =" << mAspectRatio << "Cards aspect=" << mCardAspectRatio;
 
 
 
@@ -180,7 +180,7 @@ void ThemeManager::updateTheme(const QString &themefile)
   if (!result) 
   {
     mRenderer = 0;
-    kFatal() << "Cannot open file " << svgfile << endl;
+    kFatal() << "Cannot open file" << svgfile;
   }
 
   // Notify all theme objects of a change
@@ -200,11 +200,11 @@ void ThemeManager::rescale(int scale)
   if (global_debug > 1)
   {
     if (scale==mScale)
-      kDebug() <<" No scale change to " << scale << " If this happends to often its BAD " << endl;
+      kDebug() <<" No scale change to" << scale << "If this happends to often its BAD";
   }
   //if (scale==mScale) return;
   mScale = scale;
-  if (global_debug > 1) kDebug() << "THEMEMANAGER:: Rescale to " << scale<<endl;
+  if (global_debug > 1) kDebug() << "THEMEMANAGER:: Rescale to" << scale;
 
   QHashIterator<Themable*, int> it(mObjects);
   while (it.hasNext())
@@ -265,7 +265,7 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
   {
     QString svgid = calcCardSVGId(no);
     QSize size = QSize(int(width), int(width/mCardAspectRatio) );
-    // kDebug() << "Card " << Deck::name((Suite)suite, (CardType)cardtype) << " => "<< svgid << "S="<<size<< endl;
+    // kDebug() << "Card" << Deck::name((Suite)suite, (CardType)cardtype) << " => "<< svgid << "S="<<size;
     pm = getPixmap(mCardRenderer, svgid, size);
   }
   // Pixmap cards
@@ -279,7 +279,7 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
     }
     else if (!pm.load(dir+'/'+file))
     {
-      kError() << "Cannot load card file " << dir+file << endl;
+      kError() << "Cannot load card file" << dir+file;
     }
     else
     {
@@ -292,7 +292,7 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
   double aspect = double(pm.width())/double(pm.height());
   if (aspect/mCardAspectRatio >1.05 || aspect/mCardAspectRatio < 0.95)
   {
-    //kWarning() << "Wrong card aspect ratio " << aspect << " vs " << mCardAspectRatio << endl;
+    //kWarning() << "Wrong card aspect ratio" << aspect << "vs" << mCardAspectRatio;
     return pm.scaled(int(width), int(width/mCardAspectRatio),
                      Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   }
@@ -324,7 +324,7 @@ const QPixmap ThemeManager::getCardback(double width)
     }
     else if (!pm.load(file))
     {
-      kError() << "Cannot load deck file " << file << endl;
+      kError() << "Cannot load deck file" << file;
     }
     else
     {
@@ -337,7 +337,7 @@ const QPixmap ThemeManager::getCardback(double width)
   double aspect = double(pm.width())/double(pm.height());
   if (aspect/mCardAspectRatio >1.05 || aspect/mCardAspectRatio < 0.95)
   {
-    //kWarning() << "Wrong deck aspect ratio " << aspect << " vs " << mCardAspectRatio << endl;
+    //kWarning() << "Wrong deck aspect ratio" << aspect << "vs" << mCardAspectRatio;
     return pm.scaled(int(width), int(width/mCardAspectRatio), 
                      Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   }
@@ -355,7 +355,7 @@ const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, const QString &svg
   if (size.width() < 1 || size.height() < 1) 
   {
     if (global_debug >1)
-      kDebug() << "ThemeManager::getPixmap Cannot create svgid ID " << svgid << " with zero size " << size << endl;
+      kDebug() << "ThemeManager::getPixmap Cannot create svgid ID" << svgid << "with zero size" << size;
     return pixmap;
   }
   
@@ -377,7 +377,7 @@ const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, const QString &svg
   renderer->render(&p, svgid);
   pixmap = QPixmap::fromImage(image);
   if (pixmap.isNull())
-    kFatal() << "ThemeManager::getPixmap Cannot load svgid ID " << svgid << endl;
+    kFatal() << "ThemeManager::getPixmap Cannot load svgid ID" << svgid;
 
   // Cache image
   mPixmapCache[svgid] = pixmap;

@@ -93,18 +93,18 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   #ifndef NDEBUG
   #ifdef SRC_DIR
-  kDebug() << "Found SRC_DIR =" << SRC_DIR << endl;
+  kDebug() << "Found SRC_DIR =" << SRC_DIR;
   KGlobal::dirs()->addResourceDir("lskattheme",QString(SRC_DIR)+QString("/grafix/"));
   #endif
   #endif
 
   // Theme file
   mThemeDirName = KGlobal::dirs()->findResourceDir("lskattheme",THEMENAME);
-  kDebug() << "THEME DIR IS " << mThemeDirName << endl;
+  kDebug() << "THEME DIR IS" << mThemeDirName;
 
   // Check theme file
   QString theme = KStandardDirs::locate("lskattheme", THEMENAME);
-  kDebug() << "theme file =" << theme << endl;
+  kDebug() << "theme file =" << theme;
   if (theme.isEmpty())
   {
     KMessageBox::error(this, i18n("Installation error: No theme file found."));
@@ -128,7 +128,7 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // Get the card deck
   long seed = KRandom::random();
-  if (global_debug > 0) kDebug() << "Random seed " << seed << endl;
+  if (global_debug > 0) kDebug() << "Random seed" << seed;
   mDeck = new Deck(seed, this);
 
   // Theme manager
@@ -175,7 +175,7 @@ Mainwindow::Mainwindow(QWidget* parent)
     // Start intro
     mDisplay->start();
   }
-  if (global_debug > 0) kDebug() << "Mainwindow setup constructor done" << endl;
+  if (global_debug > 0) kDebug() << "Mainwindow setup constructor done";
 
 }
 
@@ -249,8 +249,8 @@ void Mainwindow::readProperties()
 
   if (global_debug > 0)
   {
-    kDebug() << "set mDeckGrafix=" << mDeckGrafix << endl;
-    kDebug() << "set mCardDir=" << mCardDir << endl;
+    kDebug() << "set mDeckGrafix=" << mDeckGrafix;
+    kDebug() << "set mCardDir=" << mCardDir;
   }
 
   int no = cfg.readEntry("startplayer", 0);
@@ -284,7 +284,7 @@ AbstractInput* Mainwindow::createInput(
     connect(mouseInput, SIGNAL(signalPlayerInput(int,int,int)),
             engine, SLOT(playerInput(int,int,int) ));
     input = mouseInput;
-    if (global_debug > 0) kDebug() << "Create MOUSE INPUT " << endl;
+    if (global_debug > 0) kDebug() << "Create MOUSE INPUT";
   }
   else if (inputType == TypeAiInput)
   {
@@ -292,11 +292,11 @@ AbstractInput* Mainwindow::createInput(
     connect(aiInput, SIGNAL(signalPlayerInput(int,int,int)),
             engine, SLOT(playerInput(int,int,int) ));
     input = aiInput;
-    if (global_debug > 0) kDebug() << "Create AI INPUT " << endl;
+    if (global_debug > 0) kDebug() << "Create AI INPUT";
   }
   else
   {
-    kFatal() << "Unpupported input device type " << inputType << endl;
+    kFatal() << "Unpupported input device type" << inputType;
   }
 
   return input;
@@ -474,7 +474,7 @@ void Mainwindow::menuCardDeck()
   result=KCardDialog::getCardDeck(s1,s2, this, flags);
   if (result==QDialog::Accepted)
   {
-    if (global_debug > 0) kDebug() << "NEW CARDDECK: " << s1 << " and " << s2 << endl;
+    if (global_debug > 0) kDebug() << "NEW CARDDECK:" << s1 << "and" << s2;
     bool change = false; // Avoid unnecessary changes
     if (!s1.isEmpty() && s1 != mDeckGrafix)
     {

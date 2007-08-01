@@ -42,12 +42,12 @@ ScoreSprite::ScoreSprite(const QString &id, ThemeManager* theme, int advancePeri
   mScore   = new QGraphicsTextItem(this, scene);
   mGames   = new QGraphicsTextItem(this, scene);
   mInput   = new PixmapSprite("scoreinput", theme, advancePeriod, 0, scene);
-  if (!mInput) kFatal() << "Cannot load sprite " << "scoreinput" << endl;
+  if (!mInput) kFatal() << "Cannot load sprite" << "scoreinput";
   mInput->setParentItem(this);
   mInputFrame = 0;
 
   mTrump   = new PixmapSprite("scoretrump", theme, advancePeriod, 0, scene);
-  if (!mTrump) kFatal() << "Cannot load sprite " << "scoretrump" << endl;
+  if (!mTrump) kFatal() << "Cannot load sprite" << "scoretrump";
   mTrump->setParentItem(this);
   mTrumpFrame = 0;
 

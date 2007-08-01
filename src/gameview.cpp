@@ -96,7 +96,7 @@ void GameView::resizeEvent(QResizeEvent* e)
 {
   QTime t;
   t.start();
-  if (global_debug > 2) kDebug() <<"RESIZE EVENT " << e->size() << " oldSize="<< e->oldSize() <<" at " << t.msecsTo(mTimeStart) << endl;
+  if (global_debug > 2) kDebug() <<"RESIZE EVENT" << e->size() << "oldSize="<< e->oldSize() <<" at" << t.msecsTo(mTimeStart);
   double diffW = double(e->oldSize().width()-e->size().width());
   double diffH = double(e->oldSize().height()-e->size().height());
   double delta = fabs(diffW) + fabs(diffH); 
@@ -121,7 +121,7 @@ void GameView::resizeEvent(QResizeEvent* e)
   resetTransform();
   if (width > oldScale) scale(double(width/oldScale), double(width/oldScale));
   mThemeQueue.prepend(int(width));
-  if (global_debug > 2) kDebug() << "Quequed resize, aspect=" << aspect << " theme aspect="<< mTheme->aspectRatio() << endl;
+  if (global_debug > 2) kDebug() << "Quequed resize, aspect=" << aspect << "theme aspect="<< mTheme->aspectRatio();
 
   long queueDelay = 0;
   if (delta < 15) queueDelay = 750;
@@ -136,21 +136,21 @@ void GameView::rescaleTheme()
 {
   if (mThemeQueue.size() == 0)
   {
-    if (global_debug > 2) kDebug() << "***************** Swallowing rescale event ***********************" << endl;
+    if (global_debug > 2) kDebug() << "***************** Swallowing rescale event ***********************";
     return;
   }
 
   QTime t;
   t.start();
 
-  if (global_debug > 2) kDebug() << "Theme queue rescale start at "  << t.msecsTo(mTimeStart) << endl;
+  if (global_debug > 2) kDebug() << "Theme queue rescale start at"  << t.msecsTo(mTimeStart);
   resetTransform();
   int width = mThemeQueue.first();
-  if (global_debug > 2) kDebug() << "Theme queue size=" << mThemeQueue.size() << " Rescale width to " << width << endl;
+  if (global_debug > 2) kDebug() << "Theme queue size=" << mThemeQueue.size() << "Rescale width to" << width;
   mThemeQueue.clear();
   mTheme->rescale(width);
 
-   if (global_debug > 2) kDebug() << "Time elapsed: "<< t.elapsed() << " ms " << endl;
+   if (global_debug > 2) kDebug() << "Time elapsed: "<< t.elapsed() << "ms";
 }
 
 

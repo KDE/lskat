@@ -52,47 +52,47 @@ DisplayTwo::DisplayTwo(Deck* deck, QGraphicsScene* theScene, ThemeManager* theme
 
   // Create move icon
   mMoveSprites[0] = new PixmapSprite("moveicon0", mTheme, mAdvancePeriod, 0, scene());
-  if (!mMoveSprites[0]) kFatal() << "Cannot load sprite " << "moveicon" << endl;
+  if (!mMoveSprites[0]) kFatal() << "Cannot load sprite" << "moveicon";
   mSprites.append(mMoveSprites[0]);
 
   mMoveSprites[1] = new PixmapSprite("moveicon1", mTheme, mAdvancePeriod, 1, scene());
-  if (!mMoveSprites[1]) kFatal() << "Cannot load sprite " << "moveicon" << endl;
+  if (!mMoveSprites[1]) kFatal() << "Cannot load sprite" << "moveicon";
   mSprites.append(mMoveSprites[1]);
 
   // Create score board
   mScoreBoard[0] = new ScoreSprite("scoreboard0", mTheme, mAdvancePeriod, 0, scene());
-  if (!mScoreBoard[0]) kFatal() << "Cannot load sprite " << "scoreboard0" << endl;
+  if (!mScoreBoard[0]) kFatal() << "Cannot load sprite" << "scoreboard0";
   mSprites.append(mScoreBoard[0]);
 
   mScoreBoard[1] = new ScoreSprite("scoreboard1", mTheme, mAdvancePeriod, 1, scene());
-  if (!mScoreBoard[1]) kFatal() << "Cannot load sprite " << "scoreboard0" << endl;
+  if (!mScoreBoard[1]) kFatal() << "Cannot load sprite" << "scoreboard0";
   mSprites.append(mScoreBoard[1]);
 
   // Create card area
   mCardArea[0] = new PixmapSprite("cardarea0", mTheme, mAdvancePeriod, 0, scene());
-  if (!mCardArea[0]) kFatal() << "Cannot load sprite " << "cardarea0" << endl;
+  if (!mCardArea[0]) kFatal() << "Cannot load sprite" << "cardarea0";
   mSprites.append(mCardArea[0]);
 
   mCardArea[1] = new PixmapSprite("cardarea1", mTheme, mAdvancePeriod, 1, scene());
-  if (!mCardArea[1]) kFatal() << "Cannot load sprite " << "cardarea1" << endl;
+  if (!mCardArea[1]) kFatal() << "Cannot load sprite" << "cardarea1";
   mSprites.append(mCardArea[1]);
 
   // Create play area
   mPlayArea = new PixmapSprite("playarea", mTheme, mAdvancePeriod, 0, scene());
-  if (!mPlayArea) kFatal() << "Cannot load sprite " << "playarea" << endl;
+  if (!mPlayArea) kFatal() << "Cannot load sprite" << "playarea";
   mSprites.append(mPlayArea);
 
   // Create text sprites
   mText[0] = new TextSprite("scoretext0", mTheme, scene());
-  if (!mText[0]) kFatal() << "Cannot load sprite " << "scoretext0" << endl;
+  if (!mText[0]) kFatal() << "Cannot load sprite" << "scoretext0";
   mSprites.append(mText[0]);
 
   mText[1] = new TextSprite("scoretext1", mTheme, scene());
-  if (!mText[1]) kFatal() << "Cannot load sprite " << "scoretext1" << endl;
+  if (!mText[1]) kFatal() << "Cannot load sprite" << "scoretext1";
   mSprites.append(mText[1]);
 
   mText[2] = new TextSprite("resulttext", mTheme, scene());
-  if (!mText[2]) kFatal() << "Cannot load sprite " << "resulttext" << endl;
+  if (!mText[2]) kFatal() << "Cannot load sprite" << "resulttext";
   mSprites.append(mText[2]);
 
     // Redraw
@@ -159,12 +159,12 @@ void DisplayTwo::deal(Player* player, int position)
 {
   if (position != 0 && position != 1)
   {
-    kFatal() << "Wrong player position " << position << endl;
+    kFatal() << "Wrong player position" << position;
     return ;
   }
   if (!player)
   {
-    kFatal() << "No player given " << endl;
+    kFatal() << "No player given";
     return ;
   }
 
@@ -316,9 +316,8 @@ CardSprite* DisplayTwo::getCardSprite(int cardValue)
   CardSprite* sprite =  mCards[cardValue];
   if (!sprite)
   {
-    kFatal() << "Could not find cardsprite for card value " << cardValue 
-              << " Stored are " << mCards.size() << " sprites " 
-              << endl;
+    kFatal() << "Could not find cardsprite for card value" << cardValue 
+              << "Stored are" << mCards.size() << "sprites";
     return 0;
   }
   return sprite;
@@ -395,7 +394,7 @@ void DisplayTwo::showScore(int position, int score)
 {
   if (position<0 || position>1)
   {
-    kFatal() << "Wrong position (0,1) for showScore = " << position<< endl;
+    kFatal() << "Wrong position (0,1) for showScore =" << position;
   }
   mText[position]->setText(i18nc("Resulting score of a game","%1 points", score));
   mText[position]->show();

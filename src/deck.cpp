@@ -123,7 +123,7 @@ int Deck::drawCard()
 {
   if (mCards.size() < 1)
   {
-    kFatal() << "No more cards to draw from card deck " << endl;
+    kFatal() << "No more cards to draw from card deck";
   }
   int card = mCards.takeFirst();
   return card;
