@@ -532,7 +532,7 @@ void Mainwindow::menuEndGame()
 // Start a new game
 void Mainwindow::menuNewLSkatGame()
 {
-  kDebug() << "Mainwindow::menuNewLSkatGame()"<<endl;
+  kDebug() << "Mainwindow::menuNewLSkatGame()";
 
   Player* p1 = mLSkatConfig->player(0);
   Player* p2 = mLSkatConfig->player(1);
