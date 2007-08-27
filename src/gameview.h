@@ -1,5 +1,3 @@
-#ifndef CANVAS_VIEW_H
-#define CANVAS_VIEW_H
 /*
    This file is part of the KDE games lskat program
    Copyright (c) 2006 Martin Heni <kde@heni-online.de>
@@ -19,6 +17,9 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+
+#ifndef LSKAT_GAMEVIEW_H
+#define LSKAT_GAMEVIEW_H
 
 // Qt includes
 #include <QWidget>
@@ -98,4 +99,4 @@ class GameView : public QGraphicsView
     QTime mTimeStart;
 };
 
-#endif
+#endif // LSKAT_GAMEVIEW_H

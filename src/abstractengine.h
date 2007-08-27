@@ -1,5 +1,3 @@
-#ifndef ABSTGRACT_ENGINE_H
-#define ABSTGRACT_ENGINE_H
 /*
    This file is part of the KDE games lskat program
    Copyright (c) 2006 Martin Heni <kde@heni-online.de>
@@ -19,6 +17,9 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+
+#ifndef LSKAT_ABSTRACTENGINE_H
+#define LSKAT_ABSTRACTENGINE_H
 
 // Qt includes
 #include <QWidget>
@@ -114,4 +115,4 @@ class AbstractEngine : public QObject
     
 };
 
-#endif
+#endif // LSKAT_ABSTRACTENGINE_H

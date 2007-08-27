@@ -24,8 +24,8 @@
     email                : kde@heni-online.de
  ***************************************************************************/
 
-#ifndef LSKAT_H
-#define LSKAT_H
+#ifndef LSKAT_MAINWINDOW_H
+#define LSKAT_MAINWINDOW_H
 
 // Qt includes
 #include <QHash>
@@ -195,5 +195,4 @@ class Mainwindow : public KXmlGuiWindow
     int mStartPlayer;
 };
 
-#endif
-
+#endif // LSKAT_MAINWINDOW_H
