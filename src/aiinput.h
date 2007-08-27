@@ -96,7 +96,7 @@ class AiInput : public AbstractInput
 
         /** Analyse board, e.g. count how many of each suite.
           */
-        void analyse();
+        void analyze();
 
         /** Cards of both players or -1 for used cards */
         int cards[2][16]; 

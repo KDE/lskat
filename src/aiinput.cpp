@@ -124,7 +124,7 @@ AiInput::Board AiInput::getBoardFromEngine()
   b.firstPlay  = mEngine->currentMovePhase() == EngineTwo::FirstPlayerTurn;
   b.playedCard = mEngine->playedCard(0);
   b.trump      = mEngine->trump();
-  b.analyse();
+  b.analyze();
   return b;
 }
 
@@ -394,14 +394,14 @@ int AiInput::Board::takeCard(int p, int pos)
   {
     cards[p][pos+8] = -cards[p][pos+8];    // Do not look underneath card
   }
-  analyse();
+  analyze();
   return card;
 }
 
 
-// Perfrom pre board analyses
+// Perform pre board analyzation
 // + Count how many of each color
-void AiInput::Board::analyse()
+void AiInput::Board::analyze()
 {
   // How many cards of given suite 
   for (int pl=0; pl<2; pl++)
