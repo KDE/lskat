@@ -69,9 +69,6 @@ const int ADVANCE_PERDIOD =  20;
 // Shortcut to access the actions
 #define ACTION(x)   (actionCollection()->action(x))
 
-// Name of the theme
-const QString THEMENAME = "default.rc";
-
 using namespace InputDevice;
 
 
@@ -99,19 +96,28 @@ Mainwindow::Mainwindow(QWidget* parent)
   #endif
 
   // Theme file
-  mThemeDirName = KGlobal::dirs()->findResourceDir("lskattheme",THEMENAME);
+  mThemeDirName = KGlobal::dirs()->findResourceDir("lskattheme","default.rc");
   kDebug() << "THEME DIR IS" << mThemeDirName;
 
-  // Check theme file
-  QString theme = KStandardDirs::locate("lskattheme", THEMENAME);
-  kDebug() << "theme file =" << theme;
-  if (theme.isEmpty())
+  // Read theme files
+  QString themeIndex = KGlobal::dirs()->findResource("lskattheme","index.desktop");
+  if (themeIndex.isEmpty())
   {
-    KMessageBox::error(this, i18n("Installation error: No theme file found."));
+    KMessageBox::error(this, i18n("Installation error: No theme list found."));
     QTimer::singleShot(0, this,SLOT(close()));
     return;
   }
-
+  KConfig themeInfo( themeIndex, KConfig::OnlyLocal);
+  QStringList themeList = themeInfo.groupList();
+  for (int i = 0; i < themeList.size(); i++)
+  {
+    KConfigGroup themeGroup(&themeInfo, themeList.at(i));
+    QString name = themeGroup.readEntry("Name", QString());
+    QString file = themeGroup.readEntry("File", QString());
+    mThemeFiles[name] = file;
+    kDebug() <<  "Found theme: Name(i18n)="<<name<<" File="<<file;   
+  }
+  mThemeIndexNo =0;
 
   // Create menus etc
   initGUI();
@@ -125,6 +131,10 @@ Mainwindow::Mainwindow(QWidget* parent)
   // Read game properties and set default values (after config)
   readProperties();
 
+  // TODO: Bugfix: Needs to be here if initGUI is befure readProperties
+  kDebug() << "Setting current theme item to" << mThemeIndexNo;
+  ((KSelectAction*)ACTION("theme"))->setCurrentItem(mThemeIndexNo);
+
 
   // Get the card deck
   long seed = KRandom::random();
@@ -132,8 +142,10 @@ Mainwindow::Mainwindow(QWidget* parent)
   mDeck = new Deck(seed, this);
 
   // Theme manager
+  QString themeFile = themefileFromIdx(mThemeIndexNo);
+  kDebug() << "Load theme" << themeFile << " no=" << mThemeIndexNo;
   mTheme  = new ThemeManager(mCardDir, mDeckGrafix, KCardDialog::deckSVGFilePath(mDeckGrafix), 
-                             THEMENAME, this, this->width());
+                             themeFile, this, this->width());
   if (mTheme->checkTheme() != 0)
   {
     KMessageBox::error(this, i18n("Installation error: Theme file error."));
@@ -205,6 +217,18 @@ bool Mainwindow::queryExit()
 }
 
 
+// Retrieve a theme file name from the menu index number
+QString Mainwindow::themefileFromIdx(int idx)
+{
+  QStringList list(mThemeFiles.keys());
+  list.sort();
+  QString themeFile = mThemeFiles[list.at(idx)];
+  return themeFile;
+}
+
+
+
+
 // Save properties
 void Mainwindow::saveProperties()
 {
@@ -215,6 +239,7 @@ void Mainwindow::saveProperties()
   cfg.writePathEntry("carddir", mCardDir);
   cfg.writePathEntry("deck",    mDeckGrafix);
   cfg.writeEntry("startplayer", mStartPlayer);
+  cfg.writeEntry("ThemeIndexNo", mThemeIndexNo);
 
   // LSkat data
   mLSkatConfig->save(config);
@@ -229,6 +254,10 @@ void Mainwindow::readProperties()
 
   // Program data
   KConfigGroup cfg = config->group("ProgramData");
+
+  // Theme number
+  mThemeIndexNo = cfg.readEntry("ThemeIndexNo", 0);
+  if (mThemeIndexNo >= mThemeFiles.size()) mThemeIndexNo = 0;
 
   // Get default card data
   QString dcd = KCardDialog::getDefaultCardDir();
@@ -425,6 +454,19 @@ void Mainwindow::initGUI()
   player2Act->setItems(list);
   if (global_demo_mode) player2Act->setEnabled(false);
 
+  // Add all theme files to the menu
+  QStringList themes(mThemeFiles.keys());
+  themes.sort();
+
+  KSelectAction* themeAct = new KSelectAction(i18n("&Theme"), this);
+  actionCollection()->addAction("theme", themeAct);
+  themeAct->setItems(themes);
+  connect( themeAct, SIGNAL(triggered(int)), SLOT(changeTheme(int)) );
+  kDebug() << "Setting current theme item to" << mThemeIndexNo;
+  themeAct->setCurrentItem(mThemeIndexNo);
+  themeAct->setToolTip(i18n("Changing theme..."));
+  themeAct->setWhatsThis(i18n("Changing theme."));
+
   // Choose card deck
   action = actionCollection()->addAction("select_carddeck");
   action->setText(i18n("Select &Card Deck..."));
@@ -446,6 +488,17 @@ void Mainwindow::menuStartplayer()
   int i=((KSelectAction *)ACTION("startplayer"))->currentItem();
   setStartPlayer(i);
 }
+
+
+// Change the theme of the game
+void Mainwindow::changeTheme(int idx)
+{
+  mThemeIndexNo = idx;
+  QString themeFile = themefileFromIdx(idx);
+  kDebug() << "Select theme" << themeFile;
+  mTheme->updateTheme(themeFile);
+}
+
 
 
 // Select input for player 1

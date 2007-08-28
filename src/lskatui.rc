@@ -9,7 +9,10 @@
     <Action name="startplayer" append="save_merge"/>
     <Action name="player1" append="save_merge"/>
     <Action name="player2" append="save_merge"/>
+    <Separator  append="save_merge"/>
+    <Action name="theme" append="save_merge"/>
     <Action name="select_carddeck" append="save_merge"/>
+    <Separator  append="save_merge"/>
     <Action name="change_names" append="save_merge"/>
   </Menu>
 </MenuBar>

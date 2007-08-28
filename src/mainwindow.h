@@ -113,6 +113,11 @@ class Mainwindow : public KXmlGuiWindow
       */
     void nextPlayer(Player* player);  
 
+    /** A new theme is selected from the menu.
+      * @param idx The theme index
+      */
+    void changeTheme(int idx);
+
   protected:
     /** A new input device is created.
       * @param inputType The type of input
@@ -156,6 +161,12 @@ class Mainwindow : public KXmlGuiWindow
      */
     virtual bool queryExit();
 
+    /** Retrieve the theme file from the theme index number give.
+      * @param idx The theme index number [0..]
+      * @return The theme file name.
+      */
+    QString themefileFromIdx(int idx);
+
   protected slots:
     /** Set the input type for a given player number.
      *  @param no The player number
@@ -182,6 +193,12 @@ class Mainwindow : public KXmlGuiWindow
     ThemeManager* mTheme;
     // The directory for the theme files
     QString mThemeDirName;
+    // The available themes
+    QHash<QString,QString> mThemeFiles;
+    // Current theme index
+    int mThemeIndexNo;
+
+
 
 
     // Properties to be saved

@@ -1,0 +1,8 @@
+[Default]
+Name=Default
+File=default.rc
+
+[Yellow]
+Name=Blue
+File=blue.rc
+
