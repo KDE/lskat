@@ -396,7 +396,10 @@ void DisplayTwo::showScore(int position, int score)
   {
     kFatal() << "Wrong position (0,1) for showScore =" << position;
   }
-  mText[position]->setText(i18nc("Resulting score of a game","%1 points", score));
+  if (score==0)
+    mText[position]->setText(i18nc("Resulting score of a game with no point", "no point"));
+  else
+    mText[position]->setText(i18ncp("Resulting score of a game between 1 and 4", "%1 point", "%1 points", score));
   mText[position]->show();
 }
 
