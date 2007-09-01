@@ -71,9 +71,12 @@ int main(int argc, char *argv[])
                         ki18n("Lskat: A desktop card game"),
                         KAboutData::License_GPL,
                         ki18n("(c) 1995-2007, Martin Heni"));
-  aboutData.addAuthor(ki18n("Martin Heni"),KLocalizedString(), "kde@heni-online.de");
-  aboutData.addCredit(ki18n("KDE"), ki18n("KDE"));
+  // I18N: These are the same strings than in kwin4, you can copy the translations
+  aboutData.addAuthor(ki18n("Martin Heni"),ki18n("Game design and code"), "kde@heni-online.de");
+  aboutData.addAuthor(ki18n("Eugene Trounev"),ki18n("Graphics"), "eugene.trounev@gmail.com");
+  // end I18N
   aboutData.addAuthor(ki18n("Benjamin Meyer"), ki18n("Code Improvements"));
+  // 'Thanks to' aboutData.addCredit(ki18n("KDE"), ki18n("KDE"));
   KCmdLineArgs::init( argc, argv, &aboutData );
 
   KCmdLineOptions options;
