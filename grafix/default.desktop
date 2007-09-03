@@ -1,4 +1,4 @@
-[Default]
+[Theme]
 Name=Default
 Name[be]=Прадвызначаны
 Name[el]=Προκαθορισμένο
@@ -14,11 +14,4 @@ Name[uk]=Типові
 Name[x-test]=xxDefaultxx
 Name[zh_TW]=預設
 File=default.rc
-
-[Green Blase]
-Name=Green Blase
-Name[es]=Verde artificial
-Name[pt]=Fundo Verde
-Name[pt_BR]=Fundo Verde
-File=blue.rc
 

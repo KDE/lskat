@@ -191,8 +191,6 @@ class Mainwindow : public KXmlGuiWindow
     QGraphicsScene* mCanvas;
     // The theme manager used
     ThemeManager* mTheme;
-    // The directory for the theme files
-    QString mThemeDirName;
     // The available themes
     QHash<QString,QString> mThemeFiles;
     // Current theme index
