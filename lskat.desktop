@@ -67,5 +67,5 @@ SwallowExec=
 SwallowTitle=
 Terminal=false
 Type=Application
-DocPath=lskat/index.html
+X-DocPath=lskat/index.html
 Categories=Qt;KDE;Game;CardGame;
