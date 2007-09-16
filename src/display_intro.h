@@ -34,7 +34,7 @@
 #include "deck.h"
 
 // Forward declaration
-
+class Player;
 
 /** The display engine for the intro graphics animation.
  */

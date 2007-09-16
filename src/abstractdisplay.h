@@ -34,9 +34,7 @@
 
 // Forward declaration
 class Deck;
-class Player;
 class CardSprite;
-class TextSprite;
 class ThemeManager;
 
 
