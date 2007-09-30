@@ -517,23 +517,25 @@ void Mainwindow::menuPlayer2By()
 // Choose a card deck
 void Mainwindow::menuCardDeck()
 {
-  QString s1,s2;
+  QString front,back;
   int result;
 
-  KCardDialog::CardFlags flags = KCardDialog::CardFlags(KCardDialog::Both|KCardDialog::SVGCards);
-  result=KCardDialog::getCardDeck(s1,s2, this, flags);
+  result=KCardDialog::getCardDeck(front, back, this, true, true, false, false);
   if (result==QDialog::Accepted)
   {
-    if (global_debug > 0) kDebug() << "NEW CARDDECK:" << s1 << "and" << s2;
+    front = KCardDialog::cardDir(front);
+    back = KCardDialog::deckFilename(back);
+
+    if (global_debug > 0) kDebug() << "NEW CARDDECK:" << front << "and" << back;
     bool change = false; // Avoid unnecessary changes
-    if (!s1.isEmpty() && s1 != mDeckGrafix)
+    if (!back.isEmpty() && back != mDeckGrafix)
     {
-      mDeckGrafix = s1;
+      mDeckGrafix = back;
       change = true;
     }
-    if (!s2.isEmpty() && s2 != mCardDir)
+    if (!front.isEmpty() && front != mCardDir)
     {
-      mCardDir    = s2;
+      mCardDir    = front;
       change = true;
     }
     if (change)
