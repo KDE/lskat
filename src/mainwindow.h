@@ -167,6 +167,13 @@ class Mainwindow : public KXmlGuiWindow
       */
     QString themefileFromIdx(int idx);
 
+    
+    /** Retrieve the theme idx number from the theme name give.
+      * @param name The theme file name.
+      * @return The theme index number [0..]
+      */
+    int themeIdxFromName(QString name);
+
   protected slots:
     /** Set the input type for a given player number.
      *  @param no The player number
@@ -195,6 +202,9 @@ class Mainwindow : public KXmlGuiWindow
     QHash<QString,QString> mThemeFiles;
     // Current theme index
     int mThemeIndexNo;
+    // Default theme 
+    QString mThemeDefault;
+
 
 
 
