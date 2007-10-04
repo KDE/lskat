@@ -484,6 +484,7 @@ void Mainwindow::initGUI()
   // Choose card deck
   action = actionCollection()->addAction("select_carddeck");
   action->setText(i18n("Select &Card Deck..."));
+  action->setShortcuts( KShortcut( Qt::Key_F10 ) );
   connect(action, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
   action->setToolTip(i18n("Configure card decks..."));
   action->setWhatsThis(i18n("Choose how the cards should look."));

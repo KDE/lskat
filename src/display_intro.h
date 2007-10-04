@@ -101,6 +101,8 @@ class DisplayIntro : public AbstractDisplay, public virtual Themable
     int mAnimCnt;
     // Animation state 
     AnimState mState;
+    // Text shown?
+    bool mTextShown;
 };
 
 #endif

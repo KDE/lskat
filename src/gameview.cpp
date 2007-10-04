@@ -61,6 +61,14 @@ GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, 
                        QGraphicsView::DontSavePainterState |
                        QGraphicsView::DontAdjustForAntialiasing );
 
+  // Debug                      
+  mDisplayUpdateTime = 0;
+  mFrameSprite = new QGraphicsTextItem(0, scene);
+  mFrameSprite->setPos(QPointF(0.0, 0.0));
+  mFrameSprite->setZValue(1000.0);
+  if (global_debug > 0) mFrameSprite->show();
+  else mFrameSprite->hide();
+
 
   // Update/advance in [ms]
   QTimer *timer = new QTimer(this);
@@ -82,10 +90,29 @@ GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, 
   mTimeStart.start();
 }
 
+GameView::~GameView()
+{
+  delete mFrameSprite;
+}
+
 
 // Advance and update canvas
 void GameView::updateAndAdvance()
 {
+  static int elapsed = -1;
+  static QTime timer;
+  if (elapsed < 0 ) 
+  {
+    timer.start();
+    elapsed = 0;
+  }
+  else
+  {
+    elapsed = timer.elapsed();
+    timer.start();
+    mDisplayUpdateTime = elapsed;
+  }
+
   scene()->advance();
   //NOTE regarding QGV porting
   //QGV will handle dirty rects for us
@@ -176,5 +203,24 @@ void GameView::mousePressEvent(QMouseEvent *ev)
   emit signalLeftMousePress(point.toPoint());
 }
 
+void GameView::drawItems(QPainter* painter, int numItems, QGraphicsItem* items[], const QStyleOptionGraphicsItem options[])
+{
+  QTime time;
+  time.start();
+  QGraphicsView::drawItems(painter, numItems, items, options);
+
+  // Time display
+  int elapsed = time.elapsed();
+  mDrawTimes.append(elapsed);
+  if (mDrawTimes.size() > 50) mDrawTimes.removeFirst();
+  double avg = 0.0;
+  for (int i=0; i<mDrawTimes.size(); i++) avg += mDrawTimes[i];
+  avg /= mDrawTimes.size();
+
+
+  if (global_debug > 0)
+     mFrameSprite->setPlainText(QString("Draw: %1 ms  Average %2 ms  Update: %3 ms").arg(elapsed).arg(int(avg)).arg(mDisplayUpdateTime));
+
+}
 
 #include "gameview.moc"

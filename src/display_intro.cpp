@@ -42,6 +42,8 @@ DisplayIntro::DisplayIntro(Deck* deck, QGraphicsScene* theScene, ThemeManager* t
                            int advancePeriod, QGraphicsView* parent)
             : Themable("display_intro",theme), AbstractDisplay(deck, theScene, theme, advancePeriod, parent)
 {
+  mTextShown = false;
+
   // Choose a background color
   scene()->setBackgroundBrush(QColor(0,0,128));
 
@@ -76,40 +78,6 @@ void DisplayIntro::start()
   mState   = Putting;
   mTimer->start(50);
 
-  QString s1 = i18nc("Title of the game - line 1", "Lieutenant Skat");
-  QString s2 = i18nc("Title of the game - line 2", "for");
-  QString s3 = i18nc("Title of the game - line 3", "K D E");
-
-  // Text sprite title foreground
-  TextSprite* text1a = new TextSprite(s1, "name-front", mTheme, scene());
-  mSprites.append(text1a);
-  text1a->show();
-
-  // Text sprite title background
-  TextSprite* text1b = new TextSprite(s1, "name-back", mTheme, scene());
-  mSprites.append(text1b);
-  text1b->show();
-
-  // Text sprite title foreground
-  TextSprite* text2a = new TextSprite(s2, "for-front", mTheme, scene());
-  mSprites.append(text2a);
-  text2a->show();
-
-  // Text sprite title background
-  TextSprite* text2b = new TextSprite(s2, "for-back", mTheme, scene());
-  mSprites.append(text2b);
-  text2b->show();
-
-  // Text sprite title foreground
-  TextSprite* text3a = new TextSprite(s3, "kde-front", mTheme, scene());
-  mSprites.append(text3a);
-  text3a->show();
-
-  // Text sprite title background
-  TextSprite* text3b = new TextSprite(s3, "kde-back", mTheme, scene());
-  mSprites.append(text3b);
-  text3b->show();
-
   // Stop all card sprites
   for (int i=0; i<mCards.size(); i++)
   {
@@ -134,6 +102,46 @@ void DisplayIntro::loop()
   double time_clear_in    = config.readEntry("time-clear-in", 1.0);
   double time_clear_out   = config.readEntry("time-clear-out", 1.0);
   double aspectRatio      = thememanager()->aspectRatio();
+
+
+  // Display the intro text delayed
+  if (mAnimCnt == 2  && mState == Putting && !mTextShown)
+  {
+    mTextShown = true;
+    QString s1 = i18nc("Title of the game - line 1", "Lieutenant Skat");
+    QString s2 = i18nc("Title of the game - line 2", "for");
+    QString s3 = i18nc("Title of the game - line 3", "K D E");
+
+    // Text sprite title foreground
+    TextSprite* text1a = new TextSprite(s1, "name-front", mTheme, scene());
+    mSprites.append(text1a);
+    text1a->show();
+
+    // Text sprite title background
+    TextSprite* text1b = new TextSprite(s1, "name-back", mTheme, scene());
+    mSprites.append(text1b);
+    text1b->show();
+
+    // Text sprite title foreground
+    TextSprite* text2a = new TextSprite(s2, "for-front", mTheme, scene());
+    mSprites.append(text2a);
+    text2a->show();
+
+    // Text sprite title background
+    TextSprite* text2b = new TextSprite(s2, "for-back", mTheme, scene());
+    mSprites.append(text2b);
+    text2b->show();
+
+    // Text sprite title foreground
+    TextSprite* text3a = new TextSprite(s3, "kde-front", mTheme, scene());
+    mSprites.append(text3a);
+    text3a->show();
+
+    // Text sprite title background
+    TextSprite* text3b = new TextSprite(s3, "kde-back", mTheme, scene());
+    mSprites.append(text3b);
+    text3b->show();
+  }
 
   // Display a card
   if (mAnimCnt < no && mState == Putting)

@@ -33,6 +33,7 @@
 #include <QList>
 #include <QTime>
 #include <QResizeEvent>
+#include <QGraphicsTextItem>
 
 // Forward declaration
 class ThemeManager;
@@ -54,6 +55,10 @@ class GameView : public QGraphicsView
      *  @param parent The parent window
      */
     GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent = 0);
+
+    /** Destructor.
+    */
+    ~GameView();
 
  protected:
     /** React to mouse clicks.
@@ -89,6 +94,10 @@ class GameView : public QGraphicsView
       */
     void paintEvent(QPaintEvent* event);
 
+    /** Overwritten Qt function.
+    */
+    virtual void drawItems(QPainter *painter, int numItems, QGraphicsItem *items[], const QStyleOptionGraphicsItem options[]);
+
 
   private:
     // Theme manager
@@ -97,6 +106,14 @@ class GameView : public QGraphicsView
     QList<int> mThemeQueue;
     // Theme queue delay time [ms]
     QTime mTimeStart;
+    // Debug frame rate sprite
+    QGraphicsTextItem* mFrameSprite;
+    // Time between updates
+    int mDisplayUpdateTime;
+    // Average update times
+    QList<int> mDrawTimes;
+
+
 };
 
 #endif // LSKAT_GAMEVIEW_H
