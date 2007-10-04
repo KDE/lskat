@@ -29,6 +29,7 @@
 
 // KDE includes
 #include <kdebug.h>
+#include <kconfiggroup.h>
 
 // Delay for card turning animation [ms]
 #define ANIM_CNT_TURNING          20.0 

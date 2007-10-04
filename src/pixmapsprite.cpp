@@ -29,6 +29,7 @@
 // KDE includes
 #include <kdebug.h>
 #include <kconfig.h>
+#include <kconfiggroup.h>
 
 
 // Constructor for the sprite

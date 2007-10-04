@@ -31,6 +31,7 @@
 #include <kdebug.h>
 #include <kconfig.h>
 #include <klocale.h>
+#include <kconfiggroup.h>
 
 // Constructor for the score sprite
 ScoreSprite::ScoreSprite(const QString &id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene)

@@ -24,6 +24,7 @@
 
 // KDE includes
 #include <kdebug.h>
+#include <kconfiggroup.h>
 
 // Constructor for the sprite
 TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager* theme, QGraphicsScene* scene)

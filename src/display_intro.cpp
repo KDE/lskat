@@ -30,6 +30,7 @@
 // KDE includes
 #include <klocale.h>
 #include <kdebug.h>
+#include <kconfiggroup.h>
 
 // Local includes
 #include "cardsprite.h"

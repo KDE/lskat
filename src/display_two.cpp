@@ -27,6 +27,7 @@
 // KDE includes
 #include <kdebug.h>
 #include <klocalizedstring.h>
+#include <kconfiggroup.h>
 
 // Local includes
 #include "abstractinput.h"
