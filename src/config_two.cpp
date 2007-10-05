@@ -24,6 +24,7 @@
 
 // KDE includes
 #include <kdebug.h>
+#include <kconfiggroup.h>
 #include <klocale.h>
 
 
