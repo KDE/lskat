@@ -17,6 +17,14 @@
 <address><email>kde@heni-online.de</email></address>
 </affiliation>
 </author>
+
+<author>
+<firstname>Eugene</firstname>
+<surname>Trounev</surname>
+<affiliation>
+<address><email>eugene.trounev@gmail.com</email></address></affiliation>
+</author>
+
 <othercredit role="reviewer">
 <firstname>Mike</firstname><surname>McBride</surname>
 <contrib>Reviewer</contrib>
@@ -28,8 +36,8 @@
 
 </authorgroup>
 
-<date>2003-09-16</date>
-<releaseinfo>0.09.01</releaseinfo>
+<date>2007-09-01</date>
+<releaseinfo>1.4.0</releaseinfo>
 
 <abstract>
 <para>This documentation describes &lskat; version 1.4.0</para>
@@ -117,7 +125,7 @@ The second player has following choices:
 <listitem><para>
 The second player has in his/her open cards the same suit as the first
 player played.
-Then He/she has to play one of this suit. The player with
+Then he/she has to play one of this suit. The player with
 the higher card (see table below) wins both cards.
 </para></listitem>
 <listitem><para>
@@ -185,7 +193,7 @@ values of the cards are:</para>
 <para>
 The game is won if you have more than 60 points. With both players having
 60 points the game ends in a draw. For each game a certain amount of
-points is awarded and added to the overall score.
+victory points is awarded and added to the overall score.
 </para>
 
 <informaltable>
@@ -228,6 +236,19 @@ points is awarded and added to the overall score.
 
 <varlistentry>
 <term><menuchoice>
+<shortcut>
+<keycombo action="simul">&Ctrl;<keycap>End</keycap></keycombo>
+</shortcut>
+<guimenu>Game</guimenu>
+<guimenuitem>End Game</guimenuitem>
+</menuchoice></term>
+<listitem><para>
+<action>Aborts a running game.</action>
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
 <guimenu>Game</guimenu>
 <guimenuitem>Clear Statistics</guimenuitem>
 </menuchoice></term>
@@ -238,17 +259,6 @@ played and won games per player. This is cleared with this menu
 option.
 </para></listitem>
 </varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Game</guimenu>
-<guimenuitem>End Game</guimenuitem>
-</menuchoice></term>
-<listitem><para>
-<action>Aborts a running game.</action>
-</para></listitem>
-</varlistentry>
-
 
 <varlistentry>
 <term><menuchoice>
@@ -273,10 +283,20 @@ Quits the program.</action>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Toolbar</guimenuitem>
+<guimenuitem>Show Toolbar</guimenuitem>
 </menuchoice></term>
 <listitem><para><action>
 Shows or hides the toolbar.
+</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Settings</guimenu>
+<guimenuitem>Show Statusbar</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>
+Shows or hides the statusbar.
 </action></para></listitem>
 </varlistentry>
 
@@ -319,6 +339,21 @@ the computer will control it.
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
+<guisubmenu>Theme</guisubmenu>
+</menuchoice></term>
+<listitem>
+<para>
+Chooses a visual theme. This changes the appearance of the game but not
+of the cards. Card decks are selected with their own menu option.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>F10</keycap></keycombo>
+</shortcut>
+<guimenu>Settings</guimenu>
 <guimenuitem>Select Card Deck</guimenuitem></menuchoice></term>
 <listitem><para>
 <action>
@@ -328,9 +363,10 @@ can select these in a preview dialog showing all carddecks installed for
 </para>
 <note>
 <para>
-Some cardbacks or cardsets are marked as SVG or scalable graphics in the dialog.
+Some cardbacks or cardsets are marked as scalable graphics (SVG) in the dialog.
 Choosing them will display better quality of the graphics when the game is
-scaled or enlarged.
+scaled or enlarged. Fixe size graphics will loose quality when resized different
+then their original size.
 </para>
 </note>
 </listitem>
@@ -387,10 +423,13 @@ scaled or enlarged.
 &lskat;
 </para>
 <para>
-Program copyright 2000,2007 Martin Heni <email>kde@heni-online.de</email>
+Program copyright 2000-2007 Martin Heni <email>kde@heni-online.de</email>
 </para>
 <para>
-Documentation copyright 2000,2007 Martin Heni <email>kde@heni-online.de</email>
+Graphics copyright 2007 Eugene Trounev <email>eugene.trounev@gmail.com</email>
+</para>
+<para>
+Documentation copyright 2000-2007 Martin Heni <email>kde@heni-online.de</email>
 </para>
 <para>
 Documentation converted to &kde; 2.0 by Mike McBride
