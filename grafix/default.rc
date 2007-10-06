@@ -130,16 +130,16 @@ zValue=100.0
 svgid=score
 
 # Sub-item positions relativ to score widget itself (status texts player 0 and 1)
-posName=0.07,0.30
-posPoints=0.07,0.38
-posScore=0.07,0.70
-posGames=0.07,0.82
+posName=0.10,0.12
+posPoints=0.05,0.22
+posScore=0.10,0.625
+posGames=0.10,0.75
 
 # Font width and height relativ to score widget size!!!
-fontHeightPoints=0.2  
-fontHeight=0.067
-fontWidthUpper=0.50
-fontWidthLower=0.97
+fontHeightPoints=0.25  
+fontHeight=0.083
+fontWidthUpper=0.44
+fontWidthLower=0.95
 # Font color for name of player
 fontColorPlayer=255,255,255
 
@@ -155,16 +155,16 @@ zValue=100.0
 svgid=score
 
 # Sub-item positions relativ to score widget itself (status texts player 0 and 1)
-posName=0.07,0.30
-posPoints=0.07,0.38
-posScore=0.07,0.70
-posGames=0.07,0.82
+posName=0.10,0.12
+posPoints=0.05,0.22
+posScore=0.10,0.625
+posGames=0.10,0.75
 
 # Font width and height relativ to score widget size!!!
-fontHeightPoints=0.2  
-fontHeight=0.067
-fontWidthUpper=0.50
-fontWidthLower=0.97
+fontHeightPoints=0.25  
+fontHeight=0.083
+fontWidthUpper=0.44
+fontWidthLower=0.95
 # Font color for name of player 0 
 fontColorPlayer=255,255,255
 
@@ -175,7 +175,7 @@ fontColorPlayer=255,255,255
 # Width of the item  [0..1]
 width=0.050
 # Item positions relativ to score widget itself [0..1,0..1]
-pos=0.12,0.06
+pos=0.115,0.0150
 # Z-Value 
 zValue=520.0
 # SVG ID of the image: Auto means to read read ID from frameX (below)
@@ -196,7 +196,7 @@ frame2=score_key
 # Width of the item  [0..1]
 width=0.050
 # Item positions relativ to score widget itself [0..1,0..1]
-pos=0.12,0.115
+pos=0.115,0.072
 # Z-Value 
 zValue=520.0
 # SVG ID of the image: Auto means to read read ID from frameX (below)
