@@ -103,10 +103,13 @@ void ThemeManager::updateCardTheme(const QString &cards, const QString &deck, co
 // Update card deck and card set
 void ThemeManager::updateCardTheme(const QString &themefile, const QString &cards, const QString &deck, const QString &deckSVG)
 {
-  kDebug() << "ThemeManager Pixmap cards: ";
-  kDebug() << "  Cards   =" << cards;
-  kDebug() << "  Deck    =" << deck;
-  kDebug() << "  DeckSVG =" << deckSVG;
+  if (global_debug > 1)
+  {
+    kDebug() << "ThemeManager Pixmap cards: ";
+    kDebug() << "  Card dir  =" << cards;
+    kDebug() << "  Deck      =" << deck;
+    kDebug() << "  DeckSVG   =" << deckSVG;
+  }
 
   // Cards
   mCardFile = cards;
@@ -115,7 +118,7 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
   KConfigGroup cardGroup(&cardInfo, "KDE Backdeck");
   // QPointF cardSize   = cardGroup.readEntry("BackSize", QPointF(1.0,1.0));
   QString cardSVG    = cardGroup.readEntry("SVG", QString());
-  kDebug() << "SVG card =" << cardSVG << "is" << (!cardSVG.isNull());
+  if (global_debug > 1) kDebug() << "SVG card =" << cardSVG << "is" << (!cardSVG.isNull());
 
   QFileInfo svgInfo(QDir(cards), cardSVG);
   QString svgfile = svgInfo.filePath();
@@ -129,7 +132,7 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
     {
       kFatal() << "Cannot open file" << svgfile;
     }
-    kDebug() << "Rendering cards" << svgfile;
+    if (global_debug > 0) kDebug() << "Rendering cards" << svgfile;
   }
 
 
@@ -144,7 +147,7 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
     {
       kFatal() << "Cannot open file" << deckSVG;
     }
-    kDebug() << "Rendering deck" << deckSVG;
+    if (global_debug > 0) kDebug() << "Rendering deck" << deckSVG;
   }
 
 
@@ -162,17 +165,17 @@ void ThemeManager::updateTheme(const QString &themefile)
 
   // Process dirs
   QString rcfile = KStandardDirs::locate("lskattheme", themefile);
-  kDebug() << "ThemeManager LOAD with theme "<<rcfile;
+  if (global_debug > 0) kDebug() << "ThemeManager LOAD with theme "<<rcfile;
 
   // Read config and SVG file for theme
   mConfig = new KConfig(rcfile, KConfig::NoGlobals);
   QString svgfile = config("general").readEntry("svgfile");
   svgfile = KStandardDirs::locate("lskattheme", svgfile);
-  kDebug() << "Reading SVG master file  =" << svgfile;
+  if (global_debug > 0) kDebug() << "Reading SVG master file  =" << svgfile;
 
   mAspectRatio     =  config("general").readEntry("aspect-ratio", 1.0);
   mCardAspectRatio =  config("general").readEntry("card-aspect-ratio", 1.0);
-  kDebug() << "Aspect ration =" << mAspectRatio << "Cards aspect=" << mCardAspectRatio;
+  if (global_debug > 0) kDebug() << "Aspect ration =" << mAspectRatio << "Cards aspect=" << mCardAspectRatio;
 
 
 
