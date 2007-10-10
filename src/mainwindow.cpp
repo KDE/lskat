@@ -497,7 +497,7 @@ void Mainwindow::initGUI()
 
   // Change player names
   action = actionCollection()->addAction("change_names");
-  action->setText(i18n("&Change Player Names"));
+  action->setText(i18n("&Change Player Names..."));
   connect(action, SIGNAL(triggered(bool)), this, SLOT(menuPlayerNames()));
   if (global_demo_mode) action->setEnabled(false);
 }
