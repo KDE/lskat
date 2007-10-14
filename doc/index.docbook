@@ -184,69 +184,7 @@ The player who wins the round leads the next one.
 </sect1>
 </chapter>
 
-<chapter id="faq">
-<title>Frequently asked questions</title>
 
-<qandaset>
-<qandaentry>
-<question><para>Who made this game?</para></question>
- <answer><para>The kdegames team. You can find their website here.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>Where can I get cheatcodes? </para></question>
- <answer><para>You can't get cheatcodes for KDE games.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>How do I start a new game? </para></question>
- <answer><para>There are three ways of starting a new game. You can either click <guibutton>New</guibutton> button on the 'toolbar', or refer to <link linkend="new_game">this</link> section of 'Interface Overview' for details.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>How do I pause the game? </para></question>
- <answer><para>This game does not have a 'Pause' feature as it does not require one.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>I want to change the way this game looks. Can I? </para></question>
- <answer><para>Yes you can. Refer to <link linkend="theme_change">this</link> section of 'Interface Overview' for details.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>Can play with a different deck of cards?</para></question>
- <answer><para>Yes. Refer to <link linkend="deck_change">this</link> section of 'Interface Overview' for details.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>I have made a mistake. Can I undo? </para></question>
- <answer><para>No. This game does not have an 'Undo' feature.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>Can I use keyboard? </para></question>
- <answer><para>No. This game can not be played using keyboard.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>I can't figure out what to do here! Are there hints? </para></question>
- <answer><para>No. This game does not have a 'Hint' feature.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>I have to quit the game now, but I'm not finished yet. Can I save my progress?</para></question>
-  <answer><para>No. This game does not have a 'Save State' feature.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>Where are the highscores?</para></question>
- <answer><para></para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>I want to change the game configuration. Where do I go? </para></question>
- <answer><para>Refer to <link linkend="settings-menu">this</link> section of 'Interface Overview' for details.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>I want to change the toolbar layout. What do I do?</para></question>
- <answer><para>There a few ways to change the toolbar layout.  Refer to <link linkend="toolbar_change">this</link> section of 'Interface Overview' for details.</para></answer>
-</qandaentry>
-<qandaentry>
- <question><para>Can I change player's names?</para></question>
- <answer><para>Yes. To change the names displayed on the right hand side of the game screen refer to <link linkend="name_change">this</link> section of 'Interface Overview' for details.</para></answer>
-</qandaentry>
-</qandaset>
-
-</chapter>
 
 <chapter id="interface">
 <title>Interface Overview</title>
@@ -449,6 +387,69 @@ then their original size.
 
 </sect1>
 
+</chapter>
+
+<chapter id="faq">
+<title>Frequently asked questions</title>
+
+<qandaset>
+<qandaentry>
+<question><para>Who made this game?</para></question>
+ <answer><para>The kdegames team. You can find their website here.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Where can I get cheatcodes? </para></question>
+ <answer><para>You can't get cheatcodes for KDE games.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>How do I start a new game? </para></question>
+ <answer><para>There are three ways of starting a new game. You can either click <guibutton>New</guibutton> button on the 'toolbar', or refer to <link linkend="new_game">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>How do I pause the game? </para></question>
+ <answer><para>This game does not have a 'Pause' feature as it does not require one.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I want to change the way this game looks. Can I? </para></question>
+ <answer><para>Yes you can. Refer to <link linkend="theme_change">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Can play with a different deck of cards?</para></question>
+ <answer><para>Yes. Refer to <link linkend="deck_change">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I have made a mistake. Can I undo? </para></question>
+ <answer><para>No. This game does not have an 'Undo' feature.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Can I use keyboard? </para></question>
+ <answer><para>No. This game can not be played using keyboard.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I can't figure out what to do here! Are there hints? </para></question>
+ <answer><para>No. This game does not have a 'Hint' feature.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I have to quit the game now, but I'm not finished yet. Can I save my progress?</para></question>
+  <answer><para>No. This game does not have a 'Save State' feature.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Where are the highscores?</para></question>
+ <answer><para></para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I want to change the game configuration. Where do I go? </para></question>
+ <answer><para>Refer to <link linkend="settings-menu">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I want to change the toolbar layout. What do I do?</para></question>
+ <answer><para>There a few ways to change the toolbar layout.  Refer to <link linkend="toolbar_change">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Can I change player's names?</para></question>
+ <answer><para>Yes. To change the names displayed on the right hand side of the game screen refer to <link linkend="name_change">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+</qandaset>
 </chapter>
 
 <chapter id="credits">
