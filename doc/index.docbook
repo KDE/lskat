@@ -40,7 +40,7 @@
 <releaseinfo>1.4.0</releaseinfo>
 
 <abstract>
-<para>This documentation describes &lskat; version 1.4.0</para>
+<para>This documentation describes the game of &lskat; version 1.4.0</para>
 </abstract>
 
 <keywordset>
@@ -48,173 +48,208 @@
 <keyword>kdegames</keyword>
 <keyword>game</keyword>
 <keyword>playing cards</keyword>
+<keyword>card game</keyword>
+<keyword>arcade</keyword>
+<keyword>card</keyword>
 <keyword>skat</keyword>
 <keyword>lieutenant</keyword>
 <keyword>lskat</keyword>
+<keyword>two players</keyword>
 </keywordset>
 </bookinfo>
 
-<chapter id="overview">
-<title>Overview</title>
-
+<chapter id="introduction">
+<title>Introduction</title>
+<para>Gametype: Card, Arcade</para>
+<para>Number of possible players: Two</para>
 <para>
-Lieutenant skat (from German <foreignphrase
-lang="de">Offiziersskat</foreignphrase>) is a card game for two
-players. It is roughly played according to the rules of
-<firstterm>Skat</firstterm> but with only two players and simplified
-rules.
+Lieutnant Skat (from German <foreignphrase lang="de">Offiziersskat</foreignphrase>) is a fun and engaging card game for two players, where the second player is either live opponent, or built in artificial intelligence.
 </para>
-
 <para>
-Every player has a set of cards in front of him/her, half of them
-covered and half of them open. Both players try to win more than 60 of
-the 120 possible points. After 16 moves all cards are played and the
-game ends.
+The game is played using a single deck of cards. Cards are shuffled and distributed amongst the players in such a way that half of them are face down and half of them are open. Each participant plays one of the open cards per turn. As soon as all the cards are played the round ends and points are calculated and awarded.
 </para>
-
-<para>
-The game area is divided in several sections. Each player has a
-field with his/her cards. Next to his/her cards is a stack of
-won cards (if any). Between these two stacks is the play area for the
-current card. When a player plays a card it is moved there.
-The player who can make the next input is indicated by a symbol next
-to his/her cards. Also this player's name is written in the status bar.
-On the right side of the window are the two score boards for both players.
-They show the player's name, his/her points in the current game, the player's
-input device and the current game trump. Additionally, the overall score
-of the player and the amount of won and overall games is displayed there.
-</para>
-
 </chapter>
 
-<chapter id="rules">
+<chapter id="howto">
+<title>How to play</title>
+<note><title>Objective</title><para>Score more then 60 points in a single game.</para></note>
+<para>
+Once dialing is finished each player ends up with 16 cards each. Cards are displayed in two vertical rows - four cards per row. Half of the cards are face down and half is face up. As a player you can see the opponent's cards as well as your own. You can make a move then by clicking on any of your cards which are currently face up. The opponent has to reply by choosing a corresponding card form his/her own stack. <note><title>Note</title><para>If your opponent is artificial intelligence, it's cards will be chosen automatically.</para></note> Once the exchange is finished values of the played cards are evaluated and either you or your opponent is awarded points. The game is complete in 16 rounds (when all of your and your opponent's cards have been played). After the game ends your score is be compared to that of your opponent's and the player with the most sore wins the round.
+</para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title>Game Rules, Strategies and Tips</title>
+
+<sect1 id="screen">
+<title>Game Screen</title>
+
+<screenshot>
+<screeninfo>&lskat; default game screen.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG" />
+</imageobject>
+<textobject>
+<phrase>&lskat; default game reference screen.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle>1</segtitle>
+<segtitle>2, 3</segtitle>
+<segtitle>4</segtitle>
+<segtitle>5</segtitle>
+<segtitle>6</segtitle>
+<segtitle>7</segtitle>
+<segtitle>8</segtitle>
+<seglistitem>
+<seg>Active player indicator</seg>
+<seg>Card stacks for player one and player two</seg>
+<seg>Stack of won cards (if any)</seg>
+<seg>Gameplay area</seg>
+<seg>Score board with player's name, points in the current game, the overall score of the player, and the amount of wins per game</seg>
+<seg>Player's controller (Human/PC)</seg>
+<seg>The 'trump' in the current game</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
 <title>Rules</title>
-
-<para>
-The game has a randomly chosen trump card. It is shown as a small suit
-symbol in the right side of the score field. All four Jacks are
-also counted as trumps and do <emphasis>not</emphasis> belong to their
-suits. So if <emphasis>heart</emphasis> is trump all seven hearts as
-well as all four Jacks count as trumps, making 11 trumps.
-</para>
-
-<note>
-<para>
-The Jack of clubs does not count as <emphasis>club</emphasis> but as
-trump.
-</para>
-</note>
-
-<para>
-A special trump game is the <firstterm>Grand</firstterm>. In this game no
-suit is trump and only the four Jacks count as trump. This game type
-is indicated by the symbol of a Jack's head in the right side of the score
-field.
-</para>
-
-<para>
-Every player owns 16 cards. 8 of them covered 8 of them open. The start
-player can play any of his/her open cards.
-</para>
-
-<para>
-The second player has following choices:
-</para>
-
-<orderedlist>
-<listitem><para>
-The second player has in his/her open cards the same suit as the first
-player played.
-Then he/she has to play one of this suit. The player with
-the higher card (see table below) wins both cards.
-</para></listitem>
-<listitem><para>
-The second player does not have a card of the played suit.
-He/she can now play any other card. If a trump is played the
-second player wins both cards. Otherwise the first player wins both 
-cards.
-</para></listitem>
-</orderedlist>
-
-<para>
-If there is still a covered card below a played card it will be uncovered
-and is from now on an open card.
-</para>
-
-<para>
-The player who won the cards can start the next turn.
-</para>
-
-<para>
-The sequence of the cards (from the highest to the lowest -
-holding for any <emphasis>trump</emphasis>) is shown in
-the following list. The sequence of cards for a non-trump color is the same
-but without the four jacks.
-</para>
-<simplelist type="inline">
-<member>Jack of clubs</member>
-<member>Jack of spades</member>
-<member>Jack of hearts</member>
-<member>Jack of diamonds</member>
-<member>Ace</member>
-<member>Ten</member>
-<member>King</member>
-<member>Queen</member>
-<member>Nine</member>
-<member>Eight</member>
-<member>Seven</member>
-</simplelist>
-
-<para>
-The player who wins both cards will add their value to his score. The
-values of the cards are:</para>
+<itemizedlist>
+<listitem><para>Every player owns 16 cards. 8 of them are face down 8 of them are face up.</para></listitem>
+<listitem><para>A face down card can only be opened after a face up card covering it has been played.</para></listitem>
+<listitem><para>Each game has a randomly chosen 'trump' card [8]. Note: If heart is selected as 'trump' all seven hearts as well as all four Jacks* count as trumps, making 11 trump cards.</para></listitem>
+<listitem><para>All four Jacks are counted as trumps and do not belong to their suits. Note: If heart is selected as 'trump' all seven hearts as well as all four Jacks count as trumps, making 11 trump cards.</para></listitem>
+<listitem><para>Jacks beat each other in order (greatest to least): Club->Spade->Heart->Diamond.</para></listitem>
+<listitem><para>The sequence of cards for a trump color: Jack of clubs, Jack of spades, Jack of hearts, Jack of diamonds, Ace, Ten, King, Queen, Nine, Eight, Seven.</para></listitem>
+<listitem><para>The sequence of cards for a non-trump color: Ace, Ten, King, Queen, Nine, Eight, Seven.</para></listitem>
+<listitem><para>The values of the cards (highest to lowest):</para></listitem>
+</itemizedlist>
 
 <informaltable>
 <tgroup cols="2">
-<thead>
-<row><entry> Card </entry><entry> Value </entry></row>
-</thead>
 <tbody>
-<row><entry> Ace </entry><entry> 11 </entry></row>
-<row><entry> Ten </entry><entry> 10 </entry></row>
-<row><entry> King </entry><entry> 4 </entry></row>
-<row><entry> Queen </entry><entry> 3 </entry></row>
-<row><entry> Jack </entry><entry> 2 </entry></row>
-<row><entry> Nine </entry><entry> 0 </entry></row>
-<row><entry> Eight </entry><entry> 0 </entry></row>
-<row><entry> Seven </entry><entry> 0 </entry></row>
+<row><entry>Card</entry><entry>Value</entry></row>
+<row><entry>Ace</entry><entry>11</entry></row>
+<row><entry>Ten</entry><entry>10</entry></row>
+<row><entry>King</entry><entry>4</entry></row>
+<row><entry>Queen</entry><entry>3</entry></row>
+<row><entry>Jack</entry><entry>2</entry></row>
+<row><entry>Nine</entry><entry>0</entry></row>
+<row><entry>Eight</entry><entry>0</entry></row>
+<row><entry>Seven</entry><entry>0</entry></row>
 </tbody>
 </tgroup>
 </informaltable>
 
-<sect1 id="scoring">
-<title>Scoring</title>
-
-<para>
-The game is won if you have more than 60 points. With both players having
-60 points the game ends in a draw. For each game a certain amount of
-victory points is awarded and added to the overall score.
-</para>
+<itemizedlist>
+<listitem><para>A special 'trump' game is called the Grand. In this game no suit is trump and only the four Jacks count as trump. This game type is indicated by the symbol of a Jack's head [8] on the score board [6].</para></listitem>
+<listitem><para>If player starts the round he/she has a choice of cards to play with.</para></listitem>
+<listitem><para>Only the face up cards from the player's own stack can be used to play the round.</para></listitem>
+<listitem><para>Player who wins the round starts the next one.</para></listitem>
+<listitem><para>The player who wins the round adds values of the cards played in that round to his/her score.</para></listitem>
+<listitem><para>Player with more then 60 points wins the game.</para></listitem>
+<listitem><para>If both players finish with 60 points each the game ends in a draw.</para></listitem>
+<listitem><para>For each game a certain amount of victory points is awarded and added to the overall score.</para></listitem>
+</itemizedlist>
 
 <informaltable>
 <tgroup cols="2">
-<thead>
-<row><entry>Points</entry><entry>Score</entry></row>
-</thead>
 <tbody>
+<row><entry>Points</entry><entry>Score</entry></row>
 <row><entry>60</entry><entry>1</entry></row>
-<row><entry>61...90</entry><entry>2</entry></row>
-<row><entry>91...119</entry><entry>3</entry></row>
+<row><entry>61 to 90</entry><entry>2</entry></row>
+<row><entry>91 to 119</entry><entry>3</entry></row>
 <row><entry>120</entry><entry>4</entry></row>
 </tbody>
 </tgroup>
 </informaltable>
 
 </sect1>
+
+<sect1 id="strategies">
+<title>Strategies and Tips</title>
+<para>
+When the game starts, the starting player should play any of the face up cards from own stack.
+If the second player currently has face up cards that are of the same suit as the card played, he/she has to reply with one of those cards. If, however, the second player does not have a card of the same suit, he/she can play with any other card.
+The player with the higher card value* wins both cards.
+<note><title>Note</title><para>If the replying player plays 'trump' card he/she wins both cards.</para></note>
+<note><title>Note</title><para>If the leading player plays 'trump' card he/she wins both cards.</para></note>
+The player who wins the round leads the next one.
+</para>
+</sect1>
 </chapter>
 
-<chapter id="menus">
-<title>Menus</title>
+<chapter id="faq">
+<title>Frequently asked questions</title>
+
+<qandaset>
+<qandaentry>
+<question><para>Who made this game?</para></question>
+ <answer><para>The kdegames team. You can find their website here.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Where can I get cheatcodes? </para></question>
+ <answer><para>You can't get cheatcodes for KDE games.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>How do I start a new game? </para></question>
+ <answer><para>There are three ways of starting a new game. You can either click <guibutton>New</guibutton> button on the 'toolbar', or refer to <link linkend="new_game">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>How do I pause the game? </para></question>
+ <answer><para>This game does not have a 'Pause' feature as it does not require one.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I want to change the way this game looks. Can I? </para></question>
+ <answer><para>Yes you can. Refer to <link linkend="theme_change">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Can play with a different deck of cards?</para></question>
+ <answer><para>Yes. Refer to <link linkend="deck_change">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I have made a mistake. Can I undo? </para></question>
+ <answer><para>No. This game does not have an 'Undo' feature.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Can I use keyboard? </para></question>
+ <answer><para>No. This game can not be played using keyboard.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I can't figure out what to do here! Are there hints? </para></question>
+ <answer><para>No. This game does not have a 'Hint' feature.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I have to quit the game now, but I'm not finished yet. Can I save my progress?</para></question>
+  <answer><para>No. This game does not have a 'Save State' feature.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Where are the highscores?</para></question>
+ <answer><para></para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I want to change the game configuration. Where do I go? </para></question>
+ <answer><para>Refer to <link linkend="settings-menu">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>I want to change the toolbar layout. What do I do?</para></question>
+ <answer><para>There a few ways to change the toolbar layout.  Refer to <link linkend="toolbar_change">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+<qandaentry>
+ <question><para>Can I change player's names?</para></question>
+ <answer><para>Yes. To change the names displayed on the right hand side of the game screen refer to <link linkend="name_change">this</link> section of 'Interface Overview' for details.</para></answer>
+</qandaentry>
+</qandaset>
+
+</chapter>
+
+<chapter id="interface">
+<title>Interface Overview</title>
 
 <sect1 id="file-menu">
 <title><guimenu>Game</guimenu> Menu</title>
@@ -223,7 +258,7 @@ victory points is awarded and added to the overall score.
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>
+<keycombo action="simul">&Ctrl;<keycap><anchor id="new_game"/>N</keycap></keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>New</guimenuitem></menuchoice></term>
@@ -336,7 +371,7 @@ the computer will control it.
 </para></listitem>
 </varlistentry>
 
-<varlistentry>
+<varlistentry id="theme_change">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
 <guisubmenu>Theme</guisubmenu>
@@ -348,7 +383,7 @@ of the cards. Card decks are selected with their own menu option.
 </para></listitem>
 </varlistentry>
 
-<varlistentry>
+<varlistentry id="deck_change">
 <term><menuchoice>
 <shortcut>
 <keycombo action="simul"><keycap>F10</keycap></keycombo>
@@ -372,7 +407,7 @@ then their original size.
 </listitem>
 </varlistentry>
 
-<varlistentry>
+<varlistentry id="name_change">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
 <guimenuitem>Change Player Names...</guimenuitem>
@@ -393,7 +428,7 @@ then their original size.
 </para></listitem>
 </varlistentry>
 
-<varlistentry>
+<varlistentry id="toolbar_change">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
 <guimenuitem>Configure Toolbards...</guimenuitem>
