@@ -336,7 +336,7 @@ void DisplayTwo::play(int cardNumber, int playerNumber, int phase)
   CardSprite* sprite = getCardSprite(cardNumber);
   // Set z coordinate depending on setPos phase, that is latter cards will
   // be put on top
-  sprite->setZValue(100 + 5*phase);
+  sprite->setZValue(200 + 5*phase);
   if (playerNumber == 0)
   {
     sprite->setMove(play_pos_1, deal_move_time);
