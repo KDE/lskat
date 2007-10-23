@@ -114,7 +114,7 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
   // Cards
   mCardFile = cards;
 
-  KConfig cardInfo( cards+"/index.desktop", KConfig::OnlyLocal);
+  KConfig cardInfo( cards+"/index.desktop", KConfig::SimpleConfig);
   KConfigGroup cardGroup(&cardInfo, "KDE Backdeck");
   // QPointF cardSize   = cardGroup.readEntry("BackSize", QPointF(1.0,1.0));
   QString cardSVG    = cardGroup.readEntry("SVG", QString());
@@ -168,7 +168,7 @@ void ThemeManager::updateTheme(const QString &themefile)
   if (global_debug > 0) kDebug() << "ThemeManager LOAD with theme "<<rcfile;
 
   // Read config and SVG file for theme
-  mConfig = new KConfig(rcfile, KConfig::NoGlobals);
+  mConfig = new KConfig(rcfile, KConfig::CascadeConfig);
   QString svgfile = config("general").readEntry("svgfile");
   svgfile = KStandardDirs::locate("lskattheme", svgfile);
   if (global_debug > 0) kDebug() << "Reading SVG master file  =" << svgfile;
