@@ -114,7 +114,7 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
   // Cards
   mCardFile = cards;
 
-  KConfig cardInfo( cards+"/index.desktop", KConfig::OnlyLocal);
+  KConfig cardInfo( cards+"/index.desktop", KConfig::SimpleConfig);
   KConfigGroup cardGroup(&cardInfo, "KDE Backdeck");
   // QPointF cardSize   = cardGroup.readEntry("BackSize", QPointF(1.0,1.0));
   QString cardSVG    = cardGroup.readEntry("SVG", QString());
