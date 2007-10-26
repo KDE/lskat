@@ -136,9 +136,9 @@ posScore=0.10,0.625
 posGames=0.10,0.75
 
 # Font width and height relativ to score widget size!!!
-fontHeightPoints=0.25  
-fontHeight=0.083
-fontWidthUpper=0.44
+fontHeightPoints=0.22  
+fontHeight=0.073
+fontWidthUpper=0.46
 fontWidthLower=0.95
 # Font color for name of player
 fontColorPlayer=255,255,255
@@ -161,9 +161,9 @@ posScore=0.10,0.625
 posGames=0.10,0.75
 
 # Font width and height relativ to score widget size!!!
-fontHeightPoints=0.25  
-fontHeight=0.083
-fontWidthUpper=0.44
+fontHeightPoints=0.22  
+fontHeight=0.073
+fontWidthUpper=0.46
 fontWidthLower=0.95
 # Font color for name of player 0 
 fontColorPlayer=255,255,255
