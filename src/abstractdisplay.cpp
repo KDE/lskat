@@ -29,7 +29,6 @@
 // Local includes
 #include "deck.h"
 #include "cardsprite.h"
-#include "textsprite.h"
 #include "thememanager.h"
 
 // Define static attributes

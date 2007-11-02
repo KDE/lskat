@@ -42,6 +42,8 @@ PixmapSprite::PixmapSprite(const QString &id, ThemeManager* theme, int advancePe
   mAdvancePeriod  = advancePeriod;
   mNo             = no;
   mCurrentFrame   = 0;
+  mOffsetStatus   = true;
+  
 
   if (theme) theme->updateTheme(this);
 }
@@ -57,6 +59,7 @@ PixmapSprite::PixmapSprite(int advancePeriod, int no, QGraphicsScene* canvas)
   mAdvancePeriod  = advancePeriod;
   mNo             = no;
   mCurrentFrame   = 0;
+  mOffsetStatus   = true;
 }
 
 
@@ -172,6 +175,14 @@ void PixmapSprite::setPosition(const QPointF &pos)
 }
 
 
+// Handle the offset status (true: theme offset, false: no offset)
+void PixmapSprite::setOffsetStatus(bool status)
+{
+  mOffsetStatus = status;
+  changeTheme();
+}
+
+
 // Start or stop a frame animation
 void PixmapSprite::setAnimation(bool status)
 {
@@ -199,8 +210,17 @@ void PixmapSprite::setFrame(int no, bool force)
   if (!force && no == mCurrentFrame) return;
   if (no<0 || no >=mFrames.count()) return;
   setPixmap(mFrames.at(no));
-  resetMatrix();
-  translate(-mHotspots.at(no).x(), -mHotspots.at(no).y());
+  
+  QPoint offset = thememanager()->getOffset();
+  resetTransform();
+  if (mOffsetStatus)
+  {
+    translate(-mHotspots.at(no).x()+offset.x(), -mHotspots.at(no).y()+offset.y());
+  }
+  else
+  {
+     translate(-mHotspots.at(no).x(), -mHotspots.at(no).y());
+  }
   mCurrentFrame = no;
   update();
 }

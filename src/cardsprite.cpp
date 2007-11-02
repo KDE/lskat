@@ -217,8 +217,9 @@ void CardSprite::setFrame(int no, bool force)
   setPixmap(pixmap);
 
   // Translation
-  resetMatrix();
-  translate(mHotspots[no].x(), mHotspots[no].y());
+  QPoint offset   = thememanager()->getOffset();
+  resetTransform();
+  translate(mHotspots[no].x()+offset.x(), mHotspots[no].y()+offset.y());
 
   mCurrentFrame = no;
   update();

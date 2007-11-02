@@ -166,6 +166,12 @@ class ThemeManager : public QObject
       */
     double getScale();
     
+         
+     /** Retrieve the theme offset.
+      * @return The offset.
+      */
+     QPoint getOffset();
+    
     /** Retrieve the current theme configuration object.
       * @return The configuration object.
       */
@@ -203,11 +209,11 @@ class ThemeManager : public QObject
     void updateTheme(const QString &themefile);
     
     /** Change the scale of the theme and update all registered
-      * theme objects. If the scale did not change no action is
-      * performed!
+      * theme objects. 
       * @param scale The new scale (maximum extension)
+      * @param offset The new offset of the theme (left upper corner)
       */
-    void rescale(int scale);
+    void rescale(int scale, QPoint offset);
 
     /** Retrieve the theme's apsect ratio. This is stored as
       * 'aspect-ratio' key in the 'general' group of the theme.
@@ -273,7 +279,10 @@ class ThemeManager : public QObject
 
      // The current theme scale
      int mScale;
-
+     
+     // The current offset
+     QPoint mOffset;
+     
      // The aspect ration
      double mAspectRatio;
 

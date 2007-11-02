@@ -65,6 +65,7 @@ void TextSprite::changeTheme()
 
   // Retrieve theme data from configuration
   KConfigGroup config = thememanager()->config(id());
+  QPoint offset = thememanager()->getOffset();
 
   // Size
   double width  = config.readEntry("width", 1.0);
@@ -99,10 +100,14 @@ void TextSprite::changeTheme()
 
   // Centering
   bool center = config.readEntry("center", false);
-  resetMatrix();
+  resetTransform();
   if (center)
   {
-    translate(-boundingRect().width()/2.0, 0.0);
+    translate(-boundingRect().width()/2.0+offset.x(), 0.0+offset.y());
+  }
+  else
+  {
+    translate(offset.x(),offset.y());
   }
 
   update();

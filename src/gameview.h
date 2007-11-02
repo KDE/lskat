@@ -102,8 +102,10 @@ class GameView : public QGraphicsView
   private:
     // Theme manager
     ThemeManager* mTheme;
-    // Theme Queue
+    // Theme queue
     QList<int> mThemeQueue;
+     // Theme offset queue
+    QList<QPoint> mThemeOffset;
     // Theme queue delay time [ms]
     QTime mTimeStart;
     // Debug frame rate sprite

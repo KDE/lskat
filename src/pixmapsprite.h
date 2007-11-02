@@ -113,6 +113,13 @@ class PixmapSprite : public QGraphicsPixmapItem, public virtual Themable
       * @return The read double value.
       */
     double getDoubleValue(const QString &item);
+    
+    /** Set whether the sprite should respect a theme offset 
+      * (default: true) or not (false), that is, it is handled
+      * by its parent item.
+      * @param status True: Handle theme offset, False: dont
+      */
+    void setOffsetStatus(bool status);
 
   protected:
 
@@ -163,6 +170,11 @@ class PixmapSprite : public QGraphicsPixmapItem, public virtual Themable
     /** Storage of the frame pixmap offset points.
      */
     QList<QPointF> mHotspots;
+
+    /** Offset status.
+     */
+    bool mOffsetStatus;
+
 };
 
 #endif

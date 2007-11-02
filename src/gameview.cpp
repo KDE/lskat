@@ -87,6 +87,7 @@ GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, 
   // Scale theme
   //mTheme->rescale(this->width());
   mThemeQueue.clear();
+  mThemeOffset.clear();
   mTimeStart.start();
 }
 
@@ -142,16 +143,36 @@ void GameView::resizeEvent(QResizeEvent* e)
   QSizeF size = QSizeF(e->size());
   // Rescale on minimum fitting aspect ratio either width or height limiting
   double aspect = size.width() / size.height();
-
+  QPoint offset;
   double width = 0.0;
-  if (aspect > mTheme->aspectRatio()) width = e->size().height()*mTheme->aspectRatio();
-  else width = e->size().width();
+  
+  // Scale width:
+  // Ideal size would be: 'width'*'height'
+  // Offset in width is (e->size().width()-width)/2, offset in height is zero
+  if (aspect > mTheme->aspectRatio())
+  {
+     width  = e->size().height()*mTheme->aspectRatio();
+     offset = QPoint(int((e->size().width()-width)/2.0), 0);
+  }
+  // Scale height:
+  // 'height' = width/mTheme->aspectRatio()
+  // Ideal size would be: 'width'*'height': 
+  // Offset in height is (e->size().height()-width/mTheme->aspectRatio())/2, offset in width is zero
+  else
+  {
+    width = e->size().width();
+    offset = QPoint(0, int((e->size().height()-width/mTheme->aspectRatio())/2.0));
+  }
 
   // Pixel rescale
   double oldScale = mTheme->getScale();
   resetTransform();
-  if (width > oldScale) scale(double(width/oldScale), double(width/oldScale));
+  if (width > oldScale) 
+  {
+    scale(double(width/oldScale), double(width/oldScale));
+  }
   mThemeQueue.prepend(int(width));
+  mThemeOffset.prepend(offset);
   if (global_debug > 2) kDebug() << "Quequed resize, aspect=" << aspect << "theme aspect="<< mTheme->aspectRatio();
 
   long queueDelay = 0;
@@ -177,9 +198,12 @@ void GameView::rescaleTheme()
   if (global_debug > 2) kDebug() << "Theme queue rescale start at"  << t.msecsTo(mTimeStart);
   resetTransform();
   int width = mThemeQueue.first();
+  QPoint offset = mThemeOffset.first();
   if (global_debug > 2) kDebug() << "Theme queue size=" << mThemeQueue.size() << "Rescale width to" << width;
+  
   mThemeQueue.clear();
-  mTheme->rescale(width);
+  mThemeOffset.clear();
+  mTheme->rescale(width, offset);
 
    if (global_debug > 2) kDebug() << "Time elapsed: "<< t.elapsed() << "ms";
 }

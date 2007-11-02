@@ -45,11 +45,13 @@ ScoreSprite::ScoreSprite(const QString &id, ThemeManager* theme, int advancePeri
   mInput   = new PixmapSprite("scoreinput", theme, advancePeriod, 0, scene);
   if (!mInput) kFatal() << "Cannot load sprite" << "scoreinput";
   mInput->setParentItem(this);
+  mInput->setOffsetStatus(false);
   mInputFrame = 0;
 
   mTrump   = new PixmapSprite("scoretrump", theme, advancePeriod, 0, scene);
   if (!mTrump) kFatal() << "Cannot load sprite" << "scoretrump";
   mTrump->setParentItem(this);
+  mTrump->setOffsetStatus(false);
   mTrumpFrame = 0;
 
   // Redraw us
@@ -131,9 +133,13 @@ void ScoreSprite::changeTheme()
   mPoints->setTextWidth(fontWidthUpper);
   mScore->setTextWidth(fontWidthLower);
   mGames->setTextWidth(fontWidthLower);
+  
+  QPoint offset = thememanager()->getOffset();
+
 
   // Restore the frame of the input device sprite
   if (mInputFrame>=0) mInput->setFrame(mInputFrame);
+    
 }
 
 
