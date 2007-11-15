@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&lskat;"> 
   <!ENTITY package "kdegames"> 
@@ -23,13 +23,15 @@
 <firstname>Mike</firstname><surname>McBride</surname>
 <contrib>Reviewer</contrib>
 <affiliation>
-<address><email>mpmcbride7@yahoo.com</email></address></affiliation>
+<address>&Mike.McBride.mail;</address></affiliation>
 </othercredit>
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2007-09-01</date>
+<date>2007-11-14</date>
 <releaseinfo>1.4.0</releaseinfo>
+
+<legalnotice>&FDLNotice;</legalnotice>
 
 <abstract>
 <para>This documentation describes the game of &lskat; version 1.4.0</para>
@@ -63,7 +65,7 @@ The game is played using a single deck of cards. Cards are shuffled and distribu
 </chapter>
 
 <chapter id="howto">
-<title>How to play</title>
+<title>How to Play</title>
 <note><title>Objective:</title><para>Score more then 60 points in a single game.</para></note>
 <para>
 Once dialing is finished each player ends up with 16 cards each. Cards are displayed in two vertical rows - four cards per row. Half of the cards are face down and half is face up. As a player you can see the opponent's cards as well as your own. You can make a move then by clicking on any of your cards which are currently face up. The opponent has to reply by choosing a corresponding card form his/her own stack. <note><title>Note</title><para>If your opponent is artificial intelligence, it's cards will be chosen automatically.</para></note> Once the exchange is finished values of the played cards are evaluated and either you or your opponent is awarded points. The game is complete in 16 rounds (when all of your and your opponent's cards have been played). After the game ends your score is be compared to that of your opponent's and the player with the most sore wins the round.
@@ -186,11 +188,11 @@ The player who wins the round leads the next one.
 </qandaentry>
 <qandaentry>
  <question><para>Where can I get cheatcodes? </para></question>
- <answer><para>You can't get cheatcodes for &kde; games.</para></answer>
+ <answer><para>You cannot get cheatcodes for &kde; games.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>How do I start a new game? </para></question>
- <answer><para>There are three ways of starting a new game. You can either click <guibutton>New</guibutton> button on the 'toolbar', or refer to <link linkend="new_game">this</link> section of 'Interface Overview' for details.</para></answer>
+ <answer><para>There are three ways of starting a new game. You can either click <guibutton>New</guibutton> button on the toolbar, or refer to <link linkend="new_game">this</link> section of 'Interface Overview' for details.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>How do I pause the game? </para></question>
@@ -210,18 +212,18 @@ The player who wins the round leads the next one.
 </qandaentry>
 <qandaentry>
  <question><para>Can I use keyboard? </para></question>
- <answer><para>No. This game can not be played using keyboard.</para></answer>
+ <answer><para>No. This game cannot be played using keyboard.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>I can't figure out what to do here! Are there hints? </para></question>
+ <question><para>I cannot figure out what to do here! Are there hints? </para></question>
  <answer><para>No. This game does not have a 'Hint' feature.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>I have to quit the game now, but I'm not finished yet. Can I save my progress?</para></question>
+ <question><para>I have to quit the game now, but I am not finished yet. Can I save my progress?</para></question>
   <answer><para>No. This game does not have a 'Save State' feature.</para></answer>
 </qandaentry>
 <qandaentry>
- <question><para>Where are the highscores?</para></question>
+ <question><para>Where are the high scores?</para></question>
  <answer><para></para></answer>
 </qandaentry>
 <qandaentry>
@@ -243,7 +245,7 @@ The player who wins the round leads the next one.
 <title>Interface Overview</title>
 
 <sect1 id="file-menu">
-<title><guimenu>Game</guimenu> Menu</title>
+<title>The <guimenu>Game</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -303,7 +305,7 @@ Quits the program.</action>
 </sect1>
 
 <sect1 id="settings-menu">
-<title><guimenu>Settings</guimenu> Menu</title>
+<title>The <guimenu>Settings</guimenu> Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -389,9 +391,9 @@ can select these in a preview dialog showing all carddecks installed for
 </para>
 <note>
 <para>
-Some cardbacks or cardsets are marked as scalable graphics (SVG) in the dialog.
+Some carddecks or cardsets are marked as scalable graphics (SVG) in the dialog.
 Choosing them will display better quality of the graphics when the game is
-scaled or enlarged. Fixe size graphics will loose quality when resized different
+scaled or enlarged. Fixed size graphics will loose quality when resized different
 then their original size.
 </para>
 </note>
@@ -449,17 +451,17 @@ then their original size.
 &lskat;
 </para>
 <para>
-Program copyright 2000-2007 Martin Heni <email>kde@heni-online.de</email>
+Program copyright 2000-2007 &Martin.Heni; <email>kde@heni-online.de</email>
 </para>
 <para>
 Graphics copyright 2007 Eugene Trounev <email>eugene.trounev@gmail.com</email>
 </para>
 <para>
-Documentation copyright 2000-2007 Martin Heni <email>kde@heni-online.de</email>
+Documentation copyright 2000-2007 &Martin.Heni; <email>kde@heni-online.de</email>
 </para>
 <para>
-Documentation converted to &kde; 2.0 by Mike McBride
-<email>mpmcbride7@yahoo.com</email>
+Documentation converted to &kde; 2.0 by &Mike.McBride;
+&Mike.McBride.mail;
 </para>
 
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
