@@ -198,12 +198,12 @@ void GameView::rescaleTheme()
   if (global_debug > 2) kDebug() << "Theme queue rescale start at"  << t.msecsTo(mTimeStart);
   resetTransform();
   int width = mThemeQueue.first();
-  QPoint offset = mThemeOffset.first();
+  mInputOffset = mThemeOffset.first();
   if (global_debug > 2) kDebug() << "Theme queue size=" << mThemeQueue.size() << "Rescale width to" << width;
   
   mThemeQueue.clear();
   mThemeOffset.clear();
-  mTheme->rescale(width, offset);
+  mTheme->rescale(width, mInputOffset);
 
    if (global_debug > 2) kDebug() << "Time elapsed: "<< t.elapsed() << "ms";
 }
@@ -223,7 +223,7 @@ void GameView::mousePressEvent(QMouseEvent *ev)
 {
   if (ev->button() != Qt::LeftButton) return ;
 
-  QPointF point = ev->pos();
+  QPointF point = ev->pos()-mInputOffset;
   emit signalLeftMousePress(point.toPoint());
 }
 

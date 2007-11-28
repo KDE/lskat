@@ -106,6 +106,8 @@ class GameView : public QGraphicsView
     QList<int> mThemeQueue;
      // Theme offset queue
     QList<QPoint> mThemeOffset;
+    //	Active input offset
+    QPoint mInputOffset;
     // Theme queue delay time [ms]
     QTime mTimeStart;
     // Debug frame rate sprite
