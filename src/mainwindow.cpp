@@ -116,7 +116,7 @@ Mainwindow::Mainwindow(QWidget* parent)
     if (mThemeDefault.isNull()) mThemeDefault = name;
     if (isDefault) mThemeDefault = name;
 
-    if (global_debug>0) kDebug() <<  "Found theme: " <<themeList.at(i) <<" Name(i18n)="<<name<<" File="<<file << " default="<<isDefault; 
+    if (global_debug>0) kDebug() <<  "Found theme: " <<themeList.at(i) <<" Name(i18n)="<<name<<" File="<<file << " default="<<isDefault;
   }
   mThemeIndexNo = themeIdxFromName(mThemeDefault);
 
@@ -145,9 +145,9 @@ Mainwindow::Mainwindow(QWidget* parent)
   // Theme manager
   QString themeFile = themefileFromIdx(mThemeIndexNo);
   if (global_debug > 0) kDebug() << "Load theme" << themeFile << " no=" << mThemeIndexNo;
-  mTheme  = new ThemeManager(KCardDialog::cardDir(mCardDir), 
+  mTheme  = new ThemeManager(KCardDialog::cardDir(mCardDir),
                              KCardDialog::deckFilename(mDeckGrafix),
-                             KCardDialog::deckSVGFilePath(mDeckGrafix), 
+                             KCardDialog::deckSVGFilePath(mDeckGrafix),
                              themeFile, this, this->width());
   if (mTheme->checkTheme() != 0)
   {
@@ -229,7 +229,7 @@ QString Mainwindow::themefileFromIdx(int idx)
   return themeFile;
 }
 
-// Retrieve a theme idx from a theme name 
+// Retrieve a theme idx from a theme name
 int Mainwindow::themeIdxFromName(QString name)
 {
   QStringList list(mThemeFiles.keys());
@@ -541,7 +541,8 @@ void Mainwindow::menuPlayer2By()
 // Choose a card deck
 void Mainwindow::menuCardDeck()
 {
-  QString front,back;
+  QString front = mCardDir;
+  QString back = mDeckGrafix;
   int result;
 
   result=KCardDialog::getCardDeck(front, back, this, true, true, false, false);
@@ -561,7 +562,7 @@ void Mainwindow::menuCardDeck()
     }
     if (change)
     {
-      mTheme->updateCardTheme(KCardDialog::cardDir(mCardDir), 
+      mTheme->updateCardTheme(KCardDialog::cardDir(mCardDir),
                               KCardDialog::deckFilename(mDeckGrafix),
                               KCardDialog::deckSVGFilePath(mDeckGrafix));
       mView->update(); // Be on the safe side and update
