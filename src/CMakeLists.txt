@@ -28,6 +28,14 @@ kde4_add_ui_files( lskat_SRCS namedialog.ui )
 
 configure_file(config-src.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
 
+set(lskat_icons
+	../hi16-app-lskat.png
+	../hi32-app-lskat.png
+	../hi48-app-lskat.png
+	../hi64-app-lskat.png
+	../hi128-app-lskat.png
+)
+kde4_add_win32_app_icon(lskat_SRCS ${lskat_icons})
 kde4_add_executable( lskat ${lskat_SRCS} )
 
 target_link_libraries( lskat kdegames )
