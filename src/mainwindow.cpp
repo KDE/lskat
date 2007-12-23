@@ -251,8 +251,6 @@ void Mainwindow::saveProperties()
 
   // Program data
   KConfigGroup cfg = config->group("ProgramData");
-  cfg.writeEntry("cards",        mCardDir);
-  cfg.writeEntry("deck",         mDeckGrafix);
   cfg.writeEntry("startplayer",  mStartPlayer);
   cfg.writeEntry("ThemeIndexNo", mThemeIndexNo);
 
@@ -279,8 +277,8 @@ void Mainwindow::readProperties()
   QString dd  = KCardDialog::defaultDeckName();
 
   // Read card path
-  mCardDir    = cfg.readEntry("cards", dcd);
-  mDeckGrafix = cfg.readEntry("deck", dd);
+  mCardDir    = cfg.readEntry("Cardname", dcd);
+  mDeckGrafix = cfg.readEntry("Deckname", dd);
 
   // Check for path existence
   QFile file(KCardDialog::deckFilename(mDeckGrafix));
@@ -545,19 +543,24 @@ void Mainwindow::menuCardDeck()
   QString back = mDeckGrafix;
   int result;
 
-  result=KCardDialog::getCardDeck(front, back, this, true, true, false, false);
+  KConfigGroup grp = KGlobal::config()->group("ProgramData");
+  KCardDialog dlg(grp);
+  result=dlg.exec();
   if (result==QDialog::Accepted)
   {
+    // Always store the settings, other things than the deck may have changed
+    dlg.saveSettings(grp);
+    grp.sync();
     if (global_debug > 0) kDebug() << "NEW CARDDECK:" << front << "and" << back;
     bool change = false; // Avoid unnecessary changes
-    if (!back.isEmpty() && back != mDeckGrafix)
+    if (!dlg.deckName().isEmpty() && dlg.deckName() != mDeckGrafix)
     {
-      mDeckGrafix = back;
+      mDeckGrafix = dlg.deckName();
       change = true;
     }
-    if (!front.isEmpty() && front != mCardDir)
+    if (!dlg.cardName().isEmpty() && dlg.cardName() != mCardDir)
     {
-      mCardDir    = front;
+      mCardDir    = dlg.cardName();
       change = true;
     }
     if (change)
