@@ -387,6 +387,7 @@ const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, const QString &svg
   image.fill(0);
   QPainter p(&image);
   renderer->render(&p, svgid);
+  p.end();
   pixmap = QPixmap::fromImage(image);
   if (pixmap.isNull())
     kFatal() << "ThemeManager::getPixmap Cannot load svgid ID" << svgid;
