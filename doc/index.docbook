@@ -424,7 +424,7 @@ then their original size.
 <varlistentry id="toolbar_change">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbards...</guimenuitem>
+<guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 <action>Open a dialog which lets you redefine the toolbar.</action>
