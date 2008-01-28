@@ -120,7 +120,8 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
   QString cardSVG    = cardGroup.readEntry("SVG", QString());
   if (global_debug > 1) kDebug() << "SVG card =" << cardSVG << "is" << (!cardSVG.isNull());
 
-  QFileInfo svgInfo(QDir(cards), cardSVG);
+  QDir card_dir(cards);
+  QFileInfo svgInfo(card_dir, cardSVG);
   QString svgfile = svgInfo.filePath();
 
   mCardRenderer = 0;
