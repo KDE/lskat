@@ -68,7 +68,7 @@ The game is played using a single deck of cards. Cards are shuffled and distribu
 <title>How to Play</title>
 <note><title>Objective:</title><para>Score more then 60 points in a single game.</para></note>
 <para>
-Once dialing is finished each player ends up with 16 cards each. Cards are displayed in two vertical rows - four cards per row. Half of the cards are face down and half is face up. As a player you can see the opponent's cards as well as your own. You can make a move then by clicking on any of your cards which are currently face up. The opponent has to reply by choosing a corresponding card form his/her own stack. <note><title>Note</title><para>If your opponent is artificial intelligence, it's cards will be chosen automatically.</para></note> Once the exchange is finished values of the played cards are evaluated and either you or your opponent is awarded points. The game is complete in 16 rounds (when all of your and your opponent's cards have been played). After the game ends your score is be compared to that of your opponent's and the player with the most sore wins the round.
+Once dealing is finished each player ends up with 16 cards each. Cards are displayed in two vertical rows - four cards per row. Half of the cards are face down and half is face up. As a player you can see the opponent's cards as well as your own. You can make a move then by clicking on any of your cards which are currently face up. The opponent has to reply by choosing a corresponding card form his/her own stack. <note><title>Note</title><para>If your opponent is artificial intelligence, it's cards will be chosen automatically.</para></note> Once the exchange is finished values of the played cards are evaluated and either you or your opponent is awarded points. The game is complete in 16 rounds (when all of your and your opponent's cards have been played). After the game ends your score is be compared to that of your opponent's and the player with the most score wins the round.
 </para>
 </chapter>
 
@@ -424,7 +424,7 @@ then their original size.
 <varlistentry id="toolbar_change">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbards...</guimenuitem>
+<guimenuitem>Configure Toolbars...</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 <action>Open a dialog which lets you redefine the toolbar.</action>
