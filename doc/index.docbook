@@ -116,8 +116,9 @@ Once dealing is finished each player ends up with 16 cards each. Cards are displ
 <itemizedlist>
 <listitem><para>Every player owns 16 cards. 8 of them are face down 8 of them are face up.</para></listitem>
 <listitem><para>A face down card can only be opened after a face up card covering it has been played.</para></listitem>
-<listitem><para>Each game has a randomly chosen 'trump' card [8]. Note: If heart is selected as 'trump' all seven hearts as well as all four Jacks* count as trumps, making 11 trump cards.</para></listitem>
-<listitem><para>All four Jacks are counted as trumps and do not belong to their suits. Note: If heart is selected as 'trump' all seven hearts as well as all four Jacks count as trumps, making 11 trump cards.</para></listitem>
+<listitem><para>Each game has a randomly chosen 'trump' card [8].</para></listitem>
+<listitem><para>All four Jacks are counted as trumps and do not belong to their suits.</para></listitem>
+<listitem><para>If a color (&eg; heart) is selected as 'trump' all seven hearts as well as all four Jacks count as trumps, making 11 trump cards.</para></listitem>
 <listitem><para>Jacks beat each other in order (greatest to least): Club->Spade->Heart->Diamond.</para></listitem>
 <listitem><para>The sequence of cards for a trump color: Jack of clubs, Jack of spades, Jack of hearts, Jack of diamonds, Ace, Ten, King, Queen, Nine, Eight, Seven.</para></listitem>
 <listitem><para>The sequence of cards for a non-trump color: Ace, Ten, King, Queen, Nine, Eight, Seven.</para></listitem>
@@ -192,7 +193,7 @@ The player who wins the round leads the next one.
 </qandaentry>
 <qandaentry>
  <question><para>How do I start a new game? </para></question>
- <answer><para>There are three ways of starting a new game. You can either click <guibutton>New</guibutton> button on the toolbar, or refer to <link linkend="new_game">this</link> section of 'Interface Overview' for details.</para></answer>
+   <answer><para>You can start a new game using the <guibutton>New</guibutton> button on the toolbar, the <menuchoice><guimenu>Game</guimenu><guimenuitem>New</guimenuitem></menuchoice> menu entry on the menubar or using the default shortcut <keycombo action="simul">&Ctrl;<keycap>N</keycap></keycombo>.</para></answer>
 </qandaentry>
 <qandaentry>
  <question><para>How do I pause the game? </para></question>
@@ -222,10 +223,12 @@ The player who wins the round leads the next one.
  <question><para>I have to quit the game now, but I am not finished yet. Can I save my progress?</para></question>
   <answer><para>No. This game does not have a 'Save State' feature.</para></answer>
 </qandaentry>
+<!-- lskat has no way to show the statistics=high scores so far, uncomment this, when it is implementented, and write an appropriate answer>
 <qandaentry>
  <question><para>Where are the high scores?</para></question>
  <answer><para></para></answer>
 </qandaentry>
+<-->
 <qandaentry>
  <question><para>I want to change the game configuration. Where do I go? </para></question>
  <answer><para>Refer to <link linkend="settings-menu">this</link> section of 'Interface Overview' for details.</para></answer>
