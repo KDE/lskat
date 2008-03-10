@@ -28,7 +28,7 @@
 #include <kconfig.h>
 #include <KSvgRenderer>
 
-
+class KCardCache;
 class ThemeManager;
 
 /** Objects which are connected to the theme manger must inherit
@@ -107,20 +107,18 @@ class ThemeManager : public QObject
   Q_OBJECT
   public:
     /** Constructor for the theme manager.
-      * @param cards       Directory of the cards 
-      * @param deck        Filename of the deck PNG file
-      * @param deckSVG     Filename to the SVG card back (or null string for PNG)
+      * @param cardTheme   card theme 
+      * @param deckTheme   deck theme
       * @param themefile   The theme configuration file
       * @param parent      The parent object
       * @param initialSize Initial theme size, can be arbitrary.
       */
-      ThemeManager(const QString &cards, const QString &deck, const QString &deckSVG, const QString &themefile,
+      ThemeManager(const QString &cardTheme, const QString &deckTheme, const QString &themefile,
                  QObject* parent, int initialSize = 1);
 
     /** Get the pixmap for a card.
       * @param suite    The suite of the card [Club, ...]
       * @param cardtype The type of the card [Ace, ...]
-      * @param width    The width of the card [pixels]
       * @return The new pixmap.
       */
     const QPixmap getCard(int suite, int cardtype, double width);
@@ -130,7 +128,7 @@ class ThemeManager : public QObject
       * @return The new pixmap.
       */
     const QPixmap getCardback(double width);
-
+    
     /** Load a pixmap from the SVG theme file. Its filename is given in the
       * "general" section of the theme file as "svgfile". The pixmap is scaled
       * to the given size.
@@ -198,7 +196,7 @@ class ThemeManager : public QObject
       * @param deck  The deck file
       * @param deckSVG     Filename to the SVG card back (or null string for PNG)
       */
-    void updateCardTheme(const QString &cards, const QString &deck, const QString &deckSVG);
+    void updateCardTheme(const QString &cardTheme, const QString &deckTheme);
     
     /** Forces an update to all theme objects. That is their
       * changeTheme() method is called. Before this a (new)
@@ -243,24 +241,15 @@ class ThemeManager : public QObject
       * @param deck      The deck file
       * @param deckSVG     Filename to the SVG card back (or null string for PNG)
       */
-    void updateCardTheme(const QString &themefile, const QString &cards, const QString &deck, const QString &deckSVG);
+    void updateCardTheme(const QString &themefile, const QString &cardTheme, const QString &deckTheme);
 
-    /** Retrive the SVGid for a card number. This effectively maps
-      * the 'old' PNG cards to the new SVG card ids. For example
-      * Ace of clubs is PNG card '1' or SVG id'1_club'
-      * @param no  The card number [1-52]
-      */
-    QString calcCardSVGId(int no);
 
    private:
      // The used SVG rendered
      KSvgRenderer* mRenderer;
 
-     // The card SVG rendered
-     KSvgRenderer* mCardRenderer;
-
-     // The deck SVG rendered
-     KSvgRenderer* mDeckRenderer;
+     // The card cache
+     KCardCache* mCardCache;
      
      // Storage of all theme objects [object,1] [TODO: Alist might suffice]
      QHash<Themable*,int> mObjects;
@@ -272,10 +261,10 @@ class ThemeManager : public QObject
      KConfig* mConfig;
 
      // The card configuration file
-     QString mCardFile;
+     QString mCardTheme;
 
      // The deck configuration file
-     QString mDeckFile;
+     QString mDeckTheme;
 
      // The current theme scale
      int mScale;

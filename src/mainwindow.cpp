@@ -145,9 +145,8 @@ Mainwindow::Mainwindow(QWidget* parent)
   // Theme manager
   QString themeFile = themefileFromIdx(mThemeIndexNo);
   if (global_debug > 0) kDebug() << "Load theme" << themeFile << " no=" << mThemeIndexNo;
-  mTheme  = new ThemeManager(KCardDialog::cardDir(mCardDir),
-                             KCardDialog::deckFilename(mDeckGrafix),
-                             KCardDialog::deckSVGFilePath(mDeckGrafix),
+  mTheme  = new ThemeManager(mCardTheme,
+                             mDeckTheme,
                              themeFile, this, this->width());
   if (mTheme->checkTheme() != 0)
   {
@@ -272,33 +271,9 @@ void Mainwindow::readProperties()
   mThemeIndexNo = cfg.readEntry("ThemeIndexNo", themeIdxFromName(mThemeDefault));
   if (mThemeIndexNo >= mThemeFiles.size()) mThemeIndexNo = 0;
 
-  // Get default card data
-  QString dcd = KCardDialog::defaultCardName();
-  QString dd  = KCardDialog::defaultDeckName();
-
   // Read card path
-  mCardDir    = cfg.readEntry("Cardname", dcd);
-  mDeckGrafix = cfg.readEntry("Deckname", dd);
-
-  // Check for path existence
-  QFile file(KCardDialog::deckFilename(mDeckGrafix));
-  if (KCardDialog::deckFilename(mDeckGrafix).isNull() || !file.exists())
-  {
-    kDebug() << "Deck " << mDeckGrafix << " does not exists. Using default " << dd;
-    mDeckGrafix = dd;
-  }
-  QDir dir(KCardDialog::cardDir(mCardDir));
-  if (KCardDialog::cardDir(mCardDir).isNull() || !dir.exists())
-  {
-    kDebug() << "Card directory " << mCardDir << " does not exists. Using default " << dcd;
-    mCardDir = dcd;
-  }
-
-  if (global_debug > 0)
-  {
-    kDebug() << "set mDeckGrafix=" << mDeckGrafix;
-    kDebug() << "set mCardDir=" << mCardDir;
-  }
+  mCardTheme  = cfg.readEntry("Cardname", KCardDialog::defaultCardName());
+  mDeckTheme  = cfg.readEntry("Deckname", KCardDialog::defaultDeckName());
 
   int no = cfg.readEntry("startplayer", 0);
   setStartPlayer(no);
@@ -539,8 +514,8 @@ void Mainwindow::menuPlayer2By()
 // Choose a card deck
 void Mainwindow::menuCardDeck()
 {
-  QString front = mCardDir;
-  QString back = mDeckGrafix;
+  QString front = mCardTheme;
+  QString back = mDeckTheme;
   int result;
 
   KConfigGroup grp = KGlobal::config()->group("ProgramData");
@@ -553,21 +528,19 @@ void Mainwindow::menuCardDeck()
     grp.sync();
     if (global_debug > 0) kDebug() << "NEW CARDDECK:" << front << "and" << back;
     bool change = false; // Avoid unnecessary changes
-    if (!dlg.deckName().isEmpty() && dlg.deckName() != mDeckGrafix)
+    if (!dlg.deckName().isEmpty() && dlg.deckName() != mDeckTheme)
     {
-      mDeckGrafix = dlg.deckName();
+      mDeckTheme = dlg.deckName();
       change = true;
     }
-    if (!dlg.cardName().isEmpty() && dlg.cardName() != mCardDir)
+    if (!dlg.cardName().isEmpty() && dlg.cardName() != mCardTheme)
     {
-      mCardDir    = dlg.cardName();
+      mCardTheme    = dlg.cardName();
       change = true;
     }
     if (change)
     {
-      mTheme->updateCardTheme(KCardDialog::cardDir(mCardDir),
-                              KCardDialog::deckFilename(mDeckGrafix),
-                              KCardDialog::deckSVGFilePath(mDeckGrafix));
+      mTheme->updateCardTheme(mCardTheme,mDeckTheme);
       mView->update(); // Be on the safe side and update
     }
   }
