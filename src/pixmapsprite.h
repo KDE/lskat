@@ -108,7 +108,7 @@ class PixmapSprite : public QGraphicsPixmapItem, public virtual Themable
 
     /** Reads a theme configuration item of type double and of the given 
       * name.
-      * @deprecated Thsi is debug only
+      * @deprecated This is debug only
       * @param item  The theme configuration item name
       * @return The read double value.
       */
@@ -117,7 +117,7 @@ class PixmapSprite : public QGraphicsPixmapItem, public virtual Themable
     /** Set whether the sprite should respect a theme offset 
       * (default: true) or not (false), that is, it is handled
       * by its parent item.
-      * @param status True: Handle theme offset, False: dont
+      * @param status True: Handle theme offset, False: don't
       */
     void setOffsetStatus(bool status);
 
@@ -127,7 +127,7 @@ class PixmapSprite : public QGraphicsPixmapItem, public virtual Themable
      */
     int mNo;
 
-    /**  The canvas advance peridod (e.g. 25) [ms]
+    /**  The canvas advance period (e.g. 25) [ms]
      */
     int mAdvancePeriod;
 
