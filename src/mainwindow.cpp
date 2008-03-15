@@ -40,6 +40,7 @@
 #include <kmenubar.h>
 #include <klocale.h>
 #include <kcarddialog.h>
+#include <carddeckinfo.h>
 #include <krandom.h>
 #include <kglobal.h>
 #include <ktoolbar.h>
@@ -272,8 +273,8 @@ void Mainwindow::readProperties()
   if (mThemeIndexNo >= mThemeFiles.size()) mThemeIndexNo = 0;
 
   // Read card path
-  mCardTheme  = cfg.readEntry("Cardname", KCardDialog::defaultCardName());
-  mDeckTheme  = cfg.readEntry("Deckname", KCardDialog::defaultDeckName());
+  mCardTheme  = cfg.readEntry("Cardname", CardDeckInfo::defaultFrontName());
+  mDeckTheme  = cfg.readEntry("Deckname", CardDeckInfo::defaultBackName());
 
   int no = cfg.readEntry("startplayer", 0);
   setStartPlayer(no);
@@ -528,14 +529,14 @@ void Mainwindow::menuCardDeck()
     grp.sync();
     if (global_debug > 0) kDebug() << "NEW CARDDECK:" << front << "and" << back;
     bool change = false; // Avoid unnecessary changes
-    if (!dlg.deckName().isEmpty() && dlg.deckName() != mDeckTheme)
+    if (!dlg.backName().isEmpty() && dlg.backName() != mDeckTheme)
     {
-      mDeckTheme = dlg.deckName();
+      mDeckTheme = dlg.backName();
       change = true;
     }
-    if (!dlg.cardName().isEmpty() && dlg.cardName() != mCardTheme)
+    if (!dlg.frontName().isEmpty() && dlg.frontName() != mCardTheme)
     {
-      mCardTheme    = dlg.cardName();
+      mCardTheme    = dlg.frontName();
       change = true;
     }
     if (change)
