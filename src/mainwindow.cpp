@@ -520,23 +520,24 @@ void Mainwindow::menuCardDeck()
   int result;
 
   KConfigGroup grp = KGlobal::config()->group("ProgramData");
-  KCardDialog dlg(grp);
-  result=dlg.exec();
-  if (result==QDialog::Accepted)
+  KCardWidget* cardwidget = new KCardWidget();
+  cardwidget->readSettings(grp);
+  KCardDialog dlg(cardwidget);
+  if (dlg.exec()==QDialog::Accepted)
   {
     // Always store the settings, other things than the deck may have changed
-    dlg.saveSettings(grp);
+    cardwidget->saveSettings(grp);
     grp.sync();
     if (global_debug > 0) kDebug() << "NEW CARDDECK:" << front << "and" << back;
     bool change = false; // Avoid unnecessary changes
-    if (!dlg.backName().isEmpty() && dlg.backName() != mDeckTheme)
+    if (!cardwidget->backName().isEmpty() && cardwidget->backName() != mDeckTheme)
     {
-      mDeckTheme = dlg.backName();
+      mDeckTheme = cardwidget->backName();
       change = true;
     }
-    if (!dlg.frontName().isEmpty() && dlg.frontName() != mCardTheme)
+    if (!cardwidget->frontName().isEmpty() && cardwidget->frontName() != mCardTheme)
     {
-      mCardTheme    = dlg.frontName();
+      mCardTheme    = cardwidget->frontName();
       change = true;
     }
     if (change)
