@@ -273,8 +273,8 @@ void Mainwindow::readProperties()
   if (mThemeIndexNo >= mThemeFiles.size()) mThemeIndexNo = 0;
 
   // Read card path
-  mCardTheme  = cfg.readEntry("Cardname", CardDeckInfo::defaultFrontName());
-  mDeckTheme  = cfg.readEntry("Deckname", CardDeckInfo::defaultBackName());
+  mCardTheme  = CardDeckInfo::frontTheme( cfg );
+  mDeckTheme  = CardDeckInfo::backTheme( cfg );
 
   int no = cfg.readEntry("startplayer", 0);
   setStartPlayer(no);
