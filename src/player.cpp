@@ -53,7 +53,7 @@ Player::Player(int id, QObject* parent)
 // Destructor 
 Player::~Player()
 {
-  if (mInput) delete mInput;
+  delete mInput;
 }
 
 
