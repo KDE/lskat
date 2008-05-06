@@ -36,40 +36,40 @@ class ThemeManager;
   * by the theme manager and allows them to retrieve theme data
   * from a configuration theme file.
   */
-class Themable 
+class Themable
 {
    public:
-     /** Default constructor for the interface 
+     /** Default constructor for the interface
       */
      Themable();
-     
+
      /** Constructor for the interface given the theme item unique ID string
        * and a reference to the theme manager. The ID string is used to refer
        * to the group in the configuration file.
-       * @param id           The user defined theme id 
+       * @param id           The user defined theme id
        * @param thememanager The used theme manager
        */
      Themable(const QString &id, ThemeManager* thememanager);
-     
-     /** Destructor 
+
+     /** Destructor
       */
      virtual ~Themable();
-     
+
      /** Retrieve the ID of the object.
       *  @return The ID.
       */
      QString id() {return mId;}
-     
+
      /** Retrieve the associated theme manager of this object.
       *  @return The theme manager.
       */
      ThemeManager* thememanager() {return mThemeManager;}
-     
+
      /** Retrieve the current scale (maximum extension) of the theme.
        * @return The current scale.
        */
      double getScale() {return mScale;}
-     
+
      /** Set teh current scale for the object.
       *  @param scale The new scale.
       */
@@ -84,10 +84,10 @@ class Themable
    private:
      // The theme ID
      QString mId;
-     
+
      // The theme manager
      ThemeManager* mThemeManager;
-     
+
      // The current scale for the object (maximum extension)
      double mScale;
 };
@@ -107,7 +107,7 @@ class ThemeManager : public QObject
   Q_OBJECT
   public:
     /** Constructor for the theme manager.
-      * @param cardTheme   card theme 
+      * @param cardTheme   card theme
       * @param deckTheme   deck theme
       * @param themefile   The theme configuration file
       * @param parent      The parent object
@@ -116,6 +116,7 @@ class ThemeManager : public QObject
       ThemeManager(const QString &cardTheme, const QString &deckTheme, const QString &themefile,
                  QObject* parent, int initialSize = 1);
 
+    ~ThemeManager();
     /** Get the pixmap for a card.
       * @param suite    The suite of the card [Club, ...]
       * @param cardtype The type of the card [Ace, ...]
@@ -128,7 +129,7 @@ class ThemeManager : public QObject
       * @return The new pixmap.
       */
     const QPixmap getCardback(double width);
-    
+
     /** Load a pixmap from the SVG theme file. Its filename is given in the
       * "general" section of the theme file as "svgfile". The pixmap is scaled
       * to the given size.
@@ -137,7 +138,7 @@ class ThemeManager : public QObject
       * @return The new pixmap.
       */
     const QPixmap getPixmap(const QString &svgid, const QSize &size);
-    
+
     /** Load a pixmap from the SVG theme file. Its filename is given in the
       * "general" section of the theme file as "svgfile". The pixmap is scaled
       * to the given width. The height is relative to the width as given in the SVG
@@ -147,29 +148,29 @@ class ThemeManager : public QObject
       * @return The new pixmap.
       */
     const QPixmap getPixmap(const QString &svgid, double width);
-    
+
      /** Load a pixmap from the SVG theme file. Its filename is given in the
       * "general" section of the theme file as "svgfile". The pixmap is scaled
       * with reference to another SVG item. This allows to generate a set of pixmaps
-      * with related sizes. 
+      * with related sizes.
       * @param svgid     The ID of the SVG item to be rendered as pixmap
       * @param svgref    The ID of the SVG item used as width reference
       * @param refwidth  The width of the resulting pixmap in relation to the reference item
       * @return The new pixmap.
       */
     const QPixmap getPixmap(const QString &svgid, const QString &svgref, double refwidth);
-    
+
     /** Retreive the current scale of the theme.
       * @return The scale.
       */
     double getScale();
-    
-         
+
+
      /** Retrieve the theme offset.
       * @return The offset.
       */
      QPoint getOffset();
-    
+
     /** Retrieve the current theme configuration object.
       * @return The configuration object.
       */
@@ -179,25 +180,25 @@ class ThemeManager : public QObject
       * @param ob The object to be registered.
       */
     void registerTheme(Themable* ob);
-    
+
     /** Unregister an object with the theme manager.
       * @param ob The object to be unregistered.
       */
     void unregisterTheme(Themable* ob);
-    
+
     /** Forces an update to a theme objects. That is its
       * changeTheme() method is called.
       * @param ob The object to be updated.
       */
     void updateTheme(Themable* ob);
 
-    /** Forces an update to the card theme objects. 
+    /** Forces an update to the card theme objects.
       * @param cards The card dir
       * @param deck  The deck file
       * @param deckSVG     Filename to the SVG card back (or null string for PNG)
       */
     void updateCardTheme(const QString &cardTheme, const QString &deckTheme);
-    
+
     /** Forces an update to all theme objects. That is their
       * changeTheme() method is called. Before this a (new)
       * theme file is loaded and all cached pixmaps deleted. This
@@ -205,9 +206,9 @@ class ThemeManager : public QObject
       * @param themefile The theme file to load
       */
     void updateTheme(const QString &themefile);
-    
+
     /** Change the scale of the theme and update all registered
-      * theme objects. 
+      * theme objects.
       * @param scale The new scale (maximum extension)
       * @param offset The new offset of the theme (left upper corner)
       */
@@ -223,7 +224,7 @@ class ThemeManager : public QObject
       * @return 0 if everything is alright
       */
     int checkTheme();
-    
+
    protected:
     /** Load a pixmap from the SVG theme file. Its filename is given in the
       * "general" section of the theme file as "svgfile". The pixmap is scaled
@@ -235,7 +236,7 @@ class ThemeManager : public QObject
       */
     const QPixmap getPixmap(KSvgRenderer* renderer, const QString &svgid, const QSize &size);
 
-    /** Forces an update to the card theme objects. 
+    /** Forces an update to the card theme objects.
       * @param themefile The theme rc file
       * @param cards     The card dir
       * @param deck      The deck file
@@ -250,13 +251,13 @@ class ThemeManager : public QObject
 
      // The card cache
      KCardCache* mCardCache;
-     
+
      // Storage of all theme objects [object,1] [TODO: Alist might suffice]
      QHash<Themable*,int> mObjects;
 
      // The cache of all pixmap objects [id,pixmap]
      QHash<QString,QPixmap> mPixmapCache;
-     
+
      // The theme configuration file
      KConfig* mConfig;
 
@@ -268,10 +269,10 @@ class ThemeManager : public QObject
 
      // The current theme scale
      int mScale;
-     
+
      // The current offset
      QPoint mOffset;
-     
+
      // The aspect ration
      double mAspectRatio;
 
@@ -280,7 +281,7 @@ class ThemeManager : public QObject
 
      // The theme file
      QString mThemeFile;
-     
+
 };
 
 

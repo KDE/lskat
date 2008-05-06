@@ -103,7 +103,7 @@ KCardInfo convertToKCardInfo(CardDeck::Suite suite, CardDeck::CardType card)
 // Constructor for the theme manager
 ThemeManager::ThemeManager(const QString &cardTheme, const QString &deckTheme,
                            const QString &themefile, QObject* parent, int initialSize)
-    : QObject(parent)
+    : QObject(parent), mConfig( 0 )
 {
   mScale           = initialSize;
   mAspectRatio     = 1.0;
@@ -111,11 +111,16 @@ ThemeManager::ThemeManager(const QString &cardTheme, const QString &deckTheme,
   mCardTheme       = cardTheme;
   mDeckTheme       = deckTheme;
   mRenderer        = 0;
-  
+
   mCardCache = new KCardCache();
 
   // updateTheme(themefile);
   updateCardTheme(themefile, cardTheme, deckTheme);
+}
+
+ThemeManager::~ThemeManager()
+{
+    delete mConfig;
 }
 
 
@@ -169,7 +174,7 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
   // Cards
   mCardTheme = cardTheme;
   mCardCache->setFrontTheme(mCardTheme);
-  
+
   // Deck
   mDeckTheme = deckTheme;
   mCardCache->setBackTheme(mDeckTheme);
@@ -178,7 +183,7 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
 }
 
 
-// Update the theme file and refresh all registered objects. Used 
+// Update the theme file and refresh all registered objects. Used
 // to really change the theme.
 void ThemeManager::updateTheme(const QString &themefile)
 {
@@ -191,6 +196,7 @@ void ThemeManager::updateTheme(const QString &themefile)
   if (global_debug > 0) kDebug() << "ThemeManager LOAD with theme "<<rcfile;
 
   // Read config and SVG file for theme
+  delete mConfig;
   mConfig = new KConfig(rcfile, KConfig::NoGlobals);
   QString svgfile = config("general").readEntry("svgfile");
   svgfile = KStandardDirs::locate("lskattheme", svgfile);
@@ -204,7 +210,7 @@ void ThemeManager::updateTheme(const QString &themefile)
 
   mRenderer = new KSvgRenderer(this);
   bool result = mRenderer->load(svgfile);
-  if (!result) 
+  if (!result)
   {
     mRenderer = 0;
     kFatal() << "Cannot open file" << svgfile;
@@ -248,7 +254,7 @@ void ThemeManager::rescale(int scale, QPoint offset)
 double ThemeManager::getScale()
 {
   return (double)mScale;
-}  
+}
 
 
 // Retrieve the theme offset
@@ -261,7 +267,7 @@ QPoint ThemeManager::getOffset()
 // Retreive the current theme configuration file.
 KConfigGroup ThemeManager::config(const QString &id)
 {
-   KConfigGroup grp = mConfig->group(id); 
+   KConfigGroup grp = mConfig->group(id);
    return grp;
 }
 
@@ -291,19 +297,19 @@ const QPixmap ThemeManager::getCardback(double width)
 const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, const QString &svgid, const QSize &size)
 {
   QPixmap pixmap;
-  if (size.width() < 1 || size.height() < 1) 
+  if (size.width() < 1 || size.height() < 1)
   {
     if (global_debug >1)
       kDebug() << "ThemeManager::getPixmap Cannot create svgid ID" << svgid << "with zero size" << size;
     return pixmap;
   }
-  
+
 
   //  Cached pixmap?
   if (mPixmapCache.contains(svgid))
   {
-    pixmap = mPixmapCache[svgid]; 
-    if (pixmap.size() == size) 
+    pixmap = mPixmapCache[svgid];
+    if (pixmap.size() == size)
     {
       return pixmap;
     }
@@ -364,7 +370,7 @@ Themable::Themable()
 }
 
 
-// Constructs a themeable interface given its id and the master theme manager. 
+// Constructs a themeable interface given its id and the master theme manager.
 // This automatically registeres the object with the manager.
 Themable::Themable(const QString &id, ThemeManager* thememanager)
 {
