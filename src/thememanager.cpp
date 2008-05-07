@@ -47,7 +47,7 @@
 // Constructor for the theme manager
 ThemeManager::ThemeManager(const QString &cards, const QString &deck, const QString &deckSVG, 
                            const QString &themefile, QObject* parent, int initialSize)
-    : QObject(parent)
+    : QObject(parent),mConfig(0)
 {
   mScale           = initialSize;
   mAspectRatio     = 1.0;
@@ -69,6 +69,10 @@ void ThemeManager::registerTheme(Themable* ob)
   mObjects[ob] = 1;
 }
 
+ThemeManager::~ThemeManager()
+{
+    delete mConfig;
+}
 
 // Unregister an object from the manager
 void ThemeManager::unregisterTheme(Themable* ob)
@@ -168,6 +172,7 @@ void ThemeManager::updateTheme(const QString &themefile)
   if (global_debug > 0) kDebug() << "ThemeManager LOAD with theme "<<rcfile;
 
   // Read config and SVG file for theme
+  delete mConfig;
   mConfig = new KConfig(rcfile, KConfig::NoGlobals);
   QString svgfile = config("general").readEntry("svgfile");
   svgfile = KStandardDirs::locate("lskattheme", svgfile);

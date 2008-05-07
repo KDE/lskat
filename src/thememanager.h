@@ -116,7 +116,7 @@ class ThemeManager : public QObject
       */
       ThemeManager(const QString &cards, const QString &deck, const QString &deckSVG, const QString &themefile,
                  QObject* parent, int initialSize = 1);
-
+      ~ThemeManager();
     /** Get the pixmap for a card.
       * @param suite    The suite of the card [Club, ...]
       * @param cardtype The type of the card [Ace, ...]
