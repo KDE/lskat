@@ -121,6 +121,7 @@ ThemeManager::ThemeManager(const QString &cardTheme, const QString &deckTheme,
 ThemeManager::~ThemeManager()
 {
     delete mConfig;
+    delete mCardCache;
 }
 
 
