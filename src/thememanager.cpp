@@ -208,7 +208,7 @@ void ThemeManager::updateTheme(const QString &themefile)
   if (global_debug > 0) kDebug() << "Aspect ration =" << mAspectRatio << "Cards aspect=" << mCardAspectRatio;
 
 
-
+  delete mRenderer;
   mRenderer = new KSvgRenderer(this);
   bool result = mRenderer->load(svgfile);
   if (!result)
