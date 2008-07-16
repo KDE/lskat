@@ -198,13 +198,13 @@ Mainwindow::Mainwindow(QWidget* parent)
 Mainwindow::~Mainwindow()
 {
   saveProperties();
-  if (mEngine) delete mEngine;
-  if (mDisplay) delete mDisplay;
-  if (mLSkatConfig) delete mLSkatConfig;
-  if (mDeck) delete mDeck;
-  if (mView) delete mView;
-  if (mCanvas) delete mCanvas;
-  if (mTheme) delete mTheme;
+  delete mEngine;
+  delete mDisplay;
+  delete mLSkatConfig;
+  delete mDeck;
+  delete mView;
+  delete mCanvas;
+  delete mTheme;
 }
 
 
