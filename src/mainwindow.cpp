@@ -169,7 +169,6 @@ Mainwindow::Mainwindow(QWidget* parent)
   setupGUI();
   toolBar()->hide();
   statusBar()->show();
-  setAutoSaveSettings();
 
   statusBar()->showMessage(i18n("Welcome to Skat! Please start a new game."));
 
