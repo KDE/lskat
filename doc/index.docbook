@@ -68,7 +68,7 @@ The game is played using a single deck of cards. Cards are shuffled and distribu
 
 <chapter id="howto">
 <title>How to Play</title>
-<note><title>Objective:</title><para>Score more then 60 points in a single game.</para></note>
+<note><title>Objective:</title><para>Score more than 60 points in a single game.</para></note>
 <para>
 Once dealing is finished each player ends up with 16 cards each. Cards are
 displayed in two vertical rows - four cards per row. Half of the cards are face
@@ -161,7 +161,7 @@ with the higher score wins the round.
 <listitem><para>Only the face up cards from the player's own stack can be used to play the round.</para></listitem>
 <listitem><para>Player who wins the round starts the next one.</para></listitem>
 <listitem><para>The player who wins the round adds values of the cards played in that round to his/her score.</para></listitem>
-<listitem><para>Player with more then 60 points wins the game.</para></listitem>
+<listitem><para>Player with more than 60 points wins the game.</para></listitem>
 <listitem><para>If both players finish with 60 points each the game ends in a draw.</para></listitem>
 <listitem><para>For each game a certain amount of victory points is awarded and added to the overall score.</para></listitem>
 </itemizedlist>
@@ -411,7 +411,7 @@ can select these in a preview dialog showing all carddecks installed for
 Some carddecks or cardsets are marked as scalable graphics (SVG) in the dialog.
 Choosing them will display better quality of the graphics when the game is
 scaled or enlarged. Fixed size graphics will loose quality when resized different
-then their original size.
+than their original size.
 </para>
 </note>
 </listitem>
