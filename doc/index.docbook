@@ -1,9 +1,9 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
-  <!ENTITY kappname "&lskat;"> 
+  <!ENTITY kappname "&lskat;">
   <!ENTITY kappversion "1.4.0"><!--Applicaion version. Use this variable everywhere it's needed.-->
   <!ENTITY docupdate "2008-02-26"><!--Document version. Use this variable everywhere it's needed.-->
-  <!ENTITY package "kdegames"> 
+  <!ENTITY package "kdegames">
   <!ENTITY % English "INCLUDE" >
   <!ENTITY % addindex "IGNORE">
 ]>
@@ -136,7 +136,7 @@ with the higher score wins the round.
 <listitem><para>Jacks beat each other in order (greatest to least): Club->Spade->Heart->Diamond.</para></listitem>
 <listitem><para>The sequence of cards for a trump color: Jack of clubs, Jack of spades, Jack of hearts, Jack of diamonds, Ace, Ten, King, Queen, Nine, Eight, Seven.</para></listitem>
 <listitem><para>The sequence of cards for a non-trump color: Ace, Ten, King, Queen, Nine, Eight, Seven.</para></listitem>
-<listitem><para>The values of the cards (highest to lowest):</para></listitem>
+<listitem id="card-values"><para>The values of the cards (highest to lowest):</para></listitem>
 </itemizedlist>
 
 <informaltable>
@@ -185,7 +185,7 @@ with the higher score wins the round.
 <para>
 When the game starts, the starting player should play any of the face up cards from own stack.
 If the second player currently has face up cards that are of the same suit as the card played, he/she has to reply with one of those cards. If, however, the second player does not have a card of the same suit, he/she can play with any other card.
-The player with the higher card value* wins both cards.
+The player with the higher <link linkend="card-values">card value</link> wins both cards.
 <note><title>Note</title><para>If the replying player plays 'trump' card he/she wins both cards.</para></note>
 <note><title>Note</title><para>If the leading player plays 'trump' card he/she wins both cards.</para></note>
 The player who wins the round leads the next one.
@@ -274,7 +274,7 @@ The player who wins the round leads the next one.
 <guimenuitem>New</guimenuitem></menuchoice></term>
 <listitem>
 <para>
-<action>Starts a new game.</action> 
+<action>Starts a new game.</action>
 </para>
 </listitem>
 </varlistentry>
@@ -502,7 +502,7 @@ Documentation converted to &kde; 2.0 by &Mike.McBride;
 </sect1>
 </appendix>
 
-&documentation.index; 
+&documentation.index;
 </book>
 <!--
 Local Variables:
