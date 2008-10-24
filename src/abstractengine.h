@@ -73,7 +73,7 @@ class AbstractEngine : public QObject
       */
     virtual void addPlayer(int no, Player* player);
 
-    /** Retreive the player of the given number.
+    /** Retrieve the player of the given number.
      *  @param no The player number.
      *  @return The player.
      */

@@ -119,7 +119,7 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
       */
     int count();
 
-    /** Retreive the card id, a combination of suite and card type.
+    /** Retrieve the card id, a combination of suite and card type.
       *@return The card id.
       */
     int cardid() {return mCardType*4+mSuite;}

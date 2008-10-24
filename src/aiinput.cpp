@@ -355,7 +355,7 @@ AiInput::Board::Board(const AiInput::Board& board)
 }
 
 
-// Retreive card at given position for given player
+// Retrieve card at given position for given player
 int AiInput::Board::card(int p, int pos) const
 {
   int card = cards[p][pos];  // 1st card
@@ -379,7 +379,7 @@ int AiInput::Board::cardsAtPos(int p, int pos) const
 }
 
 
-// Retreive card at given position for given player and
+// Retrieve card at given position for given player and
 // reset it (take it away)
 int AiInput::Board::takeCard(int p, int pos)
 {
@@ -786,7 +786,7 @@ bool AiInput::isLegalMove(int card1, int card2, int pl, const AiInput::Board& cu
     // Ignore played card
     if (card == card2) continue;
 
-    // Analyse card
+    // Analyze card
     Suite suite   = Deck::getSuite(card);
     CardType type = Deck::getCardType(card);
 

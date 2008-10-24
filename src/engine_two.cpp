@@ -46,7 +46,7 @@ EngineTwo::EngineTwo(QWidget* parent, Deck* deck, DisplayTwo* display)
 }
 
 
-// Inital part of the game loop. Prepare new move etc
+// Initial part of the game loop. Prepare new move etc
 void EngineTwo::gameLoopStart()
 {
   if (global_debug > 1) kDebug() << "GAME LOOP START";
@@ -439,7 +439,7 @@ bool EngineTwo::isLegalMove(int card1, int card2, int playerNumber)
     // This card is not available anymore
     if (card < 0) continue;
 
-    // Analyse card
+    // Analyze card
     Suite suite   = Deck::getSuite(card);
     CardType type = Deck::getCardType(card);
 

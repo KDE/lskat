@@ -72,7 +72,7 @@ class AiInput : public AbstractInput
          */
         Board(const Board& board);
 
-        /** Retreive card of given player on given position
+        /** Retrieve card of given player on given position
           * @param p   player [0,1]
           * @param pos Position [0-7]
           * @return The card id.
@@ -94,7 +94,7 @@ class AiInput : public AbstractInput
           */
         int cardsAtPos(int p, int pos) const;
 
-        /** Analyse board, e.g. count how many of each suite.
+        /** Analyze board, e.g. count how many of each suite.
           */
         void analyze();
 

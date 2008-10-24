@@ -77,7 +77,7 @@ void AbstractDisplay::setDeck(Deck* deck)
 }  
 
 
-// Explicitely reset stored data, e.g. sprites.
+// Explicitly reset stored data, e.g. sprites.
 void AbstractDisplay::reset()
 {
   mCards.clear();

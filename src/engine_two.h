@@ -79,7 +79,7 @@ class EngineTwo : public AbstractEngine
      int playedCard(int no) const {return mCurrentMoveCards[no];}
 
 
-     /** Retreive the current trump color.
+     /** Retrieve the current trump color.
        * @return The trump suite.
        */
      Suite trump() const {return mTrump;}
