@@ -461,12 +461,12 @@ void Mainwindow::initGUI()
   themeAct->setWhatsThis(i18n("Changing theme."));
 
   // Choose card deck
-  action = actionCollection()->addAction("select_carddeck");
-  action->setText(i18n("Select &Card Deck..."));
-  action->setShortcuts( KShortcut( Qt::Key_F10 ) );
-  connect(action, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
-  action->setToolTip(i18n("Configure card decks..."));
-  action->setWhatsThis(i18n("Choose how the cards should look."));
+  KAction *action1 = actionCollection()->addAction("select_carddeck");
+  action1->setText(i18n("Select &Card Deck..."));
+  action1->setShortcuts( KShortcut( Qt::Key_F10 ) );
+  connect(action1, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
+  action1->setToolTip(i18n("Configure card decks..."));
+  action1->setWhatsThis(i18n("Choose how the cards should look."));
 
   // Change player names
   action = actionCollection()->addAction("change_names");
