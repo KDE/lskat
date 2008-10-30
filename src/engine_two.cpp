@@ -256,10 +256,6 @@ int EngineTwo::evaluateGame()
 
   QString text;
 
-  // Increase number of games
-  player1->addGame(1);
-  player2->addGame(1);
-  
   // Game was aborted
   if (points1 + points2 != 120)
   {
