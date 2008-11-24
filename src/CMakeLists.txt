@@ -31,7 +31,7 @@ configure_file(config-src.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
 kde4_add_app_icon(lskat_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../hi*-app-lskat.png")
 kde4_add_executable( lskat ${lskat_SRCS} )
 
-target_link_libraries( lskat kdegames )
+target_link_libraries( lskat kdegames ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${QT_QTGUI_LIBRARY} ${QT_QTSVG_LIBRARY} )
 
 install(TARGETS lskat  DESTINATION  ${BIN_INSTALL_DIR} )
 
