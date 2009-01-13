@@ -70,7 +70,7 @@ class Themable
        */
      double getScale() {return mScale;}
 
-     /** Set teh current scale for the object.
+     /** Set the current scale for the object.
       *  @param scale The new scale.
       */
      void setScale(double scale)  {mScale = scale;}
