@@ -2,7 +2,6 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
   <!ENTITY kappname "&lskat;">
   <!ENTITY kappversion "1.4.0"><!--Applicaion version. Use this variable everywhere it's needed.-->
-  <!ENTITY docupdate "2008-02-26"><!--Document version. Use this variable everywhere it's needed.-->
   <!ENTITY package "kdegames">
   <!ENTITY % English "INCLUDE" >
   <!ENTITY % addindex "IGNORE">
@@ -30,7 +29,7 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>&docupdate;</date>
+<date>2008-02-26</date>
 <releaseinfo>&kappversion;</releaseinfo>
 
 <legalnotice>&FDLNotice;</legalnotice>
