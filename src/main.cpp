@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
   global_debug=0;
   KAboutData aboutData( "lskat", 0, ki18n("LSkat"),
                         LSKAT_VERSION,
-                        ki18n("Lskat: A desktop card game"),
+                        ki18n("LSkat: A desktop card game"),
                         KAboutData::License_GPL,
                         ki18n("(c) 1995-2007, Martin Heni"),
                         KLocalizedString(),
