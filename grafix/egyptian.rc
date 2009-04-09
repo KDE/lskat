@@ -1,0 +1,370 @@
+# General section defines properties of the thememanger
+[general]
+# SVG file to load (path relative to this file) which contains all SVG items
+svgfile=egyptian.svg
+# Game aspect ratio
+aspect-ratio=1.35
+# Card aspect ratio
+card-aspect-ratio=0.75
+
+# The 'game display' itself
+[display_two]
+# SVG ID of background grafix
+background-svgid=background
+
+# Position of the game deck for the dealing [0..1]
+deck-pos=0.6271,0.300
+# How long does it take for a dealing move [ms] 
+deal-move-time=400.0
+# Position of the cards on the game board for player1 [0..1]
+board-pos1=0.057,0.035
+# Position of the cards on the game board for player2 [0..1]
+board-pos2=0.057,0.40
+# Separation of cards on the board [0..1]
+board-sep=0.12,0.150
+# Shift of second card relative to first card on board [0..1]
+board-shift=0.006,0.006
+# Position of played card player 1 [0..1] 
+play-pos1=0.615,0.300
+# Position of played card player 2 [0..1] 
+play-pos2=0.635,0.310
+# Position of finished cards for player 1 [0..1]
+stack-pos1=0.580,0.015
+# Position of finished cards for player 2 [0..1]
+stack-pos2=0.580,0.490
+# Shift position for finished cards [0..1]
+stack-shift=0.006,0.006
+# Time for removing the cards [ms]  
+remove-time=100.0
+
+# The 'game intro' display
+[display_intro]
+# SVG ID of background grafix
+background-svgid=background
+# Start position for new cards [0..1]
+start-pos=0.1,0.06
+# Shift position for new cards [0..1]
+start-shift=0.30,0.50
+# Time to clear board inwards [ms] 
+time-clear-in=400
+# Time to clear board outwards [ms] 
+time-clear-out=400
+
+
+# A card
+[card]
+# 'pos' is set by program!
+# Width of the item [0..1]
+width=0.10
+# First frame number to read (0)
+start-frame=0 
+# Last frame number to read (odd number)
+end-frame=11
+
+# Cardarea for the first player
+[cardarea0]
+pos=0.038,0.018
+# Width of the item [0..1]
+width=0.51
+# Height of the item [0..1]
+height=0.33
+# SVG ID of the image
+svgid=cardarea
+# Z-Value 
+zValue=5.0
+
+# Cardarea for the second player
+[cardarea1]
+pos=0.038,0.385
+# Width of the item [0..1]
+width=0.51
+# Height of the item [0..1]
+height=0.33
+# SVG ID of the image
+svgid=cardarea
+# Z-Value 
+zValue=5.0
+
+# Play area 
+[playarea]
+pos=0.600,0.27
+# Width of the item [0..1]
+width=0.15
+# Height of the item [0..1]
+height=0.20
+# SVG ID of the image
+svgid=playarea
+# Z-Value 
+zValue=5.0
+
+[moveicon0]
+# Item position [0..1,0..1]
+pos=0.01,0.05
+# Width of the item [0..1]
+width=0.04
+# Z-Value 
+zValue=300.0
+# SVG ID
+svgid=moveicon
+
+
+[moveicon1]
+# Item position [0..1,0..1]
+pos=0.01,0.65
+# Width of the item [0..1]
+width=0.04
+# Z-Value 
+zValue=300.0
+# SVG ID
+svgid=moveicon
+
+# The score board next to the game board
+[scoreboard0]
+# Width of the item [0..1]
+width=0.18
+# Item position [0..1,0..1]
+pos=0.80,0.044
+# Z-Value 
+zValue=100.0
+# SVG ID
+svgid=score
+
+# Sub-item positions relativ to score widget itself (status texts player 0 and 1)
+posName=0.10,0.12
+posPoints=0.05,0.22
+posScore=0.10,0.625
+posGames=0.10,0.75
+
+# Font width and height relativ to score widget size!!!
+fontHeightPoints=0.22  
+fontHeight=0.073
+fontWidthUpper=0.46
+fontWidthLower=0.95
+# Font color for name of player
+fontColorPlayer=255,255,255
+
+# The score board next to the game board
+[scoreboard1]
+# Width of the item [0..1]
+width=0.18
+# Item position [0..1,0..1]
+pos=0.80,0.40 
+# Z-Value 
+zValue=100.0
+# SVG ID
+svgid=score
+
+# Sub-item positions relativ to score widget itself (status texts player 0 and 1)
+posName=0.10,0.12
+posPoints=0.05,0.22
+posScore=0.10,0.625
+posGames=0.10,0.75
+
+# Font width and height relativ to score widget size!!!
+fontHeightPoints=0.22  
+fontHeight=0.073
+fontWidthUpper=0.46
+fontWidthLower=0.95
+# Font color for name of player 0 
+fontColorPlayer=255,255,255
+
+
+
+# The score board input icons 
+[scoreinput]
+# Width of the item  [0..1]
+width=0.050
+# Item positions relativ to score widget itself [0..1,0..1]
+pos=0.115,0.0150
+# Z-Value 
+zValue=520.0
+# SVG ID of the image: Auto means to read read ID from frameX (below)
+svgid=auto
+# First frame number to read
+start-frame=0
+# Last frame number to read
+end-frame=2
+# SVG ID for frame0 (Mouse input)
+frame0=score_mouse
+# SVG ID for frame1 (AI input)
+frame1=score_ai 
+# SVG ID for frame2 (Keyboard input)
+frame2=score_key
+
+# The score board itrump icons 
+[scoretrump]
+# Width of the item  [0..1]
+width=0.050
+# Item positions relativ to score widget itself [0..1,0..1]
+pos=0.115,0.072
+# Z-Value 
+zValue=520.0
+# SVG ID of the image: Auto means to read read ID from frameX (below)
+svgid=auto
+# First frame number to read
+start-frame=0
+# Last frame number to read
+end-frame=4
+# SVG ID for trumps
+frame0=trump0
+frame1=trump1
+frame2=trump2
+frame3=trump3
+frame4=trump4
+
+# Text sprite for the name of the game (foreground)
+[name-front]
+# Width of the text
+width=0.8
+# Height of the text
+height=0.06
+# Position of the text
+pos=0.500,0.200
+# Z-Value
+zValue=500.0
+# Bold?
+bold=true
+# Centered
+center=true
+# Font color
+fontColor=255,128,0
+
+# Text sprite for the name of the game (background)
+[name-back]
+# Width of the text
+width=0.8
+# Height of the text
+height=0.06
+# Position of the text
+pos=0.505,0.205
+# Z-Value
+zValue=490.0
+# Bold?
+bold=true
+# Centered
+center=true
+# Font color
+fontColor=0,0,0
+
+# Text sprite for the word 'for' (foreground)
+[for-front]
+# Width of the text
+width=0.8
+# Height of the text
+height=0.06
+# Position of the text
+pos=0.500,0.300
+# Z-Value
+zValue=500.0
+# Bold?
+bold=true
+# Centered
+center=true
+# Font color
+fontColor=255,128,0
+
+# Text sprite for the word 'for' (background)
+[for-back]
+# Width of the text
+width=0.8
+# Height of the text
+height=0.06
+# Position of the text
+pos=0.501,0.305
+# Z-Value
+zValue=490.0
+# Bold?
+bold=true
+# Centered
+center=true
+# Font color
+fontColor=0,0,0
+
+
+# Text sprite for the word 'KDE' (foreground)
+[kde-front]
+# Width of the text
+width=0.8
+# Height of the text
+height=0.06
+# Position of the text
+pos=0.500,0.400
+# Z-Value
+zValue=500.0
+# Bold?
+bold=true
+# Centered
+center=true
+# Font color
+fontColor=255,128,0
+
+# Text sprite for the word 'KDE' (background)
+[kde-back]
+# Width of the text
+width=0.8
+# Height of the text
+height=0.06
+# Position of the text
+pos=0.505,0.405
+# Z-Value
+zValue=490.0
+# Bold?
+bold=true
+# Centered
+center=true
+# Font color
+fontColor=0,0,0
+
+
+
+# Text sprite for the score player 1
+[scoretext0]
+# Width of the text
+width=0.5
+# Height of the text
+height=0.06
+# Position of the text
+pos=0.290,0.130
+# Z-Value
+zValue=500.0
+# Bold?
+bold=false
+# Centered
+center=true
+# Font color
+fontColor=255,255,0
+
+# Text sprite for the score player 2 
+[scoretext1]
+# Width of the text
+width=0.5
+# Height of the text
+height=0.06
+# Position of the text
+pos=0.290,0.510
+# Z-Value
+zValue=500.0
+# Bold?
+bold=false
+# Centered
+center=true
+# Font color
+fontColor=255,255,0
+
+# Text sprite for the game result
+[resulttext]
+# Width of the text
+width=0.8
+# Height of the text
+height=0.032
+# Position of the text
+pos=0.270,0.345
+# Z-Value
+zValue=500.0
+# Bold?
+bold=true
+# Centered
+center=true
+# Font color
+fontColor=255,255,255
+
