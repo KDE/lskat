@@ -1,4 +1,6 @@
 [Theme]
 Name=Egyptian
+Name[sv]=Egyptisk
+Name[uk]=Єгиптянин
 File=egyptian.rc
 
