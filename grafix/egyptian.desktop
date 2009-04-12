@@ -1,5 +1,7 @@
 [Theme]
 Name=Egyptian
+Name[pt]=Egípcio
+Name[pt_BR]=Egípcio
 Name[sv]=Egyptisk
 Name[uk]=Єгиптянин
 File=egyptian.rc
