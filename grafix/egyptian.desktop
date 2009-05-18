@@ -9,4 +9,4 @@ Name[uk]=Єгиптянин
 Name[x-test]=xxEgyptianxx
 Name[zh_TW]=埃及式
 File=egyptian.rc
-
+Default=true
