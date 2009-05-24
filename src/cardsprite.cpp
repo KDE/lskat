@@ -66,7 +66,7 @@ void CardSprite::changeTheme()
   // Get scaling change
   double oldscale = this->getScale();
   double scale    = thememanager()->getScale();
-  setScale(scale);
+  Themable::setScale(scale);
 
   // Retrieve theme data from configuration
   KConfigGroup config = thememanager()->config(id());
