@@ -8,6 +8,7 @@ Name[pt_BR]=Egípcio
 Name[sv]=Egyptisk
 Name[uk]=Єгиптянин
 Name[x-test]=xxEgyptianxx
+Name[zh_CN]=埃及
 Name[zh_TW]=埃及式
 File=egyptian.rc
 Default=true
