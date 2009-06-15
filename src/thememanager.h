@@ -244,6 +244,8 @@ class ThemeManager : public QObject
       */
     void updateCardTheme(const QString &themefile, const QString &cardTheme, const QString &deckTheme);
 
+   private slots:
+    void loadCardsInBackground();
 
    private:
      // The used SVG rendered

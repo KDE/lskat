@@ -180,6 +180,8 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
   mDeckTheme = deckTheme;
   mCardCache->setBackTheme(mDeckTheme);
 
+  mCardCache->setSize(QSize());
+
   updateTheme(themefile);
 }
 
@@ -278,7 +280,13 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
 {
   KCardInfo info = convertToKCardInfo(CardDeck::Suite(suite),CardDeck::CardType(cardtype));
   QSize s(int(width), int(width/mCardAspectRatio));
-  mCardCache->setSize(s);
+
+  if ( s != mCardCache->size() )
+  {
+    mCardCache->setSize(s);
+    QMetaObject::invokeMethod(this, "loadCardsInBackground", Qt::QueuedConnection);
+  }
+
   QPixmap pix = mCardCache->frontside(info);
   return pix;
 }
@@ -288,7 +296,12 @@ const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
 const QPixmap ThemeManager::getCardback(double width)
 {
   QSize s(int(width), int(width/mCardAspectRatio));
-  mCardCache->setSize(s);
+  if ( s != mCardCache->size() )
+  {
+    mCardCache->setSize(s);
+    QMetaObject::invokeMethod(this, "loadCardsInBackground", Qt::QueuedConnection);
+  }
+
   QPixmap pix = mCardCache->backside();
   return pix;
 }
@@ -360,6 +373,13 @@ const QPixmap ThemeManager::getPixmap(const QString &svgid, const QString &svgre
   QSize size        = QSize(int(rect.width()*factor),  int(rect.height()*factor));
   return getPixmap(svgid, size);
 }
+
+
+void ThemeManager::loadCardsInBackground()
+{
+    mCardCache->loadTheme(KCardCache::LoadFrontSide|KCardCache::Load32Cards);
+}
+
 
 // ========================== Themable interface ===============================
 
