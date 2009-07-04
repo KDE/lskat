@@ -2,9 +2,9 @@
 ########### install files ###############
 
 install( FILES
-default.desktop
-default.rc
-default.svg
+oxygen.desktop
+oxygen.rc
+oxygen.svg
 blue.desktop
 blue.svg
 blue.rc
