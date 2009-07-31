@@ -259,7 +259,7 @@ int EngineTwo::evaluateGame()
   // Game was aborted
   if (points1 + points2 != 120)
   {
-    text = i18n("Game was aborted - no winner");
+    text = i18n("Game was ended - no winner");
     winner = -2;
   }
   // Drawn
@@ -370,7 +370,7 @@ void EngineTwo::stopGame()
   if (isGameRunning())
   {
     // Display game over data
-    QString text = i18n("Game aborted");
+    QString text = i18n("Game ended");
     mDisplay->showText(text);
 
     // Set game status to stopped

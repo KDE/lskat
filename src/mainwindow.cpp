@@ -404,7 +404,7 @@ void Mainwindow::initGUI()
 
   // End a game
   action = KStandardGameAction::end(this, SLOT(menuEndGame()), actionCollection());
-  action->setWhatsThis(i18n("Aborts a currently played game. No winner will be declared."));
+  action->setWhatsThis(i18n("Ends a currently played game. No winner will be declared."));
   if (global_demo_mode) action->setEnabled(false);
   else action->setEnabled(false);
 
