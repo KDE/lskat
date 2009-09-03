@@ -253,7 +253,7 @@ The player who wins the round leads the next one.
 <guimenuitem>End Game</guimenuitem>
 </menuchoice></term>
 <listitem><para>
-<action>Aborts a running game.</action>
+<action>Ends a running game.</action>
 </para></listitem>
 </varlistentry>
 
