@@ -2,6 +2,7 @@
 Name=LSkat
 Name[be]=LSkat
 Name[ca]=LSkat
+Name[ca@valencia]=LSkat
 Name[cs]=Poručík skat
 Name[da]=LSkat
 Name[de]=LSkat
@@ -48,6 +49,7 @@ GenericName[be]=Картачная гульня
 GenericName[bn]=তাস খেলা
 GenericName[br]=C'hoari kartennoù
 GenericName[ca]=Joc de cartes
+GenericName[ca@valencia]=Joc de cartes
 GenericName[cs]=Karty
 GenericName[cy]=Gêm Cerdiau
 GenericName[da]=Kortspil
