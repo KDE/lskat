@@ -1,6 +1,7 @@
 [Theme]
 Name=Green Blase
 Name[ca]=Tramat verd
+Name[ca@valencia]=Tramat verd
 Name[da]=Green Blase
 Name[de]=Langweiliges Grün
 Name[el]=Πράσινη ευχαρίστηση
@@ -14,7 +15,6 @@ Name[gl]=Algo verde
 Name[hne]=हरियर ब्लेज
 Name[hu]=Zöldes
 Name[it]=Verde vissuto
-Name[km]=បៃ​តង​ភ្លឺ
 Name[lv]=Zaļa balsa
 Name[nds]=Eenfoormsch Gröön
 Name[nl]=Groene blase
@@ -23,8 +23,11 @@ Name[pl]=Green Blase
 Name[pt]=Fundo Verde
 Name[pt_BR]=Blase Verde
 Name[ru]=Насыщенный зеленью
+Name[sk]=Zelené Blase
 Name[sl]=Zeleno ugodje
 Name[sr]=Зелена префињеност
+Name[sr@ijekavian]=Зелена префињеност
+Name[sr@ijekavianlatin]=Zelena prefinjenost
 Name[sr@latin]=Zelena prefinjenost
 Name[sv]=Grön blasé
 Name[uk]=Зелений пузир

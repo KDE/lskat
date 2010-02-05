@@ -1,6 +1,7 @@
 [Theme]
 Name=Egyptian
 Name[ca]=Egipci
+Name[ca@valencia]=Egipci
 Name[cs]=Egyptské
 Name[da]=Egyptisk
 Name[de]=Ägyptisch
@@ -22,8 +23,11 @@ Name[pt]=Egípcio
 Name[pt_BR]=Egípcio
 Name[ro]=Egiptean
 Name[ru]=Египетский
+Name[sk]=Egyptská
 Name[sl]=Egipt
 Name[sr]=Египатски
+Name[sr@ijekavian]=Египатски
+Name[sr@ijekavianlatin]=Egipatski
 Name[sr@latin]=Egipatski
 Name[sv]=Egyptisk
 Name[tr]=Mısırlı
