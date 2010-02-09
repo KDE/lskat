@@ -65,7 +65,7 @@
 #include <config-src.h>
 
 // Forward declarations
-const int ADVANCE_PERDIOD =  20;
+const int ADVANCE_PERIOD =  20;
 
 // Shortcut to access the actions
 #define ACTION(x)   (actionCollection()->action(x))
@@ -158,11 +158,11 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // Overall view
   mCanvas        = new QGraphicsScene(this);
-  mView          = new GameView(QSize(880, 675), ADVANCE_PERDIOD, mCanvas, mTheme, this);
+  mView          = new GameView(QSize(880, 675), ADVANCE_PERIOD, mCanvas, mTheme, this);
 
   // Create intro
   mGameMode      = Intro;
-  mDisplay       = new DisplayIntro(mDeck, mCanvas, mTheme, ADVANCE_PERDIOD, mView);
+  mDisplay       = new DisplayIntro(mDeck, mCanvas, mTheme, ADVANCE_PERIOD, mView);
   setCentralWidget(mView);
 
   // Create GUI
@@ -604,7 +604,7 @@ void Mainwindow::menuNewLSkatGame()
     if (mDisplay) delete mDisplay;
     if (mEngine) delete mEngine;
 
-    mDisplay = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERDIOD, mView);
+    mDisplay = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERIOD, mView);
     mEngine = new EngineTwo(this, mDeck, (DisplayTwo*)mDisplay);
     connect(mEngine, SIGNAL(signalGameOver(int)), this, SLOT(gameOver(int)));
     connect(mEngine, SIGNAL(signalNextPlayer(Player*)), this, SLOT(nextPlayer(Player*)));
