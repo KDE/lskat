@@ -64,7 +64,7 @@ class GameView : public QGraphicsView
     /** React to mouse clicks.
      *  @param event The mouse event
      */
-    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
 
   public slots:  
     /** The update and advance for the canvas. 

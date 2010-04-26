@@ -219,7 +219,7 @@ void GameView::paintEvent(QPaintEvent* event)
 
 
 // Mouse click event
-void GameView::mousePressEvent(QMouseEvent *ev)
+void GameView::mouseReleaseEvent(QMouseEvent *ev)
 {
   if (ev->button() != Qt::LeftButton) return ;
 

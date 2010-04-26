@@ -164,6 +164,8 @@ Mainwindow::Mainwindow(QWidget* parent)
   mGameMode      = Intro;
   mDisplay       = new DisplayIntro(mDeck, mCanvas, mTheme, ADVANCE_PERIOD, mView);
   setCentralWidget(mView);
+  connect(mView, SIGNAL(signalLeftMousePress(QPoint)),
+            this, SLOT(menuNewLSkatGame()));
 
   // Create GUI
   setupGUI();
@@ -583,6 +585,9 @@ void Mainwindow::menuEndGame()
 // Start a new game
 void Mainwindow::menuNewLSkatGame()
 {
+  disconnect(mView, SIGNAL(signalLeftMousePress(QPoint)),
+            this, SLOT(menuNewLSkatGame()));
+
   Player* p1 = mLSkatConfig->player(0);
   Player* p2 = mLSkatConfig->player(1);
 
