@@ -167,8 +167,6 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // Create GUI
   setupGUI();
-  toolBar()->hide();
-  statusBar()->show();
 
   statusBar()->showMessage(i18n("Welcome to Skat! Please start a new game."));
 
