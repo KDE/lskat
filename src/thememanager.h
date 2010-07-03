@@ -26,7 +26,7 @@
 
 // KDE includes
 #include <kconfig.h>
-#include <KSvgRenderer>
+#include <QSvgRenderer>
 
 class KCardCache;
 class ThemeManager;
@@ -234,7 +234,7 @@ class ThemeManager : public QObject
       * @param size     The size of the resulting pixmap
       * @return The new pixmap.
       */
-    const QPixmap getPixmap(KSvgRenderer* renderer, const QString &svgid, const QSize &size);
+    const QPixmap getPixmap(QSvgRenderer* renderer, const QString &svgid, const QSize &size);
 
     /** Forces an update to the card theme objects.
       * @param themefile The theme rc file
@@ -249,7 +249,7 @@ class ThemeManager : public QObject
 
    private:
      // The used SVG rendered
-     KSvgRenderer* mRenderer;
+     QSvgRenderer* mRenderer;
 
      // The card cache
      KCardCache* mCardCache;

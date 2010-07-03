@@ -211,7 +211,7 @@ void ThemeManager::updateTheme(const QString &themefile)
 
 
   delete mRenderer;
-  mRenderer = new KSvgRenderer(this);
+  mRenderer = new QSvgRenderer(this);
   bool result = mRenderer->load(svgfile);
   if (!result)
   {
@@ -308,7 +308,7 @@ const QPixmap ThemeManager::getCardback(double width)
 
 
 // Get a pixmap when its size is given (this can distort the image)
-const QPixmap ThemeManager::getPixmap(KSvgRenderer* renderer, const QString &svgid, const QSize &size)
+const QPixmap ThemeManager::getPixmap(QSvgRenderer* renderer, const QString &svgid, const QSize &size)
 {
   QPixmap pixmap;
   if (size.width() < 1 || size.height() < 1)
