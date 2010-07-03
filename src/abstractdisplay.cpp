@@ -60,12 +60,7 @@ AbstractDisplay::AbstractDisplay(Deck* deck, QGraphicsScene* scene, ThemeManager
 // Destructor.
 AbstractDisplay::~AbstractDisplay()
 {
-  while(!mSprites.isEmpty())
-  {
-    QGraphicsItem* item = mSprites.takeFirst();
-    item->hide();
-    delete item;
-  }
+  qDeleteAll(mSprites);
   // Do not delete static cards for performance reasons
 }
 
