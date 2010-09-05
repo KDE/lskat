@@ -9,7 +9,7 @@
 
 <book lang="&language;">
 <bookinfo>
-<title>The Lieutnant Skat Handbook</title>
+<title>The Lieutenant Skat Handbook</title>
 <authorgroup>
 <author>
 <firstname>Martin</firstname>
@@ -29,7 +29,7 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2008-02-26</date>
+<date>2010-09-05</date>
 <releaseinfo>&kappversion;</releaseinfo>
 
 <legalnotice>&FDLNotice;</legalnotice>
@@ -58,7 +58,7 @@
 <note><title>Gametype:</title><para>Card, Arcade</para></note><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 <note><title>Number of possible players:</title><para>Two</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 <para>
-Lieutnant Skat (from German <foreignphrase lang="de">Offiziersskat</foreignphrase>) is a fun and engaging card game for two players, where the second player is either live opponent, or built in artificial intelligence.
+Lieutenant Skat (from German <foreignphrase lang="de">Offiziersskat</foreignphrase>) is a fun and engaging card game for two players, where the second player is either live opponent, or built in artificial intelligence.
 </para>
 <para>
 The game is played using a single deck of cards. Cards are shuffled and distributed amongst the players in such a way that half of them are face down and half of them are open. Each participant plays one of the open cards per turn. As soon as all the cards are played the round ends and points are calculated and awarded.
@@ -156,7 +156,7 @@ with the higher score wins the round.
 
 <itemizedlist>
 <listitem><para>A special 'trump' game is called the Grand. In this game no suit is trump and only the four Jacks count as trump. This game type is indicated by the symbol of a Jack's head [8] on the score board [6].</para></listitem>
-<listitem><para>If player starts the round he/she has a choice of cards to play with.</para></listitem>
+<listitem><para>If player starts the round he has a choice of cards to play with, either a card from a suite or a 'trump' card.</para></listitem>
 <listitem><para>Only the face up cards from the player's own stack can be used to play the round.</para></listitem>
 <listitem><para>Player who wins the round starts the next one.</para></listitem>
 <listitem><para>The player who wins the round adds values of the cards played in that round to his/her score.</para></listitem>
@@ -183,12 +183,15 @@ with the higher score wins the round.
 <title>Strategies and Tips</title>
 <para>
 When the game starts, the starting player should play any of the face up cards from own stack.
-If the second player currently has face up cards that are of the same suit as the card played, he/she has to reply with one of those cards. If, however, the second player does not have a card of the same suit, he/she can play with any other card.
-The player with the higher <link linkend="card-values">card value</link> wins both cards.
-<note><title>Note</title><para>If the replying player plays 'trump' card he/she wins both cards.</para></note>
-<note><title>Note</title><para>If the leading player plays 'trump' card he/she wins both cards.</para></note>
-The player who wins the round leads the next one.
-</para>
+If the second player currently has face up cards that are of the same suit as the card played, 
+he has to reply with one of those cards. If, however, the second player does not have a card 
+of the same suit, he can play with any other card including a 'trump' card.</para>
+<para>If there is at least one 'trump' card, the highest 'trump' wins both cards.</para>
+<para>If there is no 'trump' card, the highest card of the suit played by the starting player wins both cards.</para>
+<para>If the replying player has no card of the requested suit and no 'trump' card, he has to play 
+any card and the starting player wins both cards.</para>
+
+<para>The player who wins the round leads the next one.</para>
 </sect1>
 </chapter>
 
@@ -227,7 +230,7 @@ The player who wins the round leads the next one.
 <title>Interface Overview</title>
 
 <sect1 id="file-menu">
-<title>The <guimenu>Game</guimenu> Menu</title>
+<title>The Game Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -287,7 +290,7 @@ Quits the program.</action>
 </sect1>
 
 <sect1 id="settings-menu">
-<title>The <guimenu>Settings</guimenu> Menu</title>
+<title>The Settings Menu</title>
 
 <variablelist>
 <varlistentry>
@@ -417,7 +420,7 @@ than their original size.
 </sect1>
 
 <sect1 id="help">
-<title>The <guimenu>Help</guimenu> Menu</title>
+<title>The Help Menu</title>
 
 
 &help.menu.documentation;
