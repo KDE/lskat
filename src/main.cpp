@@ -112,7 +112,7 @@ int main(int argc, char *argv[])
   }
   args->clear();  
   KApplication application(true);
-  KGlobal::locale()->insertCatalog("libkdegames");
+  KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
 
   if (application.isSessionRestored())
   {
