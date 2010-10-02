@@ -41,7 +41,7 @@
 // Constructor for the display
 DisplayIntro::DisplayIntro(Deck* deck, QGraphicsScene* theScene, ThemeManager* theme,
                            int advancePeriod, QGraphicsView* parent)
-            : Themable("display_intro",theme), AbstractDisplay(deck, theScene, theme, advancePeriod, parent)
+            : Themable(QLatin1String( "display_intro" ),theme), AbstractDisplay(deck, theScene, theme, advancePeriod, parent)
 {
   mTextShown = false;
 
@@ -63,7 +63,7 @@ void DisplayIntro::changeTheme()
 {
   // Retrieve theme data
   KConfigGroup config = thememanager()->config(id());
-  
+
   // Retrieve background pixmap
   QString bgsvgid = config.readEntry("background-svgid");
   QPixmap pixmap  = thememanager()->getPixmap(bgsvgid, scene()->sceneRect().size().toSize());
@@ -95,7 +95,7 @@ void DisplayIntro::loop()
   if (no<1) return;
 
   // Retrieve theme data
-  KConfigGroup cardconfig = thememanager()->config("card");
+  KConfigGroup cardconfig = thememanager()->config(QLatin1String( "card" ));
   double card_width       = cardconfig.readEntry("width", 1.0);
   KConfigGroup config     = thememanager()->config(id());
   QPointF start_shift     = config.readEntry("start-shift", QPointF(1.0,1.0));
@@ -114,32 +114,32 @@ void DisplayIntro::loop()
     QString s3 = i18nc("Title of the game - line 3", "K D E");
 
     // Text sprite title foreground
-    TextSprite* text1a = new TextSprite(s1, "name-front", mTheme, scene());
+    TextSprite* text1a = new TextSprite(s1, QLatin1String( "name-front" ), mTheme, scene());
     mSprites.append(text1a);
     text1a->show();
 
     // Text sprite title background
-    TextSprite* text1b = new TextSprite(s1, "name-back", mTheme, scene());
+    TextSprite* text1b = new TextSprite(s1, QLatin1String( "name-back" ), mTheme, scene());
     mSprites.append(text1b);
     text1b->show();
 
     // Text sprite title foreground
-    TextSprite* text2a = new TextSprite(s2, "for-front", mTheme, scene());
+    TextSprite* text2a = new TextSprite(s2, QLatin1String( "for-front" ), mTheme, scene());
     mSprites.append(text2a);
     text2a->show();
 
     // Text sprite title background
-    TextSprite* text2b = new TextSprite(s2, "for-back", mTheme, scene());
+    TextSprite* text2b = new TextSprite(s2, QLatin1String( "for-back" ), mTheme, scene());
     mSprites.append(text2b);
     text2b->show();
 
     // Text sprite title foreground
-    TextSprite* text3a = new TextSprite(s3, "kde-front", mTheme, scene());
+    TextSprite* text3a = new TextSprite(s3, QLatin1String( "kde-front" ), mTheme, scene());
     mSprites.append(text3a);
     text3a->show();
 
     // Text sprite title background
-    TextSprite* text3b = new TextSprite(s3, "kde-back", mTheme, scene());
+    TextSprite* text3b = new TextSprite(s3, QLatin1String( "kde-back" ), mTheme, scene());
     mSprites.append(text3b);
     text3b->show();
   }
@@ -153,7 +153,7 @@ void DisplayIntro::loop()
     CardSprite* sprite = mCards[mAnimCnt];
 
     QPointF pos;
-    if (mAnimCnt %2 == 0) 
+    if (mAnimCnt %2 == 0)
     {
       pos  = QPointF(start_pos.x(), start_pos.y());
       pos += QPointF(start_shift.x() * fsin, start_shift.y() * factor);

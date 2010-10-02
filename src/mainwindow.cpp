@@ -92,12 +92,12 @@ Mainwindow::Mainwindow(QWidget* parent)
   #ifndef NDEBUG
   #ifdef SRC_DIR
   kDebug() << "Found SRC_DIR =" << SRC_DIR;
-  KGlobal::dirs()->addResourceDir("lskattheme",QString(SRC_DIR)+QString("/grafix/"));
+  KGlobal::dirs()->addResourceDir("lskattheme",QLatin1String( SRC_DIR)+QString("/grafix/"));
   #endif
   #endif
 
   // Read theme files
-  QStringList themeList =  KGlobal::dirs()->findAllResources("lskattheme", "*.desktop", KStandardDirs::NoDuplicates);
+  QStringList themeList =  KGlobal::dirs()->findAllResources("lskattheme", QLatin1String( "*.desktop" ), KStandardDirs::NoDuplicates);
   if (themeList.isEmpty())
   {
     KMessageBox::error(this, i18n("Installation error: No theme list found."));
@@ -135,7 +135,7 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   // TODO: Bugfix: Needs to be here if initGUI is befure readProperties
   if (global_debug>0) kDebug() << "Setting current theme item to" << mThemeIndexNo;
-  ((KSelectAction*)ACTION("theme"))->setCurrentItem(mThemeIndexNo);
+  ((KSelectAction*)ACTION(QLatin1String( "theme" )))->setCurrentItem(mThemeIndexNo);
 
 
   // Get the card deck
@@ -329,7 +329,7 @@ AbstractInput* Mainwindow::createInput(
 void Mainwindow::startGame()
 {
   // Enable game action
-  QString endName = KStandardGameAction::name(KStandardGameAction::End);
+  QLatin1String endName( KStandardGameAction::name(KStandardGameAction::End) );
   ACTION(endName)->setEnabled(true);
 
   // Deal cards to player - Shuffle card deck and reset pile
@@ -367,7 +367,7 @@ void Mainwindow::startGame()
 // Here a game over is signalled
 void Mainwindow::gameOver(int /*winner*/)
 {
-  QString endName = KStandardGameAction::name(KStandardGameAction::End);
+  QLatin1String endName( KStandardGameAction::name(KStandardGameAction::End) );
   ACTION(endName)->setEnabled(false);
   statusBar()->showMessage(i18n("Game Over. Please start a new game."));
 
@@ -479,7 +479,7 @@ void Mainwindow::initGUI()
 // Choose start player
 void Mainwindow::menuStartplayer()
 {
-  int i=((KSelectAction *)ACTION("startplayer"))->currentItem();
+  int i=((KSelectAction *)ACTION(QLatin1String( "startplayer" )))->currentItem();
   setStartPlayer(i);
 }
 
@@ -498,7 +498,7 @@ void Mainwindow::changeTheme(int idx)
 // Select input for player 1
 void Mainwindow::menuPlayer1By()
 {
-  int i = ((KSelectAction *)ACTION("player1"))->currentItem();
+  int i = ((KSelectAction *)ACTION(QLatin1String( "player1" )))->currentItem();
   mLSkatConfig->setInputType(0, (InputDeviceType)i);
 }
 
@@ -506,7 +506,7 @@ void Mainwindow::menuPlayer1By()
 // Select input for player 2
 void Mainwindow::menuPlayer2By()
 {
-  int i = ((KSelectAction *)ACTION("player2"))->currentItem();
+  int i = ((KSelectAction *)ACTION(QLatin1String( "player2" )))->currentItem();
   mLSkatConfig->setInputType(1, (InputDeviceType)i);
 }
 
@@ -660,7 +660,7 @@ void Mainwindow::menuPlayerNames()
 void Mainwindow::setStartPlayer(int no)
 {
   mStartPlayer = no;
-  ((KSelectAction *)ACTION("startplayer"))->setCurrentItem(mStartPlayer);
+  ((KSelectAction *)ACTION(QLatin1String( "startplayer" )))->setCurrentItem(mStartPlayer);
 }
 
 
@@ -671,12 +671,12 @@ void Mainwindow::setInputType(int no, InputDeviceType type)
   // Player 1
   if (no == 0)
   {
-    ((KSelectAction *)ACTION("player1"))->setCurrentItem((int)type);
+    ((KSelectAction *)ACTION(QLatin1String( "player1" )))->setCurrentItem((int)type);
     p = mLSkatConfig->player(0);
   }
   else if (no == 1)
   {
-    ((KSelectAction *)ACTION("player2"))->setCurrentItem((int)type);
+    ((KSelectAction *)ACTION(QLatin1String( "player2" )))->setCurrentItem((int)type);
     p = mLSkatConfig->player(1);
   }
 

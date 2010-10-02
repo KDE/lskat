@@ -243,7 +243,7 @@ void GameView::drawItems(QPainter* painter, int numItems, QGraphicsItem* items[]
 
 
   if (global_debug > 0)
-     mFrameSprite->setPlainText(QString("Draw: %1 ms  Average %2 ms  Update: %3 ms").arg(elapsed).arg(int(avg)).arg(mDisplayUpdateTime));
+     mFrameSprite->setPlainText(QString::fromLatin1( "Draw: %1 ms  Average %2 ms  Update: %3 ms").arg(elapsed).arg(int(avg)).arg(mDisplayUpdateTime));
 
 }
 

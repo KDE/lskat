@@ -42,13 +42,13 @@ ScoreSprite::ScoreSprite(const QString &id, ThemeManager* theme, int advancePeri
   mPoints  = new QGraphicsTextItem(this, scene);
   mScore   = new QGraphicsTextItem(this, scene);
   mGames   = new QGraphicsTextItem(this, scene);
-  mInput   = new PixmapSprite("scoreinput", theme, advancePeriod, 0, scene);
+  mInput   = new PixmapSprite(QLatin1String( "scoreinput" ), theme, advancePeriod, 0, scene);
   if (!mInput) kFatal() << "Cannot load sprite" << "scoreinput";
   mInput->setParentItem(this);
   mInput->setOffsetStatus(false);
   mInputFrame = 0;
 
-  mTrump   = new PixmapSprite("scoretrump", theme, advancePeriod, 0, scene);
+  mTrump   = new PixmapSprite(QLatin1String( "scoretrump" ), theme, advancePeriod, 0, scene);
   if (!mTrump) kFatal() << "Cannot load sprite" << "scoretrump";
   mTrump->setParentItem(this);
   mTrump->setOffsetStatus(false);
@@ -79,7 +79,7 @@ void ScoreSprite::changeTheme()
 {
   // The main display is handled by theparent
   PixmapSprite::changeTheme();
-  
+
   // Retrieve our size
   double width  = this->boundingRect().width();
   double height = this->boundingRect().height();
@@ -101,7 +101,7 @@ void ScoreSprite::changeTheme()
   fontWidthUpper         *= width;
   fontWidthLower         *= width;
 
-  
+
   // Retrieve font color
   QColor fontColor;
   fontColor = config.readEntry("fontColorPlayer", QColor(Qt::white));
@@ -119,31 +119,31 @@ void ScoreSprite::changeTheme()
   font.setPixelSize(int(fontHeight));
 
   // Set font and color for all text items
-  mName->setFont(font);   
-  mPoints->setFont(fontPoints); 
+  mName->setFont(font);
+  mPoints->setFont(fontPoints);
   mScore->setFont(font);
   mGames->setFont(font);
-  
-  mName->setDefaultTextColor(fontColor);   
+
+  mName->setDefaultTextColor(fontColor);
   mPoints->setDefaultTextColor(fontColor);
   mScore->setDefaultTextColor(fontColor);
   mGames->setDefaultTextColor(fontColor);
 
-  mName->setTextWidth(fontWidthUpper);   
+  mName->setTextWidth(fontWidthUpper);
   mPoints->setTextWidth(fontWidthUpper);
   mScore->setTextWidth(fontWidthLower);
   mGames->setTextWidth(fontWidthLower);
-  
+
   QPoint offset = thememanager()->getOffset();
 
 
   // Restore the frame of the input device sprite
   if (mInputFrame>=0) mInput->setFrame(mInputFrame);
-    
+
 }
 
 
-// QGI advance method 
+// QGI advance method
 void ScoreSprite::advance(int phase)
 {
   // Advance time and animation etc
@@ -162,7 +162,7 @@ void ScoreSprite::setPlayerName(const QString &s)
 // Store and display amount of points
 void ScoreSprite::setPoints(int points)
 {
-  QString s = QString("%1").arg(points,3);
+  QString s = QString::fromLatin1( "%1").arg(points,3);
   mPoints->setPlainText(s);
   update();
 }

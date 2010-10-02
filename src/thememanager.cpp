@@ -201,12 +201,12 @@ void ThemeManager::updateTheme(const QString &themefile)
   // Read config and SVG file for theme
   delete mConfig;
   mConfig = new KConfig(rcfile, KConfig::NoGlobals);
-  QString svgfile = config("general").readEntry("svgfile");
+  QString svgfile = config(QLatin1String( "general" )).readEntry("svgfile");
   svgfile = KStandardDirs::locate("lskattheme", svgfile);
   if (global_debug > 0) kDebug() << "Reading SVG master file  =" << svgfile;
 
-  mAspectRatio     =  config("general").readEntry("aspect-ratio", 1.0);
-  mCardAspectRatio =  config("general").readEntry("card-aspect-ratio", 1.0);
+  mAspectRatio     =  config(QLatin1String( "general" )).readEntry("aspect-ratio", 1.0);
+  mCardAspectRatio =  config(QLatin1String( "general" )).readEntry("card-aspect-ratio", 1.0);
   if (global_debug > 0) kDebug() << "Aspect ration =" << mAspectRatio << "Cards aspect=" << mCardAspectRatio;
 
 

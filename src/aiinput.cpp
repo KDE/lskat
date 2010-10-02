@@ -69,7 +69,7 @@ void AiInput::aiTurn()
   AiInput::Board board = getBoardFromEngine();
   AiInput::Move move;
 
-  if (global_debug > 0) kDebug() << "";
+  if (global_debug > 0) kDebug() << QLatin1String( "" );
 
   // Initiate move
   if (mEngine->currentMovePhase() == EngineTwo::FirstPlayerTurn)

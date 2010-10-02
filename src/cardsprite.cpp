@@ -32,9 +32,9 @@
 #include <kconfiggroup.h>
 
 // Delay for card turning animation [ms]
-#define ANIM_CNT_TURNING          20.0 
+#define ANIM_CNT_TURNING          20.0
 // Time in [ms] for a shuffle move
-#define SHUFFLEMOVE_TIME 100.0 
+#define SHUFFLEMOVE_TIME 100.0
 
 
 // Theme manager stuff
@@ -44,7 +44,7 @@
 // Constructor for the view
 CardSprite::CardSprite(const Suite suite, const CardType cardtype, ThemeManager* theme,
                        int advancePeriod, QGraphicsScene* scene)
-          : Themable(THEME_ID, theme), QGraphicsPixmapItem(0, scene)
+          : Themable(QLatin1String( THEME_ID ), theme), QGraphicsPixmapItem(0, scene)
 
 {
   mAnimationState = Idle;
@@ -97,7 +97,7 @@ void CardSprite::changeTheme()
   // Start with backside to save calculation time
   if (mCurrentFrame < 0) mCurrentFrame = endFrame;
 
-  
+
   // Set pixmap to sprite
   setFrame(mCurrentFrame, true);
   update();
@@ -178,7 +178,7 @@ void CardSprite::setShuffleMove(QPointF pos, double delay, bool front)
   mTime           = delay;
   mFrontFlag      = front;
 }
- 
+
 
 // Display the card front pixmap image
 void CardSprite::setFrontside()
@@ -211,7 +211,7 @@ void CardSprite::setFrame(int no, bool force)
 
   // Calulate Pixmap (only done if necessary)
   calcFrame(no);
-  
+
   // Set frame pixmap
   QPixmap pixmap = mFrames.at(no);
   setPixmap(pixmap);
@@ -234,15 +234,15 @@ void CardSprite::calcFrame(int no)
   // Check whether frame is already loaded
   if (pixmap.isNull())
   {
-    double dx = 0.0;  
-    double dy = 0.0; 
+    double dx = 0.0;
+    double dy = 0.0;
     // Frontside
-    if (no == 0) 
+    if (no == 0)
     {
       pixmap = thememanager()->getCard(mSuite, mCardType, mWidth);
     }
     // Backside
-    else if (no >= mFrames.count()-1) 
+    else if (no >= mFrames.count()-1)
     {
       pixmap = thememanager()->getCardback(mWidth);
     }
@@ -285,7 +285,7 @@ bool CardSprite::deltaMove()
 }
 
 
-// CanvasItem advance method 
+// CanvasItem advance method
 void CardSprite::advance(int phase)
 {
   // Ignore phase 0 (collisions)
@@ -368,7 +368,7 @@ QPixmap CardSprite::createCard(const QPixmap &front, const QPixmap &back, int cu
 {
   int halfCount = count/2;
   // Turn the frontside of the card 0..90 degree
-  if (curNo < halfCount)  
+  if (curNo < halfCount)
   {
     QMatrix m;
     // Get an angle eps..90 deg for the values i is running

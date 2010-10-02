@@ -43,7 +43,7 @@ PixmapSprite::PixmapSprite(const QString &id, ThemeManager* theme, int advancePe
   mNo             = no;
   mCurrentFrame   = 0;
   mOffsetStatus   = true;
-  
+
 
   if (theme) theme->updateTheme(this);
 }
@@ -70,7 +70,7 @@ void PixmapSprite::changeTheme()
   // Clear data
   mFrames.clear();
   mHotspots.clear();
-  
+
   // Get scaling change
   double oldscale = this->getScale();
   double scale = thememanager()->getScale();
@@ -114,11 +114,11 @@ void PixmapSprite::changeTheme()
   QString svgid = config.readEntry("svgid");
   // Read sequence of frame pixmaps when auto ID given
   QPixmap pixmap;
-  if (svgid == "auto")
+  if (svgid == QLatin1String( "auto" ))
   {
     for (int i=mStartFrame;i<=mEndFrame;i++)
     {
-      QString name = QString("frame%1").arg(i);
+      QString name = QString::fromLatin1( "frame%1").arg(i);
       svgid = config.readEntry(name);
       if (!refframe.isNull())
       {
@@ -210,7 +210,7 @@ void PixmapSprite::setFrame(int no, bool force)
   if (!force && no == mCurrentFrame) return;
   if (no<0 || no >=mFrames.count()) return;
   setPixmap(mFrames.at(no));
-  
+
   QPoint offset = thememanager()->getOffset();
   resetTransform();
   if (mOffsetStatus)
@@ -226,7 +226,7 @@ void PixmapSprite::setFrame(int no, bool force)
 }
 
 
-// Standard QGI advance method 
+// Standard QGI advance method
 void PixmapSprite::advance(int phase)
 {
   // Ignore phase 0 (collisions)
