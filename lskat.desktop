@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=LSkat
+Name[ast]=LSkat
 Name[be]=LSkat
 Name[ca]=LSkat
 Name[ca@valencia]=LSkat
@@ -50,6 +51,7 @@ Name[zh_CN]=LSkat
 Name[zh_TW]=LSkat
 GenericName=Card Game
 GenericName[af]=Kaart Speletjie
+GenericName[ast]=Xuegu de cartes
 GenericName[be]=Картачная гульня
 GenericName[bn]=তাস খেলা
 GenericName[br]=C'hoari kartennoù
