@@ -604,8 +604,8 @@ void Mainwindow::menuNewLSkatGame()
     mGameMode = LSkat;
 
     // Start deleting
-    if (mDisplay) delete mDisplay;
-    if (mEngine) delete mEngine;
+    delete mDisplay;
+    delete mEngine;
 
     mDisplay = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERIOD, mView);
     mEngine = new EngineTwo(this, mDeck, (DisplayTwo*)mDisplay);
