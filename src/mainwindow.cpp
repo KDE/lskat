@@ -304,7 +304,7 @@ AbstractInput* Mainwindow::createInput(
     connect(mouseInput, SIGNAL(signalConvertMousePress(QPoint,int&,int&)),
             display, SLOT(convertMousePress(QPoint,int&,int&)));
     connect(mouseInput, SIGNAL(signalPlayerInput(int,int,int)),
-            engine, SLOT(playerInput(int,int,int) ));
+            engine, SLOT(playerInput(int,int,int)));
     input = mouseInput;
     if (global_debug > 0) kDebug() << "Create MOUSE INPUT";
   }
@@ -312,7 +312,7 @@ AbstractInput* Mainwindow::createInput(
   {
     AiInput* aiInput = new AiInput((EngineTwo*)engine, this);
     connect(aiInput, SIGNAL(signalPlayerInput(int,int,int)),
-            engine, SLOT(playerInput(int,int,int) ));
+            engine, SLOT(playerInput(int,int,int)));
     input = aiInput;
     if (global_debug > 0) kDebug() << "Create AI INPUT";
   }
