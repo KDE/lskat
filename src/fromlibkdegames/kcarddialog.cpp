@@ -48,23 +48,9 @@ public:
   {
   }
 
-  /** Filter a fiven card front/back depending on its scalable
-    * or non-scalable properties.
-    * @param v The card info structure.
-    * @return True if the card should bve discarded.
-    */
-  bool filterOutCard(const KCardThemeInfo& v)
-  {
-    return v.svgfile.isEmpty();
-  }
-
-  /** Currently chosen back side name.
-   */
-  QString currentBack;
-
   /** Currently chosen front side name.
    */
-  QString currentFront;
+  QString currentDeck;
 
   /** The UI elements.
    */
@@ -78,26 +64,19 @@ KCardWidget::KCardWidget(QWidget* parent)
 {
   // GUI
   setupGUI();
-  setLocked(true);
   insertCardIcons();
-  insertDeckIcons();
-  setFrontName(CardDeckInfo::defaultFrontName());
-  setBackName(CardDeckInfo::defaultBackName());
+  setDeckName(CardDeckInfo::defaultDeckName());
 }
 
 void KCardWidget::readSettings(const KConfigGroup& group)
 {
-  setLocked(CardDeckInfo::lockFrontToBackside(group));
-  setFrontName(CardDeckInfo::frontTheme(group));
-  setBackName(CardDeckInfo::backTheme(group));
+  setDeckName(CardDeckInfo::deckName(group));
 }
 
 // Store the config group settings
 void KCardWidget::saveSettings(KConfigGroup& group) const
 {
-  CardDeckInfo::writeLockFrontToBackside(group, !d->ui.backGroupBox->isChecked());
-  CardDeckInfo::writeFrontTheme(group, d->currentFront);
-  CardDeckInfo::writeBackTheme(group, d->currentBack);
+  CardDeckInfo::writeDeckName(group, d->currentDeck );
 }
 
 
@@ -110,14 +89,10 @@ void KCardWidget::setupGUI()
 
   // Set lists and preview
   insertCardIcons();
-  insertDeckIcons();
 
   // Connect signals
-  connect(ui->frontList, SIGNAL(itemSelectionChanged()),
-          this, SLOT(updateFront()));
-  connect(ui->backList, SIGNAL(itemSelectionChanged()),
-          this, SLOT(updateBack()));
-  connect(ui->backGroupBox, SIGNAL(toggled(bool)), this, SLOT(setNotLocked(bool)));
+  connect(ui->list, SIGNAL(itemSelectionChanged()),
+          this, SLOT( updateSelection()));
 }
 
 
@@ -127,37 +102,25 @@ KCardWidget::~KCardWidget()
   delete d;
 }
 
-// Retrieve selected deck name
-QString KCardWidget::backName() const
-{
-  return d->currentBack;
-}
-
-
 // Retrieve selected card name
-QString KCardWidget::frontName() const
+QString KCardWidget::deckName() const
 {
-  return d->currentFront;
-}
-
-bool KCardWidget::isLocked() const
-{
-  return !d->ui.backGroupBox->isChecked();
+  return d->currentDeck;
 }
 
 // Build list widget
 void KCardWidget::insertCardIcons()
 {
   // Clear GUI
-  d->ui.frontList->clear();
+  d->ui.list->clear();
 
   // Rebuild list
   QSize itemSize;
-  foreach(const QString &name, CardDeckInfo::frontNames())
+  foreach(const QString &name, CardDeckInfo::deckNames())
   {
-    KCardThemeInfo v = CardDeckInfo::frontInfo(name);
+    KCardThemeInfo v = CardDeckInfo::deckInfo(name);
     // Show only SVG files?
-    if (d->filterOutCard(v)) continue;
+    if (v.svgfile.isEmpty()) continue;
 
     const int iconSize = 48;
     QPixmap resizedCard = v.preview.scaled(QSize(iconSize, iconSize), Qt::KeepAspectRatio, Qt::SmoothTransformation);
@@ -167,7 +130,7 @@ void KCardWidget::insertCardIcons()
     p.drawPixmap((iconSize-resizedCard.width())/2, (iconSize-resizedCard.height())/2, resizedCard);
     p.end();
 
-    QListWidgetItem *item = new QListWidgetItem(v.name, d->ui.frontList);
+    QListWidgetItem *item = new QListWidgetItem(v.name, d->ui.list);
     item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
     item->setToolTip(v.name);
     item->setData(Qt::DecorationRole, previewPixmap);
@@ -175,49 +138,49 @@ void KCardWidget::insertCardIcons()
     itemSize = itemSize.expandedTo(previewPixmap.size());
   }
 
-  setFrontName(CardDeckInfo::defaultFrontName());
+    setDeckName(CardDeckInfo::defaultDeckName());
 
-  d->ui.frontList->setIconSize(itemSize);
+  d->ui.list->setIconSize(itemSize);
 }
 
 
 // Update front preview
-void KCardWidget::updateFront()
+void KCardWidget::updateSelection()
 {
-  QList<QListWidgetItem*> l = d->ui.frontList->selectedItems();
+  QList<QListWidgetItem*> l = d->ui.list->selectedItems();
   if(!l.isEmpty())
-      setFrontName(l.first()->data(Qt::UserRole).toString());
+        setDeckName(l.first()->data(Qt::UserRole).toString());
 }
 
 
 // Update front preview
 
-void KCardWidget::setFrontName(const QString& name)
+void KCardWidget::setDeckName(const QString& name)
 {
   // Clear item?
   if (name.isEmpty())
   {
-    QList<QListWidgetItem*> items = d->ui.frontList->selectedItems();
+    QList<QListWidgetItem*> items = d->ui.list->selectedItems();
     if(!items.isEmpty())
         items.first()->setSelected(false);
-    d->ui.frontPreview->setPixmap(QPixmap());
+    d->ui.previewImage->setPixmap(QPixmap());
     d->ui.cardName->setText(QString());
     d->ui.cardDescription->setText(QString());
   }
   else
   {
-    for (int i = 0; i < d->ui.frontList->count(); ++i)
+    for (int i = 0; i < d->ui.list->count(); ++i)
     {
-      QListWidgetItem *item = d->ui.frontList->item(i);
+      QListWidgetItem *item = d->ui.list->item(i);
       if (item->data(Qt::UserRole).toString() == name)
       {
         item->setSelected(true);
-        d->ui.frontList->scrollToItem(item);
+        d->ui.list->scrollToItem(item);
         break;
       }
     }
 
-    KCardThemeInfo info = CardDeckInfo::frontInfo(name);
+    KCardThemeInfo info = CardDeckInfo::deckInfo(name);
     QFont font;
     font.setBold(true);
     d->ui.cardName->setText(info.name);
@@ -225,123 +188,15 @@ void KCardWidget::setFrontName(const QString& name)
 
     d->ui.cardDescription->setText(info.comment);
     QPixmap pixmap= info.preview;
-    if (pixmap.height() > d->ui.frontPreview->height())
-      pixmap = pixmap.scaledToHeight(d->ui.frontPreview->height(), Qt::SmoothTransformation);
-    if (pixmap.width() > d->ui.frontPreview->width())
-      pixmap = pixmap.scaledToWidth(d->ui.frontPreview->width(), Qt::SmoothTransformation);
-    d->ui.frontPreview->setPixmap(pixmap);
-
-    // Lock front and back side?
-    if (isLocked() && !info.back.isEmpty())
-    {
-      setBackName(info.back);
-    }
-    else if (isLocked())
-    {
-      // QMap<QString, KCardThemeInfo>::const_iterator it = d->deckInfo.constBegin();
-      QString name = CardDeckInfo::defaultBackName();
-      setBackName(name);
-    }
+    if (pixmap.height() > d->ui.previewImage->height())
+      pixmap = pixmap.scaledToHeight(d->ui.previewImage->height(), Qt::SmoothTransformation);
+    if (pixmap.width() > d->ui.previewImage->width())
+      pixmap = pixmap.scaledToWidth(d->ui.previewImage->width(), Qt::SmoothTransformation);
+    d->ui.previewImage->setPixmap(pixmap);
   }
-  d->currentFront = name;
+  d->currentDeck = name;
 }
 
-// Update the locking filter
-void KCardWidget::setLocked(bool locked)
-{
-  d->ui.backGroupBox->setChecked(!locked);
-  if (locked)
-  {
-    // Update previews
-    setFrontName(d->currentFront);
-  }
-  d->ui.backList->setEnabled(!locked);
-}
-
-// An ugly internal slot needed for UI connections
-void KCardWidget::setNotLocked(bool notLocked)
-{
-    setLocked(!notLocked);
-}
-
-
-// Update the back preview
-void KCardWidget::updateBack()
-{
-  QList<QListWidgetItem*> l = d->ui.backList->selectedItems();
-  if(!l.isEmpty())
-    setBackName(l.first()->data(Qt::UserRole).toString());
-}
-
-
-// Update the back preview
-void KCardWidget::setBackName(const QString& item)
-{
-  if (item.isEmpty())
-  {
-    QList<QListWidgetItem*> items = d->ui.backList->selectedItems();
-    if(!items.isEmpty())
-      items.first()->setSelected(false);
-    d->ui.backPreview->setPixmap(QPixmap());
-  }
-  else
-  {
-    for (int i = 0; i < d->ui.backList->count(); ++i)
-    {
-      QListWidgetItem *lwi = d->ui.backList->item(i);
-      if (lwi->data(Qt::UserRole).toString() == item)
-      {
-        lwi->setSelected(true);
-        d->ui.backList->scrollToItem(lwi);
-        break;
-      }
-    }
-    KCardThemeInfo info = CardDeckInfo::backInfo(item);
-    QPixmap pixmap= info.preview;
-    if (pixmap.height() > d->ui.backPreview->height())
-      pixmap = pixmap.scaledToHeight(d->ui.backPreview->height(), Qt::SmoothTransformation);
-    if (pixmap.width() > d->ui.backPreview->width())
-      pixmap = pixmap.scaledToWidth(d->ui.backPreview->width(), Qt::SmoothTransformation);
-    d->ui.backPreview->setPixmap(pixmap);
-  }
-  d->currentBack = item;
-}
-
-
-// Insert the deck icons into the list widget
-void KCardWidget::insertDeckIcons()
-{
-  // Clear GUI
-  d->ui.backList->clear();
-
-  // Rebuild list
-  QSize itemSize;
-  foreach(const QString &name, CardDeckInfo::backNames())
-  {
-    KCardThemeInfo v = CardDeckInfo::backInfo(name);
-    // Show only SVG files?
-    if (d->filterOutCard(v) || v.preview.isNull() ) continue;
-
-    const int iconSize = 48;
-    QPixmap resizedCard = v.preview.scaled(QSize(iconSize, iconSize), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-    QPixmap previewPixmap(iconSize, iconSize);
-    previewPixmap.fill(Qt::transparent);
-    QPainter p(&previewPixmap);
-    p.drawPixmap((iconSize-resizedCard.width())/2, (iconSize-resizedCard.height())/2, resizedCard);
-    p.end();
-
-    QListWidgetItem *item = new QListWidgetItem(v.name, d->ui.backList);
-    item->setFlags(Qt::ItemIsEnabled | Qt::ItemIsSelectable);
-    item->setToolTip(v.name);
-    item->setData(Qt::DecorationRole, previewPixmap);
-    item->setData(Qt::UserRole, v.noi18Name);
-    itemSize = itemSize.expandedTo(previewPixmap.size());
-  }
-  d->ui.backList->setIconSize(itemSize);
-
-  // Prevent empty preview
-  setBackName(CardDeckInfo::defaultBackName());
-}
 
 KCardDialog::KCardDialog( KCardWidget* widget )
 {

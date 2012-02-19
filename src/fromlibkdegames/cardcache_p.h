@@ -37,23 +37,16 @@ class KCardCachePrivate : public QObject
 {
     Q_OBJECT
 public:
-    KPixmapCache* frontcache;
-    KPixmapCache* backcache;
-    QMutex* frontcacheMutex;
-    QMutex* backcacheMutex;
-    QMutex* frontRendererMutex;
-    QMutex* backRendererMutex;
+    KPixmapCache* cache;
+    QMutex* cacheMutex;
+    QMutex* rendererMutex;
     LoadThread* loadThread;
     QSize size;
-    QString frontTheme;
-    QString backTheme;
-    QSvgRenderer* frontSvgRenderer;
-    QSvgRenderer* backSvgRenderer;
+    QString deckName;
+    QSvgRenderer* svgRenderer;
 
-    QSvgRenderer* frontRenderer();
-    QSvgRenderer* backRenderer();
-    QPixmap renderFrontSvg( const QString& element );
-    QPixmap renderBackSvg( const QString& element );
+    QSvgRenderer* renderer();
+    QPixmap renderSvg( const QString& element );
     void ensureNonNullPixmap( QPixmap& pix );
 public slots:
     void submitRendering( const QString& key, const QImage& image );
@@ -67,14 +60,12 @@ signals:
 public:
     LoadThread( KCardCachePrivate* d );
     void setSize( const QSize& s );
-    void setFrontTheme( const QString& frontTheme );
-    void setBackTheme( const QString& backTheme );
+    void setDeckName( const QString& frontTheme );
     void setElementsToLoad( const QStringList& elements );
     void run();
     void kill();
 private:
     KCardCachePrivate* d;
-    QString backTheme;
     QString frontTheme;
     QSize size;
     bool doKill;

@@ -212,8 +212,6 @@ class Mainwindow : public KXmlGuiWindow
     // Properties to be saved
     // The cards directory 
     QString mCardTheme;
-    // The card deck backside 
-    QString mDeckTheme;
     // Current game mode (Intro, LSkat, ...) 
     GameMode mGameMode;
     // Who starts the next game round/

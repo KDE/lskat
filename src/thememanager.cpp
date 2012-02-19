@@ -100,7 +100,7 @@ KCardInfo convertToKCardInfo(CardDeck::Suite suite, CardDeck::CardType card)
 
 
 // Constructor for the theme manager
-ThemeManager::ThemeManager(const QString &cardTheme, const QString &deckTheme,
+ThemeManager::ThemeManager(const QString &cardTheme,
                            const QString &themefile, QObject* parent, int initialSize)
     : QObject(parent), mConfig( 0 )
 {
@@ -108,13 +108,12 @@ ThemeManager::ThemeManager(const QString &cardTheme, const QString &deckTheme,
   mAspectRatio     = 1.0;
   mCardAspectRatio = 1.0;
   mCardTheme       = cardTheme;
-  mDeckTheme       = deckTheme;
   mRenderer        = 0;
 
   mCardCache = new KCardCache();
 
   // updateTheme(themefile);
-  updateCardTheme(themefile, cardTheme, deckTheme);
+  updateCardTheme(themefile, cardTheme);
 }
 
 ThemeManager::~ThemeManager()
@@ -155,29 +154,24 @@ void ThemeManager::updateTheme(Themable* ob)
 
 
 // Update card deck and card set
-void ThemeManager::updateCardTheme(const QString &cardTheme, const QString &deckTheme)
+void ThemeManager::updateCardTheme(const QString &cardTheme)
 {
-  updateCardTheme(mThemeFile, cardTheme, deckTheme);
+  updateCardTheme(mThemeFile, cardTheme);
 }
 
 
 // Update card deck and card set
-void ThemeManager::updateCardTheme(const QString &themefile, const QString &cardTheme, const QString &deckTheme)
+void ThemeManager::updateCardTheme(const QString &themefile, const QString &cardTheme)
 {
   if (global_debug > 1)
   {
     kDebug() << "ThemeManager Pixmap cards: ";
     kDebug() << "  Card theme =" << cardTheme;
-    kDebug() << "  Deck theme =" << deckTheme;
   }
 
   // Cards
   mCardTheme = cardTheme;
-  mCardCache->setFrontTheme(mCardTheme);
-
-  // Deck
-  mDeckTheme = deckTheme;
-  mCardCache->setBackTheme(mDeckTheme);
+  mCardCache->setDeckName(mCardTheme);
 
   mCardCache->setSize(QSize());
 

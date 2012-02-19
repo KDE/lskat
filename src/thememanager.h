@@ -108,12 +108,11 @@ class ThemeManager : public QObject
   public:
     /** Constructor for the theme manager.
       * @param cardTheme   card theme
-      * @param deckTheme   deck theme
       * @param themefile   The theme configuration file
       * @param parent      The parent object
       * @param initialSize Initial theme size, can be arbitrary.
       */
-      ThemeManager(const QString &cardTheme, const QString &deckTheme, const QString &themefile,
+      ThemeManager(const QString &cardTheme, const QString &themefile,
                  QObject* parent, int initialSize = 1);
 
     ~ThemeManager();
@@ -194,10 +193,9 @@ class ThemeManager : public QObject
 
     /** Forces an update to the card theme objects.
       * @param cards The card dir
-      * @param deck  The deck file
       * @param deckSVG     Filename to the SVG card back (or null string for PNG)
       */
-    void updateCardTheme(const QString &cardTheme, const QString &deckTheme);
+    void updateCardTheme(const QString &cardTheme);
 
     /** Forces an update to all theme objects. That is their
       * changeTheme() method is called. Before this a (new)
@@ -242,7 +240,7 @@ class ThemeManager : public QObject
       * @param deck      The deck file
       * @param deckSVG     Filename to the SVG card back (or null string for PNG)
       */
-    void updateCardTheme(const QString &themefile, const QString &cardTheme, const QString &deckTheme);
+    void updateCardTheme(const QString &themefile, const QString &cardTheme);
 
    private slots:
     void loadCardsInBackground();
@@ -265,9 +263,6 @@ class ThemeManager : public QObject
 
      // The card configuration file
      QString mCardTheme;
-
-     // The deck configuration file
-     QString mDeckTheme;
 
      // The current theme scale
      int mScale;

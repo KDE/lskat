@@ -70,7 +70,7 @@ QDebug operator<<(QDebug debug, const KCardThemeInfo &cn);
 namespace CardDeckInfo
 {
 
-KCardThemeInfo frontInfo( const QString& name );
+KCardThemeInfo deckInfo( const QString& name );
 KCardThemeInfo backInfo( const QString& name );
 
 }

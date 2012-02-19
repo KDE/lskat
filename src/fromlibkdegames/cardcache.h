@@ -132,28 +132,13 @@ public:
      *
      * @param theme the name of the theme to be use for rendering frontsides
      */
-    void setFrontTheme( const QString& theme );
+    void setDeckName( const QString& theme );
 
     /**
      * Return the currently used frontside theme
      * @returns the name of the frontside theme
      */
-    QString frontTheme() const;
-
-    /**
-     * Set the theme to be used to render the backside of cards
-     *
-     * Make sure to set a proper theme before fetching frontside pixmaps from the cache.
-     *
-     * @param theme the name of the theme to be use for rendering backsides
-     */
-    void setBackTheme( const QString& theme );
-
-    /**
-     * Return the currently used backside theme
-     * @returns the name of the backside theme
-     */
-    QString backTheme() const;
+    QString deckName() const;
 
     /**
      * Retrieve the backside of the given theme @p theme at the specified size @p size
@@ -168,7 +153,7 @@ public:
      * @see setBackTheme
      * @see setSize
      */
-    QPixmap backside( int variant = -1 ) const;
+    QPixmap backside() const;
 
     /**
      * Retrieve the default size for the backside card.
@@ -181,7 +166,7 @@ public:
      * @returns the default size of the selected background variant
      *
      */
-    QSizeF defaultBackSize( int variant = -1 ) const;
+    QSizeF defaultBackSize() const;
 
     /**
      * Invalidates all cached images in the current size for the current backside theme
@@ -218,13 +203,13 @@ public:
      * @returns the default size of the selected frontside card
      *
      */
-    QSizeF defaultFrontSize( const KCardInfo& info ) const;
+    QSizeF defaultCardSize( const KCardInfo& info ) const;
 
 
     /**
      * Invalidates all cached images in the current size for the current frontside theme
      */
-    void invalidateFrontside();
+    void invalidateCache();
 
     /**
      * Loads a whole theme in the background.

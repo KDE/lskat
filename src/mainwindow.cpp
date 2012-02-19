@@ -146,9 +146,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   // Theme manager
   QString themeFile = themefileFromIdx(mThemeIndexNo);
   if (global_debug > 0) kDebug() << "Load theme" << themeFile << " no=" << mThemeIndexNo;
-  mTheme  = new ThemeManager(mCardTheme,
-                             mDeckTheme,
-                             themeFile, this, this->width());
+  mTheme  = new ThemeManager(mCardTheme, themeFile, this, this->width());
   if (mTheme->checkTheme() != 0)
   {
     KMessageBox::error(this, i18n("Installation error: Theme file error."));
@@ -272,8 +270,7 @@ void Mainwindow::readProperties()
   if (mThemeIndexNo >= mThemeFiles.size()) mThemeIndexNo = 0;
 
   // Read card path
-  mCardTheme  = CardDeckInfo::frontTheme( cfg );
-  mDeckTheme  = CardDeckInfo::backTheme( cfg );
+  mCardTheme  = CardDeckInfo::deckName( cfg );
 
   int no = cfg.readEntry("startplayer", 0);
   setStartPlayer(no);
@@ -515,7 +512,6 @@ void Mainwindow::menuPlayer2By()
 void Mainwindow::menuCardDeck()
 {
   QString front = mCardTheme;
-  QString back = mDeckTheme;
   int result;
 
   KConfigGroup grp = KGlobal::config()->group("ProgramData");
@@ -527,21 +523,16 @@ void Mainwindow::menuCardDeck()
     // Always store the settings, other things than the deck may have changed
     cardwidget->saveSettings(grp);
     grp.sync();
-    if (global_debug > 0) kDebug() << "NEW CARDDECK:" << front << "and" << back;
+    if (global_debug > 0) kDebug() << "NEW CARDDECK:" << front;
     bool change = false; // Avoid unnecessary changes
-    if (!cardwidget->backName().isEmpty() && cardwidget->backName() != mDeckTheme)
+    if (!cardwidget->deckName().isEmpty() && cardwidget->deckName() != mCardTheme)
     {
-      mDeckTheme = cardwidget->backName();
-      change = true;
-    }
-    if (!cardwidget->frontName().isEmpty() && cardwidget->frontName() != mCardTheme)
-    {
-      mCardTheme    = cardwidget->frontName();
+      mCardTheme    = cardwidget->deckName();
       change = true;
     }
     if (change)
     {
-      mTheme->updateCardTheme(mCardTheme,mDeckTheme);
+      mTheme->updateCardTheme(mCardTheme);
       mView->update(); // Be on the safe side and update
     }
   }

@@ -47,12 +47,12 @@ namespace CardDeckInfo
     * @param name The untranslated name of the card set.
     * @return The file name and path to the SVG file or QString() if not available. 
     */
-   KDEGAMES_EXPORT QString frontSVGFilePath(const QString& name);
+   KDEGAMES_EXPORT QString svgFilePath(const QString& name);
 
    /** Retrieve the untranslated name of the default card set (front side).
     * @return The default card set name.
     */
-   KDEGAMES_EXPORT QString defaultFrontName();
+   KDEGAMES_EXPORT QString defaultDeckName();
 
    /** Retrieve the untranslated name of the default card deck (back side).
     * @return The default card deck name.
@@ -62,7 +62,7 @@ namespace CardDeckInfo
    /** Retrieve a untranslated name random card set (front side).
     * @return A radnom card set name.
     */
-   KDEGAMES_EXPORT QString randomFrontName();
+   KDEGAMES_EXPORT QString randomDeckName();
 
    /** Retrieve a untranslated name random card deck (back side).
     * @return A radnom card deck name.
@@ -89,7 +89,7 @@ namespace CardDeckInfo
     * @return a list of frontside names, which can be
     * used as input to the other functions.
     */
-   KDEGAMES_EXPORT QStringList frontNames();
+   KDEGAMES_EXPORT QStringList deckNames();
 
    /**
     * retrieve the configured front side untranslated theme name
@@ -98,7 +98,7 @@ namespace CardDeckInfo
     * @param default the default theme to return if the config group has no setting for this
     * @returns the name of the front side theme name
     */
-   KDEGAMES_EXPORT QString frontTheme( const KConfigGroup& group, const QString& defaultTheme = defaultFrontName() );
+   KDEGAMES_EXPORT QString deckName( const KConfigGroup& group, const QString& defaultTheme = defaultDeckName() );
 
    /**
     * retrieve the configured back side untranslated theme name
@@ -123,7 +123,7 @@ namespace CardDeckInfo
     * @param group the KConfigGroup to write to from
     * @param theme the theme untranslated name to store
     */
-   KDEGAMES_EXPORT void writeFrontTheme( KConfigGroup& group, const QString& theme );
+   KDEGAMES_EXPORT void writeDeckName( KConfigGroup& group, const QString& theme );
 
    /**
     * store the given backside @p theme name in the @p group

@@ -111,51 +111,19 @@ public:
    void saveSettings(KConfigGroup& group) const;
 
    /**
-    * set the name of the card deck (back side)
-    * @param name the new name to select as back side
-    */
-   void setBackName(const QString& name);
-
-   /**
-    * Retrieve the name of the card deck (back side) from the widget.
-    * @return The deck name.
-    */
-   QString backName() const;
-
-   /**
-    * Retrieve the locking status
-    * @return true if the backside selection is locked to the frontside
-    */
-   bool isLocked() const;
-
-   /**
     * set the name of the card set (front side)
     * @param name the new name to select as front side
     */
-   void setFrontName(const QString& name);
+   void setDeckName(const QString& name);
 
    /**
     * Retrieve the name of the card set (front side) from the dialog.
     * @return The card set name.
     */
-   QString frontName() const;
-
-public Q_SLOTS:
-   /**
-    * enable or disable locked selection, when locking is enabled the user
-    * can only choose the front sides and the backside will be determined
-    * from the frontside
-    * @param locked whether to lock the front and backside selection
-    */
-   void setLocked(bool locked);
+   QString deckName() const;
 
 protected:
     void insertCardIcons();
-
-    /**
-     * Insert the back sides into the list view.
-     */
-    void insertDeckIcons();
 
     /**
      * Configure the dialog GUI.
@@ -166,20 +134,7 @@ protected Q_SLOTS:
     /**
      * Called by the card set list view when a new item was selected.
      */
-    void updateFront();
-
-     /**
-     * Called by the card deck list view when a new item was selected.
-     * @param current The newly selected item.
-     * @param last    The previously selected item.
-     */
-    void updateBack();
-
-private Q_SLOTS:
-   /**
-    * Private slot used only for an internal connection
-    */
-    void setNotLocked(bool notLocked);
+    void updateSelection();
 
 private:
    /**
