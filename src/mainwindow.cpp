@@ -39,8 +39,6 @@
 #include <kicon.h>
 #include <kmenubar.h>
 #include <klocale.h>
-#include <kcarddialog.h>
-#include <carddeckinfo.h>
 #include <krandom.h>
 #include <kglobal.h>
 #include <ktoolbar.h>
@@ -60,6 +58,8 @@
 #include "mouseinput.h"
 #include "aiinput.h"
 #include "namedialogwidget.h"
+#include "fromlibkdegames/kcarddialog.h"
+#include "fromlibkdegames/carddeckinfo.h"
 
 // Configuration file
 #include <config-src.h>

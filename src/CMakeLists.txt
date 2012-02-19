@@ -21,10 +21,15 @@ set( lskat_SRCS
     player.cpp
     abstractinput.cpp
     mouseinput.cpp
-    aiinput.cpp )
+    aiinput.cpp
+    fromlibkdegames/cardcache.cpp
+    fromlibkdegames/carddeckinfo.cpp
+    fromlibkdegames/kcarddialog.cpp )
 
 
-kde4_add_ui_files( lskat_SRCS namedialog.ui )
+kde4_add_ui_files( lskat_SRCS
+    namedialog.ui
+    fromlibkdegames/kgamecardselector.ui )
 
 configure_file(config-src.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
 

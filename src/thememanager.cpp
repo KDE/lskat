@@ -37,11 +37,10 @@
 #include <kconfiggroup.h>
 #include <kstandarddirs.h>
 
-#include <cardcache.h>
-
 // Local includes
 #include "lskatglobal.h"
 #include "deck.h"
+#include "fromlibkdegames/cardcache.h"
 
 // SVG id for accessing the backside of a card
 #define CARDBACK_SVGID "back"

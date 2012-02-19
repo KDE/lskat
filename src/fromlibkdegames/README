@@ -1,0 +1,4 @@
+These files were originally part of libkdegames, but they have since been
+deprecated by libkcardgame. Since LSkat is the only application still using
+them, they have been moved here. If LSkat is ever ported to libkcardgame
+this directory can be removed.
