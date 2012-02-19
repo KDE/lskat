@@ -129,63 +129,6 @@ bool KCardInfo::operator==( const KCardInfo& c ) const
     return ( c.card() == card() && c.suit() == suit() );
 }
 
-QString KCardInfo::pngName() const
-{
-    if( suit() == Club    && card() == Ace ) return QLatin1String( "1.png" );
-    if( suit() == Spade   && card() == Ace ) return QLatin1String( "2.png" );
-    if( suit() == Heart   && card() == Ace ) return QLatin1String( "3.png" );
-    if( suit() == Diamond && card() == Ace ) return QLatin1String( "4.png" );
-    if( suit() == Club    && card() == King ) return QLatin1String( "5.png" );
-    if( suit() == Spade   && card() == King ) return QLatin1String( "6.png" );
-    if( suit() == Heart   && card() == King ) return QLatin1String( "7.png" );
-    if( suit() == Diamond && card() == King ) return QLatin1String( "8.png" );
-    if( suit() == Club    && card() == Queen ) return QLatin1String( "9.png" );
-    if( suit() == Spade   && card() == Queen ) return QLatin1String( "10.png" );
-    if( suit() == Heart   && card() == Queen ) return QLatin1String( "11.png" );
-    if( suit() == Diamond && card() == Queen ) return QLatin1String( "12.png" );
-    if( suit() == Club    && card() == Jack ) return QLatin1String( "13.png" );
-    if( suit() == Spade   && card() == Jack ) return QLatin1String( "14.png" );
-    if( suit() == Heart   && card() == Jack ) return QLatin1String( "15.png" );
-    if( suit() == Diamond && card() == Jack ) return QLatin1String( "16.png" );
-    if( suit() == Club    && card() == Ten ) return QLatin1String( "17.png" );
-    if( suit() == Spade   && card() == Ten ) return QLatin1String( "18.png" );
-    if( suit() == Heart   && card() == Ten ) return QLatin1String( "19.png" );
-    if( suit() == Diamond && card() == Ten ) return QLatin1String( "20.png" );
-    if( suit() == Club    && card() == Nine ) return QLatin1String( "21.png" );
-    if( suit() == Spade   && card() == Nine ) return QLatin1String( "22.png" );
-    if( suit() == Heart   && card() == Nine ) return QLatin1String( "23.png" );
-    if( suit() == Diamond && card() == Nine ) return QLatin1String( "24.png" );
-    if( suit() == Club    && card() == Eight ) return QLatin1String( "25.png" );
-    if( suit() == Spade   && card() == Eight ) return QLatin1String( "26.png" );
-    if( suit() == Heart   && card() == Eight ) return QLatin1String( "27.png" );
-    if( suit() == Diamond && card() == Eight ) return QLatin1String( "28.png" );
-    if( suit() == Club    && card() == Seven ) return QLatin1String( "29.png" );
-    if( suit() == Spade   && card() == Seven ) return QLatin1String( "30.png" );
-    if( suit() == Heart   && card() == Seven ) return QLatin1String( "31.png" );
-    if( suit() == Diamond && card() == Seven ) return QLatin1String( "32.png" );
-    if( suit() == Club    && card() == Six ) return QLatin1String( "33.png" );
-    if( suit() == Spade   && card() == Six ) return QLatin1String( "34.png" );
-    if( suit() == Heart   && card() == Six ) return QLatin1String( "35.png" );
-    if( suit() == Diamond && card() == Six ) return QLatin1String( "36.png" );
-    if( suit() == Club    && card() == Five ) return QLatin1String( "37.png" );
-    if( suit() == Spade   && card() == Five ) return QLatin1String( "38.png" );
-    if( suit() == Heart   && card() == Five ) return QLatin1String( "39.png" );
-    if( suit() == Diamond && card() == Five ) return QLatin1String( "40.png" );
-    if( suit() == Club    && card() == Four ) return QLatin1String( "41.png" );
-    if( suit() == Spade   && card() == Four ) return QLatin1String( "42.png" );
-    if( suit() == Heart   && card() == Four ) return QLatin1String( "43.png" );
-    if( suit() == Diamond && card() == Four ) return QLatin1String( "44.png" );
-    if( suit() == Club    && card() == Three ) return QLatin1String( "45.png" );
-    if( suit() == Spade   && card() == Three ) return QLatin1String( "46.png" );
-    if( suit() == Heart   && card() == Three ) return QLatin1String( "47.png" );
-    if( suit() == Diamond && card() == Three ) return QLatin1String( "48.png");
-    if( suit() == Club    && card() == Two ) return QLatin1String( "49.png" );
-    if( suit() == Spade   && card() == Two ) return QLatin1String( "50.png" );
-    if( suit() == Heart   && card() == Two ) return QLatin1String( "51.png" );
-    if( suit() == Diamond && card() == Two ) return QLatin1String( "52.png" );
-    return QLatin1String( "" );
-}
-
 QString KCardInfo::svgName() const
 {
     QString s;
@@ -405,22 +348,7 @@ QPixmap KCardCache::backside( int variant ) const
         element += QString::number(variant);
     }
     QString key = keyForPixmap( d->backTheme, element, d->size );
-    if( !CardDeckInfo::isSVGBack( d->backTheme ) )
-    {
-        QMutexLocker l( d->backcacheMutex );
-        if( d->backcache && ( !d->backcache->find( key, pix ) || pix.isNull() ) )
-        {
-            QMatrix matrix;
-            QImage img;
-            bool ret = img.load( CardDeckInfo::backFilename( d->backTheme ), "PNG" );
-            if( !ret )
-                return QPixmap();
-            matrix.scale( (qreal)d->size.width() / (qreal)img.width(),
-                  (qreal)d->size.height() / (qreal)img.height() );
-            pix = QPixmap::fromImage( img.transformed( matrix ) );
-            d->backcache->insert( key, pix );
-        }
-    }else
+
     {
         QMutexLocker l( d->backcacheMutex );
         if( d->backcache && ( !d->backcache->find( key, pix ) || pix.isNull() ) )
@@ -441,24 +369,6 @@ QPixmap KCardCache::frontside( const KCardInfo& info ) const
         return pix;
     QString key = keyForPixmap( d->frontTheme, info.svgName() , d->size );
 
-    if( !CardDeckInfo::isSVGFront( d->frontTheme ) )
-    {
-        QMutexLocker l( d->frontcacheMutex );
-        if( d->frontcache && ( !d->frontcache->find( key, pix ) || pix.isNull() ) )
-        {
-            QMatrix matrix;
-            QImage img;
-            QString filename = CardDeckInfo::frontDir( d->frontTheme )
-                    + QLatin1Char( '/' ) + info.pngName();
-            bool ret = img.load( filename, "PNG" );
-            if( !ret )
-                return QPixmap();
-            matrix.scale( (qreal)d->size.width() / (qreal)img.width(),
-                  (qreal)d->size.height() / (qreal)img.height() );
-            pix = QPixmap::fromImage( img.transformed( matrix ) );
-            d->frontcache->insert( key, pix );
-        }
-    }else
     {
         QMutexLocker l( d->frontcacheMutex );
         if( d->frontcache && ( !d->frontcache->find( key, pix ) || pix.isNull() ) )
@@ -490,22 +400,7 @@ void KCardCache::setFrontTheme( const QString& theme )
         delete d->frontcache;
         d->frontcache = new KPixmapCache( QString::fromLatin1(  "kdegames-cards_%1" ).arg( theme ) );
         d->frontcache->setUseQPixmapCache( true );
-        QDateTime dt;
-        if( CardDeckInfo::isSVGFront( theme ) )
-        {
-            dt = QFileInfo( CardDeckInfo::frontSVGFilePath( theme ) ).lastModified();
-
-        } else
-        {
-            QDir carddir( CardDeckInfo::frontDir( theme ) );
-            foreach( const QFileInfo& entry, carddir.entryInfoList( QStringList() << QLatin1String( "*.png" ) ) )
-            {
-                if( dt.isNull() || dt < entry.lastModified() )
-                {
-                    dt = entry.lastModified();
-                }
-            }
-        }
+        QDateTime dt = QFileInfo( CardDeckInfo::frontSVGFilePath( theme ) ).lastModified();
         if( d->frontcache->timestamp() < dt.toTime_t() )
         {
             d->frontcache->discard();
@@ -532,15 +427,7 @@ void KCardCache::setBackTheme( const QString& theme )
         delete d->backcache;
         d->backcache = new KPixmapCache( QString::fromLatin1(  "kdegames-cards_%1" ).arg( theme ) );
         d->backcache->setUseQPixmapCache( true );
-        QDateTime dt;
-        if( CardDeckInfo::isSVGBack( theme ) )
-        {
-            dt = QFileInfo( CardDeckInfo::backSVGFilePath( theme ) ).lastModified();
-
-        } else
-        {
-            dt = QFileInfo( CardDeckInfo::backFilename( theme ) ).lastModified();
-        }
+        QDateTime dt = QFileInfo( CardDeckInfo::backSVGFilePath( theme ) ).lastModified();
         if( d->backcache->timestamp() < dt.toTime_t() )
         {
             d->backcache->discard();
@@ -617,10 +504,6 @@ QSizeF KCardCache::defaultFrontSize( const KCardInfo& info ) const
             return pix.size();
     }
 
-    if( !CardDeckInfo::isSVGFront( d->frontTheme ) )
-    {
-        pix.load( CardDeckInfo::frontDir( d->frontTheme ) + QLatin1Char( '/' ) + info.pngName(), "PNG" );
-    }else
     {
         QMutexLocker( d->frontRendererMutex );
         QSizeF size = d->frontRenderer()->boundsOnElement( info.svgName() ).size();
@@ -655,10 +538,6 @@ QSizeF KCardCache::defaultBackSize( int variant ) const
             return pix.size();
     }
 
-    if( !CardDeckInfo::isSVGBack( d->backTheme ) )
-    {
-        pix.load( CardDeckInfo::backFilename( d->backTheme ), "PNG" );
-    }else
     {
         QMutexLocker( d->backRendererMutex );
         QSizeF size = d->backRenderer()->boundsOnElement( element ).size();

@@ -49,49 +49,25 @@ namespace CardDeckInfo
     */
    KDEGAMES_EXPORT QString frontSVGFilePath(const QString& name);
 
-   /** Check whether the card set is SVG or not.
-    * @param name The untranslated name of the card set.
-    * @return True if SVG data is available.
-    */
-   KDEGAMES_EXPORT bool isSVGBack(const QString& name);
-
-   /** Check whether the card back deck contains also an SVG file.
-    * @param name The untranslated name of the card deck.
-    * @return True if SVG data is available.
-    */
-   KDEGAMES_EXPORT bool isSVGFront(const QString& name);
-
    /** Retrieve the untranslated name of the default card set (front side).
-    * @param pAllowPNG  Allow selection of fixed size cards sets.
     * @return The default card set name.
     */
-   KDEGAMES_EXPORT QString defaultFrontName(bool pAllowPNG = true);
+   KDEGAMES_EXPORT QString defaultFrontName();
 
    /** Retrieve the untranslated name of the default card deck (back side).
-    * @param pAllowPNG  Allow selection of fixed size cards sets.
     * @return The default card deck name.
     */
-   KDEGAMES_EXPORT QString defaultBackName(bool pAllowPNG = true);
+   KDEGAMES_EXPORT QString defaultBackName();
 
    /** Retrieve a untranslated name random card set (front side).
-    * @param pAllowPNG  Allow selection of fixed size cards sets.
     * @return A radnom card set name.
     */
-   KDEGAMES_EXPORT QString randomFrontName(bool pAllowPNG = true);
+   KDEGAMES_EXPORT QString randomFrontName();
 
    /** Retrieve a untranslated name random card deck (back side).
-    * @param pAllowPNG  Allow selection of fixed size cards sets.
     * @return A radnom card deck name.
     */
-   KDEGAMES_EXPORT QString randomBackName(bool pAllowPNG = true);
-
-   /**
-    * Retrieve the directory where the card front sides are stored. The cards are
-    * named 1.png, 2.png, etc. For SVG card decks use @ref frontSVGFilePath.
-    * @param name The untranslated name of the card set.
-    * @return The directory.
-    */
-   KDEGAMES_EXPORT QString frontDir(const QString& name);
+   KDEGAMES_EXPORT QString randomBackName();
 
    /**
     * Retrieve the filename of the card back side. 
@@ -122,7 +98,7 @@ namespace CardDeckInfo
     * @param default the default theme to return if the config group has no setting for this
     * @returns the name of the front side theme name
     */
-   KDEGAMES_EXPORT QString frontTheme( const KConfigGroup& group, const QString& defaultTheme = defaultFrontName(false) );
+   KDEGAMES_EXPORT QString frontTheme( const KConfigGroup& group, const QString& defaultTheme = defaultFrontName() );
 
    /**
     * retrieve the configured back side untranslated theme name
@@ -131,16 +107,7 @@ namespace CardDeckInfo
     * @param default the default theme to return if the config group has no setting for this
     * @returns the name of the back side theme name
     */
-   KDEGAMES_EXPORT QString backTheme( const KConfigGroup& group, const QString& defaultTheme = defaultBackName(false) );
-
-   /**
-    * retrieve the current value for the show fixed size
-    * card decks from the @p group
-    * @param group the KConfigGroup to read from
-    * @param allowDefault the default value in case the group has no setting
-    * @returns true when fixed size decks should be shown, else false
-    */
-   KDEGAMES_EXPORT bool allowFixedSizeDecks( const KConfigGroup& group, bool allowDefault = false );
+   KDEGAMES_EXPORT QString backTheme( const KConfigGroup& group, const QString& defaultTheme = defaultBackName() );
 
    /**
     * retrieve the current value for the lock front-to-backside
@@ -164,13 +131,6 @@ namespace CardDeckInfo
     * @param theme the theme untranslated name to store
     */
    KDEGAMES_EXPORT void writeBackTheme( KConfigGroup& group, const QString& theme );
-
-   /**
-    * store the whether fixed size decks are allowed in the @p group
-    * @param group the KConfigGroup to write to from
-    * @param allowFixedSize whether fixed size decks are allowed or not
-    */
-   KDEGAMES_EXPORT void writeAllowFixedSizeDecks( KConfigGroup& group, bool allowFixedSize );
 
    /**
     * store the whether front and backside theme selection is locked to the @p group

@@ -74,9 +74,6 @@ public:
  *
  * Card sets (front and back) are identified by their (translated) names.
  *
- * Here you can see a card widget in action
- * @image html "kcarddialog.png" KCardwidget
- *
  * You can use a KConfigGroup to initialize the state of the widget or
  * let the widget store its current state to a config group.
  *
@@ -132,12 +129,6 @@ public:
    bool isLocked() const;
 
    /**
-    * Retrieve the current state of the "Show old style decks" checkbox
-    * @return whether or not fixed size card decks are shown in the list
-    */
-   bool isFixedSizeAllowed() const;
-
-   /**
     * set the name of the card set (front side)
     * @param name the new name to select as front side
     */
@@ -150,13 +141,6 @@ public:
    QString frontName() const;
 
 public Q_SLOTS:
-   /**
-    * Allow the user to select fixed size cards
-    * @param fixedSizeAllowed if set to true will show scalable and also fixed
-    * size card decks in the dialog
-    */
-   void setFixedSizeAllowed(bool fixedSizeAllowed);
-
    /**
     * enable or disable locked selection, when locking is enabled the user
     * can only choose the front sides and the backside will be determined

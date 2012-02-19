@@ -32,7 +32,6 @@
 
 // KConfig entries
 #define CONF_LOCKING QString::fromLatin1("Locking")
-#define CONF_ALLOW_FIXED_CARDS QString::fromLatin1("AllowFixed")
 #define CONF_CARD QString::fromLatin1("Cardname")
 #define CONF_DECK QString::fromLatin1("Deckname")
 
@@ -56,7 +55,6 @@ public:
     void readFronts()
     {
         // Empty data
-        pngFrontInfo.clear();
         svgFrontInfo.clear();
 
         QStringList svg;
@@ -94,21 +92,14 @@ public:
                 info.svgfile = svgInfo.filePath();
                 svgFrontInfo[idx] = info;
             }
-            else
-            {
-                info.svgfile.clear();
-                pngFrontInfo[idx] = info;
-            }
         }
 
     }
-
 
     void readBacks()
     {
         // Empty data
         svgBackInfo.clear();
-        pngBackInfo.clear();
 
         const QStringList list = KGlobal::dirs()->findAllResources( "cards", QLatin1String( "decks/*.desktop" ), KStandardDirs::NoDuplicates );
 
@@ -140,13 +131,7 @@ public:
                 info.svgfile = svgInfo.filePath();
                 svgBackInfo[idx] = info;
             }
-            else
-            {
-                info.svgfile.clear();
-                pngBackInfo[idx] = info;
-            }
         }
-
     }
 
     QString getBackFileNameFromIndex( const QString& desktop )
@@ -163,18 +148,9 @@ public:
         return QString();
     }
 
-
-    /** The card front sides for PNG decks.
-     */
-    QMap<QString, KCardThemeInfo> pngFrontInfo;
-
     /** The card front sides for SVG decks.
      */
     QMap<QString, KCardThemeInfo> svgFrontInfo;
-
-    /** The card back sides for PNG decks.
-     */
-    QMap<QString, KCardThemeInfo> pngBackInfo;
 
     /** The card back sides for SVG decks.
      */
@@ -207,15 +183,11 @@ namespace CardDeckInfo
 {
 
 // Retrieve default card set name
-QString defaultFrontName( bool pAllowPNG )
+QString defaultFrontName()
 {
     QString noDefault;
     // Count filtered cards
     QMap<QString, KCardThemeInfo> temp = deckinfoStatic->svgFrontInfo;
-    if ( pAllowPNG )
-    {
-        temp.unite( deckinfoStatic->pngFrontInfo );
-    }
     QMapIterator<QString, KCardThemeInfo> it( temp );
     while ( it.hasNext() )
     {
@@ -232,15 +204,10 @@ QString defaultFrontName( bool pAllowPNG )
 
 
 // Retrieve default deck name
-QString defaultBackName( bool pAllowPNG )
+QString defaultBackName()
 {
     QString noDefault;
     QMap<QString, KCardThemeInfo> temp = deckinfoStatic->svgBackInfo;
-    if ( pAllowPNG )
-    {
-        temp.unite( deckinfoStatic->pngBackInfo );
-    }
-
     QMapIterator<QString, KCardThemeInfo> it( temp );
     while ( it.hasNext() )
     {
@@ -257,15 +224,10 @@ QString defaultBackName( bool pAllowPNG )
 
 
 // Retrieve a random card name
-QString randomFrontName( bool pAllowPNG )
+QString randomFrontName()
 {
     // Collect matching items
     QStringList list = deckinfoStatic->svgFrontInfo.keys();
-    if ( pAllowPNG )
-    {
-        list += deckinfoStatic->pngFrontInfo.keys();
-    }
-
     // Draw random one
     int d = KRandom::random() % list.count();
     return list.at( d );
@@ -273,34 +235,14 @@ QString randomFrontName( bool pAllowPNG )
 
 
 // Retrieve a random deck name
-QString randomBackName( bool pAllowPNG )
+QString randomBackName()
 {
     // Collect matching items
     QStringList list = deckinfoStatic->svgBackInfo.keys();
-    if ( pAllowPNG )
-    {
-        list += deckinfoStatic->pngBackInfo.keys();
-    }
-
     // Draw random one
     int d = KRandom::random() % list.count();
     return list.at( d );
 }
-
-
-// Retrieve the PNG filename for a back side from its index.desktop filename
-QString getBackFileNameFromIndex( const QString &desktop )
-{
-    QString entry = desktop.left( desktop.length() - strlen( ".desktop" ) );
-    if ( KStandardDirs::exists( entry + QString::fromLatin1( ".png" ) ) )
-        return entry + QString::fromLatin1( ".png" );
-
-    // rather theoretical
-    if ( KStandardDirs::exists( entry + QString::fromLatin1( ".xpm" ) ) )
-        return entry + QString::fromLatin1( ".xpm" );
-    return QString();
-}
-
 
 
 // Retrieve the SVG file belonging to the given card back deck.
@@ -320,54 +262,20 @@ QString frontSVGFilePath( const QString& name )
     return v.svgfile;
 }
 
-
-// Retrieve the PNG file belonging to the given card back deck.
-QString backFilename( const QString& name )
-{
-    if ( !deckinfoStatic->pngBackInfo.contains( name ) ) return QString();
-    const KCardThemeInfo &v = deckinfoStatic->pngBackInfo[name];
-    return v.path;
-}
-
-
-// Retrieve the directory belonging to the given card fronts.
-QString frontDir( const QString& name )
-{
-    if ( !deckinfoStatic->pngFrontInfo.contains( name ) ) return QString();
-    const KCardThemeInfo &v = deckinfoStatic->pngFrontInfo[name];
-    return v.path;
-}
-
-
-// Check whether a card set is SVG
-bool isSVGFront( const QString& name )
-{
-    return deckinfoStatic->svgFrontInfo.contains( name );
-}
-
-
-// Check whether a card deck is SVG
-bool isSVGBack( const QString& name )
-{
-    return deckinfoStatic->svgBackInfo.contains( name );
-}
-
 QStringList frontNames()
 {
-    return ( deckinfoStatic->svgFrontInfo.keys() + deckinfoStatic->pngFrontInfo.keys() );
+    return deckinfoStatic->svgFrontInfo.keys();
 }
 
 QStringList backNames()
 {
-    return ( deckinfoStatic->svgBackInfo.keys() + deckinfoStatic->pngBackInfo.keys() );
+    return deckinfoStatic->svgBackInfo.keys();
 }
 
 KCardThemeInfo frontInfo( const QString& name )
 {
     if ( deckinfoStatic->svgFrontInfo.contains( name ) )
         return deckinfoStatic->svgFrontInfo.value( name );
-    if ( deckinfoStatic->pngFrontInfo.contains( name ) )
-        return deckinfoStatic->pngFrontInfo.value( name );
     return KCardThemeInfo();
 }
 
@@ -375,8 +283,6 @@ KCardThemeInfo backInfo( const QString& name )
 {
     if ( deckinfoStatic->svgBackInfo.contains( name ) )
         return deckinfoStatic->svgBackInfo.value( name );
-    if ( deckinfoStatic->pngBackInfo.contains( name ) )
-        return deckinfoStatic->pngBackInfo.value( name );
     return KCardThemeInfo();
 }
 
@@ -396,11 +302,6 @@ QString backTheme( const KConfigGroup& group, const QString& defaultTheme )
     return theme;
 }
 
-bool allowFixedSizeDecks( const KConfigGroup& group, bool lockDefault )
-{
-  return group.readEntry( CONF_ALLOW_FIXED_CARDS, lockDefault );
-}
-
 bool lockFrontToBackside(const KConfigGroup& group, bool lockDefault)
 {
   return group.readEntry( CONF_LOCKING, lockDefault );
@@ -414,11 +315,6 @@ void writeFrontTheme( KConfigGroup& group, const QString& theme )
 void writeBackTheme( KConfigGroup& group, const QString& theme )
 {
   group.writeEntry( CONF_DECK, theme );
-}
-
-void writeAllowFixedSizeDecks( KConfigGroup& group, bool allowFixedSize )
-{
-  group.writeEntry( CONF_ALLOW_FIXED_CARDS, allowFixedSize );
 }
 
 void writeLockFrontToBackside( KConfigGroup& group, bool lock )

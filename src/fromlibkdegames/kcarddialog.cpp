@@ -55,7 +55,7 @@ public:
     */
   bool filterOutCard(const KCardThemeInfo& v)
   {
-    return !fixedSizeAllowed && v.svgfile.isEmpty();
+    return v.svgfile.isEmpty();
   }
 
   /** Currently chosen back side name.
@@ -65,10 +65,6 @@ public:
   /** Currently chosen front side name.
    */
   QString currentFront;
-
-  /** Determines if PNG based decks should be shown
-   */
-  bool fixedSizeAllowed;
 
   /** The UI elements.
    */
@@ -83,11 +79,10 @@ KCardWidget::KCardWidget(QWidget* parent)
   // GUI
   setupGUI();
   setLocked(true);
-  setFixedSizeAllowed(false);
   insertCardIcons();
   insertDeckIcons();
-  setFrontName(CardDeckInfo::defaultFrontName(false));
-  setBackName(CardDeckInfo::defaultBackName(false));
+  setFrontName(CardDeckInfo::defaultFrontName());
+  setBackName(CardDeckInfo::defaultBackName());
 }
 
 void KCardWidget::readSettings(const KConfigGroup& group)
@@ -123,12 +118,6 @@ void KCardWidget::setupGUI()
   connect(ui->backList, SIGNAL(itemSelectionChanged()),
           this, SLOT(updateBack()));
   connect(ui->backGroupBox, SIGNAL(toggled(bool)), this, SLOT(setNotLocked(bool)));
-
-  // Debug
-  // kDebug() << "DEFAULT DECK: " << defaultDeckName(pAllowSVG, pAllowPNG);
-  // kDebug() << "DEFAULT CARD: " << defaultCardName(pAllowSVG, pAllowPNG);
-  // kDebug() << "RANDOM DECK: " << randomDeckName(pAllowSVG, pAllowPNG);
-  // kDebug() << "RANDOM CARD: " << randomCardName(pAllowSVG, pAllowPNG);
 }
 
 
@@ -149,11 +138,6 @@ QString KCardWidget::backName() const
 QString KCardWidget::frontName() const
 {
   return d->currentFront;
-}
-
-bool KCardWidget::isFixedSizeAllowed() const
-{
-  return d->fixedSizeAllowed;
 }
 
 bool KCardWidget::isLocked() const
@@ -191,13 +175,8 @@ void KCardWidget::insertCardIcons()
     itemSize = itemSize.expandedTo(previewPixmap.size());
   }
 
-  if(!isFixedSizeAllowed() && !CardDeckInfo::isSVGFront(d->currentFront))
-  {
-    setFrontName(CardDeckInfo::defaultFrontName(isFixedSizeAllowed()));
-  }else
-  {
-    setFrontName(d->currentFront);
-  }
+  setFrontName(CardDeckInfo::defaultFrontName());
+
   d->ui.frontList->setIconSize(itemSize);
 }
 
@@ -260,7 +239,7 @@ void KCardWidget::setFrontName(const QString& name)
     else if (isLocked())
     {
       // QMap<QString, KCardThemeInfo>::const_iterator it = d->deckInfo.constBegin();
-      QString name = CardDeckInfo::defaultBackName(isFixedSizeAllowed());
+      QString name = CardDeckInfo::defaultBackName();
       setBackName(name);
     }
   }
@@ -283,18 +262,6 @@ void KCardWidget::setLocked(bool locked)
 void KCardWidget::setNotLocked(bool notLocked)
 {
     setLocked(!notLocked);
-}
-
-
-// Update the PNG status filter
-void KCardWidget::setFixedSizeAllowed(bool allowFixedSize)
-{
-    if ( allowFixedSize != d->fixedSizeAllowed )
-    {
-        d->fixedSizeAllowed = allowFixedSize;
-        insertCardIcons();
-        insertDeckIcons();
-    }
 }
 
 
@@ -373,10 +340,7 @@ void KCardWidget::insertDeckIcons()
   d->ui.backList->setIconSize(itemSize);
 
   // Prevent empty preview
-  if (!isFixedSizeAllowed() && !CardDeckInfo::isSVGBack(d->currentBack))
-    setBackName(CardDeckInfo::defaultBackName(isFixedSizeAllowed()));
-  else
-    setBackName(d->currentBack);
+  setBackName(CardDeckInfo::defaultBackName());
 }
 
 KCardDialog::KCardDialog( KCardWidget* widget )

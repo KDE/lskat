@@ -45,7 +45,6 @@ public:
     void setSuit( Suit s );
     Suit suit() const;
 
-    QString pngName() const;
     QString svgName() const;
     bool operator==( const KCardInfo& c ) const;
 private:
