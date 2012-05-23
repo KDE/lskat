@@ -274,7 +274,7 @@ int EngineTwo::evaluateGame()
   // First player won
   else if (points1 > points2)
   {
-    text = i18n("Player %1 won ", player1->name());
+    text = i18n("Player 1 - %1 won ", player1->name());
 
     score1 = 2;
     player1->addWonGame(1);
