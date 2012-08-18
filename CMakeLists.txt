@@ -13,6 +13,7 @@ endif(NOT COMPILING_KDEGAMES)
 
 add_subdirectory(src)
 add_subdirectory(grafix)
+add_subdirectory(doc)
 
 ########### install files ###############
 install( PROGRAMS lskat.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
