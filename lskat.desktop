@@ -1,6 +1,10 @@
 [Desktop Entry]
 Name=LSkat
+Name[uk]=LSkat
+Name[x-test]=xxLSkatxx
 GenericName=Card Game
+GenericName[uk]=Гра у карти
+GenericName[x-test]=xxCard Gamexx
 Exec=lskat
 Icon=lskat
 MimeType=

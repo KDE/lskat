@@ -1,4 +1,6 @@
 [Theme]
 Name=Egyptian
+Name[uk]=Єгиптянин
+Name[x-test]=xxEgyptianxx
 File=egyptian.rc
 Default=true

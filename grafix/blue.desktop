@@ -1,4 +1,6 @@
 [Theme]
 Name=Green Blase
+Name[uk]=Зелений пузир
+Name[x-test]=xxGreen Blasexx
 File=blue.rc
 Default=false

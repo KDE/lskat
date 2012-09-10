@@ -1,4 +1,6 @@
 [Theme]
 Name=Oxygen
+Name[uk]=Oxygen
+Name[x-test]=xxOxygenxx
 File=oxygen.rc
 
