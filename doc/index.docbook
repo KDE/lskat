@@ -7,7 +7,7 @@
   <!ENTITY % addindex "IGNORE">
 ]>
 
-<book lang="&language;">
+<book id="lskat" lang="&language;">
 <bookinfo>
 <title>The Lieutenant Skat Handbook</title>
 <authorgroup>
