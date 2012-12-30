@@ -92,7 +92,7 @@ void KCardWidget::setupGUI()
 
   // Connect signals
   connect(ui->list, SIGNAL(itemSelectionChanged()),
-          this, SLOT( updateSelection()));
+          this, SLOT(updateSelection()));
 }
 
 
