@@ -296,26 +296,6 @@ Quits the program.</action>
 <varlistentry>
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Show Toolbar</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>
-Shows or hides the toolbar.
-</action></para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Show Statusbar</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>
-Shows or hides the statusbar.
-</action></para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
 <guisubmenu>Starting Player</guisubmenu></menuchoice></term>
 <listitem><para>
 Selects whether player 1 (top) or player two (bottom)
@@ -395,35 +375,14 @@ than their original size.
 </para></listitem>
 </varlistentry>
 
-
-<varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Shortcuts...</guimenuitem>
-</menuchoice></term>
-<listitem><para>
-<action>Open a dialog which lets you redefine all the keyboard shortcuts.</action>
-</para></listitem>
-</varlistentry>
-
-<varlistentry id="toolbar_change">
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Configure Toolbars...</guimenuitem>
-</menuchoice></term>
-<listitem><para>
-<action>Open a dialog which lets you redefine the toolbar.</action>
-</para></listitem>
-</varlistentry>
-
 </variablelist>
-</sect1>
 
-<sect1 id="help">
-<title>The Help Menu</title>
-
-
-&help.menu.documentation;
+<para>
+Additionally &lskat; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+menu items, for more information read the sections about the
+<ulink url="help:/fundamentals/ui.html#menus-settings">Settings Menu</ulink> and
+<ulink url="help:/fundamentals/ui.html#menus-help">Help Menu</ulink> of the &kde; Fundamentals.
+</para>
 
 </sect1>
 
