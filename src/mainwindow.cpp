@@ -206,14 +206,14 @@ Mainwindow::~Mainwindow()
 
 
 // Called by KMainWindow when the last window of the application is
-bool Mainwindow::queryExit()
+void Mainwindow::closeEvent(QCloseEvent *event)
 {
   if (mEngine)
   {
     mEngine->stopGame();
   }
   saveProperties();
-  return true;
+  KXmlGuiWindow::closeEvent(event);
 }
 
 
