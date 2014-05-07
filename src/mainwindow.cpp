@@ -589,7 +589,8 @@ void Mainwindow::menuNewLSkatGame()
   }
 
   // Get rid of old stuff?
-  // Yes! Fixes bugs 330308 and 228067. if (mGameMode != LSkat)
+  if (true || (mGameMode != LSkat))	// Yes! Fixes bugs 330308 and 228067.
+  // Jenkins objected to the indentation if the above was simply commented out.
   {
     // Set new game mode
     mGameMode = LSkat;
