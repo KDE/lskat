@@ -589,7 +589,7 @@ void Mainwindow::menuNewLSkatGame()
   }
 
   // Get rid of old stuff?
-  if (mGameMode != LSkat)
+  // Yes! Fixes bugs 330308 and 228067. if (mGameMode != LSkat)
   {
     // Set new game mode
     mGameMode = LSkat;
