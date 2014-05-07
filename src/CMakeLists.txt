@@ -38,7 +38,7 @@ kde4_add_executable( lskat ${lskat_SRCS} )
 
 target_link_libraries( lskat kdegames ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${QT_QTGUI_LIBRARY} ${QT_QTSVG_LIBRARY} )
 
-install(TARGETS lskat  DESTINATION  ${BIN_INSTALL_DIR} )
+install(TARGETS lskat  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 
