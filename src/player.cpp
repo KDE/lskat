@@ -41,8 +41,8 @@ Player::Player(int id, QObject* parent)
   mDeck   = 0;
   mInput  = 0;
   mTrump  = Club;
-  
-  // Reset internal variables - they are set by 'load' 
+
+  // Reset internal variables - they are set by 'load'
   setName(QLatin1String( "" ));
   mScore         = 0;
   mNumberOfGames = 0;
@@ -50,7 +50,7 @@ Player::Player(int id, QObject* parent)
 }
 
 
-// Destructor 
+// Destructor
 Player::~Player()
 {
   delete mInput;
@@ -98,10 +98,10 @@ void Player::clear()
 }
 
 
-// Deal a number of cards to this player 
+// Deal a number of cards to this player
 void Player::deal(int amount)
 {
-  if (!mDeck) 
+  if (!mDeck)
   {
     kFatal() << "No deck set to player.";
     return;
@@ -123,20 +123,20 @@ void Player::deal(int amount)
 }
 
 
-// Retrieve the input device of the player 
+// Retrieve the input device of the player
 AbstractInput* Player::input()
 {
   return mInput;
 }
 
 
-// Set the input device of the player 
+// Set the input device of the player
 void Player::setInput(AbstractInput* input)
 {
   // Try to set the same turn status after changing input
   bool oldTurnAllowed = false;
   // Get rid of old input devive if existing
-  if (mInput) 
+  if (mInput)
   {
     oldTurnAllowed = mInput->inputAllowed();
     mInput->setInputAllowed(false);
@@ -153,26 +153,26 @@ void Player::setInput(AbstractInput* input)
 }
 
 
-// Set this player to start a turn 
+// Set this player to start a turn
 void Player::startTurn()
 {
   mInput->setInputAllowed(true);
 }
 
 
-// Set this player to stop a turn 
+// Set this player to stop a turn
 void Player::stopTurn()
 {
   mInput->setInputAllowed(false);
 }
-   
 
-// Remove a card from the given position. Typically if the
+
+// Remove a card from the given position. Typically if the card was played.
 void Player::deleteCard(int cardPosition)
 {
   if (cardPosition >= mCards.size())
   {
-    kFatal() << "Player" << mId << "tries to delete non esxisting card position " 
+    kFatal() << "Player" << mId << "tries to delete non existing card position "
               << cardPosition <<" >=" << mCards.size();
   }
   mCards[cardPosition] = -1;
@@ -184,22 +184,22 @@ void Player::addCard(int cardPosition, int card)
 {
   if (cardPosition >= mCards.size())
   {
-    kFatal() << "Player" << mId << "tries to add to esxisting card position " 
+    kFatal() << "Player" << mId << "tries to add to existing card position "
               << cardPosition <<" >=" << mCards.size();
   }
   mCards[cardPosition] = card;
 }
 
 
-// Retrive card value at given logical position
+// Retrieve card value at given logical position
 int Player::getCard(int playerNumber)
 {
   if (playerNumber >= mCards.size())
   {
-    kFatal() << "Player" << mId << "tries to get non esxisting card " 
+    kFatal() << "Player" << mId << "tries to get non existing card "
               << playerNumber <<" >=" << mCards.size();
   }
-  
+
   int card = mCards[playerNumber];
   return card;
 }
@@ -212,7 +212,7 @@ void Player::increaseMovesWon(int amount)
 }
 
 
-// Retrive the number of won moves for this player
+// Retrieve the number of won moves for this player
 int Player::noOfMovesWon()
 {
   return mMovesWon;
@@ -244,7 +244,7 @@ int Player::getWonCard(int no)
 }
 
 
-// Retrive the amount of points this player has
+// Retrieve the amount of points this player has
 int Player::points()
 {
   return mPoints;
@@ -259,7 +259,7 @@ void Player::setPoints(int points)
 }
 
 
-// Retrive the player's name
+// Retrieve the player's name
 QString Player::name()
 {
   return mName;

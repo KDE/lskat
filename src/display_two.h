@@ -58,9 +58,9 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
 
     /** Start the display.
      */
-    void start(); 
+    void start();
 
-    /** Main theme function. Called by the theme manager. Redraw and resize 
+    /** Main theme function. Called by the theme manager. Redraw and resize
       * display.
       */
     virtual void changeTheme();
@@ -81,7 +81,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
 
     /** Turn a card on the display. The card is flipped backside
      *  to frontside.
-     * @param cardNumber The card number (0-7)
+     * @param cardNumber The card number (0-31)
      */
     void turn(int cardNumber);
 
@@ -91,7 +91,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
      * @param delta Card offset from target position (0,1,2,...)
      */
     void remove(int winnerPosition, int cardNumber, int delta);
-  
+
     /** Display the score on the game board.
      * @param position Which player position
      * @param score The score to display
@@ -110,7 +110,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
 
   public slots:
     /** Convert the position of a mouse click to a logical
-      * game position, that is position (up/down) and a 
+      * game position, that is position (up/down) and a
       * card number (0-7)
       * @param mouse        The mouse coordinates [screen coordinates]
       * @param playerNumber The resulting player number [0-1]
@@ -127,7 +127,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
 
     /** Checks whether the shuffling is still ongoing (timer).
       */
-    void checkShuffle();  
+    void checkShuffle();
 
   signals:
     /** Signal is emitted when the dealing animation is done.
@@ -150,7 +150,7 @@ class DisplayTwo : public AbstractDisplay, public virtual Themable
     CardSprite* getCardSprite(int cardValue);
 
   private:
-    // Pixmap for movement sprite 
+    // Pixmap for movement sprite
     QPixmap* mMovePixmap;
     // Store all move sprites
     QHash<int,PixmapSprite*> mMoveSprites;
