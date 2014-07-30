@@ -50,16 +50,16 @@ class Player : public QObject
      */
     explicit Player(int id, QObject* parent=0);
 
-    /** Destructor 
+    /** Destructor
      */
      virtual ~Player();
 
-     /** Retrive the player numner.
+     /** Retrieve the player number.
        * @return The id.
        */
      int id() {return mId;}
 
-    /** Retrive card value at given logical position
+    /** Retrieve card value at given logical position
      *  @param playerNumber (0..max number of cards of player)
      *  @return Card number
      */
@@ -78,29 +78,29 @@ class Player : public QObject
      */
     void addCard(int cardPosition, int card);
 
-    /** Set this player to start a turn 
+    /** Set this player to start a turn
     */
     void startTurn();
 
-    /** Set this player to stop a turn 
+    /** Set this player to stop a turn
     */
     void stopTurn();
-    
-    /** Deal a number of cards to this player 
+
+    /** Deal a number of cards to this player
      *  @param amount The amount of cards
      */
-    void deal(int amount); 
+    void deal(int amount);
 
-    /** Increases the number of moves one for this player.
+    /** Increases the number of moves by one for this player.
      *  @param amount Increase by this amount (default 1)
      */
     void increaseMovesWon(int amount = 1);
 
-    /** Retrive the number of won moves for this player.
+    /** Retrieve the number of won moves for this player.
      * @return The amount of won moves for this player.
      */
     int noOfMovesWon();
-    
+
     /** Adds a card which is one in a move to this player.
      *  Also  increase this players point by the points
      *  of the card. Note, this method has to be called with both
@@ -115,7 +115,7 @@ class Player : public QObject
      */
     int getWonCard(int no);
 
-    /** Retrive the amount of points this player has.
+    /** Retrieve the amount of points this player has.
      *  @return The amount of points (0-120).
      */
     int points();
@@ -125,8 +125,8 @@ class Player : public QObject
      *  @param points The points.
      */
     void setPoints(int points);
-    
-    /** Retrive the name of the player.
+
+    /** Retrieve the name of the player.
      *  @return The player's name.
      */
     QString name();
@@ -137,8 +137,7 @@ class Player : public QObject
      */
     void setName(const QString &name);
 
-    /** Add a number of won games to the overall 
-      * player statistic.
+    /** Add a number of won games to the overall player statistic.
       * @param amount The amount of won games
       */
     void addWonGame(int amount);
@@ -148,8 +147,7 @@ class Player : public QObject
       */
     int wonGames();
 
-    /** Add a number of games to the overall 
-      * player statistic.
+    /** Add a number of games to the overall player statistic.
       * @param amount The amount of games
       */
     void addGame(int amount);
@@ -159,8 +157,7 @@ class Player : public QObject
       */
     int games();
 
-    /** Add a score to the overall 
-     *  player statistic.
+    /** Add a score to the overall player statistic.
      *  @param amount The score amount
      */
     void addScore(int amount);
@@ -170,7 +167,7 @@ class Player : public QObject
       */
     int score();
 
-    /** Retrieve the input device of the player 
+    /** Retrieve the input device of the player
      *  @return The input device.
      */
     AbstractInput* input();
@@ -183,7 +180,7 @@ class Player : public QObject
      /** Set the deck for drawing cards.
       *  @param deck The deck
       */
-     void setDeck(Deck* deck); 
+     void setDeck(Deck* deck);
 
      /** Refresh GUI by emitting a signal.
      */
@@ -191,19 +188,19 @@ class Player : public QObject
 
      /** Clear the all time statistics of this player.
       */
-     void clear(); 
+     void clear();
 
-     /** Set the trump to the player 
+     /** Set the trump to the player
       *  @param trump The trump suite
       */
-     void setTrump(Suite trump); 
+     void setTrump(Suite trump);
 
      /** Retrieve the trump.
        * @return The trump suite.
        */
      Suite trump();
 
-     /** Saves the properties 
+     /** Saves the properties
       * @param config The config group object.
       */
      void save(KConfigGroup& config);
@@ -220,31 +217,31 @@ class Player : public QObject
     void signalUpdate(Player* p);
 
   private:
-    // Players input device 
+    // Players input device
     AbstractInput* mInput;
-    // Card deck 
+    // Card deck
     Deck* mDeck;
-    // Our cards 
+    // Our cards
     QVector<int> mCards;
-    // Our won cards 
+    // Our won cards
     QList<int>   mWonCards;
-    // Our points 
+    // Our points
     int mPoints;
-    // Our id 
+    // Our id
     int mId;
-    // Number of moves won in the current game 
+    // Number of moves won in the current game
     int mMovesWon;
-    // The current trump 
+    // The current trump
     Suite mTrump;
 
     // These attributes need to be saved
     // Our name
     QString mName;
-    // Overall games won for this player 
+    // Overall games won for this player
     int mGamesWon;
-    // Overall score for this player 
+    // Overall score for this player
     int mScore;
-    // Overall number of games for this player 
+    // Overall number of games for this player
     int mNumberOfGames;
 };
 
