@@ -402,8 +402,7 @@ void Mainwindow::initGUI()
   // End a game
   action = KStandardGameAction::end(this, SLOT(menuEndGame()), actionCollection());
   action->setWhatsThis(i18n("Ends a currently played game. No winner will be declared."));
-  if (global_demo_mode) action->setEnabled(false);
-  else action->setEnabled(false);
+  action->setEnabled(false);
 
   // Quit the program
   action = KStandardGameAction::quit(this, SLOT(close()), actionCollection());
@@ -512,7 +511,6 @@ void Mainwindow::menuPlayer2By()
 void Mainwindow::menuCardDeck()
 {
   QString front = mCardTheme;
-  int result;
 
   KConfigGroup grp = KGlobal::config()->group("ProgramData");
   KCardWidget* cardwidget = new KCardWidget();
