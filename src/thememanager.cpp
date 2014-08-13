@@ -102,14 +102,9 @@ KCardInfo convertToKCardInfo(CardDeck::Suite suite, CardDeck::CardType card)
 // Constructor for the theme manager
 ThemeManager::ThemeManager(const QString &cardTheme,
                            const QString &themefile, QObject* parent, int initialSize)
-    : QObject(parent), mConfig( 0 )
+    : QObject(parent), mRenderer(0), mConfig(0), mCardTheme(cardTheme),
+    mScale(initialSize), mAspectRatio(1.0), mCardAspectRatio(1.0)
 {
-  mScale           = initialSize;
-  mAspectRatio     = 1.0;
-  mCardAspectRatio = 1.0;
-  mCardTheme       = cardTheme;
-  mRenderer        = 0;
-
   mCardCache = new KCardCache();
 
   // updateTheme(themefile);
