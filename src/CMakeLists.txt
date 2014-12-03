@@ -1,5 +1,5 @@
 
-include_directories( ${CMAKE_SOURCE_DIR}/libkdegames/kgame )
+include_directories( ${CMAKE_SOURCE_DIR}/libKF5KDEGames/kgame )
 
 set( lskat_SRCS 
     thememanager.cpp
@@ -27,16 +27,16 @@ set( lskat_SRCS
     fromlibkdegames/kcarddialog.cpp )
 
 
-kde4_add_ui_files( lskat_SRCS
+ki18n_wrap_ui( lskat_SRCS
     namedialog.ui
     fromlibkdegames/kgamecardselector.ui )
 
 configure_file(config-src.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
 
 kde4_add_app_icon(lskat_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../hi*-app-lskat.png")
-kde4_add_executable( lskat ${lskat_SRCS} )
+add_executable( lskat ${lskat_SRCS} )
 
-target_link_libraries( lskat kdegames ${KDE4_KDECORE_LIBS} ${KDE4_KDEUI_LIBS} ${QT_QTGUI_LIBRARY} ${QT_QTSVG_LIBRARY} )
+target_link_libraries( lskat KF5KDEGames KF5::KDELibs4Support  Qt5::Gui Qt5::Svg )
 
 install(TARGETS lskat  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 

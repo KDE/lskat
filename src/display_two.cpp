@@ -423,4 +423,4 @@ void DisplayTwo::showMove(int no)
 }
 
 
-#include "display_two.moc"
+

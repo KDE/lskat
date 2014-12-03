@@ -62,4 +62,4 @@ QString NameDialogWidget::name(int pos)
   }
 }
 
-#include "namedialogwidget.moc"
+

@@ -205,4 +205,4 @@ KCardDialog::KCardDialog( KCardWidget* widget )
   setButtons(KDialog::Ok | KDialog::Cancel);
 }
 
-#include "kcarddialog.moc"
+

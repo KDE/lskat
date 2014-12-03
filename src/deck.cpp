@@ -206,4 +206,4 @@ QString Deck::name(Suite suite, CardType type)
 }
 
 
-#include "deck.moc"
+

@@ -803,4 +803,4 @@ bool AiInput::isLegalMove(int card1, int card2, int pl, const AiInput::Board& cu
   return true;
 }
 
-#include "aiinput.moc"
+

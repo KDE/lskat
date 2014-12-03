@@ -249,4 +249,4 @@ void DisplayIntro::loop()
 }
 
 
-#include "display_intro.moc"
+

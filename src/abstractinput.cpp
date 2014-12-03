@@ -56,4 +56,4 @@ bool AbstractInput::inputAllowed()
 }
 
 
-#include "abstractinput.moc"
+

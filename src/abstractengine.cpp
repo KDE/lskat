@@ -49,4 +49,4 @@ Player* AbstractEngine::player(int no)
 }
 
 
-#include "abstractengine.moc"
+

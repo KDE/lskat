@@ -53,4 +53,4 @@ void MouseInput::mousePress(const QPoint &point)
 }
 
 
-#include "mouseinput.moc"
+

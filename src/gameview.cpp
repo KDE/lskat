@@ -247,4 +247,4 @@ void GameView::drawItems(QPainter* painter, int numItems, QGraphicsItem* items[]
 
 }
 
-#include "gameview.moc"
+

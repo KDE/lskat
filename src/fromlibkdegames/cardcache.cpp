@@ -494,4 +494,4 @@ void KCardCache::invalidateCache()
         d->cache->discard();
 }
 
-#include "cardcache_p.moc"
+

@@ -339,4 +339,4 @@ void Player::refresh()
   emit signalUpdate(this);
 }
 
-#include "player.moc"
+

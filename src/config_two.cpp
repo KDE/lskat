@@ -141,4 +141,4 @@ void ConfigTwo::setInputType(int no, InputDeviceType type)
 }
 
 
-#include "config_two.moc"
+

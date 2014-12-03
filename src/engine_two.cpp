@@ -510,4 +510,4 @@ int EngineTwo::whoWonMove(int card1, int card2, Suite trump)
 }
 
 
-#include "engine_two.moc"
+

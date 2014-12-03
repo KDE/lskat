@@ -100,4 +100,4 @@ void AbstractDisplay::createCardSprites()
   }// next
 }
 
-#include "abstractdisplay.moc"
+
