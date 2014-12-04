@@ -25,6 +25,7 @@
 
 // Qt includes
 #include <QSizeF>
+#include <QGraphicsScene>
 
 // KDE includes
 #include <kdebug.h>
@@ -34,8 +35,9 @@
 
 // Constructor for the sprite
 PixmapSprite::PixmapSprite(const QString &id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* canvas)
-    :  Themable(id, theme), QGraphicsPixmapItem(0, canvas)
+    :  Themable(id, theme), QGraphicsPixmapItem(0)
 {
+  canvas->addItem(this);
   hide();
 
   mAnimationState = Idle;
@@ -51,8 +53,9 @@ PixmapSprite::PixmapSprite(const QString &id, ThemeManager* theme, int advancePe
 
 // Constructor for the sprite
 PixmapSprite::PixmapSprite(int advancePeriod, int no, QGraphicsScene* canvas)
-    :  Themable(), QGraphicsPixmapItem(0, canvas)
+    :  Themable(), QGraphicsPixmapItem(0)
 {
+  canvas->addItem(this);
   hide();
 
   mAnimationState = Idle;

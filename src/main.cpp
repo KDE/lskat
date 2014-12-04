@@ -45,7 +45,7 @@
 #include <kapplication.h>
 #include <kcmdlineargs.h>
 #include <kdebug.h>
-#include <kaboutdata.h>
+#include <K4AboutData>
 #include <klocale.h>
 #include <kglobal.h>
 
@@ -66,10 +66,10 @@ bool global_demo_mode  = false;
 int main(int argc, char *argv[])
 {
   global_debug=0;
-  KAboutData aboutData( "lskat", 0, ki18n("LSkat"),
+  K4AboutData aboutData( "lskat", 0, ki18n("LSkat"),
                         LSKAT_VERSION,
                         ki18n("LSkat: A desktop card game"),
-                        KAboutData::License_GPL,
+                        K4AboutData::License_GPL,
                         ki18n("(c) 1995-2007, Martin Heni"),
                         KLocalizedString(),
                         "http://games.kde.org/lskat" );

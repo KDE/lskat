@@ -63,7 +63,8 @@ GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, 
 
   // Debug                      
   mDisplayUpdateTime = 0;
-  mFrameSprite = new QGraphicsTextItem(0, scene);
+  mFrameSprite = new QGraphicsTextItem(0);
+  scene->addItem(mFrameSprite);
   mFrameSprite->setPos(QPointF(0.0, 0.0));
   mFrameSprite->setZValue(1000.0);
   if (global_debug > 0) mFrameSprite->show();

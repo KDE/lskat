@@ -45,5 +45,5 @@ add_subdirectory(doc)
 ########### install files ###############
 install( PROGRAMS lskat.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
 
-ecm_install_icons( ${ICON_INSTALL_DIR}   )
+ecm_install_icons( ICONS hi128-apps-lskat.png  hi16-apps-lskat.png  hi22-apps-lskat.png  hi32-apps-lskat.png  hi48-apps-lskat.png  hi64-apps-lskat.png DESTINATION ${ICON_INSTALL_DIR}   )
 

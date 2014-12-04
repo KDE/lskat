@@ -32,7 +32,7 @@
 #include <khelpmenu.h>
 #include <kdebug.h>
 #include <kstandardaction.h>
-#include <kaction.h>
+#include <QAction>
 #include <kactioncollection.h>
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
@@ -44,7 +44,7 @@
 #include <ktoolbar.h>
 #include <kselectaction.h>
 #include <kapplication.h>
-
+#include <KShortcut>
 // Application specific includes
 #include "lskatglobal.h"
 #include "gameview.h"
@@ -457,7 +457,7 @@ void Mainwindow::initGUI()
   themeAct->setWhatsThis(i18n("Changing theme."));
 
   // Choose card deck
-  KAction *action1 = actionCollection()->addAction( QLatin1String( "select_carddeck" ));
+  QAction *action1 = actionCollection()->addAction( QLatin1String( "select_carddeck" ));
   action1->setText(i18n("Select &Card Deck..."));
   action1->setShortcuts( KShortcut( Qt::Key_F10 ) );
   connect(action1, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));

@@ -26,6 +26,7 @@
 // Qt includes
 #include <QPoint>
 #include <QMatrix>
+#include <QGraphicsScene>
 
 // KDE includes
 #include <kdebug.h>
@@ -44,9 +45,10 @@
 // Constructor for the view
 CardSprite::CardSprite(const Suite suite, const CardType cardtype, ThemeManager* theme,
                        int advancePeriod, QGraphicsScene* scene)
-          : Themable(QLatin1String( THEME_ID ), theme), QGraphicsPixmapItem(0, scene)
+          : Themable(QLatin1String( THEME_ID ), theme), QGraphicsPixmapItem(0)
 
 {
+  scene->addItem(this);
   mAnimationState = Idle;
   mCurrentFrame   = -1; // Frame will be set to backside
   mAdvancePeriod  = advancePeriod;
