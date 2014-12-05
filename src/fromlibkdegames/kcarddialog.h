@@ -19,7 +19,7 @@
 #ifndef __KCARDDIALOG_H_
 #define __KCARDDIALOG_H_
 
-#include <QtGui/QWidget>
+#include <QWidget>
 #include <kdialog.h>
 #include <kconfig.h>
 
