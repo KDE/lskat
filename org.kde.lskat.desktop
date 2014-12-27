@@ -134,3 +134,4 @@ Terminal=false
 Type=Application
 X-DocPath=lskat/index.html
 Categories=Qt;KDE;Game;CardGame;
+X-DBUS-ServiceName=org.kde.lskat
