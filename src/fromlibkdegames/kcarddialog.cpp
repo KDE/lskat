@@ -29,7 +29,7 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <krandom.h>
-#include <kdebug.h>
+#include "lskat_debug.h"
 
 #include "carddeckinfo.h"
 #include "carddeckinfo_p.h"

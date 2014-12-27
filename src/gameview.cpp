@@ -32,7 +32,7 @@
 // KDE includes
 #include <KLocalizedString>
 #include <kmessagebox.h>
-#include <kdebug.h>
+#include "lskat_debug.h"
 #include <kstandarddirs.h>
 
 // Local includes
@@ -129,7 +129,7 @@ void GameView::resizeEvent(QResizeEvent* e)
 {
   QTime t;
   t.start();
-  if (global_debug > 2) kDebug() <<"RESIZE EVENT" << e->size() << "oldSize="<< e->oldSize() <<" at" << t.msecsTo(mTimeStart);
+  if (global_debug > 2) qCDebug(LSKAT_LOG) <<"RESIZE EVENT" << e->size() << "oldSize="<< e->oldSize() <<" at" << t.msecsTo(mTimeStart);
   double diffW = double(e->oldSize().width()-e->size().width());
   double diffH = double(e->oldSize().height()-e->size().height());
   double delta = fabs(diffW) + fabs(diffH); 
@@ -174,7 +174,7 @@ void GameView::resizeEvent(QResizeEvent* e)
   }
   mThemeQueue.prepend(int(width));
   mThemeOffset.prepend(offset);
-  if (global_debug > 2) kDebug() << "Quequed resize, aspect=" << aspect << "theme aspect="<< mTheme->aspectRatio();
+  if (global_debug > 2) qCDebug(LSKAT_LOG) << "Quequed resize, aspect=" << aspect << "theme aspect="<< mTheme->aspectRatio();
 
   long queueDelay = 0;
   if (delta < 15) queueDelay = 750;
@@ -189,24 +189,24 @@ void GameView::rescaleTheme()
 {
   if (mThemeQueue.size() == 0)
   {
-    if (global_debug > 2) kDebug() << "***************** Swallowing rescale event ***********************";
+    if (global_debug > 2) qCDebug(LSKAT_LOG) << "***************** Swallowing rescale event ***********************";
     return;
   }
 
   QTime t;
   t.start();
 
-  if (global_debug > 2) kDebug() << "Theme queue rescale start at"  << t.msecsTo(mTimeStart);
+  if (global_debug > 2) qCDebug(LSKAT_LOG) << "Theme queue rescale start at"  << t.msecsTo(mTimeStart);
   resetTransform();
   int width = mThemeQueue.first();
   mInputOffset = mThemeOffset.first();
-  if (global_debug > 2) kDebug() << "Theme queue size=" << mThemeQueue.size() << "Rescale width to" << width;
+  if (global_debug > 2) qCDebug(LSKAT_LOG) << "Theme queue size=" << mThemeQueue.size() << "Rescale width to" << width;
   
   mThemeQueue.clear();
   mThemeOffset.clear();
   mTheme->rescale(width, mInputOffset);
 
-   if (global_debug > 2) kDebug() << "Time elapsed: "<< t.elapsed() << "ms";
+   if (global_debug > 2) qCDebug(LSKAT_LOG) << "Time elapsed: "<< t.elapsed() << "ms";
 }
 
 

@@ -44,11 +44,11 @@
 
 #include <kapplication.h>
 #include <kcmdlineargs.h>
-#include <kdebug.h>
+#include "lskat_debug.h"
 #include <K4AboutData>
 #include <KLocalizedString>
 #include <kglobal.h>
-
+#include <KDebug>
 #include "mainwindow.h"
 #include "lskatglobal.h"
 

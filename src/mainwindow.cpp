@@ -30,7 +30,7 @@
 #include <kmessagebox.h>
 #include <kfiledialog.h>
 #include <khelpmenu.h>
-#include <kdebug.h>
+#include "lskat_debug.h"
 #include <kstandardaction.h>
 #include <QAction>
 #include <kactioncollection.h>
@@ -91,7 +91,7 @@ Mainwindow::Mainwindow(QWidget* parent)
 
   #ifndef NDEBUG
   #ifdef SRC_DIR
-  kDebug() << "Found SRC_DIR =" << SRC_DIR;
+  qCDebug(LSKAT_LOG) << "Found SRC_DIR =" << SRC_DIR;
   KGlobal::dirs()->addResourceDir("lskattheme",QLatin1String( SRC_DIR)+QString("/grafix/"));
   #endif
   #endif
@@ -117,7 +117,7 @@ Mainwindow::Mainwindow(QWidget* parent)
     if (mThemeDefault.isNull()) mThemeDefault = name;
     if (isDefault) mThemeDefault = name;
 
-    if (global_debug>0) kDebug() <<  "Found theme: " <<themeList.at(i) <<" Name(i18n)="<<name<<" File="<<file << " default="<<isDefault;
+    if (global_debug>0) qCDebug(LSKAT_LOG) <<  "Found theme: " <<themeList.at(i) <<" Name(i18n)="<<name<<" File="<<file << " default="<<isDefault;
   }
   mThemeIndexNo = themeIdxFromName(mThemeDefault);
 
@@ -134,18 +134,18 @@ Mainwindow::Mainwindow(QWidget* parent)
   readProperties();
 
   // TODO: Bugfix: Needs to be here if initGUI is befure readProperties
-  if (global_debug>0) kDebug() << "Setting current theme item to" << mThemeIndexNo;
+  if (global_debug>0) qCDebug(LSKAT_LOG) << "Setting current theme item to" << mThemeIndexNo;
   ((KSelectAction*)ACTION(QLatin1String( "theme" )))->setCurrentItem(mThemeIndexNo);
 
 
   // Get the card deck
   long seed = KRandom::random();
-  if (global_debug > 0) kDebug() << "Random seed" << seed;
+  if (global_debug > 0) qCDebug(LSKAT_LOG) << "Random seed" << seed;
   mDeck = new Deck(seed, this);
 
   // Theme manager
   QString themeFile = themefileFromIdx(mThemeIndexNo);
-  if (global_debug > 0) kDebug() << "Load theme" << themeFile << " no=" << mThemeIndexNo;
+  if (global_debug > 0) qCDebug(LSKAT_LOG) << "Load theme" << themeFile << " no=" << mThemeIndexNo;
   mTheme  = new ThemeManager(mCardTheme, themeFile, this, this->width());
   if (mTheme->checkTheme() != 0)
   {
@@ -187,7 +187,7 @@ Mainwindow::Mainwindow(QWidget* parent)
     // Start intro
     mDisplay->start();
   }
-  if (global_debug > 0) kDebug() << "Mainwindow setup constructor done";
+  if (global_debug > 0) qCDebug(LSKAT_LOG) << "Mainwindow setup constructor done";
 
 }
 
@@ -235,7 +235,7 @@ int Mainwindow::themeIdxFromName(QString name)
   {
     if (list[i] == name) return i;
   }
-  kError() << "Theme index lookup failed for " << name;
+  qCCritical(LSKAT_LOG) << "Theme index lookup failed for " << name;
   return 0;
 }
 
@@ -303,7 +303,7 @@ AbstractInput* Mainwindow::createInput(
     connect(mouseInput, SIGNAL(signalPlayerInput(int,int,int)),
             engine, SLOT(playerInput(int,int,int)));
     input = mouseInput;
-    if (global_debug > 0) kDebug() << "Create MOUSE INPUT";
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Create MOUSE INPUT";
   }
   else if (inputType == TypeAiInput)
   {
@@ -311,11 +311,11 @@ AbstractInput* Mainwindow::createInput(
     connect(aiInput, SIGNAL(signalPlayerInput(int,int,int)),
             engine, SLOT(playerInput(int,int,int)));
     input = aiInput;
-    if (global_debug > 0) kDebug() << "Create AI INPUT";
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Create AI INPUT";
   }
   else
   {
-    kFatal() << "Unpupported input device type" << inputType;
+    qCCritical(LSKAT_LOG) << "Unpupported input device type" << inputType;
   }
 
   return input;
@@ -451,7 +451,7 @@ void Mainwindow::initGUI()
   actionCollection()->addAction( QLatin1String( "theme" ), themeAct);
   themeAct->setItems(themes);
   connect( themeAct, SIGNAL(triggered(int)), SLOT(changeTheme(int)) );
-  if (global_debug>0) kDebug() << "Setting current theme item to" << mThemeIndexNo;
+  if (global_debug>0) qCDebug(LSKAT_LOG) << "Setting current theme item to" << mThemeIndexNo;
   themeAct->setCurrentItem(mThemeIndexNo);
   themeAct->setToolTip(i18n("Changing theme..."));
   themeAct->setWhatsThis(i18n("Changing theme."));
@@ -485,7 +485,7 @@ void Mainwindow::changeTheme(int idx)
 {
   mThemeIndexNo = idx;
   QString themeFile = themefileFromIdx(idx);
-  if (global_debug>0) kDebug() << "Select theme" << themeFile;
+  if (global_debug>0) qCDebug(LSKAT_LOG) << "Select theme" << themeFile;
   mTheme->updateTheme(themeFile);
 }
 
@@ -521,7 +521,7 @@ void Mainwindow::menuCardDeck()
     // Always store the settings, other things than the deck may have changed
     cardwidget->saveSettings(grp);
     grp.sync();
-    if (global_debug > 0) kDebug() << "NEW CARDDECK:" << front;
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "NEW CARDDECK:" << front;
     bool change = false; // Avoid unnecessary changes
     if (!cardwidget->deckName().isEmpty() && cardwidget->deckName() != mCardTheme)
     {

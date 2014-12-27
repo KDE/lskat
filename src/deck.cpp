@@ -25,7 +25,7 @@
 
 // KDE includes
 #include <KLocalizedString>
-#include <kdebug.h>
+#include "lskat_debug.h"
 #include <klocalizedstring.h>
 
 // How many cards
@@ -123,7 +123,7 @@ int Deck::drawCard()
 {
   if (mCards.size() < 1)
   {
-    kFatal() << "No more cards to draw from card deck";
+    qCCritical(LSKAT_LOG) << "No more cards to draw from card deck";
   }
   int card = mCards.takeFirst();
   return card;

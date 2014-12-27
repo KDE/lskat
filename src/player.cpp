@@ -24,7 +24,7 @@
 
 // KDE includes
 #include <KLocalizedString>
-#include <kdebug.h>
+#include "lskat_debug.h"
 #include <kconfiggroup.h>
 
 // Local includes
@@ -103,7 +103,7 @@ void Player::deal(int amount)
 {
   if (!mDeck)
   {
-    kFatal() << "No deck set to player.";
+    qCCritical(LSKAT_LOG) << "No deck set to player.";
     return;
   }
   mCards.clear();
@@ -172,7 +172,7 @@ void Player::deleteCard(int cardPosition)
 {
   if (cardPosition >= mCards.size())
   {
-    kFatal() << "Player" << mId << "tries to delete non existing card position "
+    qCCritical(LSKAT_LOG) << "Player" << mId << "tries to delete non existing card position "
               << cardPosition <<" >=" << mCards.size();
   }
   mCards[cardPosition] = -1;
@@ -184,7 +184,7 @@ void Player::addCard(int cardPosition, int card)
 {
   if (cardPosition >= mCards.size())
   {
-    kFatal() << "Player" << mId << "tries to add to existing card position "
+    qCCritical(LSKAT_LOG) << "Player" << mId << "tries to add to existing card position "
               << cardPosition <<" >=" << mCards.size();
   }
   mCards[cardPosition] = card;
@@ -196,7 +196,7 @@ int Player::getCard(int playerNumber)
 {
   if (playerNumber >= mCards.size())
   {
-    kFatal() << "Player" << mId << "tries to get non existing card "
+    qCCritical(LSKAT_LOG) << "Player" << mId << "tries to get non existing card "
               << playerNumber <<" >=" << mCards.size();
   }
 
@@ -236,7 +236,7 @@ int Player::getWonCard(int no)
 {
   if (no>=mWonCards.size())
   {
-    kFatal() << "Player::getWonCard This card" << no << "is not available. "
+    qCCritical(LSKAT_LOG) << "Player::getWonCard This card" << no << "is not available. "
               << "Only" << mWonCards.size() << "cards stored.";
     return -1;
   }

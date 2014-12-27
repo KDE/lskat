@@ -25,7 +25,7 @@
 #include <QTimer>
 
 // KDE includes
-#include <kdebug.h>
+#include "lskat_debug.h"
 #include <klocalizedstring.h>
 #include <kconfiggroup.h>
 
@@ -53,47 +53,47 @@ DisplayTwo::DisplayTwo(Deck* deck, QGraphicsScene* theScene, ThemeManager* theme
 
   // Create move icon
   mMoveSprites[0] = new PixmapSprite(QLatin1String( "moveicon0" ), mTheme, mAdvancePeriod, 0, scene());
-  if (!mMoveSprites[0]) kFatal() << "Cannot load sprite" << "moveicon";
+  if (!mMoveSprites[0]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "moveicon";
   mSprites.append(mMoveSprites[0]);
 
   mMoveSprites[1] = new PixmapSprite(QLatin1String( "moveicon1" ), mTheme, mAdvancePeriod, 1, scene());
-  if (!mMoveSprites[1]) kFatal() << "Cannot load sprite" << "moveicon";
+  if (!mMoveSprites[1]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "moveicon";
   mSprites.append(mMoveSprites[1]);
 
   // Create score board
   mScoreBoard[0] = new ScoreSprite(QLatin1String( "scoreboard0" ), mTheme, mAdvancePeriod, 0, scene());
-  if (!mScoreBoard[0]) kFatal() << "Cannot load sprite" << "scoreboard0";
+  if (!mScoreBoard[0]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "scoreboard0";
   mSprites.append(mScoreBoard[0]);
 
   mScoreBoard[1] = new ScoreSprite(QLatin1String( "scoreboard1" ), mTheme, mAdvancePeriod, 1, scene());
-  if (!mScoreBoard[1]) kFatal() << "Cannot load sprite" << "scoreboard0";
+  if (!mScoreBoard[1]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "scoreboard0";
   mSprites.append(mScoreBoard[1]);
 
   // Create card area
   mCardArea[0] = new PixmapSprite(QLatin1String( "cardarea0" ), mTheme, mAdvancePeriod, 0, scene());
-  if (!mCardArea[0]) kFatal() << "Cannot load sprite" << "cardarea0";
+  if (!mCardArea[0]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "cardarea0";
   mSprites.append(mCardArea[0]);
 
   mCardArea[1] = new PixmapSprite(QLatin1String( "cardarea1" ), mTheme, mAdvancePeriod, 1, scene());
-  if (!mCardArea[1]) kFatal() << "Cannot load sprite" << "cardarea1";
+  if (!mCardArea[1]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "cardarea1";
   mSprites.append(mCardArea[1]);
 
   // Create play area
   mPlayArea = new PixmapSprite(QLatin1String( "playarea" ), mTheme, mAdvancePeriod, 0, scene());
-  if (!mPlayArea) kFatal() << "Cannot load sprite" << "playarea";
+  if (!mPlayArea) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "playarea";
   mSprites.append(mPlayArea);
 
   // Create text sprites
   mText[0] = new TextSprite(QLatin1String( "scoretext0" ), mTheme, scene());
-  if (!mText[0]) kFatal() << "Cannot load sprite" << "scoretext0";
+  if (!mText[0]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "scoretext0";
   mSprites.append(mText[0]);
 
   mText[1] = new TextSprite(QLatin1String( "scoretext1" ), mTheme, scene());
-  if (!mText[1]) kFatal() << "Cannot load sprite" << "scoretext1";
+  if (!mText[1]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "scoretext1";
   mSprites.append(mText[1]);
 
   mText[2] = new TextSprite(QLatin1String( "resulttext" ), mTheme, scene());
-  if (!mText[2]) kFatal() << "Cannot load sprite" << "resulttext";
+  if (!mText[2]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "resulttext";
   mSprites.append(mText[2]);
 
     // Redraw
@@ -160,12 +160,12 @@ void DisplayTwo::deal(Player* player, int position)
 {
   if (position != 0 && position != 1)
   {
-    kFatal() << "Wrong player position" << position;
+    qCCritical(LSKAT_LOG) << "Wrong player position" << position;
     return ;
   }
   if (!player)
   {
-    kFatal() << "No player given";
+    qCCritical(LSKAT_LOG) << "No player given";
     return ;
   }
 
@@ -317,7 +317,7 @@ CardSprite* DisplayTwo::getCardSprite(int cardValue)
   CardSprite* sprite =  mCards[cardValue];
   if (!sprite)
   {
-    kFatal() << "Could not find cardsprite for card value" << cardValue
+    qCCritical(LSKAT_LOG) << "Could not find cardsprite for card value" << cardValue
               << "Stored are" << mCards.size() << "sprites";
     return 0;
   }
@@ -395,7 +395,7 @@ void DisplayTwo::showScore(int position, int score)
 {
   if (position<0 || position>1)
   {
-    kFatal() << "Wrong position (0,1) for showScore =" << position;
+    qCCritical(LSKAT_LOG) << "Wrong position (0,1) for showScore =" << position;
   }
   if (score==0)
     mText[position]->setText(i18nc("Resulting score of a game with no point", "no point"));

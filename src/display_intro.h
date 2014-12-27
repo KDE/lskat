@@ -26,7 +26,7 @@
 
 
 // KDE includes
-#include <kdebug.h>
+#include "lskat_debug.h"
 
 // local includes
 #include "abstractdisplay.h"

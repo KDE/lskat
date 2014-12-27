@@ -29,7 +29,7 @@
 #include <QGraphicsScene>
 
 // KDE includes
-#include <kdebug.h>
+#include "lskat_debug.h"
 #include <kconfig.h>
 #include <KLocalizedString>
 #include <kconfiggroup.h>
@@ -48,13 +48,13 @@ ScoreSprite::ScoreSprite(const QString &id, ThemeManager* theme, int advancePeri
   mGames   = new QGraphicsTextItem(this);
   scene->addItem(mGames);
   mInput   = new PixmapSprite(QLatin1String( "scoreinput" ), theme, advancePeriod, 0, scene);
-  if (!mInput) kFatal() << "Cannot load sprite" << "scoreinput";
+  if (!mInput) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "scoreinput";
   mInput->setParentItem(this);
   mInput->setOffsetStatus(false);
   mInputFrame = 0;
 
   mTrump   = new PixmapSprite(QLatin1String( "scoretrump" ), theme, advancePeriod, 0, scene);
-  if (!mTrump) kFatal() << "Cannot load sprite" << "scoretrump";
+  if (!mTrump) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "scoretrump";
   mTrump->setParentItem(this);
   mTrump->setOffsetStatus(false);
   mTrumpFrame = 0;

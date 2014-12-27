@@ -26,7 +26,7 @@
 #include <QHash>
 
 // KDE includes
-#include <kdebug.h>
+#include "lskat_debug.h"
 
 // Local includes
 #include "deck.h"

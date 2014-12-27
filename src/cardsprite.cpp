@@ -29,7 +29,7 @@
 #include <QGraphicsScene>
 
 // KDE includes
-#include <kdebug.h>
+#include "lskat_debug.h"
 #include <kconfiggroup.h>
 
 // Delay for card turning animation [ms]

@@ -26,7 +26,7 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <krandom.h>
-#include <kdebug.h>
+#include "lskat_debug.h"
 #include <kconfiggroup.h>
 #include <kglobal.h>
 
@@ -79,7 +79,7 @@ public:
             info.preview      = pixmap;
             info.path         = path;
             info.back         = cfgcg.readEntry( "Back", QString() );
-            // if (!info.back.isNull()) kDebug() << "FOUND BACK " << info.back;
+            // if (!info.back.isNull()) qCDebug(LSKAT_LOG) << "FOUND BACK " << info.back;
             info.isDefault    = cfgcg.readEntry( "Default", false );
 
             QString svg    = cfgcg.readEntry( "SVG", QString() );
@@ -134,7 +134,7 @@ QString defaultDeckName()
         // Collect any deck if no default is stored
         noDefault = v.noi18Name;
     }
-    if ( noDefault.isNull() ) kError() << "Could not find default card name";
+    if ( noDefault.isNull() ) qCCritical(LSKAT_LOG) << "Could not find default card name";
     return noDefault;
 }
 

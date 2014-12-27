@@ -24,7 +24,7 @@
 #include <QWidget>
 
 // KDE includes
-#include <kdebug.h>
+#include "lskat_debug.h"
 
 
 // Constructor for the widget

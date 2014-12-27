@@ -23,7 +23,7 @@
 // Qt includes
 
 // KDE includes
-#include <kdebug.h>
+#include "lskat_debug.h"
 
 
 // Constructor for the game document/engine
