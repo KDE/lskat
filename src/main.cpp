@@ -46,7 +46,7 @@
 #include <kcmdlineargs.h>
 #include <kdebug.h>
 #include <K4AboutData>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kglobal.h>
 
 #include "mainwindow.h"
@@ -112,7 +112,8 @@ int main(int argc, char *argv[])
   }
   args->clear();  
   KApplication application(true);
-  KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
+  //KF5 port: remove this line and define TRANSLATION_DOMAIN in CMakeLists.txt instead
+//KLocale::global()->insertCatalog( QLatin1String( "libkdegames" ));
 
   if (application.isSessionRestored())
   {

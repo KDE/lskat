@@ -30,7 +30,7 @@
 #include <QTime>
 
 // KDE includes
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kmessagebox.h>
 #include <kdebug.h>
 #include <kstandarddirs.h>

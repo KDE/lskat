@@ -38,7 +38,7 @@
 #include <kstandarddirs.h>
 #include <kicon.h>
 #include <kmenubar.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <krandom.h>
 #include <kglobal.h>
 #include <ktoolbar.h>
@@ -244,7 +244,7 @@ int Mainwindow::themeIdxFromName(QString name)
 // Save properties
 void Mainwindow::saveProperties()
 {
-  KConfig *config = KGlobal::config().data();
+  KConfig *config = KSharedConfig::openConfig().data();
 
   // Program data
   KConfigGroup cfg = config->group("ProgramData");
@@ -260,7 +260,7 @@ void Mainwindow::saveProperties()
 // Load properties
 void Mainwindow::readProperties()
 {
-  KConfig *config = KGlobal::config().data();
+  KConfig *config = KSharedConfig::openConfig().data();
 
   // Program data
   KConfigGroup cfg = config->group("ProgramData");
@@ -512,7 +512,7 @@ void Mainwindow::menuCardDeck()
 {
   QString front = mCardTheme;
 
-  KConfigGroup grp = KGlobal::config()->group("ProgramData");
+  KConfigGroup grp = KSharedConfig::openConfig()->group("ProgramData");
   KCardWidget* cardwidget = new KCardWidget();
   cardwidget->readSettings(grp);
   KCardDialog dlg(cardwidget);

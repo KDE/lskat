@@ -25,7 +25,7 @@
 // KDE includes
 #include <kdebug.h>
 #include <kconfiggroup.h>
-#include <klocale.h>
+#include <KLocalizedString>
 
 
 // Constructor for the configuration

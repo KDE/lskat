@@ -31,7 +31,7 @@
 // KDE includes
 #include <kdebug.h>
 #include <kconfig.h>
-#include <klocale.h>
+#include <KLocalizedString>
 #include <kconfiggroup.h>
 
 // Constructor for the score sprite
