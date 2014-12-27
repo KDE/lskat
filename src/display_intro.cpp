@@ -49,7 +49,7 @@ DisplayIntro::DisplayIntro(Deck* deck, QGraphicsScene* theScene, ThemeManager* t
   scene()->setBackgroundBrush(QColor(0,0,128));
 
   mTimer = new QTimer(this);
-  connect(mTimer, SIGNAL(timeout()), this, SLOT(loop()));
+  connect(mTimer, &QTimer::timeout, this, &DisplayIntro::loop);
   mTimer->stop();
 
    // Redraw

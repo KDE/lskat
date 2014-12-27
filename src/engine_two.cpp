@@ -42,7 +42,7 @@ EngineTwo::EngineTwo(QWidget* parent, Deck* deck, DisplayTwo* display)
   mDeck          = deck;
   mCurrentPlayer = 0;
 
-  connect(mDisplay, SIGNAL(dealingDone()), this, SLOT(gameLoopStart()));
+  connect(mDisplay, &DisplayTwo::dealingDone, this, &EngineTwo::gameLoopStart);
 }
 
 

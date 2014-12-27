@@ -91,8 +91,7 @@ void KCardWidget::setupGUI()
   insertCardIcons();
 
   // Connect signals
-  connect(ui->list, SIGNAL(itemSelectionChanged()),
-          this, SLOT(updateSelection()));
+  connect(ui->list, &QListWidget::itemSelectionChanged, this, &KCardWidget::updateSelection);
 }
 
 

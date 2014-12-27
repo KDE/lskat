@@ -73,7 +73,7 @@ GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, 
 
   // Update/advance in [ms]
   QTimer *timer = new QTimer(this);
-  connect(timer, SIGNAL(timeout()), this, SLOT(updateAndAdvance()));
+  connect(timer, &QTimer::timeout, this, &GameView::updateAndAdvance);
   timer->start(advancePeriod);
   
   // Set size and position of the view and the canvas:
