@@ -21,15 +21,17 @@
 #include "textsprite.h"
 
 // Qt includes
-
+#include <QGraphicsScene>
+#include <QFont>
 // KDE includes
 #include <kdebug.h>
 #include <kconfiggroup.h>
 
 // Constructor for the sprite
 TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager* theme, QGraphicsScene* scene)
-          : Themable(id, theme), QGraphicsTextItem(0, scene)
+          : Themable(id, theme), QGraphicsTextItem(0)
 {
+  scene->addItem(this);
   setPlainText(text);
   hide();
  
@@ -39,8 +41,9 @@ TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager* the
 
 // Constructor for the sprite
 TextSprite::TextSprite(const QString &id, ThemeManager* theme, QGraphicsScene* scene)
-          : Themable(id, theme), QGraphicsTextItem(0, scene)
+          : Themable(id, theme), QGraphicsTextItem(0)
 {
+  scene->addItem(this);
   hide();
  
   if (theme) theme->updateTheme(this);

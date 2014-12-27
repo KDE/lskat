@@ -26,6 +26,7 @@
 // Qt includes
 #include <QSizeF>
 #include <QFont>
+#include <QGraphicsScene>
 
 // KDE includes
 #include <kdebug.h>
@@ -38,10 +39,14 @@ ScoreSprite::ScoreSprite(const QString &id, ThemeManager* theme, int advancePeri
            :  Themable(id, theme), PixmapSprite(advancePeriod, no, scene)
 {
   // Create all sub sprites
-  mName    = new QGraphicsTextItem(this, scene);
-  mPoints  = new QGraphicsTextItem(this, scene);
-  mScore   = new QGraphicsTextItem(this, scene);
-  mGames   = new QGraphicsTextItem(this, scene);
+  mName    = new QGraphicsTextItem(this);
+  scene->addItem(mName);
+  mPoints  = new QGraphicsTextItem(this);
+  scene->addItem(mPoints);
+  mScore   = new QGraphicsTextItem(this);
+  scene->addItem(mScore);
+  mGames   = new QGraphicsTextItem(this);
+  scene->addItem(mGames);
   mInput   = new PixmapSprite(QLatin1String( "scoreinput" ), theme, advancePeriod, 0, scene);
   if (!mInput) kFatal() << "Cannot load sprite" << "scoreinput";
   mInput->setParentItem(this);
