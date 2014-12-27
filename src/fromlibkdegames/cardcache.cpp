@@ -368,11 +368,14 @@ void KCardCache::setDeckName( const QString& theme )
         d->cache = new KPixmapCache( QString::fromLatin1(  "kdegames-cards_%1" ).arg( theme ) );
         d->cache->setUseQPixmapCache( true );
         QDateTime dt = QFileInfo( CardDeckInfo::svgFilePath( theme ) ).lastModified();
+//PORT QT5
+#if 0
         if( d->cache->timestamp() < dt.toTime_t() )
         {
             d->cache->discard();
             d->cache->setTimestamp( dt.toTime_t() );
         }
+#endif
     }
     {
         QMutexLocker l( d->rendererMutex );
