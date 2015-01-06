@@ -34,7 +34,6 @@
 #include <kxmlguiwindow.h>
 #include <kconfig.h>
 #include <kdialog.h>
-#include <kdemacros.h>
 
 // Local includes
 #include "abstractinput.h"
