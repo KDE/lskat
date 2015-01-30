@@ -37,7 +37,7 @@ class KCardWidget;
  *
  * Usage Example:
  * \code
- *   KConfigGroup(KGlobal::config(),"CardOptions");
+ *   KConfigGroup(KSharedConfig::openConfig(),"CardOptions");
  *   KCardWidget* cardwiget = new KCardwidget();
  *   cardwidget->readSettings(configGroup);
  *   KCardDialog dlg(cardwidget);

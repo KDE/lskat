@@ -33,7 +33,6 @@
 #include <KLocalizedString>
 #include <kmessagebox.h>
 #include "lskat_debug.h"
-#include <kstandarddirs.h>
 
 // Local includes
 #include "thememanager.h"
