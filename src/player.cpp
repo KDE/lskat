@@ -23,7 +23,6 @@
 // Qt includes
 
 // KDE includes
-#include <KLocalizedString>
 #include "lskat_debug.h"
 #include <kconfiggroup.h>
 

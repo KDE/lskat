@@ -22,8 +22,6 @@
 
 // Include files for Qt
 
-#include <QDir>
-#include <QFile>
 
 // Include files for KDE
 #include <kstandardgameaction.h>

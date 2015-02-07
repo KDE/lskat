@@ -21,7 +21,6 @@
 #include "aiinput.h"
 
 // Qt includes
-#include <QPixmap>
 #include <QTimer>
 
 // KDE includes

@@ -23,8 +23,6 @@
 // Qt includes
 #include <QObject>
 #include <QList>
-#include <QPixmap>
-#include <QSize>
 #include <QHash>
 
 // KDE includes

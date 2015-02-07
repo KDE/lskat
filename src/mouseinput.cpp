@@ -21,7 +21,6 @@
 #include "mouseinput.h"
 
 // Qt includes
-#include <QPixmap>
 
 // KDE includes
 #include "lskat_debug.h"

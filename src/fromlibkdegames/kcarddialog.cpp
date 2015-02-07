@@ -23,8 +23,6 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QListWidgetItem>
-#include <QFileInfo>
-#include <QDir>
 
 #include <klocale.h>
 #include <kstandarddirs.h>

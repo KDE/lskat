@@ -22,7 +22,6 @@
 
 // Qt includes
 #include <QDialog>
-#include <QSize>
 
 // KDE includes
 #include "lskat_debug.h"

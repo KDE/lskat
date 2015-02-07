@@ -24,7 +24,6 @@
 #include <math.h>
 
 // Qt includes
-#include <QSize>
 #include <QPoint>
 
 // KDE includes

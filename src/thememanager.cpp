@@ -27,10 +27,7 @@
 #include <QImage>
 #include <QPixmap>
 #include <QPainter>
-#include <QColor>
 #include <QRectF>
-#include <QDir>
-#include <QFileInfo>
 
 // KDE includes
 #include "lskat_debug.h"

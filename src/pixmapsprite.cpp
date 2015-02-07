@@ -24,7 +24,6 @@
 #include <math.h>
 
 // Qt includes
-#include <QSizeF>
 #include <QGraphicsScene>
 
 // KDE includes

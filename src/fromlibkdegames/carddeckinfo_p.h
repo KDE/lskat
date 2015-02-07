@@ -20,10 +20,8 @@
 #ifndef __CARDDECKINFO_P_H_
 #define __CARDDECKINFO_P_H_
 
-#include <QMap>
 #include <QString>
 #include <QPixmap>
-#include <QSize>
 
 
 /**

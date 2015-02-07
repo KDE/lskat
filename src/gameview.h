@@ -23,7 +23,6 @@
 
 // Qt includes
 #include <QWidget>
-#include <QPixmap>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>

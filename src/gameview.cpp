@@ -25,12 +25,10 @@
 
 // Qt includes
 #include <QPoint>
-#include <QFont>
 #include <QTimer>
 #include <QTime>
 
 // KDE includes
-#include <KLocalizedString>
 #include <kmessagebox.h>
 #include "lskat_debug.h"
 
