@@ -23,7 +23,6 @@
 #include <kdialog.h>
 #include <kconfig.h>
 
-class QListWidgetItem;
 class KCardWidgetPrivate;
 class KCardWidget;
 
