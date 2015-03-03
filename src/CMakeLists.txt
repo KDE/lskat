@@ -34,15 +34,16 @@ ki18n_wrap_ui( lskat_SRCS
 
 configure_file(config-src.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
 
-kde4_add_app_icon(lskat_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../hi*-app-lskat.png")
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../hi*-apps-lskat.png")
+ecm_add_app_icon(lskat_SRCS ICONS ${ICONS_SRCS})
 add_executable( lskat ${lskat_SRCS} )
 
 target_link_libraries( lskat KF5KDEGames KF5::KDELibs4Support  Qt5::Gui Qt5::Svg )
 
-install(TARGETS lskat  ${INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS lskat  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
 
 ########### install files ###############
 
-install( FILES lskatui.rc  DESTINATION  ${DATA_INSTALL_DIR}/lskat )
+install( FILES lskatui.rc  DESTINATION  ${KDE_INSTALL_DATADIR}/lskat )
 
 
