@@ -34,8 +34,7 @@
 #include <kactioncollection.h>
 #include <kstatusbar.h>
 #include <kstandarddirs.h>
-#include <kicon.h>
-#include <kmenubar.h>
+#include <qmenubar.h>
 #include <KLocalizedString>
 #include <krandom.h>
 #include <kglobal.h>
