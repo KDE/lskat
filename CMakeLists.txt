@@ -45,6 +45,6 @@ add_subdirectory(doc)
 ########### install files ###############
 install( PROGRAMS org.kde.lskat.desktop  DESTINATION  ${KDE_INSTALL_APPDIR} )
 
-ecm_install_icons( ICONS hi128-apps-lskat.png  hi16-apps-lskat.png  hi22-apps-lskat.png  hi32-apps-lskat.png  hi48-apps-lskat.png  hi64-apps-lskat.png DESTINATION ${KDE_INSTALL_ICONDIR}   )
+ecm_install_icons( ICONS 128-apps-lskat.png  16-apps-lskat.png  22-apps-lskat.png  32-apps-lskat.png  48-apps-lskat.png  64-apps-lskat.png DESTINATION ${KDE_INSTALL_ICONDIR} THEME hicolor   )
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)

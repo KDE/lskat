@@ -34,7 +34,7 @@ ki18n_wrap_ui( lskat_SRCS
 
 configure_file(config-src.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
 
-file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../hi*-apps-lskat.png")
+file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../*-apps-lskat.png")
 ecm_add_app_icon(lskat_SRCS ICONS ${ICONS_SRCS})
 add_executable( lskat ${lskat_SRCS} )
 
