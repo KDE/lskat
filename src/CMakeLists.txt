@@ -1,6 +1,4 @@
 
-include_directories( ${CMAKE_SOURCE_DIR}/libKF5KDEGames/kgame )
-
 set( lskat_SRCS
     lskat_debug.cpp 
     thememanager.cpp
