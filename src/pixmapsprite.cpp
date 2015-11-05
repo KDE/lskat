@@ -64,7 +64,7 @@ PixmapSprite::PixmapSprite(int advancePeriod, int no, QGraphicsScene* canvas)
 
 
 // Main themable function. Called for any theme change. The sprites needs to
-// resiez and redraw here.
+// resize and redraw here.
 void PixmapSprite::changeTheme()
 {
   // Clear data
@@ -242,7 +242,7 @@ void PixmapSprite::advance(int phase)
   // Handle animation
   if (mAnimationState == Animated)
   {
-  	// Frame delay passed?
+    // Frame delay passed?
     if (mTime>mDelay)
     {
       mTime = 0;

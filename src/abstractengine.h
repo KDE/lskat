@@ -47,7 +47,7 @@ class AbstractEngine : public QObject
     /** Constructor for the game engine.
      *  @param parent The parent window
      */
-    AbstractEngine(QWidget* parent);
+    explicit AbstractEngine(QWidget* parent);
 
     /** Stati of the game */
     enum GameStatus {Running, Stopped};
@@ -67,7 +67,7 @@ class AbstractEngine : public QObject
      */
      virtual bool isGameRunning() {return mGameStatus == Running;}
 
-    /** Add a player to the game 
+    /** Add a player to the game
       * @param no Player number
       * @param player Player to add
       */
@@ -79,14 +79,14 @@ class AbstractEngine : public QObject
      */
     virtual Player* player(int no);
 
-    /** Retrieve the current player id 
+    /** Retrieve the current player id
      *  @return The current player.
      */
-   virtual int currentPlayer() {return mCurrentPlayer;}  
+   virtual int currentPlayer() {return mCurrentPlayer;}
 
   public slots:
 
-    /** Player input available 
+    /** Player input available
      * @param inputId      The input device id
      * @param playerNumber The player number [0-1]
      * @param cardNumber   The card number [0-7]
@@ -102,7 +102,7 @@ class AbstractEngine : public QObject
     /** A players turn is about to start.
       * @param player The new player
       */
-    void signalNextPlayer(Player* player); 
+    void signalNextPlayer(Player* player);
 
   protected:
     /** Current game status */
@@ -112,7 +112,7 @@ class AbstractEngine : public QObject
 
     /** Player in the game */
     QHash<int, Player*> mPlayers;
-    
+
 };
 
 #endif // LSKAT_ABSTRACTENGINE_H

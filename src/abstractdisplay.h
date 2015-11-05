@@ -63,7 +63,7 @@ class AbstractDisplay : public QObject
     /** Set a new deck object.
      *  @param deck The deck
      */
-    void setDeck(Deck* deck);  
+    void setDeck(Deck* deck);
 
     /** Reset the display. Clear all sprites etc.
     */
@@ -71,7 +71,7 @@ class AbstractDisplay : public QObject
 
     /** Start the display.
      */
-    virtual void start() = 0; 
+    virtual void start() = 0;
 
     /** Play a card on the display. The card is moved from
      *  its current position to the card deposit.
@@ -97,9 +97,9 @@ class AbstractDisplay : public QObject
     /** Retrieve the graphics scene of this display.
      *  @return The QGraphicsScene of this display.
      */
-    QGraphicsScene* scene() {return  mScene;} 
+    QGraphicsScene* scene() {return  mScene;}
 
-  
+
   public slots:
     /** Convert the mouse position to a card number for one of the players.
       * @param mouse        The mouse coordinates [screen coordinates]

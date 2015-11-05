@@ -18,8 +18,8 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef __CARDCACHE_P_H_
-#define __CARDCACHE_P_H_
+#ifndef CARDCACHE_P_H
+#define CARDCACHE_P_H
 
 #include <QImage>
 #include <QThread>
@@ -58,7 +58,7 @@ class LoadThread : public QThread
 signals:
     void renderingDone( const QString& key, const QImage& image );
 public:
-    LoadThread( KCardCachePrivate* d );
+    explicit LoadThread( KCardCachePrivate* d );
     void setSize( const QSize& s );
     void setDeckName( const QString& frontTheme );
     void setElementsToLoad( const QStringList& elements );

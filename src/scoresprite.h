@@ -47,8 +47,8 @@ class ScoreSprite : public PixmapSprite
       * @param scene           The graphics scene
       */
     ScoreSprite(const QString &id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene);
-    
-    /** Destructor 
+
+    /** Destructor
       */
     ~ScoreSprite();
 
@@ -69,40 +69,40 @@ class ScoreSprite : public PixmapSprite
 
     /** Store the player name.
       * @param s  The name
-      */ 
+      */
     void setPlayerName(const QString &s);
-    
+
     /** Store the amounts of points for a player.
       * @param points The amount of current points.
-      */ 
+      */
     void setPoints(int points);
 
     /** Store the score for a player.
       * @param score  The score
-      */ 
+      */
     void setScore(int score);
-    
+
     /** Store the amounts of games.
       * @param won  The amount of won games
       * @param all  The amount of all games
-      */ 
+      */
     void setGames(int won, int all);
 
     /** Store input device for a player.
       * @param device  The device number [0-2]
-      */ 
+      */
     void setInput(int device);
 
     /** Store trump icon for a player.
       * @param suite  The trump suite
-      */ 
+      */
     void setTrump(int suite);
 
 
   private:
     // Text for name of player
     QGraphicsTextItem* mName;
-    
+
     // Text for current points
     QGraphicsTextItem* mPoints;
 

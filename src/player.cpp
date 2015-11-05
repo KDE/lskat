@@ -135,7 +135,7 @@ void Player::setInput(AbstractInput* input)
 {
   // Try to set the same turn status after changing input
   bool oldTurnAllowed = false;
-  // Get rid of old input devive if existing
+  // Get rid of old input device if existing
   if (mInput)
   {
     oldTurnAllowed = mInput->inputAllowed();
@@ -205,7 +205,7 @@ int Player::getCard(int playerNumber)
 }
 
 
-// Increases the numebr of moves one for this player
+// Increases the number of moves one for this player
 void Player::increaseMovesWon(int amount)
 {
   mMovesWon += amount;

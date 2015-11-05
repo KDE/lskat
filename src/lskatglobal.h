@@ -27,5 +27,4 @@ extern bool global_skip_intro;
 /** Demo or autoplay mode */
 extern bool global_demo_mode;
 
-#endif 
-
+#endif

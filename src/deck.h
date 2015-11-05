@@ -32,7 +32,7 @@
 #include <krandomsequence.h>
 
 
-/** The card, suite and trump names 
+/** The card, suite and trump names
   */
 namespace CardDeck
 {
@@ -59,7 +59,7 @@ class Deck : public QObject
      */
     Deck(long seed, QObject* parent);
 
-    /** Destructor 
+    /** Destructor
     */
     virtual ~Deck();
 
@@ -78,7 +78,7 @@ class Deck : public QObject
      * is made trump.
      *  @return A random trump.
      */
-    Suite randomTrump(); 
+    Suite randomTrump();
 
     /** Draw a random card out of the pile of existing ones.
      *  @return A random card

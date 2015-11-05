@@ -204,7 +204,3 @@ void ScoreSprite::setTrump(int suite)
   mTrump->show();
   update();
 }
-
-
-
-

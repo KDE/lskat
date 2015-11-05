@@ -24,6 +24,7 @@
 
 #include <QDir>
 #include <QFile>
+#include <QPointer>
 
 // Include files for KDE
 #include <kstandardgameaction.h>
@@ -133,7 +134,7 @@ Mainwindow::Mainwindow(QWidget* parent)
   // Read game properties and set default values (after config)
   readProperties();
 
-  // TODO: Bugfix: Needs to be here if initGUI is befure readProperties
+  // TODO: Bugfix: Needs to be here if initGUI is before readProperties
   if (global_debug>0) kDebug() << "Setting current theme item to" << mThemeIndexNo;
   ((KSelectAction*)ACTION(QLatin1String( "theme" )))->setCurrentItem(mThemeIndexNo);
 
@@ -514,9 +515,11 @@ void Mainwindow::menuCardDeck()
 
   KConfigGroup grp = KGlobal::config()->group("ProgramData");
   KCardWidget* cardwidget = new KCardWidget();
+  QPointer<KCardDialog> dlg;
+
   cardwidget->readSettings(grp);
-  KCardDialog dlg(cardwidget);
-  if (dlg.exec()==QDialog::Accepted)
+  dlg = new KCardDialog(cardwidget);
+  if (dlg->exec()==QDialog::Accepted)
   {
     // Always store the settings, other things than the deck may have changed
     cardwidget->saveSettings(grp);
@@ -534,6 +537,7 @@ void Mainwindow::menuCardDeck()
       mView->update(); // Be on the safe side and update
     }
   }
+  delete dlg;
 }
 
 
@@ -567,7 +571,6 @@ void Mainwindow::menuEndGame()
   {
     mEngine->stopGame();
   }
-
 }
 
 
@@ -587,7 +590,7 @@ void Mainwindow::menuNewLSkatGame()
   }
 
   // Get rid of old stuff?
-  if (true || (mGameMode != LSkat))	// Yes! Fixes bugs 330308 and 228067.
+  if (true || (mGameMode != LSkat)) // Yes! Fixes bugs 330308 and 228067.
   // Jenkins objected to the indentation if the above was simply commented out.
   {
     // Set new game mode
@@ -626,23 +629,23 @@ void Mainwindow::menuNewLSkatGame()
 // Change the player names in a dialog
 void Mainwindow::menuPlayerNames()
 {
-  NameDialogWidget dlg(this);
+  QPointer<NameDialogWidget> dlg = new NameDialogWidget(this);
   for (int i=0;i<2;i++)
   {
     Player* p = mLSkatConfig->player(i);
-    dlg.setName(i, p->name());
+    dlg->setName(i, p->name());
   }
 
-  int result = dlg.exec();
-
-  if (result == QDialog::Accepted)
+  if (dlg->exec() == QDialog::Accepted)
   {
     for (int i=0;i<2;i++)
     {
       Player* p = mLSkatConfig->player(i);
-      p->setName(dlg.name(i));
+      p->setName(dlg->name(i));
     }
   }
+
+  delete dlg;
 }
 
 
@@ -676,7 +679,6 @@ void Mainwindow::setInputType(int no, InputDeviceType type)
     AbstractInput* input = createInput(type, mDisplay, mEngine);
     p->setInput(input);
   }
-
 }
 
 

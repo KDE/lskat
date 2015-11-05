@@ -40,21 +40,21 @@ class MouseInput : public AbstractInput
     /** Constructor for the input
      *  @param parent The parent object
      */
-    MouseInput(QObject* parent);
+    explicit MouseInput(QObject* parent);
 
     /** Retrieve the type of device.
-      * @return The decice type.
+      * @return The device type.
       */
     virtual InputDevice::InputDeviceType type() {return InputDevice::TypeMouseInput;}
 
-  public slots:  
-    /** Recevied a mouse press event 
-      * @param point The position [screen coordiantes]
+  public slots:
+    /** Received a mouse press event
+      * @param point The position [screen coordinates]
       */
     void mousePress(const QPoint &point);
 
-  signals:  
-    /** Convert mouse coordinate. 
+  signals:
+    /** Convert mouse coordinate.
       * @param mouse The mouse position [screen coordinates]
       * @param playerNumber The player number [0-1]
       * @param cardNumber   The card number [0-7]

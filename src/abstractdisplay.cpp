@@ -69,7 +69,7 @@ AbstractDisplay::~AbstractDisplay()
 void AbstractDisplay::setDeck(Deck* deck)
 {
   mDeck = deck;
-}  
+}
 
 
 // Explicitly reset stored data, e.g. sprites.

@@ -54,7 +54,7 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
 
     /** Main theme manager function. Called when any theme change like
       * a new theme or a theme size change occurs. This object needs to
-      * resiez and redraw then.
+      * resize and redraw then.
       */
     virtual void changeTheme();
 
@@ -71,7 +71,7 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
       */
      virtual void advance(int phase);
 
-      /** Stop all movment and animation.
+      /** Stop all movement and animation.
       */
       void stop();
 
@@ -82,19 +82,19 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
 
      /** Move the sprite slowly to the target area. Stop
        * movement if it arrived there.
-       * @param pos  Target position [0..1] 
+       * @param pos  Target position [0..1]
        * @param time Time for the move [ms]
        */
      void setMove(QPointF pos, double time);
 
      /** Set the position of the sprite.
-       * @param pos  Target position [0..1] 
+       * @param pos  Target position [0..1]
        */
      void setPosition(QPointF pos);
 
      /** Move the sprite slowly to the target area. Stop
        * movement and hide sprite if it arrived there.
-       * @param pos  Target position [0..1] 
+       * @param pos  Target position [0..1]
        * @param time Time for the move [ms]
        */
      void setRemove(QPointF pos, double time);
@@ -102,7 +102,7 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
      /** Delay before moving, then move the sprite fast to the
        * target area. Stop movement and depending on the last
        * argument turn backside/frontside sprite if it arrived there.
-       * @param pos  Target position [0..1] 
+       * @param pos  Target position [0..1]
        * @param delay The Move start delay [ms]
        * @param front Show frontside(true) or backside
        */
@@ -132,8 +132,8 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
      /** Check whether the sprite is idle,
        * @return True if idle.
        */
-     bool isIdle() {return mAnimationState == Idle;}  
-  
+     bool isIdle() {return mAnimationState == Idle;}
+
   protected:
     /** Calculate a sprite frame (for turning sprites).
       * Called when the frame is asked for.
@@ -160,14 +160,13 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
       *  @return True if the target position is reached false otherwise.
       */
      bool deltaMove();
-    
 
   private:
     // Type of animation
-    AnimationState mAnimationState;  
+    AnimationState mAnimationState;
     // Counter of animation [ms]
     double mTime;
-    // Target point for movment
+    // Target point for movement
     QPointF mMoveTarget;
     // Movement speed X
     double mMoveSpeedX;

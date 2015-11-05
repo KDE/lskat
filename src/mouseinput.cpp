@@ -42,7 +42,7 @@ void MouseInput::mousePress(const QPoint &point)
 
   // Do only process input if it is our turn
   if (!mInputAllowed) return;
-  
+
   emit signalConvertMousePress(point, playerNumber, cardNumber);
   // Check whether the move is for the right player
   if (playerNumber == mId)

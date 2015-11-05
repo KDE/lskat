@@ -44,7 +44,7 @@
 GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent)
         : QGraphicsView(scene, parent)
 {
-  // Store attributes    
+  // Store attributes
   mTheme  = theme;
 
   // We do not need scrolling so switch it off
@@ -61,7 +61,7 @@ GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, 
                        QGraphicsView::DontSavePainterState |
                        QGraphicsView::DontAdjustForAntialiasing );
 
-  // Debug                      
+  // Debug
   mDisplayUpdateTime = 0;
   mFrameSprite = new QGraphicsTextItem(0, scene);
   mFrameSprite->setPos(QPointF(0.0, 0.0));
@@ -74,11 +74,11 @@ GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, 
   QTimer *timer = new QTimer(this);
   connect(timer, SIGNAL(timeout()), this, SLOT(updateAndAdvance()));
   timer->start(advancePeriod);
-  
+
   // Set size and position of the view and the canvas:
   // they are reseized once a level is loaded
   resize(size);
-  scene->setSceneRect(0, 0, this->width(), this->height()); 
+  scene->setSceneRect(0, 0, this->width(), this->height());
   adjustSize();
 
   // Enable mouse
@@ -102,7 +102,7 @@ void GameView::updateAndAdvance()
 {
   static int elapsed = -1;
   static QTime timer;
-  if (elapsed < 0 ) 
+  if (elapsed < 0 )
   {
     timer.start();
     elapsed = 0;
@@ -131,7 +131,7 @@ void GameView::resizeEvent(QResizeEvent* e)
   if (global_debug > 2) kDebug() <<"RESIZE EVENT" << e->size() << "oldSize="<< e->oldSize() <<" at" << t.msecsTo(mTimeStart);
   double diffW = double(e->oldSize().width()-e->size().width());
   double diffH = double(e->oldSize().height()-e->size().height());
-  double delta = fabs(diffW) + fabs(diffH); 
+  double delta = fabs(diffW) + fabs(diffH);
 
   // Adapt the canvas size to the window size
   if (scene())
@@ -145,7 +145,7 @@ void GameView::resizeEvent(QResizeEvent* e)
   double aspect = size.width() / size.height();
   QPoint offset;
   double width = 0.0;
-  
+
   // Scale width:
   // Ideal size would be: 'width'*'height'
   // Offset in width is (e->size().width()-width)/2, offset in height is zero
@@ -156,7 +156,7 @@ void GameView::resizeEvent(QResizeEvent* e)
   }
   // Scale height:
   // 'height' = width/mTheme->aspectRatio()
-  // Ideal size would be: 'width'*'height': 
+  // Ideal size would be: 'width'*'height':
   // Offset in height is (e->size().height()-width/mTheme->aspectRatio())/2, offset in width is zero
   else
   {
@@ -167,7 +167,7 @@ void GameView::resizeEvent(QResizeEvent* e)
   // Pixel rescale
   double oldScale = mTheme->getScale();
   resetTransform();
-  if (width > oldScale) 
+  if (width > oldScale)
   {
     scale(double(width/oldScale), double(width/oldScale));
   }
@@ -200,7 +200,7 @@ void GameView::rescaleTheme()
   int width = mThemeQueue.first();
   mInputOffset = mThemeOffset.first();
   if (global_debug > 2) kDebug() << "Theme queue size=" << mThemeQueue.size() << "Rescale width to" << width;
-  
+
   mThemeQueue.clear();
   mThemeOffset.clear();
   mTheme->rescale(width, mInputOffset);

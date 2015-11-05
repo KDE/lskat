@@ -18,8 +18,8 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef __CARDCACHE_H_
-#define __CARDCACHE_H_
+#ifndef CARDCACHE_H
+#define CARDCACHE_H
 
 #include "libkdegames_export.h"
 
@@ -54,16 +54,16 @@ private:
 
 /**
  * \class KCardCache cardcache.h <KCardCache>
- * 
+ *
  * This class implements a kdegames wide cache for cards.
- * 
+ *
  * Card games such as lskat or kpat should use this cache
  * to load the various decks into QPixmaps instead of inventing
  * their own. It uses KPixmapCache behind the scenes, set up to
- * use disk and memory caching. Thus a SVG card deck that was loaded 
- * by kpat for the size 100x200 doesn't need re-rendering when 
+ * use disk and memory caching. Thus a SVG card deck that was loaded
+ * by kpat for the size 100x200 doesn't need re-rendering when
  * requested from lskat.
- * 
+ *
  * Usage is quite simple. During initialization of the game the
  * cache object should be created and it should be told to load the
  * currently selected theme.
@@ -71,13 +71,13 @@ private:
  * myCache = new KCardCache();
  * myCache->loadTheme( myTheme );
  * </code>
- * 
- * Later when actually drawing the cards the getter methods can be used to 
+ *
+ * Later when actually drawing the cards the getter methods can be used to
  * get the pixmap of a specific card at a specific size from a given theme.
  * <code>
  * myCache->getCard( myTheme, KCardCache::Club, KCardCache::Ace, calculatedSize );
  * </code>
- * 
+ *
  */
 class KCardCache
 {
@@ -99,7 +99,7 @@ public:
     Q_DECLARE_FLAGS( LoadInfos, LoadInfo )
 
     /**
-     * Constructor creates and initializes a KPixmapCache for all KDE Games 
+     * Constructor creates and initializes a KPixmapCache for all KDE Games
      * card games
      */
     KCardCache();
@@ -176,10 +176,10 @@ public:
     /**
      * Retrieve the frontside pixmap.
      *
-     * The @p infos parameter is used to determine which frontside to load.
+     * The @p info parameter is used to determine which frontside to load.
      * Make sure to set a reasonable size and theme, before calling this function.
      *
-     * @param infos A combination of CardInfo flags to identify what type of card to
+     * @param info A combination of CardInfo flags to identify what type of card to
      * load. There are of course only certain combinations that make sense, like
      * King | Heart, some flags are used standalone, like Joker.
      *
@@ -196,7 +196,7 @@ public:
      *
      * Make sure to set a reasonable theme, before calling this function.
      *
-     * @param infos A combination of CardInfo flags to identify what type of card to
+     * @param info A combination of CardInfo flags to identify what type of card to
      * load. There are of course only certain combinations that make sense, like
      * King | Heart, some flags are used standalone, like Joker.
      *

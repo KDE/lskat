@@ -66,15 +66,15 @@ class GameView : public QGraphicsView
      */
     void mouseReleaseEvent(QMouseEvent *event);
 
-  public slots:  
-    /** The update and advance for the canvas. 
+  public slots:
+    /** The update and advance for the canvas.
      *  This is called by a timer at regular intervals.
      */
     void updateAndAdvance();
 
     /** Rescale the theme (update theme SVG graphics).
       */
-    void rescaleTheme();  
+    void rescaleTheme();
 
   signals:
     /** Emit the signal on mouse clicks.
@@ -104,9 +104,9 @@ class GameView : public QGraphicsView
     ThemeManager* mTheme;
     // Theme queue
     QList<int> mThemeQueue;
-     // Theme offset queue
+    // Theme offset queue
     QList<QPoint> mThemeOffset;
-    //	Active input offset
+    // Active input offset
     QPoint mInputOffset;
     // Theme queue delay time [ms]
     QTime mTimeStart;
@@ -116,7 +116,6 @@ class GameView : public QGraphicsView
     int mDisplayUpdateTime;
     // Average update times
     QList<int> mDrawTimes;
-
 
 };
 

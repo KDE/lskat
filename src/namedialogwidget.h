@@ -43,7 +43,7 @@ class NameDialogWidget : public QDialog
     /** Constructor for the widget.
      *  @param parent The parent window
      */
-    NameDialogWidget(QWidget* parent);
+    explicit NameDialogWidget(QWidget* parent);
 
     /** Set a default names to the widget
      *  @param pos The name position (0,1)
@@ -55,7 +55,7 @@ class NameDialogWidget : public QDialog
      *  @param pos The name position (0,1)
      *  @return The new name.
      */
-    QString name(int pos); 
+    QString name(int pos);
 
   private:
     // The UI dialog

@@ -48,7 +48,6 @@ class EngineTwo : public AbstractEngine
     enum MoveState {FirstPlayerTurn=0, SecondPlayerTurn=1};
 
 
-  
     /** Constructor for the game engine.
      *  @param parent The parent window
      *  @param deck   The card deck
@@ -70,24 +69,24 @@ class EngineTwo : public AbstractEngine
     /** Retrieve the current move phase.
      *  @return The move phase.
      */
-     MoveState currentMovePhase() const {return mCurrentMovePhase;}
+    MoveState currentMovePhase() const {return mCurrentMovePhase;}
 
-     /** Retrieve the currently played card 
-      *  @param no Which card (0,1)
-      *  @return The played card.
-      */
-     int playedCard(int no) const {return mCurrentMoveCards[no];}
+    /** Retrieve the currently played card
+     *  @param no Which card (0,1)
+     *  @return The played card.
+     */
+    int playedCard(int no) const {return mCurrentMoveCards[no];}
 
 
-     /** Retrieve the current trump color.
-       * @return The trump suite.
-       */
-     Suite trump() const {return mTrump;}
+    /** Retrieve the current trump color.
+     *  @return The trump suite.
+     */
+    Suite trump() const {return mTrump;}
 
 
   public slots:
 
-    /** Player input available 
+    /** Player input available
      * @param inputId      The input device id
      * @param playerNumber The player number [0-1]
      * @param cardNumber   The card number [0-7]
@@ -153,7 +152,6 @@ class EngineTwo : public AbstractEngine
     int mMoveNumber;
     // Trump color
     Suite mTrump;
-    
 };
 
 #endif

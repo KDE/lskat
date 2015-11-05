@@ -35,7 +35,7 @@ AbstractEngine::AbstractEngine(QWidget* parent)
 }
 
 
-// Add a player to the game 
+// Add a player to the game
 void AbstractEngine::addPlayer(int no, Player* player)
 {
   mPlayers[no] = player;

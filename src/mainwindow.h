@@ -29,7 +29,7 @@
 
 // Qt includes
 #include <QHash>
- 
+
 // KDE includes
 #include <kxmlguiwindow.h>
 #include <kconfig.h>
@@ -40,7 +40,7 @@
 #include "abstractinput.h"
 #include "thememanager.h"
 
-// Forward declararion
+// Forward declaration
 class GameView;
 class Deck;
 class AbstractEngine;
@@ -64,7 +64,7 @@ class Mainwindow : public KXmlGuiWindow
     /** Construct the main window.
       * @param parent The parent widget
       */
-    Mainwindow(QWidget* parent=0);
+    explicit Mainwindow(QWidget* parent=0);
 
     /** Destructor
      */
@@ -111,7 +111,7 @@ class Mainwindow : public KXmlGuiWindow
 
     /** Next players turn.
       */
-    void nextPlayer(Player* player);  
+    void nextPlayer(Player* player);
 
     /** A new theme is selected from the menu.
       * @param idx The theme index
@@ -164,7 +164,6 @@ class Mainwindow : public KXmlGuiWindow
       */
     QString themefileFromIdx(int idx);
 
-    
     /** Retrieve the theme idx number from the theme name give.
       * @param name The theme file name.
       * @return The theme index number [0..]
@@ -181,17 +180,17 @@ class Mainwindow : public KXmlGuiWindow
 
   private:
     // Attributes not to be saved
-    // The game engine 
+    // The game engine
     AbstractEngine* mEngine;
-    // The game display 
+    // The game display
     AbstractDisplay* mDisplay;
-    // The main view 
+    // The main view
     GameView* mView;
-    // The card deck 
+    // The card deck
     Deck* mDeck;
-    // LSkat config 
+    // LSkat config
     ConfigTwo* mLSkatConfig;
-    // The graphics scene 
+    // The graphics scene
     QGraphicsScene* mCanvas;
     // The theme manager used
     ThemeManager* mTheme;
@@ -199,17 +198,14 @@ class Mainwindow : public KXmlGuiWindow
     QHash<QString,QString> mThemeFiles;
     // Current theme index
     int mThemeIndexNo;
-    // Default theme 
+    // Default theme
     QString mThemeDefault;
 
 
-
-
-
     // Properties to be saved
-    // The cards directory 
+    // The cards directory
     QString mCardTheme;
-    // Current game mode (Intro, LSkat, ...) 
+    // Current game mode (Intro, LSkat, ...)
     GameMode mGameMode;
     // Who starts the next game round/
     int mStartPlayer;

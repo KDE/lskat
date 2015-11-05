@@ -43,18 +43,18 @@ class AiInput : public AbstractInput
      */
     AiInput(EngineTwo* engine, QObject* parent);
 
-    /** Allow or disallow input with this device 
+    /** Allow or disallow input with this device
       * @param allowed True if input is allowed
       */
-    void setInputAllowed(bool allowed);  
+    void setInputAllowed(bool allowed);
 
     /** Retrieve the type of device.
-      * @return The decice type.
+      * @return The device type.
       */
     virtual InputDevice::InputDeviceType type() {return InputDevice::TypeAiInput;}
 
 
-  public slots:  
+  public slots:
     /** AI turn is performed.
       */
     void aiTurn();
@@ -99,21 +99,21 @@ class AiInput : public AbstractInput
         void analyze();
 
         /** Cards of both players or -1 for used cards */
-        int cards[2][16]; 
+        int cards[2][16];
         /** Already played cards */
         int playedCards[32];
         /** How many cards of each suite (4==Trump color) */
-        int amountOfSuite[2][5]; 
+        int amountOfSuite[2][5];
         /** How many cards of each type  */
-        int amountOfCardType[2][8]; 
+        int amountOfCardType[2][8];
         /** Currently played card of first player or -1 */
-        int playedCard; 
+        int playedCard;
         /** Points of both players */
-        int points[2]; 
+        int points[2];
         /** Whose turn is it 0/1 UNUSED */
-        int whoseTurn; 
+        int whoseTurn;
         /** True if first player movement phase UNUSED */
-        bool firstPlay; 
+        bool firstPlay;
         /** Trump color */
         Suite trump;
     };
@@ -137,14 +137,14 @@ class AiInput : public AbstractInput
 
     /** Initiate a new move as first player.
      *  @param p The current player number.
-     *  @param board The current game board. 
+     *  @param board The current game board.
      *  @return The best move.
      */
     Move initiateMove(int p, const Board& board);
 
     /** Answer a move as second player.
      *  @param p The current player number.
-     *  @param board The current game board. 
+     *  @param board The current game board.
      *  @return The best move.
      */
     Move answerMove(int p, const Board& board);
@@ -164,7 +164,6 @@ class AiInput : public AbstractInput
     bool hasAmount(int player, Suite suite, int min, int max, const AiInput::Board& current) const;
     int amountOfOpenCards(int p, const AiInput::Board& current) const;
     bool isLegalMove(int card1, int card2, int pl, const AiInput::Board& current) const;
-
 
 
   private:

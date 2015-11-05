@@ -184,4 +184,3 @@ void writeDeckName( KConfigGroup& group, const QString& theme )
 }
 
 }
-

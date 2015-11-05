@@ -216,7 +216,7 @@ void KCardCachePrivate::ensureNonNullPixmap( QPixmap& pix )
 
 QPixmap KCardCachePrivate::renderSvg( const QString& element )
 {
-    kDebug() << "Renderering" << element << "in main thread.";
+    kDebug() << "Rendering" << element << "in main thread.";
     QMutexLocker l( rendererMutex );
     return doRender( element, renderer(), size );
 }

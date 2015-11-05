@@ -46,7 +46,7 @@ class ConfigTwo : public QObject
     /** Constructor for the config
      *  @param parent The parent object
      */
-    ConfigTwo(QObject* parent);
+    explicit ConfigTwo(QObject* parent);
 
     /** Destructor
     */
@@ -54,7 +54,7 @@ class ConfigTwo : public QObject
 
     /** Reset the config data.
      */
-    void reset(); 
+    void reset();
 
     /** Retrieve hash iterator over players.
      *  @return The iterator.
@@ -65,7 +65,7 @@ class ConfigTwo : public QObject
      *  @param no The player number
      *  @return The player.
      */
-    Player* player(int no); 
+    Player* player(int no);
 
     /** Retrieve input type of given player.
      *  @param no The player number
@@ -77,9 +77,9 @@ class ConfigTwo : public QObject
      *  @param no The player number
      *  @param type The input type
      */
-    void setInputType(int no, InputDeviceType type); 
+    void setInputType(int no, InputDeviceType type);
 
-    /** Saves the properties 
+    /** Saves the properties
      * @param cfg The config object.
      */
     void save(KConfig *cfg);
@@ -89,7 +89,7 @@ class ConfigTwo : public QObject
      */
     void load(KConfig *cfg);
 
-  signals:  
+  signals:
     /** Signal emitted when input type changes.
      *  @param no The player number
      *  @param type The input type
@@ -97,9 +97,9 @@ class ConfigTwo : public QObject
     void signalInputType(int no, InputDeviceType type);
 
   private:
-    // Current player 
+    // Current player
     QHash<int,Player*> mPlayers;
-    // Input types 
+    // Input types
     QHash<int,InputDeviceType> mInputTypes;
 
 };

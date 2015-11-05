@@ -32,7 +32,7 @@ TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager* the
 {
   setPlainText(text);
   hide();
- 
+
   if (theme) theme->updateTheme(this);
 }
 
@@ -42,7 +42,7 @@ TextSprite::TextSprite(const QString &id, ThemeManager* theme, QGraphicsScene* s
           : Themable(id, theme), QGraphicsTextItem(0, scene)
 {
   hide();
- 
+
   if (theme) theme->updateTheme(this);
 }
 
@@ -90,7 +90,7 @@ void TextSprite::changeTheme()
   setFont(font);
   if (width < boundingRect().width())
   {
-    setTextWidth(width);   
+    setTextWidth(width);
   }
 
   // Retrieve font color
@@ -112,4 +112,3 @@ void TextSprite::changeTheme()
 
   update();
 }
-

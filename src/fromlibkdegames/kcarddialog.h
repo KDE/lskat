@@ -16,8 +16,8 @@
     the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
     Boston, MA 02110-1301, USA.
 */
-#ifndef __KCARDDIALOG_H_
-#define __KCARDDIALOG_H_
+#ifndef KCARDDIALOG_H
+#define KCARDDIALOG_H
 
 #include <QtGui/QWidget>
 #include <kdialog.h>
@@ -29,11 +29,11 @@ class KCardWidget;
 
 /**
  * \class KCardDialog kcarddialog.h <KCardDialog>
- * 
+ *
  * @short A convenience class to display a standalone card selection dialog.
  *
  * This is a simple convenience class to embed the @ref KCardWidget into a
- * KDialog that has an Ok and Cancel button and an appropriate caption.
+ * KDialog that has an OK and Cancel button and an appropriate caption.
  *
  * Usage Example:
  * \code
@@ -54,21 +54,21 @@ class KCardDialog : public KDialog
 {
   Q_OBJECT
 public:
-  KCardDialog(KCardWidget* widget);
+  explicit KCardDialog(KCardWidget* widget);
 };
 
 /**
  * \class KCardWidget kcarddialog.h <KCardDialog>
- * 
- * @short A carddeck selection widget for card games.
  *
- * The KCardWidget provides a widget for interactive carddeck selection.
- * It gives cardgames an easy to use interface to select front and
- * back of the card sets. As card sets the KDE default cardsets are
+ * @short A card deck selection widget for card games.
+ *
+ * The KCardWidget provides a widget for interactive card deck selection.
+ * It gives card games an easy to use interface to select front and
+ * back of the card sets. As card sets the KDE default card sets are
  * offered as well as used specified ones.
  *
  * This class can be used in two ways: Embedding it into an existing
- * dialog or creating a small KDialog just for the carddeck selection.
+ * dialog or creating a small KDialog just for the card deck selection.
  *
  * Card sets (front and back) are identified by their (translated) names.
  *
@@ -89,7 +89,7 @@ public:
     *
     * @param parent The parent widget of the widget, if any.
     */
-   KCardWidget (QWidget* parent = NULL);
+   explicit KCardWidget (QWidget* parent = NULL);
 
    /**
     * Read the settings from a config file

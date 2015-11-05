@@ -60,7 +60,7 @@ CardSprite::CardSprite(const Suite suite, const CardType cardtype, ThemeManager*
 
 
 // Main themable function. Called for any theme change. The sprites needs to
-// resiez and redraw here.
+// resize and redraw here.
 void CardSprite::changeTheme()
 {
   // Get scaling change
@@ -104,7 +104,7 @@ void CardSprite::changeTheme()
 }
 
 
-// Stop all movment and animation
+// Stop all movement and animation
 void CardSprite::stop()
 {
   mAnimationState = Idle;
@@ -113,7 +113,7 @@ void CardSprite::stop()
 }
 
 
-// Set the current aniamtion mode of this sprite
+// Set the current animation mode of this sprite
 void CardSprite::setTurning(bool front)
 {
   mFrontFlag      = front;
@@ -395,5 +395,3 @@ QPixmap CardSprite::createCard(const QPixmap &front, const QPixmap &back, int cu
     return pm;
   }
 }
-
-

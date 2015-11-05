@@ -57,11 +57,11 @@ int Deck::cardNumber()
   return mCards.size();
 }
 
-// Draw a random trump from all cards. 
+// Draw a random trump from all cards.
 Suite Deck::randomTrump()
 {
   int card = mRandom.getLong(NUMBER_OF_CARDS);
-   
+
   Suite suite = getSuite(card);
   CardType type = getCardType(card);
   if (type == Jack) return Grand;
@@ -94,7 +94,7 @@ void Deck::shuffle()
    // TODO: Hardcoded deck
    return;
    static int c[] = {
-   Ten, Spade, Seven, Diamond, Ten, Diamond, Jack, Club, 
+   Ten, Spade, Seven, Diamond, Ten, Diamond, Jack, Club,
    Eight, Club, Nine, Club, Nine, Heart, Jack, Diamond,
    Eight, Spade, Seven, Heart, Nine, Spade, Ten, Club,
    Ace, Diamond, Eight, Heart, Queen, Spade, Ten, Heart,

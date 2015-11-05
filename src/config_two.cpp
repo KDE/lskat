@@ -42,8 +42,8 @@ ConfigTwo::ConfigTwo(QObject* parent)
 // Resets the data
 void ConfigTwo::reset()
 {
-  mPlayers[0]->setName(i18nc("Default player name", "Alice")); 
-  mPlayers[1]->setName(i18nc("Default player name","Bob")); 
+  mPlayers[0]->setName(i18nc("Default player name", "Alice"));
+  mPlayers[1]->setName(i18nc("Default player name","Bob"));
 
   // Default input types (must be after GUI and players)
   setInputType(0, TypeMouseInput);

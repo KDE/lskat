@@ -42,7 +42,7 @@ void AbstractInput::setId(int id)
 }
 
 
-// Allow or disallow input with this device 
+// Allow or disallow input with this device
 void AbstractInput::setInputAllowed(bool allowed)
 {
   mInputAllowed = allowed;

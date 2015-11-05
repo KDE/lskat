@@ -19,7 +19,7 @@
 
                           Lskat
                           -----
-    begin                : March 2000 
+    begin                : March 2000
     copyright            : (C) 1995-2007 by Martin Heni
     email                : kde@heni-online.de
  ***************************************************************************/
@@ -34,12 +34,12 @@
   *
   * The design diagram shows the dependencies for the key classes of
   * the Lskat program.
-  * The coloring of the classes shows roughly their function in the 
+  * The coloring of the classes shows roughly their function in the
   * groups (program, document and engine, display, QGraphics).
   *
   * \image html lskatclasses.png "Class diagram for LSkat"
   *
-  * 
+  *
   */
 
 #include <kapplication.h>
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
                         KAboutData::License_GPL,
                         ki18n("(c) 1995-2007, Martin Heni"),
                         KLocalizedString(),
-                        "http://games.kde.org/lskat" );
+                        "https://games.kde.org/game.php?game=lskat" );
   // I18N: These are the same strings than in kwin4, you can copy the translations
   aboutData.addAuthor(ki18n("Martin Heni"),ki18n("Game design and code"), "kde@heni-online.de");
   aboutData.addAuthor(ki18n("Eugene Trounev"),ki18n("Graphics"), "eugene.trounev@gmail.com");
@@ -110,7 +110,7 @@ int main(int argc, char *argv[])
     global_demo_mode = true;
     kDebug(12010) << "Running in demo mode" << global_demo_mode;
   }
-  args->clear();  
+  args->clear();
   KApplication application(true);
   KGlobal::locale()->insertCatalog( QLatin1String( "libkdegames" ));
 

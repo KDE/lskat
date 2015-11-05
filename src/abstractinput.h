@@ -47,12 +47,12 @@ class AbstractInput : public QObject
     /** Constructor for the input
      *  @param parent The parent object
      */
-    AbstractInput(QObject* parent);
+    explicit AbstractInput(QObject* parent);
 
-    /** Allow or disallow input with this device 
+    /** Allow or disallow input with this device
       * @param allowed True if input is allowed
       */
-    virtual void setInputAllowed(bool allowed);  
+    virtual void setInputAllowed(bool allowed);
 
     /** Retrieve whether input is allowed or not.
      *  @return True if input from this device is allowed.
@@ -66,7 +66,7 @@ class AbstractInput : public QObject
     virtual void setId(int id);
 
     /** Retrieve the type of device.
-      * @return The decice type.
+      * @return The device type.
       */
     virtual InputDevice::InputDeviceType type() = 0;
 
@@ -76,7 +76,7 @@ class AbstractInput : public QObject
      * @param id           The input device id
      * @param playerNumber The player number [0-1]
      * @param cardNumber   The card number [0-7]
-    */
+     */
    void signalPlayerInput(int id, int playerNumber, int cardNumber);
 
 

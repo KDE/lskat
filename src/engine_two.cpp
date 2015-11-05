@@ -75,7 +75,7 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
   int height = 0;
   int card = player->getCard(cardNumber);
   // Check whether top card is still available - if not try bottom one
-  if (card < 0) 
+  if (card < 0)
   {
     height = 1;
     card = player->getCard(cardNumber + 8* height);
@@ -92,7 +92,7 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
     return;
   }
 
-  // Remove this, Debug current card 
+  // Remove this, Debug current card
   if (global_debug > 0)
   {
     Suite   suite = Deck::getSuite(card);
@@ -103,7 +103,7 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
 
 
   // Check for legal move (first player always ok)
-  if (mCurrentMovePhase == SecondPlayerTurn) 
+  if (mCurrentMovePhase == SecondPlayerTurn)
   {
     //   Check (card of player 1), (card of player 2), (player 2)
     if (!isLegalMove(mCurrentMoveCards[FirstPlayerTurn], card, playerNumber))
@@ -176,21 +176,21 @@ void EngineTwo::gameLoopFinish()
     // second player plays again.
     if (winner == 0)
     {
-      mCurrentPlayer = 1- mCurrentPlayer; 
+      mCurrentPlayer = 1 - mCurrentPlayer;
     }
-    
+
     // Move both cards away from play area. Move them to the winning mover's side
     Player* player = mPlayers[mCurrentPlayer];
     mDisplay->remove(mCurrentPlayer,
                      mCurrentMoveCards[FirstPlayerTurn],
                      player->noOfMovesWon());
-    mDisplay->remove(mCurrentPlayer, 
+    mDisplay->remove(mCurrentPlayer,
                      mCurrentMoveCards[SecondPlayerTurn],
                      player->noOfMovesWon()+1);
     player->increaseMovesWon();
     player->addWonCard(mCurrentMoveCards[FirstPlayerTurn]);
     player->addWonCard(mCurrentMoveCards[SecondPlayerTurn]);
-    
+
     if (global_debug > 0)
     {
       kDebug() << "Winner =" << winner << "current =" << mCurrentPlayer;
@@ -203,7 +203,7 @@ void EngineTwo::gameLoopFinish()
   // For the first part of a half move always swap players
   else if (mCurrentMovePhase == FirstPlayerTurn)
   {
-    mCurrentPlayer = 1- mCurrentPlayer; 
+    mCurrentPlayer = 1 - mCurrentPlayer;
     // Switch move phase (half moves)
     mCurrentMovePhase = SecondPlayerTurn;
   }
@@ -279,7 +279,7 @@ int EngineTwo::evaluateGame()
     score1 = 2;
     player1->addWonGame(1);
     if (points1 >= 90)
-    {  
+    {
       score1 += 1;  // Schneider
       text = i18n("%1 won with 90 points. Super!", player1->name());
     }
@@ -383,7 +383,6 @@ void EngineTwo::stopGame()
 // Switch the current player to the given player number.
 void EngineTwo::activatePlayer(int playerNumber)
 {
-  
   // Disable inputs for two players
   for (int i=0;i<2;i++)
   {
@@ -428,7 +427,7 @@ bool EngineTwo::isLegalMove(int card1, int card2, int playerNumber)
     if (card == card2) continue;
 
     // Check whether top card is still available - if not try bottom one
-    if (card < 0) 
+    if (card < 0)
     {
       card = p->getCard(i + 8);
     }
@@ -454,10 +453,10 @@ bool EngineTwo::isLegalMove(int card1, int card2, int playerNumber)
 
 
 // Check who won a move, the first or the second card.
-// The first card was played first and take precendence
+// The first card was played first and take precedence
 // when possible. The function returns 0 if the first
 // card won, 1 if the second card won.
-int EngineTwo::whoWonMove(int card1, int card2, Suite trump) 
+int EngineTwo::whoWonMove(int card1, int card2, Suite trump)
 {
   Suite suite1   = Deck::getSuite(card1);
   Suite suite2   = Deck::getSuite(card2);

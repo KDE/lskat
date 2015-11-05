@@ -17,8 +17,8 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef __CARDDECKINFO_P_H_
-#define __CARDDECKINFO_P_H_
+#ifndef CARDDECKINFO_P_H
+#define CARDDECKINFO_P_H
 
 #include <QMap>
 #include <QString>

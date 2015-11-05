@@ -46,7 +46,7 @@ class DisplayIntro : public AbstractDisplay, public virtual Themable
     /** Animation state of the intro display */
     enum AnimState {Idle, Putting, Turning, Waiting, Clearing, Waiting2};
 
-  
+
     /** Constructor for the display.
      *  @param deck          The card deck
      *  @param scene         The graphics scene to work with
@@ -56,7 +56,7 @@ class DisplayIntro : public AbstractDisplay, public virtual Themable
      */
     DisplayIntro(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod, QGraphicsView* parent);
 
-    /** Main theme function. Called by the theme manager. Redraw and resize 
+    /** Main theme function. Called by the theme manager. Redraw and resize
       * display.
       */
     virtual void changeTheme();
@@ -83,7 +83,7 @@ class DisplayIntro : public AbstractDisplay, public virtual Themable
     /** Remove the given card from the display - unused.
      */
     void remove(int /*winnerPosition*/, int /*cardNumber*/, int /*delta*/) {}
-  
+
   public slots:
     /** Convert the position of a mouse click to a logical
       * game position - unused.
@@ -95,11 +95,11 @@ class DisplayIntro : public AbstractDisplay, public virtual Themable
     void loop();
 
   private:
-    // Timer for animation loop 
+    // Timer for animation loop
     QTimer* mTimer;
-    // Animation counter 
+    // Animation counter
     int mAnimCnt;
-    // Animation state 
+    // Animation state
     AnimState mState;
     // Text shown?
     bool mTextShown;
