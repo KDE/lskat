@@ -44,64 +44,72 @@ class ThemeManager;
  */
 class GameView : public QGraphicsView
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    /** Constructor for the canvas view.
-     *  @param size The canvas fixed size
-     *  @param advancePeriod The canvas advance period
-     *  @param scene The graphics scene
-     *  @param theme The theme manager
-     *  @param parent The parent window
+public:
+    /**
+     * Constructor for the canvas view.
+     * @param size The canvas fixed size
+     * @param advancePeriod The canvas advance period
+     * @param scene The graphics scene
+     * @param theme The theme manager
+     * @param parent The parent window
      */
-    GameView(const QSize &size, int advancePeriod, QGraphicsScene* scene, ThemeManager* theme, QWidget* parent = 0);
+    GameView(const QSize &size, int advancePeriod, QGraphicsScene *scene, ThemeManager *theme, QWidget *parent = 0);
 
-    /** Destructor.
-    */
+    /**
+     * Destructor.
+     */
     ~GameView();
 
- protected:
-    /** React to mouse clicks.
-     *  @param event The mouse event
+protected:
+    /**
+     * React to mouse clicks.
+     * @param event The mouse event
      */
     void mouseReleaseEvent(QMouseEvent *event);
 
-  public slots:
-    /** The update and advance for the canvas.
-     *  This is called by a timer at regular intervals.
+public slots:
+    /**
+     * The update and advance for the canvas.
+     * This is called by a timer at regular intervals.
      */
     void updateAndAdvance();
 
-    /** Rescale the theme (update theme SVG graphics).
-      */
+    /**
+     * Rescale the theme (update theme SVG graphics).
+     */
     void rescaleTheme();
 
-  signals:
-    /** Emit the signal on mouse clicks.
-      * @param point The mouse coordinate.
-      */
+signals:
+    /**
+     * Emit the signal on mouse clicks.
+     * @param point The mouse coordinate.
+     */
     void signalLeftMousePress(QPoint point);
 
-  protected:
-    /** Will be called by the Qt View when its contents
-     * are resized. We adapt the canvas then.
+protected:
+    /**
+     * Will be called by the Qt View when its contents are resized.
+     * We adapt the canvas then.
      * @param e The resize event
      */
-    void resizeEvent(QResizeEvent* e);
+    void resizeEvent(QResizeEvent *e);
 
-    /** Paint function for the widget, temporary fix while we wait for QGV 4.3
-      * @param event The paint event
-      */
-    void paintEvent(QPaintEvent* event);
+    /**
+     * Paint function for the widget, temporary fix while we wait for QGV 4.3
+     * @param event The paint event
+     */
+    void paintEvent(QPaintEvent *event);
 
-    /** Overwritten Qt function.
-    */
+    /**
+     * Overwritten Qt function.
+     */
     virtual void drawItems(QPainter *painter, int numItems, QGraphicsItem *items[], const QStyleOptionGraphicsItem options[]);
 
-
-  private:
+private:
     // Theme manager
-    ThemeManager* mTheme;
+    ThemeManager *mTheme;
     // Theme queue
     QList<int> mThemeQueue;
     // Theme offset queue
@@ -111,12 +119,11 @@ class GameView : public QGraphicsView
     // Theme queue delay time [ms]
     QTime mTimeStart;
     // Debug frame rate sprite
-    QGraphicsTextItem* mFrameSprite;
+    QGraphicsTextItem *mFrameSprite;
     // Time between updates
     int mDisplayUpdateTime;
     // Average update times
     QList<int> mDrawTimes;
-
 };
 
 #endif // LSKAT_GAMEVIEW_H

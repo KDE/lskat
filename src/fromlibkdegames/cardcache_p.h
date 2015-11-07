@@ -1,6 +1,5 @@
 /*
     This file is part of the KDE games library
-
     Copyright 2008 Andreas Pakulat <apaku@gmx.de>
 
     This library is free software; you can redistribute it and/or
@@ -37,39 +36,39 @@ class KCardCachePrivate : public QObject
 {
     Q_OBJECT
 public:
-    KPixmapCache* cache;
-    QMutex* cacheMutex;
-    QMutex* rendererMutex;
-    LoadThread* loadThread;
+    KPixmapCache *cache;
+    QMutex *cacheMutex;
+    QMutex *rendererMutex;
+    LoadThread *loadThread;
     QSize size;
     QString deckName;
-    QSvgRenderer* svgRenderer;
+    QSvgRenderer *svgRenderer;
 
-    QSvgRenderer* renderer();
-    QPixmap renderSvg( const QString& element );
-    void ensureNonNullPixmap( QPixmap& pix );
+    QSvgRenderer *renderer();
+    QPixmap renderSvg(const QString &element);
+    void ensureNonNullPixmap(QPixmap &pix);
 public slots:
-    void submitRendering( const QString& key, const QImage& image );
+    void submitRendering(const QString &key, const QImage &image);
 };
 
 class LoadThread : public QThread
 {
     Q_OBJECT
 signals:
-    void renderingDone( const QString& key, const QImage& image );
+    void renderingDone(const QString &key, const QImage &image);
 public:
-    explicit LoadThread( KCardCachePrivate* d );
-    void setSize( const QSize& s );
-    void setDeckName( const QString& frontTheme );
-    void setElementsToLoad( const QStringList& elements );
+    explicit LoadThread(KCardCachePrivate *d);
+    void setSize(const QSize &s);
+    void setDeckName(const QString &frontTheme);
+    void setElementsToLoad(const QStringList &elements);
     void run();
     void kill();
 private:
-    KCardCachePrivate* d;
+    KCardCachePrivate *d;
     QString frontTheme;
     QSize size;
     bool doKill;
-    QMutex* killMutex;
+    QMutex *killMutex;
     QStringList elementsToRender;
 };
 

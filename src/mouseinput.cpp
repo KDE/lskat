@@ -26,31 +26,28 @@
 // KDE includes
 #include <kdebug.h>
 
-
 // Constructor for the input
-MouseInput::MouseInput(QObject* parent)
+MouseInput::MouseInput(QObject *parent)
     : AbstractInput(parent)
 {
 }
 
-
 // Mouse press received
 void MouseInput::mousePress(const QPoint &point)
 {
-  int playerNumber;
-  int cardNumber;
+    int playerNumber;
+    int cardNumber;
 
-  // Do only process input if it is our turn
-  if (!mInputAllowed) return;
+    // Do only process input if it is our turn
+    if (!mInputAllowed) return;
 
-  emit signalConvertMousePress(point, playerNumber, cardNumber);
-  // Check whether the move is for the right player
-  if (playerNumber == mId)
-  {
-    //kDebug() << "MouseInput:: Convert to" << playerNumber << "," << cardNumber;
-    emit signalPlayerInput(mId, playerNumber, cardNumber);
-  }
+    emit signalConvertMousePress(point, playerNumber, cardNumber);
+    // Check whether the move is for the right player
+    if (playerNumber == mId)
+    {
+        //kDebug() << "MouseInput:: Convert to" << playerNumber << "," << cardNumber;
+        emit signalPlayerInput(mId, playerNumber, cardNumber);
+    }
 }
-
 
 #include "mouseinput.moc"

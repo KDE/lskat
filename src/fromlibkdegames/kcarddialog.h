@@ -16,10 +16,12 @@
     the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
     Boston, MA 02110-1301, USA.
 */
+
 #ifndef KCARDDIALOG_H
 #define KCARDDIALOG_H
 
-#include <QtGui/QWidget>
+#include <QWidget>
+
 #include <kdialog.h>
 #include <kconfig.h>
 
@@ -37,11 +39,11 @@ class KCardWidget;
  *
  * Usage Example:
  * \code
- *   KConfigGroup(KGlobal::config(),"CardOptions");
- *   KCardWidget* cardwiget = new KCardwidget();
+ *   KConfigGroup(KGlobal::config(), "CardOptions");
+ *   KCardWidget *cardwiget = new KCardwidget();
  *   cardwidget->readSettings(configGroup);
  *   KCardDialog dlg(cardwidget);
- *   if(dlg.exec() == QDialog::Accepted)
+ *   if (dlg.exec() == QDialog::Accepted)
  *   {
  *     cardwidget->saveSettings(configGroup);
  *     configGroup.sync();
@@ -52,9 +54,9 @@ class KCardWidget;
  */
 class KCardDialog : public KDialog
 {
-  Q_OBJECT
+    Q_OBJECT
 public:
-  explicit KCardDialog(KCardWidget* widget);
+    explicit KCardDialog(KCardWidget *widget);
 };
 
 /**
@@ -80,45 +82,44 @@ public:
  */
 class KCardWidget : public QWidget
 {
-  Q_OBJECT
+    Q_OBJECT
 
 public:
+    /**
+     * Constructs a card deck selection widget.
+     *
+     * @param parent The parent widget of the widget, if any.
+     */
+    explicit KCardWidget (QWidget *parent = NULL);
 
-   /**
-    * Constructs a card deck selection widget.
-    *
-    * @param parent The parent widget of the widget, if any.
-    */
-   explicit KCardWidget (QWidget* parent = NULL);
+    /**
+     * Read the settings from a config file
+     * @param group the configuration group
+     */
+    void readSettings(const KConfigGroup &group);
 
-   /**
-    * Read the settings from a config file
-    * @param group the configuration group
-    */
-   void readSettings(const KConfigGroup& group);
+    /**
+     * Destructs a card deck selection dialog.
+     */
+    ~KCardWidget();
 
-   /**
-    * Destructs a card deck selection dialog.
-    */
-   ~KCardWidget();
+    /**
+     * Saves the KCardWidget config into a config file.
+     * These settings are used by @ref KCardWidget.
+     */
+    void saveSettings(KConfigGroup &group) const;
 
-   /**
-    * Saves the KCardWidget config into a config file.
-    * These settings are used by @ref KCardWidget.
-    */
-   void saveSettings(KConfigGroup& group) const;
+    /**
+     * set the name of the card set (front side)
+     * @param name the new name to select as front side
+     */
+    void setDeckName(const QString &name);
 
-   /**
-    * set the name of the card set (front side)
-    * @param name the new name to select as front side
-    */
-   void setDeckName(const QString& name);
-
-   /**
-    * Retrieve the name of the card set (front side) from the dialog.
-    * @return The card set name.
-    */
-   QString deckName() const;
+    /**
+     * Retrieve the name of the card set (front side) from the dialog.
+     * @return The card set name.
+     */
+    QString deckName() const;
 
 protected:
     void insertCardIcons();
@@ -135,10 +136,8 @@ protected Q_SLOTS:
     void updateSelection();
 
 private:
-   /**
-    * The dialog data.
-    */
-   KCardWidgetPrivate* const d;
+    /** The dialog data. */
+    KCardWidgetPrivate *const d;
 };
 
 #endif

@@ -43,5 +43,3 @@ install(TARGETS lskat  ${INSTALL_TARGETS_DEFAULT_ARGS} )
 ########### install files ###############
 
 install( FILES lskatui.rc  DESTINATION  ${DATA_INSTALL_DIR}/lskat )
-
-

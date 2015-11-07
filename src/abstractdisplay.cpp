@@ -32,72 +32,68 @@
 #include "thememanager.h"
 
 // Define static attributes
-QHash<int,CardSprite*> AbstractDisplay::mCards;
+QHash<int, CardSprite *> AbstractDisplay::mCards;
 
 // Constructor for the engine
-AbstractDisplay::AbstractDisplay(Deck* deck, QGraphicsScene* scene, ThemeManager* theme,
-                                 int advancePeriod, QGraphicsView* parent)
+AbstractDisplay::AbstractDisplay(Deck *deck, QGraphicsScene *scene, ThemeManager *theme,
+                                 int advancePeriod, QGraphicsView *parent)
                : QObject(parent)
 {
-  // Store the scene
-  mScene = scene;
-  // Store the view
-  mView = parent;
-  // Store advance period
-  mAdvancePeriod = advancePeriod;
-  // Store theme manager
-  mTheme = theme;
+    // Store the scene
+    mScene = scene;
+    // Store the view
+    mView = parent;
+    // Store advance period
+    mAdvancePeriod = advancePeriod;
+    // Store theme manager
+    mTheme = theme;
 
-  // Set up deck
-  setDeck(deck);
+    // Set up deck
+    setDeck(deck);
 
-  // Initialize sprites
-  createCardSprites();
-  mSprites.clear();
+    // Initialize sprites
+    createCardSprites();
+    mSprites.clear();
 }
-
 
 // Destructor.
 AbstractDisplay::~AbstractDisplay()
 {
-  qDeleteAll(mSprites);
-  // Do not delete static cards for performance reasons
+    qDeleteAll(mSprites);
+    // Do not delete static cards for performance reasons
 }
-
 
 // Store the deck object for accessing the card deck
-void AbstractDisplay::setDeck(Deck* deck)
+void AbstractDisplay::setDeck(Deck *deck)
 {
-  mDeck = deck;
+    mDeck = deck;
 }
-
 
 // Explicitly reset stored data, e.g. sprites.
 void AbstractDisplay::reset()
 {
-  mCards.clear();
+    mCards.clear();
 }
-
 
 // Create all sprites and store them for later access
 void AbstractDisplay::createCardSprites()
 {
-  // Only create sprites once (unless explicitly reset)
-  if (mCards.size() > 0) return;
+    // Only create sprites once (unless explicitly reset)
+    if (mCards.size() > 0) return;
 
-  // Loop all cards
-  for (int cardNo=0; cardNo<mDeck->cardNumber(); cardNo++)
-  {
-    // Create sprite with card correct card image
-    Suite suite        = Suite(cardNo%4);
-    CardType cardtype  = CardType(cardNo/4);
-    CardSprite* sprite = new CardSprite(suite, cardtype, mTheme, mAdvancePeriod, mScene);
-    // Display sprite
-    sprite->hide();
+    // Loop all cards
+    for (int cardNo = 0; cardNo < mDeck->cardNumber(); cardNo++)
+    {
+        // Create sprite with card correct card image
+        Suite suite        = Suite(cardNo % 4);
+        CardType cardtype  = CardType(cardNo / 4);
+        CardSprite *sprite = new CardSprite(suite, cardtype, mTheme, mAdvancePeriod, mScene);
+        // Display sprite
+        sprite->hide();
 
-    // Store sprite
-    mCards[cardNo] = sprite;
-  }// next
+        // Store sprite
+        mCards[cardNo] = sprite;
+    }// next
 }
 
 #include "abstractdisplay.moc"

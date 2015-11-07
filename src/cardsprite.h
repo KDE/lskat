@@ -1,5 +1,3 @@
-#ifndef CARD_SPRITE_H
-#define CARD_SPRITE_H
 /*
    This file is part of the KDE games lskat program
    Copyright (c) 2006 Martin Heni <kde@heni-online.de>
@@ -20,6 +18,9 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef CARD_SPRITE_H
+#define CARD_SPRITE_H
+
 // Qt includes
 #include <QGraphicsPixmapItem>
 #include <QList>
@@ -31,137 +32,156 @@
 #include "thememanager.h"
 #include "deck.h"
 
-
 /**
  * The sprite for a card on the canvas.
  */
 class CardSprite : public QGraphicsPixmapItem, public virtual Themable
 {
+public:
+    /**
+     * Constructor for the sprite.
+     * @param suite         The suite of the card to use [Club, ...]
+     * @param type          The card type [Ace, ...]
+     * @param theme         The theme manager
+     * @param advancePeriod The scene advance period [ms]
+     * @param scene         The scene object
+     */
+    CardSprite(const Suite suite, const CardType type, ThemeManager *theme, int advancePeriod, QGraphicsScene *scene);
 
-  public:
-    /** Constructor for the sprite.
-      * @param suite         The suite of the card to use [Club, ...]
-      * @param type          The card type [Ace, ...]
-      * @param theme         The theme manager
-      * @param advancePeriod The scene advance period [ms]
-      * @param scene         The scene object
-      */
-    CardSprite(const Suite suite, const CardType type, ThemeManager* theme, int advancePeriod, QGraphicsScene* scene);
+    /**
+     * Possible animation states of the sprite
+     */
+    enum AnimationState {Idle, Turning, Moving, Removing, ShuffleMove};
 
-    /** Possible animation states of the sprite */
-    enum AnimationState {Idle, Turning, Moving, Removing,
-                         ShuffleMove};
-
-    /** Main theme manager function. Called when any theme change like
-      * a new theme or a theme size change occurs. This object needs to
-      * resize and redraw then.
-      */
+    /**
+     * Main theme manager function. Called when any theme change like
+     * a new theme or a theme size change occurs. This object needs to
+     * resize and redraw then.
+     */
     virtual void changeTheme();
 
-    /** Display the card front pixmap image
+    /**
+     * Display the card front pixmap image
      */
-     void setFrontside();
+    void setFrontside();
 
-    /** Display the card back pixmap image
+    /**
+     * Display the card back pixmap image
      */
-     void setBackside();
+    void setBackside();
 
-     /** Standard advance method
-      *  @param phase Advance phase
-      */
-     virtual void advance(int phase);
-
-      /** Stop all movement and animation.
-      */
-      void stop();
-
-     /** Turn the card to frontside or backside.
-       * @param front True (turn to frontside) or false (turn to backside)
-       */
-     void setTurning(bool front);
-
-     /** Move the sprite slowly to the target area. Stop
-       * movement if it arrived there.
-       * @param pos  Target position [0..1]
-       * @param time Time for the move [ms]
-       */
-     void setMove(QPointF pos, double time);
-
-     /** Set the position of the sprite.
-       * @param pos  Target position [0..1]
-       */
-     void setPosition(QPointF pos);
-
-     /** Move the sprite slowly to the target area. Stop
-       * movement and hide sprite if it arrived there.
-       * @param pos  Target position [0..1]
-       * @param time Time for the move [ms]
-       */
-     void setRemove(QPointF pos, double time);
-
-     /** Delay before moving, then move the sprite fast to the
-       * target area. Stop movement and depending on the last
-       * argument turn backside/frontside sprite if it arrived there.
-       * @param pos  Target position [0..1]
-       * @param delay The Move start delay [ms]
-       * @param front Show frontside(true) or backside
-       */
-     void setShuffleMove(QPointF pos, double delay, bool front);
-
-    /** Set the current frame.
-     *  @param no The frame number 0..n-1
-      * @param force Force redraw
+    /**
+     * Standard advance method
+     * @param phase Advance phase
      */
-    void setFrame(int no, bool force=false);
+    virtual void advance(int phase);
 
-    /** Retrieve the maximum frame number.
-      * @return The frame count.
-      */
+    /**
+     * Stop all movement and animation.
+     */
+    void stop();
+
+    /**
+     * Turn the card to frontside or backside.
+     * @param front True (turn to frontside) or false (turn to backside)
+     */
+    void setTurning(bool front);
+
+    /**
+     * Move the sprite slowly to the target area. Stop
+     * movement if it arrived there.
+     * @param pos  Target position [0..1]
+     * @param time Time for the move [ms]
+     */
+    void setMove(QPointF pos, double time);
+
+    /**
+     * Set the position of the sprite.
+     * @param pos  Target position [0..1]
+     */
+    void setPosition(QPointF pos);
+
+    /**
+     * Move the sprite slowly to the target area. Stop
+     * movement and hide sprite if it arrived there.
+     * @param pos  Target position [0..1]
+     * @param time Time for the move [ms]
+     */
+    void setRemove(QPointF pos, double time);
+
+    /**
+     * Delay before moving, then move the sprite fast to the target area.
+     * Stop movement and depending on the last argument turn backside/frontside
+     * sprite if it arrived there.
+     * @param pos   Target position [0..1]
+     * @param delay The Move start delay [ms]
+     * @param front Show frontside(true) or backside
+     */
+    void setShuffleMove(QPointF pos, double delay, bool front);
+
+    /**
+     * Set the current frame.
+     * @param no    The frame number 0..n-1
+     * @param force Force redraw
+     */
+    void setFrame(int no, bool force = false);
+
+    /**
+     * Retrieve the maximum frame number.
+     * @return The frame count.
+     */
     int count();
 
-    /** Retrieve the card id, a combination of suite and card type.
-      *@return The card id.
-      */
-    int cardid() {return mCardType*4+mSuite;}
-
-    /** Retrieve the current frame number.
-     *  @return The frame number 0..n-1.
+    /**
+     * Retrieve the card id, a combination of suite and card type.
+     * @return The card id.
      */
-     int frame() {return mCurrentFrame;}
+    int cardid() {return mCardType * 4 + mSuite;}
 
-     /** Check whether the sprite is idle,
-       * @return True if idle.
-       */
-     bool isIdle() {return mAnimationState == Idle;}
+    /**
+     * Retrieve the current frame number.
+     * @return The frame number 0..n-1.
+     */
+    int frame() {return mCurrentFrame;}
 
-  protected:
-    /** Calculate a sprite frame (for turning sprites).
-      * Called when the frame is asked for.
-      * @param no The frame number.
-      */
+    /**
+     * Check whether the sprite is idle,
+     * @return True if idle.
+     */
+    bool isIdle() {return mAnimationState == Idle;}
+
+protected:
+    /**
+     * Calculate a sprite frame (for turning sprites).
+     * Called when the frame is asked for.
+     * @param no The frame number.
+     */
     void calcFrame(int no);
 
-    /** Create the pixmap for one frame of the frame turning animation.
-      * @param front    The front pixmap
-      * @param back     The back pixmap
-      * @param curNo    Which number in the animation sequence [0..count]
-      * @param count    How many frames in the animation
-      * @return The calculated pixmap.
-      */
+    /**
+     * Create the pixmap for one frame of the frame turning animation.
+     * @param front The front pixmap
+     * @param back  The back pixmap
+     * @param curNo Which number in the animation sequence [0..count]
+     * @param count How many frames in the animation
+     * @return The calculated pixmap.
+     */
     QPixmap createCard(const QPixmap &front, const QPixmap &back, int curNo, int count);
 
-    /** Set target position and calculate moving speed.
-     *  @param pos Target [0..1, 0..1]
-     *  @param time The movement speed [ms]
+    /**
+     * Set target position and calculate moving speed.
+     * @param pos  Target [0..1, 0..1]
+     * @param time The movement speed [ms]
      */
-     void calcTargetAndSpeed(QPointF pos, double time);
+    void calcTargetAndSpeed(QPointF pos, double time);
 
-     /** Perform a move by a delta given by the sprites velocity.
-      *  @return True if the target position is reached false otherwise.
-      */
-     bool deltaMove();
+    /**
+     * Perform a move by a delta given by the sprites velocity.
+     * @return True if the target position is reached false otherwise.
+     */
+    bool deltaMove();
 
-  private:
+private:
     // Type of animation
     AnimationState mAnimationState;
     // Counter of animation [ms]
@@ -192,7 +212,6 @@ class CardSprite : public QGraphicsPixmapItem, public virtual Themable
 
     // The position of the sprite [rel 0..1, rel 0..1]
     QPointF mStart;
-
 };
 
 #endif
