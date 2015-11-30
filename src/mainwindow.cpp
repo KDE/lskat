@@ -616,8 +616,8 @@ void Mainwindow::menuPlayerNames()
     {
         for (int i = 0; i < 2; i++)
         {
-        Player *p = mLSkatConfig->player(i);
-        p->setName(dlg->name(i));
+            Player *p = mLSkatConfig->player(i);
+            p->setName(dlg->name(i));
         }
     }
 

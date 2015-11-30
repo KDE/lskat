@@ -151,13 +151,13 @@ void DisplayIntro::loop()
         QPointF pos;
         if (mAnimCnt % 2 == 0)
         {
-        pos  = QPointF(start_pos.x(), start_pos.y());
-        pos += QPointF(start_shift.x() * fsin, start_shift.y() * factor);
+            pos  = QPointF(start_pos.x(), start_pos.y());
+            pos += QPointF(start_shift.x() * fsin, start_shift.y() * factor);
         }
         else
         {
-        pos  = QPointF(1.0 - start_pos.x() - card_width, start_pos.y());
-        pos += QPointF(-start_shift.x() * fsin, start_shift.y() * factor);
+            pos  = QPointF(1.0 - start_pos.x() - card_width, start_pos.y());
+            pos += QPointF(-start_shift.x() * fsin, start_shift.y() * factor);
         }
         sprite->setBackside();
         sprite->setPosition(pos);
@@ -200,8 +200,8 @@ void DisplayIntro::loop()
     {
         for (int i = 0; i < no; i++)
         {
-        CardSprite *sprite = mCards[i];
-        sprite->setMove(QPointF((1.0 - card_width) / 2.0, (1.0 / aspectRatio - card_width) / 2.0), time_clear_in);
+            CardSprite *sprite = mCards[i];
+            sprite->setMove(QPointF((1.0 - card_width) / 2.0, (1.0 / aspectRatio - card_width) / 2.0), time_clear_in);
         }
         mAnimCnt++;
     }
