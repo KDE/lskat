@@ -110,8 +110,10 @@ int main(int argc, char *argv[])
     global_demo_mode = true;
     kDebug(12010) << "Running in demo mode" << global_demo_mode;
   }
-  args->clear();  
+  args->clear();
   KApplication application(true);
+
+  KLocalizedString::setApplicationDomain("lskat");
 
   if (application.isSessionRestored())
   {
