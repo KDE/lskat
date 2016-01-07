@@ -125,7 +125,7 @@ int main(int argc, char *argv[])
     mainwindow->show();
   }
 
-  app.setWindowIcon(QIcon::fromTheme(QStringLiteral("lskat")));
+  application.setWindowIcon(QIcon::fromTheme(QStringLiteral("lskat")));
 
   return application.exec();
 }
