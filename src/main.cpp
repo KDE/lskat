@@ -46,6 +46,7 @@
 #include <kcmdlineargs.h>
 #include "lskat_debug.h"
 #include <K4AboutData>
+#include <KCrash>
 #include <KLocalizedString>
 #include <kglobal.h>
 #include <KDebug>
@@ -91,6 +92,7 @@ int main(int argc, char *argv[])
   /* command line handling */
   KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
+  KCrash::initialize();
 
   // Check for debug command line option
   if (args->isSet("debug"))

@@ -1,5 +1,5 @@
 
-set( lskat_SRCS
+set(lskat_SRCS
     lskat_debug.cpp 
     thememanager.cpp
     namedialogwidget.cpp
@@ -23,12 +23,13 @@ set( lskat_SRCS
     aiinput.cpp
     fromlibkdegames/cardcache.cpp
     fromlibkdegames/carddeckinfo.cpp
-    fromlibkdegames/kcarddialog.cpp )
+    fromlibkdegames/kcarddialog.cpp
+)
 
-
-ki18n_wrap_ui( lskat_SRCS
+ki18n_wrap_ui(lskat_SRCS
     namedialog.ui
-    fromlibkdegames/kgamecardselector.ui )
+    fromlibkdegames/kgamecardselector.ui
+)
 
 configure_file(config-src.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
 
@@ -36,12 +37,17 @@ file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../*-apps-lskat.png")
 ecm_add_app_icon(lskat_SRCS ICONS ${ICONS_SRCS})
 add_executable( lskat ${lskat_SRCS} )
 
-target_link_libraries( lskat KF5KDEGames KF5::KDELibs4Support  Qt5::Gui Qt5::Svg )
+target_link_libraries(lskat
+    Qt5::Gui
+    Qt5::Svg
+    KF5::Crash
+    KF5::KDELibs4Support
+    KF5KDEGames
+)
 
-install(TARGETS lskat  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS} )
+install(TARGETS lskat  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install( FILES lskatui.rc  DESTINATION  ${KDE_INSTALL_DATADIR}/lskat )
-
+install(FILES lskatui.rc  DESTINATION  ${KDE_INSTALL_DATADIR}/lskat)
 
