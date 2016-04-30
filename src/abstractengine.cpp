@@ -25,28 +25,22 @@
 // KDE includes
 #include "lskat_debug.h"
 
-
 // Constructor for the game document/engine
-AbstractEngine::AbstractEngine(QWidget* parent)
+AbstractEngine::AbstractEngine(QWidget *parent)
                : QObject(parent)
 {
-  mGameStatus = Stopped;
-  mPlayers.clear();
+    mGameStatus = Stopped;
+    mPlayers.clear();
 }
 
-
-// Add a player to the game 
-void AbstractEngine::addPlayer(int no, Player* player)
+// Add a player to the game
+void AbstractEngine::addPlayer(int no, Player *player)
 {
-  mPlayers[no] = player;
+    mPlayers[no] = player;
 }
-
 
 // Retrieve the player of the given number.
-Player* AbstractEngine::player(int no)
+Player *AbstractEngine::player(int no)
 {
-  return mPlayers[no];
+    return mPlayers[no];
 }
-
-
-

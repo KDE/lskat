@@ -1,5 +1,3 @@
-#ifndef SCORE_SPRITE_H
-#define SCORE_SPRITE_H
 /*
    This file is part of the KDE games lskat program
    Copyright (c) 2006 Martin Heni <kde@heni-online.de>
@@ -20,108 +18,118 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef SCORE_SPRITE_H
+#define SCORE_SPRITE_H
+
 // Qt includes
 #include <QGraphicsPixmapItem>
 #include <QGraphicsTextItem>
-
 
 // Local includes
 #include "thememanager.h"
 #include "pixmapsprite.h"
 #include "player.h"
 
-
-/** The sprite for a score board on the canvas.
+/**
+ * The sprite for a score board on the canvas.
  */
 class ScoreSprite : public PixmapSprite
 {
+public:
+    /**
+     * Constructor for the score sprite.
+     * @param id              The theme id
+     * @param theme           The theme manager
+     * @param advancePeriod   The canvas advance period [ms]
+     * @param no              A used defined number (unused)
+     * @param scene           The graphics scene
+     */
+    ScoreSprite(const QString &id, ThemeManager *theme, int advancePeriod, int no, QGraphicsScene *scene);
 
-  public:
-    /** Constructor for the score sprite.
-      * @param id              The theme id
-      * @param theme           The theme manager
-      * @param advancePeriod   The canvas advance period [ms]
-      * @param no              A used defined number (unused)
-      * @param scene           The graphics scene
-      */
-    ScoreSprite(const QString &id, ThemeManager* theme, int advancePeriod, int no, QGraphicsScene* scene);
-    
-    /** Destructor 
-      */
+    /**
+     * Destructor
+     */
     ~ScoreSprite();
 
-    /** Standard QGI advance function.
-     *  @param phase The advance phase
+    /**
+     * Standard QGI advance function.
+     * @param phase The advance phase
      */
     virtual void advance(int phase);
 
-    /** Retrieve the type of QGI. This item is UserType+10
-     *  @return The type of item.
+    /**
+     * Retrieve the type of QGI. This item is UserType+10
+     * @return The type of item.
      */
-    virtual int type() const {return QGraphicsItem::UserType+10;}
+    virtual int type() const {return QGraphicsItem::UserType + 10;}
 
-    /** Main theme change function. On call of this the item needs to redraw and
-      * resize.
-      */
+    /**
+     * Main theme change function. On call of this the item needs to redraw and
+     * resize.
+     */
     virtual void changeTheme();
 
-    /** Store the player name.
-      * @param s  The name
-      */ 
+    /**
+     * Store the player name.
+     * @param s  The name
+     */
     void setPlayerName(const QString &s);
-    
-    /** Store the amounts of points for a player.
-      * @param points The amount of current points.
-      */ 
+
+    /**
+     * Store the amounts of points for a player.
+     * @param points The amount of current points.
+     */
     void setPoints(int points);
 
-    /** Store the score for a player.
-      * @param score  The score
-      */ 
+    /**
+     * Store the score for a player.
+     * @param score  The score
+     */
     void setScore(int score);
-    
-    /** Store the amounts of games.
-      * @param won  The amount of won games
-      * @param all  The amount of all games
-      */ 
+
+    /**
+     * Store the amounts of games.
+     * @param won  The amount of won games
+     * @param all  The amount of all games
+     */
     void setGames(int won, int all);
 
-    /** Store input device for a player.
-      * @param device  The device number [0-2]
-      */ 
+    /**
+     * Store input device for a player.
+     * @param device  The device number [0-2]
+     */
     void setInput(int device);
 
-    /** Store trump icon for a player.
-      * @param suite  The trump suite
-      */ 
+    /**
+     * Store trump icon for a player.
+     * @param suite  The trump suite
+     */
     void setTrump(int suite);
 
-
-  private:
+private:
     // Text for name of player
-    QGraphicsTextItem* mName;
-    
+    QGraphicsTextItem *mName;
+
     // Text for current points
-    QGraphicsTextItem* mPoints;
+    QGraphicsTextItem *mPoints;
 
     // Text for score
-    QGraphicsTextItem* mScore;
+    QGraphicsTextItem *mScore;
 
     // Text for games
-    QGraphicsTextItem* mGames;
+    QGraphicsTextItem *mGames;
 
     // Sprite for the input device
-    PixmapSprite* mInput;
+    PixmapSprite *mInput;
 
-    // Frame  number of the input device sprite
+    // Frame number of the input device sprite
     int mInputFrame;
 
     // Sprite for the input device
-    PixmapSprite* mTrump;
+    PixmapSprite *mTrump;
 
-    // Frame  number of the input device sprite
+    // Frame number of the input device sprite
     int mTrumpFrame;
-
 };
 
 #endif

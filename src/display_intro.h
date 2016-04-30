@@ -1,5 +1,3 @@
-#ifndef DISPLAY_INTRO_H
-#define DISPLAY_INTRO_H
 /*
    This file is part of the KDE games lskat program
    Copyright (c) 2006 Martin Heni <kde@heni-online.de>
@@ -20,10 +18,12 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef DISPLAY_INTRO_H
+#define DISPLAY_INTRO_H
+
 // Qt includes
 #include <QGraphicsScene>
 #include <QTimer>
-
 
 // KDE includes
 #include "lskat_debug.h"
@@ -36,70 +36,78 @@
 // Forward declaration
 class Player;
 
-/** The display engine for the intro graphics animation.
+/**
+ * The display engine for the intro graphics animation.
  */
 class DisplayIntro : public AbstractDisplay, public virtual Themable
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
+public:
     /** Animation state of the intro display */
     enum AnimState {Idle, Putting, Turning, Waiting, Clearing, Waiting2};
 
-  
-    /** Constructor for the display.
-     *  @param deck          The card deck
-     *  @param scene         The graphics scene to work with
-     *  @param theme         The theme manager
-     *  @param advancePeriod The advance period [ms]
-     *  @param parent        The parent object
+    /**
+     * Constructor for the display.
+     * @param deck          The card deck
+     * @param scene         The graphics scene to work with
+     * @param theme         The theme manager
+     * @param advancePeriod The advance period [ms]
+     * @param parent        The parent object
      */
-    DisplayIntro(Deck* deck, QGraphicsScene* scene, ThemeManager* theme, int advancePeriod, QGraphicsView* parent);
+    DisplayIntro(Deck *deck, QGraphicsScene *scene, ThemeManager *theme, int advancePeriod, QGraphicsView *parent);
 
-    /** Main theme function. Called by the theme manager. Redraw and resize 
-      * display.
-      */
+    /**
+     * Main theme function. Called by the theme manager. Redraw and resize
+     * display.
+     */
     virtual void changeTheme();
 
-    /** Start the intro.
-    */
+    /**
+     * Start the intro.
+     */
     void start();
 
-
-    /* Deal cards - unused.
+    /*
+     * Deal cards - unused.
      * @param player The player object
      * @param position The position to place the player (0,1)
      */
-    void deal(Player* /*player*/, int /*position*/) {}
+    void deal(Player */*player*/, int /*position*/) {}
 
-    /** Play a card on the display - unsused.
+    /**
+     * Play a card on the display - unsused.
      */
     void play(int /*cardNumber*/, int /*playerNumber*/, int /*phase*/) {}
 
-    /** Turn a card on the display - unused.
+    /**
+     * Turn a card on the display - unused.
      */
     void turn(int /*cardNumber*/) {}
 
-    /** Remove the given card from the display - unused.
+    /**
+     * Remove the given card from the display - unused.
      */
     void remove(int /*winnerPosition*/, int /*cardNumber*/, int /*delta*/) {}
-  
-  public slots:
-    /** Convert the position of a mouse click to a logical
-      * game position - unused.
-      */
-    void convertMousePress(const QPoint& /*mouse*/, int& /*playerNumber*/, int& /*cardNumber*/) {}
 
-    /** Animation loop. Called by timer.
-      */
+public slots:
+    /**
+     * Convert the position of a mouse click to a logical
+     * game position - unused.
+     */
+    void convertMousePress(const QPoint &/*mouse*/, int &/*playerNumber*/, int &/*cardNumber*/) {}
+
+    /**
+     * Animation loop. Called by timer.
+     */
     void loop();
 
-  private:
-    // Timer for animation loop 
-    QTimer* mTimer;
-    // Animation counter 
+private:
+    // Timer for animation loop
+    QTimer *mTimer;
+    // Animation counter
     int mAnimCnt;
-    // Animation state 
+    // Animation state
     AnimState mState;
     // Text shown?
     bool mTextShown;

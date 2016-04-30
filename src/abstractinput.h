@@ -1,5 +1,3 @@
-#ifndef ABSTRACT_INPUT_H
-#define ABSTRACT_INPUT_H
 /*
    This file is part of the KDE games lskat program
    Copyright (c) 2006 Martin Heni <kde@heni-online.de>
@@ -20,6 +18,9 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef ABSTRACT_INPUT_H
+#define ABSTRACT_INPUT_H
+
 // Qt includes
 #include <QObject>
 
@@ -28,11 +29,10 @@
 
 // Local includes
 
-
 namespace InputDevice
 {
-    /** Determine the type of input to use for the player */
-    typedef enum {TypeMouseInput = 0, TypeAiInput = 1} InputDeviceType;
+/** Determine the type of input to use for the player */
+typedef enum {TypeMouseInput = 0, TypeAiInput = 1} InputDeviceType;
 }
 
 /**
@@ -40,52 +40,53 @@ namespace InputDevice
  */
 class AbstractInput : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-
-    /** Constructor for the input
-     *  @param parent The parent object
+public:
+    /**
+     * Constructor for the input
+     * @param parent The parent object
      */
-    AbstractInput(QObject* parent);
+    explicit AbstractInput(QObject *parent);
 
-    /** Allow or disallow input with this device 
-      * @param allowed True if input is allowed
-      */
-    virtual void setInputAllowed(bool allowed);  
+    /**
+     * Allow or disallow input with this device
+     * @param allowed True if input is allowed
+     */
+    virtual void setInputAllowed(bool allowed);
 
-    /** Retrieve whether input is allowed or not.
-     *  @return True if input from this device is allowed.
+    /**
+     * Retrieve whether input is allowed or not.
+     * @return True if input from this device is allowed.
      */
     virtual bool inputAllowed();
 
-    /** Set the player id number to whom this input
-      * belongs to.
-      * @param id The id number
-      */
+    /**
+     * Set the player id number to whom this input belongs to.
+     * @param id The id number
+     */
     virtual void setId(int id);
 
-    /** Retrieve the type of device.
-      * @return The decice type.
-      */
+    /**
+     * Retrieve the type of device.
+     * @return The device type.
+     */
     virtual InputDevice::InputDeviceType type() = 0;
 
-
-  signals:
-    /** Signals the availability of player input
+signals:
+    /**
+     * Signals the availability of player input
      * @param id           The input device id
      * @param playerNumber The player number [0-1]
      * @param cardNumber   The card number [0-7]
-    */
-   void signalPlayerInput(int id, int playerNumber, int cardNumber);
+     */
+    void signalPlayerInput(int id, int playerNumber, int cardNumber);
 
-
-  protected:
+protected:
     /** Player id to whom this input belongs */
     int mId;
-    /** Is input allowed ? */
+    /** Is input allowed? */
     bool mInputAllowed;
-
 };
 
 #endif

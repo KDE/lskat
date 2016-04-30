@@ -19,5 +19,3 @@
 
 #include "lskat_debug.h"
 Q_LOGGING_CATEGORY(LSKAT_LOG, "log_lskat")
-
-

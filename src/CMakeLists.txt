@@ -1,6 +1,6 @@
 
 set(lskat_SRCS
-    lskat_debug.cpp 
+    lskat_debug.cpp
     thememanager.cpp
     namedialogwidget.cpp
     gameview.cpp
@@ -50,4 +50,3 @@ install(TARGETS lskat  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 ########### install files ###############
 
 install(FILES lskatui.rc  DESTINATION  ${KDE_INSTALL_DATADIR}/lskat)
-

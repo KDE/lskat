@@ -1,5 +1,3 @@
-#ifndef LSKATGLOBAL_H
-#define LSKATGLOBAL_H
 /*
    This file is part of the KDE games lskat program
    Copyright (c) 2006 Martin Heni <kde@heni-online.de>
@@ -20,6 +18,9 @@
    Boston, MA 02110-1301, USA.
 */
 
+#ifndef LSKATGLOBAL_H
+#define LSKATGLOBAL_H
+
 /** Global debug flag */
 extern int global_debug;
 /** Global skip intro flag */
@@ -27,5 +28,4 @@ extern bool global_skip_intro;
 /** Demo or autoplay mode */
 extern bool global_demo_mode;
 
-#endif 
-
+#endif

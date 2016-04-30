@@ -28,91 +28,86 @@
 #include <kconfiggroup.h>
 
 // Constructor for the sprite
-TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager* theme, QGraphicsScene* scene)
+TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager *theme, QGraphicsScene *scene)
           : Themable(id, theme), QGraphicsTextItem(0)
 {
-  scene->addItem(this);
-  setPlainText(text);
-  hide();
- 
-  if (theme) theme->updateTheme(this);
-}
+    scene->addItem(this);
+    setPlainText(text);
+    hide();
 
+    if (theme) theme->updateTheme(this);
+}
 
 // Constructor for the sprite
-TextSprite::TextSprite(const QString &id, ThemeManager* theme, QGraphicsScene* scene)
+TextSprite::TextSprite(const QString &id, ThemeManager *theme, QGraphicsScene *scene)
           : Themable(id, theme), QGraphicsTextItem(0)
 {
-  scene->addItem(this);
-  hide();
- 
-  if (theme) theme->updateTheme(this);
-}
+    scene->addItem(this);
+    hide();
 
+    if (theme) theme->updateTheme(this);
+}
 
 void TextSprite::setText(const QString &text)
 {
-  setPlainText(text);
-  thememanager()->updateTheme(this);
+    setPlainText(text);
+    thememanager()->updateTheme(this);
 }
-
 
 // Main themable function. Called for any theme change. The sprites needs to
 // resize and redraw here.
 void TextSprite::changeTheme()
 {
+    // Get scaling change
+    double scale    = thememanager()->getScale();
+    Themable::setScale(scale);
 
-  // Get scaling change
-  double scale    = thememanager()->getScale();
-  Themable::setScale(scale);
+    // Retrieve theme data from configuration
+    KConfigGroup config = thememanager()->config(id());
+    QPoint offset = thememanager()->getOffset();
 
-  // Retrieve theme data from configuration
-  KConfigGroup config = thememanager()->config(id());
-  QPoint offset = thememanager()->getOffset();
+    // Size
+    double width  = config.readEntry("width", 1.0);
+    double height = config.readEntry("height", 0.0);
+    width *= scale;
+    height *= scale;
 
-  // Size
-  double width  = config.readEntry("width", 1.0);
-  double height = config.readEntry("height", 0.0);
-  width *= scale;
-  height *= scale;
+    // Position
+    QPointF pos = config.readEntry("pos", QPointF(1.0, 1.0));
+    pos *= scale;
+    setPos(pos.x(), pos.y());
 
-  // Position
-  QPointF pos = config.readEntry("pos", QPointF(1.0,1.0));
-  pos *= scale;
-  setPos(pos.x(), pos.y());
+    // z-Value
+    double zValue = config.readEntry("zValue", 0.0);
+    setZValue(zValue);
 
-  // z-Value
-  double zValue = config.readEntry("zValue", 0.0);
-  setZValue(zValue);
+    // Text font
+    bool bold = config.readEntry("bold", false);
+    QFont font;
+    font.setPixelSize(int(height));
+    font.setBold(bold);
+    setFont(font);
+    if (width < boundingRect().width())
+    {
+        setTextWidth(width);
+    }
 
-  // Text font
-  bool bold = config.readEntry("bold", false);
-  QFont font;
-  font.setPixelSize(int(height));
-  font.setBold(bold);
-  setFont(font);
-  if (width < boundingRect().width())
-  {
-    setTextWidth(width);   
-  }
+    // Retrieve font color
+    QColor fontColor;
+    fontColor = config.readEntry("fontColor", QColor(Qt::white));
+    setDefaultTextColor(fontColor);
 
-  // Retrieve font color
-  QColor fontColor;
-  fontColor = config.readEntry("fontColor", QColor(Qt::white));
-  setDefaultTextColor(fontColor);
+    // Centering
+    bool center = config.readEntry("center", false);
+    resetTransform();
+    if (center)
+    {
+        translate(-boundingRect().width() / 2.0 + offset.x(), 0.0 + offset.y());
+    }
+    else
+    {
+        translate(offset.x(), offset.y());
+    }
 
-  // Centering
-  bool center = config.readEntry("center", false);
-  resetTransform();
-  if (center)
-  {
-    translate(-boundingRect().width()/2.0+offset.x(), 0.0+offset.y());
-  }
-  else
-  {
-    translate(offset.x(),offset.y());
-  }
-
-  update();
+    update();
 }
-

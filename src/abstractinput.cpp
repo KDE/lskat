@@ -25,35 +25,28 @@
 // KDE includes
 #include "lskat_debug.h"
 
-
 // Constructor for the engine
-AbstractInput::AbstractInput(QObject* parent)
+AbstractInput::AbstractInput(QObject *parent)
     : QObject(parent)
 {
-  mInputAllowed = false;
-  mId           = -1;
+    mInputAllowed = false;
+    mId           = -1;
 }
-
 
 // Set player id number
 void AbstractInput::setId(int id)
 {
-  mId = id;
+    mId = id;
 }
 
-
-// Allow or disallow input with this device 
+// Allow or disallow input with this device
 void AbstractInput::setInputAllowed(bool allowed)
 {
-  mInputAllowed = allowed;
+    mInputAllowed = allowed;
 }
-
 
 // Retrieve whether input is allowed or not.
 bool AbstractInput::inputAllowed()
 {
-  return mInputAllowed;
+    return mInputAllowed;
 }
-
-
-

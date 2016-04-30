@@ -1,4 +1,4 @@
-/***************************************************************************
+/*
    This file is part of the KDE games lskat program
    Copyright (c) 2006 Martin Heni <kde@heni-online.de>
 
@@ -19,28 +19,27 @@
 
                           Lskat
                           -----
-    begin                : March 2000 
+    begin                : March 2000
     copyright            : (C) 1995-2007 by Martin Heni
     email                : kde@heni-online.de
- ***************************************************************************/
+*/
 
-/** \mainpage LSkat API Documentation
-  *
-  * \section intro_sec Introduction
-  *
-  * This is the API documentation for the KDE game 'lskat'.
-  *
-  * \section design_sec Design
-  *
-  * The design diagram shows the dependencies for the key classes of
-  * the Lskat program.
-  * The coloring of the classes shows roughly their function in the 
-  * groups (program, document and engine, display, QGraphics).
-  *
-  * \image html lskatclasses.png "Class diagram for LSkat"
-  *
-  * 
-  */
+/**
+ * \mainpage LSkat API Documentation
+ *
+ * \section intro_sec Introduction
+ *
+ * This is the API documentation for the KDE game 'lskat'.
+ *
+ * \section design_sec Design
+ *
+ * The design diagram shows the dependencies for the key classes of
+ * the Lskat program.
+ * The coloring of the classes shows roughly their function in the
+ * groups (program, document and engine, display, QGraphics).
+ *
+ * \image html lskatclasses.png "Class diagram for LSkat"
+ */
 
 #include <kapplication.h>
 #include <kcmdlineargs.h>
@@ -55,7 +54,6 @@
 
 #define LSKAT_VERSION "v1.40"
 
-
 // Debug level for the program
 int global_debug = 0;
 // Skip intro
@@ -63,72 +61,71 @@ bool global_skip_intro = false;
 // Demo (autoplay mode)
 bool global_demo_mode  = false;
 
-
 int main(int argc, char *argv[])
 {
-  global_debug=0;
-  K4AboutData aboutData( "lskat", 0, ki18n("LSkat"),
-                        LSKAT_VERSION,
-                        ki18n("LSkat: A desktop card game"),
-                        K4AboutData::License_GPL,
-                        ki18n("(c) 1995-2007, Martin Heni"),
-                        KLocalizedString(),
-                        "http://games.kde.org/lskat" );
-  // I18N: These are the same strings than in kwin4, you can copy the translations
-  aboutData.addAuthor(ki18n("Martin Heni"),ki18n("Game design and code"), "kde@heni-online.de");
-  aboutData.addAuthor(ki18n("Eugene Trounev"),ki18n("Graphics"), "eugene.trounev@gmail.com");
-  // end I18N
-  aboutData.addAuthor(ki18n("Benjamin Meyer"), ki18n("Code Improvements"));
-  // 'Thanks to' aboutData.addCredit(ki18n("KDE"), ki18n("KDE"));
-  KCmdLineArgs::init( argc, argv, &aboutData );
+    global_debug = 0;
+    K4AboutData aboutData("lskat", 0, ki18n("LSkat"),
+                          LSKAT_VERSION,
+                          ki18n("LSkat: A desktop card game"),
+                          K4AboutData::License_GPL,
+                          ki18n("(c) 1995-2007, Martin Heni"),
+                          KLocalizedString(),
+                          "https://games.kde.org/game.php?game=lskat");
 
-  KCmdLineOptions options;
-  options.add("d");
-  options.add("debug <level>", ki18n("Enter debug level"));
-  options.add("skipintro", ki18n("Skip intro animation"));
-  options.add("demo", ki18n("Run game in demo (autoplay) mode"));
-  KCmdLineArgs::addCmdLineOptions( options ); // Add our own options.
+    // I18N: These are the same strings as in kwin4, you can copy the translations
+    aboutData.addAuthor(ki18n("Martin Heni"), ki18n("Game design and code"), "kde@heni-online.de");
+    aboutData.addAuthor(ki18n("Eugene Trounev"), ki18n("Graphics"), "eugene.trounev@gmail.com");
+    // end I18N
+    aboutData.addAuthor(ki18n("Benjamin Meyer"), ki18n("Code Improvements"));
+    // 'Thanks to' aboutData.addCredit(ki18n("KDE"), ki18n("KDE"));
+    KCmdLineArgs::init(argc, argv, &aboutData);
 
-  /* command line handling */
-  KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    KCmdLineOptions options;
+    options.add("d");
+    options.add("debug <level>", ki18n("Enter debug level"));
+    options.add("skipintro", ki18n("Skip intro animation"));
+    options.add("demo", ki18n("Run game in demo (autoplay) mode"));
+    KCmdLineArgs::addCmdLineOptions(options); // Add our own options.
 
-  KCrash::initialize();
+    /* command line handling */
+    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
 
-  // Check for debug command line option
-  if (args->isSet("debug"))
-  {
-    global_debug=QString(args->getOption("debug")).toInt();
-    kDebug(12010) << "Debug level set to" << global_debug;
-  }
-  // Check for debug command line option
-  if (args->isSet("skipintro"))
-  {
-    global_skip_intro = true;
-    kDebug(12010) << "Skip intro cmd line chosen" << global_skip_intro;
-  }
-  // Check for debug command line option
-  if (args->isSet("demo"))
-  {
-    global_demo_mode = true;
-    kDebug(12010) << "Running in demo mode" << global_demo_mode;
-  }
-  args->clear();
-  KApplication application(true);
+    KCrash::initialize();
 
-  KLocalizedString::setApplicationDomain("lskat");
+    // Check for debug command line option
+    if (args->isSet("debug"))
+    {
+        global_debug = QString(args->getOption("debug")).toInt();
+        kDebug(12010) << "Debug level set to" << global_debug;
+    }
+    // Check for debug command line option
+    if (args->isSet("skipintro"))
+    {
+        global_skip_intro = true;
+        kDebug(12010) << "Skip intro cmd line chosen" << global_skip_intro;
+    }
+    // Check for debug command line option
+    if (args->isSet("demo"))
+    {
+        global_demo_mode = true;
+        kDebug(12010) << "Running in demo mode" << global_demo_mode;
+    }
+    args->clear();
+    KApplication application(true);
 
-  if (application.isSessionRestored())
-  {
-    RESTORE(Mainwindow);
-  }
-  else
-  {
-    Mainwindow *mainwindow = new Mainwindow();
-    mainwindow->show();
-  }
+    KLocalizedString::setApplicationDomain("lskat");
 
-  application.setWindowIcon(QIcon::fromTheme(QStringLiteral("lskat")));
+    if (application.isSessionRestored())
+    {
+        RESTORE(Mainwindow);
+    }
+    else
+    {
+        Mainwindow *mainwindow = new Mainwindow();
+        mainwindow->show();
+    }
 
-  return application.exec();
+    application.setWindowIcon(QIcon::fromTheme(QStringLiteral("lskat")));
+
+    return application.exec();
 }
-

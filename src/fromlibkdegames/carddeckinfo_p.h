@@ -17,60 +17,49 @@
     Boston, MA 02110-1301, USA.
 */
 
-#ifndef __CARDDECKINFO_P_H_
-#define __CARDDECKINFO_P_H_
+#ifndef CARDDECKINFO_P_H
+#define CARDDECKINFO_P_H
 
 #include <QString>
 #include <QPixmap>
-
 
 /**
  * Stores the information for one card front or back side.
  */
 class KCardThemeInfo
 {
-  public:
-   /** The translated name.
-    */
-   QString name;
+public:
+    /** The translated name. */
+    QString name;
 
-   /** The untranslated name.
-    */
-   QString noi18Name;
+    /** The untranslated name. */
+    QString noi18Name;
 
-   /** The comment (author and description).
-    */
-   QString comment;
+    /** The comment (author and description). */
+    QString comment;
 
-   /** The full path information.
-    */
-   QString path;
+    /** The full path information. */
+    QString path;
 
-   /** The translated name of the back side.
-    */
-   QString back;
+    /** The translated name of the back side. */
+    QString back;
 
-   /** The preview image.
-    */
-   QPixmap preview;
+    /** The preview image. */
+    QPixmap preview;
 
-   /** The full filename of the SVG file.
-    */
-   QString svgfile;
+    /** The full filename of the SVG file. */
+    QString svgfile;
 
-   /** Is this a default deck or set.
-   */
-   bool isDefault;
+    /** Is this a default deck or set. */
+    bool isDefault;
 };
 
 QDebug operator<<(QDebug debug, const KCardThemeInfo &cn);
 
 namespace CardDeckInfo
 {
-
-KCardThemeInfo deckInfo( const QString& name );
-KCardThemeInfo backInfo( const QString& name );
-
+KCardThemeInfo deckInfo(const QString &name);
+KCardThemeInfo backInfo(const QString &name);
 }
 
 #endif

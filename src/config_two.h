@@ -1,5 +1,3 @@
-#ifndef CONFIG_TWO_H
-#define CONFIG_TWO_H
 /*
    This file is part of the KDE games lskat program
    Copyright (c) 2006 Martin Heni <kde@heni-online.de>
@@ -19,6 +17,9 @@
    the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
    Boston, MA 02110-1301, USA.
 */
+
+#ifndef CONFIG_TWO_H
+#define CONFIG_TWO_H
 
 // Qt includes
 #include <QHash>
@@ -40,68 +41,77 @@ using namespace InputDevice;
  */
 class ConfigTwo : public QObject
 {
-  Q_OBJECT
+    Q_OBJECT
 
-  public:
-    /** Constructor for the config
-     *  @param parent The parent object
+public:
+    /**
+     * Constructor for the config
+     * @param parent The parent object
      */
-    ConfigTwo(QObject* parent);
+    explicit ConfigTwo(QObject *parent);
 
-    /** Destructor
-    */
+    /**
+     * Destructor
+     */
     virtual ~ConfigTwo();
 
-    /** Reset the config data.
+    /**
+     * Reset the config data.
      */
-    void reset(); 
+    void reset();
 
-    /** Retrieve hash iterator over players.
-     *  @return The iterator.
+    /**
+     * Retrieve hash iterator over players.
+     * @return The iterator.
      */
-    QHashIterator<int,Player*> playerIterator();
+    QHashIterator<int, Player *> playerIterator();
 
-    /** Retrieve a player.
-     *  @param no The player number
-     *  @return The player.
+    /**
+     * Retrieve a player.
+     * @param no The player number
+     * @return The player.
      */
-    Player* player(int no); 
+    Player *player(int no);
 
-    /** Retrieve input type of given player.
-     *  @param no The player number
-     *  @return The input type.
+    /**
+     * Retrieve input type of given player.
+     * @param no The player number
+     * @return The input type.
      */
     InputDeviceType inputType(int no);
 
-    /** Set the input type for a given players.
-     *  @param no The player number
-     *  @param type The input type
+    /**
+     * Set the input type for a given players.
+     * @param no The player number
+     * @param type The input type
      */
-    void setInputType(int no, InputDeviceType type); 
+    void setInputType(int no, InputDeviceType type);
 
-    /** Saves the properties 
+    /**
+     * Saves the properties
      * @param cfg The config object.
      */
     void save(KConfig *cfg);
 
-    /** Read properties.
+    /**
+     * Read properties.
      * @param cfg The config object.
      */
     void load(KConfig *cfg);
 
-  signals:  
-    /** Signal emitted when input type changes.
-     *  @param no The player number
-     *  @param type The input type
+signals:
+    /**
+     * Signal emitted when input type changes.
+     * @param no The player number
+     * @param type The input type
      */
     void signalInputType(int no, InputDeviceType type);
 
-  private:
-    // Current player 
-    QHash<int,Player*> mPlayers;
-    // Input types 
-    QHash<int,InputDeviceType> mInputTypes;
-
+private:
+    // Current player
+    QHash<int, Player *> mPlayers;
+    // Input types
+    QHash<int, InputDeviceType> mInputTypes;
 };
 
 #endif
