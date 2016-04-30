@@ -527,6 +527,7 @@ bool AiInput::wouldWinMove(int p, int card, const AiInput::Board &current) const
                 return false;
             }
         }
+    }
     //qCDebug(LSKAT_LOG) << "Player " << p << " wins " << Deck::name(card);
     return true;
 }
