@@ -89,6 +89,7 @@ int main(int argc, char *argv[])
 
     /* command line handling */
     KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
+    KApplication application(true);
 
     KCrash::initialize();
 
@@ -111,7 +112,6 @@ int main(int argc, char *argv[])
         kDebug(12010) << "Running in demo mode" << global_demo_mode;
     }
     args->clear();
-    KApplication application(true);
 
     KLocalizedString::setApplicationDomain("lskat");
 
