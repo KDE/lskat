@@ -39,13 +39,9 @@ ScoreSprite::ScoreSprite(const QString &id, ThemeManager *theme, int advancePeri
 {
     // Create all sub sprites
     mName    = new QGraphicsTextItem(this);
-    scene->addItem(mName);
     mPoints  = new QGraphicsTextItem(this);
-    scene->addItem(mPoints);
     mScore   = new QGraphicsTextItem(this);
-    scene->addItem(mScore);
     mGames   = new QGraphicsTextItem(this);
-    scene->addItem(mGames);
     mInput   = new PixmapSprite(QLatin1String("scoreinput"), theme, advancePeriod, 0, scene);
     if (!mInput) qCCritical(LSKAT_LOG) << "Cannot load sprite " << "scoreinput";
     mInput->setParentItem(this);
