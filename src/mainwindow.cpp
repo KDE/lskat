@@ -22,6 +22,7 @@
 
 // Include files for Qt
 #include <QAction>
+#include <QKeySequence>
 #include <QPointer>
 
 // Include files for KDE
@@ -41,7 +42,6 @@
 #include <ktoolbar.h>
 #include <kselectaction.h>
 #include <kapplication.h>
-#include <KShortcut>
 // Application specific includes
 #include "lskatglobal.h"
 #include "gameview.h"
@@ -442,7 +442,7 @@ void Mainwindow::initGUI()
     // Choose card deck
     QAction *action1 = actionCollection()->addAction(QLatin1String("select_carddeck"));
     action1->setText(i18n("Select &Card Deck..."));
-    action1->setShortcuts(KShortcut(Qt::Key_F10));
+    actionCollection()->setDefaultShortcut(action1, QKeySequence(Qt::Key_F10));
     connect(action1, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
     action1->setToolTip(i18n("Configure card decks..."));
     action1->setWhatsThis(i18n("Choose how the cards should look."));
