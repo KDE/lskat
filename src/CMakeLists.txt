@@ -49,4 +49,4 @@ install(TARGETS lskat  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
-install(FILES lskatui.rc  DESTINATION  ${KDE_INSTALL_DATADIR}/lskat)
+install(FILES lskatui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/lskat)
