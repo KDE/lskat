@@ -41,7 +41,6 @@
 #include <kglobal.h>
 #include <ktoolbar.h>
 #include <kselectaction.h>
-#include <kapplication.h>
 // Application specific includes
 #include "lskatglobal.h"
 #include "gameview.h"

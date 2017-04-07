@@ -41,16 +41,21 @@
  * \image html lskatclasses.png "Class diagram for LSkat"
  */
 
-#include <kapplication.h>
-#include <kcmdlineargs.h>
+
+
 #include "lskat_debug.h"
-#include <K4AboutData>
+#include "lskatglobal.h"
+#include "mainwindow.h"
+
+#include <KAboutData>
 #include <KCrash>
 #include <KLocalizedString>
 #include <kglobal.h>
 #include <KDebug>
-#include "mainwindow.h"
-#include "lskatglobal.h"
+
+#include <QApplication>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
 
 #define LSKAT_VERSION "v1.40"
 
@@ -64,56 +69,60 @@ bool global_demo_mode  = false;
 int main(int argc, char *argv[])
 {
     global_debug = 0;
-    K4AboutData aboutData("lskat", 0, ki18n("LSkat"),
+
+    QApplication application(argc, argv);
+    KLocalizedString::setApplicationDomain("lskat");
+
+    KAboutData aboutData("lskat", i18n("LSkat"),
                           LSKAT_VERSION,
-                          ki18n("LSkat: A desktop card game"),
-                          K4AboutData::License_GPL,
-                          ki18n("(c) 1995-2007, Martin Heni"),
-                          KLocalizedString(),
-                          "https://games.kde.org/game.php?game=lskat");
+                          i18n("LSkat: A desktop card game"),
+                          KAboutLicense::GPL,
+                          i18n("(c) 1995-2007, Martin Heni"),
+                          QString(),
+                          QStringLiteral("https://games.kde.org/game.php?game=lskat"));
 
     // I18N: These are the same strings as in kwin4, you can copy the translations
-    aboutData.addAuthor(ki18n("Martin Heni"), ki18n("Game design and code"), "kde@heni-online.de");
-    aboutData.addAuthor(ki18n("Eugene Trounev"), ki18n("Graphics"), "eugene.trounev@gmail.com");
+    aboutData.addAuthor(i18n("Martin Heni"), i18n("Game design and code"), "kde@heni-online.de");
+    aboutData.addAuthor(i18n("Eugene Trounev"), i18n("Graphics"), "eugene.trounev@gmail.com");
     // end I18N
-    aboutData.addAuthor(ki18n("Benjamin Meyer"), ki18n("Code Improvements"));
-    // 'Thanks to' aboutData.addCredit(ki18n("KDE"), ki18n("KDE"));
-    KCmdLineArgs::init(argc, argv, &aboutData);
+    aboutData.addAuthor(i18n("Benjamin Meyer"), i18n("Code Improvements"));
+    // 'Thanks to' aboutData.addCredit(i18n("KDE"), i18n("KDE"));
 
-    KCmdLineOptions options;
-    options.add("d");
-    options.add("debug <level>", ki18n("Enter debug level"));
-    options.add("skipintro", ki18n("Skip intro animation"));
-    options.add("demo", ki18n("Run game in demo (autoplay) mode"));
-    KCmdLineArgs::addCmdLineOptions(options); // Add our own options.
+    QCommandLineParser parser;
+    KAboutData::setApplicationData(aboutData);
+    parser.addVersionOption();
+    parser.addHelpOption();
+
+    parser.addOption(QCommandLineOption(QStringList() << QLatin1String("d") << QLatin1String("debug"), i18n("Enter debug level"), QLatin1String("level")));
+    parser.addOption(QCommandLineOption(QStringList() << QLatin1String("skipintro"), i18n("Skip intro animation")));
+    parser.addOption(QCommandLineOption(QStringList() << QLatin1String("demo"), i18n("Run game in demo (autoplay) mode")));
+
+    aboutData.setupCommandLine(&parser);
+    parser.process(application);
+    aboutData.processCommandLine(&parser);
 
     /* command line handling */
-    KCmdLineArgs *args = KCmdLineArgs::parsedArgs();
-    KApplication application(true);
 
     KCrash::initialize();
 
     // Check for debug command line option
-    if (args->isSet("debug"))
+    if (parser.isSet("debug"))
     {
-        global_debug = QString(args->getOption("debug")).toInt();
+        global_debug = QString(parser.value("debug")).toInt();
         kDebug(12010) << "Debug level set to" << global_debug;
     }
     // Check for debug command line option
-    if (args->isSet("skipintro"))
+    if (parser.isSet("skipintro"))
     {
         global_skip_intro = true;
         kDebug(12010) << "Skip intro cmd line chosen" << global_skip_intro;
     }
     // Check for debug command line option
-    if (args->isSet("demo"))
+    if (parser.isSet("demo"))
     {
         global_demo_mode = true;
         kDebug(12010) << "Running in demo mode" << global_demo_mode;
     }
-    args->clear();
-
-    KLocalizedString::setApplicationDomain("lskat");
 
     if (application.isSessionRestored())
     {
