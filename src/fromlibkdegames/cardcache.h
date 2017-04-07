@@ -58,7 +58,7 @@ private:
  *
  * Card games such as lskat or kpat should use this cache
  * to load the various decks into QPixmaps instead of inventing
- * their own. It uses KPixmapCache behind the scenes, set up to
+ * their own. It uses KImageCache behind the scenes, set up to
  * use disk and memory caching. Thus a SVG card deck that was loaded
  * by kpat for the size 100x200 does not need re-rendering when
  * requested from lskat.
@@ -97,7 +97,7 @@ public:
     Q_DECLARE_FLAGS(LoadInfos, LoadInfo)
 
     /**
-     * Constructor creates and initializes a KPixmapCache for all KDE Games
+     * Constructor creates and initializes a KImageCache
      * card games
      */
     KCardCache();
