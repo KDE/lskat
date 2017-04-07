@@ -51,7 +51,7 @@
 #include <KCrash>
 #include <KLocalizedString>
 #include <kglobal.h>
-#include <KDebug>
+#include "lskat_debug.h"
 
 #include <QApplication>
 #include <QCommandLineParser>
@@ -109,19 +109,19 @@ int main(int argc, char *argv[])
     if (parser.isSet("debug"))
     {
         global_debug = QString(parser.value("debug")).toInt();
-        kDebug(12010) << "Debug level set to" << global_debug;
+        qCDebug(LSKAT_LOG) << "Debug level set to" << global_debug;
     }
     // Check for debug command line option
     if (parser.isSet("skipintro"))
     {
         global_skip_intro = true;
-        kDebug(12010) << "Skip intro cmd line chosen" << global_skip_intro;
+        qCDebug(LSKAT_LOG) << "Skip intro cmd line chosen" << global_skip_intro;
     }
     // Check for debug command line option
     if (parser.isSet("demo"))
     {
         global_demo_mode = true;
-        kDebug(12010) << "Running in demo mode" << global_demo_mode;
+        qCDebug(LSKAT_LOG) << "Running in demo mode" << global_demo_mode;
     }
 
     if (application.isSessionRestored())

@@ -1,6 +1,5 @@
 
 set(lskat_SRCS
-    lskat_debug.cpp
     thememanager.cpp
     namedialogwidget.cpp
     gameview.cpp
@@ -32,6 +31,11 @@ ki18n_wrap_ui(lskat_SRCS
 )
 
 configure_file(config-src.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
+
+# Debug as default severity, at least until global_debug is removed
+ecm_qt_declare_logging_category(lskat_SRCS HEADER lskat_debug.h
+                                IDENTIFIER LSKAT_LOG CATEGORY_NAME org.kde.lskat
+                                DEFAULT_SEVERITY Debug)
 
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../*-apps-lskat.png")
 ecm_add_app_icon(lskat_SRCS ICONS ${ICONS_SRCS})
