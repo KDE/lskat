@@ -27,6 +27,10 @@
 #include <klocale.h>
 #include <kstandarddirs.h>
 #include <krandom.h>
+#include <KConfigGroup>
+#include <QDialogButtonBox>
+#include <QPushButton>
+#include <QVBoxLayout>
 #include "lskat_debug.h"
 
 #include "carddeckinfo.h"
@@ -192,7 +196,15 @@ void KCardWidget::setDeckName(const QString &name)
 
 KCardDialog::KCardDialog(KCardWidget *widget)
 {
-    setMainWidget(widget);
-    setCaption(i18n("Card Deck Selection"));
-    setButtons(KDialog::Ok | KDialog::Cancel);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(widget);
+    setWindowTitle(i18n("Card Deck Selection"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, SIGNAL(accepted()), this, SLOT(accept()));
+    connect(buttonBox, SIGNAL(rejected()), this, SLOT(reject()));
+    mainLayout->addWidget(buttonBox);
 }
