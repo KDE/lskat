@@ -16,7 +16,8 @@ add_subdirectory(grafix)
 add_subdirectory(doc)
 
 ########### install files ###############
-install( PROGRAMS lskat.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install( PROGRAMS org.kde.lskat.desktop  DESTINATION  ${XDG_APPS_INSTALL_DIR} )
+install(FILES org.kde.lskat.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/metainfo/ )
 
 kde4_install_icons( ${ICON_INSTALL_DIR}   )
 
