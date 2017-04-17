@@ -4,12 +4,23 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>LsKat</name>
+  <name xml:lang="ca">LsKat</name>
+  <name xml:lang="pt">LsKat</name>
+  <name xml:lang="sk">LsKat</name>
+  <name xml:lang="uk">LsKat</name>
+  <name xml:lang="x-test">xxLsKatxx</name>
   <summary>Card Game</summary>
-    <description>
+  <summary xml:lang="ca">Joc de cartes</summary>
+  <summary xml:lang="pt">Jogo de Cartas</summary>
+  <summary xml:lang="sk">Kartová hra</summary>
+  <summary xml:lang="uk">Гра у карти</summary>
+  <summary xml:lang="x-test">xxCard Gamexx</summary>
+  <description>
     <p>
       Lieutenant Skat (from German "Offiziersskat") is a fun and engaging card game for two players,
       where the second player is either live opponent, or a built in artificial intelligence.
     </p>
+    <p xml:lang="uk">Лейтенант Скат (німецькою «Offiziersskat») — це весела і захоплива гра у карти для двох гравців, у якій вашим суперником може бути або людина, або вбудований штучний комп’ютерний інтелект</p>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=lskat</url>
   <url type="help">https://docs.kde.org/?application=lskat</url>
