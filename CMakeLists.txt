@@ -17,13 +17,8 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     DocTools
     GuiAddons
     I18n
-    ItemModels
-    KIO
-    NewStuff
     NotifyConfig
-    TextWidgets
     WidgetsAddons
-    WindowSystem
     XmlGui
 )
 
