@@ -20,8 +20,9 @@
 #ifndef CARDCACHE_H
 #define CARDCACHE_H
 
+#include <QFlags>
+
 #include "libkdegames_export.h"
-#include <QObject>
 class QPixmap;
 class QString;
 class QSize;

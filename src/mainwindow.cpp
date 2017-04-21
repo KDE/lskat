@@ -24,7 +24,6 @@
 #include <QAction>
 #include <QDir>
 #include <QKeySequence>
-#include <QMenuBar>
 #include <QPointer>
 #include <QStatusBar>
 #include <QStandardPaths>
@@ -32,7 +31,6 @@
 // Include files for KDE
 #include <KActionCollection>
 #include <KConfigGroup>
-#include <KHelpMenu>
 #include <KMessageBox>
 #include <KSharedConfig>
 #include <KStandardGameAction>

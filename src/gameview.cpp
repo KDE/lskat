@@ -29,7 +29,6 @@
 #include <QTime>
 
 // KDE includes
-#include <KMessageBox>
 
 // Local includes
 #include "lskat_debug.h"

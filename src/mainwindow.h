@@ -32,7 +32,6 @@
 
 // KDE includes
 #include <KXmlGuiWindow>
-#include <KConfig>
 
 // Local includes
 #include "abstractinput.h"

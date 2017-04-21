@@ -21,7 +21,6 @@
 #include "carddeckinfo_p.h"
 
 #include <QDir>
-#include <QGlobalStatic>
 #include <QFileInfo>
 #include <QStandardPaths>
 
