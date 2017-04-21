@@ -118,8 +118,7 @@ Mainwindow::Mainwindow(QWidget *parent)
 
     // The LSkat config
     mLSkatConfig = new ConfigTwo(this);
-    connect(mLSkatConfig, SIGNAL(signalInputType(int,InputDeviceType)),
-            this, SLOT(setInputType(int,InputDeviceType)));
+    connect(mLSkatConfig, &ConfigTwo::signalInputType, this, &Mainwindow::setInputType);
     mLSkatConfig->reset();
 
     // Read game properties and set default values (after config)
@@ -153,8 +152,7 @@ Mainwindow::Mainwindow(QWidget *parent)
     mGameMode      = Intro;
     mDisplay       = new DisplayIntro(mDeck, mCanvas, mTheme, ADVANCE_PERIOD, mView);
     setCentralWidget(mView);
-    connect(mView, SIGNAL(signalLeftMousePress(QPoint)),
-            this, SLOT(menuNewLSkatGame()));
+    connect(mView, &GameView::signalLeftMousePress, this, &Mainwindow::menuNewLSkatGame);
 
     // Create GUI
     setupGUI();
@@ -391,7 +389,7 @@ void Mainwindow::initGUI()
     // Determine start player
     KSelectAction *startPlayerAct = new KSelectAction(i18n("Starting Player"), this);
     actionCollection()->addAction(QLatin1String("startplayer"), startPlayerAct);
-    connect(startPlayerAct, SIGNAL(triggered(int)), this, SLOT(menuStartplayer()));
+    connect(startPlayerAct, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuStartplayer);
     startPlayerAct->setToolTip(i18n("Changing starting player..."));
     startPlayerAct->setWhatsThis(i18n("Chooses which player begins the next game."));
     QStringList list;
@@ -404,7 +402,7 @@ void Mainwindow::initGUI()
     // Determine who player player 1
     KSelectAction *player1Act = new KSelectAction(i18n("Player &1 Played By"), this);
     actionCollection()->addAction(QLatin1String("player1"), player1Act);
-    connect(player1Act, SIGNAL(triggered(int)), this, SLOT(menuPlayer1By()));
+    connect(player1Act, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuPlayer1By);
     player1Act->setToolTip(i18n("Changing who plays player 1..."));
     player1Act->setWhatsThis(i18n("Changing who plays player 1."));
     list.clear();
@@ -416,7 +414,7 @@ void Mainwindow::initGUI()
     // Determine who player player 2
     KSelectAction *player2Act = new KSelectAction(i18n("Player &2 Played By"), this);
     actionCollection()->addAction(QLatin1String("player2"), player2Act);
-    connect(player2Act, SIGNAL(triggered(int)), this, SLOT(menuPlayer2By()));
+    connect(player2Act, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuPlayer2By);
     player2Act->setToolTip(i18n("Changing who plays player 2..."));
     player2Act->setWhatsThis(i18n("Changing who plays player 2."));
     player2Act->setItems(list);
@@ -429,7 +427,7 @@ void Mainwindow::initGUI()
     KSelectAction *themeAct = new KSelectAction(i18n("&Theme"), this);
     actionCollection()->addAction(QLatin1String("theme"), themeAct);
     themeAct->setItems(themes);
-    connect(themeAct, SIGNAL(triggered(int)), SLOT(changeTheme(int)));
+    connect(themeAct, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::changeTheme);
     if (global_debug > 0) qCDebug(LSKAT_LOG) << "Setting current theme item to " << mThemeIndexNo;
     themeAct->setCurrentItem(mThemeIndexNo);
     themeAct->setToolTip(i18n("Changing theme..."));
@@ -439,14 +437,14 @@ void Mainwindow::initGUI()
     QAction *action1 = actionCollection()->addAction(QLatin1String("select_carddeck"));
     action1->setText(i18n("Select &Card Deck..."));
     actionCollection()->setDefaultShortcut(action1, QKeySequence(Qt::Key_F10));
-    connect(action1, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
+    connect(action1, &QAction::triggered, this, &Mainwindow::menuCardDeck);
     action1->setToolTip(i18n("Configure card decks..."));
     action1->setWhatsThis(i18n("Choose how the cards should look."));
 
     // Change player names
     action = actionCollection()->addAction(QLatin1String("change_names"));
     action->setText(i18n("&Change Player Names..."));
-    connect(action, SIGNAL(triggered(bool)), this, SLOT(menuPlayerNames()));
+    connect(action, &QAction::triggered, this, &Mainwindow::menuPlayerNames);
     if (global_demo_mode) action->setEnabled(false);
 }
 
@@ -571,8 +569,8 @@ void Mainwindow::menuNewLSkatGame()
 
         mDisplay = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERIOD, mView);
         mEngine = new EngineTwo(this, mDeck, (DisplayTwo *)mDisplay);
-        connect(mEngine, SIGNAL(signalGameOver(int)), this, SLOT(gameOver(int)));
-        connect(mEngine, SIGNAL(signalNextPlayer(Player*)), this, SLOT(nextPlayer(Player*)));
+        connect(mEngine, &AbstractEngine::signalGameOver, this, &Mainwindow::gameOver);
+        connect(mEngine, &AbstractEngine::signalNextPlayer, this, &Mainwindow::nextPlayer);
 
         // Connect player score widget updates
         connect(p1, SIGNAL(signalUpdate(Player*)), mDisplay, SLOT(updatePlayer(Player*)));
