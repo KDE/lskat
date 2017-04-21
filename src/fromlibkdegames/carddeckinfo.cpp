@@ -65,7 +65,7 @@ public:
 
         if (list.isEmpty()) return;
 
-        for (QStringList::ConstIterator it = list.begin(); it != list.end(); ++it)
+        for (QStringList::ConstIterator it = list.constBegin(); it != list.constEnd(); ++it)
         {
             KConfig cfg(*it, KConfig::SimpleConfig);
             KConfigGroup cfgcg(&cfg, "KDE Backdeck");
