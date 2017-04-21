@@ -20,15 +20,16 @@
 #include "carddeckinfo.h"
 #include "carddeckinfo_p.h"
 
-#include <QFileInfo>
 #include <QDir>
+#include <QGlobalStatic>
+#include <QFileInfo>
+#include <QStandardPaths>
 
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <krandom.h>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KRandom>
 #include "lskat_debug.h"
-#include <kconfiggroup.h>
-#include <kglobal.h>
 
 // KConfig entries
 #define CONF_CARD QString::fromLatin1("Cardname")
@@ -41,7 +42,6 @@ class KCardThemeInfoStatic
 public:
     KCardThemeInfoStatic()
     {
-        KGlobal::dirs()->addResourceType("cards", "data", "carddecks/");
         readDecks();
     }
     ~KCardThemeInfoStatic()
@@ -53,10 +53,15 @@ public:
         // Empty data
         themeNameMap.clear();
 
-        QStringList svg;
         // Add SVG card sets
-        svg = KGlobal::dirs()->findAllResources("cards", QLatin1String("svg*/index.desktop"), KStandardDirs::NoDuplicates);
-        const QStringList list = svg + KGlobal::dirs()->findAllResources("cards", QLatin1String("card*/index.desktop"), KStandardDirs::NoDuplicates);
+        QStringList list;
+        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "carddecks", QStandardPaths::LocateDirectory);
+        for (const QString& dir : dirs) {
+            const QStringList deckFolderNames = QDir(dir).entryList(QStringList() << QStringLiteral("svg*"));
+            for (const QString& deck : deckFolderNames) {
+                list.append(dir + '/' + deck + QStringLiteral("/index.desktop"));
+            }
+        }
 
         if (list.isEmpty()) return;
 
@@ -99,7 +104,7 @@ public:
     QString defaultDeck;
 };
 
-K_GLOBAL_STATIC(KCardThemeInfoStatic, deckinfoStatic)
+Q_GLOBAL_STATIC(KCardThemeInfoStatic, deckinfoStatic)
 
 QDebug operator<<(QDebug debug, const KCardThemeInfo &cn)
 {

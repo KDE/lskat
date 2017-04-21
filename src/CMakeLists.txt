@@ -46,7 +46,7 @@ target_link_libraries(lskat
     Qt5::Svg
     KF5::Crash
     KF5::GuiAddons
-    KF5::KDELibs4Support
+    KF5::XmlGui
     KF5KDEGames
 )
 

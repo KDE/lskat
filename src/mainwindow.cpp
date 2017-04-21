@@ -22,26 +22,26 @@
 
 // Include files for Qt
 #include <QAction>
+#include <QDir>
 #include <QKeySequence>
+#include <QMenuBar>
 #include <QPointer>
+#include <QStatusBar>
+#include <QStandardPaths>
 
 // Include files for KDE
-#include <kstandardgameaction.h>
-#include <kmessagebox.h>
-#include <kfiledialog.h>
-#include <khelpmenu.h>
-#include "lskat_debug.h"
-#include <kstandardaction.h>
-#include <kactioncollection.h>
-#include <kstatusbar.h>
-#include <kstandarddirs.h>
-#include <qmenubar.h>
+#include <KActionCollection>
+#include <KConfigGroup>
+#include <KHelpMenu>
+#include <KMessageBox>
+#include <KSharedConfig>
+#include <KStandardGameAction>
 #include <KLocalizedString>
 #include <krandom.h>
-#include <kglobal.h>
 #include <ktoolbar.h>
 #include <kselectaction.h>
 // Application specific includes
+#include "lskat_debug.h"
 #include "lskatglobal.h"
 #include "gameview.h"
 #include "abstractengine.h"
@@ -81,18 +81,15 @@ Mainwindow::Mainwindow(QWidget *parent)
     mCanvas      = 0;
     mTheme       = 0;
 
-    // Add resource type to grafix
-    KGlobal::dirs()->addResourceType("lskattheme", "appdata", "grafix/");
-
-    #ifndef NDEBUG
-    #ifdef SRC_DIR
-    qCDebug(LSKAT_LOG) << "Found SRC_DIR =" << SRC_DIR;
-    KGlobal::dirs()->addResourceDir("lskattheme", QLatin1String(SRC_DIR) + QString("/grafix/"));
-    #endif
-    #endif
-
     // Read theme files
-    QStringList themeList = KGlobal::dirs()->findAllResources("lskattheme", QLatin1String("*.desktop"), KStandardDirs::NoDuplicates);
+    QStringList themeList;
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "grafix", QStandardPaths::LocateDirectory);
+    for (const QString& dir : dirs) {
+        const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+        for (const QString& file : fileNames) {
+            themeList.append(dir + '/' + file);
+        }
+    }
     if (themeList.isEmpty())
     {
         KMessageBox::error(this, i18n("Installation error: No theme list found."));

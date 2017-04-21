@@ -20,17 +20,16 @@
 #include "kcarddialog.h"
 #include "ui_kgamecardselector.h"
 
+#include <QDialogButtonBox>
+#include <QListWidgetItem>
 #include <QPainter>
 #include <QPixmap>
-#include <QListWidgetItem>
-
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <krandom.h>
-#include <KConfigGroup>
-#include <QDialogButtonBox>
 #include <QPushButton>
 #include <QVBoxLayout>
+
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
 #include "lskat_debug.h"
 
 #include "carddeckinfo.h"

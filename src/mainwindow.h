@@ -33,7 +33,6 @@
 // KDE includes
 #include <kxmlguiwindow.h>
 #include <kconfig.h>
-#include <kdialog.h>
 
 // Local includes
 #include "abstractinput.h"
