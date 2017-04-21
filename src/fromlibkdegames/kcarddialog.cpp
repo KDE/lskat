@@ -115,7 +115,8 @@ void KCardWidget::insertCardIcons()
 
     // Rebuild list
     QSize itemSize;
-    foreach (const QString &name, CardDeckInfo::deckNames())
+    const QStringList decknames = CardDeckInfo::deckNames();
+    for (const QString &name : decknames)
     {
         KCardThemeInfo v = CardDeckInfo::deckInfo(name);
         // Show only SVG files?
