@@ -19,11 +19,11 @@
 */
 
 #include "mouseinput.h"
+#include "lskat_debug.h"
 
 // Qt includes
 
 // KDE includes
-#include "lskat_debug.h"
 
 // Constructor for the input
 MouseInput::MouseInput(QObject *parent)

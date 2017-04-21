@@ -19,11 +19,11 @@
 */
 
 #include "abstractengine.h"
+#include "lskat_debug.h"
 
 // Qt includes
 
 // KDE includes
-#include "lskat_debug.h"
 
 // Constructor for the game document/engine
 AbstractEngine::AbstractEngine(QWidget *parent)

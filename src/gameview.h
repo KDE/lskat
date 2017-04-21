@@ -22,17 +22,17 @@
 #define LSKAT_GAMEVIEW_H
 
 // Qt includes
-#include <QWidget>
-#include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
-#include <QSize>
-#include <QPoint>
+#include <QGraphicsView>
+#include <QGraphicsTextItem>
 #include <QHash>
 #include <QList>
-#include <QTime>
+#include <QPoint>
 #include <QResizeEvent>
-#include <QGraphicsTextItem>
+#include <QSize>
+#include <QTime>
+#include <QWidget>
 
 // Forward declaration
 class ThemeManager;

@@ -19,12 +19,12 @@
 */
 
 #include "config_two.h"
+#include "lskat_debug.h"
 
 // Qt includes
 
 // KDE includes
-#include "lskat_debug.h"
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 #include <KLocalizedString>
 
 // Constructor for the configuration

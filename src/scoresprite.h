@@ -26,9 +26,9 @@
 #include <QGraphicsTextItem>
 
 // Local includes
-#include "thememanager.h"
 #include "pixmapsprite.h"
 #include "player.h"
+#include "thememanager.h"
 
 /**
  * The sprite for a score board on the canvas.

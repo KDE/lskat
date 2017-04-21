@@ -31,8 +31,8 @@
 #include <QHash>
 
 // KDE includes
-#include <kxmlguiwindow.h>
-#include <kconfig.h>
+#include <KXmlGuiWindow>
+#include <KConfig>
 
 // Local includes
 #include "abstractinput.h"

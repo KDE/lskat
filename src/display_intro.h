@@ -26,12 +26,12 @@
 #include <QTimer>
 
 // KDE includes
-#include "lskat_debug.h"
 
 // local includes
 #include "abstractdisplay.h"
-#include "thememanager.h"
 #include "deck.h"
+#include "lskat_debug.h"
+#include "thememanager.h"
 
 // Forward declaration
 class Player;

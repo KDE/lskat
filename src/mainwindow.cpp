@@ -37,9 +37,8 @@
 #include <KSharedConfig>
 #include <KStandardGameAction>
 #include <KLocalizedString>
-#include <krandom.h>
-#include <ktoolbar.h>
-#include <kselectaction.h>
+#include <KRandom>
+#include <KSelectAction>
 // Application specific includes
 #include "lskat_debug.h"
 #include "lskatglobal.h"

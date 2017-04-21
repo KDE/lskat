@@ -24,10 +24,10 @@
 #include <QTimer>
 
 // KDE includes
-#include "lskat_debug.h"
 
 // Local includes
 #include "lskatglobal.h"
+#include "lskat_debug.h"
 #include "player.h"
 
 // Constructor for the engine

@@ -27,8 +27,9 @@
 #include <QHash>
 
 // KDE includes
+#include <KRandomSequence>
+
 #include "lskat_debug.h"
-#include <krandomsequence.h>
 
 /**
  * The card, suite and trump names

@@ -27,7 +27,7 @@
 #include <QSvgRenderer>
 
 // KDE includes
-#include <kconfig.h>
+#include <KConfig>
 
 class KCardCache;
 class ThemeManager;

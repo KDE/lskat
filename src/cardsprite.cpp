@@ -19,18 +19,18 @@
 */
 
 #include "cardsprite.h"
+#include "lskat_debug.h"
 
 // General includes
-#include <math.h>
+#include <cmath>
 
 // Qt includes
-#include <QPoint>
-#include <QMatrix>
 #include <QGraphicsScene>
+#include <QMatrix>
+#include <QPoint>
 
 // KDE includes
-#include "lskat_debug.h"
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 // Delay for card turning animation [ms]
 #define ANIM_CNT_TURNING          20.0

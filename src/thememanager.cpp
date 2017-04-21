@@ -18,8 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "thememanager.h"
-
 // General includes
 // #include <typeinfo>
 
@@ -30,11 +28,11 @@
 #include <QRectF>
 
 // KDE includes
-#include "lskat_debug.h"
-#include <kconfiggroup.h>
-#include <kstandarddirs.h>
+#include <KConfigGroup>
 
 // Local includes
+#include "thememanager.h"
+#include "lskat_debug.h"
 #include "lskatglobal.h"
 #include "deck.h"
 #include "fromlibkdegames/cardcache.h"

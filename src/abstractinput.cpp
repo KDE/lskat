@@ -19,11 +19,11 @@
 */
 
 #include "abstractinput.h"
+#include "lskat_debug.h"
 
 // Qt includes
 
 // KDE includes
-#include "lskat_debug.h"
 
 // Constructor for the engine
 AbstractInput::AbstractInput(QObject *parent)

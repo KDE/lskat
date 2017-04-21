@@ -19,6 +19,7 @@
 */
 
 #include "scoresprite.h"
+#include "lskat_debug.h"
 
 // General includes
 #include <math.h>
@@ -28,10 +29,9 @@
 #include <QGraphicsScene>
 
 // KDE includes
-#include "lskat_debug.h"
-#include <kconfig.h>
+#include <KConfig>
+#include <KConfigGroup>
 #include <KLocalizedString>
-#include <kconfiggroup.h>
 
 // Constructor for the score sprite
 ScoreSprite::ScoreSprite(const QString &id, ThemeManager *theme, int advancePeriod, int no, QGraphicsScene *scene)

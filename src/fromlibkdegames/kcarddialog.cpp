@@ -30,10 +30,10 @@
 #include <KConfigGroup>
 #include <KLocalizedString>
 #include <KSharedConfig>
-#include "lskat_debug.h"
 
 #include "carddeckinfo.h"
 #include "carddeckinfo_p.h"
+#include "lskat_debug.h"
 
 /**
  * Local information of the dialog.

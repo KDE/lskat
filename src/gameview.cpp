@@ -21,7 +21,7 @@
 #include "gameview.h"
 
 // General includes
-#include <math.h>
+#include <cmath>
 
 // Qt includes
 #include <QPoint>
@@ -29,12 +29,12 @@
 #include <QTime>
 
 // KDE includes
-#include <kmessagebox.h>
-#include "lskat_debug.h"
+#include <KMessageBox>
 
 // Local includes
-#include "thememanager.h"
+#include "lskat_debug.h"
 #include "lskatglobal.h"
+#include "thememanager.h"
 
 // Constructor for the view
 GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene *scene, ThemeManager *theme, QWidget *parent)

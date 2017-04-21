@@ -20,13 +20,12 @@
 
 #include "deck.h"
 #include "lskatglobal.h"
+#include "lskat_debug.h"
 
 // Qt includes
 
 // KDE includes
 #include <KLocalizedString>
-#include "lskat_debug.h"
-#include <klocalizedstring.h>
 
 // How many cards
 #define NUMBER_OF_CARDS   32

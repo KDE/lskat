@@ -25,11 +25,11 @@
 #include <QHash>
 
 // KDE includes
-#include "lskat_debug.h"
-#include <kconfig.h>
+#include <KConfig>
 
 // local includes
 #include "abstractinput.h"
+#include "lskat_debug.h"
 #include "player.h"
 
 // Forward declaration

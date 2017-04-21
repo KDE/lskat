@@ -19,12 +19,12 @@
 */
 
 #include "namedialogwidget.h"
+#include "lskat_debug.h"
 
 // Qt includes
 #include <QWidget>
 
 // KDE includes
-#include "lskat_debug.h"
 
 // Constructor for the widget
 NameDialogWidget::NameDialogWidget(QWidget *parent)

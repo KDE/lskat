@@ -50,8 +50,6 @@
 #include <KAboutData>
 #include <KCrash>
 #include <KLocalizedString>
-#include <kglobal.h>
-#include "lskat_debug.h"
 
 #include <QApplication>
 #include <QCommandLineParser>

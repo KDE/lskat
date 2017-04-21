@@ -20,20 +20,19 @@
 #include "cardcache.h"
 #include "cardcache_p.h"
 
-#include <QMap>
-#include <QPixmap>
-#include <QPair>
+#include <QDateTime>
+#include <QDir>
+#include <QFileInfo>
 #include <QImage>
+#include <QMap>
 #include <QMutexLocker>
 #include <QPainter>
-#include <QDateTime>
+#include <QPair>
+#include <QPixmap>
 #include <QSizeF>
-#include <QFileInfo>
-#include <QDir>
 #include <QSvgRenderer>
 
-#include <kconfig.h>
-#include <kstandarddirs.h>
+#include <KConfig>
 
 #include "carddeckinfo.h"
 

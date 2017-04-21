@@ -24,11 +24,11 @@
 // Qt includes
 
 // KDE includes
-#include "lskat_debug.h"
 
 // Local includes
 #include "abstractengine.h"
 #include "deck.h"
+#include "lskat_debug.h"
 
 // Forward declaration
 class DisplayTwo;

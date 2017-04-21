@@ -19,13 +19,13 @@
 */
 
 #include "textsprite.h"
+#include "lskat_debug.h"
 
 // Qt includes
 #include <QGraphicsScene>
 #include <QFont>
 // KDE includes
-#include "lskat_debug.h"
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 // Constructor for the sprite
 TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager *theme, QGraphicsScene *scene)

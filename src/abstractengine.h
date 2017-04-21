@@ -22,8 +22,8 @@
 #define LSKAT_ABSTRACTENGINE_H
 
 // Qt includes
-#include <QWidget>
 #include <QHash>
+#include <QWidget>
 
 // KDE includes
 #include "lskat_debug.h"

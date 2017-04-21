@@ -23,7 +23,7 @@
 #include <QDialog>
 #include <QWidget>
 
-#include <kconfig.h>
+#include <KConfig>
 
 class KCardWidgetPrivate;
 class KCardWidget;
