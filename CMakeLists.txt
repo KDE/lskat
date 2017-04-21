@@ -18,7 +18,6 @@ find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS
     GuiAddons
     I18n
     ItemModels
-    KDELibs4Support
     KIO
     NewStuff
     NotifyConfig

@@ -102,11 +102,11 @@ void TextSprite::changeTheme()
     resetTransform();
     if (center)
     {
-        translate(-boundingRect().width() / 2.0 + offset.x(), 0.0 + offset.y());
+        setTransform(QTransform::fromTranslate(-boundingRect().width() / 2.0 + offset.x(), offset.y()), true);
     }
     else
     {
-        translate(offset.x(), offset.y());
+        setTransform(QTransform::fromTranslate(offset.x(), offset.y()), true);
     }
 
     update();

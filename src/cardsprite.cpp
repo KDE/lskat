@@ -205,7 +205,7 @@ void CardSprite::setFrame(int no, bool force)
     // Translation
     QPoint offset = thememanager()->getOffset();
     resetTransform();
-    translate(mHotspots[no].x() + offset.x(), mHotspots[no].y() + offset.y());
+    setTransform(QTransform::fromTranslate(mHotspots[no].x() + offset.x(), mHotspots[no].y() + offset.y()), true);
 
     mCurrentFrame = no;
     update();

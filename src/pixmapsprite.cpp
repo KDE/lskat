@@ -207,11 +207,11 @@ void PixmapSprite::setFrame(int no, bool force)
     resetTransform();
     if (mOffsetStatus)
     {
-        translate(-mHotspots.at(no).x() + offset.x(), -mHotspots.at(no).y() + offset.y());
+        setTransform(QTransform::fromTranslate(-mHotspots.at(no).x() + offset.x(), -mHotspots.at(no).y() + offset.y()), true);
     }
     else
     {
-        translate(-mHotspots.at(no).x(), -mHotspots.at(no).y());
+        setTransform(QTransform::fromTranslate(-mHotspots.at(no).x(), -mHotspots.at(no).y()), true);
     }
     mCurrentFrame = no;
     update();
