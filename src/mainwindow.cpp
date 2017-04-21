@@ -541,8 +541,7 @@ void Mainwindow::menuEndGame()
 // Start a new game
 void Mainwindow::menuNewLSkatGame()
 {
-    disconnect(mView, SIGNAL(signalLeftMousePress(QPoint)),
-               this, SLOT(menuNewLSkatGame()));
+    disconnect(mView, &GameView::signalLeftMousePress, this, &Mainwindow::menuNewLSkatGame);
 
     Player *p1 = mLSkatConfig->player(0);
     Player *p2 = mLSkatConfig->player(1);
