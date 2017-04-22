@@ -23,10 +23,9 @@
 
 // Qt includes
 #include <QDialog>
-#include <QSize>
 
 // KDE includes
-#include <kdebug.h>
+#include "lskat_debug.h"
 
 // Local includes
 #include "ui_namedialog.h"

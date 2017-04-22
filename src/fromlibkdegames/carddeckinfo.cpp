@@ -20,15 +20,15 @@
 #include "carddeckinfo.h"
 #include "carddeckinfo_p.h"
 
-#include <QFileInfo>
 #include <QDir>
+#include <QFileInfo>
+#include <QStandardPaths>
 
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <krandom.h>
-#include <kdebug.h>
-#include <kconfiggroup.h>
-#include <kglobal.h>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KRandom>
+#include "lskat_debug.h"
 
 // KConfig entries
 #define CONF_CARD QString::fromLatin1("Cardname")
@@ -41,8 +41,6 @@ class KCardThemeInfoStatic
 public:
     KCardThemeInfoStatic()
     {
-        KGlobal::dirs()->addResourceType("cards", "data", "carddecks/");
-        KGlobal::locale()->insertCatalog(QLatin1String("libkdegames"));
         readDecks();
     }
     ~KCardThemeInfoStatic()
@@ -54,14 +52,19 @@ public:
         // Empty data
         themeNameMap.clear();
 
-        QStringList svg;
         // Add SVG card sets
-        svg = KGlobal::dirs()->findAllResources("cards", QLatin1String("svg*/index.desktop"), KStandardDirs::NoDuplicates);
-        const QStringList list = svg + KGlobal::dirs()->findAllResources("cards", QLatin1String("card*/index.desktop"), KStandardDirs::NoDuplicates);
+        QStringList list;
+        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "carddecks", QStandardPaths::LocateDirectory);
+        for (const QString& dir : dirs) {
+            const QStringList deckFolderNames = QDir(dir).entryList(QStringList() << QStringLiteral("svg*"));
+            for (const QString& deck : deckFolderNames) {
+                list.append(dir + '/' + deck + QStringLiteral("/index.desktop"));
+            }
+        }
 
         if (list.isEmpty()) return;
 
-        for (QStringList::ConstIterator it = list.begin(); it != list.end(); ++it)
+        for (QStringList::ConstIterator it = list.constBegin(); it != list.constEnd(); ++it)
         {
             KConfig cfg(*it, KConfig::SimpleConfig);
             KConfigGroup cfgcg(&cfg, "KDE Backdeck");
@@ -78,8 +81,9 @@ public:
             info.comment      = cfgcg.readEntry("Comment", QString());
             info.preview      = pixmap;
             info.path         = path;
+
             info.back         = cfgcg.readEntry("Back", QString());
-            // if (!info.back.isNull()) kDebug() << "FOUND BACK " << info.back;
+            // if (!info.back.isNull()) qCDebug(LSKAT_LOG) << "FOUND BACK " << info.back;
             info.isDefault    = cfgcg.readEntry("Default", false);
 
             QString svg    = cfgcg.readEntry("SVG", QString());
@@ -99,7 +103,7 @@ public:
     QString defaultDeck;
 };
 
-K_GLOBAL_STATIC(KCardThemeInfoStatic, deckinfoStatic)
+Q_GLOBAL_STATIC(KCardThemeInfoStatic, deckinfoStatic)
 
 QDebug operator<<(QDebug debug, const KCardThemeInfo &cn)
 {
@@ -131,7 +135,7 @@ QString defaultDeckName()
         // Collect any deck if no default is stored
         noDefault = v.noi18Name;
     }
-    if (noDefault.isNull()) kError() << "Could not find default card name";
+    if (noDefault.isNull()) qCCritical(LSKAT_LOG) << "Could not find default card name";
     return noDefault;
 }
 

@@ -19,17 +19,19 @@
 */
 
 #include "textsprite.h"
+#include "lskat_debug.h"
 
 // Qt includes
-
+#include <QGraphicsScene>
+#include <QFont>
 // KDE includes
-#include <kdebug.h>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 // Constructor for the sprite
 TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager *theme, QGraphicsScene *scene)
-          : Themable(id, theme), QGraphicsTextItem(0, scene)
+          : Themable(id, theme), QGraphicsTextItem(0)
 {
+    scene->addItem(this);
     setPlainText(text);
     hide();
 
@@ -38,8 +40,9 @@ TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager *the
 
 // Constructor for the sprite
 TextSprite::TextSprite(const QString &id, ThemeManager *theme, QGraphicsScene *scene)
-          : Themable(id, theme), QGraphicsTextItem(0, scene)
+          : Themable(id, theme), QGraphicsTextItem(0)
 {
+    scene->addItem(this);
     hide();
 
     if (theme) theme->updateTheme(this);
@@ -99,11 +102,11 @@ void TextSprite::changeTheme()
     resetTransform();
     if (center)
     {
-        translate(-boundingRect().width() / 2.0 + offset.x(), 0.0 + offset.y());
+        setTransform(QTransform::fromTranslate(-boundingRect().width() / 2.0 + offset.x(), offset.y()), true);
     }
     else
     {
-        translate(offset.x(), offset.y());
+        setTransform(QTransform::fromTranslate(offset.x(), offset.y()), true);
     }
 
     update();

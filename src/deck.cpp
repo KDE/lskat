@@ -20,13 +20,12 @@
 
 #include "deck.h"
 #include "lskatglobal.h"
+#include "lskat_debug.h"
 
 // Qt includes
 
 // KDE includes
-#include <klocale.h>
-#include <kdebug.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 // How many cards
 #define NUMBER_OF_CARDS   32
@@ -119,7 +118,7 @@ int Deck::drawCard()
 {
     if (mCards.size() < 1)
     {
-        kFatal() << "No more cards to draw from card deck";
+        qCCritical(LSKAT_LOG) << "No more cards to draw from card deck";
     }
     int card = mCards.takeFirst();
     return card;
@@ -195,5 +194,3 @@ QString Deck::name(Suite suite, CardType type)
     QString typeName  = name(type);
     return i18nc("eg jack of clubs", "%1 of %2", typeName, suiteName);
 }
-
-#include "deck.moc"

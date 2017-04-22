@@ -26,10 +26,10 @@
 #include <QVector>
 
 // KDE includes
-#include <kdebug.h>
-#include <kconfig.h>
+#include <KConfig>
 
 // Local includes
+#include "lskat_debug.h"
 #include "deck.h"
 
 // Forward declaration

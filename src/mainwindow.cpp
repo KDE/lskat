@@ -21,32 +21,24 @@
 #include "mainwindow.h"
 
 // Include files for Qt
-
+#include <QAction>
 #include <QDir>
-#include <QFile>
+#include <QKeySequence>
 #include <QPointer>
+#include <QStatusBar>
+#include <QStandardPaths>
 
 // Include files for KDE
-#include <kstandardgameaction.h>
-#include <kmessagebox.h>
-#include <kfiledialog.h>
-#include <khelpmenu.h>
-#include <kdebug.h>
-#include <kstandardaction.h>
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kstatusbar.h>
-#include <kstandarddirs.h>
-#include <kicon.h>
-#include <kmenubar.h>
-#include <klocale.h>
-#include <krandom.h>
-#include <kglobal.h>
-#include <ktoolbar.h>
-#include <kselectaction.h>
-#include <kapplication.h>
-
+#include <KActionCollection>
+#include <KConfigGroup>
+#include <KMessageBox>
+#include <KSharedConfig>
+#include <KStandardGameAction>
+#include <KLocalizedString>
+#include <KRandom>
+#include <KSelectAction>
 // Application specific includes
+#include "lskat_debug.h"
 #include "lskatglobal.h"
 #include "gameview.h"
 #include "abstractengine.h"
@@ -86,18 +78,15 @@ Mainwindow::Mainwindow(QWidget *parent)
     mCanvas      = 0;
     mTheme       = 0;
 
-    // Add resource type to grafix
-    KGlobal::dirs()->addResourceType("lskattheme", "appdata", "grafix/");
-
-    #ifndef NDEBUG
-    #ifdef SRC_DIR
-    kDebug() << "Found SRC_DIR =" << SRC_DIR;
-    KGlobal::dirs()->addResourceDir("lskattheme", QLatin1String(SRC_DIR) + QString("/grafix/"));
-    #endif
-    #endif
-
     // Read theme files
-    QStringList themeList =  KGlobal::dirs()->findAllResources("lskattheme", QLatin1String("*.desktop"), KStandardDirs::NoDuplicates);
+    QStringList themeList;
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "grafix", QStandardPaths::LocateDirectory);
+    for (const QString& dir : dirs) {
+        const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+        for (const QString& file : fileNames) {
+            themeList.append(dir + '/' + file);
+        }
+    }
     if (themeList.isEmpty())
     {
         KMessageBox::error(this, i18n("Installation error: No theme list found."));
@@ -117,7 +106,7 @@ Mainwindow::Mainwindow(QWidget *parent)
         if (mThemeDefault.isNull()) mThemeDefault = name;
         if (isDefault) mThemeDefault = name;
 
-        if (global_debug > 0) kDebug() << "Found theme: " << themeList.at(i) << " Name(i18n)=" << name << " File=" << file << " default=" << isDefault;
+        if (global_debug > 0) qCDebug(LSKAT_LOG) << "Found theme: " << themeList.at(i) << " Name(i18n)=" << name << " File=" << file << " default=" << isDefault;
     }
     mThemeIndexNo = themeIdxFromName(mThemeDefault);
 
@@ -126,25 +115,24 @@ Mainwindow::Mainwindow(QWidget *parent)
 
     // The LSkat config
     mLSkatConfig = new ConfigTwo(this);
-    connect(mLSkatConfig, SIGNAL(signalInputType(int,InputDeviceType)),
-            this, SLOT(setInputType(int,InputDeviceType)));
+    connect(mLSkatConfig, &ConfigTwo::signalInputType, this, &Mainwindow::setInputType);
     mLSkatConfig->reset();
 
     // Read game properties and set default values (after config)
     readProperties();
 
     // TODO: Bugfix: Needs to be here if initGUI is before readProperties
-    if (global_debug > 0) kDebug() << "Setting current theme item to" << mThemeIndexNo;
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Setting current theme item to " << mThemeIndexNo;
     ((KSelectAction *)ACTION(QLatin1String("theme")))->setCurrentItem(mThemeIndexNo);
 
     // Get the card deck
     long seed = KRandom::random();
-    if (global_debug > 0) kDebug() << "Random seed" << seed;
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Random seed" << seed;
     mDeck = new Deck(seed, this);
 
     // Theme manager
     QString themeFile = themefileFromIdx(mThemeIndexNo);
-    if (global_debug > 0) kDebug() << "Load theme" << themeFile << " no=" << mThemeIndexNo;
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Load theme" << themeFile << " no=" << mThemeIndexNo;
     mTheme  = new ThemeManager(mCardTheme, themeFile, this, this->width());
     if (mTheme->checkTheme() != 0)
     {
@@ -161,8 +149,7 @@ Mainwindow::Mainwindow(QWidget *parent)
     mGameMode      = Intro;
     mDisplay       = new DisplayIntro(mDeck, mCanvas, mTheme, ADVANCE_PERIOD, mView);
     setCentralWidget(mView);
-    connect(mView, SIGNAL(signalLeftMousePress(QPoint)),
-            this, SLOT(menuNewLSkatGame()));
+    connect(mView, &GameView::signalLeftMousePress, this, &Mainwindow::menuNewLSkatGame);
 
     // Create GUI
     setupGUI();
@@ -186,7 +173,7 @@ Mainwindow::Mainwindow(QWidget *parent)
         // Start intro
         mDisplay->start();
     }
-    if (global_debug > 0) kDebug() << "Mainwindow setup constructor done";
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Mainwindow setup constructor done";
 }
 
 // Destructor
@@ -231,14 +218,14 @@ int Mainwindow::themeIdxFromName(QString name)
     {
         if (list[i] == name) return i;
     }
-    kError() << "Theme index lookup failed for " << name;
+    qCCritical(LSKAT_LOG) << "Theme index lookup failed for " << name;
     return 0;
 }
 
 // Save properties
 void Mainwindow::saveProperties()
 {
-    KConfig *config = KGlobal::config().data();
+    KConfig *config = KSharedConfig::openConfig().data();
 
     // Program data
     KConfigGroup cfg = config->group("ProgramData");
@@ -253,7 +240,7 @@ void Mainwindow::saveProperties()
 // Load properties
 void Mainwindow::readProperties()
 {
-    KConfig *config = KGlobal::config().data();
+    KConfig *config = KSharedConfig::openConfig().data();
 
     // Program data
     KConfigGroup cfg = config->group("ProgramData");
@@ -295,7 +282,7 @@ AbstractInput *Mainwindow::createInput(
         connect(mouseInput, SIGNAL(signalPlayerInput(int,int,int)),
                 engine, SLOT(playerInput(int,int,int)));
         input = mouseInput;
-        if (global_debug > 0) kDebug() << "Create MOUSE INPUT";
+        if (global_debug > 0) qCDebug(LSKAT_LOG) << "Create MOUSE INPUT";
     }
     else if (inputType == TypeAiInput)
     {
@@ -303,11 +290,11 @@ AbstractInput *Mainwindow::createInput(
         connect(aiInput, SIGNAL(signalPlayerInput(int,int,int)),
                 engine, SLOT(playerInput(int,int,int)));
         input = aiInput;
-        if (global_debug > 0) kDebug() << "Create AI INPUT";
+        if (global_debug > 0) qCDebug(LSKAT_LOG) << "Create AI INPUT";
     }
     else
     {
-        kFatal() << "Unpupported input device type" << inputType;
+        qCCritical(LSKAT_LOG) << "Unsupported input device type" << inputType;
     }
 
     return input;
@@ -399,7 +386,7 @@ void Mainwindow::initGUI()
     // Determine start player
     KSelectAction *startPlayerAct = new KSelectAction(i18n("Starting Player"), this);
     actionCollection()->addAction(QLatin1String("startplayer"), startPlayerAct);
-    connect(startPlayerAct, SIGNAL(triggered(int)), this, SLOT(menuStartplayer()));
+    connect(startPlayerAct, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuStartplayer);
     startPlayerAct->setToolTip(i18n("Changing starting player..."));
     startPlayerAct->setWhatsThis(i18n("Chooses which player begins the next game."));
     QStringList list;
@@ -412,7 +399,7 @@ void Mainwindow::initGUI()
     // Determine who player player 1
     KSelectAction *player1Act = new KSelectAction(i18n("Player &1 Played By"), this);
     actionCollection()->addAction(QLatin1String("player1"), player1Act);
-    connect(player1Act, SIGNAL(triggered(int)), this, SLOT(menuPlayer1By()));
+    connect(player1Act, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuPlayer1By);
     player1Act->setToolTip(i18n("Changing who plays player 1..."));
     player1Act->setWhatsThis(i18n("Changing who plays player 1."));
     list.clear();
@@ -424,7 +411,7 @@ void Mainwindow::initGUI()
     // Determine who player player 2
     KSelectAction *player2Act = new KSelectAction(i18n("Player &2 Played By"), this);
     actionCollection()->addAction(QLatin1String("player2"), player2Act);
-    connect(player2Act, SIGNAL(triggered(int)), this, SLOT(menuPlayer2By()));
+    connect(player2Act, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuPlayer2By);
     player2Act->setToolTip(i18n("Changing who plays player 2..."));
     player2Act->setWhatsThis(i18n("Changing who plays player 2."));
     player2Act->setItems(list);
@@ -437,24 +424,24 @@ void Mainwindow::initGUI()
     KSelectAction *themeAct = new KSelectAction(i18n("&Theme"), this);
     actionCollection()->addAction(QLatin1String("theme"), themeAct);
     themeAct->setItems(themes);
-    connect(themeAct, SIGNAL(triggered(int)), SLOT(changeTheme(int)));
-    if (global_debug > 0) kDebug() << "Setting current theme item to" << mThemeIndexNo;
+    connect(themeAct, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::changeTheme);
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Setting current theme item to " << mThemeIndexNo;
     themeAct->setCurrentItem(mThemeIndexNo);
     themeAct->setToolTip(i18n("Changing theme..."));
     themeAct->setWhatsThis(i18n("Changing theme."));
 
     // Choose card deck
-    KAction *action1 = actionCollection()->addAction(QLatin1String("select_carddeck"));
+    QAction *action1 = actionCollection()->addAction(QLatin1String("select_carddeck"));
     action1->setText(i18n("Select &Card Deck..."));
-    action1->setShortcuts(KShortcut(Qt::Key_F10));
-    connect(action1, SIGNAL(triggered(bool)), this, SLOT(menuCardDeck()));
+    actionCollection()->setDefaultShortcut(action1, QKeySequence(Qt::Key_F10));
+    connect(action1, &QAction::triggered, this, &Mainwindow::menuCardDeck);
     action1->setToolTip(i18n("Configure card decks..."));
     action1->setWhatsThis(i18n("Choose how the cards should look."));
 
     // Change player names
     action = actionCollection()->addAction(QLatin1String("change_names"));
     action->setText(i18n("&Change Player Names..."));
-    connect(action, SIGNAL(triggered(bool)), this, SLOT(menuPlayerNames()));
+    connect(action, &QAction::triggered, this, &Mainwindow::menuPlayerNames);
     if (global_demo_mode) action->setEnabled(false);
 }
 
@@ -470,7 +457,7 @@ void Mainwindow::changeTheme(int idx)
 {
     mThemeIndexNo = idx;
     QString themeFile = themefileFromIdx(idx);
-    if (global_debug > 0) kDebug() << "Select theme" << themeFile;
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Select theme " << themeFile;
     mTheme->updateTheme(themeFile);
 }
 
@@ -493,7 +480,7 @@ void Mainwindow::menuCardDeck()
 {
     QString front = mCardTheme;
 
-    KConfigGroup grp = KGlobal::config()->group("ProgramData");
+    KConfigGroup grp = KSharedConfig::openConfig()->group("ProgramData");
     KCardWidget *cardwidget = new KCardWidget();
     QPointer<KCardDialog> dlg;
 
@@ -504,7 +491,7 @@ void Mainwindow::menuCardDeck()
         // Always store the settings, other things than the deck may have changed
         cardwidget->saveSettings(grp);
         grp.sync();
-        if (global_debug > 0) kDebug() << "NEW CARDDECK:" << front;
+        if (global_debug > 0) qCDebug(LSKAT_LOG) << "NEW CARDDECK: " << front;
         bool change = false; // Avoid unnecessary changes
         if (!cardwidget->deckName().isEmpty() && cardwidget->deckName() != mCardTheme)
         {
@@ -554,8 +541,7 @@ void Mainwindow::menuEndGame()
 // Start a new game
 void Mainwindow::menuNewLSkatGame()
 {
-    disconnect(mView, SIGNAL(signalLeftMousePress(QPoint)),
-               this, SLOT(menuNewLSkatGame()));
+    disconnect(mView, &GameView::signalLeftMousePress, this, &Mainwindow::menuNewLSkatGame);
 
     Player *p1 = mLSkatConfig->player(0);
     Player *p2 = mLSkatConfig->player(1);
@@ -579,8 +565,8 @@ void Mainwindow::menuNewLSkatGame()
 
         mDisplay = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERIOD, mView);
         mEngine = new EngineTwo(this, mDeck, (DisplayTwo *)mDisplay);
-        connect(mEngine, SIGNAL(signalGameOver(int)), this, SLOT(gameOver(int)));
-        connect(mEngine, SIGNAL(signalNextPlayer(Player*)), this, SLOT(nextPlayer(Player*)));
+        connect(mEngine, &AbstractEngine::signalGameOver, this, &Mainwindow::gameOver);
+        connect(mEngine, &AbstractEngine::signalNextPlayer, this, &Mainwindow::nextPlayer);
 
         // Connect player score widget updates
         connect(p1, SIGNAL(signalUpdate(Player*)), mDisplay, SLOT(updatePlayer(Player*)));
@@ -654,5 +640,3 @@ void Mainwindow::setInputType(int no, InputDeviceType type)
         p->setInput(input);
     }
 }
-
-#include "mainwindow.moc"

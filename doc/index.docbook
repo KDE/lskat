@@ -1,8 +1,7 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kappname "&lskat;">
   <!ENTITY kappversion "1.40"><!--Applicaion version. Use this variable everywhere it's needed.-->
-  <!ENTITY package "kdegames">
   <!ENTITY % English "INCLUDE" >
   <!ENTITY % addindex "IGNORE">
 ]>
@@ -414,20 +413,6 @@ Documentation converted to &kde; 2.0 by &Mike.McBride;
 &underGPL;
 
 </chapter>
-
-<appendix id="installation">
-<title>Installation</title>
-
-&install.intro.documentation;
-
-
-<sect1 id="Compilation">
-<title>Compilation and Installation</title>
-
-&install.compile.documentation;
-
-</sect1>
-</appendix>
 
 &documentation.index;
 </book>

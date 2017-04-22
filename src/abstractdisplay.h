@@ -22,14 +22,14 @@
 #define ABSTRACT_DISPLAY_H
 
 // Qt includes
-#include <QGraphicsScene>
 #include <QGraphicsItem>
+#include <QGraphicsScene>
 #include <QGraphicsView>
-#include <QList>
 #include <QHash>
+#include <QList>
 
 // KDE includes
-#include <kdebug.h>
+#include "lskat_debug.h"
 
 // local includes
 

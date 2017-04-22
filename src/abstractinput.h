@@ -25,9 +25,9 @@
 #include <QObject>
 
 // KDE includes
-#include <kdebug.h>
 
 // Local includes
+#include "lskat_debug.h"
 
 namespace InputDevice
 {

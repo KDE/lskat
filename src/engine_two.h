@@ -22,14 +22,13 @@
 #define ENGINE_TWO_H
 
 // Qt includes
-#include <QObject>
 
 // KDE includes
-#include <kdebug.h>
 
 // Local includes
 #include "abstractengine.h"
 #include "deck.h"
+#include "lskat_debug.h"
 
 // Forward declaration
 class DisplayTwo;

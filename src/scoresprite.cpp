@@ -19,37 +19,37 @@
 */
 
 #include "scoresprite.h"
+#include "lskat_debug.h"
 
 // General includes
 #include <math.h>
 
 // Qt includes
-#include <QSizeF>
 #include <QFont>
+#include <QGraphicsScene>
 
 // KDE includes
-#include <kdebug.h>
-#include <kconfig.h>
-#include <klocale.h>
-#include <kconfiggroup.h>
+#include <KConfig>
+#include <KConfigGroup>
+#include <KLocalizedString>
 
 // Constructor for the score sprite
 ScoreSprite::ScoreSprite(const QString &id, ThemeManager *theme, int advancePeriod, int no, QGraphicsScene *scene)
            :  Themable(id, theme), PixmapSprite(advancePeriod, no, scene)
 {
     // Create all sub sprites
-    mName    = new QGraphicsTextItem(this, scene);
-    mPoints  = new QGraphicsTextItem(this, scene);
-    mScore   = new QGraphicsTextItem(this, scene);
-    mGames   = new QGraphicsTextItem(this, scene);
+    mName    = new QGraphicsTextItem(this);
+    mPoints  = new QGraphicsTextItem(this);
+    mScore   = new QGraphicsTextItem(this);
+    mGames   = new QGraphicsTextItem(this);
     mInput   = new PixmapSprite(QLatin1String("scoreinput"), theme, advancePeriod, 0, scene);
-    if (!mInput) kFatal() << "Cannot load sprite" << "scoreinput";
+    if (!mInput) qCCritical(LSKAT_LOG) << "Cannot load sprite " << "scoreinput";
     mInput->setParentItem(this);
     mInput->setOffsetStatus(false);
     mInputFrame = 0;
 
     mTrump   = new PixmapSprite(QLatin1String("scoretrump"), theme, advancePeriod, 0, scene);
-    if (!mTrump) kFatal() << "Cannot load sprite" << "scoretrump";
+    if (!mTrump) qCCritical(LSKAT_LOG) << "Cannot load sprite " << "scoretrump";
     mTrump->setParentItem(this);
     mTrump->setOffsetStatus(false);
     mTrumpFrame = 0;

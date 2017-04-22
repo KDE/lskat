@@ -19,13 +19,13 @@
 */
 
 #include "config_two.h"
+#include "lskat_debug.h"
 
 // Qt includes
 
 // KDE includes
-#include <kdebug.h>
-#include <kconfiggroup.h>
-#include <klocale.h>
+#include <KConfigGroup>
+#include <KLocalizedString>
 
 // Constructor for the configuration
 ConfigTwo::ConfigTwo(QObject *parent)
@@ -129,5 +129,3 @@ void ConfigTwo::setInputType(int no, InputDeviceType type)
     mInputTypes[no] = type;
     emit signalInputType(no, type);
 }
-
-#include "config_two.moc"

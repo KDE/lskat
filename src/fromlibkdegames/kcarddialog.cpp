@@ -20,19 +20,20 @@
 #include "kcarddialog.h"
 #include "ui_kgamecardselector.h"
 
+#include <QDialogButtonBox>
+#include <QListWidgetItem>
 #include <QPainter>
 #include <QPixmap>
-#include <QListWidgetItem>
-#include <QFileInfo>
-#include <QDir>
+#include <QPushButton>
+#include <QVBoxLayout>
 
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <krandom.h>
-#include <kdebug.h>
+#include <KConfigGroup>
+#include <KLocalizedString>
+#include <KSharedConfig>
 
 #include "carddeckinfo.h"
 #include "carddeckinfo_p.h"
+#include "lskat_debug.h"
 
 /**
  * Local information of the dialog.
@@ -89,9 +90,9 @@ void KCardWidget::setupGUI()
     // Set lists and preview
     insertCardIcons();
 
+
     // Connect signals
-    connect(ui->list, SIGNAL(itemSelectionChanged()),
-            this, SLOT(updateSelection()));
+    connect(ui->list, &QListWidget::itemSelectionChanged, this, &KCardWidget::updateSelection);
 }
 
 // Destroy the dialog
@@ -114,7 +115,8 @@ void KCardWidget::insertCardIcons()
 
     // Rebuild list
     QSize itemSize;
-    foreach (const QString &name, CardDeckInfo::deckNames())
+    const QStringList decknames = CardDeckInfo::deckNames();
+    for (const QString &name : decknames)
     {
         KCardThemeInfo v = CardDeckInfo::deckInfo(name);
         // Show only SVG files?
@@ -194,9 +196,15 @@ void KCardWidget::setDeckName(const QString &name)
 
 KCardDialog::KCardDialog(KCardWidget *widget)
 {
-    setMainWidget(widget);
-    setCaption(i18n("Card Deck Selection"));
-    setButtons(KDialog::Ok | KDialog::Cancel);
+    QVBoxLayout *mainLayout = new QVBoxLayout;
+    setLayout(mainLayout);
+    mainLayout->addWidget(widget);
+    setWindowTitle(i18n("Card Deck Selection"));
+    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
+    QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+    connect(buttonBox, &QDialogButtonBox::accepted, this, &KCardDialog::accept);
+    connect(buttonBox, &QDialogButtonBox::rejected, this, &KCardDialog::reject);
+    mainLayout->addWidget(buttonBox);
 }
-
-#include "kcarddialog.moc"

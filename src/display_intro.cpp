@@ -21,19 +21,18 @@
 #include "display_intro.h"
 
 // General includes
-#include <math.h>
+#include <cmath>
 
 // Qt includes
-#include <QSize>
 #include <QPoint>
 
 // KDE includes
-#include <klocale.h>
-#include <kdebug.h>
-#include <kconfiggroup.h>
+#include <KLocalizedString>
+#include <KConfigGroup>
 
 // Local includes
 #include "cardsprite.h"
+#include "lskat_debug.h"
 #include "textsprite.h"
 
 #define WAIT_CNT       100  /* Wait this [ms] before clearing board */
@@ -49,7 +48,7 @@ DisplayIntro::DisplayIntro(Deck *deck, QGraphicsScene *theScene, ThemeManager *t
     scene()->setBackgroundBrush(QColor(0, 0, 128));
 
     mTimer = new QTimer(this);
-    connect(mTimer, SIGNAL(timeout()), this, SLOT(loop()));
+    connect(mTimer, &QTimer::timeout, this, &DisplayIntro::loop);
     mTimer->stop();
 
     // Redraw
@@ -242,5 +241,3 @@ void DisplayIntro::loop()
         mAnimCnt = 0;
     }
 }
-
-#include "display_intro.moc"

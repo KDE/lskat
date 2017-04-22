@@ -23,13 +23,12 @@
 // Qt includes
 
 // KDE includes
-#include <klocale.h>
-#include <kdebug.h>
 #include <kconfiggroup.h>
 
 // Local includes
 #include "abstractinput.h"
 #include "deck.h"
+#include "lskat_debug.h"
 
 // Constructor for the player
 Player::Player(int id, QObject *parent)
@@ -96,7 +95,7 @@ void Player::deal(int amount)
 {
     if (!mDeck)
     {
-        kFatal() << "No deck set to player.";
+        qCCritical(LSKAT_LOG) << "No deck set to player.";
         return;
     }
     mCards.clear();
@@ -160,8 +159,8 @@ void Player::deleteCard(int cardPosition)
 {
     if (cardPosition >= mCards.size())
     {
-        kFatal() << "Player" << mId << "tries to delete non existing card position "
-                  << cardPosition << " >=" << mCards.size();
+        qCCritical(LSKAT_LOG) << "Player " << mId << " tries to delete non existing card position "
+                << cardPosition << " >=" << mCards.size();
     }
     mCards[cardPosition] = -1;
 }
@@ -171,8 +170,8 @@ void Player::addCard(int cardPosition, int card)
 {
     if (cardPosition >= mCards.size())
     {
-        kFatal() << "Player" << mId << "tries to add to existing card position "
-                  << cardPosition << " >=" << mCards.size();
+        qCCritical(LSKAT_LOG) << "Player " << mId << " tries to add to existing card position "
+                << cardPosition << " >=" << mCards.size();
     }
     mCards[cardPosition] = card;
 }
@@ -182,8 +181,8 @@ int Player::getCard(int playerNumber)
 {
     if (playerNumber >= mCards.size())
     {
-        kFatal() << "Player" << mId << "tries to get non existing card "
-                  << playerNumber << " >=" << mCards.size();
+        qCCritical(LSKAT_LOG) << "Player " << mId << " tries to get non existing card "
+                << playerNumber << " >=" << mCards.size();
     }
 
     int card = mCards[playerNumber];
@@ -218,8 +217,8 @@ int Player::getWonCard(int no)
 {
     if (no >= mWonCards.size())
     {
-        kFatal() << "Player::getWonCard This card" << no << "is not available. "
-                  << "Only" << mWonCards.size() << "cards stored.";
+        qCCritical(LSKAT_LOG) << "Player::getWonCard This card " << no << " is not available. "
+                << "Only " << mWonCards.size() << " cards stored.";
         return -1;
     }
     return mWonCards[no];
@@ -308,5 +307,3 @@ void Player::refresh()
 {
     emit signalUpdate(this);
 }
-
-#include "player.moc"

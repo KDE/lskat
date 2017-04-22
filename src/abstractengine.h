@@ -22,11 +22,11 @@
 #define LSKAT_ABSTRACTENGINE_H
 
 // Qt includes
-#include <QWidget>
 #include <QHash>
+#include <QWidget>
 
 // KDE includes
-#include <kdebug.h>
+#include "lskat_debug.h"
 
 // Local includes
 #include "deck.h"

@@ -20,12 +20,11 @@
 #ifndef KCARDDIALOG_H
 #define KCARDDIALOG_H
 
+#include <QDialog>
 #include <QWidget>
 
-#include <kdialog.h>
-#include <kconfig.h>
+#include <KConfig>
 
-class QListWidgetItem;
 class KCardWidgetPrivate;
 class KCardWidget;
 
@@ -35,11 +34,11 @@ class KCardWidget;
  * @short A convenience class to display a standalone card selection dialog.
  *
  * This is a simple convenience class to embed the @ref KCardWidget into a
- * KDialog that has an OK and Cancel button and an appropriate caption.
+ * QDialog that has an OK and Cancel button and an appropriate caption.
  *
  * Usage Example:
  * \code
- *   KConfigGroup(KGlobal::config(), "CardOptions");
+ *   KConfigGroup(KSharedConfig::openConfig(),"CardOptions");
  *   KCardWidget *cardwiget = new KCardwidget();
  *   cardwidget->readSettings(configGroup);
  *   KCardDialog dlg(cardwidget);
@@ -52,7 +51,7 @@ class KCardWidget;
  * \endcode
  *
  */
-class KCardDialog : public KDialog
+class KCardDialog : public QDialog
 {
     Q_OBJECT
 public:
@@ -70,7 +69,7 @@ public:
  * offered as well as used specified ones.
  *
  * This class can be used in two ways: Embedding it into an existing
- * dialog or creating a small KDialog just for the card deck selection.
+ * dialog or creating a small QDialog just for the card deck selection.
  *
  * Card sets (front and back) are identified by their (translated) names.
  *

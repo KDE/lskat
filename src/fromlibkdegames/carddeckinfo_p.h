@@ -20,10 +20,8 @@
 #ifndef CARDDECKINFO_P_H
 #define CARDDECKINFO_P_H
 
-#include <QMap>
-#include <QString>
 #include <QPixmap>
-#include <QSize>
+#include <QString>
 
 /**
  * Stores the information for one card front or back side.

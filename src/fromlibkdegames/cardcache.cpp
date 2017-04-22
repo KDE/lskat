@@ -20,25 +20,19 @@
 #include "cardcache.h"
 #include "cardcache_p.h"
 
-#include <QMap>
-#include <QPixmap>
-#include <QPair>
+#include <QDateTime>
+#include <QFileInfo>
 #include <QImage>
 #include <QMutexLocker>
 #include <QPainter>
-#include <QDateTime>
+#include <QPixmap>
 #include <QSizeF>
-#include <QFileInfo>
-#include <QDir>
 #include <QSvgRenderer>
 
-#include <kpixmapcache.h>
-#include <kconfig.h>
-#include <kstandarddirs.h>
 
 #include "carddeckinfo.h"
 
-#include <kdebug.h>
+#include "lskat_debug.h"
 
 #define DECKLIST_LENGTH 53
 
@@ -189,7 +183,7 @@ QSvgRenderer *KCardCachePrivate::renderer()
 {
     if (!svgRenderer)
     {
-        kDebug() << "Loading front SVG renderer";
+        qCDebug(LSKAT_LOG) << "Loading front SVG renderer";
         svgRenderer = new QSvgRenderer(CardDeckInfo::svgFilePath(deckName));
     }
     return svgRenderer;
@@ -199,7 +193,7 @@ void KCardCachePrivate::ensureNonNullPixmap(QPixmap &pix)
 {
     if (pix.isNull())
     {
-        kWarning() << "Couldn't produce a non-null pixmap, creating a red cross";
+        qCWarning(LSKAT_LOG) << "Could not produce a non-null pixmap, creating a red cross";
         pix = QPixmap(size);
         QPainter p(&pix);
         p.fillRect(QRect(0, 0, pix.width(), pix.height()), QBrush(Qt::white));
@@ -215,17 +209,17 @@ void KCardCachePrivate::ensureNonNullPixmap(QPixmap &pix)
 
 QPixmap KCardCachePrivate::renderSvg(const QString &element)
 {
-    kDebug() << "Rendering" << element << "in main thread.";
+    qCDebug(LSKAT_LOG) << "Rendering" << element << "in main thread.";
     QMutexLocker l(rendererMutex);
     return doRender(element, renderer(), size);
 }
 
 void KCardCachePrivate::submitRendering(const QString &key, const QImage &image)
 {
-    kDebug() << "Received render of" << key << "from rendering thread.";
+    qCDebug(LSKAT_LOG) << "Received render of" << key << "from rendering thread.";
     QPixmap pix = QPixmap::fromImage(image);
     QMutexLocker l(cacheMutex);
-    cache->insert(key, pix);
+    cache->insertPixmap(key, pix);
 }
 
 LoadThread::LoadThread(KCardCachePrivate *d_)
@@ -262,7 +256,7 @@ void LoadThread::run()
         d->renderer();
     }
 
-    foreach (const QString &element, elementsToRender)
+    for (const QString &element : qAsConst(elementsToRender))
     {
         {
             QMutexLocker l(killMutex);
@@ -317,10 +311,10 @@ QPixmap KCardCache::backside() const
 
     {
         QMutexLocker l(d->cacheMutex);
-        if (d->cache && (!d->cache->find(key, pix) || pix.isNull()))
+        if (d->cache && (!d->cache->findPixmap(key, &pix) || pix.isNull()))
         {
             pix = d->renderSvg(element);
-            d->cache->insert(key, pix);
+            d->cache->insertPixmap(key, pix);
         }
     }
     // Make sure we never return an invalid pixmap
@@ -337,10 +331,10 @@ QPixmap KCardCache::frontside(const KCardInfo &info) const
 
     {
         QMutexLocker l(d->cacheMutex);
-        if (d->cache && (!d->cache->find(key, pix) || pix.isNull()))
+        if (d->cache && (!d->cache->findPixmap(key, &pix) || pix.isNull()))
         {
             pix = d->renderSvg(info.svgName());
-            d->cache->insert(key, pix);
+            d->cache->insertPixmap(key, pix);
         }
     }
     // Make sure we never return an invalid pixmap
@@ -364,13 +358,13 @@ void KCardCache::setDeckName(const QString &theme)
     {
         QMutexLocker l(d->cacheMutex);
         delete d->cache;
-        d->cache = new KPixmapCache(QString::fromLatin1("kdegames-cards_%1").arg(theme));
-        d->cache->setUseQPixmapCache(true);
+        // The default size is arbitrary: it reflects the old KPixmapCache default
+        // and it seems to match the real maximum size for the decks
+        d->cache = new KImageCache(QString::fromLatin1("kdegames-cards_%1").arg(theme), 3*(1024<<10));
         QDateTime dt = QFileInfo(CardDeckInfo::svgFilePath(theme)).lastModified();
-        if (d->cache->timestamp() < dt.toTime_t())
+        if (d->cache->lastModifiedTime() < dt)
         {
-            d->cache->discard();
-            d->cache->setTimestamp(dt.toTime_t());
+            d->cache->clear();
         }
     }
     {
@@ -396,7 +390,7 @@ void KCardCache::loadTheme(LoadInfos infos)
     delete d->loadThread;
 
     // We have to compile the list of elements to load here, because we can not
-    // check the contents of the KPixmapCache from outside the GUI thread.
+    // check the contents of the KImageCache from outside the GUI thread.
     QStringList elements;
     QPixmap pix;
     if (infos &KCardCache::LoadFrontSide)
@@ -415,7 +409,7 @@ void KCardCache::loadTheme(LoadInfos infos)
             QString key = keyForPixmap(d->deckName, element, d->size);
             {
                 QMutexLocker l(d->cacheMutex);
-                if (d->cache && !d->cache->find(key, pix))
+                if (d->cache && !d->cache->findPixmap(key, &pix))
                     elements << element;
             }
         }
@@ -438,7 +432,7 @@ QSizeF KCardCache::defaultCardSize(const KCardInfo &info) const
     QString key = d->deckName + QLatin1Char('_') + info.svgName() + QLatin1String("_default");
     {
         QMutexLocker(d->cacheMutex);
-        if (d->cache && d->cache->find(key, pix))
+        if (d->cache && d->cache->findPixmap(key, &pix))
             return pix.size();
     }
 
@@ -451,7 +445,7 @@ QSizeF KCardCache::defaultCardSize(const KCardInfo &info) const
     {
         QMutexLocker(d->cacheMutex);
         if (d->cache)
-            d->cache->insert(key, pix);
+            d->cache->insertPixmap(key, pix);
     }
 
     return pix.size();
@@ -467,7 +461,7 @@ QSizeF KCardCache::defaultBackSize() const
     QString key = d->deckName + QLatin1Char('_') + element + QLatin1String("_default");
     {
         QMutexLocker(d->cacheMutex);
-        if (d->cache && d->cache->find(key, pix))
+        if (d->cache && d->cache->findPixmap(key, &pix))
             return pix.size();
     }
 
@@ -480,7 +474,7 @@ QSizeF KCardCache::defaultBackSize() const
     {
         QMutexLocker(d->cacheMutex);
         if (d->cache)
-            d->cache->insert(key, pix);
+            d->cache->insertPixmap(key, pix);
     }
 
     return pix.size();
@@ -490,7 +484,5 @@ void KCardCache::invalidateCache()
 {
     QMutexLocker l(d->cacheMutex);
     if (d->cache)
-        d->cache->discard();
+        d->cache->clear();
 }
-
-#include "cardcache_p.moc"

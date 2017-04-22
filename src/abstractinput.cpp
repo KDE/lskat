@@ -19,11 +19,11 @@
 */
 
 #include "abstractinput.h"
+#include "lskat_debug.h"
 
 // Qt includes
 
 // KDE includes
-#include <kdebug.h>
 
 // Constructor for the engine
 AbstractInput::AbstractInput(QObject *parent)
@@ -50,5 +50,3 @@ bool AbstractInput::inputAllowed()
 {
     return mInputAllowed;
 }
-
-#include "abstractinput.moc"

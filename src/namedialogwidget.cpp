@@ -19,12 +19,12 @@
 */
 
 #include "namedialogwidget.h"
+#include "lskat_debug.h"
 
 // Qt includes
 #include <QWidget>
 
 // KDE includes
-#include <kdebug.h>
 
 // Constructor for the widget
 NameDialogWidget::NameDialogWidget(QWidget *parent)
@@ -58,5 +58,3 @@ QString NameDialogWidget::name(int pos)
         return ui.editPlayer2->text();
     }
 }
-
-#include "namedialogwidget.moc"

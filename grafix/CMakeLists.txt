@@ -11,5 +11,5 @@ blue.rc
 egyptian.desktop
 egyptian.rc
 egyptian.svg
-DESTINATION ${DATA_INSTALL_DIR}/lskat/grafix)
+DESTINATION ${KDE_INSTALL_DATADIR}/lskat/grafix)
 

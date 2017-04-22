@@ -24,13 +24,12 @@
 // Qt includes
 #include <QObject>
 #include <QList>
-#include <QPixmap>
-#include <QSize>
 #include <QHash>
 
 // KDE includes
-#include <kdebug.h>
-#include <krandomsequence.h>
+#include <KRandomSequence>
+
+#include "lskat_debug.h"
 
 /**
  * The card, suite and trump names

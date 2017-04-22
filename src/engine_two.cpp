@@ -24,10 +24,10 @@
 #include <QTimer>
 
 // KDE includes
-#include <kdebug.h>
-#include <klocalizedstring.h>
+#include <KLocalizedString>
 
 // Local includes
+#include "lskat_debug.h"
 #include "lskatglobal.h"
 #include "display_two.h"
 
@@ -41,13 +41,13 @@ EngineTwo::EngineTwo(QWidget *parent, Deck *deck, DisplayTwo *display)
     mDeck          = deck;
     mCurrentPlayer = 0;
 
-    connect(mDisplay, SIGNAL(dealingDone()), this, SLOT(gameLoopStart()));
+    connect(mDisplay, &DisplayTwo::dealingDone, this, &EngineTwo::gameLoopStart);
 }
 
 // Initial part of the game loop. Prepare new move etc
 void EngineTwo::gameLoopStart()
 {
-    if (global_debug > 1) kDebug() << "GAME LOOP START";
+    if (global_debug > 1) qCDebug(LSKAT_LOG) << "GAME LOOP START";
     if (!isGameRunning()) return;
 
     // Switch to the current player
@@ -59,12 +59,12 @@ void EngineTwo::gameLoopStart()
 void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
 {
     if (global_debug > 0)
-        kDebug() << "Engine got player input: card=" << cardNumber
-                  << "Player=" << playerNumber << "Id=" << inputId;
+        qCDebug(LSKAT_LOG) << "Engine got player input: card=" << cardNumber
+                << "Player=" << playerNumber << "Id=" << inputId;
     if (playerNumber != mCurrentPlayer)
     {
         if (global_debug > 0)
-            kDebug() << "EngineTwo::playerInput: Input from wrong player";
+            qCDebug(LSKAT_LOG) << "EngineTwo::playerInput: Input from wrong player";
         return;
     }
 
@@ -82,8 +82,8 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
     if (card < 0)
     {
         if (global_debug > 0)
-            kDebug() << "EngineTwo::playerInput: Card" << cardNumber + 8 * height
-                      << "not available anymore ";
+            qCDebug(LSKAT_LOG) << "EngineTwo::playerInput: Card" << cardNumber + 8 * height
+                    << "not available anymore ";
         return;
     }
 
@@ -92,7 +92,7 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
     {
         Suite   suite = Deck::getSuite(card);
         CardType type = Deck::getCardType(card);
-        kDebug() << "Gameloop " << mCurrentPlayer << " plays" << Deck::name(suite, type);
+        qCDebug(LSKAT_LOG) << "Gameloop " <<mCurrentPlayer <<" plays" << Deck::name(suite, type);
     }
 
     // Check for legal move (first player always ok)
@@ -102,8 +102,8 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
         if (!isLegalMove(mCurrentMoveCards[FirstPlayerTurn], card, playerNumber))
         {
             if (global_debug > 0)
-                kDebug() << "EngineTwo::playerInput: Card" << cardNumber + 8 * height
-                          << "is not a valid move ";
+                qCDebug(LSKAT_LOG) << "EngineTwo::playerInput: Card" << cardNumber + 8 * height
+                        << "is not a valid move ";
             return;
         }
     }
@@ -182,9 +182,9 @@ void EngineTwo::gameLoopFinish()
 
         if (global_debug > 0)
         {
-            kDebug() << "Winner =" << winner << "current =" << mCurrentPlayer;
-            kDebug() << "   He has won" << player->noOfMovesWon() << "moves.";
-            kDebug() << "   He has" << player->points() << "points.";
+            qCDebug(LSKAT_LOG) << "Winner = " << winner << "current =" << mCurrentPlayer;
+            qCDebug(LSKAT_LOG) << "   He has won" << player->noOfMovesWon() << "moves.";
+            qCDebug(LSKAT_LOG) << "   He has" << player->points() << "points.";
         }
         // Switch move phase (half moves)
         mCurrentMovePhase = FirstPlayerTurn;
@@ -200,7 +200,7 @@ void EngineTwo::gameLoopFinish()
     // Check whether the game is over
     if (gameOver())
     {
-        if (global_debug > 0) kDebug() << "GAME OVER";
+        if (global_debug > 0) qCDebug(LSKAT_LOG) << "GAME OVER";
         mGameStatus = Stopped;
         mDisplay->showMove(-1);
         int winner = evaluateGame();
@@ -220,7 +220,7 @@ void EngineTwo::gameLoopFinish()
 // Check whether the game is over
 bool EngineTwo::gameOver()
 {
-    if (global_debug > 0) kDebug() << "Move number in game over" << mMoveNumber;
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Move number in game over" << mMoveNumber;
     // Check number of moves. If all moves are done game is over.
     if (mMoveNumber >= 31) return true;
     return false;
@@ -478,8 +478,8 @@ int EngineTwo::whoWonMove(int card1, int card2, Suite trump)
 
     if (global_debug > 0)
     {
-        if (suite1 == trump) kDebug() << "FIRST card wins TRUMP";
-        if (suite2 == trump) kDebug() << "SECOND card wins TRUMP";
+        if (suite1 == trump) qCDebug(LSKAT_LOG) << "FIRST card wins TRUMP";
+        if (suite2 == trump) qCDebug(LSKAT_LOG) << "SECOND card wins TRUMP";
     }
 
     // If cards are not of the same suite a trump wins
@@ -489,5 +489,3 @@ int EngineTwo::whoWonMove(int card1, int card2, Suite trump)
     // In all other cases the first card wins
     return 0;
 }
-
-#include "engine_two.moc"

@@ -18,8 +18,6 @@
    Boston, MA 02110-1301, USA.
 */
 
-#include "thememanager.h"
-
 // General includes
 // #include <typeinfo>
 
@@ -27,17 +25,14 @@
 #include <QImage>
 #include <QPixmap>
 #include <QPainter>
-#include <QColor>
 #include <QRectF>
-#include <QDir>
-#include <QFileInfo>
 
 // KDE includes
-#include <kdebug.h>
-#include <kconfiggroup.h>
-#include <kstandarddirs.h>
+#include <KConfigGroup>
 
 // Local includes
+#include "thememanager.h"
+#include "lskat_debug.h"
 #include "lskatglobal.h"
 #include "deck.h"
 #include "fromlibkdegames/cardcache.h"
@@ -153,8 +148,8 @@ void ThemeManager::updateCardTheme(const QString &themefile, const QString &card
 {
     if (global_debug > 1)
     {
-        kDebug() << "ThemeManager Pixmap cards: ";
-        kDebug() << "  Card theme =" << cardTheme;
+      qCDebug(LSKAT_LOG) << "ThemeManager Pixmap cards: ";
+      qCDebug(LSKAT_LOG) << "  Card theme =" << cardTheme;
     }
 
     // Cards
@@ -175,19 +170,19 @@ void ThemeManager::updateTheme(const QString &themefile)
     mThemeFile = themefile;
 
     // Process dirs
-    QString rcfile = KStandardDirs::locate("lskattheme", themefile);
-    if (global_debug > 0) kDebug() << "ThemeManager LOAD with theme " << rcfile;
+    QString rcfile = QStandardPaths::locate(QStandardPaths::DataLocation, "grafix/" + themefile);
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "ThemeManager LOAD with theme " << rcfile;
 
     // Read config and SVG file for theme
     delete mConfig;
     mConfig = new KConfig(rcfile, KConfig::NoGlobals);
     QString svgfile = config(QLatin1String("general")).readEntry("svgfile");
-    svgfile = KStandardDirs::locate("lskattheme", svgfile);
-    if (global_debug > 0) kDebug() << "Reading SVG master file  =" << svgfile;
+    svgfile = QStandardPaths::locate(QStandardPaths::DataLocation, "grafix/" + svgfile);
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Reading SVG master file  =" << svgfile;
 
     mAspectRatio     =  config(QLatin1String("general")).readEntry("aspect-ratio", 1.0);
     mCardAspectRatio =  config(QLatin1String("general")).readEntry("card-aspect-ratio", 1.0);
-    if (global_debug > 0) kDebug() << "Aspect ration =" << mAspectRatio << "Cards aspect=" << mCardAspectRatio;
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << "Aspect ration =" << mAspectRatio << "Cards aspect=" << mCardAspectRatio;
 
     delete mRenderer;
     mRenderer = new QSvgRenderer(this);
@@ -195,7 +190,7 @@ void ThemeManager::updateTheme(const QString &themefile)
     if (!result)
     {
         mRenderer = 0;
-        kFatal() << "Cannot open file" << svgfile;
+        qCCritical(LSKAT_LOG) << "Cannot open file" << svgfile;
     }
 
     // Notify all theme objects of a change
@@ -214,12 +209,12 @@ void ThemeManager::rescale(int scale, QPoint offset)
     if (global_debug > 1)
     {
         if (scale == mScale)
-            kDebug() << "No scale change to " << scale << ". If this happens too often it is BAD";
+            qCDebug(LSKAT_LOG) << "No scale change to" << scale << "If this happens too often it is BAD";
     }
     //if (scale == mScale) return;
     mScale = scale;
     mOffset = offset;
-    if (global_debug > 1) kDebug() << "THEMEMANAGER:: Rescale to " << scale << " offset to " << offset;
+    if (global_debug > 1) qCDebug(LSKAT_LOG) << "THEMEMANAGER:: Rescale to " << scale << " offset to " << offset;
 
     QHashIterator<Themable *, int> it(mObjects);
     while (it.hasNext())
@@ -286,7 +281,7 @@ const QPixmap ThemeManager::getPixmap(QSvgRenderer *renderer, const QString &svg
     if (size.width() < 1 || size.height() < 1)
     {
         if (global_debug > 1)
-            kDebug() << "ThemeManager::getPixmap Cannot create svgid ID" << svgid << "with zero size" << size;
+        qCDebug(LSKAT_LOG) << "ThemeManager::getPixmap Cannot create svgid ID " << svgid << " with zero size" << size;
         return pixmap;
     }
 
@@ -308,7 +303,7 @@ const QPixmap ThemeManager::getPixmap(QSvgRenderer *renderer, const QString &svg
     p.end();
     pixmap = QPixmap::fromImage(image);
     if (pixmap.isNull())
-        kFatal() << "ThemeManager::getPixmap Cannot load svgid ID" << svgid;
+        qCCritical(LSKAT_LOG) << "ThemeManager::getPixmap Cannot load svgid ID " << svgid;
 
     // Cache image
     mPixmapCache[svgid] = pixmap;
@@ -372,5 +367,3 @@ Themable::~Themable()
 {
     if (mThemeManager) mThemeManager->unregisterTheme(this);
 }
-
-#include "thememanager.moc"

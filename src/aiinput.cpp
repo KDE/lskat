@@ -21,14 +21,13 @@
 #include "aiinput.h"
 
 // Qt includes
-#include <QPixmap>
 #include <QTimer>
 
 // KDE includes
-#include <kdebug.h>
 
 // Local includes
 #include "lskatglobal.h"
+#include "lskat_debug.h"
 #include "player.h"
 
 // Constructor for the engine
@@ -52,13 +51,13 @@ void AiInput::aiTurn()
     // Turn was stopped meanwhile
     if (!mInputAllowed) return;
 
-    if (global_debug > 5) kDebug() << "===================================================";
-    if (global_debug > 5) kDebug() << "AI TURN START " << mInputAllowed;
+    if (global_debug > 5) qCDebug(LSKAT_LOG) << "===================================================";
+    if (global_debug > 5) qCDebug(LSKAT_LOG) << "AI TURN START " << mInputAllowed;
 
     // Check we are the right player
     if (mId != mEngine->currentPlayer())
     {
-        kFatal() << "AI plays for wrong player";
+        qCCritical(LSKAT_LOG) << "AI plays for wrong player";
         return;
     }
 
@@ -66,25 +65,25 @@ void AiInput::aiTurn()
     AiInput::Board board = getBoardFromEngine();
     AiInput::Move move;
 
-    if (global_debug > 0) kDebug() << QLatin1String("");
+    if (global_debug > 0) qCDebug(LSKAT_LOG) << QLatin1String("");
 
     // Initiate move
     if (mEngine->currentMovePhase() == EngineTwo::FirstPlayerTurn)
     {
-        if (global_debug > 5) kDebug() << "Performing initiual move " << mId;
+        if (global_debug > 5) qCDebug(LSKAT_LOG) << "Performing initial move " << mId;
         move = initiateMove(mId, board);
     }
     // Respond to move
     else
     {
-        if (global_debug > 5) kDebug() << "Performing answer move " << mId;
+        if (global_debug > 5) qCDebug(LSKAT_LOG) << "Performing answer move " << mId;
         move = answerMove(mId, board);
     }
 
     // Send out move
-    if (global_debug > 5) kDebug() << "AI player" << mId << "moves to" << move.move;
+    if (global_debug > 5) qCDebug(LSKAT_LOG) << "AI player " << mId << " moves to " << move.move;
     if (move.move >= 0) emit signalPlayerInput(mId, mId, move.move);
-    else kError() << "Illegal AI Move ??? ";
+    else qCCritical(LSKAT_LOG) << "Illegal AI Move???";
 }
 
 // Extract the current game board from the engine
@@ -203,8 +202,8 @@ double AiInput::evaluteGame(int p, const AiInput::Board &current)
     // Jacks
     int amountJack1 = current.amountOfCardType[p][int(Jack)];
     int amountJack2 = current.amountOfCardType[1 - p][int(Jack)];
-    rating += (amountJack1 - amountJack2)* RATING_AMOUNT_JACKS;
-    //kDebug() << "    Add rating(p=" << p << ") for jacks j1=" << amountJack1 << " j2=" << amountJack2 << " has JC=" << findCard(current, Club, Jack);
+    rating += (amountJack1 - amountJack2) * RATING_AMOUNT_JACKS;
+    //qCDebug(LSKAT_LOG) << "    Add rating(p=" << p << ") for jacks j1=" << amountJack1 <<" j2=" << amountJack2 << " has JC=" << findCard(current, Club, Jack);
 
     if (findCard(current, Club, Jack) == p)    rating += RATING_JACK_OF_CLUBS;
     if (findCard(current, Spade, Jack) == p)   rating += RATING_JACK_OF_SPADE;
@@ -215,7 +214,7 @@ double AiInput::evaluteGame(int p, const AiInput::Board &current)
     if (findCard(current, Spade, Jack) == 1 - p)   rating -= RATING_JACK_OF_SPADE;
     if (findCard(current, Heart, Jack) == 1 - p)   rating -= RATING_JACK_OF_HEART;
     if (findCard(current, Diamond, Jack) == 1 - p) rating -= RATING_JACK_OF_DIAMOND;
-    //kDebug() << "    Rating after jacks" << rating;
+    //qCDebug(LSKAT_LOG) << "    Rating after jacks " << rating;
 
     return rating;
 }
@@ -225,7 +224,7 @@ AiInput::Move AiInput::initiateMove(int p, const AiInput::Board &board)
 {
     AiInput::Move maxMove;
     maxMove.move  = -1;
-    maxMove.value = -100.0 * RATING_SCHWARZ; // Absolut minimum score
+    maxMove.value = -100.0 * RATING_SCHWARZ; // Absolute minimum score
 
     // Loop all moves
     for (int m = 0; m < 8; m++)
@@ -236,20 +235,20 @@ AiInput::Move AiInput::initiateMove(int p, const AiInput::Board &board)
         // Store move
         current.playedCard = card;
         current.whoseTurn = 1 - p;
-        if (global_debug > 5) kDebug() << "***** First mover try move on" << m << " (" << Deck::name(card) << ")";
+        if (global_debug > 5) qCDebug(LSKAT_LOG) << "***** First mover try move on " << m << " (" << Deck::name(card) << ")";
         AiInput::Move answer = answerMove(1 - p, current);
         // Negate answering moves value to get our rating
         double rating = -answer.value;
-        if (global_debug > 5) kDebug() << "First mover yields rating of" << rating;
+        if (global_debug > 5) qCDebug(LSKAT_LOG) << "First mover yields rating of " << rating;
 
         rating += rulebaseFirstMover(p, card, board);
-        if (global_debug > 5) kDebug() << "  rulesbase correction to  " << rating;
+        if (global_debug > 5) qCDebug(LSKAT_LOG) << "  rulesbase correction to " << rating;
 
         // New best move?
         if (rating > maxMove.value)
         {
-        maxMove.value = rating;
-        maxMove.move  = m;
+            maxMove.value = rating;
+            maxMove.move  = m;
         }
     }
 
@@ -261,13 +260,13 @@ AiInput::Move AiInput::answerMove(int p, const AiInput::Board &board)
 {
     AiInput::Move maxMove;
     maxMove.move  = -1;
-    maxMove.value = -100.0 * RATING_SCHWARZ; // Absolut minimum score
+    maxMove.value = -100.0 * RATING_SCHWARZ; // Absolute minimum score
 
     // Loop all moves
     for (int m = 0; m < 8; m++)
     {
         AiInput::Board current(board);
-        // kDebug() << "CARD " << m << " is "
+    // qCDebug(LSKAT_LOG) << "CARD " << m << " is "
         //          << Deck::name(current.cards[p][m]) << " on top of "
         //          << Deck::name(current.cards[p][m + 8]);
 
@@ -280,7 +279,7 @@ AiInput::Move AiInput::answerMove(int p, const AiInput::Board &board)
         // Check move winner
         int winner = EngineTwo::whoWonMove(current.playedCard, card, current.trump);
         if (global_debug > 5)
-        kDebug() << "   Card" << m << " (" << Deck::name(card) << ") is valid "
+        qCDebug(LSKAT_LOG) << "   Card" << m << " (" << Deck::name(card) << ") is valid "
                     << "countering" << Deck::name(current.playedCard) << " with "
                     << "winner (0:other, 1:we) " << winner;
         int deltaPoints = 0;
@@ -301,9 +300,9 @@ AiInput::Move AiInput::answerMove(int p, const AiInput::Board &board)
         rating += rulebaseAnswerMover(p, card, board);
 
         if (global_debug > 5)
-        kDebug() << "   Points after 2nd move " << m << " would be we: "
-                    << current.points[p] << "other:" << current.points[1 - p]
-                    << "rating is thus" << rating;
+        qCDebug(LSKAT_LOG) << "   Points after 2nd move " << m << " would be we: "
+                    << current.points[p] << " other: " << current.points[1 - p]
+                    << " rating is thus " << rating;
         // New best move?
         if (rating > maxMove.value)
         {
@@ -425,7 +424,7 @@ int AiInput::findCard(const AiInput::Board &current, Suite sSuite, CardType sCar
             CardType type = Deck::getCardType(card);
             if (suite == sSuite && type == sCardType)
             {
-                //kDebug() << "Found" << Deck::name(sSuite, sCardType) << "at" << p << "," << i;
+                //qCDebug(LSKAT_LOG) << "Found" << Deck::name(sSuite, sCardType) << " at " << p << "," << i;
                 return p;
             }
         }
@@ -439,7 +438,7 @@ int AiInput::findCard(const AiInput::Board &current, Suite sSuite, CardType sCar
         CardType type = Deck::getCardType(card);
         if (suite == sSuite && type == sCardType)
         {
-            //kDebug() << "Found " << Deck::name(sSuite, sCardType) << " as currently played card";
+            //qCDebug(LSKAT_LOG) << "Found" << Deck::name(sSuite, sCardType) << " as currently played card";
             return CARD_CURRENTLY_PLAYED;
         }
     }
@@ -453,7 +452,7 @@ int AiInput::findCard(const AiInput::Board &current, Suite sSuite, CardType sCar
         CardType type = Deck::getCardType(card);
         if (suite == sSuite && type == sCardType)
         {
-            //kDebug() << "Found " << Deck::name(sSuite, sCardType) << " as played card " << i;
+            //qCDebug(LSKAT_LOG) << "Found " << Deck::name(sSuite, sCardType) << " as played card " << i;
             return CARD_PLAYED;
         }
     }
@@ -504,7 +503,7 @@ bool AiInput::wouldWinMove(int p, int card, const AiInput::Board &current) const
         current.amountOfSuite[1 - p][suite] == 0 &&
         current.amountOfSuite[1 - p][Grand] > 0)
     {
-        //kDebug() << "Player" << (1 - p) << "can use trump against" << Deck::name(suite);
+        //qCDebug(LSKAT_LOG) << "Player" << (1 - p) << "can use trump against" << Deck::name(suite);
         return false;
     }
 
@@ -524,12 +523,12 @@ bool AiInput::wouldWinMove(int p, int card, const AiInput::Board &current) const
             int owinner = EngineTwo::whoWonMove(card, ocard, current.trump);
             if (owinner == 1)
             {
-                //kDebug() << "Player" << p << "looses" << Deck::name(card);
+                //qCDebug(LSKAT_LOG) << "Player " << p << " looses " << Deck::name(card);
                 return false;
             }
         }
     }
-    //kDebug() << "Player" << p << "wins" << Deck::name(card);
+    //qCDebug(LSKAT_LOG) << "Player " << p << " wins " << Deck::name(card);
     return true;
 }
 
@@ -560,12 +559,12 @@ double AiInput::rulebaseFirstMover(int p, int card, const AiInput::Board &curren
     double result = 0.0;
     Suite suite   = Deck::getSuite(card);
     CardType type = Deck::getCardType(card);
-    Suite altSuite  = (suite == current.trump || type == Jack)?Grand:suite;
+    Suite altSuite = (suite == current.trump || type == Jack)?Grand:suite;
 
     // Check whether we win the move
     if (wouldWinMove(p, card, current))
     {
-        if (global_debug > 1) kDebug() << "TRIGGER RULE: Staying first mover" << Deck::name(card);
+        if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER RULE: Staying first mover " << Deck::name(card);
         result += RULE_FIRST_MOVER;
     }
 
@@ -575,7 +574,7 @@ double AiInput::rulebaseFirstMover(int p, int card, const AiInput::Board &curren
         findCard(current, suite, Ace) != p &&
         wouldWinMove(p, card, current))
     {
-        if (global_debug > 1) kDebug() << "TRIGGER RULE: Saving Ten" << Deck::name(card);
+        if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER RULE: Saving Ten " << Deck::name(card);
         result += RULE_FREE_TEN;
     }
 
@@ -585,7 +584,7 @@ double AiInput::rulebaseFirstMover(int p, int card, const AiInput::Board &curren
         hasAmount(1 - p, altSuite, 1, 1, current) &&
         wouldWinMove(p, card, current))
     {
-        if (global_debug > 1) kDebug() << "TRIGGER RULE: Catching Ten with" << Deck::name(card);
+        if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER RULE: Catching Ten with " << Deck::name(card);
         result += RULE_CATCH_TEN;
     }
 
@@ -595,7 +594,7 @@ double AiInput::rulebaseFirstMover(int p, int card, const AiInput::Board &curren
         (1 - p) == findCard(current, suite, Ten) &&
         hasAmount(1 - p, suite, 2, 3, current))
     {
-        if (global_debug > 1) kDebug() << "TRIGGER RULE: Hunting Ten with" << Deck::name(card);
+        if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER RULE: Hunting Ten with " << Deck::name(card);
         result += RULE_HUNTER_ACE;
     }
 
@@ -607,7 +606,7 @@ double AiInput::rulebaseFirstMover(int p, int card, const AiInput::Board &curren
         (p) == findCard(current, suite, Ace) &&
         hasAmount(1 - p, suite, 2, 3, current))
     {
-        if (global_debug > 1) kDebug() << "TRIGGER RULE: Supporting Hunter ACE with" << Deck::name(card);
+        if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER RULE: Supporting Hunter ACE with " << Deck::name(card);
         if (hasAmount(1 - p, suite, 2, 2, current)) result += RULE_SUPPORT_ACE;
         else result += 0.75 * RULE_SUPPORT_ACE;
     }
@@ -621,7 +620,7 @@ double AiInput::rulebaseFirstMover(int p, int card, const AiInput::Board &curren
         hasAmount(p, suite, 2, 3, current) &&
         hasAmount(1 - p, suite, 2, 11, current))
     {
-        if (global_debug > 1) kDebug() << "TRIGGER RULE: Protecting hunted TEN with" << Deck::name(card);
+        if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER RULE: Protecting hunted TEN with " << Deck::name(card);
         if (hasAmount(p, suite, 2, 2, current)) result += RULE_PROTECT_TEN;
         else result += 0.5 * RULE_PROTECT_TEN;
     }
@@ -635,7 +634,7 @@ double AiInput::rulebaseFirstMover(int p, int card, const AiInput::Board &curren
         hasAmount(p, suite, 2, 11, current) &&
         hasAmount(1 - p, suite, 1, 1, current))
     {
-        if (global_debug > 1) kDebug() << "TRIGGER RULE: Killing hunter ACE with" << Deck::name(card);
+        if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER RULE: Killing hunter ACE with " << Deck::name(card);
         result += RULE_KILL_HUNTER_ACE;
     }
 
@@ -652,14 +651,14 @@ double AiInput::rulebaseFirstMover(int p, int card, const AiInput::Board &curren
             trump2 > 0 &&
             wouldWinMove(p, card, current))
         {
-            if (global_debug > 1) kDebug() << "TRIGGER RULE: Pull trump" << Deck::name(card);
+            if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER RULE: Pull trump " << Deck::name(card);
             result += RULE_PULL_TRUMP;
         }
 
         // Do not play trump if other party has none
         if (trump2 == 0)
         {
-            if (global_debug > 1) kDebug() << "TRIGGER RULE: Save trump" << Deck::name(card);
+            if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER RULE: Save trump " << Deck::name(card);
             if (trump1 == 1) result += RULE_SAVE_TRUMP;
             else if (trump1 == 2) result += 0.75 * RULE_SAVE_TRUMP;
             else result += 0.5 * RULE_SAVE_TRUMP;
@@ -675,12 +674,12 @@ double AiInput::rulebaseAnswerMover(int p, int card, const AiInput::Board &curre
     double result = 0.0;
     Suite suite   = Deck::getSuite(card);
     CardType type = Deck::getCardType(card);
-    Suite altSuite  = (suite == current.trump || type == Jack)?Grand:suite;
+    Suite altSuite = (suite == current.trump || type == Jack)?Grand:suite;
 
     // Check whether we win the move
     if (wouldWinMove(p, card, current))
     {
-        if (global_debug > 1) kDebug() << "TRIGGER ANSWER RULE: Becoming first mover" << Deck::name(card);
+        if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER ANSWER RULE: Becoming first mover" << Deck::name(card);
         result += RULE_FIRST_MOVER;
     }
 
@@ -691,7 +690,7 @@ double AiInput::rulebaseAnswerMover(int p, int card, const AiInput::Board &curre
         hasAmount(1 - p, suite, 1, 2, current) &&
         hasAmount(p, suite, 2, 3, current))
     {
-        if (global_debug > 1) kDebug() << "TRIGGER ANSWER RULE: Hunting Ten with" << Deck::name(card);
+        if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER ANSWER RULE: Hunting Ten with" << Deck::name(card);
         result += RULE_HUNTER_ACE;
     }
 
@@ -703,7 +702,7 @@ double AiInput::rulebaseAnswerMover(int p, int card, const AiInput::Board &curre
         (p) == findCard(current, suite, Ace) &&
         hasAmount(1 - p, suite, 1, 2, current))
     {
-        if (global_debug > 1) kDebug() << "TRIGGER ANSWER RULE: Supporting Hunter ACE with" << Deck::name(card);
+        if (global_debug > 1) qCDebug(LSKAT_LOG) << "TRIGGER ANSWER RULE: Supporting Hunter ACE with" << Deck::name(card);
         if (hasAmount(1 - p, suite, 1, 1, current)) result += RULE_SUPPORT_ACE;
         else result += 0.75 * RULE_SUPPORT_ACE;
     }
@@ -738,14 +737,14 @@ bool AiInput::isLegalMove(int card1, int card2, int pl, const AiInput::Board &cu
     // Same suite is always OK
     if (suite1 == suite2) return true;
 
-    // Search if current player has a card of the same colour but didn't
+    // Search if current player has a card of the same colour but did not
     // play it (if it was played we checked already above)
     for (int i = 0; i < 8; i++)
     {
         int card = current.card(pl, i);
         // This card is not available anymore
         if (card < 0) continue;
-    //    if (type1 == Jack) kDebug() << "Check card 2 " << Deck::name(card);
+    //   if (type1 == Jack) qCDebug(LSKAT_LOG) << "Check card 2 " <<Deck::name(card);
 
         // Ignore played card
         if (card == card2) continue;
@@ -763,8 +762,6 @@ bool AiInput::isLegalMove(int card1, int card2, int pl, const AiInput::Board &cu
             return false;
         }
     }
-    // if (type1 == Jack) kDebug() << "ALLOWED  ";
+    // if (type1 == Jack) qCDebug(LSKAT_LOG) << "ALLOWED  ";
     return true;
 }
-
-#include "aiinput.moc"

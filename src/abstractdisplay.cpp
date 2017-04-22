@@ -23,8 +23,7 @@
 // Qt includes
 
 // KDE includes
-#include <klocale.h>
-#include <kdebug.h>
+#include "lskat_debug.h"
 
 // Local includes
 #include "deck.h"
@@ -95,5 +94,3 @@ void AbstractDisplay::createCardSprites()
         mCards[cardNo] = sprite;
     }// next
 }
-
-#include "abstractdisplay.moc"

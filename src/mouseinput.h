@@ -25,10 +25,10 @@
 #include <QPoint>
 
 // KDE includes
-#include <kdebug.h>
 
 // Local includes
 #include "abstractinput.h"
+#include "lskat_debug.h"
 
 /**
  * Mouse input device

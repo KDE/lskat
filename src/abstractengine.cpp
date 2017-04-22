@@ -19,11 +19,11 @@
 */
 
 #include "abstractengine.h"
+#include "lskat_debug.h"
 
 // Qt includes
 
 // KDE includes
-#include <kdebug.h>
 
 // Constructor for the game document/engine
 AbstractEngine::AbstractEngine(QWidget *parent)
@@ -44,5 +44,3 @@ Player *AbstractEngine::player(int no)
 {
     return mPlayers[no];
 }
-
-#include "abstractengine.moc"

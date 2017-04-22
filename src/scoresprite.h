@@ -22,15 +22,13 @@
 #define SCORE_SPRITE_H
 
 // Qt includes
-#include <QPointF>
-#include <QSizeF>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsTextItem>
 
 // Local includes
-#include "thememanager.h"
 #include "pixmapsprite.h"
 #include "player.h"
+#include "thememanager.h"
 
 /**
  * The sprite for a score board on the canvas.

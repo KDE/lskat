@@ -19,17 +19,18 @@
 */
 
 #include "cardsprite.h"
+#include "lskat_debug.h"
 
 // General includes
-#include <math.h>
+#include <cmath>
 
 // Qt includes
-#include <QPoint>
+#include <QGraphicsScene>
 #include <QMatrix>
+#include <QPoint>
 
 // KDE includes
-#include <kdebug.h>
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 // Delay for card turning animation [ms]
 #define ANIM_CNT_TURNING          20.0
@@ -42,9 +43,10 @@
 // Constructor for the view
 CardSprite::CardSprite(const Suite suite, const CardType cardtype, ThemeManager *theme,
                        int advancePeriod, QGraphicsScene *scene)
-          : Themable(QLatin1String(THEME_ID), theme), QGraphicsPixmapItem(0, scene)
+          : Themable(QLatin1String(THEME_ID), theme), QGraphicsPixmapItem(0)
 
 {
+    scene->addItem(this);
     mAnimationState = Idle;
     mCurrentFrame   = -1; // Frame will be set to backside
     mAdvancePeriod  = advancePeriod;
@@ -203,7 +205,7 @@ void CardSprite::setFrame(int no, bool force)
     // Translation
     QPoint offset = thememanager()->getOffset();
     resetTransform();
-    translate(mHotspots[no].x() + offset.x(), mHotspots[no].y() + offset.y());
+    setTransform(QTransform::fromTranslate(mHotspots[no].x() + offset.x(), mHotspots[no].y() + offset.y()), true);
 
     mCurrentFrame = no;
     update();

@@ -23,17 +23,17 @@
 
 // Qt includes
 #include <QGraphicsScene>
-#include <QPixmap>
 #include <QHash>
+#include <QPixmap>
 
 // KDE includes
-#include <kdebug.h>
 
 // Local includes
 #include "abstractdisplay.h"
-#include "thememanager.h"
 #include "deck.h"
+#include "lskat_debug.h"
 #include "player.h"
+#include "thememanager.h"
 
 // Forward declaration
 class PixmapSprite;

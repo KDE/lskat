@@ -21,23 +21,19 @@
 #include "gameview.h"
 
 // General includes
-#include <math.h>
+#include <cmath>
 
 // Qt includes
 #include <QPoint>
-#include <QFont>
 #include <QTimer>
 #include <QTime>
 
 // KDE includes
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kdebug.h>
-#include <kstandarddirs.h>
 
 // Local includes
-#include "thememanager.h"
+#include "lskat_debug.h"
 #include "lskatglobal.h"
+#include "thememanager.h"
 
 // Constructor for the view
 GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene *scene, ThemeManager *theme, QWidget *parent)
@@ -62,7 +58,8 @@ GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene *scene, 
 
     // Debug
     mDisplayUpdateTime = 0;
-    mFrameSprite = new QGraphicsTextItem(0, scene);
+    mFrameSprite = new QGraphicsTextItem(0);
+    scene->addItem(mFrameSprite);
     mFrameSprite->setPos(QPointF(0.0, 0.0));
     mFrameSprite->setZValue(1000.0);
     if (global_debug > 0) mFrameSprite->show();
@@ -70,7 +67,7 @@ GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene *scene, 
 
     // Update/advance in [ms]
     QTimer *timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(updateAndAdvance()));
+    connect(timer, &QTimer::timeout, this, &GameView::updateAndAdvance);
     timer->start(advancePeriod);
 
     // Set size and position of the view and the canvas:
@@ -123,7 +120,7 @@ void GameView::resizeEvent(QResizeEvent *e)
 {
     QTime t;
     t.start();
-    if (global_debug > 2) kDebug() << "RESIZE EVENT" << e->size() << "oldSize=" << e->oldSize() << " at" << t.msecsTo(mTimeStart);
+    if (global_debug > 2) qCDebug(LSKAT_LOG) << "RESIZE EVENT " << e->size() << " oldSize="<< e->oldSize() << " at " << t.msecsTo(mTimeStart);
     double diffW = double(e->oldSize().width() - e->size().width());
     double diffH = double(e->oldSize().height() - e->size().height());
     double delta = fabs(diffW) + fabs(diffH);
@@ -167,7 +164,7 @@ void GameView::resizeEvent(QResizeEvent *e)
     }
     mThemeQueue.prepend(int(width));
     mThemeOffset.prepend(offset);
-    if (global_debug > 2) kDebug() << "Quequed resize, aspect=" << aspect << "theme aspect=" << mTheme->aspectRatio();
+    if (global_debug > 2) qCDebug(LSKAT_LOG) << "Queued resize, aspect=" << aspect << " theme aspect=" << mTheme->aspectRatio();
 
     long queueDelay = 0;
     if (delta < 15) queueDelay = 750;
@@ -181,24 +178,24 @@ void GameView::rescaleTheme()
 {
     if (mThemeQueue.size() == 0)
     {
-        if (global_debug > 2) kDebug() << "***************** Swallowing rescale event ***********************";
+        if (global_debug > 2) qCDebug(LSKAT_LOG) << "***************** Swallowing rescale event ***********************";
         return;
     }
 
     QTime t;
     t.start();
 
-    if (global_debug > 2) kDebug() << "Theme queue rescale start at" << t.msecsTo(mTimeStart);
+    if (global_debug > 2) qCDebug(LSKAT_LOG) << "Theme queue rescale start at " << t.msecsTo(mTimeStart);
     resetTransform();
     int width = mThemeQueue.first();
     mInputOffset = mThemeOffset.first();
-    if (global_debug > 2) kDebug() << "Theme queue size=" << mThemeQueue.size() << "Rescale width to" << width;
+    if (global_debug > 2) qCDebug(LSKAT_LOG) << "Theme queue size=" << mThemeQueue.size() << " Rescale width to " << width;
 
     mThemeQueue.clear();
     mThemeOffset.clear();
     mTheme->rescale(width, mInputOffset);
 
-    if (global_debug > 2) kDebug() << "Time elapsed: " << t.elapsed() << "ms";
+    if (global_debug > 2) qCDebug(LSKAT_LOG) << "Time elapsed: " << t.elapsed() << "ms";
 }
 
 // Our subclassed (temporary) QGraphicsView paintEvent, see header file
@@ -235,5 +232,3 @@ void GameView::drawItems(QPainter *painter, int numItems, QGraphicsItem *items[]
     if (global_debug > 0)
         mFrameSprite->setPlainText(QString::fromLatin1("Draw: %1 ms  Average %2 ms  Update: %3 ms").arg(elapsed).arg(int(avg)).arg(mDisplayUpdateTime));
 }
-
-#include "gameview.moc"
