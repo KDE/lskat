@@ -55,7 +55,7 @@
 #include <QCommandLineParser>
 #include <QCommandLineOption>
 
-#define LSKAT_VERSION "v1.40"
+#define LSKAT_VERSION "v1.50"
 
 // Debug level for the program
 int global_debug = 0;
