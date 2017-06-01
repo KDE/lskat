@@ -48,7 +48,7 @@ public:
      * Retrieve the type of device.
      * @return The device type.
      */
-    virtual InputDevice::InputDeviceType type() {return InputDevice::TypeMouseInput;}
+    InputDevice::InputDeviceType type() Q_DECL_OVERRIDE {return InputDevice::TypeMouseInput;}
 
 public slots:
     /**

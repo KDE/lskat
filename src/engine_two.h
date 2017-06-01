@@ -61,12 +61,12 @@ public:
      * @param trump The trump suite.
      * @param startPlayer The start player
      */
-    virtual void startGame(Suite trump, int startPlayer);
+    void startGame(Suite trump, int startPlayer) Q_DECL_OVERRIDE;
 
     /**
      * Stop a game.
      */
-    virtual void stopGame();
+    void stopGame() Q_DECL_OVERRIDE;
 
     /**
      * Retrieve the current move phase.
@@ -94,7 +94,7 @@ public slots:
      * @param playerNumber The player number [0-1]
      * @param cardNumber   The card number [0-7]
      */
-    virtual void playerInput(int inputId, int playerNumber, int cardNumber);
+    void playerInput(int inputId, int playerNumber, int cardNumber) Q_DECL_OVERRIDE;
 
     /**
      * Check whether the two cards played are legal, supposed the

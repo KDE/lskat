@@ -55,19 +55,19 @@ public:
      * Standard QGI advance function.
      * @param phase The advance phase
      */
-    virtual void advance(int phase);
+    void advance(int phase) Q_DECL_OVERRIDE;
 
     /**
      * Retrieve the type of QGI. This item is UserType+10
      * @return The type of item.
      */
-    virtual int type() const {return QGraphicsItem::UserType + 10;}
+    int type() const Q_DECL_OVERRIDE {return QGraphicsItem::UserType + 10;}
 
     /**
      * Main theme change function. On call of this the item needs to redraw and
      * resize.
      */
-    virtual void changeTheme();
+    void changeTheme() Q_DECL_OVERRIDE;
 
     /**
      * Store the player name.

@@ -62,7 +62,7 @@ public:
     void setSize(const QSize &s);
     void setDeckName(const QString &frontTheme);
     void setElementsToLoad(const QStringList &elements);
-    void run();
+    void run() Q_DECL_OVERRIDE;
     void kill();
 private:
     KCardCachePrivate *d;

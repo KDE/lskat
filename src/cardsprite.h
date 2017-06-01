@@ -58,7 +58,7 @@ public:
      * a new theme or a theme size change occurs. This object needs to
      * resize and redraw then.
      */
-    virtual void changeTheme();
+    void changeTheme() Q_DECL_OVERRIDE;
 
     /**
      * Display the card front pixmap image
@@ -74,7 +74,7 @@ public:
      * Standard advance method
      * @param phase Advance phase
      */
-    virtual void advance(int phase);
+    void advance(int phase) Q_DECL_OVERRIDE;
 
     /**
      * Stop all movement and animation.

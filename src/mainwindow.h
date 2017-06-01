@@ -173,7 +173,7 @@ protected:
     /**
      * Called by KMainWindow when closing the window.
      */
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) Q_DECL_OVERRIDE;
 
     /**
      * Retrieve the theme file from the theme index number give.

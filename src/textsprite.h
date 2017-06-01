@@ -61,7 +61,7 @@ public:
      * theme or a theme size change occurs. This object needs to resize and
      * redraw then.
      */
-    virtual void changeTheme();
+    void changeTheme() Q_DECL_OVERRIDE;
 };
 
 #endif
