@@ -66,7 +66,7 @@ protected:
      * React to mouse clicks.
      * @param event The mouse event
      */
-    void mouseReleaseEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 
 public slots:
     /**
@@ -93,18 +93,18 @@ protected:
      * We adapt the canvas then.
      * @param e The resize event
      */
-    void resizeEvent(QResizeEvent *e) Q_DECL_OVERRIDE;
+    void resizeEvent(QResizeEvent *e) override;
 
     /**
      * Paint function for the widget, temporary fix while we wait for QGV 4.3
      * @param event The paint event
      */
-    void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    void paintEvent(QPaintEvent *event) override;
 
     /**
      * Overwritten Qt function.
      */
-    void drawItems(QPainter *painter, int numItems, QGraphicsItem *items[], const QStyleOptionGraphicsItem options[]) Q_DECL_OVERRIDE;
+    void drawItems(QPainter *painter, int numItems, QGraphicsItem *items[], const QStyleOptionGraphicsItem options[]) override;
 
 private:
     // Theme manager

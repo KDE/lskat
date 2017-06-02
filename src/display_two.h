@@ -61,13 +61,13 @@ public:
     /**
      * Start the display.
      */
-    void start() Q_DECL_OVERRIDE;
+    void start() override;
 
     /**
      * Main theme function. Called by the theme manager. Redraw and resize
      * display.
      */
-    void changeTheme() Q_DECL_OVERRIDE;
+    void changeTheme() override;
 
     /**
      * Init a player on a given position. Create sprites etc.
@@ -83,14 +83,14 @@ public:
      * @param playerNumber The player number (0-1)
      * @param phase Movement phase (1st part, 2nd part, etc) [optional]
      */
-    void play(int cardNumber, int playerNumber, int phase) Q_DECL_OVERRIDE;
+    void play(int cardNumber, int playerNumber, int phase) override;
 
     /**
      * Turn a card on the display. The card is flipped backside
      * to frontside.
      * @param cardNumber The card number (0-31)
      */
-    void turn(int cardNumber) Q_DECL_OVERRIDE;
+    void turn(int cardNumber) override;
 
     /**
      * Remove the given card from the display.
@@ -98,7 +98,7 @@ public:
      * @param cardNumber The number of the card
      * @param delta Card offset from target position (0,1,2,...)
      */
-    void remove(int winnerPosition, int cardNumber, int delta) Q_DECL_OVERRIDE;
+    void remove(int winnerPosition, int cardNumber, int delta) override;
 
     /**
      * Display the score on the game board.
@@ -128,7 +128,7 @@ public slots:
      * @param playerNumber The resulting player number [0-1]
      * @param cardNumber   The resulting card number [0-7]
      */
-    void convertMousePress(const QPoint &mouse, int &playerNumber, int &cardNumber) Q_DECL_OVERRIDE;
+    void convertMousePress(const QPoint &mouse, int &playerNumber, int &cardNumber) override;
 
     /**
      * Connect a player with the score widget by setting the player properties

@@ -61,12 +61,12 @@ public:
      * Main theme function. Called by the theme manager. Redraw and resize
      * display.
      */
-    void changeTheme() Q_DECL_OVERRIDE;
+    void changeTheme() override;
 
     /**
      * Start the intro.
      */
-    void start() Q_DECL_OVERRIDE;
+    void start() override;
 
     /*
      * Deal cards - unused.
@@ -78,24 +78,24 @@ public:
     /**
      * Play a card on the display - unsused.
      */
-    void play(int /*cardNumber*/, int /*playerNumber*/, int /*phase*/) Q_DECL_OVERRIDE {}
+    void play(int /*cardNumber*/, int /*playerNumber*/, int /*phase*/) override {}
 
     /**
      * Turn a card on the display - unused.
      */
-    void turn(int /*cardNumber*/) Q_DECL_OVERRIDE {}
+    void turn(int /*cardNumber*/) override {}
 
     /**
      * Remove the given card from the display - unused.
      */
-    void remove(int /*winnerPosition*/, int /*cardNumber*/, int /*delta*/) Q_DECL_OVERRIDE {}
+    void remove(int /*winnerPosition*/, int /*cardNumber*/, int /*delta*/) override {}
 
 public slots:
     /**
      * Convert the position of a mouse click to a logical
      * game position - unused.
      */
-    void convertMousePress(const QPoint &/*mouse*/, int &/*playerNumber*/, int &/*cardNumber*/) Q_DECL_OVERRIDE {}
+    void convertMousePress(const QPoint &/*mouse*/, int &/*playerNumber*/, int &/*cardNumber*/) override {}
 
     /**
      * Animation loop. Called by timer.

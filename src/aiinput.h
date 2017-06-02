@@ -47,13 +47,13 @@ public:
      * Allow or disallow input with this device
      * @param allowed True if input is allowed
      */
-    void setInputAllowed(bool allowed) Q_DECL_OVERRIDE;
+    void setInputAllowed(bool allowed) override;
 
     /**
      * Retrieve the type of device.
      * @return The device type.
      */
-    InputDevice::InputDeviceType type() Q_DECL_OVERRIDE {return InputDevice::TypeAiInput;}
+    InputDevice::InputDeviceType type() override {return InputDevice::TypeAiInput;}
 
 public slots:
     /**

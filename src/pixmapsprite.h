@@ -62,13 +62,13 @@ public:
      * Standard QGI advance function.
      * @param phase The advance phase
      */
-    void advance(int phase) Q_DECL_OVERRIDE;
+    void advance(int phase) override;
 
     /**
      * Retrieve the type of QGI. This item is UserType+3
      * @return The type of item.
      */
-    int type() const Q_DECL_OVERRIDE {return QGraphicsItem::UserType + 3;}
+    int type() const override {return QGraphicsItem::UserType + 3;}
 
     /**
      * Retrieve the user defined sprite number (i.e. which PixmapSprite)
@@ -81,7 +81,7 @@ public:
      * a new theme or a theme size change occurs. This object needs to
      * resize and redraw then.
      */
-    void changeTheme() Q_DECL_OVERRIDE;
+    void changeTheme() override;
 
     /**
      * Choose a pixmap frame of this sprite. If the setting is forced a
