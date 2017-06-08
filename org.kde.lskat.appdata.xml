@@ -9,6 +9,7 @@
   <name xml:lang="cs">LsKat</name>
   <name xml:lang="en-GB">LsKat</name>
   <name xml:lang="es">LsKat</name>
+  <name xml:lang="fr">LsKat</name>
   <name xml:lang="nl">LsKat</name>
   <name xml:lang="pl">LsKat</name>
   <name xml:lang="pt">LsKat</name>
@@ -27,6 +28,7 @@
   <summary xml:lang="cs">Karetní hra</summary>
   <summary xml:lang="en-GB">Card Game</summary>
   <summary xml:lang="es">Juego de cartas</summary>
+  <summary xml:lang="fr">Jeu de cartes</summary>
   <summary xml:lang="nl">Kaartspel</summary>
   <summary xml:lang="pl">Gra karciana</summary>
   <summary xml:lang="pt">Jogo de Cartas</summary>
@@ -48,6 +50,7 @@
     <p xml:lang="ca-valencia">El Tinent Skat (de l'alemany «Offiziersskat», en anglés «Lieutenant Skat») és un joc de cartes divertit i captivador per a dos jugadors, a on el segon jugadors és un contrari real, o un de construït amb intel·ligència artificial.</p>
     <p xml:lang="en-GB">Lieutenant Skat (from German "Offiziersskat") is a fun and engaging card game for two players, where the second player is either live opponent, or a built in artificial intelligence.</p>
     <p xml:lang="es">El Teniente Skat (en alemán, «Offiziersskat») es un juego de cartas divertido y cautivador para dos jugadores, en el que el otro jugador puede ser un amigo o la computadora.</p>
+    <p xml:lang="fr">Le Skat (de l'allemand « Offiziersskat ») est un jeu de cartes amusant et ludique pour deux joueurs, le second joueur peut être un humain ou une intelligence artificielle.</p>
     <p xml:lang="nl">Luitenant Skat (uit het Duits  "Offiziersskat) is een leuk en uitdagend kaartspel voor twee spelers, waar de tweede speler ofwel een levende tegenstander is of ingebouwd met kunstmatige intelligentie.</p>
     <p xml:lang="pl">Porucznik Skat (z niemieckiego "Offiziersskat") jest wciągającą grą karcianą dla dwóch graczy, w której drugi gracz jest żywy lub sztuczną inteligencją.</p>
     <p xml:lang="pt">O Tenente Skat (do Alemão "Offiziersskat") é um jogo de cartas engraçado e viciante para dois jogadores, onde o segundo jogador é um adversário ao vivo ou um baseado em inteligência artificial.</p>
