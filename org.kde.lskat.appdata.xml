@@ -22,6 +22,7 @@
   <name xml:lang="sr-ijekavian">П‑скат</name>
   <name xml:lang="sr-ijekavianlatin">P‑skat</name>
   <name xml:lang="sv">Officersskat</name>
+  <name xml:lang="tr">LsKat</name>
   <name xml:lang="uk">LsKat</name>
   <name xml:lang="x-test">xxLsKatxx</name>
   <name xml:lang="zh-CN">LsKat</name>
@@ -43,6 +44,7 @@
   <summary xml:lang="sr-ijekavian">Игра са картама</summary>
   <summary xml:lang="sr-ijekavianlatin">Igra sa kartama</summary>
   <summary xml:lang="sv">Kortspel</summary>
+  <summary xml:lang="tr">Kart Oyunu</summary>
   <summary xml:lang="uk">Гра у карти</summary>
   <summary xml:lang="x-test">xxCard Gamexx</summary>
   <summary xml:lang="zh-CN">牌类游戏</summary>
@@ -66,6 +68,7 @@
     <p xml:lang="sr-ijekavian">Поручник Скат (од немачког „Offiziersskat“) представља забавну и заразну игру са картама за два играча, где је други играч или живи противник или уграђена вештачка интелигенција.</p>
     <p xml:lang="sr-ijekavianlatin">Poručnik Skat (od nemačkog „Offiziersskat“) predstavlja zabavnu i zaraznu igru sa kartama za dva igrača, gde je drugi igrač ili živi protivnik ili ugrađena veštačka inteligencija.</p>
     <p xml:lang="sv">Officersskat (från tyskans "Offiziersskat") är ett roligt och engagerande kortspel för två spelare, där den andra spelaren antingen är en verklig motspelare, eller den inbyggda artificiella intelligensen.</p>
+    <p xml:lang="tr">Teğmen Skat (Almacada, "Offiziersskat"), iki oyunculu, eğlenceli ve ilgi çekici bir kart oyunudur, buradaki ikinci oyuncu, canlı bir rakip veya yapay zekadır.</p>
     <p xml:lang="uk">Лейтенант Скат (німецькою «Offiziersskat») — це весела і захоплива гра у карти для двох гравців, у якій вашим суперником може бути або людина, або вбудований штучний комп’ютерний інтелект</p>
     <p xml:lang="x-test">xxLieutenant Skat (from German "Offiziersskat") is a fun and engaging card game for two players, where the second player is either live opponent, or a built in artificial intelligence.xx</p>
   </description>
