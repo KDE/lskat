@@ -14,6 +14,7 @@
   <name xml:lang="fr">LsKat</name>
   <name xml:lang="it">LsKat</name>
   <name xml:lang="nl">LsKat</name>
+  <name xml:lang="nn">LsKat</name>
   <name xml:lang="pl">LsKat</name>
   <name xml:lang="pt">LsKat</name>
   <name xml:lang="sk">LsKat</name>
@@ -37,6 +38,7 @@
   <summary xml:lang="fr">Jeu de cartes</summary>
   <summary xml:lang="it">Gioco di carte</summary>
   <summary xml:lang="nl">Kaartspel</summary>
+  <summary xml:lang="nn">Kortspel</summary>
   <summary xml:lang="pl">Gra karciana</summary>
   <summary xml:lang="pt">Jogo de Cartas</summary>
   <summary xml:lang="sk">Kartová hra</summary>
@@ -63,6 +65,7 @@
     <p xml:lang="fr">Le Skat (de l'allemand « Offiziersskat ») est un jeu de cartes amusant et ludique pour deux joueurs, le second joueur peut être un humain ou une intelligence artificielle.</p>
     <p xml:lang="it">Tenente Skat (dal tedesco «Offiziersskat») è un gioco di carte divertente e coinvolgente per due giocatori, in cui il secondo giocatore è una persona o un'intelligenza artificiale.</p>
     <p xml:lang="nl">Luitenant Skat (uit het Duits  "Offiziersskat) is een leuk en uitdagend kaartspel voor twee spelers, waar de tweede speler ofwel een levende tegenstander is of ingebouwd met kunstmatige intelligentie.</p>
+    <p xml:lang="nn">Løytnant Skat (frå tysk: «Offiziersskat») er eit morosamt kortspel for to spelarar. Du kan anten spela mot ein annan spelar eller mot datamaskina.</p>
     <p xml:lang="pl">Porucznik Skat (z niemieckiego "Offiziersskat") jest wciągającą grą karcianą dla dwóch graczy, w której drugi gracz jest żywy lub sztuczną inteligencją.</p>
     <p xml:lang="pt">O Tenente Skat (do Alemão "Offiziersskat") é um jogo de cartas engraçado e viciante para dois jogadores, onde o segundo jogador é um adversário ao vivo ou um baseado em inteligência artificial.</p>
     <p xml:lang="sk">Poručík Skar (z nemčiny "Offiziersskat") je zábavná a podmanivá kartová hra pre dvoch hráčov, kde druhý hráč je živý protivník alebo vstavaná umelá inteligencia. </p>
