@@ -4,31 +4,6 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>LSkat</name>
-  <name xml:lang="ast">LsKat</name>
-  <name xml:lang="ca">LsKat</name>
-  <name xml:lang="ca-valencia">LsKat</name>
-  <name xml:lang="cs">LsKat</name>
-  <name xml:lang="de">Offiziersskat</name>
-  <name xml:lang="en-GB">LsKat</name>
-  <name xml:lang="es">LsKat</name>
-  <name xml:lang="fr">LsKat</name>
-  <name xml:lang="gl">LsKat</name>
-  <name xml:lang="it">LsKat</name>
-  <name xml:lang="nl">LsKat</name>
-  <name xml:lang="nn">LsKat</name>
-  <name xml:lang="pl">LsKat</name>
-  <name xml:lang="pt">LsKat</name>
-  <name xml:lang="sk">LsKat</name>
-  <name xml:lang="sl">LsKat</name>
-  <name xml:lang="sr">П‑скат</name>
-  <name xml:lang="sr-Latn">P‑skat</name>
-  <name xml:lang="sr-ijekavian">П‑скат</name>
-  <name xml:lang="sr-ijekavianlatin">P‑skat</name>
-  <name xml:lang="sv">Officersskat</name>
-  <name xml:lang="tr">LsKat</name>
-  <name xml:lang="uk">LsKat</name>
-  <name xml:lang="x-test">xxLsKatxx</name>
-  <name xml:lang="zh-CN">LsKat</name>
   <summary>Card Game</summary>
   <summary xml:lang="ca">Joc de cartes</summary>
   <summary xml:lang="ca-valencia">Joc de cartes</summary>
@@ -43,6 +18,7 @@
   <summary xml:lang="nn">Kortspel</summary>
   <summary xml:lang="pl">Gra karciana</summary>
   <summary xml:lang="pt">Jogo de Cartas</summary>
+  <summary xml:lang="ru">Карточная игра</summary>
   <summary xml:lang="sk">Kartová hra</summary>
   <summary xml:lang="sl">Igra s kartami</summary>
   <summary xml:lang="sr">Игра са картама</summary>
