@@ -4,6 +4,11 @@
   <metadata_license>FSFAP</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>LSkat</name>
+  <name xml:lang="ca">LSkat</name>
+  <name xml:lang="ca-valencia">LSkat</name>
+  <name xml:lang="pt">LSkat</name>
+  <name xml:lang="uk">LSkat</name>
+  <name xml:lang="x-test">xxLSkatxx</name>
   <summary>Card Game</summary>
   <summary xml:lang="ca">Joc de cartes</summary>
   <summary xml:lang="ca-valencia">Joc de cartes</summary>
