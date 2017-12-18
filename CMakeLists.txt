@@ -41,6 +41,7 @@ add_subdirectory(doc)
 ########### install files ###############
 install(PROGRAMS org.kde.lskat.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.lskat.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
+install(FILES lskat.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
 
 ecm_install_icons(ICONS
     128-apps-lskat.png
