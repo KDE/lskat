@@ -10,6 +10,7 @@
   <name xml:lang="de">Offiziersskat</name>
   <name xml:lang="en-GB">LSkat</name>
   <name xml:lang="es">LSkat</name>
+  <name xml:lang="fi">LSkat</name>
   <name xml:lang="fr">LSkat</name>
   <name xml:lang="gl">LSkat</name>
   <name xml:lang="it">LSkat</name>
@@ -33,6 +34,7 @@
   <summary xml:lang="de">Kartenspiel</summary>
   <summary xml:lang="en-GB">Card Game</summary>
   <summary xml:lang="es">Juego de cartas</summary>
+  <summary xml:lang="fi">Korttipeli</summary>
   <summary xml:lang="fr">Jeu de cartes</summary>
   <summary xml:lang="gl">Xogo de cartas</summary>
   <summary xml:lang="it">Gioco di carte</summary>
