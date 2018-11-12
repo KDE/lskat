@@ -21,6 +21,9 @@
 // General includes
 // #include <typeinfo>
 
+// Own include
+#include "thememanager.h"
+
 // Qt includes
 #include <QImage>
 #include <QPixmap>
@@ -31,7 +34,6 @@
 #include <KConfigGroup>
 
 // Local includes
-#include "thememanager.h"
 #include "lskat_debug.h"
 #include "lskatglobal.h"
 #include "deck.h"

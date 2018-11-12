@@ -396,7 +396,7 @@ void Mainwindow::initGUI()
     startPlayerAct->setItems(list);
     if (global_demo_mode) startPlayerAct->setEnabled(false);
 
-    // Determine who player player 1
+    // Determine who plays player 1
     KSelectAction *player1Act = new KSelectAction(i18n("Player &1 Played By"), this);
     actionCollection()->addAction(QLatin1String("player1"), player1Act);
     connect(player1Act, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuPlayer1By);
@@ -408,7 +408,7 @@ void Mainwindow::initGUI()
     player1Act->setItems(list);
     if (global_demo_mode) player1Act->setEnabled(false);
 
-    // Determine who player player 2
+    // Determine who plays player 2
     KSelectAction *player2Act = new KSelectAction(i18n("Player &2 Played By"), this);
     actionCollection()->addAction(QLatin1String("player2"), player2Act);
     connect(player2Act, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuPlayer2By);

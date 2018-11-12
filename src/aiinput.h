@@ -87,7 +87,7 @@ private:
         int card(int p, int pos) const;
 
         /**
-         * Take aways card of given player on given position
+         * Take away card of given player on given position
          * @param p   player [0,1]
          * @param pos Position [0-7]
          * @return The card id.

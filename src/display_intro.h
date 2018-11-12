@@ -76,7 +76,7 @@ public:
     void deal(Player */*player*/, int /*position*/) {}
 
     /**
-     * Play a card on the display - unsused.
+     * Play a card on the display - unused.
      */
     void play(int /*cardNumber*/, int /*playerNumber*/, int /*phase*/) override {}
 
