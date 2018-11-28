@@ -227,6 +227,11 @@ LoadThread::LoadThread(KCardCachePrivate *d_)
 {
 }
 
+LoadThread::~LoadThread()
+{
+    delete killMutex;
+}
+
 void LoadThread::setSize(const QSize &s)
 {
     size = s;
