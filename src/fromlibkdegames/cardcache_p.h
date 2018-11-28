@@ -59,6 +59,7 @@ signals:
     void renderingDone(const QString &key, const QImage &image);
 public:
     explicit LoadThread(KCardCachePrivate *d);
+    ~LoadThread() override;
     void setSize(const QSize &s);
     void setDeckName(const QString &frontTheme);
     void setElementsToLoad(const QStringList &elements);
