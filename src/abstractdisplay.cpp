@@ -78,7 +78,7 @@ void AbstractDisplay::reset()
 void AbstractDisplay::createCardSprites()
 {
     // Only create sprites once (unless explicitly reset)
-    if (mCards.size() > 0) return;
+    if (!mCards.isEmpty()) return;
 
     // Loop all cards
     for (int cardNo = 0; cardNo < mDeck->cardNumber(); cardNo++)
