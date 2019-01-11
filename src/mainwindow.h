@@ -187,7 +187,7 @@ protected:
      * @param name The theme file name.
      * @return The theme index number [0..]
      */
-    int themeIdxFromName(QString name);
+    int themeIdxFromName(const QString &name);
 
 protected slots:
     /**

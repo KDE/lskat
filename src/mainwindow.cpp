@@ -210,7 +210,7 @@ QString Mainwindow::themefileFromIdx(int idx)
 }
 
 // Retrieve a theme idx from a theme name
-int Mainwindow::themeIdxFromName(QString name)
+int Mainwindow::themeIdxFromName(const QString &name)
 {
     QStringList list(mThemeFiles.keys());
     list.sort();
