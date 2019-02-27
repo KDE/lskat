@@ -26,7 +26,7 @@
 
 // Qt includes
 #include <QGraphicsScene>
-#include <QMatrix>
+#include <QTransform>
 #include <QPoint>
 
 // KDE includes
@@ -352,7 +352,7 @@ QPixmap CardSprite::createCard(const QPixmap &front, const QPixmap &back, int cu
     // Turn the frontside of the card 0..90 degree
     if (curNo < halfCount)
     {
-        QMatrix m;
+        QTransform m;
         // Get an angle eps..90 deg for the values i is running
         double angle = (double)curNo / (double)halfCount * 90.0;
         // Conversion to rad
@@ -366,7 +366,7 @@ QPixmap CardSprite::createCard(const QPixmap &front, const QPixmap &back, int cu
     // Turn the backside of the card 90..eps degree
     else
     {
-        QMatrix m;
+        QTransform m;
         // Get an angle 0..90 deg for the values i is running
         double angle = 90.0 - ((double)(curNo - halfCount + 1) / (double)halfCount * 90.0);
         // Conversion to rad
