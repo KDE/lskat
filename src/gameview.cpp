@@ -170,7 +170,7 @@ void GameView::resizeEvent(QResizeEvent *e)
     if (delta < 15) queueDelay = 750;
     else if (delta < 35) queueDelay = 500;
 
-    QTimer::singleShot(queueDelay, this, SLOT(rescaleTheme()));
+    QTimer::singleShot(queueDelay, this, &GameView::rescaleTheme);
 }
 
 // Rescale the theme (update theme SVG graphics) from the theme list
@@ -230,5 +230,5 @@ void GameView::drawItems(QPainter *painter, int numItems, QGraphicsItem *items[]
     avg /= mDrawTimes.size();
 
     if (global_debug > 0)
-        mFrameSprite->setPlainText(QString::fromLatin1("Draw: %1 ms  Average %2 ms  Update: %3 ms").arg(elapsed).arg(int(avg)).arg(mDisplayUpdateTime));
+        mFrameSprite->setPlainText(QStringLiteral("Draw: %1 ms  Average %2 ms  Update: %3 ms").arg(elapsed).arg(int(avg)).arg(mDisplayUpdateTime));
 }

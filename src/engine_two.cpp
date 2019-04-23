@@ -134,11 +134,11 @@ void EngineTwo::playerInput(int inputId, int playerNumber, int cardNumber)
     // Finish game loop
     if (mCurrentMovePhase == SecondPlayerTurn)
     {
-        QTimer::singleShot(TIME_END_MOVE, this, SLOT(gameLoopFinish()));
+        QTimer::singleShot(TIME_END_MOVE, this, &EngineTwo::gameLoopFinish);
     }
     else
     {
-        QTimer::singleShot(0, this, SLOT(gameLoopFinish()));
+        QTimer::singleShot(0, this, &EngineTwo::gameLoopFinish);
     }
 }
 
@@ -213,7 +213,7 @@ void EngineTwo::gameLoopFinish()
         mMoveNumber++;
 
         // Delayed call to game loop start
-        QTimer::singleShot(0, this, SLOT(gameLoopStart()));
+        QTimer::singleShot(0, this, &EngineTwo::gameLoopStart);
     }
 }
 

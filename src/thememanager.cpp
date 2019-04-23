@@ -178,12 +178,12 @@ void ThemeManager::updateTheme(const QString &themefile)
     // Read config and SVG file for theme
     delete mConfig;
     mConfig = new KConfig(rcfile, KConfig::NoGlobals);
-    QString svgfile = config(QLatin1String("general")).readEntry("svgfile");
+    QString svgfile = config(QStringLiteral("general")).readEntry("svgfile");
     svgfile = QStandardPaths::locate(QStandardPaths::DataLocation, "grafix/" + svgfile);
     if (global_debug > 0) qCDebug(LSKAT_LOG) << "Reading SVG master file  =" << svgfile;
 
-    mAspectRatio     =  config(QLatin1String("general")).readEntry("aspect-ratio", 1.0);
-    mCardAspectRatio =  config(QLatin1String("general")).readEntry("card-aspect-ratio", 1.0);
+    mAspectRatio     =  config(QStringLiteral("general")).readEntry("aspect-ratio", 1.0);
+    mCardAspectRatio =  config(QStringLiteral("general")).readEntry("card-aspect-ratio", 1.0);
     if (global_debug > 0) qCDebug(LSKAT_LOG) << "Aspect ration =" << mAspectRatio << "Cards aspect=" << mCardAspectRatio;
 
     delete mRenderer;

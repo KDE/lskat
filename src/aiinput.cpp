@@ -42,7 +42,7 @@ AiInput::AiInput(EngineTwo *engine, QObject *parent)
 void AiInput::setInputAllowed(bool allowed)
 {
     AbstractInput::setInputAllowed(allowed);
-    if (allowed) QTimer::singleShot(1000, this, SLOT(aiTurn()));
+    if (allowed) QTimer::singleShot(1000, this, &AiInput::aiTurn);
 }
 
 // Calculate and send out AI turn

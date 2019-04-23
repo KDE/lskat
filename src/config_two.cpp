@@ -75,7 +75,7 @@ void ConfigTwo::save(KConfig *cfg)
         it.next();
         Player *player = it.value();
         int no = it.key();
-        KConfigGroup playercfg = cfg->group(QString::fromLatin1("LSkat_Player%1").arg(no));
+        KConfigGroup playercfg = cfg->group(QStringLiteral("LSkat_Player%1").arg(no));
         player->save(playercfg);
     }
 }
@@ -98,7 +98,7 @@ void ConfigTwo::load(KConfig *cfg)
         it.next();
         Player *player = it.value();
         int no = it.key();
-        KConfigGroup playercfg = cfg->group(QString::fromLatin1("LSkat_Player%1").arg(no));
+        KConfigGroup playercfg = cfg->group(QStringLiteral("LSkat_Player%1").arg(no));
         player->load(playercfg);
     }
 }

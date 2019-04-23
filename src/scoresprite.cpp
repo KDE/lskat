@@ -42,13 +42,13 @@ ScoreSprite::ScoreSprite(const QString &id, ThemeManager *theme, int advancePeri
     mPoints  = new QGraphicsTextItem(this);
     mScore   = new QGraphicsTextItem(this);
     mGames   = new QGraphicsTextItem(this);
-    mInput   = new PixmapSprite(QLatin1String("scoreinput"), theme, advancePeriod, 0, scene);
+    mInput   = new PixmapSprite(QStringLiteral("scoreinput"), theme, advancePeriod, 0, scene);
     if (!mInput) qCCritical(LSKAT_LOG) << "Cannot load sprite " << "scoreinput";
     mInput->setParentItem(this);
     mInput->setOffsetStatus(false);
     mInputFrame = 0;
 
-    mTrump   = new PixmapSprite(QLatin1String("scoretrump"), theme, advancePeriod, 0, scene);
+    mTrump   = new PixmapSprite(QStringLiteral("scoretrump"), theme, advancePeriod, 0, scene);
     if (!mTrump) qCCritical(LSKAT_LOG) << "Cannot load sprite " << "scoretrump";
     mTrump->setParentItem(this);
     mTrump->setOffsetStatus(false);
@@ -152,7 +152,7 @@ void ScoreSprite::setPlayerName(const QString &s)
 // Store and display amount of points
 void ScoreSprite::setPoints(int points)
 {
-    QString s = QString::fromLatin1("%1").arg(points, 3);
+    QString s = QStringLiteral("%1").arg(points, 3);
     mPoints->setPlainText(s);
     update();
 }

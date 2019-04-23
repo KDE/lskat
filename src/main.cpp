@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     QApplication application(argc, argv);
     KLocalizedString::setApplicationDomain("lskat");
 
-    KAboutData aboutData("lskat", i18n("LSkat"),
+    KAboutData aboutData(QStringLiteral("lskat"), i18n("LSkat"),
                           LSKAT_VERSION,
                           i18n("LSkat: A desktop card game"),
                           KAboutLicense::GPL,
@@ -80,8 +80,8 @@ int main(int argc, char *argv[])
                           QStringLiteral("https://games.kde.org/game.php?game=lskat"));
 
     // I18N: These are the same strings as in kwin4, you can copy the translations
-    aboutData.addAuthor(i18n("Martin Heni"), i18n("Game design and code"), "kde@heni-online.de");
-    aboutData.addAuthor(i18n("Eugene Trounev"), i18n("Graphics"), "eugene.trounev@gmail.com");
+    aboutData.addAuthor(i18n("Martin Heni"), i18n("Game design and code"), QStringLiteral("kde@heni-online.de"));
+    aboutData.addAuthor(i18n("Eugene Trounev"), i18n("Graphics"), QStringLiteral("eugene.trounev@gmail.com"));
     // end I18N
     aboutData.addAuthor(i18n("Benjamin Meyer"), i18n("Code Improvements"));
     // 'Thanks to' aboutData.addCredit(i18n("KDE"), i18n("KDE"));
@@ -89,9 +89,9 @@ int main(int argc, char *argv[])
     QCommandLineParser parser;
     KAboutData::setApplicationData(aboutData);
 
-    parser.addOption(QCommandLineOption(QStringList() << QLatin1String("d") << QLatin1String("debug"), i18n("Enter debug level"), QLatin1String("level")));
-    parser.addOption(QCommandLineOption(QStringList() << QLatin1String("skipintro"), i18n("Skip intro animation")));
-    parser.addOption(QCommandLineOption(QStringList() << QLatin1String("demo"), i18n("Run game in demo (autoplay) mode")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("d") << QStringLiteral("debug"), i18n("Enter debug level"), QStringLiteral("level")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("skipintro"), i18n("Skip intro animation")));
+    parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("demo"), i18n("Run game in demo (autoplay) mode")));
 
     aboutData.setupCommandLine(&parser);
     parser.process(application);
@@ -102,19 +102,19 @@ int main(int argc, char *argv[])
     KCrash::initialize();
 
     // Check for debug command line option
-    if (parser.isSet("debug"))
+    if (parser.isSet(QStringLiteral("debug")))
     {
-        global_debug = QString(parser.value("debug")).toInt();
+        global_debug = QString(parser.value(QStringLiteral("debug"))).toInt();
         qCDebug(LSKAT_LOG) << "Debug level set to" << global_debug;
     }
     // Check for debug command line option
-    if (parser.isSet("skipintro"))
+    if (parser.isSet(QStringLiteral("skipintro")))
     {
         global_skip_intro = true;
         qCDebug(LSKAT_LOG) << "Skip intro cmd line chosen" << global_skip_intro;
     }
     // Check for debug command line option
-    if (parser.isSet("demo"))
+    if (parser.isSet(QStringLiteral("demo")))
     {
         global_demo_mode = true;
         qCDebug(LSKAT_LOG) << "Running in demo mode" << global_demo_mode;

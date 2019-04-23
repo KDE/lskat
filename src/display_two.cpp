@@ -43,54 +43,54 @@
 // Constructor for the engine
 DisplayTwo::DisplayTwo(Deck *deck, QGraphicsScene *theScene, ThemeManager *theme,
                        int advancePeriod, QGraphicsView *parent)
-          : Themable(QLatin1String("display_two"), theme), AbstractDisplay(deck, theScene, theme, advancePeriod, parent)
+          : Themable(QStringLiteral("display_two"), theme), AbstractDisplay(deck, theScene, theme, advancePeriod, parent)
 
 {
     // Choose a background color
     scene()->setBackgroundBrush(QColor(0, 0, 128));
 
     // Create move icon
-    mMoveSprites[0] = new PixmapSprite(QLatin1String("moveicon0"), mTheme, mAdvancePeriod, 0, scene());
+    mMoveSprites[0] = new PixmapSprite(QStringLiteral("moveicon0"), mTheme, mAdvancePeriod, 0, scene());
     if (!mMoveSprites[0]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "moveicon";
     mSprites.append(mMoveSprites[0]);
 
-    mMoveSprites[1] = new PixmapSprite(QLatin1String("moveicon1"), mTheme, mAdvancePeriod, 1, scene());
+    mMoveSprites[1] = new PixmapSprite(QStringLiteral("moveicon1"), mTheme, mAdvancePeriod, 1, scene());
     if (!mMoveSprites[1]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "moveicon";
     mSprites.append(mMoveSprites[1]);
 
     // Create score board
-    mScoreBoard[0] = new ScoreSprite(QLatin1String("scoreboard0"), mTheme, mAdvancePeriod, 0, scene());
+    mScoreBoard[0] = new ScoreSprite(QStringLiteral("scoreboard0"), mTheme, mAdvancePeriod, 0, scene());
     if (!mScoreBoard[0]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "scoreboard0";
     mSprites.append(mScoreBoard[0]);
 
-    mScoreBoard[1] = new ScoreSprite(QLatin1String("scoreboard1"), mTheme, mAdvancePeriod, 1, scene());
+    mScoreBoard[1] = new ScoreSprite(QStringLiteral("scoreboard1"), mTheme, mAdvancePeriod, 1, scene());
     if (!mScoreBoard[1]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "scoreboard0";
     mSprites.append(mScoreBoard[1]);
 
     // Create card area
-    mCardArea[0] = new PixmapSprite(QLatin1String("cardarea0"), mTheme, mAdvancePeriod, 0, scene());
+    mCardArea[0] = new PixmapSprite(QStringLiteral("cardarea0"), mTheme, mAdvancePeriod, 0, scene());
     if (!mCardArea[0]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "cardarea0";
     mSprites.append(mCardArea[0]);
 
-    mCardArea[1] = new PixmapSprite(QLatin1String("cardarea1"), mTheme, mAdvancePeriod, 1, scene());
+    mCardArea[1] = new PixmapSprite(QStringLiteral("cardarea1"), mTheme, mAdvancePeriod, 1, scene());
     if (!mCardArea[1]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "cardarea1";
     mSprites.append(mCardArea[1]);
 
     // Create play area
-    mPlayArea = new PixmapSprite(QLatin1String("playarea"), mTheme, mAdvancePeriod, 0, scene());
+    mPlayArea = new PixmapSprite(QStringLiteral("playarea"), mTheme, mAdvancePeriod, 0, scene());
     if (!mPlayArea) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "playarea";
     mSprites.append(mPlayArea);
 
     // Create text sprites
-    mText[0] = new TextSprite(QLatin1String("scoretext0"), mTheme, scene());
+    mText[0] = new TextSprite(QStringLiteral("scoretext0"), mTheme, scene());
     if (!mText[0]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "scoretext0";
     mSprites.append(mText[0]);
 
-    mText[1] = new TextSprite(QLatin1String("scoretext1"), mTheme, scene());
+    mText[1] = new TextSprite(QStringLiteral("scoretext1"), mTheme, scene());
     if (!mText[1]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "scoretext1";
     mSprites.append(mText[1]);
 
-    mText[2] = new TextSprite(QLatin1String("resulttext"), mTheme, scene());
+    mText[2] = new TextSprite(QStringLiteral("resulttext"), mTheme, scene());
     if (!mText[2]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "resulttext";
     mSprites.append(mText[2]);
 
@@ -211,7 +211,7 @@ void DisplayTwo::deal(Player *player, int position)
     // Check dealing for only one player to avoid double timer events
     if (position == 1)
     {
-        QTimer::singleShot(100, this, SLOT(checkShuffle()));
+        QTimer::singleShot(100, this, &DisplayTwo::checkShuffle);
     }
 }
 
@@ -233,7 +233,7 @@ void DisplayTwo::checkShuffle()
     // If sprites are not idle repeat check otherwise emit 'done' signal
     if (!idle)
     {
-        QTimer::singleShot(100, this, SLOT(checkShuffle()));
+        QTimer::singleShot(100, this, &DisplayTwo::checkShuffle);
     }
     else
     {
@@ -249,7 +249,7 @@ void DisplayTwo::convertMousePress(const QPoint &mouse, int &playerNumber, int &
     double y = mouse.y() / scale;
 
     // Check play area 1
-    KConfigGroup config0 = thememanager()->config(QLatin1String("cardarea0"));
+    KConfigGroup config0 = thememanager()->config(QStringLiteral("cardarea0"));
     QPointF pos0         = config0.readEntry("pos", QPointF(1.0, 1.0));
     double  width0       = config0.readEntry("width", 1.0);
     double  height0      = config0.readEntry("height", 1.0);
@@ -258,7 +258,7 @@ void DisplayTwo::convertMousePress(const QPoint &mouse, int &playerNumber, int &
     double y0 = (y - pos0.y()) / height0;
 
     // Check play area 2
-    KConfigGroup config1 = thememanager()->config(QLatin1String("cardarea1"));
+    KConfigGroup config1 = thememanager()->config(QStringLiteral("cardarea1"));
     QPointF pos1         = config1.readEntry("pos", QPointF(1.0, 1.0));
     double  width1       = config1.readEntry("width", 1.0);
     double  height1      = config1.readEntry("height", 1.0);
