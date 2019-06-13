@@ -43,7 +43,11 @@ add_subdirectory(doc)
 ########### install files ###############
 install(PROGRAMS org.kde.lskat.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.lskat.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-install(FILES lskat.categories DESTINATION ${KDE_INSTALL_CONFDIR} )
+if (${ECM_VERSION} STRGREATER "5.58.0")
+    install(FILES lskat.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
+else()
+    install(FILES lskat.categories  DESTINATION ${KDE_INSTALL_CONFDIR})
+endif()
 
 ecm_install_icons(ICONS
     128-apps-lskat.png
