@@ -31,7 +31,7 @@
 #include <QPoint>
 #include <QResizeEvent>
 #include <QSize>
-#include <QTime>
+#include <QElapsedTimer>
 #include <QWidget>
 
 // Forward declaration
@@ -116,7 +116,7 @@ private:
     // Active input offset
     QPoint mInputOffset;
     // Theme queue delay time [ms]
-    QTime mTimeStart;
+    QElapsedTimer mTimeStart;
     // Debug frame rate sprite
     QGraphicsTextItem *mFrameSprite;
     // Time between updates

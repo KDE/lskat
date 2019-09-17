@@ -26,7 +26,7 @@
 // Qt includes
 #include <QPoint>
 #include <QTimer>
-#include <QTime>
+#include <QElapsedTimer>
 
 // KDE includes
 
@@ -95,7 +95,7 @@ GameView::~GameView()
 void GameView::updateAndAdvance()
 {
     static int elapsed = -1;
-    static QTime timer;
+    static QElapsedTimer timer;
     if (elapsed < 0)
     {
         timer.start();
@@ -118,7 +118,7 @@ void GameView::updateAndAdvance()
 // Slot called by the framework when the window is resized.
 void GameView::resizeEvent(QResizeEvent *e)
 {
-    QTime t;
+    QElapsedTimer t;
     t.start();
     if (global_debug > 2) qCDebug(LSKAT_LOG) << "RESIZE EVENT " << e->size() << " oldSize="<< e->oldSize() << " at " << t.msecsTo(mTimeStart);
     double diffW = double(e->oldSize().width() - e->size().width());
@@ -182,7 +182,7 @@ void GameView::rescaleTheme()
         return;
     }
 
-    QTime t;
+    QElapsedTimer t;
     t.start();
 
     if (global_debug > 2) qCDebug(LSKAT_LOG) << "Theme queue rescale start at " << t.msecsTo(mTimeStart);
@@ -217,7 +217,7 @@ void GameView::mouseReleaseEvent(QMouseEvent *ev)
 
 void GameView::drawItems(QPainter *painter, int numItems, QGraphicsItem *items[], const QStyleOptionGraphicsItem options[])
 {
-    QTime time;
+    QElapsedTimer time;
     time.start();
     QGraphicsView::drawItems(painter, numItems, items, options);
 
