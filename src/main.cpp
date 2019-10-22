@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
 
     if (application.isSessionRestored())
     {
-        RESTORE(Mainwindow);
+        kRestoreMainWindows<Mainwindow>();
     }
     else
     {
