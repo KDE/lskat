@@ -52,7 +52,7 @@ GameView::GameView(const QSize &size, int advancePeriod, QGraphicsScene *scene, 
     // Cache on
     setCacheMode(QGraphicsView::CacheBackground);
     setViewportUpdateMode(QGraphicsView::SmartViewportUpdate);
-    setOptimizationFlags(QGraphicsView::DontClipPainter |
+    setOptimizationFlags(
                          QGraphicsView::DontSavePainterState |
                          QGraphicsView::DontAdjustForAntialiasing);
 
