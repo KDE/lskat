@@ -67,7 +67,8 @@ bool global_demo_mode  = false;
 int main(int argc, char *argv[])
 {
     global_debug = 0;
-
+    // Fixes blurry icons with fractional scaling
+    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QApplication application(argc, argv);
     KLocalizedString::setApplicationDomain("lskat");
 
