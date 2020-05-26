@@ -80,7 +80,7 @@ Mainwindow::Mainwindow(QWidget *parent)
 
     // Read theme files
     QStringList themeList;
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, "grafix", QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("grafix"), QStandardPaths::LocateDirectory);
     for (const QString& dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         for (const QString& file : fileNames) {
@@ -385,7 +385,7 @@ void Mainwindow::initGUI()
 
     // Determine start player
     KSelectAction *startPlayerAct = new KSelectAction(i18n("Starting Player"), this);
-    actionCollection()->addAction(QLatin1String("startplayer"), startPlayerAct);
+    actionCollection()->addAction(QStringLiteral("startplayer"), startPlayerAct);
     connect(startPlayerAct, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuStartplayer);
     startPlayerAct->setToolTip(i18n("Changing starting player..."));
     startPlayerAct->setWhatsThis(i18n("Chooses which player begins the next game."));
@@ -398,7 +398,7 @@ void Mainwindow::initGUI()
 
     // Determine who plays player 1
     KSelectAction *player1Act = new KSelectAction(i18n("Player &1 Played By"), this);
-    actionCollection()->addAction(QLatin1String("player1"), player1Act);
+    actionCollection()->addAction(QStringLiteral("player1"), player1Act);
     connect(player1Act, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuPlayer1By);
     player1Act->setToolTip(i18n("Changing who plays player 1..."));
     player1Act->setWhatsThis(i18n("Changing who plays player 1."));
@@ -410,7 +410,7 @@ void Mainwindow::initGUI()
 
     // Determine who plays player 2
     KSelectAction *player2Act = new KSelectAction(i18n("Player &2 Played By"), this);
-    actionCollection()->addAction(QLatin1String("player2"), player2Act);
+    actionCollection()->addAction(QStringLiteral("player2"), player2Act);
     connect(player2Act, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuPlayer2By);
     player2Act->setToolTip(i18n("Changing who plays player 2..."));
     player2Act->setWhatsThis(i18n("Changing who plays player 2."));
@@ -422,7 +422,7 @@ void Mainwindow::initGUI()
     themes.sort();
 
     KSelectAction *themeAct = new KSelectAction(i18n("&Theme"), this);
-    actionCollection()->addAction(QLatin1String("theme"), themeAct);
+    actionCollection()->addAction(QStringLiteral("theme"), themeAct);
     themeAct->setItems(themes);
     connect(themeAct, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::changeTheme);
     if (global_debug > 0) qCDebug(LSKAT_LOG) << "Setting current theme item to " << mThemeIndexNo;
@@ -431,7 +431,7 @@ void Mainwindow::initGUI()
     themeAct->setWhatsThis(i18n("Changing theme."));
 
     // Choose card deck
-    QAction *action1 = actionCollection()->addAction(QLatin1String("select_carddeck"));
+    QAction *action1 = actionCollection()->addAction(QStringLiteral("select_carddeck"));
     action1->setText(i18n("Select &Card Deck..."));
     actionCollection()->setDefaultShortcut(action1, QKeySequence(Qt::Key_F10));
     connect(action1, &QAction::triggered, this, &Mainwindow::menuCardDeck);
@@ -439,7 +439,7 @@ void Mainwindow::initGUI()
     action1->setWhatsThis(i18n("Choose how the cards should look."));
 
     // Change player names
-    action = actionCollection()->addAction(QLatin1String("change_names"));
+    action = actionCollection()->addAction(QStringLiteral("change_names"));
     action->setText(i18n("&Change Player Names..."));
     connect(action, &QAction::triggered, this, &Mainwindow::menuPlayerNames);
     if (global_demo_mode) action->setEnabled(false);

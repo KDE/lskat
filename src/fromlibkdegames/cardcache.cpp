@@ -117,7 +117,7 @@ void KCardInfo::setSuit(KCardInfo::Suit s)
     m_suit = s;
 }
 
-bool KCardInfo::operator==(const KCardInfo &c) const
+bool KCardInfo::operator==(KCardInfo c) const
 {
     return (c.card() == card() && c.suit() == suit());
 }
@@ -162,7 +162,7 @@ QString KCardInfo::svgName() const
     return s;
 }
 
-QPixmap doRender(const QString &element, QSvgRenderer *r, const QSize &s)
+QPixmap doRender(const QString &element, QSvgRenderer *r, QSize s)
 {
     QPixmap pix = QPixmap(s);
     pix.fill(Qt::transparent);
@@ -172,7 +172,7 @@ QPixmap doRender(const QString &element, QSvgRenderer *r, const QSize &s)
     return pix;
 }
 
-QString keyForPixmap(const QString &theme, const QString &element, const QSize &s)
+QString keyForPixmap(const QString &theme, const QString &element, QSize s)
 {
     return theme + QLatin1Char('_') + element + QLatin1Char('_')
                  + QString::number(s.width()) + QLatin1Char('_')
@@ -311,7 +311,7 @@ QPixmap KCardCache::backside() const
     QPixmap pix;
     if (d->deckName.isEmpty() || d->size.isEmpty())
         return pix;
-    QString element = QLatin1String("back");
+    QString element = QStringLiteral("back");
     QString key = keyForPixmap(d->deckName, element, d->size);
 
     {
@@ -327,7 +327,7 @@ QPixmap KCardCache::backside() const
     return pix;
 }
 
-QPixmap KCardCache::frontside(const KCardInfo &info) const
+QPixmap KCardCache::frontside(KCardInfo info) const
 {
     QPixmap pix;
     if (d->deckName.isEmpty() || d->size.isEmpty())
@@ -365,7 +365,7 @@ void KCardCache::setDeckName(const QString &theme)
         delete d->cache;
         // The default size is arbitrary: it reflects the old KPixmapCache default
         // and it seems to match the real maximum size for the decks
-        d->cache = new KImageCache(QString::fromLatin1("kdegames-cards_%1").arg(theme), 3*(1024<<10));
+        d->cache = new KImageCache(QStringLiteral("kdegames-cards_%1").arg(theme), 3*(1024<<10));
         QDateTime dt = QFileInfo(CardDeckInfo::svgFilePath(theme)).lastModified();
         if (d->cache->lastModifiedTime() < dt)
         {
@@ -428,7 +428,7 @@ void KCardCache::loadTheme(LoadInfos infos)
     d->loadThread->start(QThread::IdlePriority);
 }
 
-QSizeF KCardCache::defaultCardSize(const KCardInfo &info) const
+QSizeF KCardCache::defaultCardSize(KCardInfo info) const
 {
     if (d->deckName.isEmpty())
         return QSizeF();
@@ -461,7 +461,7 @@ QSizeF KCardCache::defaultBackSize() const
     if (d->deckName.isEmpty())
         return QSizeF();
 
-    QString element = QLatin1String("back");
+    QString element = QStringLiteral("back");
     QPixmap pix;
     QString key = d->deckName + QLatin1Char('_') + element + QLatin1String("_default");
     {

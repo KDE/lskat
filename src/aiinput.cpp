@@ -131,12 +131,10 @@ const double RATING_REMIS               =  20000.0;
 const double RATING_ONE_POINT           =    500.0;
 // Tactical ratings
 const double RATING_AMOUNT_TRUMPCARD    = 3.0 * RATING_ONE_POINT;
-const double RATING_AMOUNT_GRANDCARD    = 15.0 * RATING_ONE_POINT;
 const double RATING_AMOUNT_OPENCARD     = 1.5 * RATING_ONE_POINT;
 const double RATING_AMOUNT_ACES         = 3.0 * RATING_ONE_POINT;
 const double RATING_AMOUNT_TENS         = 1.0 * RATING_ONE_POINT;
 const double RATING_AMOUNT_JACKS        = 8.5 * RATING_ONE_POINT;
-const double RATING_GOOD_MISSING_SUITE  = 3.5 * RATING_ONE_POINT;
 
 const double RATING_JACK_OF_CLUBS       = 0.8 * RATING_ONE_POINT;
 const double RATING_JACK_OF_SPADE       = 0.6 * RATING_ONE_POINT;

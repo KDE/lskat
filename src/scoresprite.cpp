@@ -129,8 +129,6 @@ void ScoreSprite::changeTheme()
     mScore->setTextWidth(fontWidthLower);
     mGames->setTextWidth(fontWidthLower);
 
-    QPoint offset = thememanager()->getOffset();
-
     // Restore the frame of the input device sprite
     if (mInputFrame >= 0) mInput->setFrame(mInputFrame);
 }

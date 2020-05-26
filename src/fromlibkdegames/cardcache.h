@@ -46,7 +46,7 @@ public:
     Suit suit() const;
 
     QString svgName() const;
-    bool operator==(const KCardInfo &c) const;
+    bool operator==(KCardInfo c) const;
 private:
     Suit m_suit;
     Card m_card;
@@ -194,7 +194,7 @@ public:
      * @see setSize
      * @see CardInfo
      */
-    QPixmap frontside(const KCardInfo &info) const;
+    QPixmap frontside(KCardInfo info) const;
 
     /**
      * Retrieve the default size for the frontside card.
@@ -208,7 +208,7 @@ public:
      * @returns the default size of the selected frontside card
      *
      */
-    QSizeF defaultCardSize(const KCardInfo &info) const;
+    QSizeF defaultCardSize(KCardInfo info) const;
 
     /**
      * Invalidates all cached images in the current size for the current

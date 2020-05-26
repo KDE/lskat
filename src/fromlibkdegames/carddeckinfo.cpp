@@ -54,7 +54,7 @@ public:
 
         // Add SVG card sets
         QStringList list;
-        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, "carddecks", QStandardPaths::LocateDirectory);
+        const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("carddecks"), QStandardPaths::LocateDirectory);
         for (const QString& dir : dirs) {
             const QStringList deckFolderNames = QDir(dir).entryList(QStringList() << QStringLiteral("svg*"));
             for (const QString& deck : deckFolderNames) {
