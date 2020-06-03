@@ -35,37 +35,6 @@
   <name xml:lang="zh-CN">LSkat</name>
   <name xml:lang="zh-TW">LSkat</name>
   <summary>German card game Skat for two players</summary>
-  <summary xml:lang="ca">Joc de cartes</summary>
-  <summary xml:lang="ca-valencia">Joc de cartes</summary>
-  <summary xml:lang="cs">Karetní hra</summary>
-  <summary xml:lang="de">Kartenspiel</summary>
-  <summary xml:lang="en-GB">Card Game</summary>
-  <summary xml:lang="es">Juego de cartas</summary>
-  <summary xml:lang="et">Kaardimäng</summary>
-  <summary xml:lang="eu">Karta jokoa</summary>
-  <summary xml:lang="fi">Korttipeli</summary>
-  <summary xml:lang="fr">Jeu de cartes</summary>
-  <summary xml:lang="gl">Xogo de cartas</summary>
-  <summary xml:lang="id">Permainan Kartu</summary>
-  <summary xml:lang="it">Gioco di carte</summary>
-  <summary xml:lang="ko">카드 게임</summary>
-  <summary xml:lang="nl">Kaartspel</summary>
-  <summary xml:lang="nn">Kortspel</summary>
-  <summary xml:lang="pl">Gra karciana</summary>
-  <summary xml:lang="pt">Jogo de Cartas</summary>
-  <summary xml:lang="pt-BR">Jogo de cartas</summary>
-  <summary xml:lang="ru">Карточная игра</summary>
-  <summary xml:lang="sk">Kartová hra</summary>
-  <summary xml:lang="sl">Igra s kartami</summary>
-  <summary xml:lang="sr">Игра са картама</summary>
-  <summary xml:lang="sr-Latn">Igra sa kartama</summary>
-  <summary xml:lang="sr-ijekavian">Игра са картама</summary>
-  <summary xml:lang="sr-ijekavianlatin">Igra sa kartama</summary>
-  <summary xml:lang="sv">Kortspel</summary>
-  <summary xml:lang="tr">Kart Oyunu</summary>
-  <summary xml:lang="uk">Гра у карти</summary>
-  <summary xml:lang="x-test">xxCard Gamexx</summary>
-  <summary xml:lang="zh-CN">牌类游戏</summary>
   <description>
     <p>
       Lieutenant Skat (from German "Offiziersskat") is a fun and engaging card game for two players,
