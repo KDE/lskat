@@ -35,6 +35,10 @@
   <name xml:lang="zh-CN">LSkat</name>
   <name xml:lang="zh-TW">LSkat</name>
   <summary>German card game Skat for two players</summary>
+  <summary xml:lang="ca">Joc de cartes alemany Skat per a dos jugadors</summary>
+  <summary xml:lang="it">Gioco di carte tedesco Skat per due giocatori</summary>
+  <summary xml:lang="uk">Німецька карткова гра «Скат» для двох гравців</summary>
+  <summary xml:lang="x-test">xxGerman card game Skat for two playersxx</summary>
   <description>
     <p>
       Lieutenant Skat (from German "Offiziersskat") is a fun and engaging card game for two players,
