@@ -25,6 +25,7 @@
 #include <QDir>
 #include <QKeySequence>
 #include <QPointer>
+#include <QRandomGenerator>
 #include <QStatusBar>
 #include <QStandardPaths>
 
@@ -35,7 +36,6 @@
 #include <KSharedConfig>
 #include <KStandardGameAction>
 #include <KLocalizedString>
-#include <KRandom>
 #include <KSelectAction>
 // Application specific includes
 #include "lskat_debug.h"
@@ -126,7 +126,7 @@ Mainwindow::Mainwindow(QWidget *parent)
     ((KSelectAction *)ACTION(QLatin1String("theme")))->setCurrentItem(mThemeIndexNo);
 
     // Get the card deck
-    long seed = KRandom::random();
+    const quint32 seed = QRandomGenerator::global()->generate();
     if (global_debug > 0) qCDebug(LSKAT_LOG) << "Random seed" << seed;
     mDeck = new Deck(seed, this);
 

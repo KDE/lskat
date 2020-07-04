@@ -33,11 +33,11 @@
 #define SHUFFLE_AMOUNT  1000
 
 // Constructor for the view
-Deck::Deck(long seed, QObject *parent)
+Deck::Deck(quint32 seed, QObject *parent)
     : QObject(parent)
 {
     // Set the random seed
-    mRandom.setSeed(seed);
+    mRandom.seed(seed);
     // TODO: Hardcoded
     // mRandom.setSeed(global_debug);
     shuffle();
@@ -58,7 +58,7 @@ int Deck::cardNumber()
 // Draw a random trump from all cards.
 Suite Deck::randomTrump()
 {
-    int card = mRandom.getLong(NUMBER_OF_CARDS);
+    int card = mRandom.bounded(NUMBER_OF_CARDS);
 
     Suite suite = getSuite(card);
     CardType type = getCardType(card);
@@ -82,8 +82,8 @@ void Deck::shuffle()
     // Shuffle cards
     for (int i = 0; i < SHUFFLE_AMOUNT; i++)
     {
-        int c1 = mRandom.getLong(NUMBER_OF_CARDS);
-        int c2 = mRandom.getLong(NUMBER_OF_CARDS);
+        int c1 = mRandom.bounded(NUMBER_OF_CARDS);
+        int c2 = mRandom.bounded(NUMBER_OF_CARDS);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
         mCards.swapItemsAt(c1, c2);
 #else

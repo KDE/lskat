@@ -25,9 +25,7 @@
 #include <QObject>
 #include <QList>
 #include <QHash>
-
-// KDE includes
-#include <KRandomSequence>
+#include <QRandomGenerator>
 
 #include "lskat_debug.h"
 
@@ -58,7 +56,7 @@ public:
      * @param seed The random seed
      * @param parent The parent object
      */
-    Deck(long seed, QObject *parent);
+    Deck(quint32 seed, QObject *parent);
 
     /**
      * Destructor
@@ -153,7 +151,7 @@ private:
     // Array of card numbers
     QList<int> mCards;
     // Random generator
-    KRandomSequence mRandom;
+    QRandomGenerator mRandom;
 };
 
 #endif

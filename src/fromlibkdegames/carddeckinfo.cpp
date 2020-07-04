@@ -22,12 +22,12 @@
 
 #include <QDir>
 #include <QFileInfo>
+#include <QRandomGenerator>
 #include <QStandardPaths>
 
 #include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>
-#include <KRandom>
 #include "lskat_debug.h"
 
 // KConfig entries
@@ -145,7 +145,7 @@ QString randomDeckName()
     // Collect matching items
     QStringList list = deckinfoStatic->themeNameMap.keys();
     // Draw random one
-    int d = KRandom::random() % list.count();
+    int d = QRandomGenerator::system()->bounded(list.count());
     return list.at(d);
 }
 
