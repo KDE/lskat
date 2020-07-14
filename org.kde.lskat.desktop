@@ -71,6 +71,7 @@ GenericName[pt_BR]=Jogo de cartas alemão clássico
 GenericName[sl]=Klasična nemška igra s kartami
 GenericName[sv]=Klassiskt tyskt kortspel
 GenericName[uk]=Класична німецька карткова гра
+GenericName[x-test]=xxClassic German Card Gamexx
 Exec=lskat
 Icon=lskat
 Terminal=false
