@@ -9,6 +9,7 @@
   <name xml:lang="cs">LSkat</name>
   <name xml:lang="da">LSkat</name>
   <name xml:lang="de">Offiziersskat</name>
+  <name xml:lang="el">LSkat</name>
   <name xml:lang="en-GB">LSkat</name>
   <name xml:lang="es">LSkat</name>
   <name xml:lang="et">LSkat</name>
@@ -40,6 +41,7 @@
   <summary xml:lang="ca-valencia">Joc de cartes alemany Skat per a dos jugadors</summary>
   <summary xml:lang="cs">Německá karetní hra Skat pro dva hráče</summary>
   <summary xml:lang="da">Det tyske kortspil Skat for to spillere</summary>
+  <summary xml:lang="el">Γερμανικό παιχνίδι καρτών Skat για δύο παίκτες</summary>
   <summary xml:lang="en-GB">German card game Skat for two players</summary>
   <summary xml:lang="es">Juego de cartas alemán Skat para dos jugadores</summary>
   <summary xml:lang="et">Saksa kaardimäng skatt kahele mängijale</summary>
@@ -65,6 +67,7 @@
     <p xml:lang="cs">Poručík Skat (z německého "Offiziersskat") je zábavná a podmanivá hra pro dva hráče, kde druhý hráč je buď skutečný protihráč, nebo umělá inteligence.</p>
     <p xml:lang="da">Løjtnant Skat (fra det tyske "Offiziersskat") er et sjovt og medrivende kortspil for to spilere, hvor den anden spiller enten er et menneske eller indbygget kunstig intelligens.</p>
     <p xml:lang="de">Offiziersskat ist ein Kartenspiel für zwei Spieler, bei dem der zweite Spieler entweder ein menschlicher Gegner sein kann, oder durch die eingebaute KI gestellt wird.</p>
+    <p xml:lang="el">Ο υπολοχαγός Skat (από τα Γερμανικά «Offiziersskat») είναι ένα διασκεδαστικό και συναρπαστικό παιχνίδι καρτών για δύο παίκτες, με τον δεύτερο παίκτη να είναι ένας ζωντανός αντίπαλος ή μια ενσωματωμένη τεχνητή νοημοσύνη.</p>
     <p xml:lang="en-GB">Lieutenant Skat (from German "Offiziersskat") is a fun and engaging card game for two players, where the second player is either live opponent, or a built in artificial intelligence.</p>
     <p xml:lang="es">El Teniente Skat (en alemán, «Offiziersskat») es un juego de cartas divertido y cautivador para dos jugadores, en el que el otro jugador puede ser un amigo o la computadora.</p>
     <p xml:lang="et">Leitnant Skat (saksa keeles Offiziersskat) on lõbus ja köitev kahe mängijaga mäng, kus vastaseks võib olla nii inimene kui ka arvuti.</p>
