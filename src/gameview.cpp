@@ -24,9 +24,7 @@
 #include <cmath>
 
 // Qt includes
-#include <QPoint>
 #include <QTimer>
-#include <QElapsedTimer>
 
 // KDE includes
 

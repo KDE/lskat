@@ -19,7 +19,6 @@
 */
 
 #include "abstractinput.h"
-#include "lskat_debug.h"
 
 // Qt includes
 

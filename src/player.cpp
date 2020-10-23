@@ -27,8 +27,6 @@
 
 // Local includes
 #include "abstractinput.h"
-#include "deck.h"
-#include "lskat_debug.h"
 
 // Constructor for the player
 Player::Player(int id, QObject *parent)

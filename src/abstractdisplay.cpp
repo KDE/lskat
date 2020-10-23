@@ -23,7 +23,6 @@
 // Qt includes
 
 // KDE includes
-#include "lskat_debug.h"
 
 // Local includes
 #include "deck.h"

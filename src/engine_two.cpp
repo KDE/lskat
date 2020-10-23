@@ -27,7 +27,6 @@
 #include <KLocalizedString>
 
 // Local includes
-#include "lskat_debug.h"
 #include "lskatglobal.h"
 #include "display_two.h"
 

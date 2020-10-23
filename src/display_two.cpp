@@ -31,7 +31,6 @@
 // Local includes
 #include "abstractinput.h"
 #include "cardsprite.h"
-#include "lskat_debug.h"
 #include "textsprite.h"
 #include "pixmapsprite.h"
 #include "scoresprite.h"

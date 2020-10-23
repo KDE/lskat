@@ -32,7 +32,6 @@
 
 // Local includes
 #include "cardsprite.h"
-#include "lskat_debug.h"
 #include "textsprite.h"
 
 #define WAIT_CNT       100  /* Wait this [ms] before clearing board */

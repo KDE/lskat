@@ -27,7 +27,6 @@
 // Qt includes
 #include <QGraphicsScene>
 #include <QTransform>
-#include <QPoint>
 
 // KDE includes
 #include <KConfigGroup>

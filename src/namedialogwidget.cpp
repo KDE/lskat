@@ -19,7 +19,6 @@
 */
 
 #include "namedialogwidget.h"
-#include "lskat_debug.h"
 
 // Qt includes
 #include <QWidget>

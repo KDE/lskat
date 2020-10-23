@@ -20,7 +20,6 @@
 
 #include "deck.h"
 #include "lskatglobal.h"
-#include "lskat_debug.h"
 
 // Qt includes
 

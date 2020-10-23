@@ -19,7 +19,6 @@
 */
 
 #include "config_two.h"
-#include "lskat_debug.h"
 
 // Qt includes
 
