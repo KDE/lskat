@@ -25,6 +25,11 @@ set(lskat_SRCS
     fromlibkdegames/kcarddialog.cpp
 )
 
+ecm_setup_version(${LSKAT_VERSION}
+    VARIABLE_PREFIX LSKAT
+    VERSION_HEADER lskat_version.h
+)
+
 ki18n_wrap_ui(lskat_SRCS
     namedialog.ui
     fromlibkdegames/kgamecardselector.ui

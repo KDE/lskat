@@ -44,6 +44,7 @@
 
 
 #include "lskat_debug.h"
+#include "lskat_version.h"
 #include "lskatglobal.h"
 #include "mainwindow.h"
 
@@ -55,7 +56,6 @@
 #include <QCommandLineParser>
 #include <QCommandLineOption>
 
-#define LSKAT_VERSION "v1.50"
 
 // Debug level for the program
 int global_debug = 0;
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
     KLocalizedString::setApplicationDomain("lskat");
 
     KAboutData aboutData(QStringLiteral("lskat"), i18n("LSkat"),
-                          LSKAT_VERSION,
+                          QStringLiteral(LSKAT_VERSION_STRING),
                           i18n("LSkat: A desktop card game"),
                           KAboutLicense::GPL,
                           i18n("(c) 1995-2007, Martin Heni"),
