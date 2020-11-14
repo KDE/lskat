@@ -1,6 +1,18 @@
-project(lskat)
-
 cmake_minimum_required (VERSION 3.5 FATAL_ERROR)
+
+# Release Service version, managed by release script
+set (RELEASE_SERVICE_VERSION_MAJOR "21")
+set (RELEASE_SERVICE_VERSION_MINOR "03")
+set (RELEASE_SERVICE_VERSION_MICRO "70")
+set (RELEASE_SERVICE_COMPACT_VERSION "${RELEASE_SERVICE_VERSION_MAJOR}${RELEASE_SERVICE_VERSION_MINOR}${RELEASE_SERVICE_VERSION_MICRO}")
+
+# Bump LSKAT_BASE_VERSION once new features are added
+set(LSKAT_BASE_VERSION "1.50")
+
+set(LSKAT_VERSION "${LSKAT_BASE_VERSION}.${RELEASE_SERVICE_COMPACT_VERSION}")
+
+project(lskat VERSION ${LSKAT_VERSION})
+
 set (QT_MIN_VERSION "5.10.0")
 set (KF5_MIN_VERSION "5.46.0")
 
@@ -28,6 +40,7 @@ include(KDEInstallDirs)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 include(ECMQtDeclareLoggingCategory)
+include(ECMSetupVersion)
 
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
 
