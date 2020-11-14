@@ -89,7 +89,7 @@ public:
      *
      * @param parent The parent widget of the widget, if any.
      */
-    explicit KCardWidget (QWidget *parent = NULL);
+    explicit KCardWidget (QWidget *parent = nullptr);
 
     /**
      * Read the settings from a config file

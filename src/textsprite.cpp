@@ -29,7 +29,7 @@
 
 // Constructor for the sprite
 TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager *theme, QGraphicsScene *scene)
-          : Themable(id, theme), QGraphicsTextItem(0)
+          : Themable(id, theme), QGraphicsTextItem(nullptr)
 {
     scene->addItem(this);
     setPlainText(text);
@@ -40,7 +40,7 @@ TextSprite::TextSprite(const QString &text, const QString &id, ThemeManager *the
 
 // Constructor for the sprite
 TextSprite::TextSprite(const QString &id, ThemeManager *theme, QGraphicsScene *scene)
-          : Themable(id, theme), QGraphicsTextItem(0)
+          : Themable(id, theme), QGraphicsTextItem(nullptr)
 {
     scene->addItem(this);
     hide();

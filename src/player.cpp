@@ -35,8 +35,8 @@ Player::Player(int id, QObject *parent)
     mId     = id;
     mCards.clear();
     mPoints = 0;
-    mDeck   = 0;
-    mInput  = 0;
+    mDeck   = nullptr;
+    mInput  = nullptr;
     mTrump  = Club;
 
     // Reset internal variables - they are set by 'load'

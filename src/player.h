@@ -50,7 +50,7 @@ public:
      * @param id     The player number
      * @param parent The parent object
      */
-    explicit Player(int id, QObject *parent = 0);
+    explicit Player(int id, QObject *parent = nullptr);
 
     /**
      * Destructor

@@ -42,7 +42,7 @@
 // Constructor for the view
 CardSprite::CardSprite(const Suite suite, const CardType cardtype, ThemeManager *theme,
                        int advancePeriod, QGraphicsScene *scene)
-          : Themable(QStringLiteral(THEME_ID), theme), QGraphicsPixmapItem(0)
+          : Themable(QStringLiteral(THEME_ID), theme), QGraphicsPixmapItem(nullptr)
 
 {
     scene->addItem(this);

@@ -65,7 +65,7 @@ public:
      * Construct the main window.
      * @param parent The parent widget
      */
-    explicit Mainwindow(QWidget *parent = 0);
+    explicit Mainwindow(QWidget *parent = nullptr);
 
     /**
      * Destructor

@@ -70,13 +70,13 @@ Mainwindow::Mainwindow(QWidget *parent)
           : KXmlGuiWindow(parent)
 {
     // Reset stuff
-    mDeck        = 0;
-    mEngine      = 0;
-    mDisplay     = 0;
-    mView        = 0;
-    mLSkatConfig = 0;
-    mCanvas      = 0;
-    mTheme       = 0;
+    mDeck        = nullptr;
+    mEngine      = nullptr;
+    mDisplay     = nullptr;
+    mView        = nullptr;
+    mLSkatConfig = nullptr;
+    mCanvas      = nullptr;
+    mTheme       = nullptr;
 
     // Read theme files
     QStringList themeList;
@@ -263,7 +263,7 @@ AbstractInput *Mainwindow::createInput(
                                  AbstractDisplay *display,
                                  AbstractEngine *engine)
 {
-    AbstractInput *input = 0;
+    AbstractInput *input = nullptr;
 
     // Always use AI input in demo mode
     if (global_demo_mode)
@@ -620,7 +620,7 @@ void Mainwindow::setStartPlayer(int no)
 // Set the input type for a given player number.
 void Mainwindow::setInputType(int no, InputDeviceType type)
 {
-    Player *p = 0;
+    Player *p = nullptr;
     // Player 1
     if (no == 0)
     {

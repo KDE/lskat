@@ -54,7 +54,7 @@ public:
      * @param theme The theme manager
      * @param parent The parent window
      */
-    GameView(const QSize &size, int advancePeriod, QGraphicsScene *scene, ThemeManager *theme, QWidget *parent = 0);
+    GameView(const QSize &size, int advancePeriod, QGraphicsScene *scene, ThemeManager *theme, QWidget *parent = nullptr);
 
     /**
      * Destructor.

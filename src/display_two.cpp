@@ -304,7 +304,7 @@ CardSprite *DisplayTwo::getCardSprite(int cardValue)
     {
         qCCritical(LSKAT_LOG) << "Could not find cardsprite for card value" << cardValue
                 << "Stored are" << mCards.size() << "sprites";
-        return 0;
+        return nullptr;
     }
     return sprite;
 }

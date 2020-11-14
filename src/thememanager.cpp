@@ -98,7 +98,7 @@ KCardInfo convertToKCardInfo(CardDeck::Suite suite, CardDeck::CardType card)
 // Constructor for the theme manager
 ThemeManager::ThemeManager(const QString &cardTheme,
                            const QString &themefile, QObject *parent, int initialSize)
-    : QObject(parent), mRenderer(0), mConfig(0), mCardTheme(cardTheme),
+    : QObject(parent), mRenderer(nullptr), mConfig(nullptr), mCardTheme(cardTheme),
     mScale(initialSize), mAspectRatio(1.0), mCardAspectRatio(1.0)
 {
     mCardCache = new KCardCache();
@@ -129,7 +129,7 @@ void ThemeManager::unregisterTheme(Themable *ob)
 int ThemeManager::checkTheme()
 {
     // Check theme
-    if (mRenderer == 0) return 1;
+    if (mRenderer == nullptr) return 1;
     return 0; // OK
 }
 
@@ -191,7 +191,7 @@ void ThemeManager::updateTheme(const QString &themefile)
     bool result = mRenderer->load(svgfile);
     if (!result)
     {
-        mRenderer = 0;
+        mRenderer = nullptr;
         qCCritical(LSKAT_LOG) << "Cannot open file" << svgfile;
     }
 
@@ -350,7 +350,7 @@ void ThemeManager::loadCardsInBackground()
 Themable::Themable()
 {
     mScale        = 1.0;
-    mThemeManager = 0;
+    mThemeManager = nullptr;
 }
 
 // Constructs a themable interface given its id and the master theme manager.

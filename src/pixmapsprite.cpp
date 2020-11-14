@@ -33,7 +33,7 @@
 
 // Constructor for the sprite
 PixmapSprite::PixmapSprite(const QString &id, ThemeManager *theme, int advancePeriod, int no, QGraphicsScene *canvas)
-    : Themable(id, theme), QGraphicsPixmapItem(0)
+    : Themable(id, theme), QGraphicsPixmapItem(nullptr)
 {
     canvas->addItem(this);
     hide();
@@ -49,7 +49,7 @@ PixmapSprite::PixmapSprite(const QString &id, ThemeManager *theme, int advancePe
 
 // Constructor for the sprite
 PixmapSprite::PixmapSprite(int advancePeriod, int no, QGraphicsScene *canvas)
-    :  Themable(), QGraphicsPixmapItem(0)
+    :  Themable(), QGraphicsPixmapItem(nullptr)
 {
     canvas->addItem(this);
     hide();

@@ -105,7 +105,7 @@ void ConfigTwo::load(KConfig *cfg)
 // Retrieve a player.
 Player *ConfigTwo::player(int no)
 {
-    if (!mPlayers.contains(no)) return 0;
+    if (!mPlayers.contains(no)) return nullptr;
     return mPlayers[no];
 }
 
