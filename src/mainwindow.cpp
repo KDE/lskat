@@ -78,7 +78,7 @@ Mainwindow::Mainwindow(QWidget *parent)
     if (themeList.isEmpty())
     {
         KMessageBox::error(this, i18n("Installation error: No theme list found."));
-        QTimer::singleShot(0, this, SLOT(close()));
+        QTimer::singleShot(0, this, &QWidget::close);
         return;
     }
 
@@ -125,7 +125,7 @@ Mainwindow::Mainwindow(QWidget *parent)
     if (mTheme->checkTheme() != 0)
     {
         KMessageBox::error(this, i18n("Installation error: Theme file error."));
-        QTimer::singleShot(0, this, SLOT(close()));
+        QTimer::singleShot(0, this, &QWidget::close);
         return;
     }
 
@@ -154,7 +154,7 @@ Mainwindow::Mainwindow(QWidget *parent)
     {
         // Start intro
         mDisplay->start();
-        QTimer::singleShot(12500, this, SLOT(menuNewLSkatGame()));
+        QTimer::singleShot(12500, this, &Mainwindow::menuNewLSkatGame);
     }
     else
     {
@@ -263,20 +263,20 @@ AbstractInput *Mainwindow::createInput(
     if (inputType == TypeMouseInput)
     {
         MouseInput *mouseInput = new MouseInput(this);
-        connect((QObject *)mView, SIGNAL(signalLeftMousePress(QPoint)),
-                mouseInput, SLOT(mousePress(QPoint)));
-        connect(mouseInput, SIGNAL(signalConvertMousePress(QPoint,int&,int&)),
-                display, SLOT(convertMousePress(QPoint,int&,int&)));
-        connect(mouseInput, SIGNAL(signalPlayerInput(int,int,int)),
-                engine, SLOT(playerInput(int,int,int)));
+        connect(mView, &GameView::signalLeftMousePress,
+                mouseInput, &MouseInput::mousePress);
+        connect(mouseInput, &MouseInput::signalConvertMousePress,
+                display, &AbstractDisplay::convertMousePress);
+        connect(mouseInput, &MouseInput::signalPlayerInput,
+                engine, &AbstractEngine::playerInput);
         input = mouseInput;
         if (global_debug > 0) qCDebug(LSKAT_LOG) << "Create MOUSE INPUT";
     }
     else if (inputType == TypeAiInput)
     {
         AiInput *aiInput = new AiInput((EngineTwo *)engine, this);
-        connect(aiInput, SIGNAL(signalPlayerInput(int,int,int)),
-                engine, SLOT(playerInput(int,int,int)));
+        connect(aiInput, &AiInput::signalPlayerInput,
+                engine, &AbstractEngine::playerInput);
         input = aiInput;
         if (global_debug > 0) qCDebug(LSKAT_LOG) << "Create AI INPUT";
     }
@@ -336,7 +336,7 @@ void Mainwindow::gameOver(int /*winner*/)
     // Automatically restart game in demo mode
     if (global_demo_mode)
     {
-        QTimer::singleShot(10000, this, SLOT(menuNewLSkatGame()));
+        QTimer::singleShot(10000, this, &Mainwindow::menuNewLSkatGame);
     }
 }
 
@@ -567,14 +567,15 @@ void Mainwindow::menuNewLSkatGame()
         delete mDisplay;
         delete mEngine;
 
-        mDisplay = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERIOD, mView);
+        auto *display = new DisplayTwo(mDeck, mCanvas, mTheme, ADVANCE_PERIOD, mView);
+        mDisplay = display;
         mEngine = new EngineTwo(this, mDeck, (DisplayTwo *)mDisplay);
         connect(mEngine, &AbstractEngine::signalGameOver, this, &Mainwindow::gameOver);
         connect(mEngine, &AbstractEngine::signalNextPlayer, this, &Mainwindow::nextPlayer);
 
         // Connect player score widget updates
-        connect(p1, SIGNAL(signalUpdate(Player*)), mDisplay, SLOT(updatePlayer(Player*)));
-        connect(p2, SIGNAL(signalUpdate(Player*)), mDisplay, SLOT(updatePlayer(Player*)));
+        connect(p1, &Player::signalUpdate, display, &DisplayTwo::updatePlayer);
+        connect(p2, &Player::signalUpdate, display, &DisplayTwo::updatePlayer);
 
         mEngine->addPlayer(0, p1);
         mEngine->addPlayer(1, p2);
