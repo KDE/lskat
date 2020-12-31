@@ -17,7 +17,7 @@
 #include <QPainter>
 #include <QRectF>
 
-// KDE includes
+// KF includes
 #include <KConfigGroup>
 
 // Local includes

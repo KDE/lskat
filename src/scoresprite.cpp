@@ -15,7 +15,7 @@
 #include <QFont>
 #include <QGraphicsScene>
 
-// KDE includes
+// KF includes
 #include <KConfig>
 #include <KConfigGroup>
 #include <KLocalizedString>

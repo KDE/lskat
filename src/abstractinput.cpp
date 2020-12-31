@@ -9,7 +9,7 @@
 
 // Qt includes
 
-// KDE includes
+// KF includes
 
 // Constructor for the engine
 AbstractInput::AbstractInput(QObject *parent)

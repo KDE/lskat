@@ -11,7 +11,7 @@
 // Qt includes
 #include <QObject>
 
-// KDE includes
+// KF includes
 
 // Local includes
 #include "lskat_debug.h"

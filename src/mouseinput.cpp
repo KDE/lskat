@@ -9,7 +9,7 @@
 
 // Qt includes
 
-// KDE includes
+// KF includes
 
 // Constructor for the input
 MouseInput::MouseInput(QObject *parent)

@@ -15,7 +15,7 @@
 #include <QGraphicsScene>
 #include <QTransform>
 
-// KDE includes
+// KF includes
 #include <KConfigGroup>
 
 // Delay for card turning animation [ms]

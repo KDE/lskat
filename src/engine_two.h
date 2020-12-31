@@ -10,7 +10,7 @@
 
 // Qt includes
 
-// KDE includes
+// KF includes
 
 // Local includes
 #include "abstractengine.h"

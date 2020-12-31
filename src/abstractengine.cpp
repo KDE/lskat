@@ -9,7 +9,7 @@
 
 // Qt includes
 
-// KDE includes
+// KF includes
 
 // Constructor for the game document/engine
 AbstractEngine::AbstractEngine(QWidget *parent)

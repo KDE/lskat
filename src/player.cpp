@@ -9,7 +9,7 @@
 
 // Qt includes
 
-// KDE includes
+// KF includes
 #include <kconfiggroup.h>
 
 // Local includes

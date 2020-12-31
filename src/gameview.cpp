@@ -13,7 +13,7 @@
 // Qt includes
 #include <QTimer>
 
-// KDE includes
+// KF includes
 
 // Local includes
 #include "lskat_debug.h"

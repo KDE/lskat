@@ -17,7 +17,7 @@
 // Qt includes
 #include <QHash>
 
-// KDE includes
+// KF includes
 #include <KXmlGuiWindow>
 
 // Local includes

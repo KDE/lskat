@@ -8,7 +8,7 @@
 #ifndef AI_INPUT_H
 #define AI_INPUT_H
 
-// KDE includes
+// KF includes
 #include "lskat_debug.h"
 
 // Local includes

@@ -13,7 +13,7 @@
 // Qt includes
 #include <QPoint>
 
-// KDE includes
+// KF includes
 #include <KLocalizedString>
 #include <KConfigGroup>
 

@@ -11,7 +11,7 @@
 // Qt includes
 #include <QPoint>
 
-// KDE includes
+// KF includes
 
 // Local includes
 #include "abstractinput.h"

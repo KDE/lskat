@@ -10,7 +10,7 @@
 // Qt includes
 #include <QTimer>
 
-// KDE includes
+// KF includes
 #include <KLocalizedString>
 
 // Local includes

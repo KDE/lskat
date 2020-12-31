@@ -11,7 +11,7 @@
 // Qt includes
 #include <QGraphicsScene>
 #include <QFont>
-// KDE includes
+// KF includes
 #include <KConfigGroup>
 
 // Constructor for the sprite

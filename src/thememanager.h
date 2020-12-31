@@ -13,7 +13,7 @@
 #include <QHash>
 #include <QSvgRenderer>
 
-// KDE includes
+// KF includes
 #include <KConfig>
 
 class KCardCache;

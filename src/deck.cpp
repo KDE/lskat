@@ -10,7 +10,7 @@
 
 // Qt includes
 
-// KDE includes
+// KF includes
 #include <KLocalizedString>
 
 // How many cards

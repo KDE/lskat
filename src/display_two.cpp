@@ -11,7 +11,7 @@
 #include <QPoint>
 #include <QTimer>
 
-// KDE includes
+// KF includes
 #include <KLocalizedString>
 #include <KConfigGroup>
 

@@ -13,7 +13,7 @@
 #include <QHash>
 #include <QPixmap>
 
-// KDE includes
+// KF includes
 
 // Local includes
 #include "abstractdisplay.h"

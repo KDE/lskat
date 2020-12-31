@@ -15,7 +15,7 @@
 #include <QHash>
 #include <QList>
 
-// KDE includes
+// KF includes
 #include "lskat_debug.h"
 
 // local includes

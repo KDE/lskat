@@ -12,7 +12,7 @@
 #include <QHash>
 #include <QWidget>
 
-// KDE includes
+// KF includes
 #include "lskat_debug.h"
 
 // Local includes

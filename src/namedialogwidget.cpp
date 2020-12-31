@@ -10,7 +10,7 @@
 // Qt includes
 #include <QWidget>
 
-// KDE includes
+// KF includes
 
 // Constructor for the widget
 NameDialogWidget::NameDialogWidget(QWidget *parent)

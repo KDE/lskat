@@ -12,7 +12,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 
-// KDE includes
+// KF includes
 
 // local includes
 #include "abstractdisplay.h"

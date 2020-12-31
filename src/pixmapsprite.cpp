@@ -14,7 +14,7 @@
 // Qt includes
 #include <QGraphicsScene>
 
-// KDE includes
+// KF includes
 #include <KConfig>
 #include <KConfigGroup>
 

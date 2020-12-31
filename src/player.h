@@ -12,7 +12,7 @@
 #include <QObject>
 #include <QVector>
 
-// KDE includes
+// KF includes
 #include <KConfig>
 
 // Local includes

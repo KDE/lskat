@@ -16,7 +16,7 @@
 #include <QStatusBar>
 #include <QStandardPaths>
 
-// Include files for KDE
+// KF includes
 #include <kwidgetsaddons_version.h>
 #include <KActionCollection>
 #include <KConfigGroup>
