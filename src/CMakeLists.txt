@@ -35,7 +35,7 @@ ki18n_wrap_ui(lskat_SRCS
     fromlibkdegames/kgamecardselector.ui
 )
 
-configure_file(config-src.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
+configure_file(config-src.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
 
 # Debug as default severity, at least until global_debug is removed
 ecm_qt_declare_logging_category(lskat_SRCS
