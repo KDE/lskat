@@ -354,21 +354,21 @@ void Mainwindow::initGUI()
     QAction *action;
 
     // Start a new game
-    action = KStandardGameAction::gameNew(this, SLOT(menuNewLSkatGame()), actionCollection());
+    action = KStandardGameAction::gameNew(this, &Mainwindow::menuNewLSkatGame, actionCollection());
     if (global_demo_mode) action->setEnabled(false);
 
     // Clear all time statistics
-    action = KStandardGameAction::clearStatistics(this, SLOT(menuClearStatistics()), actionCollection());
+    action = KStandardGameAction::clearStatistics(this, &Mainwindow::menuClearStatistics, actionCollection());
     action->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
     if (global_demo_mode) action->setEnabled(false);
 
     // End a game
-    action = KStandardGameAction::end(this, SLOT(menuEndGame()), actionCollection());
+    action = KStandardGameAction::end(this, &Mainwindow::menuEndGame, actionCollection());
     action->setWhatsThis(i18n("Ends a currently played game. No winner will be declared."));
     action->setEnabled(false);
 
     // Quit the program
-    action = KStandardGameAction::quit(this, SLOT(close()), actionCollection());
+    action = KStandardGameAction::quit(this, &QWidget::close, actionCollection());
     action->setWhatsThis(i18n("Quits the program."));
 
     // Determine start player
