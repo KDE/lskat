@@ -45,6 +45,7 @@ include(ECMSetupVersion)
 add_definitions(
     -DQT_USE_FAST_OPERATOR_PLUS
     -DQT_NO_FOREACH
+    -DQT_NO_KEYWORDS
 )
 
 add_subdirectory(src)

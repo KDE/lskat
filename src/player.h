@@ -229,7 +229,7 @@ public:
      */
     void load(KConfigGroup &config);
 
-signals:
+Q_SIGNALS:
     /**
      * Notify change of player data.
      * @param p This player

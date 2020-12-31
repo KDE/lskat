@@ -60,7 +60,7 @@ public:
      */
     virtual InputDevice::InputDeviceType type() = 0;
 
-signals:
+Q_SIGNALS:
     /**
      * Signals the availability of player input
      * @param id           The input device id

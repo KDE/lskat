@@ -290,5 +290,5 @@ Suite Player::trump()
 // Emit all signals for GUI
 void Player::refresh()
 {
-    emit signalUpdate(this);
+    Q_EMIT signalUpdate(this);
 }

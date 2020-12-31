@@ -94,7 +94,7 @@ public:
      */
     QGraphicsScene *scene() {return  mScene;}
 
-public slots:
+public Q_SLOTS:
     /**
      * Convert the mouse position to a card number for one of the players.
      * @param mouse        The mouse coordinates [screen coordinates]

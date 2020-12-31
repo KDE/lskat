@@ -55,7 +55,7 @@ protected:
      */
     void mouseReleaseEvent(QMouseEvent *event) override;
 
-public slots:
+public Q_SLOTS:
     /**
      * The update and advance for the canvas.
      * This is called by a timer at regular intervals.
@@ -67,7 +67,7 @@ public slots:
      */
     void rescaleTheme();
 
-signals:
+Q_SIGNALS:
     /**
      * Emit the signal on mouse clicks.
      * @param point The mouse coordinate.

@@ -106,7 +106,7 @@ public:
      */
     void showMove(int no = -1);
 
-public slots:
+public Q_SLOTS:
     /**
      * Convert the position of a mouse click to a logical
      * game position, that is position (up/down) and a
@@ -129,7 +129,7 @@ public slots:
      */
     void checkShuffle();
 
-signals:
+Q_SIGNALS:
     /**
      * Signal is emitted when the dealing animation is done.
      * Game can logically start then.

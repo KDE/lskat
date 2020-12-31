@@ -43,7 +43,7 @@ public:
      */
     InputDevice::InputDeviceType type() override {return InputDevice::TypeAiInput;}
 
-public slots:
+public Q_SLOTS:
     /**
      * AI turn is performed.
      */

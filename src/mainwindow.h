@@ -59,7 +59,7 @@ public:
      */
     ~Mainwindow();
 
-public slots:
+public Q_SLOTS:
     /**
      * A new game is started from the menu.
      */
@@ -176,7 +176,7 @@ protected:
      */
     int themeIdxFromName(const QString &name);
 
-protected slots:
+protected Q_SLOTS:
     /**
      * Set the input type for a given player number.
      * @param no The player number

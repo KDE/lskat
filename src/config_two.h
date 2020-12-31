@@ -86,7 +86,7 @@ public:
      */
     void load(KConfig *cfg);
 
-signals:
+Q_SIGNALS:
     /**
      * Signal emitted when input type changes.
      * @param no The player number

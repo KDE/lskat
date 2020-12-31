@@ -255,7 +255,7 @@ protected:
      */
     void updateCardTheme(const QString &themefile, const QString &cardTheme);
 
-private slots:
+private Q_SLOTS:
     void loadCardsInBackground();
 
 private:

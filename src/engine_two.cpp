@@ -190,7 +190,7 @@ void EngineTwo::gameLoopFinish()
         mGameStatus = Stopped;
         mDisplay->showMove(-1);
         int winner = evaluateGame();
-        emit signalGameOver(winner);
+        Q_EMIT signalGameOver(winner);
     }
     // Game continues
     else
@@ -346,7 +346,7 @@ void EngineTwo::stopGame()
 
         // Set game status to stopped
         mGameStatus    = Stopped;
-        emit signalGameOver(-2);
+        Q_EMIT signalGameOver(-2);
     }
 }
 
@@ -364,7 +364,7 @@ void EngineTwo::activatePlayer(int playerNumber)
     mDisplay->showMove(playerNumber);
     mCurrentPlayer = playerNumber;
 
-    emit signalNextPlayer(player);
+    Q_EMIT signalNextPlayer(player);
 }
 
 // Check whether the two cards played are legal, supposed the

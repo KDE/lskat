@@ -36,14 +36,14 @@ public:
     QSvgRenderer *renderer();
     QPixmap renderSvg(const QString &element);
     void ensureNonNullPixmap(QPixmap &pix);
-public slots:
+public Q_SLOTS:
     void submitRendering(const QString &key, const QImage &image);
 };
 
 class LoadThread : public QThread
 {
     Q_OBJECT
-signals:
+Q_SIGNALS:
     void renderingDone(const QString &key, const QImage &image);
 public:
     explicit LoadThread(KCardCachePrivate *d);

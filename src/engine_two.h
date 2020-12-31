@@ -74,7 +74,7 @@ public:
      */
     Suite trump() const {return mTrump;}
 
-public slots:
+public Q_SLOTS:
     /**
      * Player input available
      * @param inputId      The input device id
@@ -102,7 +102,7 @@ public slots:
      */
     static int whoWonMove(int card1, int card2, Suite trump);
 
-protected slots:
+protected Q_SLOTS:
     /**
      * First part of the game loop.
      */

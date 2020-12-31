@@ -223,7 +223,7 @@ void DisplayTwo::checkShuffle()
     }
     else
     {
-        emit dealingDone();
+        Q_EMIT dealingDone();
     }
 }
 

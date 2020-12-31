@@ -113,5 +113,5 @@ InputDeviceType ConfigTwo::inputType(int no)
 void ConfigTwo::setInputType(int no, InputDeviceType type)
 {
     mInputTypes[no] = type;
-    emit signalInputType(no, type);
+    Q_EMIT signalInputType(no, type);
 }

@@ -266,7 +266,7 @@ void LoadThread::run()
         p.end();
 
         QString key = keyForPixmap(frontTheme, element, size);
-        emit renderingDone(key, img);
+        Q_EMIT renderingDone(key, img);
     }
 }
 

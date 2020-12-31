@@ -77,7 +77,7 @@ public:
      */
     void remove(int /*winnerPosition*/, int /*cardNumber*/, int /*delta*/) override {}
 
-public slots:
+public Q_SLOTS:
     /**
      * Convert the position of a mouse click to a logical
      * game position - unused.

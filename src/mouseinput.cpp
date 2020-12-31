@@ -26,11 +26,11 @@ void MouseInput::mousePress(const QPoint &point)
     // Do only process input if it is our turn
     if (!mInputAllowed) return;
 
-    emit signalConvertMousePress(point, playerNumber, cardNumber);
+    Q_EMIT signalConvertMousePress(point, playerNumber, cardNumber);
     // Check whether the move is for the right player
     if (playerNumber == mId)
     {
         //qCDebug(LSKAT_LOG) << "MouseInput:: Convert to " << playerNumber << "," << cardNumber;
-        emit signalPlayerInput(mId, playerNumber, cardNumber);
+        Q_EMIT signalPlayerInput(mId, playerNumber, cardNumber);
     }
 }

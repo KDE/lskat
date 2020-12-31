@@ -68,7 +68,7 @@ void AiInput::aiTurn()
 
     // Send out move
     if (global_debug > 5) qCDebug(LSKAT_LOG) << "AI player " << mId << " moves to " << move.move;
-    if (move.move >= 0) emit signalPlayerInput(mId, mId, move.move);
+    if (move.move >= 0) Q_EMIT signalPlayerInput(mId, mId, move.move);
     else qCCritical(LSKAT_LOG) << "Illegal AI Move???";
 }
 

@@ -80,7 +80,7 @@ public:
      */
     virtual int currentPlayer() {return mCurrentPlayer;}
 
-public slots:
+public Q_SLOTS:
     /**
      * Player input available
      * @param inputId      The input device id
@@ -89,7 +89,7 @@ public slots:
      */
     virtual void playerInput(int inputId, int playerNumber, int cardNumber) = 0;
 
-signals:
+Q_SIGNALS:
     /**
      * The game over signal.
      * @param winner The game winner (0,1,-1:drawn, -2:abort)

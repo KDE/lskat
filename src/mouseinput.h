@@ -37,14 +37,14 @@ public:
      */
     InputDevice::InputDeviceType type() override {return InputDevice::TypeMouseInput;}
 
-public slots:
+public Q_SLOTS:
     /**
      * Received a mouse press event
      * @param point The position [screen coordinates]
      */
     void mousePress(const QPoint &point);
 
-signals:
+Q_SIGNALS:
     /**
      * Convert mouse coordinate.
      * @param mouse The mouse position [screen coordinates]

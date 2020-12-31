@@ -197,7 +197,7 @@ void GameView::mouseReleaseEvent(QMouseEvent *ev)
     if (ev->button() != Qt::LeftButton) return;
 
     QPointF point = ev->pos()-mInputOffset;
-    emit signalLeftMousePress(point.toPoint());
+    Q_EMIT signalLeftMousePress(point.toPoint());
 }
 
 void GameView::drawItems(QPainter *painter, int numItems, QGraphicsItem *items[], const QStyleOptionGraphicsItem options[])
