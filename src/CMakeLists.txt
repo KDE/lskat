@@ -47,6 +47,8 @@ ecm_qt_declare_logging_category(lskat_SRCS
     EXPORT LSKAT
 )
 
+qt5_add_resources(lskat_SRCS lskat.qrc)
+
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../*-apps-lskat.png")
 ecm_add_app_icon(lskat_SRCS ICONS ${ICONS_SRCS})
 add_executable( lskat ${lskat_SRCS} )
@@ -61,8 +63,6 @@ target_link_libraries(lskat
 )
 
 install(TARGETS lskat  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-
-install(FILES lskatui.rc  DESTINATION  ${KXMLGUI_INSTALL_DIR}/lskat)
 
 ecm_qt_install_logging_categories(
     EXPORT LSKAT
