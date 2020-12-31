@@ -13,8 +13,8 @@ set(LSKAT_VERSION "${LSKAT_BASE_VERSION}.${RELEASE_SERVICE_COMPACT_VERSION}")
 
 project(lskat VERSION ${LSKAT_VERSION})
 
-set (QT_MIN_VERSION "5.10.0")
-set (KF5_MIN_VERSION "5.46.0")
+set (QT_MIN_VERSION "5.12.0")
+set (KF5_MIN_VERSION "5.68.0")
 
 find_package(ECM ${KF5_MIN_VERSION} REQUIRED CONFIG)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH} )
@@ -44,12 +44,8 @@ include(ECMSetupVersion)
 
 add_definitions(
     -DQT_USE_FAST_OPERATOR_PLUS
+    -DQT_NO_FOREACH
 )
-
-if (${KF5Config_VERSION} STRGREATER "5.56.0")
-        add_definitions(-DQT_NO_FOREACH)
-        MESSAGE(STATUS "compile without foreach")
-endif()
 
 add_subdirectory(src)
 add_subdirectory(grafix)
@@ -58,11 +54,6 @@ add_subdirectory(doc)
 ########### install files ###############
 install(PROGRAMS org.kde.lskat.desktop  DESTINATION  ${KDE_INSTALL_APPDIR})
 install(FILES org.kde.lskat.appdata.xml DESTINATION ${KDE_INSTALL_METAINFODIR})
-if (${ECM_VERSION} STRGREATER "5.58.0")
-    install(FILES lskat.categories  DESTINATION  ${KDE_INSTALL_LOGGINGCATEGORIESDIR})
-else()
-    install(FILES lskat.categories  DESTINATION ${KDE_INSTALL_CONFDIR})
-endif()
 
 ecm_install_icons(ICONS
     128-apps-lskat.png
