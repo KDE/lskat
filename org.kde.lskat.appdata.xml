@@ -110,6 +110,7 @@
     <binary>lskat</binary>
   </provides>
   <releases>
+    <release version="1.50.20121" date="2021-01-07"/>
     <release version="1.50.20120" date="2020-12-10"/>
   </releases>
 </component>
