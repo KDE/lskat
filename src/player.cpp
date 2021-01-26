@@ -10,7 +10,7 @@
 // Qt includes
 
 // KF includes
-#include <kconfiggroup.h>
+#include <KConfigGroup>
 
 // Local includes
 #include "abstractinput.h"
