@@ -48,8 +48,6 @@ ecm_qt_declare_logging_category(lskat_SRCS
     EXPORT LSKAT
 )
 
-qt5_add_resources(lskat_SRCS lskat.qrc)
-
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../*-apps-lskat.png")
 ecm_add_app_icon(lskat_SRCS ICONS ${ICONS_SRCS})
 add_executable( lskat ${lskat_SRCS} )
