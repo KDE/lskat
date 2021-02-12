@@ -23,6 +23,7 @@ set(lskat_SRCS
     fromlibkdegames/cardcache.cpp
     fromlibkdegames/carddeckinfo.cpp
     fromlibkdegames/kcarddialog.cpp
+    lskat.qrc
 )
 
 ecm_setup_version(${LSKAT_VERSION}
