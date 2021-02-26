@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
                           KAboutLicense::GPL,
                           i18n("(c) 1995-2007, Martin Heni"),
                           QString(),
-                          QStringLiteral("https://games.kde.org/game.php?game=lskat"));
+                          QStringLiteral("https://games.kde.org/games/lskat"));
 
     // I18N: These are the same strings as in kwin4, you can copy the translations
     aboutData.addAuthor(i18n("Martin Heni"), i18n("Game design and code"), QStringLiteral("kde@heni-online.de"));
