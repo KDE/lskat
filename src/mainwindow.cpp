@@ -374,11 +374,7 @@ void Mainwindow::initGUI()
     // Determine start player
     KSelectAction *startPlayerAct = new KSelectAction(i18n("Starting Player"), this);
     actionCollection()->addAction(QStringLiteral("startplayer"), startPlayerAct);
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 78, 0)
     connect(startPlayerAct, &KSelectAction::indexTriggered, this, &Mainwindow::menuStartplayer);
-#else
-    connect(startPlayerAct, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuStartplayer);
-#endif
     startPlayerAct->setToolTip(i18n("Changing starting player..."));
     startPlayerAct->setWhatsThis(i18n("Chooses which player begins the next game."));
     QStringList list;
@@ -391,11 +387,7 @@ void Mainwindow::initGUI()
     // Determine who plays player 1
     KSelectAction *player1Act = new KSelectAction(i18n("Player &1 Played By"), this);
     actionCollection()->addAction(QStringLiteral("player1"), player1Act);
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 78, 0)
     connect(player1Act, &KSelectAction::indexTriggered, this, &Mainwindow::menuPlayer1By);
-#else
-    connect(player1Act, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuPlayer1By);
-#endif
     player1Act->setToolTip(i18n("Changing who plays player 1..."));
     player1Act->setWhatsThis(i18n("Changing who plays player 1."));
     list.clear();
@@ -407,11 +399,7 @@ void Mainwindow::initGUI()
     // Determine who plays player 2
     KSelectAction *player2Act = new KSelectAction(i18n("Player &2 Played By"), this);
     actionCollection()->addAction(QStringLiteral("player2"), player2Act);
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 78, 0)
     connect(player2Act, &KSelectAction::indexTriggered, this, &Mainwindow::menuPlayer2By);
-#else
-    connect(player2Act, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::menuPlayer2By);
-#endif
     player2Act->setToolTip(i18n("Changing who plays player 2..."));
     player2Act->setWhatsThis(i18n("Changing who plays player 2."));
     player2Act->setItems(list);
@@ -424,11 +412,7 @@ void Mainwindow::initGUI()
     KSelectAction *themeAct = new KSelectAction(i18n("&Theme"), this);
     actionCollection()->addAction(QStringLiteral("theme"), themeAct);
     themeAct->setItems(themes);
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 78, 0)
     connect(themeAct, &KSelectAction::indexTriggered, this, &Mainwindow::changeTheme);
-#else
-    connect(themeAct, static_cast<void (KSelectAction::*)(int)>(&KSelectAction::triggered), this, &Mainwindow::changeTheme);
-#endif
     if (global_debug > 0) qCDebug(LSKAT_LOG) << "Setting current theme item to " << mThemeIndexNo;
     themeAct->setCurrentItem(mThemeIndexNo);
     themeAct->setToolTip(i18n("Changing theme..."));

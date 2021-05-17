@@ -70,11 +70,7 @@ void Deck::shuffle()
     {
         int c1 = mRandom.bounded(NUMBER_OF_CARDS);
         int c2 = mRandom.bounded(NUMBER_OF_CARDS);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 13, 0)
         mCards.swapItemsAt(c1, c2);
-#else
-        mCards.swap(c1, c2);
-#endif
     }
 
     // TODO: Hardcoded deck
