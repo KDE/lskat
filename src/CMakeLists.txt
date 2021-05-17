@@ -1,5 +1,13 @@
+ecm_setup_version(${LSKAT_VERSION}
+    VARIABLE_PREFIX LSKAT
+    VERSION_HEADER lskat_version.h
+)
 
-set(lskat_SRCS
+configure_file(config-src.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
+
+add_executable(lskat)
+
+target_sources(lskat PRIVATE
     thememanager.cpp
     namedialogwidget.cpp
     gameview.cpp
@@ -23,23 +31,17 @@ set(lskat_SRCS
     fromlibkdegames/cardcache.cpp
     fromlibkdegames/carddeckinfo.cpp
     fromlibkdegames/kcarddialog.cpp
+
     lskat.qrc
 )
 
-ecm_setup_version(${LSKAT_VERSION}
-    VARIABLE_PREFIX LSKAT
-    VERSION_HEADER lskat_version.h
-)
-
-ki18n_wrap_ui(lskat_SRCS
+ki18n_wrap_ui(lskat
     namedialog.ui
     fromlibkdegames/kgamecardselector.ui
 )
 
-configure_file(config-src.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
-
 # Debug as default severity, at least until global_debug is removed
-ecm_qt_declare_logging_category(lskat_SRCS
+ecm_qt_declare_logging_category(lskat
     HEADER lskat_debug.h
     IDENTIFIER LSKAT_LOG
     CATEGORY_NAME org.kde.lskat
@@ -49,16 +51,15 @@ ecm_qt_declare_logging_category(lskat_SRCS
 )
 
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../*-apps-lskat.png")
-ecm_add_app_icon(lskat_SRCS ICONS ${ICONS_SRCS})
-add_executable( lskat ${lskat_SRCS} )
+ecm_add_app_icon(lskat ICONS ${ICONS_SRCS})
 
 target_link_libraries(lskat
-    Qt5::Gui
-    Qt5::Svg
+    KF5KDEGames
     KF5::Crash
     KF5::GuiAddons
     KF5::XmlGui
-    KF5KDEGames
+    Qt5::Gui
+    Qt5::Svg
 )
 
 install(TARGETS lskat  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
