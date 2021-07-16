@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=LSkat
+Name[ar]=سكات ل
 Name[be]=LSkat
 Name[bs]=LSkat
 Name[ca]=LSkat
@@ -55,6 +56,7 @@ Name[x-test]=xxLSkatxx
 Name[zh_CN]=LSkat
 Name[zh_TW]=LSkat
 GenericName=Classic German Card Game
+GenericName[ar]=لعبة ورق ألمانية تقليدية
 GenericName[ca]=Joc de cartes alemany clàssic
 GenericName[ca@valencia]=Joc de cartes alemany clàssic
 GenericName[cs]=Klasická německá karetní hra
