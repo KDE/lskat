@@ -17,7 +17,6 @@
 #include <QStandardPaths>
 
 // KF includes
-#include <kwidgetsaddons_version.h>
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KMessageBox>
