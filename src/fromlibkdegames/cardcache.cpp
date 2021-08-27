@@ -249,7 +249,7 @@ void LoadThread::run()
         d->renderer();
     }
 
-    for (const QString &element : qAsConst(elementsToRender))
+    for (const QString &element : std::as_const(elementsToRender))
     {
         {
             QMutexLocker l(killMutex);
