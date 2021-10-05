@@ -1,14 +1,15 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&lskat;">
-  <!ENTITY kappversion "1.40"><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY i18n-lskat "Lieutenant Skat">
+  <!ENTITY lskat "LSkat">
+
   <!ENTITY % English "INCLUDE" >
   <!ENTITY % addindex "IGNORE">
 ]>
 
 <book id="lskat" lang="&language;">
 <bookinfo>
-<title>The Lieutenant Skat Handbook</title>
+<title>The &lskat; Handbook</title>
 <authorgroup>
 <author>
 <firstname>Martin</firstname>
@@ -28,13 +29,13 @@
 <!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
-<date>2013-05-05</date>
-<releaseinfo>&kappversion;</releaseinfo>
+<date>2021-10-05</date>
+<releaseinfo>1.50 (KDE Gear 21.08)</releaseinfo>
 
 <legalnotice>&FDLNotice;</legalnotice>
 
 <abstract>
-<para>This documentation describes the game of &kappname; version &kappversion;</para>
+<para>This documentation describes the game of &i18n-lskat; version 1.50</para>
 </abstract>
 
 <keywordset>
@@ -47,7 +48,7 @@
 <keyword>card</keyword>
 <keyword>skat</keyword>
 <keyword>lieutenant</keyword>
-<keyword>lskat</keyword>
+<keyword>LsKat</keyword>
 <keyword>two players</keyword>
 </keywordset>
 </bookinfo>
@@ -57,7 +58,7 @@
 <note><title>Gametype:</title><para>Card, Arcade</para></note><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
 <note><title>Number of possible players:</title><para>Two</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 <para>
-Lieutenant Skat (from German <foreignphrase lang="de">Offiziersskat</foreignphrase>) is a fun and engaging card game for two players, where the second player is either live opponent, or built in artificial intelligence.
+<literal>Lieutenant Skat</literal> (from German <foreignphrase lang="de">Offiziersskat</foreignphrase>) is a fun and engaging card game for two players, where the second player is either live opponent, or built in artificial intelligence.
 </para>
 <para>
 The game is played using a single deck of cards. Cards are shuffled and distributed amongst the players in such a way that half of them are face down and half of them are open. Each participant plays one of the open cards per turn. As soon as all the cards are played the round ends and points are calculated and awarded.
@@ -67,21 +68,21 @@ The game is played using a single deck of cards. Cards are shuffled and distribu
 <chapter id="howto">
 <title>How to Play</title>
 <note><title>Objective:</title><para>Score more than 60 points in a single game.</para></note>
-<para>
-Once dealing is finished each player ends up with 16 cards each. Cards are
+
+<para>Once dealing is finished each player ends up with 16 cards each. Cards are
 displayed in two horizontal rows - four cards per row. Half of the cards are face
 down and half are face up. As a player you can see the cards of your opponent
 as well as your own. You can make a move then by clicking on any of your cards
 which are currently face up. The opponent has to reply by choosing a
-corresponding card form his/her own stack.
-<note><title>Note</title><para>If your opponent is artificial intelligence, its
-cards will be chosen automatically.</para></note>
-Once the exchange is finished values of the played cards are evaluated and
+corresponding card form his/her own stack.</para>
+
+<note><para>If your opponent is artificial intelligence, its cards will be chosen automatically.</para></note>
+
+<para>Once the exchange is finished values of the played cards are evaluated and
 either you or your opponent is awarded points. The game is complete in 16
 rounds (when all of your and your opponent's cards have been played). After the
 game ends your score is being compared to that of your opponent and the player
-with the higher score wins the round.
-</para>
+with the higher score wins the round.</para>
 </chapter>
 
 <chapter id="rules_and_tips">
@@ -91,13 +92,13 @@ with the higher score wins the round.
 <title>Game Screen</title>
 
 <screenshot>
-<screeninfo>&lskat; default game screen.</screeninfo>
+<screeninfo>&i18n-lskat; default game screen.</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="lskat_screen_01.png" format="PNG" />
 </imageobject>
 <textobject>
-<phrase>&lskat; default game reference screen.</phrase>
+<phrase>&i18n-lskat; default game reference screen.</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -117,7 +118,7 @@ with the higher score wins the round.
 <seg>Gameplay area</seg>
 <seg>Score board with player's name, points in the current game, the overall score of the player, and the amount of wins per game</seg>
 <seg>Player's controller (Human/PC)</seg>
-<seg>The 'trump' in the current game</seg>
+<seg>The <quote>trump</quote> in the current game</seg>
 </seglistitem>
 </segmentedlist>
 
@@ -128,10 +129,10 @@ with the higher score wins the round.
 <itemizedlist>
 <listitem><para>Every player owns 16 cards. 8 of them are face down 8 of them are face up.</para></listitem>
 <listitem><para>A face down card can only be opened after a face up card covering it has been played.</para></listitem>
-<listitem><para>Each game has a randomly chosen 'trump' card [8].</para></listitem>
+<listitem><para>Each game has a randomly chosen <quote>trump</quote> card [8].</para></listitem>
 <listitem><para>All four Jacks are counted as trumps and do not belong to their suits.</para></listitem>
-<listitem><para>If a color (&eg; heart) is selected as 'trump' all seven hearts as well as all four Jacks count as trumps, making 11 trump cards.</para></listitem>
-<listitem><para>Jacks beat each other in order (greatest to least): Club->Spade->Heart->Diamond.</para></listitem>
+<listitem><para>If a color (&eg; heart) is selected as <quote>trump</quote> all seven hearts as well as all four Jacks count as trumps, making 11 trump cards.</para></listitem>
+<listitem><para>Jacks beat each other in order (greatest to least): Cup->Spade->Heart->Diamond.</para></listitem>
 <listitem><para>The sequence of cards for a trump color: Jack of clubs, Jack of spades, Jack of hearts, Jack of diamonds, Ace, Ten, King, Queen, Nine, Eight, Seven.</para></listitem>
 <listitem><para>The sequence of cards for a non-trump color: Ace, Ten, King, Queen, Nine, Eight, Seven.</para></listitem>
 <listitem id="card-values"><para>The values of the cards (highest to lowest):</para></listitem>
@@ -154,8 +155,8 @@ with the higher score wins the round.
 </informaltable>
 
 <itemizedlist>
-<listitem><para>A special 'trump' game is called the Grand. In this game no suit is trump and only the four Jacks count as trump. This game type is indicated by the symbol of a Jack's head [8] on the score board [6].</para></listitem>
-<listitem><para>If player starts the round he has a choice of cards to play with, either a card from a suite or a 'trump' card.</para></listitem>
+<listitem><para>A special <quote>trump</quote> game is called the Grand. In this game no suit is trump and only the four Jacks count as trump. This game type is indicated by the symbol of a Jack's head [8] on the score board [6].</para></listitem>
+<listitem><para>If player starts the round he has a choice of cards to play with, either a card from a suite or a <quote>trump</quote> card.</para></listitem>
 <listitem><para>Only the face up cards from the player's own stack can be used to play the round.</para></listitem>
 <listitem><para>Player who wins the round starts the next one.</para></listitem>
 <listitem><para>The player who wins the round adds values of the cards played in that round to his/her score.</para></listitem>
@@ -182,12 +183,12 @@ with the higher score wins the round.
 <title>Strategies and Tips</title>
 <para>
 When the game starts, the starting player should play any of the face up cards from own stack.
-If the second player currently has face up cards that are of the same suit as the card played, 
-he has to reply with one of those cards. If, however, the second player does not have a card 
-of the same suit, he can play with any other card including a 'trump' card.</para>
-<para>If there is at least one 'trump' card, the highest 'trump' wins both cards.</para>
-<para>If there is no 'trump' card, the highest card of the suit played by the starting player wins both cards.</para>
-<para>If the replying player has no card of the requested suit and no 'trump' card, he has to play 
+If the second player currently has face up cards that are of the same suit as the card played,
+he has to reply with one of those cards. If, however, the second player does not have a card
+of the same suit, he can play with any other card including a <quote>trump</quote> card.</para>
+<para>If there is at least one <quote>trump</quote> card, the highest <quote>trump</quote> wins both cards.</para>
+<para>If there is no <quote>trump</quote> card, the highest card of the suit played by the starting player wins both cards.</para>
+<para>If the replying player has no card of the requested suit and no <quote>trump</quote> card, he has to play
 any card and the starting player wins both cards.</para>
 
 <para>The player who wins the round leads the next one.</para>
@@ -249,7 +250,7 @@ any card and the starting player wins both cards.</para>
 <varlistentry>
 <term><menuchoice>
 <shortcut>
-<keycombo action="simul">&Ctrl;<keycap>End</keycap></keycombo>
+<keycombo action="simul">&Ctrl;&End;</keycombo>
 </shortcut>
 <guimenu>Game</guimenu>
 <guimenuitem>End Game</guimenuitem>
@@ -268,7 +269,7 @@ any card and the starting player wins both cards.</para>
 <action>Clears the all time game memory.</action> This statistic is
 saved when the game ended and shows the overall score and the amount of
 played and won games per player. This is cleared with this menu
-option.
+item.
 </para></listitem>
 </varlistentry>
 
@@ -336,7 +337,7 @@ the computer will control it.
 <listitem>
 <para>
 Chooses a visual theme. This changes the appearance of the game but not
-of the cards. Card decks are selected with their own menu option.
+of the cards. Card decks are selected with their own menu item.
 </para></listitem>
 </varlistentry>
 
@@ -348,14 +349,12 @@ of the cards. Card decks are selected with their own menu option.
 <guimenu>Settings</guimenu>
 <guimenuitem>Select Card Deck...</guimenuitem></menuchoice></term>
 <listitem><para>
-<action>
-Choose the face and back of the carddeck used for playing.</action> You
-can select these in a preview dialog showing all carddecks installed for
-&kde;.
+<action>Choose the face and back of the card deck used for playing.</action> You
+can select these in a preview dialog showing all card decks installed.
 </para>
 <note>
 <para>
-Some carddecks or cardsets are marked as scalable graphics (SVG) in the dialog.
+Some card decks or card sets are marked as scalable graphics (&SVG;) in the dialog.
 Choosing them will display better quality of the graphics when the game is
 scaled or enlarged. Fixed size graphics will loose quality when resized different
 than their original size.
@@ -377,7 +376,7 @@ than their original size.
 </variablelist>
 
 <para>
-Additionally &lskat; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
+Additionally &i18n-lskat; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
 menu items, for more information read the sections about the
 <ulink url="help:/fundamentals/menus.html#menus-settings">Settings Menu</ulink> and
 <ulink url="help:/fundamentals/menus.html#menus-help">Help Menu</ulink> of the &kde; Fundamentals.
