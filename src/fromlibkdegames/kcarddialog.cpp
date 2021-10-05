@@ -187,7 +187,7 @@ KCardDialog::KCardDialog(KCardWidget *widget)
     QVBoxLayout *mainLayout = new QVBoxLayout;
     setLayout(mainLayout);
     mainLayout->addWidget(widget);
-    setWindowTitle(i18n("Card Deck Selection"));
+    setWindowTitle(i18nc("@title:window", "Card Deck Selection"));
     QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok|QDialogButtonBox::Cancel);
     QPushButton *okButton = buttonBox->button(QDialogButtonBox::Ok);
     okButton->setDefault(true);
