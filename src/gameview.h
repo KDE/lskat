@@ -46,7 +46,7 @@ public:
     /**
      * Destructor.
      */
-    ~GameView();
+    ~GameView() override;
 
 protected:
     /**

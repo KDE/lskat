@@ -42,7 +42,7 @@ public:
     /**
      * Destructor
      */
-    virtual ~Player();
+    ~Player() override;
 
     /**
      * Retrieve the player number.

@@ -40,7 +40,7 @@ public:
     /**
      * Destructor
      */
-    virtual ~ConfigTwo();
+    ~ConfigTwo() override;
 
     /**
      * Reset the config data.

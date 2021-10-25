@@ -48,7 +48,7 @@ public:
     /**
      * Destructor
      */
-    virtual ~Deck();
+    ~Deck() override;
 
     /**
      * Retrieve number of cards in this deck.

@@ -36,7 +36,7 @@ public:
     /**
      * Destructor
      */
-    ~ScoreSprite();
+    ~ScoreSprite() override;
 
     /**
      * Standard QGI advance function.

@@ -57,7 +57,7 @@ public:
     /**
      * Destructor
      */
-    ~Mainwindow();
+    ~Mainwindow() override;
 
 public Q_SLOTS:
     /**

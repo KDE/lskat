@@ -111,7 +111,7 @@ public:
     ThemeManager(const QString &cardTheme, const QString &themefile,
                  QObject *parent, int initialSize = 1);
 
-    ~ThemeManager();
+    ~ThemeManager() override;
     /**
      * Get the pixmap for a card.
      * @param suite    The suite of the card [Club, ...]

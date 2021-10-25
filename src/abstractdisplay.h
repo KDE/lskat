@@ -46,7 +46,7 @@ public:
     /**
      * Destructor.
      */
-    virtual ~AbstractDisplay();
+    ~AbstractDisplay() override;
 
     /**
      * Set a new deck object.

@@ -88,7 +88,7 @@ public:
     /**
      * Destructs a card deck selection dialog.
      */
-    ~KCardWidget();
+    ~KCardWidget() override;
 
     /**
      * Saves the KCardWidget config into a config file.
