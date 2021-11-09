@@ -8,29 +8,54 @@ configure_file(config-src.h.in ${CMAKE_CURRENT_BINARY_DIR}/config-src.h)
 add_executable(lskat)
 
 target_sources(lskat PRIVATE
-    thememanager.cpp
-    namedialogwidget.cpp
-    gameview.cpp
-    mainwindow.cpp
-    main.cpp
-    deck.cpp
-    config_two.cpp
     abstractdisplay.cpp
-    display_intro.cpp
-    display_two.cpp
-    cardsprite.cpp
-    pixmapsprite.cpp
-    scoresprite.cpp
-    textsprite.cpp
+    abstractdisplay.h
     abstractengine.cpp
-    engine_two.cpp
-    player.cpp
+    abstractengine.h
     abstractinput.cpp
-    mouseinput.cpp
+    abstractinput.h
     aiinput.cpp
+    aiinput.h
+    cardsprite.cpp
+    cardsprite.h
+    config_two.cpp
+    config_two.h
+    deck.cpp
+    deck.h
+    display_intro.cpp
+    display_intro.h
+    display_two.cpp
+    display_two.h
+    engine_two.cpp
+    engine_two.h
     fromlibkdegames/cardcache.cpp
+    fromlibkdegames/cardcache.h
+    fromlibkdegames/cardcache_p.h
     fromlibkdegames/carddeckinfo.cpp
+    fromlibkdegames/carddeckinfo.h
+    fromlibkdegames/carddeckinfo_p.h
     fromlibkdegames/kcarddialog.cpp
+    fromlibkdegames/kcarddialog.h
+    gameview.cpp
+    gameview.h
+    lskatglobal.h
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mouseinput.cpp
+    mouseinput.h
+    namedialogwidget.cpp
+    namedialogwidget.h
+    pixmapsprite.cpp
+    pixmapsprite.h
+    player.cpp
+    player.h
+    scoresprite.cpp
+    scoresprite.h
+    textsprite.cpp
+    textsprite.h
+    thememanager.cpp
+    thememanager.h
 
     lskat.qrc
 )
