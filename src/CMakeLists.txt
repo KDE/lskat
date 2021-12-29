@@ -83,8 +83,8 @@ target_link_libraries(lskat
     KF5::Crash
     KF5::GuiAddons
     KF5::XmlGui
-    Qt::Gui
-    Qt::Svg
+    Qt${QT_MAJOR_VERSION}::Gui
+    Qt${QT_MAJOR_VERSION}::Svg
 )
 
 install(TARGETS lskat  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
