@@ -80,6 +80,7 @@ ecm_add_app_icon(lskat ICONS ${ICONS_SRCS})
 
 target_link_libraries(lskat
     KF5KDEGames
+    KF5::CoreAddons
     KF5::Crash
     KF5::GuiAddons
     KF5::XmlGui
