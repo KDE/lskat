@@ -107,6 +107,7 @@
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=lskat</url>
   <url type="help">https://docs.kde.org/?application=lskat</url>
   <url type="donation">https://www.kde.org/community/donations/?app=lskat&amp;source=appdata</url>
+  <content_rating type="oars-1.1"/>
   <screenshots>
     <screenshot type="default">
       <image>https://cdn.kde.org/screenshots/lskat/lskat.png</image>
