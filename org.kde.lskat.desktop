@@ -85,7 +85,6 @@ GenericName[uk]=Класична німецька карткова гра
 GenericName[x-test]=xxClassic German Card Gamexx
 Exec=lskat
 Icon=lskat
-Terminal=false
 Type=Application
 X-DocPath=lskat/index.html
 Categories=Qt;KDE;Game;CardGame;
