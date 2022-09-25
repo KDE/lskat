@@ -9,9 +9,8 @@
 #define DECK_H
 
 // Qt includes
-#include <QObject>
 #include <QList>
-#include <QHash>
+#include <QObject>
 #include <QRandomGenerator>
 
 #include "lskat_debug.h"

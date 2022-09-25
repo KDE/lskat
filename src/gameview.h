@@ -9,16 +9,15 @@
 #define LSKAT_GAMEVIEW_H
 
 // Qt includes
+#include <QElapsedTimer>
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
-#include <QGraphicsView>
 #include <QGraphicsTextItem>
-#include <QHash>
+#include <QGraphicsView>
 #include <QList>
 #include <QPoint>
 #include <QResizeEvent>
 #include <QSize>
-#include <QElapsedTimer>
 #include <QWidget>
 
 // Forward declaration
