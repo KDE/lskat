@@ -1,0 +1,795 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY i18n-lskat "Lieutenant Skat">
+  <!ENTITY lskat "LSkat">
+
+  <!ENTITY % Spanish "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>Manual de &lskat;</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Revisor</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+> <firstname
+>Rocío</firstname
+> <surname
+>Gallego</surname
+> <affiliation
+><address
+><email
+>traducciones@rociogallego.com</email
+></address
+></affiliation
+> <contrib
+>Traducción</contrib
+> </othercredit
+><othercredit role="translator"
+> <firstname
+>Rafael</firstname
+> <surname
+>Osuna</surname
+> <affiliation
+><address
+><email
+>rosuna@wol.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+> <firstname
+>Miguel</firstname
+> <surname
+>Revilla Rodríguez</surname
+> <affiliation
+><address
+><email
+>yo@miguelrevilla.com</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit
+> <othercredit role="translator"
+><firstname
+>Kira</firstname
+><surname
+>J. Fernández</surname
+><affiliation
+><address
+><email
+>kirajfdez@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traductora</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2021-10-05</date>
+<releaseinfo
+>1.50 (KDE Gear 21.08)</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Esta documentación describe el juego &i18n-lskat; versión 1.50</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>juego</keyword>
+<keyword
+>juego de cartas</keyword>
+<keyword
+>juego de cartas</keyword>
+<keyword
+>recreativo</keyword>
+<keyword
+>carta</keyword>
+<keyword
+>skat</keyword>
+<keyword
+>teniente</keyword>
+<keyword
+>LsKat</keyword>
+<keyword
+>dos jugadores</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+<note
+><title
+>Tipo de juego:</title
+><para
+>Cartas, Recreativo</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Número de posibles jugadores:</title
+><para
+>Dos</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+><literal
+>Teniente Skat</literal
+> (del alemán <foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>) es un divertido y adictivo juego de cartas para dos jugadores, en el que el oponente puede ser otra persona o la inteligencia artificial incorporada. </para>
+<para
+>El juego se juego con una sola baraja de cartas. Las cartas se mezclan y distribuyen entre los jugadores de forma que la mitad estén boca abajo y la otra mitad boca arriba. Cada participante juega una de las cartas que se encuentra boca arriba en cada turno. En el momento en que se hayan jugado todas las cartas finaliza la partida, se calculan los puntos y se adjudican. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>Cómo jugar</title>
+<note
+><title
+>Objetivo:</title
+><para
+>Conseguir más de 60 puntos en una sola partida.</para
+></note>
+
+<para
+>Una vez que finalice el reparto cada jugador tendrá 16 cartas. Las cartas se muestran en dos filas verticales, cuatro cartas por fila. La mitad de las cartas estarán boca arriba y la otra mitad boca abajo. Como jugador puede ver las cartas de su oponente además de las propias. Puede hacer un movimiento pulsando sobre cualquiera de sus cartas que estén boca arriba. El adversario responderá eligiendo un carta de las suyas.</para>
+
+<note
+><para
+>Si su adversario es la inteligencia artificial, sus cartas se elegirán automáticamente.</para
+></note>
+
+<para
+>Una vez que haya terminado el intercambio se evaluarán los valores de las cartas de los jugadores para adjudicar los puntos. La partida termina en 16 rondas (cuando se han jugado todas las cartas). Después de finalizar la partida su puntuación se comparará con la de su adversario y el jugador con más puntos ganará.</para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>Reglas del juego, estrategias y consejos</title>
+
+<sect1 id="screen">
+<title
+>Pantalla de juego</title>
+
+<screenshot>
+<screeninfo
+>Pantalla predeterminada del juego &i18n-lskat;.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Pantalla predeterminada de referencia del juego &i18n-lskat;.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>Indicador de jugador activo</seg>
+<seg
+>Pila de cartas para los jugadores uno y dos</seg>
+<seg
+>Pila de cartas ganadas (si las hay)</seg>
+<seg
+>Área de juego</seg>
+<seg
+>Tabla de puntuaciones con el nombre del jugador, la puntuación del juego actual, la puntuación global del jugador y la cantidad de victorias por partida</seg>
+<seg
+>Controlador del jugador (Humano/PC)</seg>
+<seg
+>El «triunfo» de la partida actual</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>Reglas</title>
+<itemizedlist>
+<listitem
+><para
+>Cada jugador tiene 16 cartas. 8 cubiertas y 8 vistas. El jugador que comienza puede jugar con cualquiera de sus cartas vistas.</para
+></listitem>
+<listitem
+><para
+>Una carta cubierta solo se puede abrir después de que se haya jugado la carta que la cubre.</para
+></listitem>
+<listitem
+><para
+>Cada partida tiene un carta de «triunfo» aleatoria [8].</para
+></listitem>
+<listitem
+><para
+>Las cuatro Jotas se cuentan como triunfos y no pertenecen a sus palos.</para
+></listitem>
+<listitem
+><para
+>Si, por ejemplo, se selecciona un corazón como «triunfo» las siete cartas de corazones serán también triunfos además de los cuatro jotas, lo que hace un total de 11 cartas de triunfo.</para
+></listitem>
+<listitem
+><para
+>Las jotas se pueden ganar entre sí en este orden (de mayor a menor): Trébol->Pica->Corazón->Diamante.</para
+></listitem>
+<listitem
+><para
+>La secuencia de las cartas para un color de triunfo: Jota de trébol, jota de picas, jota de corazones, jota de diamantes, as, diez, rey, reina, nuevo, ocho, siete.</para
+></listitem>
+<listitem
+><para
+>La secuencia de cartas para un color de no triumfo: As, diez, rey, reina, nueve, ocho, siete.</para
+></listitem>
+<listitem id="card-values"
+><para
+>Los valores de las cartas (de mayor a menor):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Carta</entry
+><entry
+>Valor</entry
+></row>
+<row
+><entry
+>As</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Diez</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>Rey</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Reina</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Jota</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Nueve</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Ocho</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Siete</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>Un «triunfo» especial es el Grande. En este caso ningún palo es triunfo, y únicamente lo son las cuatro jotas. Esto se indica con el símbolo de la cabeza de una jota [8] en la parte derecha del campo de puntuación [6].</para
+></listitem>
+<listitem
+><para
+>Si el jugador comienza la ronda, tiene una selección de cartas con las que jugar, sea una carta de un palo o una carta de «triunfo».</para
+></listitem>
+<listitem
+><para
+>Solo pueden utilizarse las cartas descubiertas del propio jugador.</para
+></listitem>
+<listitem
+><para
+>El jugador que gane la ronda comienza el siguiente turno.</para
+></listitem>
+<listitem
+><para
+>El jugador que gana la ronda añade los valores de las cartas a su puntuación.</para
+></listitem>
+<listitem
+><para
+>El jugador con más de 60 puntos gana la partida.</para
+></listitem>
+<listitem
+><para
+>Si ambos jugadores terminan con 60 puntos la partida quedará en tablas.</para
+></listitem>
+<listitem
+><para
+>Para cada juego se otorga cierto número de puntos y se añaden a la puntuación global.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Puntos</entry
+><entry
+>Puntuación</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>61 a 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>91 a 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>Estrategias y consejos</title>
+<para
+>Cuando se inicia el juego, el jugador que comienza deberá utilizar cualquiera de las cartas cara arriba de su propio montón. Si el segundo jugador tiene actualmente cartas cara arriba que son del mismo palo que la carta jugada, tiene que responder con una de ellas. Sin embargo, si el segundo jugador no tiene una carta del mismo palo, puede jugar con cualquier otra, incluyendo una carta de «triunfo».</para>
+<para
+>Si hay al menos una carta de «triunfo», el «triunfo» más alto ganará ambas cartas.</para>
+<para
+>Si no hay carta de «triunfo», la carta más alta del palo jugado por el jugador inicial gana ambas cartas.</para>
+<para
+>Si el jugador que contesta no tiene cartas del palo requerido ni cartas de «triunfo», tiene que jugar cualquier carta y el jugador inicial ganará ambas.</para>
+
+<para
+>El jugador que gane la ronda comienza el siguiente turno.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Preguntas frecuentes</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>¿Puedo jugar con una baraja de cartas diferente?</para
+></question>
+ <answer
+><para
+>Sí. Consulte <link linkend="deck_change"
+>esta</link
+> sección en «Visión general de la interfaz» para obtener más detalles.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>He cometido un error ¿Puedo deshacerlo? </para
+></question>
+ <answer
+><para
+>No. Este juego no tiene la funcionalidad «Deshacer».</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>¿Puedo utilizar el teclado para jugar a este juego? </para
+></question>
+ <answer
+><para
+>No. Este juego no puede jugarse con el teclado.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>No se como continuar ¿Hay pistas? </para
+></question>
+ <answer
+><para
+>No. Este juego no incluye la funcionalidad «Pistas».</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Debo abandonar el juego, pero todavía no he terminado la partida ¿puedo guardar mi progreso?</para
+></question>
+ <answer
+><para
+>No. Este juego no tiene la funcionalidad «Guardar estado».</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>¿Puedo cambiar los nombres de los jugadores?</para
+></question>
+ <answer
+><para
+>Sí. Para cambiar los nombre que se muestran en pantalla en su parte derecha consulte <link linkend="name_change"
+>esta</link
+> sección en «Visión general de la interfaz» para obtener más detalles.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>Visión general de la interfaz</title>
+
+<sect1 id="file-menu">
+<title
+>El menú Juego</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+><anchor id="new_game"/>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Nuevo</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>Inicia una partida nueva.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Terminar partida</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Finaliza la partida en juego.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Juego</guimenu
+> <guimenuitem
+>Borrar estadísticas</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Borra todos los registros del juego.</action
+> Esta estadística se almacena normalmente al finalizar la partida y muestra la cantidad de partidas jugadas y ganadas de cada jugador. Esta opción del menú sirve para borrarlo. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Juego</guimenu
+> <guimenuitem
+>Salir</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Sale del programa.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>El menú Preferencias</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guisubmenu
+>Jugador inicial</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Selecciona si la próxima partida la comenzará el jugador 1 (arriba) o el jugador 2 (abajo). </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guisubmenu
+>Jugador 1 es</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Elige quién será el jugador 1 (arriba). El jugador puede ser controlado por el jugador local con el ratón o puede controlarlo la máquina. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+><guisubmenu
+>Jugador 2 es</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Elige quién será el jugador 1 (abajo). El jugador puede ser controlado por el jugador local con el ratón o puede controlarlo la máquina. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guisubmenu
+>Tema</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Selecciona un tema visual, cambiando el aspecto del juego, pero no de las cartas. Las barajas de cartas se seleccionan con su propia opción del menú. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>F10</keycap
+> </shortcut
+> <guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Seleccionar baraja de cartas</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+>Selección del anverso y el reverso de la baraja utilizada en el juego.</action
+> Puede seleccionarlas a través de un diálogo de previsualización que muestra todas las barajas instaladas. </para>
+<note>
+<para
+>Algunos reversos de cartas o de barajas están definidos como gráficos escalables (&SVG;) en el diálogo. Eligiéndolos se mostrará una mejor calidad en los gráficos cuando el juego se escala o se agranda. Los gráficos de tamaño fijo perderán calidad si se cambia su tamaño a otro distinto al original. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>Preferencias</guimenu
+> <guimenuitem
+>Cambiar nombres de los jugadores...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Cambio de los nombres de los jugadores.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Además &i18n-lskat; tiene las opciones de menú <guimenu
+>Preferencias</guimenu
+> y <guimenu
+>Ayuda</guimenu
+> comunes de &kde;. Para obtener más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menú «Preferencias»</ulink
+> y <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menú «Ayuda» </ulink
+> de «Aspectos básicos de &kde;». </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Créditos y licencia</title>
+
+<para
+>&lskat;. </para>
+<para
+>Derechos de autor del programa 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+>. </para>
+<para
+>Derechos de autor de los gráficos 2007 Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+>. </para>
+<para
+>Derechos de autor de la documentación 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+>. </para>
+<para
+>Documentación convertida a &kde; 2.0 por &Mike.McBride; &Mike.McBride.mail;. </para>
+
+<para
+>Traducido por Rocío Gallego <email
+>traducciones@rociogallego.com</email
+>, Rafael Osuna<email
+>rosuna@wol.es</email
+>, Miguel Revilla Rodríguez <email
+>yo@miguelrevilla.com</email
+> y Kira J. Fernández <email
+>kirajfdez@gmail.com</email
+>.</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+

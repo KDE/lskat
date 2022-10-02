@@ -1,0 +1,757 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY i18n-lskat "Tinent Skat">
+  <!ENTITY lskat "LSkat">
+
+  <!ENTITY % Catalan  "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>El manual del &lskat;</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Revisor</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<date
+>5 d'octubre de 2021</date>
+<releaseinfo
+>1.50 (KDE Gear 21.08)</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Aquesta documentació descriu el joc &i18n-lskat; versió 1.50</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>joc</keyword>
+<keyword
+>cartes de joc</keyword>
+<keyword
+>partida de cartes</keyword>
+<keyword
+>arcade</keyword>
+<keyword
+>carta</keyword>
+<keyword
+>Skat</keyword>
+<keyword
+>tinent</keyword>
+<keyword
+>LsKat</keyword>
+<keyword
+>dos jugadors</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducció</title>
+<note
+><title
+>Tipus de joc:</title
+><para
+>Cartes, arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Nombre de possibles jugadors:</title
+><para
+>Dos</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+>El Tinent Skat o <literal
+>Lieutenant Skat</literal
+> (de l'alemany «<foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>» és un joc de cartes divertit i captivador per a dos jugadors, on el segon jugador és un contrari real o un construït amb intel·ligència artificial. </para>
+<para
+>El joc es juga utilitzant una sola baralla de cartes. Les cartes són barrejades i repartides entre els jugadors de tal manera que la meitat es troben cara avall i la meitat estan descobertes. Cada participant jugarà per torn una de les cartes descobertes. Tan aviat com es juguin totes les cartes, la tanda finalitzarà i es calcularan els punts. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>Com jugar</title>
+<note
+><title
+>Objectiu:</title
+><para
+>Marcar més de 60 punts en una sola partida.</para
+></note>
+
+<para
+>Una vegada s'ha repartit, cada jugador acaba amb 16 cartes. Les cartes es mostren en dues files horitzontals -amb quatre cartes per fila-. La meitat de les cartes estan cara avall i la meitat cara amunt. Com a jugador, podreu veure les cartes de l'oponent, així com les vostres. Podeu fer un moviment després de fer clic sobre qualsevol de les vostres cartes que estan cara amunt. L'oponent haurà de respondre triant una carta corresponent des del seu munt.</para>
+
+<note
+><para
+>Si l'oponent és intel·ligència artificial, les seves cartes es triaran automàticament.</para
+></note>
+
+<para
+>Un cop s'hagin avaluat els valors d'intercanvi de les cartes jugades es concediran els punts. La partida es completa en 16 tandes (quan s'han jugat totes les cartes). Després que la partida acabi, la vostra puntuació serà comparada amb la de l'oponent i el jugador amb la puntuació més alta guanyarà la tanda.</para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>Les regles del joc, estratègies i consells</title>
+
+<sect1 id="screen">
+<title
+>Pantalla de joc</title>
+
+<screenshot>
+<screeninfo
+>Pantalla de joc predeterminada del &i18n-lskat;.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Pantalla de referència predeterminada del joc &i18n-lskat;.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>Indicador del jugador actiu</seg>
+<seg
+>Munt de cartes per al jugador u i el jugador dos</seg>
+<seg
+>Munt de cartes guanyades (si n'hi ha)</seg>
+<seg
+>Àrea de joc</seg>
+<seg
+>Puntuació amb el nom del jugador, punts en la partida actual, la puntuació general del jugador i la quantitat de victòries per partida</seg>
+<seg
+>Controlador del jugador (humà o ordinador)</seg>
+<seg
+>El <quote
+>trumfo</quote
+> en la partida actual</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>Regles</title>
+<itemizedlist>
+<listitem
+><para
+>Cada jugador posseeix 16 cartes. 8 estan cara avall i 8 cara amunt.</para
+></listitem>
+<listitem
+><para
+>Una carta cara avall només es pot destapar després de jugar una carta cara amunt.</para
+></listitem>
+<listitem
+><para
+>Cada partida té una carta de <quote
+>trumfo</quote
+> triada a l'atzar [8].</para
+></listitem>
+<listitem
+><para
+>Les quatre sotes són comptades com trumfos i no pertanyen als seus colls.</para
+></listitem>
+<listitem
+><para
+>Si se selecciona un color (&pex;, cors) com a <quote
+>trumfo</quote
+>, els set cors, així com les quatre sotes comptaran com trumfos, fent 11 cartes de trumfo.</para
+></listitem>
+<listitem
+><para
+>Les sotes es posen entre si en ordre (de major a menor): trèvols -> piques -> cors -> diamants.</para
+></listitem>
+<listitem
+><para
+>La seqüència de cartes per a un trumfo de color: sota de trèvols, sota de piques, sota de cors, sota de diamants, as, deu, rei, reina, Nou, Vuit i Set.</para
+></listitem>
+<listitem
+><para
+>La seqüència de cartes per a un color sense trumfo: as, deu, rei, reina, nou, vuit i set.</para
+></listitem>
+<listitem id="card-values"
+><para
+>Els valors de les cartes (de la més alta a la més baixa):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Carta</entry
+><entry
+>Valor</entry
+></row>
+<row
+><entry
+>As</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Deu</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>Rei</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Reina</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Sota</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Nou</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Vuit</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Set</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>Un joc especial de <quote
+>trumfo</quote
+> s'anomena Grand. En aquest joc, cap coll és trumfo i només les quatre sotes compten com trumfo. Aquest tipus de joc està indicat pel símbol del cap d'una sota [8] en la taula de puntuacions [6].</para
+></listitem>
+<listitem
+><para
+>Si el jugador comença la tanda, tindrà una selecció de cartes per a jugar, sigui una carta d'un coll o una carta <quote
+>trumfo</quote
+>.</para
+></listitem>
+<listitem
+><para
+>El jugador només pot utilitzar per a jugar la tanda les cartes de cara amunt que hi ha al munt.</para
+></listitem>
+<listitem
+><para
+>El jugador que guanyi la tanda començarà la següent.</para
+></listitem>
+<listitem
+><para
+>El jugador que guanyi la tanda afegirà a la seva puntuació el valor de les cartes jugades en aquesta tanda.</para
+></listitem>
+<listitem
+><para
+>El jugador amb més de 60 punts guanyarà la partida.</para
+></listitem>
+<listitem
+><para
+>Si ambdós jugadors acaben amb 60 punts, la partida acabarà en un empat.</para
+></listitem>
+<listitem
+><para
+>Per a cada partida s'atorgarà una certa quantitat de punts de victòria i s'afegirà a la puntuació general.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Punts</entry
+><entry
+>Puntuació</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>61 a 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>91 a 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>Les estratègies i consells</title>
+<para
+>Quan el joc comença, el jugador inicial haurà de jugar qualsevol de les cartes de cara amunt en el seu munt. Si el segon jugador té cartes cara amunt que són del mateix coll que la carta jugada, haurà de respondre amb una d'aquestes cartes. No obstant això, si el segon jugador no té una carta del mateix coll, podrà jugar qualsevol altra carta, inclosa una carta <quote
+>trumfo</quote
+>.</para>
+<para
+>Si hi ha a l'almenys una carta de <quote
+>trumfo</quote
+>, el <quote
+>trumfo</quote
+> més alt guanyarà ambdues cartes.</para>
+<para
+>Si no hi ha cap carta de <quote
+>trumfo</quote
+>, la carta més alta del coll jugat pel jugador inicial guanyarà ambdues cartes.</para>
+<para
+>Si el jugador respon que no té cap carta del coll sol·licitat i tampoc una carta de <quote
+>trumfo</quote
+>, aquest haurà de jugar qualsevol carta i el jugador inicial guanyarà ambdues cartes.</para>
+
+<para
+>El jugador que guanyi la tanda començarà la següent.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Preguntes més freqüents</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>Puc jugar amb una baralla de cartes diferent?</para
+></question>
+ <answer
+><para
+>Sí que podeu. Per a obtenir més informació, vegeu <link linkend="deck_change"
+>aquesta</link
+> secció de «Resum de la interfície».</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>He comès un error. Puc desfer-lo? </para
+></question>
+ <answer
+><para
+>No. Aquest joc no té una característica <quote
+>Desfés</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Puc utilitzar el teclat per a jugar a aquest joc? </para
+></question>
+ <answer
+><para
+>No. Aquest joc no es pot jugar amb el teclat.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>No sé què fer aquí! Hi ha cap consell? </para
+></question>
+ <answer
+><para
+>No. Aquest joc no té una característica <quote
+>Consell</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>He de sortir del joc ara, però encara no he acabat. Puc desar el meu progrés?</para
+></question>
+ <answer
+><para
+>No. Aquest joc no té una característica <quote
+>Desa l'estat</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Puc canviar el nom dels jugadors?</para
+></question>
+ <answer
+><para
+>Sí que podeu. Per a canviar els noms que es mostren a la part dreta de la pantalla de joc, vegeu <link linkend="name_change"
+>aquesta</link
+> secció de «Resum de la interfície».</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>Resum de la interfície</title>
+
+<sect1 id="file-menu">
+<title
+>El menú Joc</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>Comença una partida nova.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Finalitza la partida</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Finalitza una partida en execució.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Joc</guimenu
+> <guimenuitem
+>Neteja les estadístiques</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Esborra la memòria de la partida.</action
+> Aquesta estadística es desarà quan s'acabi la partida, mostra la puntuació total i la quantitat de partides jugades i guanyades per a cada jugador. Això s'esborra amb aquest element de menú. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Joc</guimenu
+> <guimenuitem
+>Surt</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Surt del programa.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>El menú Arranjament</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guisubmenu
+>Jugador que comença</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Selecciona quan començarà la partida següent el jugador 1 (a dalt) o el jugador dos (a baix). </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guisubmenu
+>Jugador 1 jugat per</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Tria qui jugarà per al jugador 1 (a dalt). El jugador pot ser controlat pel jugador local amb el ratolí o el controlarà l'ordinador. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guisubmenu
+>Jugador 2 jugat per</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Tria qui jugarà per al jugador 2 (a sota) El jugador pot ser controlat pel jugador local amb el ratolí o el controlarà l'ordinador. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guisubmenu
+>Tema</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Tria un tema visual. Això canviarà l'aparença del joc, però no de les cartes. Les baralles se seleccionen amb el seu propi element de menú. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>F10</keycap
+> </shortcut
+> <guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Selecciona una baralla...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+>Trieu la part davantera i posterior de la baralla emprada per a jugar.</action
+> Aquestes les podeu seleccionar en un diàleg de vista prèvia que mostrarà totes les baralles instal·lades. </para>
+<note>
+<para
+>Algunes baralles o jocs de cartes estan marcats en el diàleg com gràfics escalables (&SVG;). Triar-lo es mostrarà una millor qualitat dels gràfics quan s'escali o ampliï la partida. Els gràfics de mida fixa perden qualitat quan es redimensionen diferent de la seva mida original. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+> <guimenuitem
+>Canvia el nom dels jugadors...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Canvia el nom dels jugadors.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>De manera addicional, el &i18n-lskat; té la configuració comuna al &kde; i els elements dels menús <guimenu
+>Arranjament</guimenu
+> i <guimenu
+>Ajuda</guimenu
+>. Per a obtenir més informació, llegiu les seccions sobre <ulink url="help:/fundamentals/menus.html#menus-settings"
+>El menú Arranjament</ulink
+> i <ulink url="help:/fundamentals/menus.html#menus-help"
+>El menú Ajuda</ulink
+> en els Fonaments del &kde;. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Crèdits i llicència</title>
+
+<para
+>&lskat; </para>
+<para
+>Copyright del programa 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Copyright dels gràfics 2007 Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+> </para>
+<para
+>Copyright de la documentació 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Documentació convertida al &kde; 2.0 per en &Mike.McBride; &Mike.McBride.mail; </para>
+
+<para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+

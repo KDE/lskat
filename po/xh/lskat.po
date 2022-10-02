@@ -1,0 +1,711 @@
+# translation of lskat.po to
+# translation of lskat.po to
+# translation of lskat.po to
+# translation of lskat.po to
+# translation of lskat.po to Xhosa
+# K Desktop Environment - kdegames
+# Copyright (C) 2001 translate.org.za
+# Lwandle Mgidlana <lwandle@translate.org.za>, 2001,2002.
+# Thelma Lungcuzo <thelma@translate.org.za>, 2002
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lskat\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-23 00:42+0000\n"
+"PO-Revision-Date: 2002-10-10 13:28SAST\n"
+"Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
+"Language-Team: Xhosa <xhosa@translate.org.za>\n"
+"Language: xh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0beta2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Lwandle Mgidlana,Thelma Lungcuzo"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lwandle@translate.org.za,thelma@translate.org.za"
+
+#: config_two.cpp:29
+#, fuzzy, kde-format
+msgctxt "Default player name"
+msgid "Alice"
+msgstr "Alice"
+
+#: config_two.cpp:30
+#, fuzzy, kde-format
+#| msgid "Bob"
+msgctxt "Default player name"
+msgid "Bob"
+msgstr "Bob"
+
+#: deck.cpp:145
+#, kde-format
+msgid "no valid card"
+msgstr ""
+
+#: deck.cpp:152 deck.cpp:164
+#, kde-format
+msgid "unknown"
+msgstr ""
+
+#: deck.cpp:153
+#, kde-format
+msgctxt "suite name"
+msgid "Clubs"
+msgstr ""
+
+#: deck.cpp:154
+#, kde-format
+msgctxt "suite name"
+msgid "Spades"
+msgstr ""
+
+#: deck.cpp:155
+#, kde-format
+msgctxt "suite name"
+msgid "Hearts"
+msgstr ""
+
+#: deck.cpp:156
+#, kde-format
+msgctxt "suite name"
+msgid "Diamonds"
+msgstr ""
+
+#: deck.cpp:157
+#, kde-format
+msgctxt "trump name"
+msgid "Grand"
+msgstr ""
+
+#: deck.cpp:165
+#, fuzzy, kde-format
+msgctxt "card name"
+msgid "Ace"
+msgstr "Alice"
+
+#: deck.cpp:166
+#, kde-format
+msgctxt "card name"
+msgid "King"
+msgstr ""
+
+#: deck.cpp:167
+#, kde-format
+msgctxt "card name"
+msgid "Queen"
+msgstr ""
+
+#: deck.cpp:168
+#, kde-format
+msgctxt "card name"
+msgid "Jack"
+msgstr ""
+
+#: deck.cpp:169
+#, kde-format
+msgctxt "card name"
+msgid "Ten"
+msgstr ""
+
+#: deck.cpp:170
+#, kde-format
+msgctxt "card name"
+msgid "Nine"
+msgstr ""
+
+#: deck.cpp:171
+#, kde-format
+msgctxt "card name"
+msgid "Eight"
+msgstr ""
+
+#: deck.cpp:172
+#, fuzzy, kde-format
+msgctxt "card name"
+msgid "Seven"
+msgstr "Thumela"
+
+#: deck.cpp:181
+#, kde-format
+msgctxt "eg jack of clubs"
+msgid "%1 of %2"
+msgstr ""
+
+#: display_intro.cpp:93
+#, fuzzy, kde-format
+#| msgid "Lieutenant Skat"
+msgctxt "Title of the game - line 1"
+msgid "Lieutenant Skat"
+msgstr "Ipolisa uSkat"
+
+#: display_intro.cpp:94
+#, fuzzy, kde-format
+#| msgid "for"
+msgctxt "Title of the game - line 2"
+msgid "for"
+msgstr "ye"
+
+#: display_intro.cpp:95
+#, fuzzy, kde-format
+#| msgid "K D E"
+msgctxt "Title of the game - line 3"
+msgid "K D E"
+msgstr "K D E"
+
+#: display_two.cpp:368
+#, fuzzy, kde-format
+#| msgid "%1 points"
+msgctxt "Resulting score of a game with no point"
+msgid "no point"
+msgstr "%1  Iincopho"
+
+#: display_two.cpp:370
+#, fuzzy, kde-format
+#| msgid "%1 points"
+msgctxt "Resulting score of a game between 1 and 4"
+msgid "%1 point"
+msgid_plural "%1 points"
+msgstr[0] "%1  Iincopho"
+msgstr[1] "%1  Iincopho"
+
+#: engine_two.cpp:235
+#, fuzzy, kde-format
+#| msgid "Game was aborted - no winner"
+msgid "Game was ended - no winner"
+msgstr "Umdlalo ulahliwe - akukho mntu ophumeleleyo"
+
+#: engine_two.cpp:244
+#, fuzzy, kde-format
+msgid "Game is drawn"
+msgstr "      Umdlalo uzobiwe"
+
+#: engine_two.cpp:250
+#, fuzzy, kde-format
+#| msgid "Player 2 - %1 won "
+msgid "Player 1 - %1 won "
+msgstr "Umdlali 2 - %1 uphumelele "
+
+#: engine_two.cpp:257 engine_two.cpp:277
+#, kde-format
+msgid "%1 won with 90 points. Super!"
+msgstr "%1 uwine nge 90 points. Kuhle oku!"
+
+#: engine_two.cpp:263 engine_two.cpp:283
+#, kde-format
+msgid "%1 won to nil. Congratulations!"
+msgstr "%1 uphumelele ngeqanda, Siyavuyisana!"
+
+#: engine_two.cpp:270
+#, kde-format
+msgid "Player 2 - %1 won "
+msgstr "Umdlali 2 - %1 uphumelele "
+
+#: engine_two.cpp:344
+#, fuzzy, kde-format
+msgid "Game ended"
+msgstr "Umdlalo uphelile"
+
+#. i18n: ectx: Menu (game)
+#: lskatui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "Imidlalo:"
+
+#. i18n: ectx: Menu (settings)
+#: lskatui.rc:12
+#, kde-format
+msgid "&Settings"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: lskatui.rc:24
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "LSkat"
+msgstr ""
+
+#: main.cpp:66
+#, kde-format
+msgid "LSkat: A desktop card game"
+msgstr ""
+
+#: main.cpp:68
+#, fuzzy, kde-format
+#| msgid "(c) Martin Heni   "
+msgid "(c) 1995-2007, Martin Heni"
+msgstr "(c) Martin Heni   "
+
+#: main.cpp:73
+#, fuzzy, kde-format
+#| msgid "(c) Martin Heni   "
+msgid "Martin Heni"
+msgstr "(c) Martin Heni   "
+
+#: main.cpp:73
+#, kde-format
+msgid "Game design and code"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Eugene Trounev"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Graphics"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Code Improvements"
+msgstr ""
+
+#: main.cpp:82
+#, kde-format
+msgid "Enter debug level"
+msgstr "Ngenisa kumphakamo wokhupho lwegciwane"
+
+#: main.cpp:83
+#, kde-format
+msgid "Skip intro animation"
+msgstr ""
+
+#: main.cpp:84
+#, kde-format
+msgid "Run game in demo (autoplay) mode"
+msgstr ""
+
+#: mainwindow.cpp:79
+#, kde-format
+msgid "Installation error: No theme list found."
+msgstr ""
+
+#: mainwindow.cpp:126
+#, kde-format
+msgid "Installation error: Theme file error."
+msgstr ""
+
+#: mainwindow.cpp:144
+#, kde-format
+msgid "Welcome to Skat! Please start a new game."
+msgstr ""
+
+#: mainwindow.cpp:333
+#, fuzzy, kde-format
+msgid "Game Over. Please start a new game."
+msgstr "Iqala umdlalo omtsha..."
+
+#: mainwindow.cpp:347
+#, kde-format
+msgctxt "Player name and number"
+msgid "Next move for %1 (player %2)"
+msgstr ""
+
+#: mainwindow.cpp:361
+#, kde-format
+msgid "Clears the all time statistics which is kept in all sessions."
+msgstr "Icima zonke izitatistiki ezigcinwe zonke iintlanganiso."
+
+#: mainwindow.cpp:366
+#, fuzzy, kde-format
+#| msgid "Aborts a currently played game. No winner will be declared."
+msgid "Ends a currently played game. No winner will be declared."
+msgstr "Ilahla umdlalo odlalwa ngoku. Akukho mntu ophumeleleyo."
+
+#: mainwindow.cpp:371
+#, kde-format
+msgid "Quits the program."
+msgstr "Ikhupha udweliso lwenkqubo."
+
+#: mainwindow.cpp:374
+#, kde-format
+msgid "Starting Player"
+msgstr "Iqalisa Umdlali"
+
+#: mainwindow.cpp:377
+#, kde-format
+msgid "Changing starting player..."
+msgstr "Itshintsha umdlali oqalayo..."
+
+#: mainwindow.cpp:378
+#, kde-format
+msgid "Chooses which player begins the next game."
+msgstr "Ikhetha ukuba kuzakuqala owuphi umdlali kumdlalo olandelayo."
+
+#: mainwindow.cpp:381
+#, kde-format
+msgid "Player &1"
+msgstr "Umdlali &1"
+
+#: mainwindow.cpp:382
+#, kde-format
+msgid "Player &2"
+msgstr "Umdlali &2"
+
+#: mainwindow.cpp:387
+#, kde-format
+msgid "Player &1 Played By"
+msgstr "Umdlali &1 Udlalwe Ngu"
+
+#: mainwindow.cpp:390
+#, kde-format
+msgid "Changing who plays player 1..."
+msgstr "Tshintsha umntu odlala nomdlali wokuqala..."
+
+#: mainwindow.cpp:391
+#, fuzzy, kde-format
+msgid "Changing who plays player 1."
+msgstr "Tshintsha umntu odlala nomdlali wokuqala..."
+
+#: mainwindow.cpp:393
+#, kde-format
+msgid "&Mouse"
+msgstr ""
+
+#: mainwindow.cpp:394
+#, kde-format
+msgid "&Computer"
+msgstr "&Khomputa"
+
+#: mainwindow.cpp:399
+#, kde-format
+msgid "Player &2 Played By"
+msgstr "Umdlali &2 Idlalwe Ngu"
+
+#: mainwindow.cpp:402
+#, kde-format
+msgid "Changing who plays player 2..."
+msgstr "Itshintsha ukuba ngubani umsebenzisi 2..."
+
+#: mainwindow.cpp:403
+#, fuzzy, kde-format
+msgid "Changing who plays player 2."
+msgstr "Itshintsha ukuba ngubani umsebenzisi 2..."
+
+#: mainwindow.cpp:411
+#, fuzzy, kde-format
+#| msgid "&Remote"
+msgid "&Theme"
+msgstr "&Ubekelo kude"
+
+#: mainwindow.cpp:417
+#, fuzzy, kde-format
+#| msgid "Change level..."
+msgid "Changing theme..."
+msgstr "Tshintsha umphakamo..."
+
+#: mainwindow.cpp:418
+#, fuzzy, kde-format
+#| msgid "Change level..."
+msgid "Changing theme."
+msgstr "Tshintsha umphakamo..."
+
+#: mainwindow.cpp:422
+#, kde-format
+msgid "Select &Card Deck..."
+msgstr "Khetha &Ikhadileeck..."
+
+#: mainwindow.cpp:425
+#, kde-format
+msgid "Configure card decks..."
+msgstr "Qwalasela ikhadi lamadeck..."
+
+#: mainwindow.cpp:426
+#, kde-format
+msgid "Choose how the cards should look."
+msgstr "Khetha ukuba abonakale njani amakhadi."
+
+#: mainwindow.cpp:430
+#, fuzzy, kde-format
+msgid "&Change Player Names..."
+msgstr "Amagama Omdlali"
+
+#: mainwindow.cpp:501
+#, kde-format
+msgid "Do you really want to clear the all time statistical data?"
+msgstr "Ingaba ufuna ukucima zonke i data zestatistiki zalolonke ixesha?"
+
+#: mainwindow.cpp:574
+#, kde-format
+msgid "Dealing cards..."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
+#: namedialog.ui:14
+#, kde-format
+msgid "Configure Names"
+msgstr "Qwalasela Amagama"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: namedialog.ui:20
+#, fuzzy, kde-format
+msgid "Player Names"
+msgstr "Amagama Omdlali"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: namedialog.ui:32
+#, kde-format
+msgid "Player 1:"
+msgstr "Umdlali 1:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: namedialog.ui:39
+#, kde-format
+msgid "Player 2:"
+msgstr "Umdlali 2:"
+
+#: scoresprite.cpp:148
+#, fuzzy, kde-format
+#| msgid "Score:"
+msgctxt "Score in score widget"
+msgid "Score: %1"
+msgstr "Inqaku:"
+
+#: scoresprite.cpp:156
+#, fuzzy, kde-format
+#| msgid "Games:"
+msgctxt "Won and overall games in score widget"
+msgid "Games: %1 / %2"
+msgstr "Imidlalo:"
+
+#, fuzzy
+#~ msgid "Player %1 won "
+#~ msgstr "Umdlali 1 - %1 uphumelele "
+
+#, fuzzy
+#~ msgid "Game aborted"
+#~ msgstr "Umdlalo uphelile"
+
+#, fuzzy
+#~ msgid "Player 1"
+#~ msgstr "Umdlali &1"
+
+#, fuzzy
+#~ msgid "Player 2"
+#~ msgstr "Umdlali &2"
+
+#, fuzzy
+#~ msgid "KDE"
+#~ msgstr "K D E"
+
+#, fuzzy
+#~ msgid "Start a new game."
+#~ msgstr "Iqala umdlalo omtsha..."
+
+#~ msgid "Starting a new game..."
+#~ msgstr "Iqala umdlalo omtsha..."
+
+#~ msgid "&Clear Statistics"
+#~ msgstr "&Cacisa Izitatistiki"
+
+#~ msgid "Delete all time statistics..."
+#~ msgstr "Cima zonke izitatistiki zexesha..."
+
+#, fuzzy
+#~ msgid "End game"
+#~ msgstr "&Phelisa Umdlalo"
+
+#~ msgid "Ending the current game..."
+#~ msgstr "Iphelisa umdlalo wangoku..."
+
+#~ msgid "Exiting..."
+#~ msgstr "Iyaphuma..."
+
+#~ msgid "Points:"
+#~ msgstr "Iincopho:"
+
+#, fuzzy
+#~ msgid "PlayerName"
+#~ msgstr "Amagama Omdlali"
+
+#~ msgid "Send &Message..."
+#~ msgstr "Thumela &Imiyalezo..."
+
+#~ msgid "Sending message to remote player..."
+#~ msgstr "Thumela umyalezo kumdlali wobekelo kude..."
+
+#~ msgid "Allows you to talk with a remote player."
+#~ msgstr "Ikuvumela ukuba uthethe nomdlali osendaweni ekude."
+
+#~ msgid "&Player"
+#~ msgstr "&Umdlali"
+
+#~ msgid "&Level"
+#~ msgstr "&Umphakamo"
+
+#~ msgid "Change the strength of the computer player."
+#~ msgstr "Tshintsha ulomelelo lomdlali we khomputha."
+
+#~ msgid "&Normal"
+#~ msgstr "&Eqhelekileyo"
+
+#~ msgid "&Advanced"
+#~ msgstr "&Ukubheka phambili"
+
+#~ msgid "&Hard"
+#~ msgstr "&Nzima"
+
+#~ msgid "Change &Names..."
+#~ msgstr "Tshintsha &Amagama..."
+
+#~ msgid "Configure player names..."
+#~ msgstr "Qwalasela amagama abadlali..."
+
+#~ msgid "This leaves space for the mover"
+#~ msgstr "Oku kushiya isithuba somshukumisi"
+
+#~ msgid "Ready"
+#~ msgstr "Ilungile"
+
+#~ msgid "Welcome to Lieutenant Skat"
+#~ msgstr "Wamkelekile kwi Polisa uSkat"
+
+#~ msgid "Game ended...start a new one..."
+#~ msgstr "Umdlalo uphelile...qala entsha..."
+
+#~ msgid "No game running"
+#~ msgstr "Akukho mdlalo obalekayo"
+
+#~ msgid "%1 to move..."
+#~ msgstr "%1 ukuhambisa ..."
+
+#~ msgid ""
+#~ "Cannot start player 1. Maybe the network connection failed or the "
+#~ "computer player process file is not found."
+#~ msgstr ""
+#~ "Ayikwazi ukuqala umdlali 2. Inokuba udibaniso womsebenzisi womnatha "
+#~ "akaphumelelanga okanye indlela yomdlali wefayile ye khomputha "
+#~ "ayifumanekanga."
+
+#~ msgid ""
+#~ "Cannot start player 2. Maybe the network connection failed or the "
+#~ "computer player process file is not found."
+#~ msgstr ""
+#~ "Ayikwazi ukuqala umdlali 2. Inokuba udibaniso womsebenzisi womnatha "
+#~ "akaphumelelanga okanye indlela yomdlali wefayile ye khomputha "
+#~ "ayifumanekanga."
+
+#~ msgid "Remote connection to %1:%2..."
+#~ msgstr "Ubeke kude bodibaniso kwi %1:%2..."
+
+#~ msgid "Offering remote connection on port %1..."
+#~ msgstr "Umnikelo wendawo ekude woxhulumano olu kwizibuko %1 ..."
+
+#~ msgid "Abort"
+#~ msgstr "Rhoxisa"
+
+#~ msgid "Waiting for the computer to move..."
+#~ msgstr "Ilinde ushukumiso lwe khomputha..."
+
+#~ msgid "Waiting for remote player..."
+#~ msgstr "Ilindele umdlali osendaweni ekude..."
+
+#~ msgid "Please make your move..."
+#~ msgstr "Nceda hamba..."
+
+#~ msgid "Remote connection lost for player 1..."
+#~ msgstr "Udityaniso lobekelo kude lomdlali 1 lulahlekile..."
+
+#~ msgid "Remote connection lost for player 2..."
+#~ msgstr "Udityaniso lobekelo kude lomdlali 2 lulahlekile..."
+
+#~ msgid "Message from remote player:\n"
+#~ msgstr "Umyalezo osuka kumdlali osendaweni ekude:\n"
+
+#~ msgid "Remote player ended game..."
+#~ msgstr "Umdali osendaweni ekude uphelise umdlalo..."
+
+#~ msgid "You are network client...loading remote game..."
+#~ msgstr ""
+#~ "Ungumxhasi womsebenzi womnatha...ilayisha umdlalo osendaweni ekude..."
+
+#~ msgid "You are network server..."
+#~ msgstr "Ungumxhasi womsebenzi womnathata..."
+
+#~ msgid ""
+#~ "Severe internal error. Move to illegal position.\n"
+#~ "Restart game and report bug to the developer.\n"
+#~ msgstr ""
+#~ "imposiso yangaphakathi enkulu. Yiya kwindawo engekosemthetweni.\n"
+#~ "Qala kwakhona umdlalo uchaze igciwane kumbhekisi phambili.\n"
+
+#~ msgid ""
+#~ "This move would not follow the rulebook.\n"
+#~ "Better think again!\n"
+#~ msgstr ""
+#~ "Le, lentshukumo ayinokulandela incwadi yomthetho.\n"
+#~ "Kungcono ucinge kwakhona!\n"
+
+#~ msgid "It is not your turn.\n"
+#~ msgstr "Lithuba lakho ngoku.\n"
+
+#~ msgid "This move is not possible.\n"
+#~ msgstr "Lentshukumo ayenzeki.\n"
+
+#~ msgid "%1 won over 90 points. Super!"
+#~ msgstr "%1 won over 90 points. Super!"
+
+#~ msgid "Move:"
+#~ msgstr "Hambisa:"
+
+#~ msgid "Won:"
+#~ msgstr "Uphumelele:"
+
+#~ msgid "Hold on... the other player hasn't been yet..."
+#~ msgstr "Kha ume... Omnye umdlali akaka..."
+
+#~ msgid "Hold your horses..."
+#~ msgstr "Yima kancincane..."
+
+#~ msgid "Ah ah ah... only one go at a time..."
+#~ msgstr "Ah ah ah...kufuneka kuhambe umntu onye ngexesha..."
+
+#~ msgid "Please wait... it is not your turn."
+#~ msgstr "Nceda yima..ayilothuba lakho."
+
+#~ msgid "Card Game"
+#~ msgstr "Umdlalo wekhadi"
+
+#~ msgid "Send Message to Remote Player"
+#~ msgstr "Thumela Umyalezo Kumdlali Okwindawo ekude"
+
+#~ msgid "Enter Message"
+#~ msgstr "Ngenisa umyalezo"
+
+#~ msgid "Enter a player's name"
+#~ msgstr "Ngenisa igama lomdlali"
+
+#, fuzzy
+#~ msgid "Network Options"
+#~ msgstr "Qwalasela Iinketho Zomsebenzi womnatha"
+
+#, fuzzy
+#~ msgid "Play As"
+#~ msgstr "Amagama Omdlali"
+
+#, fuzzy
+#~ msgid "Network games:"
+#~ msgstr "Qwalasela Iinketho Zomsebenzi womnatha"
+
+#, fuzzy
+#~ msgid "Port:"
+#~ msgstr "Izibuko"

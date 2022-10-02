@@ -1,0 +1,805 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY i18n-lskat "Lieutenant Skat">
+  <!ENTITY lskat "LSkat">
+
+  <!ENTITY % Italian "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>Manuale di &lskat;</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Revisore</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Vincenzo</firstname
+><surname
+>Reale</surname
+><affiliation
+><address
+><email
+>smart2128vr@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Andrea</firstname
+><surname
+>Celli</surname
+><affiliation
+><address
+><email
+>andrea.celli@libero.it</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+></firstname
+><surname
+></surname
+><affiliation
+><address
+><email
+>mikelima@cirulla.net</email
+></address
+></affiliation
+><contrib
+>Aggiornamento della traduzione per KDE 4</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>5/10/2021</date>
+<releaseinfo
+>1.50 (KDE Gear 21.08)</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Questa documentazione descrive il gioco &i18n-lskat;, versione 1.50</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>gioco</keyword>
+<keyword
+>gioco di carte</keyword>
+<keyword
+>gioco di carte</keyword>
+<keyword
+>arcade</keyword>
+<keyword
+>carte</keyword>
+<keyword
+>skat</keyword>
+<keyword
+>tenente</keyword>
+<keyword
+>LsKat</keyword>
+<keyword
+>due giocatori</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduzione</title>
+<note
+><title
+>Tipo di gioco:</title
+><para
+>Carte, Arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Numero di giocatori possibili:</title
+><para
+>Due</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+><literal
+>Il Tenente Skat</literal
+> (dal tedesco <foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>) è un divertente gioco di carte per due giocatori, in cui il secondo giocatore può essere un avversario in carne e ossa oppure un'intelligenza artificiale. </para>
+<para
+>Si gioca con un solo mazzo di carte. Le carte sono moescolate e distribuite tra i giocatori in modo che metà di esse siano a faccia coperta e metà siano scoperte. Ogni giocatore gioca una carta scoperta per turno. Quando tutte le carte sono state giocate il turno termina ed i punti vengono calcolati e assegnati. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>Come si gioca</title>
+<note
+><title
+>Obiettivo:</title
+><para
+>Totalizzare più di 60 punti in una singola partita.</para
+></note>
+
+<para
+>Una volta distribuite le carte, ciascun giocatore si trova con 16 carte. Le carte sono disposte su due righe – quattro carte per riga. Metà delle carte sono coperte e metà scoperte. I giocatori possono vedere sia le proprie carte che quelle dell'avversario. Per fare una mossa devi fare clic su una delle tue carte a faccia scoperta. L'avversario dovrà rispondere scegliendo una carta corrispondente dalla propria pila.</para>
+
+<note
+><para
+>Se il tuo avversario è l'intelligenza artificiale, le sue carte saranno scelte automaticamente.</para
+></note>
+
+<para
+>Una volta terminato lo scambio, vengono valutati i valori delle carte giocate vengono assegnati punti a te o al tuo avversario. Il gioco si completa in 16 mani (quando tutte le tue carte e quelle del tuo avversario sono state giocate). Al termine della partita, il tuo punteggio viene confrontato con quello del tuo avversario e il giocatore con il punteggio più alto vince la mano.</para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>Regole del gioco, strategie e suggerimenti</title>
+
+<sect1 id="screen">
+<title
+>Schermata del gioco</title>
+
+<screenshot>
+<screeninfo
+>La schermata di gioco predefinita di &i18n-lskat;.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>La schermata di riferimento predefinita di &i18n-lskat;.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>Indicazione del giocatore attivo</seg>
+<seg
+>Le pile di carte per il giocatore uno e due</seg>
+<seg
+>Pila delle carte vinte (se ce ne sono)</seg>
+<seg
+>Area di gioco</seg>
+<seg
+>Tabella dei punteggi con il nome del giocatore, i punti della partita attuale, il punteggio totale ed il numero di vittorie nel gioco</seg>
+<seg
+>Chi controlla il giocatore (Umano/PC)</seg>
+<seg
+>La <quote
+>briscola</quote
+> della partita in corso</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>Regole</title>
+<itemizedlist>
+<listitem
+><para
+>Ogni giocatore dispone di 16 carte. Otto di esse sono coperte e le altre otto scoperte.</para
+></listitem>
+<listitem
+><para
+>Una carta a faccia in giù può essere scoperta solo dopo che la carta scoperta che la copre è stata messa in gioco.</para
+></listitem>
+<listitem
+><para
+>Ciascuna partita ha una carta di <quote
+>briscola</quote
+> scelta a caso [8].</para
+></listitem>
+<listitem
+><para
+>Tutti e quattro i fanti sono considerati briscole e non appartengono al proprio seme.</para
+></listitem>
+<listitem
+><para
+>Se un seme (&eg; cuori) viene scelto come <quote
+>briscola</quote
+> tutte e sette le carte di cuori più i quattro fanti contano come briscole, per un totale di 11 briscole.</para
+></listitem>
+<listitem
+><para
+>I fanti si battono l'uno con l'altro nell'ordine (dal più grande al più piccolo) Fiori → Picche → Cuori → Quadri.</para
+></listitem>
+<listitem
+><para
+>La sequenza di carte del seme di briscola: Fante di fiori, Fante di picche, Fante di cuori, Fante di quadri, Asso, Dieci, Re, Regina, Nove, Otto, Sette.</para
+></listitem>
+<listitem
+><para
+>La sequenza di carte per un seme che non sia briscola: Asso, Dieci, Re, Regina, Nove, Otto, Sette.</para
+></listitem>
+<listitem id="card-values"
+><para
+>Il valore delle carte (dalla più alta alla più bassa):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Carta</entry
+><entry
+>Valore</entry
+></row>
+<row
+><entry
+>Asso</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Dieci</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>Re</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Regina</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Fante</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Nove</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Otto</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Sette</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>Una scelta particolare della briscola è la cosiddetta Grande. In questa partita, nessun seme ha un valore speciale e solo i fanti valgono come briscola. Questo tipo di partita è indicato con il simbolo della testa di un fante [8] nella classifica dei punteggi [6].</para
+></listitem>
+<listitem
+><para
+>Se il giocatore inizia la mano può scegliere quale carta giocare, sia una carta di un seme che una <quote
+>briscola</quote
+>.</para
+></listitem>
+<listitem
+><para
+>Solo le carte scoperte della pila del giocatore possono essere usate per giocare la mano.</para
+></listitem>
+<listitem
+><para
+>Il giocatore che vince una mano gioca per primo in quella successiva.</para
+></listitem>
+<listitem
+><para
+>Il giocatore che vince la mano aggiunge i valori delle carte giocate nella mano al suo punteggio.</para
+></listitem>
+<listitem
+><para
+>Il giocatore che totalizza più di 60 punti vince la partita.</para
+></listitem>
+<listitem
+><para
+>Se entrambi i giocatori finiscono con 60 punti ciascuno la partita termina in parità.</para
+></listitem>
+<listitem
+><para
+>Per ogni partita vengono assegnati un certo numero di punti vittoria e aggiunti al punteggio totale.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Punti</entry
+><entry
+>Punteggio</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>da 61 a 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>da 91 a 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>Strategie e trucchi</title>
+<para
+>All'inizio della partita, il giocatore che è di mano può giocare una delle proprie carte scoperte. Se il secondo giocatore ha al momento carte scoperte dello stesso seme della carta giocata, deve giocare una di esse. Se però il secondo giocatore non ha carte dello stesso seme, può giocare una carta qualsiasi, compresa una <quote
+>briscola</quote
+>.</para>
+<para
+>Se c'è almeno una <quote
+>briscola</quote
+>, la <quote
+>briscola</quote
+> più alta vince entrambe le carte.</para>
+<para
+>Se non c'è nessuna carta di <quote
+>briscola</quote
+>, la carta più alta dello stesso seme giocato dal primo giocatore vince entrambe le carte.</para>
+<para
+>Se il giocatore che risponde non ha carte del seme richiesto e nessuna <quote
+>briscola</quote
+> deve giocare una carta qualsiasi e il primo giocatore vince entrambe le carte.</para>
+
+<para
+>Il giocatore che vince una mano inizia la successiva.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Domande frequenti</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>Posso usare un mazzo di carte diverso per giocare?</para
+></question>
+ <answer
+><para
+>Sì. Fai riferimento a <link linkend="deck_change"
+>questa</link
+> sezione della <quote
+>Panoramica dell'intefaccia</quote
+> per i dettagli.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ho fatto un errore. Posso annullarlo? </para
+></question>
+ <answer
+><para
+>No. Questo gioco non ha una funzione di annullamento dell'ultima mossa.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Si può giocare con la tastiera? </para
+></question>
+ <answer
+><para
+>No. Questo gioco non può essere giocato con la tastiera.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Non riesco a capire che cosa fare qui! Ci sono dei suggerimenti? </para
+></question>
+ <answer
+><para
+>No. Questo gioco non offre la funzione del <quote
+>suggerimento</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Devo interrompere la partita ora, ma non ho ancora finito. Posso salvare lo stato attuale?</para
+></question>
+ <answer
+><para
+>No. Questo gioco non ha una funzione per salvare lo stato.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Posso cambiare i nomi dei giocatori?</para
+></question>
+ <answer
+><para
+>Sì. Per cambiare i nomi mostrati sulla destra dello schermo di gioco fai riferimento a refer to <link linkend="name_change"
+>questa</link
+> sezione per della «Panoramica dell'interfaccia» per i dettagli.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>Panoramica dell'interfaccia</title>
+
+<sect1 id="file-menu">
+<title
+>Il menu Partita</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+><anchor id="new_game"/>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Partita</guimenu
+> <guimenuitem
+>Nuova</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>Inizia una nuova partita.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Partita</guimenu
+> <guimenuitem
+>Termina partita</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Termina una partita in corso.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Partita</guimenu
+> <guimenuitem
+>Azzera le statistiche</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Azzera la memoria di tutte le partite precedenti.</action
+>. Questa statistica viene salvata alla fine di ogni partita e mostra il punteggio complessivo, il numero di partite giocate e vinte per giocatore. Viene cancellata con questa voce del menu. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Partita</guimenu
+> <guimenuitem
+>Esci</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Esce dal programma.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Il menu Impostazioni</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Impostazioni</guimenu
+> <guisubmenu
+>Chi inizia</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Permette di scegliere se la prossima partita sarà iniziata dal giocatore 1 (in alto) o dal giocatore 2 (in basso). </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Impostazioni</guimenu
+> <guisubmenu
+>Identità del giocatore 1</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Sceglie chi sarà il giocatore 1 (quello in alto). Il giocatore può essere controllato da un giocatore locale col mouse oppure dal computer. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Impostazioni</guimenu
+> <guisubmenu
+>Identità del giocatore 2</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Sceglie chi debba fare il giocatore 2 (in basso). Il giocatore può essere o controllato da un giocatore locale col mouse oppure può controllarlo il computer. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>Impostazioni</guimenu
+> <guisubmenu
+>Tema</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Permette di scegliere il tema grafico. Questo cambia l'aspetto del gioco, ma non delle carte. I mazzi di carte sono selezionati con una voce di menu dedicata. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>F10</keycap
+> </shortcut
+> <guimenu
+>Impostazioni</guimenu
+> <guimenuitem
+>Seleziona il mazzo di carte...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+> Sceglie il fronte e il dorso del mazzo di carte usato per giocare.</action
+>. Puoi sceglierli in una finestra di anteprima che mostra tutti i mazzi di carte installati. </para>
+<note>
+<para
+>Alcuni mazzi di carte sono in marcati come «grafica scalabile vettoriale» (&SVG;) nella finestra di dialogo. Se scegli uno di questi mazzi la qualità della grafica sarà migliore quando la finestra del gioco è ridimensionata o allargata. La grafica a dimensione fissa ha una qualità peggiore quando viene disegnata ad una dimensione diversa da quella originale. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>Impostazioni</guimenu
+> <guimenuitem
+>Cambia i nomi dei giocatori...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Cambia i nomi dei giocatori.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Inoltre &i18n-lskat; ha le voci dei menu <guimenu
+>Impostazioni</guimenu
+> e <guimenu
+>Aiuto</guimenu
+> comuni di &kde;; per maggiori informazioni, consulta le sezioni <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menu Impostazioni</ulink
+> e <ulink url="help:/fundamentals/menus.html#menus-help"
+>menu Aiuto</ulink
+> dei «Fondamentali di &kde;». </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Riconoscimenti e licenza</title>
+
+<para
+>&lskat; </para>
+<para
+>Copyright sul programma 2000–2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Copyright sulla grafica 2007 Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+> </para>
+<para
+>Copyright sulla documentazione 2000–2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>La documentazione è stata convertita per &kde; 2.0 da &Mike.McBride; &Mike.McBride.mail; </para>
+
+<para
+>Traduzione: Vincenzo Reale <email
+>smart2128vr@gmail.com</email
+></para
+><para
+>Traduzione: Andrea Celli <email
+>andrea.celli@libero.it</email
+></para
+><para
+>Revisione per KDE4: Luciano Montanaro <email
+>mikelima@cirulla.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+

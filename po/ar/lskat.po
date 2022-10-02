@@ -1,0 +1,482 @@
+# translation of lskat.po to
+# Copyright (C) 2002, 2007 Free Software Foundation, Inc.
+# Isam Bayazidi <bayazidi@arabeyes.org>, 2002.
+# Youssef Chahibi <chahibi@gmail.com>, 2007.
+# Abdalrahim Fakhouri <abdilra7eem@yahoo.com>, 2012.
+# Zayed Al-Saidi <zayed.alsaidi@gmail.com>, 2021, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: lskat\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-23 00:42+0000\n"
+"PO-Revision-Date: 2022-01-22 13:05+0400\n"
+"Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
+"Language-Team: ar\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Lokalize 21.07.70\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Mohamed SAAD محمد سعد,زايد السعيدي"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "metehyi@free.fr,zayed.alsaidi@gmail.com"
+
+#: config_two.cpp:29
+#, kde-format
+msgctxt "Default player name"
+msgid "Alice"
+msgstr "خالد"
+
+#: config_two.cpp:30
+#, kde-format
+msgctxt "Default player name"
+msgid "Bob"
+msgstr "عبدالله"
+
+#: deck.cpp:145
+#, kde-format
+msgid "no valid card"
+msgstr "كرت غير صالح"
+
+#: deck.cpp:152 deck.cpp:164
+#, kde-format
+msgid "unknown"
+msgstr "مجهول"
+
+#: deck.cpp:153
+#, kde-format
+msgctxt "suite name"
+msgid "Clubs"
+msgstr "سباتي"
+
+#: deck.cpp:154
+#, kde-format
+msgctxt "suite name"
+msgid "Spades"
+msgstr "بستوني"
+
+#: deck.cpp:155
+#, kde-format
+msgctxt "suite name"
+msgid "Hearts"
+msgstr "كُبَّة"
+
+#: deck.cpp:156
+#, kde-format
+msgctxt "suite name"
+msgid "Diamonds"
+msgstr "ديناري"
+
+#: deck.cpp:157
+#, kde-format
+msgctxt "trump name"
+msgid "Grand"
+msgstr "كبير"
+
+#: deck.cpp:165
+#, kde-format
+msgctxt "card name"
+msgid "Ace"
+msgstr "أص"
+
+#: deck.cpp:166
+#, kde-format
+msgctxt "card name"
+msgid "King"
+msgstr "ملك"
+
+#: deck.cpp:167
+#, kde-format
+msgctxt "card name"
+msgid "Queen"
+msgstr "ملكة"
+
+#: deck.cpp:168
+#, kde-format
+msgctxt "card name"
+msgid "Jack"
+msgstr "شب"
+
+#: deck.cpp:169
+#, kde-format
+msgctxt "card name"
+msgid "Ten"
+msgstr "عشر"
+
+#: deck.cpp:170
+#, kde-format
+msgctxt "card name"
+msgid "Nine"
+msgstr "تسعة"
+
+#: deck.cpp:171
+#, kde-format
+msgctxt "card name"
+msgid "Eight"
+msgstr "ثمانية"
+
+#: deck.cpp:172
+#, kde-format
+msgctxt "card name"
+msgid "Seven"
+msgstr "سبعة"
+
+#: deck.cpp:181
+#, kde-format
+msgctxt "eg jack of clubs"
+msgid "%1 of %2"
+msgstr "%1 من %2"
+
+#: display_intro.cpp:93
+#, kde-format
+msgctxt "Title of the game - line 1"
+msgid "Lieutenant Skat"
+msgstr "النقيب سكيت"
+
+#: display_intro.cpp:94
+#, kde-format
+msgctxt "Title of the game - line 2"
+msgid "for"
+msgstr "لـ"
+
+#: display_intro.cpp:95
+#, kde-format
+msgctxt "Title of the game - line 3"
+msgid "K D E"
+msgstr "كدي"
+
+#: display_two.cpp:368
+#, kde-format
+msgctxt "Resulting score of a game with no point"
+msgid "no point"
+msgstr "لا توجد نقطة"
+
+#: display_two.cpp:370
+#, kde-format
+msgctxt "Resulting score of a game between 1 and 4"
+msgid "%1 point"
+msgid_plural "%1 points"
+msgstr[0] "لا توجد نقطة"
+msgstr[1] "نقطة واحدة"
+msgstr[2] "نقطتان"
+msgstr[3] "%1 نقاط"
+msgstr[4] "%1 نقطة"
+msgstr[5] "%1 نقطة"
+
+#: engine_two.cpp:235
+#, kde-format
+msgid "Game was ended - no winner"
+msgstr "انتهت اللعبة - لا يوجد فائز"
+
+#: engine_two.cpp:244
+#, kde-format
+msgid "Game is drawn"
+msgstr "انتهت اللعبة بالتعادل"
+
+#: engine_two.cpp:250
+#, kde-format
+msgid "Player 1 - %1 won "
+msgstr "اللاعب ١ - %1 فاز"
+
+#: engine_two.cpp:257 engine_two.cpp:277
+#, kde-format
+msgid "%1 won with 90 points. Super!"
+msgstr "%1 فاز بتسعين نقطه. ممتاز!"
+
+#: engine_two.cpp:263 engine_two.cpp:283
+#, kde-format
+msgid "%1 won to nil. Congratulations!"
+msgstr "%1 فاز مقابل صفر. مبروك!"
+
+#: engine_two.cpp:270
+#, kde-format
+msgid "Player 2 - %1 won "
+msgstr "فاز اللاعب 2 - %1"
+
+#: engine_two.cpp:344
+#, kde-format
+msgid "Game ended"
+msgstr "أنهيت اللعبة"
+
+#. i18n: ectx: Menu (game)
+#: lskatui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "الل&عبة"
+
+#. i18n: ectx: Menu (settings)
+#: lskatui.rc:12
+#, kde-format
+msgid "&Settings"
+msgstr "الإ&عدادات"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: lskatui.rc:24
+#, kde-format
+msgid "Main Toolbar"
+msgstr "شريط  الأدوات العام"
+
+#: main.cpp:64
+#, kde-format
+msgid "LSkat"
+msgstr "النقيب سكيت"
+
+#: main.cpp:66
+#, kde-format
+msgid "LSkat: A desktop card game"
+msgstr "النقيب سكيت: لعبة ورق للسطح المكتب"
+
+#: main.cpp:68
+#, kde-format
+msgid "(c) 1995-2007, Martin Heni"
+msgstr "(c) 1995-2007, Martin Heni"
+
+#: main.cpp:73
+#, kde-format
+msgid "Martin Heni"
+msgstr "Martin Heni"
+
+#: main.cpp:73
+#, kde-format
+msgid "Game design and code"
+msgstr "تصميم اللعبة و كتابة الشفرة"
+
+#: main.cpp:74
+#, kde-format
+msgid "Eugene Trounev"
+msgstr "Eugene Trounev"
+
+#: main.cpp:74
+#, kde-format
+msgid "Graphics"
+msgstr "الرسوميات"
+
+#: main.cpp:76
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:76
+#, kde-format
+msgid "Code Improvements"
+msgstr "تحسينات الشفرة"
+
+#: main.cpp:82
+#, kde-format
+msgid "Enter debug level"
+msgstr "أدخل مستوى التصحيح"
+
+#: main.cpp:83
+#, kde-format
+msgid "Skip intro animation"
+msgstr "تخطى المقدمة المتحركة"
+
+#: main.cpp:84
+#, kde-format
+msgid "Run game in demo (autoplay) mode"
+msgstr "شغل اللعبة في النمط الاستعراضي (لعب تلقائي)"
+
+#: mainwindow.cpp:79
+#, kde-format
+msgid "Installation error: No theme list found."
+msgstr "خطأ تثبيتي: لا يوجد قائمة السمات"
+
+#: mainwindow.cpp:126
+#, kde-format
+msgid "Installation error: Theme file error."
+msgstr "خطأ تثبيتي: خطأ في ملف السمة"
+
+#: mainwindow.cpp:144
+#, kde-format
+msgid "Welcome to Skat! Please start a new game."
+msgstr "أهلا بك إلى سكات ! الرجاء بدأ لعبة جديدة."
+
+#: mainwindow.cpp:333
+#, kde-format
+msgid "Game Over. Please start a new game."
+msgstr "انتهت اللعبة. الرجاء ابدأ لعبة جديدة."
+
+#: mainwindow.cpp:347
+#, kde-format
+msgctxt "Player name and number"
+msgid "Next move for %1 (player %2)"
+msgstr "الحركة التالية لـ %1 (اللاعب %2)"
+
+#: mainwindow.cpp:361
+#, kde-format
+msgid "Clears the all time statistics which is kept in all sessions."
+msgstr "مسح كل احصائيات الوقت التي يحتفظ بها في كل جلسة."
+
+#: mainwindow.cpp:366
+#, kde-format
+msgid "Ends a currently played game. No winner will be declared."
+msgstr "ينهي اللعبة الحالية. لن يعلن عن أي فائز."
+
+#: mainwindow.cpp:371
+#, kde-format
+msgid "Quits the program."
+msgstr "الخروج من البرنامج."
+
+#: mainwindow.cpp:374
+#, kde-format
+msgid "Starting Player"
+msgstr "اللاعب البادئ"
+
+#: mainwindow.cpp:377
+#, kde-format
+msgid "Changing starting player..."
+msgstr "جاري تغيير اللاعب البادئ..."
+
+#: mainwindow.cpp:378
+#, kde-format
+msgid "Chooses which player begins the next game."
+msgstr "اختار أي لاعب سوف يبدأ بالمرة القادمة."
+
+#: mainwindow.cpp:381
+#, kde-format
+msgid "Player &1"
+msgstr "اللاعب &1"
+
+#: mainwindow.cpp:382
+#, kde-format
+msgid "Player &2"
+msgstr "اللاعب &2"
+
+#: mainwindow.cpp:387
+#, kde-format
+msgid "Player &1 Played By"
+msgstr "اللاعب &1 بواسطة"
+
+#: mainwindow.cpp:390
+#, kde-format
+msgid "Changing who plays player 1..."
+msgstr "جاري تغيير اللاعب 1..."
+
+#: mainwindow.cpp:391
+#, kde-format
+msgid "Changing who plays player 1."
+msgstr "تغيير من يلعب اللاعب 1."
+
+#: mainwindow.cpp:393
+#, kde-format
+msgid "&Mouse"
+msgstr "ال&فأرة"
+
+#: mainwindow.cpp:394
+#, kde-format
+msgid "&Computer"
+msgstr "ال&حاسب"
+
+#: mainwindow.cpp:399
+#, kde-format
+msgid "Player &2 Played By"
+msgstr "اللاعب &2 بواسطة"
+
+#: mainwindow.cpp:402
+#, kde-format
+msgid "Changing who plays player 2..."
+msgstr "جاري تغيير اللاعب 2..."
+
+#: mainwindow.cpp:403
+#, kde-format
+msgid "Changing who plays player 2."
+msgstr "تغيير من يلعب اللاعب 1."
+
+#: mainwindow.cpp:411
+#, kde-format
+msgid "&Theme"
+msgstr "ال&سمة"
+
+#: mainwindow.cpp:417
+#, kde-format
+msgid "Changing theme..."
+msgstr "تغيير السمة..."
+
+#: mainwindow.cpp:418
+#, kde-format
+msgid "Changing theme."
+msgstr "تغيير السمة."
+
+#: mainwindow.cpp:422
+#, kde-format
+msgid "Select &Card Deck..."
+msgstr "اختر &شكل البطاقة..."
+
+#: mainwindow.cpp:425
+#, kde-format
+msgid "Configure card decks..."
+msgstr "تنسيق شكل البطاقات..."
+
+#: mainwindow.cpp:426
+#, kde-format
+msgid "Choose how the cards should look."
+msgstr "اختار كيف سوف تبدو البطاقات."
+
+#: mainwindow.cpp:430
+#, kde-format
+msgid "&Change Player Names..."
+msgstr "&غيّر أسماء اللاعبين..."
+
+#: mainwindow.cpp:501
+#, kde-format
+msgid "Do you really want to clear the all time statistical data?"
+msgstr "هل تريد حقا مسح كل احصائيات الوقت ؟"
+
+#: mainwindow.cpp:574
+#, kde-format
+msgid "Dealing cards..."
+msgstr "توزيع الأوراق..."
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
+#: namedialog.ui:14
+#, kde-format
+msgid "Configure Names"
+msgstr "ضبط الأسماء"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: namedialog.ui:20
+#, kde-format
+msgid "Player Names"
+msgstr "أسماء اللاعبين"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: namedialog.ui:32
+#, kde-format
+msgid "Player 1:"
+msgstr "اللاعب 1:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: namedialog.ui:39
+#, kde-format
+msgid "Player 2:"
+msgstr "اللاعب 2:"
+
+#: scoresprite.cpp:148
+#, kde-format
+msgctxt "Score in score widget"
+msgid "Score: %1"
+msgstr "النتيجه: %1"
+
+#: scoresprite.cpp:156
+#, kde-format
+msgctxt "Won and overall games in score widget"
+msgid "Games: %1 / %2"
+msgstr "الألعاب: %1 / %2"
+
+#~ msgid "OK"
+#~ msgstr "حسنا"
+
+#~ msgid "Cancel"
+#~ msgstr "ألغ"
+
+#~ msgid "Player %1 won "
+#~ msgstr "فاز اللاعب  %1"

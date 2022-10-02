@@ -1,0 +1,769 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY i18n-lskat "Officersskat">
+  <!ENTITY lskat "LSkat">
+
+  <!ENTITY % Swedish "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>Handbok Officersskat</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Granskare</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2021-10-05</date>
+<releaseinfo
+>1.50 (KDE Gear 21.08)</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Dokumentationen beskriver spelet Officersskat version 1.50</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>spel</keyword>
+<keyword
+>spelkort</keyword>
+<keyword
+>kortspel</keyword>
+<keyword
+>spelhall</keyword>
+<keyword
+>kort</keyword>
+<keyword
+>skat</keyword>
+<keyword
+>officer</keyword>
+<keyword
+>Officersskat</keyword>
+<keyword
+>två spelare</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+<note
+><title
+>Speltyp:</title
+><para
+>Kortspel, spelhall</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Antal möjliga spelare:</title
+><para
+>Två</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+><literal
+>Officersskat</literal
+> (från tyskans <foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>) är ett roligt och fängslande kortspel för två spelare, där den andra spelaren antingen är en verklig motspelare, eller en inbyggd artificiell intelligens. </para>
+<para
+>Spelet spelas med en enda kortlek. Korten blandas och delas ut till spelarna på så sätt att hälften är dolda och hälften är öppna. Varje deltagare spelar ett av de öppna korten varje stick. Så fort alla kort har spelats avslutas omgången och poängen beräknas och delas ut. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>Hur man spelar</title>
+<note
+><title
+>Syfte:</title
+><para
+>Vinn mer än 60 poäng i ett enda spel.</para
+></note>
+
+<para
+>När utdelningen är klar har varje spelare fått 16 kort vardera. Korten visas i två horisontella rader med fyra kort per rad. Hälften av korten är dolda och hälften öppna. Som spelare kan du både se motståndarens kort samt dina egna. Nu kan du spela ut genom att klicka på något av dina kort som för tillfället är öppna. Motståndaren måste svara genom att välja ett motsvarande kort från sina högar.</para>
+
+<note
+><para
+>Om motståndaren är den artificiella intelligensen, väljs korten automatiskt.</para
+></note>
+
+<para
+>När sticket är klart beräknas kortens värde och antingen får du eller motståndaren poäng. Spelet är klart efter 16 stick (när alla dina och motståndarens kort har spelats ut). När spelet är klart jämförs dina poäng med motståndarens och spelaren med flest poäng vinner omgången.</para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>Spelets regler, strategi och tips</title>
+
+<sect1 id="screen">
+<title
+>Spelbordet</title>
+
+<screenshot>
+<screeninfo
+>Det vanliga spelbordet för Officersskat.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Referens till spelbordet i Officersskat.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>Indikering av aktiv spelare</seg>
+<seg
+>Korthögar för första och andra spelaren</seg>
+<seg
+>Högen med vunna kort (om det finns några)</seg>
+<seg
+>Spelbordet</seg>
+<seg
+>Resultattavla med spelarnas namn, poäng i pågående spel, spelarens totala poäng, och antal vinster per spel.</seg>
+<seg
+>Spelarens typ (människa, dator)</seg>
+<seg
+><quote
+>Trumf</quote
+> i pågående spel</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>Regler</title>
+<itemizedlist>
+<listitem
+><para
+>Varje spelare äger 16 kort. Åtta av dem täcks av åtta öppna kort.</para
+></listitem>
+<listitem
+><para
+>Ett dolt kort kan bara visas efter det öppna kort som täcker det har spelats.</para
+></listitem>
+<listitem
+><para
+>Varje spel har ett slumpmässigt valt <quote
+>trumfkort</quote
+> [8].</para
+></listitem>
+<listitem
+><para
+>Alla fyra knektar räknas som trumf och tillhör inte sina färger.</para
+></listitem>
+<listitem
+><para
+>Om en färg (t.ex. hjärter) är vald som <quote
+>trumf</quote
+> räknas alla sju hjärterkort samt alla fyra knektar som trumf, vilket ger 11 trumfkort.</para
+></listitem>
+<listitem
+><para
+>Knektarna slår varandra i ordning (mest värd till minst värd): klöver, spader, hjärter, ruter.</para
+></listitem>
+<listitem
+><para
+>Kortföljden för en trumffärg är: klöver knekt, spader knekt, hjärter knekt, ruter knekt, äss, tio, kung, dam, nio, åtta, sju.</para
+></listitem>
+<listitem
+><para
+>Kortföljden för färger som inte är trumf är: äss, tio, kung, dam, nio, åtta, sju.</para
+></listitem>
+<listitem id="card-values"
+><para
+>Kortvärden (högsta till lägsta):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Kort</entry
+><entry
+>Värde</entry
+></row>
+<row
+><entry
+>Äss</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Tio</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>Kung</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Dam</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Knekt</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Nio</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Åtta</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Sju</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>Ett särskilt <quote
+>trumfspel</quote
+> kallas Sans. I det spelet är ingen färg trumf och bara de fyra knektarna räknas som trumf. Speltypen indikeras med symbolen av ett knekthuvud [8] på resultattavlan [6].</para
+></listitem>
+<listitem
+><para
+>Om en spelare börjar omgången kan han välja vilket kort som ska spelas, antingen ett kort från en färg eller ett <quote
+>trumfkort</quote
+>.</para
+></listitem>
+<listitem
+><para
+>Bara de öppna korten från spelarens egna högar kan användas för att spela omgången.</para
+></listitem>
+<listitem
+><para
+>Spelaren som vinner omgången börjar nästa omgång.</para
+></listitem>
+<listitem
+><para
+>Spelaren som vinner omgången lägger till värdet på korten som spelades i omgången till sina poäng.</para
+></listitem>
+<listitem
+><para
+>Spelaren med mer än 60 poäng vinner spelet.</para
+></listitem>
+<listitem
+><para
+>Om båda spelarna har 60 poäng slutar spelet oavgjort.</para
+></listitem>
+<listitem
+><para
+>För varje spel erhålles ett visst antal vinstpoäng som läggs till i totalpoängen.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Poäng</entry
+><entry
+>Resultat</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>61 till 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>91 till 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>Strategi och tips</title>
+<para
+>När spelet börjar ska spelaren som startar spela något av de öppna korten från sina egna högar. Om den andra spelaren för tillfället har öppna kort av samma färg som det spelade kortet, måste han eller hon spela ett av dessa kort. Om den andra spelaren dock inte har ett kort i samma färg, kan han eller hon spela vilket annat kort som helst, inklusive ett <quote
+>trumfkort</quote
+>.</para>
+<para
+>Om det finns minst ett <quote
+>trumfkort</quote
+>, vinns båda korten av det högsta <quote
+>trumfkortet</quote
+>.</para>
+<para
+>Om det inte finns något <quote
+>trumfkort</quote
+>, vinns båda korten av det högsta kortet i färgen som spelas av spelaren som startar.</para>
+<para
+>Om spelaren som svarar inte har något kort i den begärda färgen och inget <quote
+>trumfkort</quote
+>, måste han spela vilket kort som helst och spelaren som startar vinner båda korten.</para>
+
+<para
+>Spelaren som vinner omgången börjar nästa omgång.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Vanliga frågor</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>Kan man spela med en annan kortlek?</para
+></question>
+ <answer
+><para
+>Ja. Titta på <link linkend="deck_change"
+>följande avsnitt</link
+> i 'Översikt av gränssnittet' för detaljerad information.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Jag gjorde ett misstag. Kan man ångra sig? </para
+></question>
+ <answer
+><para
+>Nej. Spelet har ingen funktion för att ångra sig.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Kan man använda tangentbordet för att spela? </para
+></question>
+ <answer
+><para
+>Nej. Spelet kan inte spelas med tangentbordet.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Jag kan inte räkna ut vad man ska göra här. Finns det några tips? </para
+></question>
+ <answer
+><para
+>Nej. Spelet har ingen tipsfunktion.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Jag måste avsluta spelet nu, men jag är inte klar än. Kan man spara det man har gjort?</para
+></question>
+ <answer
+><para
+>Nej. Spelet har ingen funktion för att spara tillståndet.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Kan man ändra spelarnas namn?</para
+></question>
+ <answer
+><para
+>Ja. Titta på <link linkend="name_change"
+>följande avsnitt</link
+> i 'Översikt av gränssnittet' för detaljerad information om hur man ändrar namnen som visas till höger om spelbordet.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>Översikt av gränssnittet</title>
+
+<sect1 id="file-menu">
+<title
+>Menyn Spel</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+><anchor id="new_game"/>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Ny</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>Startar ett nytt spel.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>End</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Sluta spel</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Slutar ett pågående spel.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Rensa statistiken</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Rensar minnet för spelstatistiken.</action
+> Den här statistiken sparas vanligtvis när spelet slutar och visar antal spelade och vunna spel för varje spelare. Denna rensas med det här menyalternativet. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Avslutar programmet.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Menyn Inställningar</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guisubmenu
+>Startspelare</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Väljer om spelare 1 (överst) eller spelare två (nederst) börjar nästa spel. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guisubmenu
+>Spelare 1 spelas av</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Väljer vem som ska spela som spelare 1 (överst). Spelaren kan antingen styras av den lokala spelaren med musen, eller så styrs den av datorn. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guisubmenu
+>Spelare 2 spelas av</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Väljer vem som ska spela som spelare 2 (underst). Spelaren kan antingen styras av den lokala spelaren med musen, eller så styrs den av datorn. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guisubmenu
+>Tema</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Väljer ett visuellt tema. Det ändrar spelets utseende men inte kortens. Kortlekar väljes med egna menyalternativ. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><shortcut
+><keycap
+>F10</keycap
+></shortcut
+> <guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Välj kortlek...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+>Välj framsida och baksida på kortleken som används.</action
+> Du kan välja dem från en dialogruta med förhandsgranskning som visar alla kortlekar som installerats. </para>
+<note>
+<para
+>Vissa kortlekar är markerade som skalbar grafik (&SVG;) i dialogrutan. Genom att välja någon av dem visas grafiken med bättre kvalitet om spelet skalas eller förstoras. Grafik med fast storlek förlorar kvalitet när dess storlek ändras till något som skiljer sig från originalstorleken. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Ändra spelarnas namn...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Ändra namn på spelarna.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Dessutom har Officersskat de vanliga menyalternativen <guimenu
+>Inställningar</guimenu
+> och <guimenu
+>Hjälp</guimenu
+> i &kde;. För mer information, läs avsnitten <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menyn Inställningar</ulink
+> och <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menyn Hjälp</ulink
+> i &kde;:s Grunder. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Tack till och licens</title>
+
+<para
+>Officersskat </para>
+<para
+>Program copyright 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Grafik copyright 2007 Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+> </para>
+<para
+>Dokumentation copyright 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Dokumentation överförd till &kde; 2.0 av &Mike.McBride; &Mike.McBride.mail; </para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+

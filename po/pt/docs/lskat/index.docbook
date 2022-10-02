@@ -1,0 +1,829 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&lskat;">
+  <!ENTITY kappversion "1.4.0"
+><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY package "kdegames">
+  <!ENTITY % Portuguese "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>O Manual do Tenente Skat</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Revisão</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>zepires@gmail.com</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2010-09-05</date>
+<releaseinfo
+>&kappversion;</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Esta documentação descreve o jogo &kappname; na versão &kappversion;</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>jogo</keyword>
+<keyword
+>jogo de cartas</keyword>
+<keyword
+>jogo de cartas</keyword>
+<keyword
+>arcada</keyword>
+<keyword
+>carta</keyword>
+<keyword
+>skat</keyword>
+<keyword
+>tenente</keyword>
+<keyword
+>lskat</keyword>
+<keyword
+>dois jogadores</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+<note
+><title
+>Tipo de jogo:</title
+><para
+>Cartas, Arcada</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Número de jogadores possíveis:</title
+><para
+>Dois</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+>O Tenente Skat (do Alemão <foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>) é um jogo de cartas para dois jogadores, onde o segundo jogador tanto poderá ser um adversário ao vivo ou um jogador de inteligência artificial. </para>
+<para
+>Este jogo usa apenas um único baralho de cartas. As cartas são baralhadas e distribuídas pelos jogadores, de forma que metade das cartas fica com a face para baixo e a outra para cima. Cada participante joga uma das cartas à vista de cada vez. Assim que todas as cartas tenham sido jogadas, a ronda termina e os pontos são calculados e atribuídos. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>Como Jogar</title>
+<note
+><title
+>Objectivo:</title
+><para
+>Pontuações com mais de 60 pontos num único jogo.</para
+></note>
+<para
+>Logo que tenha terminado a distribuição, cada jogador fica com 16 cartas cada um. As cartas são apresentadas em duas filas verticais - quatro cartas por fila. Metade das cartas têm a face para baixo e a outra tem-nas para cima. Como jogador, poderá ver as cartas do adversário, assim como as suas. Poderá fazer uma jogada então, carregando para tal numa das suas cartas que tenha a face para cima. O adversário terá de responder com uma carta correspondente da sua própria pilha. <note
+><title
+>Nota</title
+><para
+>Se o seu adversário for de inteligência artificial, as suas cartas serão escolhidas automaticamente.</para
+></note
+> Logo que a troca termine, os valores das cartas jogadas são avaliados e você ou o seu adversário irão ganhar pontos. O jogo fica completo em 16 vazas (quando tiver jogado todas as suas cartas e as do seu adversário). Depois de o jogo terminar, a sua pontuação será comparada com a do seu adversário e o jogador com maior pontuação ganha a ronda. </para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>Regras do Jogo, Estratégias e Sugestões</title>
+
+<sect1 id="screen">
+<title
+>Ecrã do Jogo</title>
+
+<screenshot>
+<screeninfo
+>Ecrã de jogo predefinido do &lskat;.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Ecrã de jogo de referência predefinido do &lskat;.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>Indicador do jogador activo</seg>
+<seg
+>Pilhas de cartas dos jogadores 1 e 2</seg>
+<seg
+>Pilha de cartas ganhas (se houver)</seg>
+<seg
+>Área do jogo</seg>
+<seg
+>Tabela de pontuações com o nome do jogador, a pontuação no jogo actual, a pontuação global do jogador e a quantidade de vitórias por jogo</seg>
+<seg
+>Controlador do jogador (Humano/PC)</seg>
+<seg
+>O 'trunfo' no jogo actual</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>Regras</title>
+<itemizedlist>
+<listitem
+><para
+>Cada jogador possuir 16 cartas. 8 delas cobertas e 8 a descoberto.</para
+></listitem>
+<listitem
+><para
+>Uma carta para baixo só poderá ser aberta depois de uma carta visível que a cubra tiver sido jogada.</para
+></listitem>
+<listitem
+><para
+>Cada jogo tem uma carta de 'trunfo', escolhida aleatoriamente [8].</para
+></listitem>
+<listitem
+><para
+>Todos os quatro Valetes contam como trunfo e não pertencem aos seus naipes.</para
+></listitem>
+<listitem
+><para
+>Se o 'trunfo' for &eg; copas, todas as sete copas, assim como todos os quatro Valetes contam como trunfos, gerando assim 11 cartas de trunfo.</para
+></listitem>
+<listitem
+><para
+>Os Valetes ganham a todos por ordem (do maior para o menor): Paus->Espadas->Copas->Ouros.</para
+></listitem>
+<listitem
+><para
+>A sequência de cartas para uma cor de trunfo: Valete de paus, Valete de espadas, Valete de copas, Valete de ouros, Ás, Dez, Rei, Dama, Nove, Oito, Sete.</para
+></listitem>
+<listitem
+><para
+>A sequência de cartas para um naipe não-trunfo: Ás, Dez, Rei, Dama, Nove, Oito, Sete.</para
+></listitem>
+<listitem id="card-values"
+><para
+>Os valores das cartas (do maior para o menor):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Carta</entry
+><entry
+>Valor</entry
+></row>
+<row
+><entry
+>Ás</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Dez</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>Rei</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Dama</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Valete</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Nove</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Oito</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Sete</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>Um 'trunfo' especial é o <firstterm
+>Grande</firstterm
+>. Neste jogo, nenhum naipe é trunfo e somente os quatro Valetes é que contam como trunfo. No jogo isto é indicado com o símbolo da cabeça do Valete [8] na tabela de pontuações [6].</para
+></listitem>
+<listitem
+><para
+>Se o jogador iniciar a jogada, terá uma escolha de cartas com que jogar, sendo uma carta de um dado naipe ou uma carta de 'trunfo'.</para
+></listitem>
+<listitem
+><para
+>Só as cartas de face para cima da pilha própria do jogador poderão ser usadas para jogar numa vaza.</para
+></listitem>
+<listitem
+><para
+>O jogador que ganhou as cartas poderá fazer a próxima jogada.</para
+></listitem>
+<listitem
+><para
+>O jogador que ganhar a vaza, adiciona os valores das cartas jogadas nessa ronda à sua própria pontuação.</para
+></listitem>
+<listitem
+><para
+>Um jogador com mais de 60 pontos ganha o jogo.</para
+></listitem>
+<listitem
+><para
+>Se ambos os jogadores terminarem com 60 pontos, o jogo termina empatado.</para
+></listitem>
+<listitem
+><para
+>Para cada jogo, ganha-se um determinado número de pontos e este é adicionado à pontuação global.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Pontos</entry
+><entry
+>Pontuação</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>61 a 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>91 a 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>Estratégias e Dicas</title>
+<para
+>Quando o jogo começa, o jogador inicial deverá jogar uma das cartas com face para cima da sua própria pilha. Se o segundo jogador tiver cartas visíveis que sejam do mesmo naipe que a carta jogada, terá de responder com uma dessas cartas. Se, todavia, o segundo jogador não tiver uma carta do mesmo naipe, poderá jogador com qualquer outra carta, incluindo uma carta de 'trunfo'.</para>
+<para
+>Se existir pelo menos uma carta de 'trunfo', a carta de 'trunfo' mais alta ganha ambas as cartas.</para>
+<para
+>Se não existir uma carta de 'trunfo', a carta mais alta do naipe jogado pelo jogador inicial ganha ambas as cartas.</para>
+<para
+>Se o jogador que responde não tiver nenhuma carta do naipe definido e também não tiver nenhuma carta de 'trunfo', terá de jogar qualquer carta e o jogador inicial irá ganhar ambas as cartas.</para>
+
+<para
+>O jogador que ganhar a ronda poderá fazer a próxima jogada.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Perguntas mais frequentes</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>Posso jogar com outro baralho de cartas?</para
+></question>
+ <answer
+><para
+>Sim. Veja <link linkend="deck_change"
+>esta</link
+> secção da 'Apresentação à Interface' para mais detalhes.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Cometi um erro. Posso anulá-lo? </para
+></question>
+ <answer
+><para
+>Não. Este jogo não tem uma funcionalidade para <quote
+>Desfazer</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Posso usar o teclado para jogar neste jogo? </para
+></question>
+ <answer
+><para
+>Não, este jogo não pode ser jogado com o teclado.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Não consigo descobrir o que fazer aqui! Existe alguma sugestão? </para
+></question>
+ <answer
+><para
+>Não, este jogo não possui uma funcionalidade de <quote
+>Sugestão</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Tenho de sair do jogo agora, mas ainda não terminei. Posso gravar a minha situação actual?</para
+></question>
+ <answer
+><para
+>Não, este jogo não tem uma funcionalidade para <quote
+>Gravar o Estado</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Posso mudar os nomes dos jogadores?</para
+></question>
+ <answer
+><para
+>Sim. Para alterar os nomes que aparecem do lado direito do ecrã de jogo, veja <link linkend="name_change"
+>esta</link
+> secção da 'Apresentação à Interface' para mais detalhes.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>Apresentação à Interface</title>
+
+<sect1 id="file-menu">
+<title
+>O Menu Jogo</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+><anchor id="new_game"/>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Jogo</guimenu
+> <guimenuitem
+>Novo</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>Inicia um novo jogo.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Jogo</guimenu
+> <guimenuitem
+>Novo</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Termina um jogo em execução.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Jogo</guimenu
+> <guimenuitem
+>Limpar as Estatísticas</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Limpa toda a memória de jogos.</action
+> Esta estatística é normalmente gravada quando o jogo termina e mostra o número de jogos vencidos e efectuados por cada jogador. Isto é limpo com esta opção do menu. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Jogo</guimenu
+> <guimenuitem
+>Sair</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Sai do programa.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>O Menu Configuração</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar a Barra de Ferramentas</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Mostra ou esconde a barra de ferramentas. </action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mostrar a Barra de Estado</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Mostra ou esconde a barra de ferramentas. </action
+></para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guisubmenu
+>Jogador Inicial</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Selecciona se o jogador 1 (em cima) ou o 2 (em baixo) começa o próximo jogo. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guisubmenu
+>Jogador 1 Jogado por</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Escolhe quem joga pelo jogador 1 (em cima). O jogador tanto poderá ser controlado pelo jogador local com o rato como pelo computador. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+><guisubmenu
+>Jogador 2 Jogado por</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Escolhe quem controla o jogador 2 (em baixo). O jogador tanto poderá ser controlado pelo jogador local, com o rato, ou então pelo computador. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guisubmenu
+>Tema</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Escolhe um tema visual. Isto altera a aparência do menu, mas não das cartas. Os baralhos de cartas têm uma opção de menu correspondente. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>F10</keycap
+> </shortcut
+> <guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Seleccionar o Baralho...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+> Escolha a face e o verso do baralho de cartas usado para jogar.</action
+> Você poderá seleccioná-los numa janela de antevisão que mostra todos os baralhos instalados no &kde;. </para>
+<note>
+<para
+>Alguns baralhos ou faces traseiras dos mesmos estão marcados como SVG ou gráficos vectoriais. Se os escolher, irá mostrar uma melhor qualidade das imagens, quando o jogo for alargado ou mudar de tamanho. As imagens de tamanho fixo irão perder qualidade se forem dimensionadas para um formato diferente do original. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Mudar os Nomes dos Jogadores...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Muda o nome dos jogadores.</action>
+</para
+></listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Configurar os Atalhos...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Abre uma janela que lhe permite redefinir todos os atalhos do teclado.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry id="toolbar_change">
+<term
+><menuchoice
+><guimenu
+>Configuração</guimenu
+> <guimenuitem
+>Configurar as Barras de Ferramentas...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Abre uma janela que lhe permite redefinir a barra de ferramentas.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="help">
+<title
+>O Menu Ajuda</title>
+&help.menu.documentation; </sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Créditos e Licença</title>
+
+<para
+>&lskat; </para>
+<para
+>Programa com 'copyright' 2000-2007 de &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Gráficos com 'copyright' 2007 de Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+> </para>
+<para
+>Documentação com 'copyright' 2000-2007 de &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Documentação convertida para o &kde; 2.0 por &Mike.McBride; &Mike.McBride.mail; </para>
+
+<para
+>Tradução de José Nuno Pires <email
+>zepires@gmail.com</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+<appendix id="installation">
+<title
+>Instalação</title>
+
+&install.intro.documentation;
+
+
+<sect1 id="Compilation">
+<title
+>Compilação e Instalação</title>
+&install.compile.documentation; </sect1>
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+

@@ -1,0 +1,785 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY i18n-lskat "Lieutenant Skat">
+  <!ENTITY lskat "LSkat">
+
+  <!ENTITY % Russian "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>Руководство пользователя &lskat;</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Евгений</firstname
+> <surname
+>Трунев</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Редактор</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Владимир</firstname
+> <surname
+>Барышников</surname
+> <affiliation
+><address
+><email
+>vladimir@impb.psn.ru</email
+></address
+></affiliation
+> <contrib
+>Перевод на русский язык</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Олеся</firstname
+><surname
+>Герасименко</surname
+><affiliation
+><address
+><email
+>translation-team@basealt.ru</email
+></address
+></affiliation
+><contrib
+>Обновление перевода</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>5 октября 2021 г.</date>
+<releaseinfo
+>1.50 (KDE Gear 21.08)</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Это руководство описывает игру &i18n-lskat; версии 1.50</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>игра</keyword>
+<keyword
+>игральные карты</keyword>
+<keyword
+>карточная игра</keyword>
+<keyword
+>аркада</keyword>
+<keyword
+>карта</keyword>
+<keyword
+>skat</keyword>
+<keyword
+>лейтенант</keyword>
+<keyword
+>LsKat</keyword>
+<keyword
+>два игрока</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+<note
+><title
+>Жанр:</title
+><para
+>Карточная игра, аркада</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Количество игроков:</title
+><para
+>Двое</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+><literal
+>Лейтенант Скат</literal
+> (от немецкого <foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>) — это увлекательная карточная игра для двоих игроков (вторым игроком может быть как человек, так и компьютер). </para>
+<para
+>Игра ведётся с помощью одной колоды карт. Карты тасуются и раздаются игрокам так, что половина из них будет закрыта, а половина — открыта. Каждый из участников игры использует по одной открытой карте за ход. После того, как все карты будут использованы, раунд завершается и подсчитываются набранные очки. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>Правила игры</title>
+<note
+><title
+>Цель:</title
+><para
+>Набрать более 60 очков за одну игру.</para
+></note>
+
+<para
+>Сразу после раздачи у каждого игрока будет 16 карт. Карты показаны в виде двух горизонтальных рядов — по четыре карты в ряду. Половина карт будет закрыта, а половина — открыта. Игрок видит как свои карты, так и карты соперника. Чтобы сделать ход, игроку следует щёлкнуть левой кнопкой мыши по одной из своих открытых карт. Соперник должен сделать ответный ход, выбрав соответствующую карту из собственного набора.</para>
+
+<note
+><para
+>Если за соперника играет компьютер, его карты будут выбраны автоматически.</para
+></note>
+
+<para
+>После выполнения ходов будет вычислена стоимость карт и начислены очки игроку или его сопернику. Игра состоит из 16 раундов (розыгрыша всех карт игрока и его соперника). После завершения игры выполняется сравнение счёта, победителем раунда считается игрок с большим количеством очков.</para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>Правила игры, стратегия и советы</title>
+
+<sect1 id="screen">
+<title
+>Игровой экран</title>
+
+<screenshot>
+<screeninfo
+>Стандартный игровой экран &i18n-lskat;.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Стандартный игровой экран &i18n-lskat;.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>Обозначение текущего игрока</seg>
+<seg
+>Наборы карт для первого и второго игроков</seg>
+<seg
+>Стопка выигранных карт (если имеются)</seg>
+<seg
+>Область игры</seg>
+<seg
+>Доска счёта с именем игрока, очками в текущей игре, общим счётом игрока и количеством побед в игре</seg>
+<seg
+>Игрок (человек/компьютер)</seg>
+<seg
+><quote
+>Козырь</quote
+> в текущей игре</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>Правила</title>
+<itemizedlist>
+<listitem
+><para
+>Каждый игрок имеет 16 карт, 8 из которых закрыты, а другие 8 — открыты.</para
+></listitem>
+<listitem
+><para
+>Закрытую карту можно открыть только после того, как будет разыграна лежащая на ней открытая карта.</para
+></listitem>
+<listitem
+><para
+>В каждой игре есть случайно выбранная <quote
+>козырная</quote
+> карта [8].</para
+></listitem>
+<listitem
+><para
+>Все четыре валета являются козырями и не принадлежат к своей масти.</para
+></listitem>
+<listitem
+><para
+>Если выбрана определённая масть <quote
+>козырей</quote
+> (например, черви), все семь карт червей, а также все четыре валета считаются козырями; в общей сложности козырных карт будет 11.</para
+></listitem>
+<listitem
+><para
+>Валеты бьют друг друга в следующем порядке (от большего к меньшему): Трефы->Пики->Черви->Бубны.</para
+></listitem>
+<listitem
+><para
+>Последовательность карт козырной масти: валет трефов, валет пик, валет червей, валет бубнов, туз, десятка, король, королева, девятка, восьмёрка, семёрка.</para
+></listitem>
+<listitem
+><para
+>Последовательность карт некозырной масти: туз, десятка, король, королева, девятка, восьмёрка, семёрка.</para
+></listitem>
+<listitem id="card-values"
+><para
+>Стоимость карт (от самой высокой до самой низкой):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Карта</entry
+><entry
+>Очки</entry
+></row>
+<row
+><entry
+>Туз</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Десятка</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>Король</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Королева</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Валет</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Девятка</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Восьмёрка</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Семёрка</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>Особая <quote
+>козырная</quote
+> игра называется Гранд (Grand). В такой игре ни одна масть не является козырной, козырями считаются только четыре валета. Этот тип игры обозначается символом головы валета [8] на доске счёта [6].</para
+></listitem>
+<listitem
+><para
+>Если игрок начинает раунд, он должен выбрать карту, которой следует разыграть: карту какой-либо масти или <quote
+>козырь</quote
+>.</para
+></listitem>
+<listitem
+><para
+>Для игры в раунде игрок может использовать только открытые карты из своего набора.</para
+></listitem>
+<listitem
+><para
+>Игрок, который выиграл раунд, начинает следующий.</para
+></listitem>
+<listitem
+><para
+>К счёту выигравшего раунд игрока добавляется стоимость разыгранных в этом раунде карт.</para
+></listitem>
+<listitem
+><para
+>В игре побеждает набравший более 60 очков игрок.</para
+></listitem>
+<listitem
+><para
+>Если на момент завершения игры на счету каждого из игроков будет 60 очков, она считается сыгранной вничью.</para
+></listitem>
+<listitem
+><para
+>За каждую игру присуждается определённое количество призовых очков, которое затем добавляется к общему счёту.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Очки</entry
+><entry
+>Счёт</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>от 61 до 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>от 91 до 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>Стратегия и советы</title>
+<para
+>Когда игра начинается, делающий первый ход игрок должен использовать любую из открытых карт собственного набора. Если у второго игрока среди открытых карт есть карты той же масти, он должен ответить первому игроку такой картой. Если у второго игрока таких карт нет, он может использовать любую другую карту, включая <quote
+>козырную</quote
+>.</para>
+<para
+>Если имеется хотя бы одна <quote
+>козырная</quote
+> карта, старший <quote
+>козырь</quote
+> выигрывает обе карты.</para>
+<para
+>Если <quote
+>козырной</quote
+> карты нет, обе карты выигрывает старшая карта той масти, которую использовал сделавший первый ход игрок.</para>
+<para
+>Если у второго игрока нет карт нужной масти или <quote
+>козыря</quote
+>, он должен разыграть любую карту. В этом случае обе карты выиграет первый игрок.</para>
+
+<para
+>Игрок, который выиграл раунд, начинает следующий.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Вопросы и ответы</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>Можно ли играть другой колодой карт?</para
+></question>
+ <answer
+><para
+>Да. Подробные сведения доступны в <link linkend="deck_change"
+>этом</link
+> разделе «Обзора интерфейса».</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Был сделан ошибочный ход. Можно ли его отменить? </para
+></question>
+ <answer
+><para
+>Нет. В этой игре не предусмотрена возможность отмены хода.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Можно ли играть с помощью клавиатуры? </para
+></question>
+ <answer
+><para
+>Нет. В эту игру нельзя играть с помощью клавиатуры.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Непонятно, что делать! Есть ли подсказки? </para
+></question>
+ <answer
+><para
+>Нет. В этой игре не предусмотрены подсказки.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Нужно закрыть программу, но игра ещё не закончена. Можно ли сохранить игру?</para
+></question>
+ <answer
+><para
+>Нет. В этой игре не предусмотрена возможность сохранения состояния.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Можно ли изменить имена игроков?</para
+></question>
+ <answer
+><para
+>Да. Сведения о том, как изменить имена, отображаемые в правой части игрового экрана, доступны в <link linkend="name_change"
+>этом</link
+> разделе «Обзора интерфейса».</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>Обзор интерфейса</title>
+
+<sect1 id="file-menu">
+<title
+>Меню «Игра»</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+><anchor id="new_game"/>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Начать игру</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>Начало новой игры.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Закончить игру</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Завершение текущей игры.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Игра</guimenu
+> <guimenuitem
+>Очистить статистику</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Очистка всей памяти игры.</action
+> Статистические данные обычно сохраняются в конце игры и показывают общий счёт и количество сыгранных и выигранных игроком игр. При выборе этого пункта меню статистические данные будут очищены. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Игра</guimenu
+> <guimenuitem
+>Выход</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Выход из игры.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Меню «Настройка»</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Настройка</guimenu
+> <guisubmenu
+>Игрок, делающий первый ход</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Выбор начинающего игру, игрок 1 (сверху) или игрок 2 (снизу). </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Настройка</guimenu
+> <guisubmenu
+>Игрок 1 - это</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Выбор игрока 1 (сверху). Этим игроком может управлять либо человек с помощью мыши, либо компьютер. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Настройка</guimenu
+><guisubmenu
+>Игрок 2 - это</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Выбор игрока 2 (снизу). Этим игроком может управлять либо человек с помощью мыши, либо компьютер. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>Настройка</guimenu
+> <guisubmenu
+>Оформление</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Выбор темы оформления. При смене темы изменяется внешний вид игры, но не карт. Выбор раскраски карт выполняется с помощью отдельного пункта меню. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>F10</keycap
+> </shortcut
+> <guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Выбрать раскраску карт...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+>Выбор лица и рубашки карт для игры.</action
+> Их возможно выбрать в диалоге предварительного просмотра, отображающем все установленные колоды карт. </para>
+<note>
+<para
+>Некоторые колоды или наборы карт отмечены в этом диалоге как темы с масштабируемой графикой (&SVG;). Выбор подобной темы обеспечит лучшее качество графики при изменении масштаба окна игры. Карты с графикой фиксированного размера выглядят хуже при отображении в масштабе, который отличается от исходного. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>Настройка</guimenu
+> <guimenuitem
+>Изменить имена игроков...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Изменение имён игроков.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Кроме того, &i18n-lskat; имеет общие для приложений &kde; пункты меню <guimenu
+>Настройка</guimenu
+> и <guimenu
+>Справка</guimenu
+>. Информацию о них можно найти в разделах <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Меню «Настройка»</ulink
+> и <ulink url="help:/fundamentals/menus.html#menus-help"
+>Меню «Справка»</ulink
+> «Основ &kde;». </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Авторские права и лицензия</title>
+
+<para
+>&lskat; </para>
+<para
+>Авторские права на программу: &Martin.Heni; <email
+>kde@heni-online.de</email
+>, 2000—2007 </para>
+<para
+>Авторские права на графику: Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+>, 2007 </para>
+<para
+>Авторские права на документацию: &Martin.Heni; <email
+>kde@heni-online.de</email
+>, 2000—2007 </para>
+<para
+>Документация переведена в формат &kde; 2.0 &Mike.McBride; &Mike.McBride.mail; </para>
+
+<para
+>Перевод на русский язык: Владимир Барышников <email
+>vladimir@impb.psn.ru</email
+></para
+><para
+>Обновление перевода: Олеся Герасименко<email
+>translation-team@basealt.ru</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+

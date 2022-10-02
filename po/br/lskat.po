@@ -1,0 +1,613 @@
+# KDE breton translation
+# Thierry Vignaud <tvignaud@mandriva.com>, 2004-2005
+msgid ""
+msgstr ""
+"Project-Id-Version: kdegames/lskat.pot\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-23 00:42+0000\n"
+"PO-Revision-Date: 2004-09-20 15:44+0200\n"
+"Last-Translator: Thierry Vignaud <tvignaud@mandriva.com>\n"
+"Language-Team: br <LL@li.org>\n"
+"Language: br\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Thierry Vignaud, Jañ-Mai Drapier"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tvignaud@mandriva.com, jdrapier@club-internet.fr"
+
+#: config_two.cpp:29
+#, fuzzy, kde-format
+msgctxt "Default player name"
+msgid "Alice"
+msgstr "Alis"
+
+#: config_two.cpp:30
+#, fuzzy, kde-format
+#| msgid "Bob"
+msgctxt "Default player name"
+msgid "Bob"
+msgstr "Bob"
+
+#: deck.cpp:145
+#, kde-format
+msgid "no valid card"
+msgstr ""
+
+#: deck.cpp:152 deck.cpp:164
+#, kde-format
+msgid "unknown"
+msgstr "dianav"
+
+#: deck.cpp:153
+#, kde-format
+msgctxt "suite name"
+msgid "Clubs"
+msgstr ""
+
+#: deck.cpp:154
+#, kde-format
+msgctxt "suite name"
+msgid "Spades"
+msgstr ""
+
+#: deck.cpp:155
+#, kde-format
+msgctxt "suite name"
+msgid "Hearts"
+msgstr ""
+
+#: deck.cpp:156
+#, kde-format
+msgctxt "suite name"
+msgid "Diamonds"
+msgstr ""
+
+#: deck.cpp:157
+#, kde-format
+msgctxt "trump name"
+msgid "Grand"
+msgstr ""
+
+#: deck.cpp:165
+#, fuzzy, kde-format
+msgctxt "card name"
+msgid "Ace"
+msgstr "Alis"
+
+#: deck.cpp:166
+#, kde-format
+msgctxt "card name"
+msgid "King"
+msgstr ""
+
+#: deck.cpp:167
+#, kde-format
+msgctxt "card name"
+msgid "Queen"
+msgstr ""
+
+#: deck.cpp:168
+#, kde-format
+msgctxt "card name"
+msgid "Jack"
+msgstr ""
+
+#: deck.cpp:169
+#, kde-format
+msgctxt "card name"
+msgid "Ten"
+msgstr ""
+
+#: deck.cpp:170
+#, kde-format
+msgctxt "card name"
+msgid "Nine"
+msgstr ""
+
+#: deck.cpp:171
+#, kde-format
+msgctxt "card name"
+msgid "Eight"
+msgstr ""
+
+#: deck.cpp:172
+#, fuzzy, kde-format
+msgctxt "card name"
+msgid "Seven"
+msgstr "Servijer"
+
+#: deck.cpp:181
+#, kde-format
+msgctxt "eg jack of clubs"
+msgid "%1 of %2"
+msgstr ""
+
+#: display_intro.cpp:93
+#, kde-format
+msgctxt "Title of the game - line 1"
+msgid "Lieutenant Skat"
+msgstr ""
+
+#: display_intro.cpp:94
+#, fuzzy, kde-format
+#| msgid "for"
+msgctxt "Title of the game - line 2"
+msgid "for"
+msgstr "evit"
+
+#: display_intro.cpp:95
+#, fuzzy, kde-format
+#| msgid "K D E"
+msgctxt "Title of the game - line 3"
+msgid "K D E"
+msgstr "K D E"
+
+#: display_two.cpp:368
+#, fuzzy, kde-format
+#| msgid "%1 points"
+msgctxt "Resulting score of a game with no point"
+msgid "no point"
+msgstr "%1 pik"
+
+#: display_two.cpp:370
+#, fuzzy, kde-format
+#| msgid "%1 points"
+msgctxt "Resulting score of a game between 1 and 4"
+msgid "%1 point"
+msgid_plural "%1 points"
+msgstr[0] "%1 pik"
+msgstr[1] ""
+
+#: engine_two.cpp:235
+#, kde-format
+msgid "Game was ended - no winner"
+msgstr ""
+
+#: engine_two.cpp:244
+#, fuzzy, kde-format
+msgid "Game is drawn"
+msgstr "      Par eo ar c'hoari"
+
+#: engine_two.cpp:250
+#, fuzzy, kde-format
+msgid "Player 1 - %1 won "
+msgstr "C'hoarier &1"
+
+#: engine_two.cpp:257 engine_two.cpp:277
+#, kde-format
+msgid "%1 won with 90 points. Super!"
+msgstr ""
+
+#: engine_two.cpp:263 engine_two.cpp:283
+#, kde-format
+msgid "%1 won to nil. Congratulations!"
+msgstr ""
+
+#: engine_two.cpp:270
+#, kde-format
+msgid "Player 2 - %1 won "
+msgstr ""
+
+#: engine_two.cpp:344
+#, fuzzy, kde-format
+#| msgid "Game name:"
+msgid "Game ended"
+msgstr "Anv ar c'hoari :"
+
+#. i18n: ectx: Menu (game)
+#: lskatui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&C'hoari"
+
+#. i18n: ectx: Menu (settings)
+#: lskatui.rc:12
+#, kde-format
+msgid "&Settings"
+msgstr "&Kefluniadur"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: lskatui.rc:24
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Barrenn kentañ an ostilhoù"
+
+#: main.cpp:64
+#, kde-format
+msgid "LSkat"
+msgstr ""
+
+#: main.cpp:66
+#, kde-format
+msgid "LSkat: A desktop card game"
+msgstr ""
+
+#: main.cpp:68
+#, fuzzy, kde-format
+#| msgid "(c) Martin Heni   "
+msgid "(c) 1995-2007, Martin Heni"
+msgstr "(c) Martin Heni   "
+
+#: main.cpp:73
+#, fuzzy, kde-format
+#| msgid "(c) Martin Heni   "
+msgid "Martin Heni"
+msgstr "(c) Martin Heni   "
+
+#: main.cpp:73
+#, kde-format
+msgid "Game design and code"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Eugene Trounev"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Graphics"
+msgstr "Grafikoù"
+
+#: main.cpp:76
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Code Improvements"
+msgstr ""
+
+#: main.cpp:82
+#, kde-format
+msgid "Enter debug level"
+msgstr ""
+
+#: main.cpp:83
+#, kde-format
+msgid "Skip intro animation"
+msgstr ""
+
+#: main.cpp:84
+#, kde-format
+msgid "Run game in demo (autoplay) mode"
+msgstr ""
+
+#: mainwindow.cpp:79
+#, kde-format
+msgid "Installation error: No theme list found."
+msgstr ""
+
+#: mainwindow.cpp:126
+#, kde-format
+msgid "Installation error: Theme file error."
+msgstr ""
+
+#: mainwindow.cpp:144
+#, kde-format
+msgid "Welcome to Skat! Please start a new game."
+msgstr ""
+
+#: mainwindow.cpp:333
+#, fuzzy, kde-format
+msgid "Game Over. Please start a new game."
+msgstr "Emaon o loc'hañ ur c'hoari nevez ..."
+
+#: mainwindow.cpp:347
+#, kde-format
+msgctxt "Player name and number"
+msgid "Next move for %1 (player %2)"
+msgstr ""
+
+#: mainwindow.cpp:361
+#, kde-format
+msgid "Clears the all time statistics which is kept in all sessions."
+msgstr ""
+
+#: mainwindow.cpp:366
+#, kde-format
+msgid "Ends a currently played game. No winner will be declared."
+msgstr ""
+
+#: mainwindow.cpp:371
+#, kde-format
+msgid "Quits the program."
+msgstr "Kuitaat a ra ar goulev."
+
+#: mainwindow.cpp:374
+#, kde-format
+msgid "Starting Player"
+msgstr "Emaon o loc'hañ ar c'hoarier"
+
+#: mainwindow.cpp:377
+#, kde-format
+msgid "Changing starting player..."
+msgstr ""
+
+#: mainwindow.cpp:378
+#, kde-format
+msgid "Chooses which player begins the next game."
+msgstr ""
+
+#: mainwindow.cpp:381
+#, kde-format
+msgid "Player &1"
+msgstr "C'hoarier &1"
+
+#: mainwindow.cpp:382
+#, kde-format
+msgid "Player &2"
+msgstr "C'hoarier &2"
+
+#: mainwindow.cpp:387
+#, kde-format
+msgid "Player &1 Played By"
+msgstr ""
+
+#: mainwindow.cpp:390
+#, kde-format
+msgid "Changing who plays player 1..."
+msgstr ""
+
+#: mainwindow.cpp:391
+#, kde-format
+msgid "Changing who plays player 1."
+msgstr ""
+
+#: mainwindow.cpp:393
+#, kde-format
+msgid "&Mouse"
+msgstr "&Logodenn"
+
+#: mainwindow.cpp:394
+#, kde-format
+msgid "&Computer"
+msgstr "&Urzhiataer"
+
+#: mainwindow.cpp:399
+#, kde-format
+msgid "Player &2 Played By"
+msgstr ""
+
+#: mainwindow.cpp:402
+#, kde-format
+msgid "Changing who plays player 2..."
+msgstr ""
+
+#: mainwindow.cpp:403
+#, kde-format
+msgid "Changing who plays player 2."
+msgstr ""
+
+#: mainwindow.cpp:411
+#, fuzzy, kde-format
+#| msgid "&Remote"
+msgid "&Theme"
+msgstr "&A-bell"
+
+#: mainwindow.cpp:417
+#, fuzzy, kde-format
+#| msgid "Change level..."
+msgid "Changing theme..."
+msgstr "Kemmañ al live ..."
+
+#: mainwindow.cpp:418
+#, fuzzy, kde-format
+#| msgid "Change level..."
+msgid "Changing theme."
+msgstr "Kemmañ al live ..."
+
+#: mainwindow.cpp:422
+#, kde-format
+msgid "Select &Card Deck..."
+msgstr ""
+
+#: mainwindow.cpp:425
+#, kde-format
+msgid "Configure card decks..."
+msgstr ""
+
+#: mainwindow.cpp:426
+#, kde-format
+msgid "Choose how the cards should look."
+msgstr ""
+
+#: mainwindow.cpp:430
+#, fuzzy, kde-format
+msgid "&Change Player Names..."
+msgstr "Anvioù ar c'hoarierien"
+
+#: mainwindow.cpp:501
+#, kde-format
+msgid "Do you really want to clear the all time statistical data?"
+msgstr ""
+
+#: mainwindow.cpp:574
+#, kde-format
+msgid "Dealing cards..."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
+#: namedialog.ui:14
+#, kde-format
+msgid "Configure Names"
+msgstr "Kefluniañ an anvioù"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: namedialog.ui:20
+#, fuzzy, kde-format
+msgid "Player Names"
+msgstr "Anvioù ar c'hoarierien"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: namedialog.ui:32
+#, kde-format
+msgid "Player 1:"
+msgstr "C'hoarier 1 :"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: namedialog.ui:39
+#, kde-format
+msgid "Player 2:"
+msgstr "C'hoarier 2 :"
+
+#: scoresprite.cpp:148
+#, fuzzy, kde-format
+#| msgid "Score:"
+msgctxt "Score in score widget"
+msgid "Score: %1"
+msgstr "Merk :"
+
+#: scoresprite.cpp:156
+#, fuzzy, kde-format
+#| msgid "Games:"
+msgctxt "Won and overall games in score widget"
+msgid "Games: %1 / %2"
+msgstr "C'hoarioù :"
+
+#~ msgid "OK"
+#~ msgstr "Mat eo"
+
+#~ msgid "Cancel"
+#~ msgstr "Nullañ"
+
+#, fuzzy
+#~ msgid "Game aborted"
+#~ msgstr "Echu an abadenn"
+
+#~ msgid "Player 1"
+#~ msgstr "C'hoarier 1"
+
+#~ msgid "Player 2"
+#~ msgstr "C'hoarier 2"
+
+#~ msgid "KDE"
+#~ msgstr "KDE"
+
+#~ msgid "Start a new game."
+#~ msgstr "Loc'hañ ur c'hoari nevez."
+
+#~ msgid "Starting a new game..."
+#~ msgstr "Emaon o loc'hañ ur c'hoari nevez ..."
+
+#~ msgid "&Clear Statistics"
+#~ msgstr "&Goullonderiñ ar stadegoù"
+
+#~ msgid "End game"
+#~ msgstr "Echuiñ an abadenn"
+
+#~ msgid "Ending the current game..."
+#~ msgstr "Emaon oc'h echuiñ ar c'hoari red ..."
+
+#~ msgid "Exiting..."
+#~ msgstr "Emaon o kuitaat ..."
+
+#~ msgid "Form"
+#~ msgstr "Paperenn-reol"
+
+#~ msgid "Points:"
+#~ msgstr "Pikoù :"
+
+#~ msgid "123"
+#~ msgstr "123"
+
+#, fuzzy
+#~ msgid "PlayerName"
+#~ msgstr "Anvioù ar c'hoarierien"
+
+#~ msgid "Send &Message..."
+#~ msgstr "Kas ar &c'hemennad ..."
+
+#~ msgid "&Player"
+#~ msgstr "&C'hoarier(ez)"
+
+#~ msgid "&Level"
+#~ msgstr "&Live"
+
+#~ msgid "&Normal"
+#~ msgstr "&Boas"
+
+#~ msgid "&Advanced"
+#~ msgstr "&Barek"
+
+#~ msgid "&Hard"
+#~ msgstr "&Tenn"
+
+#~ msgid "Change &Names..."
+#~ msgstr "Kemmañ an &anvioù ..."
+
+#~ msgid "Configure player names..."
+#~ msgstr "Kefluniañ anvioù ar c'hoarien ..."
+
+#~ msgid "Ready"
+#~ msgstr "Prest"
+
+#~ msgid "No game running"
+#~ msgstr "N'eus ket ur c'hoari red"
+
+#~ msgid "Abort"
+#~ msgstr "Paouez"
+
+#~ msgid "Waiting for remote player..."
+#~ msgstr "Emaon o c'hortoz evit ur c'hoarier a-bell ..."
+
+#~ msgid "Message from remote player:\n"
+#~ msgstr "Kemennad eus ar c'hoarier a-bell :\n"
+
+#~ msgid "You are network client...loading remote game..."
+#~ msgstr "Un kliant rouedad out ... o kargañ ar c'hoari a-bell ..."
+
+#~ msgid "You are network server..."
+#~ msgstr "Servijer ar rouedad out ..."
+
+#~ msgid "It is not your turn.\n"
+#~ msgstr "N'eo ket dit.\n"
+
+#~ msgid "Move:"
+#~ msgstr "Fiñval :"
+
+#~ msgid "Won:"
+#~ msgstr "Zo trec'h :"
+
+#~ msgid "Please wait... it is not your turn."
+#~ msgstr "Gortozit mar plich ... N'eo ket dit."
+
+#~ msgid "Card Game"
+#~ msgstr "C'hoari kartennoù"
+
+#~ msgid "Enter Message"
+#~ msgstr "Roit ur c'hemennad"
+
+#~ msgid "Send"
+#~ msgstr "Kas"
+
+#~ msgid "Enter a player's name"
+#~ msgstr "Roit anv ur c'hoarier"
+
+#~ msgid "Network Options"
+#~ msgstr "Dibarzhoù ar rouedad"
+
+#~ msgid "Client"
+#~ msgstr "Kliant"
+
+#~ msgid "Network games:"
+#~ msgstr "C'hoarioù rouedad :"
+
+#~ msgid "Host:"
+#~ msgstr "Ostiz :"
+
+#~ msgid "Port:"
+#~ msgstr "Porzh :"
+
+#~ msgid "Choose a port to connect to"
+#~ msgstr "Dibabit un porzh da gevreañ ouzh"

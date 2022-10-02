@@ -1,0 +1,715 @@
+# translation of lskat.po to Tamil
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# , 2004.
+# , 2004.
+# , 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lskat\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-23 00:42+0000\n"
+"PO-Revision-Date: 2005-03-07 03:30-0800\n"
+"Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
+"Language-Team: Tamil <en@li.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "தாரிணி அபிராமி,"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "th@yahoo.co.in,abisasu@yahoo.com"
+
+#: config_two.cpp:29
+#, fuzzy, kde-format
+msgctxt "Default player name"
+msgid "Alice"
+msgstr "ஆலிஸ்"
+
+#: config_two.cpp:30
+#, fuzzy, kde-format
+#| msgid "Bob"
+msgctxt "Default player name"
+msgid "Bob"
+msgstr "பாப்"
+
+#: deck.cpp:145
+#, kde-format
+msgid "no valid card"
+msgstr ""
+
+#: deck.cpp:152 deck.cpp:164
+#, kde-format
+msgid "unknown"
+msgstr ""
+
+#: deck.cpp:153
+#, kde-format
+msgctxt "suite name"
+msgid "Clubs"
+msgstr ""
+
+#: deck.cpp:154
+#, kde-format
+msgctxt "suite name"
+msgid "Spades"
+msgstr ""
+
+#: deck.cpp:155
+#, kde-format
+msgctxt "suite name"
+msgid "Hearts"
+msgstr ""
+
+#: deck.cpp:156
+#, kde-format
+msgctxt "suite name"
+msgid "Diamonds"
+msgstr ""
+
+#: deck.cpp:157
+#, kde-format
+msgctxt "trump name"
+msgid "Grand"
+msgstr ""
+
+#: deck.cpp:165
+#, fuzzy, kde-format
+msgctxt "card name"
+msgid "Ace"
+msgstr "ஆலிஸ்"
+
+#: deck.cpp:166
+#, kde-format
+msgctxt "card name"
+msgid "King"
+msgstr ""
+
+#: deck.cpp:167
+#, kde-format
+msgctxt "card name"
+msgid "Queen"
+msgstr ""
+
+#: deck.cpp:168
+#, kde-format
+msgctxt "card name"
+msgid "Jack"
+msgstr ""
+
+#: deck.cpp:169
+#, kde-format
+msgctxt "card name"
+msgid "Ten"
+msgstr ""
+
+#: deck.cpp:170
+#, kde-format
+msgctxt "card name"
+msgid "Nine"
+msgstr ""
+
+#: deck.cpp:171
+#, kde-format
+msgctxt "card name"
+msgid "Eight"
+msgstr ""
+
+#: deck.cpp:172
+#, fuzzy, kde-format
+msgctxt "card name"
+msgid "Seven"
+msgstr "சேவகன்"
+
+#: deck.cpp:181
+#, kde-format
+msgctxt "eg jack of clubs"
+msgid "%1 of %2"
+msgstr ""
+
+#: display_intro.cpp:93
+#, fuzzy, kde-format
+#| msgid "Lieutenant Skat"
+msgctxt "Title of the game - line 1"
+msgid "Lieutenant Skat"
+msgstr "லியுடெனட் ஸ்கேட்"
+
+#: display_intro.cpp:94
+#, fuzzy, kde-format
+#| msgid "for"
+msgctxt "Title of the game - line 2"
+msgid "for"
+msgstr "இதற்கு"
+
+#: display_intro.cpp:95
+#, fuzzy, kde-format
+#| msgid "K D E"
+msgctxt "Title of the game - line 3"
+msgid "K D E"
+msgstr "கே டி யீ"
+
+#: display_two.cpp:368
+#, fuzzy, kde-format
+#| msgid "%1 points"
+msgctxt "Resulting score of a game with no point"
+msgid "no point"
+msgstr "%1 புள்ளிகள்"
+
+#: display_two.cpp:370
+#, fuzzy, kde-format
+#| msgid "%1 points"
+msgctxt "Resulting score of a game between 1 and 4"
+msgid "%1 point"
+msgid_plural "%1 points"
+msgstr[0] "%1 புள்ளிகள்"
+msgstr[1] "%1 புள்ளிகள்"
+
+#: engine_two.cpp:235
+#, fuzzy, kde-format
+#| msgid "Game was aborted - no winner"
+msgid "Game was ended - no winner"
+msgstr "விளையாட்டு நிறுத்தப்பட்டது -  வெற்றிப்பெற்றவர் இல்லை"
+
+#: engine_two.cpp:244
+#, fuzzy, kde-format
+msgid "Game is drawn"
+msgstr "விளையட்டு நிறுத்தப்பட்டது"
+
+#: engine_two.cpp:250
+#, fuzzy, kde-format
+#| msgid "Player 2 - %1 won "
+msgid "Player 1 - %1 won "
+msgstr "விளையாடுபவர் 2 - %1 வெற்றி"
+
+#: engine_two.cpp:257 engine_two.cpp:277
+#, kde-format
+msgid "%1 won with 90 points. Super!"
+msgstr "%1 90 புள்ளிகளில் வெற்றி பெற்றது. அபாரம்!"
+
+#: engine_two.cpp:263 engine_two.cpp:283
+#, kde-format
+msgid "%1 won to nil. Congratulations!"
+msgstr "%1க்கு வெற்றி.வாழ்த்துக்கள்!"
+
+#: engine_two.cpp:270
+#, kde-format
+msgid "Player 2 - %1 won "
+msgstr "விளையாடுபவர் 2 - %1 வெற்றி"
+
+#: engine_two.cpp:344
+#, fuzzy, kde-format
+#| msgid "Game name:"
+msgid "Game ended"
+msgstr "விளையாட்டு பெயர்:"
+
+#. i18n: ectx: Menu (game)
+#: lskatui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "விளையாட்டுகள்:"
+
+#. i18n: ectx: Menu (settings)
+#: lskatui.rc:12
+#, kde-format
+msgid "&Settings"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: lskatui.rc:24
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "LSkat"
+msgstr ""
+
+#: main.cpp:66
+#, kde-format
+msgid "LSkat: A desktop card game"
+msgstr ""
+
+#: main.cpp:68
+#, fuzzy, kde-format
+#| msgid "(c) Martin Heni   "
+msgid "(c) 1995-2007, Martin Heni"
+msgstr "மார்ட்டின் ஹெனி"
+
+#: main.cpp:73
+#, fuzzy, kde-format
+#| msgid "(c) Martin Heni   "
+msgid "Martin Heni"
+msgstr "மார்ட்டின் ஹெனி"
+
+#: main.cpp:73
+#, kde-format
+msgid "Game design and code"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Eugene Trounev"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Graphics"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Code Improvements"
+msgstr ""
+
+#: main.cpp:82
+#, kde-format
+msgid "Enter debug level"
+msgstr "பிழைநீக்கி நிலையை உள்ளிடு"
+
+#: main.cpp:83
+#, kde-format
+msgid "Skip intro animation"
+msgstr ""
+
+#: main.cpp:84
+#, kde-format
+msgid "Run game in demo (autoplay) mode"
+msgstr ""
+
+#: mainwindow.cpp:79
+#, kde-format
+msgid "Installation error: No theme list found."
+msgstr ""
+
+#: mainwindow.cpp:126
+#, kde-format
+msgid "Installation error: Theme file error."
+msgstr ""
+
+#: mainwindow.cpp:144
+#, kde-format
+msgid "Welcome to Skat! Please start a new game."
+msgstr ""
+
+#: mainwindow.cpp:333
+#, fuzzy, kde-format
+msgid "Game Over. Please start a new game."
+msgstr "ஒரு புது விளையாட்டை ஆரம்பித்தல்..."
+
+#: mainwindow.cpp:347
+#, kde-format
+msgctxt "Player name and number"
+msgid "Next move for %1 (player %2)"
+msgstr ""
+
+#: mainwindow.cpp:361
+#, kde-format
+msgid "Clears the all time statistics which is kept in all sessions."
+msgstr "அனைத்து காலக்கூட்டத்தில் வைக்கப்பட்டிருந்த அனைத்து காலப் புள்ளிவிவரங்களை நீக்குகிறது."
+
+#: mainwindow.cpp:366
+#, fuzzy, kde-format
+#| msgid "Aborts a currently played game. No winner will be declared."
+msgid "Ends a currently played game. No winner will be declared."
+msgstr "தற்போது விளையாடிய விளையாட்டு முறி அடித்தது .வெற்றியாளரை அறிவிக்க முடியாது."
+
+#: mainwindow.cpp:371
+#, kde-format
+msgid "Quits the program."
+msgstr "நிரலிலிருந்து வெளியேறுதல்"
+
+#: mainwindow.cpp:374
+#, kde-format
+msgid "Starting Player"
+msgstr "தொடக்க ஆட்டக்காரர்"
+
+#: mainwindow.cpp:377
+#, kde-format
+msgid "Changing starting player..."
+msgstr "தொடக்க ஆட்டக்காரரில் மாற்றம்"
+
+#: mainwindow.cpp:378
+#, kde-format
+msgid "Chooses which player begins the next game."
+msgstr "அடுத்த விளையாட்டை தொடங்குவதற்கு விளையாட்டாளரை தேர்வு செய்கிறது."
+
+#: mainwindow.cpp:381
+#, kde-format
+msgid "Player &1"
+msgstr "விளையாடுபவர் 1"
+
+#: mainwindow.cpp:382
+#, kde-format
+msgid "Player &2"
+msgstr "விளையாடுபவர்2"
+
+#: mainwindow.cpp:387
+#, kde-format
+msgid "Player &1 Played By"
+msgstr "1 விளையாட்டாளாரால் விளையாடப்பட்டது"
+
+#: mainwindow.cpp:390
+#, kde-format
+msgid "Changing who plays player 1..."
+msgstr "1யில் விளையாடுபவரின் விளையாட்டை மாற்றுகிறது..."
+
+#: mainwindow.cpp:391
+#, fuzzy, kde-format
+msgid "Changing who plays player 1."
+msgstr "1யில் விளையாடுபவரின் விளையாட்டை மாற்றுகிறது..."
+
+#: mainwindow.cpp:393
+#, kde-format
+msgid "&Mouse"
+msgstr ""
+
+#: mainwindow.cpp:394
+#, kde-format
+msgid "&Computer"
+msgstr "கணினி"
+
+#: mainwindow.cpp:399
+#, kde-format
+msgid "Player &2 Played By"
+msgstr "2 விளையாட்டாளாரால் விளையாடப்பட்டது"
+
+#: mainwindow.cpp:402
+#, kde-format
+msgid "Changing who plays player 2..."
+msgstr "அளவு"
+
+#: mainwindow.cpp:403
+#, fuzzy, kde-format
+msgid "Changing who plays player 2."
+msgstr "அளவு"
+
+#: mainwindow.cpp:411
+#, fuzzy, kde-format
+#| msgid "&Remote"
+msgid "&Theme"
+msgstr "தொலைதூரம்"
+
+#: mainwindow.cpp:417
+#, fuzzy, kde-format
+#| msgid "Change level..."
+msgid "Changing theme..."
+msgstr "நிலையை மாற்றவும்"
+
+#: mainwindow.cpp:418
+#, fuzzy, kde-format
+#| msgid "Change level..."
+msgid "Changing theme."
+msgstr "நிலையை மாற்றவும்"
+
+#: mainwindow.cpp:422
+#, kde-format
+msgid "Select &Card Deck..."
+msgstr "அட்டையின் மேல் பகுதியை தேர்ந்தெடு"
+
+#: mainwindow.cpp:425
+#, kde-format
+msgid "Configure card decks..."
+msgstr "அட்டையின் மேல் பகுதியை அமை"
+
+#: mainwindow.cpp:426
+#, kde-format
+msgid "Choose how the cards should look."
+msgstr "அட்டை எப்படி இருக்க வேண்டும் என்று தேர்வு செய்"
+
+#: mainwindow.cpp:430
+#, fuzzy, kde-format
+msgid "&Change Player Names..."
+msgstr "விளையாடுபவர் பெயர்கள்"
+
+#: mainwindow.cpp:501
+#, kde-format
+msgid "Do you really want to clear the all time statistical data?"
+msgstr "நீங்கள் உண்மையாக அனைத்து கால புள்ளிவிவர தகவல்களை நீக்க வேண்டுமா?"
+
+#: mainwindow.cpp:574
+#, kde-format
+msgid "Dealing cards..."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
+#: namedialog.ui:14
+#, kde-format
+msgid "Configure Names"
+msgstr "பெயர்களை அமை"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: namedialog.ui:20
+#, fuzzy, kde-format
+msgid "Player Names"
+msgstr "விளையாடுபவர் பெயர்கள்"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: namedialog.ui:32
+#, kde-format
+msgid "Player 1:"
+msgstr "விளையாடுபவர் 1:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: namedialog.ui:39
+#, kde-format
+msgid "Player 2:"
+msgstr "விளையாடுபவர் 2:"
+
+#: scoresprite.cpp:148
+#, fuzzy, kde-format
+#| msgid "Score:"
+msgctxt "Score in score widget"
+msgid "Score: %1"
+msgstr "மதிப்பெண்:"
+
+#: scoresprite.cpp:156
+#, fuzzy, kde-format
+#| msgid "Games:"
+msgctxt "Won and overall games in score widget"
+msgid "Games: %1 / %2"
+msgstr "விளையாட்டுகள்:"
+
+#, fuzzy
+#~ msgid "Player %1 won "
+#~ msgstr "விளையாடுபவர் 1 - %1 வெற்றி"
+
+#, fuzzy
+#~ msgid "Game aborted"
+#~ msgstr "விளையாட்டு முடிந்தது"
+
+#, fuzzy
+#~ msgid "Player 1"
+#~ msgstr "விளையாடுபவர் 1"
+
+#, fuzzy
+#~ msgid "Player 2"
+#~ msgstr "விளையாடுபவர்2"
+
+#, fuzzy
+#~ msgid "KDE"
+#~ msgstr "கே டி யீ"
+
+#, fuzzy
+#~ msgid "Start a new game."
+#~ msgstr "ஒரு புது விளையாட்டை ஆரம்பித்தல்..."
+
+#~ msgid "Starting a new game..."
+#~ msgstr "ஒரு புது விளையாட்டை ஆரம்பித்தல்..."
+
+#~ msgid "&Clear Statistics"
+#~ msgstr "தெளிவான புள்ளி விவரங்கள்"
+
+#~ msgid "Delete all time statistics..."
+#~ msgstr "எல்லா நேர புள்ளி விவரங்களையும் நீக்கவும்"
+
+#, fuzzy
+#~ msgid "End game"
+#~ msgstr "கடைசி விளையாட்டு"
+
+#~ msgid "Ending the current game..."
+#~ msgstr "தற்போதைய விளையாட்டை முடித்துக் கொள்ளுதல்"
+
+#~ msgid "Exiting..."
+#~ msgstr "வெளியேறுதல்....."
+
+#~ msgid "Points:"
+#~ msgstr "புள்ளிகள்:"
+
+#, fuzzy
+#~ msgid "PlayerName"
+#~ msgstr "விளையாடுபவர் பெயர்கள்"
+
+#~ msgid "Send &Message..."
+#~ msgstr "தகவல் அனுப்பவும்..."
+
+#~ msgid "Sending message to remote player..."
+#~ msgstr "தொலைதூரத்தில் விளையாடுபவருக்கு செய்தியை அனுப்பவும்..."
+
+#~ msgid "Allows you to talk with a remote player."
+#~ msgstr "தொலைதூர விளையாட்டாளருடன் பேச உங்களை அனுமதிக்கிறது."
+
+#~ msgid "&Player"
+#~ msgstr "விளையாடுபவர்"
+
+#~ msgid "&Level"
+#~ msgstr "நிலை"
+
+#~ msgid "Change the strength of the computer player."
+#~ msgstr "கணினி விளையாட்டாளரின் பலத்தை மாற்றவும்."
+
+#~ msgid "&Normal"
+#~ msgstr "இயல்பான"
+
+#~ msgid "&Advanced"
+#~ msgstr "&முன்கூட்டிய"
+
+#~ msgid "&Hard"
+#~ msgstr "&கடினம்"
+
+#~ msgid "Change &Names..."
+#~ msgstr "பெயர்களை மாற்று...."
+
+#~ msgid "Configure player names..."
+#~ msgstr "விளையாடுபவர் பெயர்களை அமைக்கவும்..."
+
+#~ msgid "This leaves space for the mover"
+#~ msgstr "இது நகர்த்துபவற்கு இடம் அளிக்கும்."
+
+#~ msgid "Ready"
+#~ msgstr "தயார்"
+
+#~ msgid "Welcome to Lieutenant Skat"
+#~ msgstr "லியுடெனட் ஸ்கேட்க் நல்வரவு"
+
+#~ msgid "Game ended...start a new one..."
+#~ msgstr "விளையாட்டு முடிந்தது... புது விளையாட்டை ஆரம்பிக்கவும்..."
+
+#~ msgid "No game running"
+#~ msgstr "எந்த விளையாட்டும் இயங்கவில்லை"
+
+#~ msgid "%1 to move..."
+#~ msgstr "நகர்த்த %1 "
+
+#~ msgid ""
+#~ "Cannot start player 1. Maybe the network connection failed or the "
+#~ "computer player process file is not found."
+#~ msgstr ""
+#~ "1 விளையாட்டாளரால் தொடக்க இயலவில்லை. வலைப்பின்னலின் இணைப்பு இயலாமல் இருக்கலாம் அல்லது "
+#~ "கணினி விளையாட்டாளரின் செயல் கோப்பு காணாமல் இருக்கலாம்."
+
+#~ msgid ""
+#~ "Cannot start player 2. Maybe the network connection failed or the "
+#~ "computer player process file is not found."
+#~ msgstr ""
+#~ "2 விளையாட்டாளரால் தொடக்க இயலவில்லை. வலைப்பின்னலின் இணைப்பு இயலாமல் இருக்கலாம் அல்லது "
+#~ "கணினி விளையாட்டாளரின் செயல் கோப்பு காணாமல் இருக்கலாம்."
+
+#~ msgid "Remote connection to %1:%2..."
+#~ msgstr "தொலைதூர தொடர்பு%1:%2..."
+
+#~ msgid "Offering remote connection on port %1..."
+#~ msgstr "%1 துறைக்கு தொலைதூர இணைப்பு கொடுக்கப்படுகிறது..."
+
+#~ msgid "Abort"
+#~ msgstr "நிறுத்தப்பட்டது"
+
+#~ msgid "Waiting for the computer to move..."
+#~ msgstr "கணினியின் நகர்வுக்காக காத்துக் கொண்டிருக்கிறது..."
+
+#~ msgid "Waiting for remote player..."
+#~ msgstr "தொலைதூர விளையாடுபவருக்காக காத்துக்கொண்டிருக்கிறது..."
+
+#~ msgid "Please make your move..."
+#~ msgstr "தயவு செய்து நீங்கள் நகர்த்தவும்..."
+
+#~ msgid "Remote connection lost for player 1..."
+#~ msgstr "1 விளையாடுபவரின் தொலைதூர இணைப்பு தொலைந்தது..."
+
+#~ msgid "Remote connection lost for player 2..."
+#~ msgstr "2 விளையாடுபவரின் தொலைதூர இணைப்பு தொலைந்தது..."
+
+#~ msgid "Message from remote player:\n"
+#~ msgstr "தொலைதூரத்தில் விளையாடுபவரிடம் இருந்து செய்தி வந்தது:\n"
+
+#~ msgid "Remote player ended game..."
+#~ msgstr "தொலைதூர விளையாடுபவரின் விளையாட்டு முடிந்தது"
+
+#~ msgid "You are network client...loading remote game..."
+#~ msgstr "நீங்கள் வலைப்பின்னலை சார்ந்திருப்பவர்... தொலைதூர விளையாட்டை உள்ளிடுகிறது..."
+
+#~ msgid "You are network server..."
+#~ msgstr "நீங்கள் வலைப்பின்னல் சேவையகம்"
+
+#~ msgid ""
+#~ "Severe internal error. Move to illegal position.\n"
+#~ "Restart game and report bug to the developer.\n"
+#~ msgstr ""
+#~ "மோசமான உள்சார்ந்த பிழை. சட்டத்திற்கு புறமான இடத்திற்கு நகர்த்து.\n"
+#~ "மறுபடியும் ஆட்டத்தை துவங்கு மற்றும் இயக்குனரிடம் பிழையை கூறு.\n"
+
+#~ msgid ""
+#~ "This move would not follow the rulebook.\n"
+#~ "Better think again!\n"
+#~ msgstr ""
+#~ "இந்த நகர்வு விதி புத்தகத்தை மதியாது.\n"
+#~ "மறுபடியும் யோசிப்பது நல்லது!\n"
+
+#~ msgid "It is not your turn.\n"
+#~ msgstr "இது உங்கள் முறை இல்லை\n"
+
+#~ msgid "This move is not possible.\n"
+#~ msgstr "This move is not possible.\n"
+
+#~ msgid "%1 won over 90 points. Super!"
+#~ msgstr "%1 90 புள்ளிகளில் வெற்றி பெற்றது. அபாரம்!"
+
+#~ msgid "Move:"
+#~ msgstr "நகரவும்:"
+
+#~ msgid "Won:"
+#~ msgstr "வெற்றி:"
+
+#~ msgid "Hold on... the other player hasn't been yet..."
+#~ msgstr "காத்திரு... மற்றொரு விளையாட்டாளர் இன்னும் வரவில்லை.."
+
+#~ msgid "Hold your horses..."
+#~ msgstr "உங்கள் குதிரைகளை பிடிக்கவும்"
+
+#~ msgid "Ah ah ah... only one go at a time..."
+#~ msgstr "ஹ ஹஹ... "
+
+#~ msgid "Please wait... it is not your turn."
+#~ msgstr "தயவு செய்து காத்திருக்கவும்....இது தங்கள் முறை இல்லை"
+
+#~ msgid "Card Game"
+#~ msgstr "அட்டை விளையாட்டு"
+
+#~ msgid "Beta testing"
+#~ msgstr "பீட்டா சோதனை"
+
+#~ msgid "Send Message to Remote Player"
+#~ msgstr "தொலைதூரத்தில் விளையாடுபவருக்கு செய்தியை அனுப்பவும்."
+
+#~ msgid "Enter Message"
+#~ msgstr "தகவலை உள்ளிடு"
+
+#~ msgid "Send"
+#~ msgstr "அனுப்பு"
+
+#~ msgid "Enter a player's name"
+#~ msgstr "விளையாடுபவரின் பெயரை உள்ளிடு"
+
+#~ msgid "Network Options"
+#~ msgstr "வலைப்பின்னல் விருப்பத்தேர்வுகள்"
+
+#~ msgid "Play As"
+#~ msgstr "இப்படியாக விளையாடு"
+
+#~ msgid "Client"
+#~ msgstr "உறுப்பினர்"
+
+#~ msgid "Network games:"
+#~ msgstr "வலைப்பின்னல் விளையாட்டுகள்:"
+
+#~ msgid "Host:"
+#~ msgstr "புரவலர்:"
+
+#~ msgid "Port:"
+#~ msgstr "முனையம்:"
+
+#~ msgid "Choose a port to connect to"
+#~ msgstr "இணைப்பதற்கு ஒரு முனையத்தை தேர்ந்தெடு"

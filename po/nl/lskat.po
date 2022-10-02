@@ -1,0 +1,483 @@
+# translation of lskat.po to Dutch
+# KTranslator Generated File
+# Dutch translation of lskat
+# Copyright (C) 2000, 2001, 2002 KDE-Nederlands team<i18n@kde.nl>, KDE e.v..
+# Niels Reedijk <n.reedijk@planet.nl> 2000
+# Gelezen, Rinse
+# Rinse de Vries <rinse@kde.nl>, 2000, 2001, 2002, 2004.
+# Tom Albers <tomalbers@kde.nl>, 2004.
+# Bram Schoenmakers <bramschoenmakers@kde.nl>, 2004.
+# Rinse de Vries <rinsedevries@kde.nl>, 2004, 2005, 2007, 2010.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: lskat\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-23 00:42+0000\n"
+"PO-Revision-Date: 2012-05-25 00:23+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Niels Reedijk,Rinse de Vries"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ",rinse@kde.nl"
+
+#: config_two.cpp:29
+#, kde-format
+msgctxt "Default player name"
+msgid "Alice"
+msgstr "Alice"
+
+#: config_two.cpp:30
+#, kde-format
+msgctxt "Default player name"
+msgid "Bob"
+msgstr "Bob"
+
+#: deck.cpp:145
+#, kde-format
+msgid "no valid card"
+msgstr "geen geldige kaart"
+
+#: deck.cpp:152 deck.cpp:164
+#, kde-format
+msgid "unknown"
+msgstr "onbekend"
+
+#: deck.cpp:153
+#, kde-format
+msgctxt "suite name"
+msgid "Clubs"
+msgstr "Klavers"
+
+#: deck.cpp:154
+#, kde-format
+msgctxt "suite name"
+msgid "Spades"
+msgstr "Schoppen"
+
+#: deck.cpp:155
+#, kde-format
+msgctxt "suite name"
+msgid "Hearts"
+msgstr "Harten"
+
+#: deck.cpp:156
+#, kde-format
+msgctxt "suite name"
+msgid "Diamonds"
+msgstr "Ruiten"
+
+#: deck.cpp:157
+#, kde-format
+msgctxt "trump name"
+msgid "Grand"
+msgstr "Grand"
+
+#: deck.cpp:165
+#, kde-format
+msgctxt "card name"
+msgid "Ace"
+msgstr "Aas"
+
+#: deck.cpp:166
+#, kde-format
+msgctxt "card name"
+msgid "King"
+msgstr "Koning"
+
+#: deck.cpp:167
+#, kde-format
+msgctxt "card name"
+msgid "Queen"
+msgstr "Dame"
+
+#: deck.cpp:168
+#, kde-format
+msgctxt "card name"
+msgid "Jack"
+msgstr "Boer"
+
+#: deck.cpp:169
+#, kde-format
+msgctxt "card name"
+msgid "Ten"
+msgstr "Tien"
+
+#: deck.cpp:170
+#, kde-format
+msgctxt "card name"
+msgid "Nine"
+msgstr "Negen"
+
+#: deck.cpp:171
+#, kde-format
+msgctxt "card name"
+msgid "Eight"
+msgstr "Acht"
+
+#: deck.cpp:172
+#, kde-format
+msgctxt "card name"
+msgid "Seven"
+msgstr "Zeven"
+
+#: deck.cpp:181
+#, kde-format
+msgctxt "eg jack of clubs"
+msgid "%1 of %2"
+msgstr "%1 van %2"
+
+#: display_intro.cpp:93
+#, kde-format
+msgctxt "Title of the game - line 1"
+msgid "Lieutenant Skat"
+msgstr "Luitenant Skat"
+
+#: display_intro.cpp:94
+#, kde-format
+msgctxt "Title of the game - line 2"
+msgid "for"
+msgstr "voor"
+
+#: display_intro.cpp:95
+#, kde-format
+msgctxt "Title of the game - line 3"
+msgid "K D E"
+msgstr "K D E"
+
+#: display_two.cpp:368
+#, kde-format
+msgctxt "Resulting score of a game with no point"
+msgid "no point"
+msgstr "geen punten"
+
+#: display_two.cpp:370
+#, kde-format
+msgctxt "Resulting score of a game between 1 and 4"
+msgid "%1 point"
+msgid_plural "%1 points"
+msgstr[0] "%1 punt"
+msgstr[1] "%1 punten"
+
+#: engine_two.cpp:235
+#, kde-format
+msgid "Game was ended - no winner"
+msgstr "Het spel is beëindigd - geen winnaar"
+
+#: engine_two.cpp:244
+#, kde-format
+msgid "Game is drawn"
+msgstr "Het is gelijkspel"
+
+#: engine_two.cpp:250
+#, kde-format
+msgid "Player 1 - %1 won "
+msgstr "Speler 1 - %1 won "
+
+#: engine_two.cpp:257 engine_two.cpp:277
+#, kde-format
+msgid "%1 won with 90 points. Super!"
+msgstr "%1 wint met meer dan 90 punten. Super!"
+
+#: engine_two.cpp:263 engine_two.cpp:283
+#, kde-format
+msgid "%1 won to nil. Congratulations!"
+msgstr "%1 won net. Gefeliciteerd!"
+
+#: engine_two.cpp:270
+#, kde-format
+msgid "Player 2 - %1 won "
+msgstr "Speler 2 - %1 won "
+
+#: engine_two.cpp:344
+#, kde-format
+msgid "Game ended"
+msgstr "Spel afgelopen"
+
+#. i18n: ectx: Menu (game)
+#: lskatui.rc:10
+#, kde-format
+msgid "&Game"
+msgstr "&Spel"
+
+#. i18n: ectx: Menu (settings)
+#: lskatui.rc:12
+#, kde-format
+msgid "&Settings"
+msgstr "&Instellingen"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: lskatui.rc:24
+#, kde-format
+msgid "Main Toolbar"
+msgstr "Hoofdwerkbalk"
+
+#: main.cpp:64
+#, kde-format
+msgid "LSkat"
+msgstr "LSkat"
+
+#: main.cpp:66
+#, kde-format
+msgid "LSkat: A desktop card game"
+msgstr "LSkat - een kaartspel op het bureaublad"
+
+#: main.cpp:68
+#, kde-format
+msgid "(c) 1995-2007, Martin Heni"
+msgstr "(c) 1995-2007, Martin Heni"
+
+#: main.cpp:73
+#, kde-format
+msgid "Martin Heni"
+msgstr "Martin Heni"
+
+#: main.cpp:73
+#, kde-format
+msgid "Game design and code"
+msgstr "Spelontwerp en code"
+
+#: main.cpp:74
+#, kde-format
+msgid "Eugene Trounev"
+msgstr "Eugene Trounev"
+
+#: main.cpp:74
+#, kde-format
+msgid "Graphics"
+msgstr "Illustraties"
+
+#: main.cpp:76
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr "Benjamin Meyer"
+
+#: main.cpp:76
+#, kde-format
+msgid "Code Improvements"
+msgstr "Codeverbeteringen"
+
+#: main.cpp:82
+#, kde-format
+msgid "Enter debug level"
+msgstr "Voer het debugniveau in"
+
+#: main.cpp:83
+#, kde-format
+msgid "Skip intro animation"
+msgstr "Inleidende animatie overslaan"
+
+#: main.cpp:84
+#, kde-format
+msgid "Run game in demo (autoplay) mode"
+msgstr "Spel in demomodus draaien"
+
+#: mainwindow.cpp:79
+#, kde-format
+msgid "Installation error: No theme list found."
+msgstr "Installatiefout: geen themalijst gevonden."
+
+#: mainwindow.cpp:126
+#, kde-format
+msgid "Installation error: Theme file error."
+msgstr "Installatiefout: fout in themabestand."
+
+#: mainwindow.cpp:144
+#, kde-format
+msgid "Welcome to Skat! Please start a new game."
+msgstr "Welkom bij Skat. Start een nieuw spel."
+
+#: mainwindow.cpp:333
+#, kde-format
+msgid "Game Over. Please start a new game."
+msgstr "Spel afgelopen. Start een nieuw spel."
+
+#: mainwindow.cpp:347
+#, kde-format
+msgctxt "Player name and number"
+msgid "Next move for %1 (player %2)"
+msgstr "Volgende zet voor %1 (speler %2)"
+
+#: mainwindow.cpp:361
+#, kde-format
+msgid "Clears the all time statistics which is kept in all sessions."
+msgstr ""
+"Verwijdert de statistieken aller tijden die in alle sessies zijn opgeslagen."
+
+#: mainwindow.cpp:366
+#, kde-format
+msgid "Ends a currently played game. No winner will be declared."
+msgstr "Beëindigd het huidig gespeelde spel. Niemand is winnaar."
+
+#: mainwindow.cpp:371
+#, kde-format
+msgid "Quits the program."
+msgstr "Sluit het programma."
+
+#: mainwindow.cpp:374
+#, kde-format
+msgid "Starting Player"
+msgstr "Beginspeler"
+
+#: mainwindow.cpp:377
+#, kde-format
+msgid "Changing starting player..."
+msgstr "Bezig beginspeler te wijzigen..."
+
+#: mainwindow.cpp:378
+#, kde-format
+msgid "Chooses which player begins the next game."
+msgstr "Bepaalt welke speler het volgende spel begint."
+
+#: mainwindow.cpp:381
+#, kde-format
+msgid "Player &1"
+msgstr "Speler &1"
+
+#: mainwindow.cpp:382
+#, kde-format
+msgid "Player &2"
+msgstr "Speler &2"
+
+#: mainwindow.cpp:387
+#, kde-format
+msgid "Player &1 Played By"
+msgstr "Speler &1 gespeeld door"
+
+#: mainwindow.cpp:390
+#, kde-format
+msgid "Changing who plays player 1..."
+msgstr "Bezig degene die speler 1 speelt te wijzigen..."
+
+#: mainwindow.cpp:391
+#, kde-format
+msgid "Changing who plays player 1."
+msgstr "Wie speler 1 speelt veranderen."
+
+#: mainwindow.cpp:393
+#, kde-format
+msgid "&Mouse"
+msgstr "&Muis"
+
+#: mainwindow.cpp:394
+#, kde-format
+msgid "&Computer"
+msgstr "&Computer"
+
+#: mainwindow.cpp:399
+#, kde-format
+msgid "Player &2 Played By"
+msgstr "Speler &2 gespeeld door"
+
+#: mainwindow.cpp:402
+#, kde-format
+msgid "Changing who plays player 2..."
+msgstr "Bezig degene die speler 2 speelt te wijzigen..."
+
+#: mainwindow.cpp:403
+#, kde-format
+msgid "Changing who plays player 2."
+msgstr "Wie speler 2 speelt veranderen."
+
+#: mainwindow.cpp:411
+#, kde-format
+msgid "&Theme"
+msgstr "&Thema"
+
+#: mainwindow.cpp:417
+#, kde-format
+msgid "Changing theme..."
+msgstr "Theme wijzigen..."
+
+#: mainwindow.cpp:418
+#, kde-format
+msgid "Changing theme."
+msgstr "Thema wijzigen."
+
+#: mainwindow.cpp:422
+#, kde-format
+msgid "Select &Card Deck..."
+msgstr "Kaartrug sele&cteren..."
+
+#: mainwindow.cpp:425
+#, kde-format
+msgid "Configure card decks..."
+msgstr "Kaartruggen instellen..."
+
+#: mainwindow.cpp:426
+#, kde-format
+msgid "Choose how the cards should look."
+msgstr "Bepaal hoe de kaartrug er uit zal zien."
+
+#: mainwindow.cpp:430
+#, kde-format
+msgid "&Change Player Names..."
+msgstr "Spelernamen wijzi&gen..."
+
+#: mainwindow.cpp:501
+#, kde-format
+msgid "Do you really want to clear the all time statistical data?"
+msgstr "Wilt u de statistische gegevens aller tijden verwijderen?"
+
+#: mainwindow.cpp:574
+#, kde-format
+msgid "Dealing cards..."
+msgstr "Kaarten uitdelen..."
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
+#: namedialog.ui:14
+#, kde-format
+msgid "Configure Names"
+msgstr "Namen instellen"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: namedialog.ui:20
+#, kde-format
+msgid "Player Names"
+msgstr "Spelernamen"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: namedialog.ui:32
+#, kde-format
+msgid "Player 1:"
+msgstr "Speler 1:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: namedialog.ui:39
+#, kde-format
+msgid "Player 2:"
+msgstr "Speler 2:"
+
+#: scoresprite.cpp:148
+#, kde-format
+msgctxt "Score in score widget"
+msgid "Score: %1"
+msgstr "Score: %1"
+
+#: scoresprite.cpp:156
+#, kde-format
+msgctxt "Won and overall games in score widget"
+msgid "Games: %1 / %2"
+msgstr "Spellen: %1 / %2"
+
+#~ msgid "OK"
+#~ msgstr "OK"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuleren"
+
+#~ msgid "Player %1 won "
+#~ msgstr "Speler 1 - %1 won "

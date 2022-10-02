@@ -1,0 +1,755 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY i18n-lskat "Luitenant Skat">
+  <!ENTITY lskat "LSkat">
+
+  <!ENTITY % Dutch "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>Het handboek van &lskat;</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Nalezer</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+&Niels.Reedijk;&Sander.Koning; 
+</authorgroup>
+
+<date
+>2021-10-05</date>
+<releaseinfo
+>1.50 (KDE Gear 21.08)</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Deze documentatie beschrijft het spel &i18n-lskat;; versie 1.50</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>spel</keyword>
+<keyword
+>speelkaarten</keyword>
+<keyword
+>kaartspel</keyword>
+<keyword
+>arcade</keyword>
+<keyword
+>kaart</keyword>
+<keyword
+>skat</keyword>
+<keyword
+>luitenant</keyword>
+<keyword
+>LsKat</keyword>
+<keyword
+>twee spelers</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inleiding</title>
+<note
+><title
+>Speltype:</title
+><para
+>Kaart, Arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Aantal mogelijke spelers:</title
+><para
+>Twee</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+><literal
+>Luitenant Skat</literal
+> (uit het Duits <foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>) is een leuk en uitdagend kaartspel voor twee spelers, waar de tweede speler ofwel een levende medespeler is of ingebouwd met kunstmatige intelligentie. </para>
+<para
+>Het spel wordt gespeeld met een enkel kaartspel. Kaarten worden geschud en tussen de spelers gedeeld op zo'n manier dat de helft is dicht gelegd en de helft open liggen. Elke deelnemer speelt per beurt één van de open kaarten. Zodra alle kaarten zijn gespeeld eindigt de ronde en worden de punten berekend en toegekend. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>Hoe te spelen</title>
+<note
+><title
+>Doel:</title
+><para
+>Scoor meer dan 60 punten in een enkel spel.</para
+></note>
+
+<para
+>Nadat er is gedeeld heeft elke speler 16 kaarten. Kaarten worden in twee horizontale rijen getoond - vier kaarten per rij. De helft van de kaarten zijn gesloten en de helfr ligt open. Als speler kunt u de kaarten zien van uw tegenspeler evenals uw eigen. U kunt dan een zet doen door te klikken op een van uw kaarten die nu open liggen. De tegenstander moet antwoorden door een bijpassende kaartvorm uit zijn/haar eigen stapel te kiezen.</para>
+
+<note
+><para
+>Als uw tegenstander kunstmatig intelligent is, zullen zijn kaarten automatisch worden gekozen.</para
+></note>
+
+<para
+>Nadat de uitwisseling is beëindigd worden waarden van de gespeelde kaarten geëvalueerd en of u of uw tegenstander krijgt punten toegekend. Het spel is klaar na 16 ronden (wanneer al uw kaarten en die van uw tegenstander zijn gespeeld). Nadat het spel eindigt wordt uw score vergeleken met die van uw tegenstander en de speler met de hoogste score wint de ronde.</para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>Spelregels, strategieën en tips</title>
+
+<sect1 id="screen">
+<title
+>Speelveld</title>
+
+<screenshot>
+<screeninfo
+>&i18n-lskat; standaard speelscherm.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&i18n-lskat; standaard spelreferentiescherm.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>Aanduiding van de actieve speler</seg>
+<seg
+>Kaartstapel voor speler 1 en speler 2</seg>
+<seg
+>Stapel gewonnen kaarten (als die er zijn)</seg>
+<seg
+>Speelveld</seg>
+<seg
+>Scorebord met de naam, de punten van het huidige spel, de totaalscore en het aantal gewonnen spellen per spel van de speler</seg>
+<seg
+>Speler bediening (mens/PC)</seg>
+<seg
+>De <quote
+>troef</quote
+> in het huidige spel</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>Regels</title>
+<itemizedlist>
+<listitem
+><para
+>Elke speler bezit 16 kaarten, waarvan 8 bedekte en 8 open.</para
+></listitem>
+<listitem
+><para
+>Een gesloten kaart kan alleen worden geopend als de open kaart die deze bedekte gespeeld is.</para
+></listitem>
+<listitem
+><para
+>Een spel heeft een willekeurig gekozen <quote
+>troef</quote
+>kaart [8].</para
+></listitem>
+<listitem
+><para
+>Alle vier de Boeren worden geteld als troef en behoren niet tot hun eigen set.</para
+></listitem>
+<listitem
+><para
+>Als een kleur (&eg; harten) als <quote
+>troef</quote
+> is gekozen, dan zijn alle zeven harten evenals de vier Boeren troeven, in totaal dus 11 troeven.</para
+></listitem>
+<listitem
+><para
+>Boeren verslaan elkaar in de volgorde (hoogste naar laagste): Klaver->Schoppen->Harten->Ruiten.</para
+></listitem>
+<listitem
+><para
+>De volgorde van kaarten voor een troefkleur: Boer van Klaveren, Boer van Schoppen, Boer van Harten, Boer van Ruiten, Aas, Tien, Heer, Vrouw, Negen, Acht, Zeven.</para
+></listitem>
+<listitem
+><para
+>De volgorde van kaarten voor een niet-troefkleur: Aas, Tien, Heer, Vrouw, Negen, Acht, Zeven.</para
+></listitem>
+<listitem id="card-values"
+><para
+>De waarden van kaarten (hoogste naar laagste):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Kaart</entry
+><entry
+>Waarde</entry
+></row>
+<row
+><entry
+>Aas</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Tien</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>Heer</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Vrouw</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Boer</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Negen</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Acht</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Zeven</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>Een speciaal <quote
+>troef</quote
+>spel heeft de naam Grand. In dit spel is er geen troefkleur en gelden alleen de vier boeren als troef. In dit spel wordt dat aangegeven door het symbool van de boer [8] op het scorebord [6].</para
+></listitem>
+<listitem
+><para
+>Als de speler de ronde start, dan heeft hij de keuze uit te spelen kaarten, ofwel een kaart van een kleur of een <quote
+>troef</quote
+>kaart.</para
+></listitem>
+<listitem
+><para
+>Alleen de open kaarten van de eigen stapel van de speler mogen worden gebruikt om de ronde te spelen.</para
+></listitem>
+<listitem
+><para
+>De speler die won start de volgende beurt.</para
+></listitem>
+<listitem
+><para
+>De speler die de ronde won telt de waarde van de in die ronde gespeelde kaarten op bij zijn/haar score.</para
+></listitem>
+<listitem
+><para
+>De speler met meer dan 60 punten wint het spel.</para
+></listitem>
+<listitem
+><para
+>Als beide spelers met 60 punten elk eindigen dan is het gelijk spel.</para
+></listitem>
+<listitem
+><para
+>Bij elk spel hoort een aantal winpunten die worden opgeteld bij de totaalscore.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Punten</entry
+><entry
+>Score</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>61 tot 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>91 tot 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>Strategieën en tips</title>
+<para
+>Wanneer het spel start, dan moet de startende speler een open kaart spelen van zijn eigen stapel. Als de tweede speler open kaarten heeft van dezelfde kleur als de gespeelde kaart, dan moet hij met een van deze kaarten antwoorden. Als de tweede speler geen kaart van dezelfde kleur heeft, dan mag hij elke andere kaart spelen inclusief een <quote
+>troef</quote
+>kaart.</para>
+<para
+>Als er minstens één <quote
+>troef</quote
+>kaart is, dan wint de hoogste <quote
+>troef</quote
+> beide kaarten.</para>
+<para
+>Als er geen <quote
+>troef</quote
+>kaart is, dan is de hoogste kaart van de door de beginnende speler gespeelde kleur de winnaar van beide kaarten.</para>
+<para
+>Als de antwoordende speler geen kaart van de gespeelde kleur heeft en geen <quote
+>troef</quote
+> heeft, dan moet deze een willekeurige kaart spelen en de beginnende speler wint beide kaarten.</para>
+
+<para
+>De speler die de ronde won is dan aan de beurt.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Veel voorkomende vragen</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>Kan ik met een ander spel kaarten spelen?</para
+></question>
+ <answer
+><para
+>Ja. Ga naar <link linkend="deck_change"
+>deze</link
+> sectie van 'Overzicht van het interface' voor details.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ik heb een vergissing begaan. Kan ik het ongedaan maken? </para
+></question>
+ <answer
+><para
+>Nee. Dit spel heeft geen <quote
+>Ongedaan maken</quote
+> mogelijkheid.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Kan ik het toetsenbord gebruiken om dit spel te spelen? </para
+></question>
+ <answer
+><para
+>Nee, dit spel kan niet met het toetsenbord worden gespeeld.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ik kom er niet achter wat hier te doen! Zijn er tips? </para
+></question>
+ <answer
+><para
+>Nee. Dit spel heeft geen <quote
+>Tip</quote
+> mogelijkheid.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ik moet het spel nu beëindigen, maar ik ben nog niet klaar. Kan ik mijn spel opslaan?</para
+></question>
+ <answer
+><para
+>Nee. Dit spel heeft geen <quote
+>Status opslaan</quote
+> mogelijkheid.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Kan ik de namen van de spelers wijzigen?</para
+></question>
+ <answer
+><para
+>Ja. Om de namen van de rechts van het speelveld getoonde spelers te wijzigen ga dan naar <link linkend="name_change"
+>deze</link
+> sectie van 'Overzicht van het interface' voor details.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>Overzicht van het interface</title>
+
+<sect1 id="file-menu">
+<title
+>Het menu Spel</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N<anchor id="new_game"/></keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Nieuw</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>Start een nieuw spel.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Spel beëindigen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Beëindigt een lopend spel.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Spel</guimenu
+> <guimenuitem
+>Statistieken opschonen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Wist het spelgeheugen aller tijden.</action
+> Deze statistiek wordt opgeslagen als het spel eindigt en toont de totaalscore en het aantal gespeelde en gewonnen spellen per speler. Deze wordt met dit menu-item gewist. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spel</guimenu
+> <guimenuitem
+>Afsluiten</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Sluit het programma.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Het menu Instellingen</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guisubmenu
+>Beginspeler</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Bepaalt of speler 1 (boven) of speler 2 (onder) het volgende spel begint. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guisubmenu
+>Speler 1 gespeeld door</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Kiest wie er als speler 1 (boven) speelt. De speler kan ofwel de lokale speler zijn en bestuurt deze met de muis of de computer bestuurt deze. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guisubmenu
+>Speler 2 gespeeld door</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Kiest wie er als speler 2 (onder) speelt. De speler kan ofwel de lokale speler zijn en bestuurt deze met de muis of de computer bestuurt deze. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guisubmenu
+>Thema</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Kiest een visueel thema. Dit wijzigt het voorkomen van het spel maar niet de kaarten. Kaartdeks worden met hun eigen menu-item geselecteerd. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>F10</keycap
+></shortcut
+> <guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Kaartrug selecteren...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+>Kies de voorkant en rug van het kaartdek dat voor het spel gebruikt wordt.</action
+> U kunt deze in een voorbeelddialoogvenster kiezen dat alle kaartdeks toont die geïnstalleerd zijn. </para>
+<note>
+<para
+>Sommige kaartdeks of kaartsets zijn gemarkeerd als schaalbare grafiek (&SVG;) in de dialoog. Deze kiezen zal een betere kwaliteit van de illustraties tonen wanneer het spel wordt geschaald of vergroot. Illustraties met een vaste grootte verliezen kwaliteit wanneer ze een andere grootte krijgen dan hun originele grootte. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Namen van spelers wijzigen...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Wijzig de namen van de spelers.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Bovendien heeft &i18n-lskat; de gezamenlijke menu-items van &kde; <guimenu
+>Instellingen</guimenu
+> en <guimenu
+>Help</guimenu
+>, voor meer informatie lees de secties over de <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Menu Instellingen</ulink
+> en <ulink url="help:/fundamentals/menus.html#menus-help"
+>Menu Help</ulink
+> van &kde;-fundamentals. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Dankbetuigingen en licentie</title>
+
+<para
+>&lskat; </para>
+<para
+>Programma copyright 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Illustraties copyright 2007 Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+> </para>
+<para
+>Documentatie copyright 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Documentatie omgezet naar &kde; 2.0 door &Mike.McBride; &Mike.McBride.mail; </para>
+
+&meld.fouten;&vertaling.niels;&vertaling.sander; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+

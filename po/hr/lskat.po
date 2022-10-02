@@ -1,0 +1,717 @@
+# Translation of lskat to Croatian
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: lskat 0\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-23 00:42+0000\n"
+"PO-Revision-Date: 2006-08-30 13:35+0100\n"
+"Last-Translator: Renato Pavicic <renato@translator-shop.org>\n"
+"Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: TransDict server\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Renato Pavičić"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "renato@translator-shop.org"
+
+#: config_two.cpp:29
+#, fuzzy, kde-format
+msgctxt "Default player name"
+msgid "Alice"
+msgstr "Alice"
+
+#: config_two.cpp:30
+#, fuzzy, kde-format
+#| msgid "Bob"
+msgctxt "Default player name"
+msgid "Bob"
+msgstr "Bob"
+
+#: deck.cpp:145
+#, kde-format
+msgid "no valid card"
+msgstr ""
+
+#: deck.cpp:152 deck.cpp:164
+#, kde-format
+msgid "unknown"
+msgstr ""
+
+#: deck.cpp:153
+#, kde-format
+msgctxt "suite name"
+msgid "Clubs"
+msgstr ""
+
+#: deck.cpp:154
+#, kde-format
+msgctxt "suite name"
+msgid "Spades"
+msgstr ""
+
+#: deck.cpp:155
+#, kde-format
+msgctxt "suite name"
+msgid "Hearts"
+msgstr ""
+
+#: deck.cpp:156
+#, kde-format
+msgctxt "suite name"
+msgid "Diamonds"
+msgstr ""
+
+#: deck.cpp:157
+#, kde-format
+msgctxt "trump name"
+msgid "Grand"
+msgstr ""
+
+#: deck.cpp:165
+#, fuzzy, kde-format
+msgctxt "card name"
+msgid "Ace"
+msgstr "Alice"
+
+#: deck.cpp:166
+#, kde-format
+msgctxt "card name"
+msgid "King"
+msgstr ""
+
+#: deck.cpp:167
+#, kde-format
+msgctxt "card name"
+msgid "Queen"
+msgstr ""
+
+#: deck.cpp:168
+#, kde-format
+msgctxt "card name"
+msgid "Jack"
+msgstr ""
+
+#: deck.cpp:169
+#, kde-format
+msgctxt "card name"
+msgid "Ten"
+msgstr ""
+
+#: deck.cpp:170
+#, kde-format
+msgctxt "card name"
+msgid "Nine"
+msgstr ""
+
+#: deck.cpp:171
+#, kde-format
+msgctxt "card name"
+msgid "Eight"
+msgstr ""
+
+#: deck.cpp:172
+#, fuzzy, kde-format
+msgctxt "card name"
+msgid "Seven"
+msgstr "Poslužitelj"
+
+#: deck.cpp:181
+#, kde-format
+msgctxt "eg jack of clubs"
+msgid "%1 of %2"
+msgstr ""
+
+#: display_intro.cpp:93
+#, fuzzy, kde-format
+#| msgid "Lieutenant Skat"
+msgctxt "Title of the game - line 1"
+msgid "Lieutenant Skat"
+msgstr "Vojnički skat"
+
+#: display_intro.cpp:94
+#, fuzzy, kde-format
+#| msgid "for"
+msgctxt "Title of the game - line 2"
+msgid "for"
+msgstr "za"
+
+#: display_intro.cpp:95
+#, fuzzy, kde-format
+#| msgid "K D E"
+msgctxt "Title of the game - line 3"
+msgid "K D E"
+msgstr "K D E"
+
+#: display_two.cpp:368
+#, fuzzy, kde-format
+#| msgid "%1 points"
+msgctxt "Resulting score of a game with no point"
+msgid "no point"
+msgstr "%1 bodova"
+
+#: display_two.cpp:370
+#, fuzzy, kde-format
+#| msgid "%1 points"
+msgctxt "Resulting score of a game between 1 and 4"
+msgid "%1 point"
+msgid_plural "%1 points"
+msgstr[0] "%1 bodova"
+msgstr[1] "%1 bodova"
+msgstr[2] "%1 bodova"
+
+#: engine_two.cpp:235
+#, fuzzy, kde-format
+#| msgid "Game was aborted - no winner"
+msgid "Game was ended - no winner"
+msgstr "Igra je prekinuta - nema pobjednika"
+
+#: engine_two.cpp:244
+#, fuzzy, kde-format
+msgid "Game is drawn"
+msgstr "    Igra je neriješena"
+
+#: engine_two.cpp:250
+#, fuzzy, kde-format
+#| msgid "Player 2 - %1 won "
+msgid "Player 1 - %1 won "
+msgstr "Igrač 2 – pobjedio vas je igrač %1"
+
+#: engine_two.cpp:257 engine_two.cpp:277
+#, kde-format
+msgid "%1 won with 90 points. Super!"
+msgstr "%1 je pobijedio s 90 bodova. Izvrsno!"
+
+#: engine_two.cpp:263 engine_two.cpp:283
+#, kde-format
+msgid "%1 won to nil. Congratulations!"
+msgstr "%1 je pobijedio do nule. Čestitamo!"
+
+#: engine_two.cpp:270
+#, kde-format
+msgid "Player 2 - %1 won "
+msgstr "Igrač 2 – pobjedio vas je igrač %1"
+
+#: engine_two.cpp:344
+#, fuzzy, kde-format
+#| msgid "Game name:"
+msgid "Game ended"
+msgstr "Naziv igre:"
+
+#. i18n: ectx: Menu (game)
+#: lskatui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "Igara:"
+
+#. i18n: ectx: Menu (settings)
+#: lskatui.rc:12
+#, kde-format
+msgid "&Settings"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: lskatui.rc:24
+#, kde-format
+msgid "Main Toolbar"
+msgstr ""
+
+#: main.cpp:64
+#, kde-format
+msgid "LSkat"
+msgstr ""
+
+#: main.cpp:66
+#, kde-format
+msgid "LSkat: A desktop card game"
+msgstr ""
+
+#: main.cpp:68
+#, fuzzy, kde-format
+#| msgid "(c) Martin Heni   "
+msgid "(c) 1995-2007, Martin Heni"
+msgstr "(c) Martin Heni   "
+
+#: main.cpp:73
+#, fuzzy, kde-format
+#| msgid "(c) Martin Heni   "
+msgid "Martin Heni"
+msgstr "(c) Martin Heni   "
+
+#: main.cpp:73
+#, kde-format
+msgid "Game design and code"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Eugene Trounev"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Graphics"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Code Improvements"
+msgstr ""
+
+#: main.cpp:82
+#, kde-format
+msgid "Enter debug level"
+msgstr "Pristupi razini za otkrivanje nedostataka"
+
+#: main.cpp:83
+#, kde-format
+msgid "Skip intro animation"
+msgstr ""
+
+#: main.cpp:84
+#, kde-format
+msgid "Run game in demo (autoplay) mode"
+msgstr ""
+
+#: mainwindow.cpp:79
+#, kde-format
+msgid "Installation error: No theme list found."
+msgstr ""
+
+#: mainwindow.cpp:126
+#, kde-format
+msgid "Installation error: Theme file error."
+msgstr ""
+
+#: mainwindow.cpp:144
+#, kde-format
+msgid "Welcome to Skat! Please start a new game."
+msgstr ""
+
+#: mainwindow.cpp:333
+#, fuzzy, kde-format
+msgid "Game Over. Please start a new game."
+msgstr "Pokretanje nove igre..."
+
+#: mainwindow.cpp:347
+#, kde-format
+msgctxt "Player name and number"
+msgid "Next move for %1 (player %2)"
+msgstr ""
+
+#: mainwindow.cpp:361
+#, kde-format
+msgid "Clears the all time statistics which is kept in all sessions."
+msgstr "Brisanje svih statistika vremena spremljenih tijekom svih sesija."
+
+#: mainwindow.cpp:366
+#, fuzzy, kde-format
+#| msgid "Aborts a currently played game. No winner will be declared."
+msgid "Ends a currently played game. No winner will be declared."
+msgstr "Prekida se trenutna igra. Pobjednik neće biti proglašen."
+
+#: mainwindow.cpp:371
+#, kde-format
+msgid "Quits the program."
+msgstr "Izlazak iz programa."
+
+#: mainwindow.cpp:374
+#, kde-format
+msgid "Starting Player"
+msgstr "Prvi na potezu"
+
+#: mainwindow.cpp:377
+#, kde-format
+msgid "Changing starting player..."
+msgstr "Zamjena igrača prvog na potezu …"
+
+#: mainwindow.cpp:378
+#, kde-format
+msgid "Chooses which player begins the next game."
+msgstr "Odaberite koji igrač započinje prvi u sljedećoj igri."
+
+#: mainwindow.cpp:381
+#, kde-format
+msgid "Player &1"
+msgstr "Igrač &1"
+
+#: mainwindow.cpp:382
+#, kde-format
+msgid "Player &2"
+msgstr "Igrač &2"
+
+#: mainwindow.cpp:387
+#, kde-format
+msgid "Player &1 Played By"
+msgstr "Igračem &1 upravlja"
+
+#: mainwindow.cpp:390
+#, kde-format
+msgid "Changing who plays player 1..."
+msgstr "Zamjena upravljanja igračem 1 …"
+
+#: mainwindow.cpp:391
+#, fuzzy, kde-format
+msgid "Changing who plays player 1."
+msgstr "Zamjena upravljanja igračem 1..."
+
+#: mainwindow.cpp:393
+#, kde-format
+msgid "&Mouse"
+msgstr ""
+
+#: mainwindow.cpp:394
+#, kde-format
+msgid "&Computer"
+msgstr "&Računalo"
+
+#: mainwindow.cpp:399
+#, kde-format
+msgid "Player &2 Played By"
+msgstr "Igračem &2 upravlja"
+
+#: mainwindow.cpp:402
+#, kde-format
+msgid "Changing who plays player 2..."
+msgstr "Zamjena upravljanja igračem 2 …"
+
+#: mainwindow.cpp:403
+#, fuzzy, kde-format
+msgid "Changing who plays player 2."
+msgstr "Zamjena upravljanja igračem 2..."
+
+#: mainwindow.cpp:411
+#, fuzzy, kde-format
+#| msgid "&Remote"
+msgid "&Theme"
+msgstr "&Udaljeni"
+
+#: mainwindow.cpp:417
+#, fuzzy, kde-format
+#| msgid "Change level..."
+msgid "Changing theme..."
+msgstr "Promjena razine..."
+
+#: mainwindow.cpp:418
+#, fuzzy, kde-format
+#| msgid "Change level..."
+msgid "Changing theme."
+msgstr "Promjena razine..."
+
+#: mainwindow.cpp:422
+#, kde-format
+msgid "Select &Card Deck..."
+msgstr "Odaberite š&pil karata …"
+
+#: mainwindow.cpp:425
+#, kde-format
+msgid "Configure card decks..."
+msgstr "Konfiguriranje špilova karata …"
+
+#: mainwindow.cpp:426
+#, kde-format
+msgid "Choose how the cards should look."
+msgstr "Odaberite na koji će način izgledati karte."
+
+#: mainwindow.cpp:430
+#, fuzzy, kde-format
+msgid "&Change Player Names..."
+msgstr "Imena igrača"
+
+#: mainwindow.cpp:501
+#, kde-format
+msgid "Do you really want to clear the all time statistical data?"
+msgstr "Želite li zaista izbrisati sve statistike vremena?"
+
+#: mainwindow.cpp:574
+#, kde-format
+msgid "Dealing cards..."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
+#: namedialog.ui:14
+#, kde-format
+msgid "Configure Names"
+msgstr "Konfiguriranje imena"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: namedialog.ui:20
+#, fuzzy, kde-format
+msgid "Player Names"
+msgstr "Imena igrača"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: namedialog.ui:32
+#, kde-format
+msgid "Player 1:"
+msgstr "Igrač 1:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: namedialog.ui:39
+#, kde-format
+msgid "Player 2:"
+msgstr "Igrač 2:"
+
+#: scoresprite.cpp:148
+#, fuzzy, kde-format
+#| msgid "Score:"
+msgctxt "Score in score widget"
+msgid "Score: %1"
+msgstr "Rezultat:"
+
+#: scoresprite.cpp:156
+#, fuzzy, kde-format
+#| msgid "Games:"
+msgctxt "Won and overall games in score widget"
+msgid "Games: %1 / %2"
+msgstr "Igara:"
+
+#, fuzzy
+#~ msgid "Player %1 won "
+#~ msgstr "Igrač 1 - pobjedio vas je igrač %1"
+
+#, fuzzy
+#~ msgid "Game aborted"
+#~ msgstr "Završetak igre"
+
+#, fuzzy
+#~ msgid "Player 1"
+#~ msgstr "Igrač &1"
+
+#, fuzzy
+#~ msgid "Player 2"
+#~ msgstr "Igrač &2"
+
+#, fuzzy
+#~ msgid "KDE"
+#~ msgstr "K D E"
+
+#, fuzzy
+#~ msgid "Start a new game."
+#~ msgstr "Pokretanje nove igre..."
+
+#~ msgid "Starting a new game..."
+#~ msgstr "Pokretanje nove igre..."
+
+#~ msgid "&Clear Statistics"
+#~ msgstr "&Izbriši statistike"
+
+#~ msgid "Delete all time statistics..."
+#~ msgstr "Izbriši statistike svih vremena..."
+
+#, fuzzy
+#~ msgid "End game"
+#~ msgstr "&Završi igru"
+
+#~ msgid "Ending the current game..."
+#~ msgstr "Završavanje trenutne igre..."
+
+#~ msgid "Exiting..."
+#~ msgstr "Izlazak..."
+
+#~ msgid "Points:"
+#~ msgstr "Bodovi:"
+
+#, fuzzy
+#~ msgid "PlayerName"
+#~ msgstr "Imena igrača"
+
+#~ msgid "Send &Message..."
+#~ msgstr "Pošalji &poruku..."
+
+#~ msgid "Sending message to remote player..."
+#~ msgstr "Slanje poruke udaljenom igraču..."
+
+#~ msgid "Allows you to talk with a remote player."
+#~ msgstr "Omogućuje pričanje s udaljenim igračem."
+
+#~ msgid "&Player"
+#~ msgstr "&Igrač"
+
+#~ msgid "&Level"
+#~ msgstr "&Razina"
+
+#~ msgid "Change the strength of the computer player."
+#~ msgstr "Promijenite jačinu računalnog igrača."
+
+#~ msgid "&Normal"
+#~ msgstr "&Normalno"
+
+#~ msgid "&Advanced"
+#~ msgstr "N&apredno"
+
+#~ msgid "&Hard"
+#~ msgstr "&Teško"
+
+#~ msgid "Change &Names..."
+#~ msgstr "Promijeni &imena..."
+
+#~ msgid "Configure player names..."
+#~ msgstr "Konfiguriranje imena igrača..."
+
+#~ msgid "This leaves space for the mover"
+#~ msgstr "Ovo ostavlja mjesto za pomicatelja"
+
+#~ msgid "Ready"
+#~ msgstr "Spreman"
+
+#~ msgid "Welcome to Lieutenant Skat"
+#~ msgstr "Dobrodošli u Vojnički skat"
+
+#~ msgid "Game ended...start a new one..."
+#~ msgstr "Završetak igre... Pokreće se nova..."
+
+#~ msgid "No game running"
+#~ msgstr "Nema pokrenute igre"
+
+#~ msgid "%1 to move..."
+#~ msgstr "%1 je na potezu..."
+
+#~ msgid ""
+#~ "Cannot start player 1. Maybe the network connection failed or the "
+#~ "computer player process file is not found."
+#~ msgstr ""
+#~ "Nije moguće pokrenuti igrača 1. Možda nije uspostavljena veza ili nije "
+#~ "pronađena datoteka procesa računalnog igrača."
+
+#~ msgid ""
+#~ "Cannot start player 2. Maybe the network connection failed or the "
+#~ "computer player process file is not found."
+#~ msgstr ""
+#~ "Nije moguće pokrenuti igrača 2. Možda nije uspostavljena veza ili nije "
+#~ "pronađena datoteka procesa računalnog igrača."
+
+#~ msgid "Remote connection to %1:%2..."
+#~ msgstr "Udaljena veza s %1:%2..."
+
+#~ msgid "Offering remote connection on port %1..."
+#~ msgstr "Ponuda udaljene veze na portu %1..."
+
+#~ msgid "Abort"
+#~ msgstr "Odustani"
+
+#~ msgid "Waiting for the computer to move..."
+#~ msgstr "Čekanje da računalo povuče potez..."
+
+#~ msgid "Waiting for remote player..."
+#~ msgstr "Čekanje udaljenog igrača..."
+
+#~ msgid "Please make your move..."
+#~ msgstr "Povucite svoj potez..."
+
+#~ msgid "Remote connection lost for player 1..."
+#~ msgstr "Udaljena veza je izgubljena za igrača 1..."
+
+#~ msgid "Remote connection lost for player 2..."
+#~ msgstr "Udaljena veza je izgubljena za igrača 2..."
+
+#~ msgid "Message from remote player:\n"
+#~ msgstr "Poruka od udaljenog igrača:\n"
+
+#~ msgid "Remote player ended game..."
+#~ msgstr "Udaljeni je igrač završio igru..."
+
+#~ msgid "You are network client...loading remote game..."
+#~ msgstr "Vi ste mrežni klijent... Učitava se udaljena igra..."
+
+#~ msgid "You are network server..."
+#~ msgstr "Vi ste mrežni poslužitelj..."
+
+#~ msgid ""
+#~ "Severe internal error. Move to illegal position.\n"
+#~ "Restart game and report bug to the developer.\n"
+#~ msgstr ""
+#~ "Interna pogreška poslužitelja. Potez na nedozvoljenom položaju.\n"
+#~ "Ponovo pokrenite igru i programerima pošaljite izvještaj o nedostatku.\n"
+
+#~ msgid ""
+#~ "This move would not follow the rulebook.\n"
+#~ "Better think again!\n"
+#~ msgstr ""
+#~ "Ovaj potez nije u skladu s pravilima.\n"
+#~ "Razmislite još jednom!\n"
+
+#~ msgid "It is not your turn.\n"
+#~ msgstr "Niste na potezu.\n"
+
+#~ msgid "This move is not possible.\n"
+#~ msgstr "Ovaj potez nije moguć.\n"
+
+#~ msgid "%1 won over 90 points. Super!"
+#~ msgstr "%1 je pobijedio s više od 90 bodova! Izvrsno!"
+
+#~ msgid "Move:"
+#~ msgstr "Potez:"
+
+#~ msgid "Won:"
+#~ msgstr "Pobjeda:"
+
+#~ msgid "Hold on... the other player hasn't been yet..."
+#~ msgstr "Pričekajte... Drugi igrač još nije..."
+
+#~ msgid "Hold your horses..."
+#~ msgstr "Strpite se..."
+
+#~ msgid "Ah ah ah... only one go at a time..."
+#~ msgstr "Ne, ne... Jedan po jedan potez..."
+
+#~ msgid "Please wait... it is not your turn."
+#~ msgstr "Pričekajte... Niste na potezu."
+
+#~ msgid "Card Game"
+#~ msgstr "Kartaška igra"
+
+#~ msgid "Beta testing"
+#~ msgstr "Beta ispitivanje"
+
+#~ msgid "Send Message to Remote Player"
+#~ msgstr "Pošalji poruku udaljenom igraču."
+
+#~ msgid "Enter Message"
+#~ msgstr "Unesite poruku"
+
+#~ msgid "Send"
+#~ msgstr "Pošalji"
+
+#~ msgid "Enter a player's name"
+#~ msgstr "Unesite ime igrača"
+
+#~ msgid "Network Options"
+#~ msgstr "Opcije mreže"
+
+#~ msgid "Play As"
+#~ msgstr "Igraj kao"
+
+#~ msgid "Client"
+#~ msgstr "Klijent"
+
+#~ msgid "Network games:"
+#~ msgstr "Mrežne igre:"
+
+#~ msgid "Host:"
+#~ msgstr "Računalo:"
+
+#~ msgid "Port:"
+#~ msgstr "Port:"
+
+#~ msgid "Choose a port to connect to"
+#~ msgstr "Odaberite port na koji ćete se povezati"

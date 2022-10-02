@@ -1,0 +1,780 @@
+# translation of lskat.po to Belarusian
+#
+# Siarhei Liantsevich <serzh.by@gmail.com>, 2007.
+# Darafei Praliaskouski <komzpa@licei2.com>, 2007.
+msgid ""
+msgstr ""
+"Project-Id-Version: lskat\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-07-23 00:42+0000\n"
+"PO-Revision-Date: 2007-10-28 14:36+0200\n"
+"Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
+"Language-Team: Belarusian <i18n@mova.org>\n"
+"Language: be\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || n%10>=5 && n%10<=9 || n"
+"%100>=11 && n%100<=14 ? 2 : 3);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Дарафей Праляскоўскі"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "komzpa@licei2.com"
+
+#: config_two.cpp:29
+#, kde-format
+msgctxt "Default player name"
+msgid "Alice"
+msgstr "Аліса"
+
+#: config_two.cpp:30
+#, kde-format
+msgctxt "Default player name"
+msgid "Bob"
+msgstr "Боб"
+
+#: deck.cpp:145
+#, kde-format
+msgid "no valid card"
+msgstr ""
+
+#: deck.cpp:152 deck.cpp:164
+#, kde-format
+msgid "unknown"
+msgstr "невядомы"
+
+#: deck.cpp:153
+#, kde-format
+msgctxt "suite name"
+msgid "Clubs"
+msgstr ""
+
+#: deck.cpp:154
+#, kde-format
+msgctxt "suite name"
+msgid "Spades"
+msgstr ""
+
+#: deck.cpp:155
+#, kde-format
+msgctxt "suite name"
+msgid "Hearts"
+msgstr ""
+
+#: deck.cpp:156
+#, kde-format
+msgctxt "suite name"
+msgid "Diamonds"
+msgstr ""
+
+#: deck.cpp:157
+#, kde-format
+msgctxt "trump name"
+msgid "Grand"
+msgstr ""
+
+#: deck.cpp:165
+#, kde-format
+msgctxt "card name"
+msgid "Ace"
+msgstr ""
+
+#: deck.cpp:166
+#, kde-format
+msgctxt "card name"
+msgid "King"
+msgstr ""
+
+#: deck.cpp:167
+#, kde-format
+msgctxt "card name"
+msgid "Queen"
+msgstr ""
+
+#: deck.cpp:168
+#, kde-format
+msgctxt "card name"
+msgid "Jack"
+msgstr ""
+
+#: deck.cpp:169
+#, kde-format
+msgctxt "card name"
+msgid "Ten"
+msgstr "Дзесяць"
+
+#: deck.cpp:170
+#, kde-format
+msgctxt "card name"
+msgid "Nine"
+msgstr "Дзевяць"
+
+#: deck.cpp:171
+#, kde-format
+msgctxt "card name"
+msgid "Eight"
+msgstr "Восем"
+
+#: deck.cpp:172
+#, kde-format
+msgctxt "card name"
+msgid "Seven"
+msgstr "Сем"
+
+#: deck.cpp:181
+#, kde-format
+msgctxt "eg jack of clubs"
+msgid "%1 of %2"
+msgstr "%1 з %2"
+
+#: display_intro.cpp:93
+#, kde-format
+msgctxt "Title of the game - line 1"
+msgid "Lieutenant Skat"
+msgstr "Лейтэнант Скат"
+
+#: display_intro.cpp:94
+#, kde-format
+msgctxt "Title of the game - line 2"
+msgid "for"
+msgstr "для"
+
+#: display_intro.cpp:95
+#, kde-format
+msgctxt "Title of the game - line 3"
+msgid "K D E"
+msgstr "K D E"
+
+#: display_two.cpp:368
+#, kde-format
+msgctxt "Resulting score of a game with no point"
+msgid "no point"
+msgstr ""
+
+#: display_two.cpp:370
+#, kde-format
+msgctxt "Resulting score of a game between 1 and 4"
+msgid "%1 point"
+msgid_plural "%1 points"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: engine_two.cpp:235
+#, fuzzy, kde-format
+#| msgid "Game was aborted - no winner"
+msgid "Game was ended - no winner"
+msgstr "Гульня скасаваная - пераможцаў няма"
+
+#: engine_two.cpp:244
+#, kde-format
+msgid "Game is drawn"
+msgstr "Гульня скончылася ўнічыю"
+
+#: engine_two.cpp:250
+#, fuzzy, kde-format
+msgid "Player 1 - %1 won "
+msgstr "Перамог гулец 2 - %1 "
+
+#: engine_two.cpp:257 engine_two.cpp:277
+#, fuzzy, kde-format
+msgid "%1 won with 90 points. Super!"
+msgstr "%1 набраў 90 ачкоў. Проста выдатна!"
+
+#: engine_two.cpp:263 engine_two.cpp:283
+#, kde-format
+msgid "%1 won to nil. Congratulations!"
+msgstr "%1 выйграў усухую.  Віншаванні!"
+
+#: engine_two.cpp:270
+#, fuzzy, kde-format
+msgid "Player 2 - %1 won "
+msgstr "Перамог гулец 2 - %1 "
+
+#: engine_two.cpp:344
+#, fuzzy, kde-format
+msgid "Game ended"
+msgstr "Імя гульні:"
+
+#. i18n: ectx: Menu (game)
+#: lskatui.rc:10
+#, fuzzy, kde-format
+msgid "&Game"
+msgstr "&Гульня"
+
+#. i18n: ectx: Menu (settings)
+#: lskatui.rc:12
+#, fuzzy, kde-format
+msgid "&Settings"
+msgstr "&Настаўленні"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: lskatui.rc:24
+#, fuzzy, kde-format
+msgid "Main Toolbar"
+msgstr "Галоўная панель начыння"
+
+#: main.cpp:64
+#, kde-format
+msgid "LSkat"
+msgstr "LSkat"
+
+#: main.cpp:66
+#, kde-format
+msgid "LSkat: A desktop card game"
+msgstr ""
+
+#: main.cpp:68
+#, fuzzy, kde-format
+msgid "(c) 1995-2007, Martin Heni"
+msgstr "(c) Martin Heni   "
+
+#: main.cpp:73
+#, fuzzy, kde-format
+msgid "Martin Heni"
+msgstr "(c) Martin Heni   "
+
+#: main.cpp:73
+#, kde-format
+msgid "Game design and code"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Eugene Trounev"
+msgstr ""
+
+#: main.cpp:74
+#, kde-format
+msgid "Graphics"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Benjamin Meyer"
+msgstr ""
+
+#: main.cpp:76
+#, kde-format
+msgid "Code Improvements"
+msgstr "Паляпшэнні кода"
+
+#: main.cpp:82
+#, kde-format
+msgid "Enter debug level"
+msgstr "Задайце ўзровень адладкі"
+
+#: main.cpp:83
+#, kde-format
+msgid "Skip intro animation"
+msgstr ""
+
+#: main.cpp:84
+#, kde-format
+msgid "Run game in demo (autoplay) mode"
+msgstr ""
+
+#: mainwindow.cpp:79
+#, kde-format
+msgid "Installation error: No theme list found."
+msgstr ""
+
+#: mainwindow.cpp:126
+#, kde-format
+msgid "Installation error: Theme file error."
+msgstr ""
+
+#: mainwindow.cpp:144
+#, kde-format
+msgid "Welcome to Skat! Please start a new game."
+msgstr ""
+
+#: mainwindow.cpp:333
+#, kde-format
+msgid "Game Over. Please start a new game."
+msgstr "Гульня скончана. Калі ласка, пачніце новую."
+
+#: mainwindow.cpp:347
+#, kde-format
+msgctxt "Player name and number"
+msgid "Next move for %1 (player %2)"
+msgstr ""
+
+#: mainwindow.cpp:361
+#, kde-format
+msgid "Clears the all time statistics which is kept in all sessions."
+msgstr "Выдаляе ўсю статыстыку пра час, назапашаную за ўсе гульні."
+
+#: mainwindow.cpp:366
+#, fuzzy, kde-format
+#| msgid "Aborts a currently played game. No winner will be declared."
+msgid "Ends a currently played game. No winner will be declared."
+msgstr "Спыняе бягучую гульню. Пераможцаў не будзе."
+
+#: mainwindow.cpp:371
+#, kde-format
+msgid "Quits the program."
+msgstr "Завяршае праграму."
+
+#: mainwindow.cpp:374
+#, fuzzy, kde-format
+msgid "Starting Player"
+msgstr "Гулец, які робіць першы ход"
+
+#: mainwindow.cpp:377
+#, fuzzy, kde-format
+msgid "Changing starting player..."
+msgstr "Змяняю Гульца, які робіць першы ход..."
+
+#: mainwindow.cpp:378
+#, fuzzy, kde-format
+msgid "Chooses which player begins the next game."
+msgstr "Выбірае, які з гульцоў пачынае наступную гульню."
+
+#: mainwindow.cpp:381
+#, fuzzy, kde-format
+msgid "Player &1"
+msgstr "Гулец 1"
+
+#: mainwindow.cpp:382
+#, fuzzy, kde-format
+msgid "Player &2"
+msgstr "Гулец 2"
+
+#: mainwindow.cpp:387
+#, fuzzy, kde-format
+msgid "Player &1 Played By"
+msgstr "Гулец 1 - гэта"
+
+#: mainwindow.cpp:390
+#, fuzzy, kde-format
+msgid "Changing who plays player 1..."
+msgstr "Змяняю гульца # 1..."
+
+#: mainwindow.cpp:391
+#, fuzzy, kde-format
+msgid "Changing who plays player 1."
+msgstr "Змяняю гульца # 1..."
+
+#: mainwindow.cpp:393
+#, kde-format
+msgid "&Mouse"
+msgstr "&Мыш"
+
+#: mainwindow.cpp:394
+#, kde-format
+msgid "&Computer"
+msgstr "&Камп'ютэр"
+
+#: mainwindow.cpp:399
+#, fuzzy, kde-format
+msgid "Player &2 Played By"
+msgstr "Гулец 2 - гэта"
+
+#: mainwindow.cpp:402
+#, fuzzy, kde-format
+msgid "Changing who plays player 2..."
+msgstr "Змяняю гульца # 2..."
+
+#: mainwindow.cpp:403
+#, fuzzy, kde-format
+msgid "Changing who plays player 2."
+msgstr "Змяняю гульца # 2..."
+
+#: mainwindow.cpp:411
+#, fuzzy, kde-format
+msgid "&Theme"
+msgstr "Сеткавы"
+
+#: mainwindow.cpp:417
+#, fuzzy, kde-format
+msgid "Changing theme..."
+msgstr "Змяніць узровень..."
+
+#: mainwindow.cpp:418
+#, fuzzy, kde-format
+msgid "Changing theme."
+msgstr "Змяніць узровень..."
+
+#: mainwindow.cpp:422
+#, fuzzy, kde-format
+msgid "Select &Card Deck..."
+msgstr "Вылучыць размалёўку карт..."
+
+#: mainwindow.cpp:425
+#, fuzzy, kde-format
+msgid "Configure card decks..."
+msgstr "Наладзіць размалёўку карт..."
+
+#: mainwindow.cpp:426
+#, fuzzy, kde-format
+msgid "Choose how the cards should look."
+msgstr "Задае знешні выгляд карт."
+
+#: mainwindow.cpp:430
+#, fuzzy, kde-format
+msgid "&Change Player Names..."
+msgstr "Імёны гульцоў"
+
+#: mainwindow.cpp:501
+#, fuzzy, kde-format
+msgid "Do you really want to clear the all time statistical data?"
+msgstr "Вы сапраўды жадаеце выдаліць усю статыстыку?"
+
+#: mainwindow.cpp:574
+#, kde-format
+msgid "Dealing cards..."
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
+#: namedialog.ui:14
+#, fuzzy, kde-format
+msgid "Configure Names"
+msgstr "Задаць імёны"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: namedialog.ui:20
+#, fuzzy, kde-format
+msgid "Player Names"
+msgstr "Імёны гульцоў"
+
+#. i18n: ectx: property (text), widget (QLabel, label_1)
+#: namedialog.ui:32
+#, fuzzy, kde-format
+msgid "Player 1:"
+msgstr "Гулец 1:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: namedialog.ui:39
+#, fuzzy, kde-format
+msgid "Player 2:"
+msgstr "Гулец 2:"
+
+#: scoresprite.cpp:148
+#, fuzzy, kde-format
+msgctxt "Score in score widget"
+msgid "Score: %1"
+msgstr "Балы: %1 "
+
+#: scoresprite.cpp:156
+#, fuzzy, kde-format
+msgctxt "Won and overall games in score widget"
+msgid "Games: %1 / %2"
+msgstr "Гульні:"
+
+#~ msgid "OK"
+#~ msgstr "Добра"
+
+#~ msgid "Cancel"
+#~ msgstr "Скасаваць"
+
+#, fuzzy
+#~ msgid "Player %1 won "
+#~ msgstr "Перамог гулец 1 - %1 "
+
+#, fuzzy
+#~ msgid "Game aborted"
+#~ msgstr "Канец гульні"
+
+#, fuzzy
+#~ msgid "Player 1"
+#~ msgstr "Гулец 1"
+
+#, fuzzy
+#~ msgid "Player 2"
+#~ msgstr "Гулец 2"
+
+#~ msgid "KDE"
+#~ msgstr "KDE"
+
+#, fuzzy
+#~ msgid "Start a new game."
+#~ msgstr "Пачынаю новую гульню..."
+
+#, fuzzy
+#~ msgid "Starting a new game..."
+#~ msgstr "Пачынаю новую гульню..."
+
+#, fuzzy
+#~ msgid "&Clear Statistics"
+#~ msgstr "Ачысціць статыстыку"
+
+#, fuzzy
+#~ msgid "Delete all time statistics..."
+#~ msgstr "Выдаліць усю часовую статыстыку..."
+
+#, fuzzy
+#~ msgid "End game"
+#~ msgstr "Скончыць гульню"
+
+#, fuzzy
+#~ msgid "Ending the current game..."
+#~ msgstr "Сканчаем гульню..."
+
+#, fuzzy
+#~ msgid "Exiting..."
+#~ msgstr "Выхад..."
+
+#, fuzzy
+#~ msgid "Points:"
+#~ msgstr "Ачкі:"
+
+#, fuzzy
+#~ msgid "PlayerName"
+#~ msgstr "Імёны гульцоў"
+
+#, fuzzy
+#~ msgid ""
+#~ "_: NAME OF TRANSLATORS\n"
+#~ "Your names"
+#~ msgstr "Сяржук Лянцэвіч"
+
+#, fuzzy
+#~ msgid ""
+#~ "_: EMAIL OF TRANSLATORS\n"
+#~ "Your emails"
+#~ msgstr "serzh.by@gmail.com"
+
+#, fuzzy
+#~ msgid "Send &Message..."
+#~ msgstr "Паслаць паведамленне..."
+
+#, fuzzy
+#~ msgid "Sending message to remote player..."
+#~ msgstr "Адпраўляю паведамленне сеткаваму гульцу..."
+
+#, fuzzy
+#~ msgid "Allows you to talk with a remote player."
+#~ msgstr "Дае магчымасць пагаварыць з сеткавым гульцом."
+
+#, fuzzy
+#~ msgid "&Player"
+#~ msgstr "Гулец"
+
+#, fuzzy
+#~ msgid "&Level"
+#~ msgstr "Узровень"
+
+#, fuzzy
+#~ msgid "Change the strength of the computer player."
+#~ msgstr "Змяніць узровень камп'ютэрнага гульца."
+
+#, fuzzy
+#~ msgid "&Normal"
+#~ msgstr "звычайны"
+
+#, fuzzy
+#~ msgid "&Advanced"
+#~ msgstr "прасунуты"
+
+#, fuzzy
+#~ msgid "&Hard"
+#~ msgstr "цяжкі"
+
+#, fuzzy
+#~ msgid "Change &Names..."
+#~ msgstr "Змяніць імёны..."
+
+#, fuzzy
+#~ msgid "Configure player names..."
+#~ msgstr "Наладзіць імёны гульцоў..."
+
+#, fuzzy
+#~ msgid "This leaves space for the mover"
+#~ msgstr "Гэта пакідае месца для захаджалага"
+
+#, fuzzy
+#~ msgid "Ready"
+#~ msgstr "Гатова"
+
+#, fuzzy
+#~ msgid "Welcome to Lieutenant Skat"
+#~ msgstr "Вас прывітае Лейтэнант Пахіл"
+
+#, fuzzy
+#~ msgid "Game ended...start a new one..."
+#~ msgstr "Канец гульні...пачніце новую..."
+
+#, fuzzy
+#~ msgid "No game running"
+#~ msgstr "Няма гульні"
+
+#, fuzzy
+#~ msgid "%1 to move..."
+#~ msgstr "Ход %1..."
+
+#, fuzzy
+#~ msgid ""
+#~ "Cannot start player 1. Maybe the network connection failed or the "
+#~ "computer player process file is not found."
+#~ msgstr ""
+#~ "Гулец 1 не можа хадзіць. Магчыма, няма злучэння па сетцы або не знойдзены "
+#~ "файл гульні камп'ютэрнага гульца."
+
+#, fuzzy
+#~ msgid ""
+#~ "Cannot start player 2. Maybe the network connection failed or the "
+#~ "computer player process file is not found."
+#~ msgstr ""
+#~ "Гулец 2 не можа хадзіць. Магчыма, няма злучэння па сетцы або не знойдзены "
+#~ "файл гульні камп'ютэрнага гульца."
+
+#, fuzzy
+#~ msgid "Remote connection to %1:%2..."
+#~ msgstr "Выдаленае злучэнне з %1:%2..."
+
+#, fuzzy
+#~ msgid "Offering remote connection on port %1..."
+#~ msgstr "Чакаю злучэнне на порце %1..."
+
+#, fuzzy
+#~ msgid "Abort"
+#~ msgstr "Адмяніць"
+
+#, fuzzy
+#~ msgid "Waiting for the computer to move..."
+#~ msgstr "Чакаю заходу камп'ютэра..."
+
+#, fuzzy
+#~ msgid "Waiting for remote player..."
+#~ msgstr "Чакаю сеткавага гульца..."
+
+#, fuzzy
+#~ msgid "Please make your move..."
+#~ msgstr "Ваш заход..."
+
+#, fuzzy
+#~ msgid "Remote connection lost for player 1..."
+#~ msgstr "Злучэнне з сеткавым гульцом 1 згублена..."
+
+#, fuzzy
+#~ msgid "Remote connection lost for player 2..."
+#~ msgstr "Злучэнне з сеткавым гульцом 1 згублена..."
+
+#, fuzzy
+#~ msgid "Message from remote player:\n"
+#~ msgstr "Пасланне ад сеткавага гульца:\n"
+
+#, fuzzy
+#~ msgid "Remote player ended game..."
+#~ msgstr "Сеткавы гулец завяршыў гульню..."
+
+#, fuzzy
+#~ msgid "You are network client...loading remote game..."
+#~ msgstr "Вы - сеткавы кліент...загружаю сеткавую гульню..."
+
+#, fuzzy
+#~ msgid "You are network server..."
+#~ msgstr "Вы - сеткавы сервер..."
+
+#, fuzzy
+#~ msgid ""
+#~ "Severe internal error. Move to illegal position.\n"
+#~ "Restart game and report bug to the developer.\n"
+#~ msgstr ""
+#~ "Сур'ёзная ўнутраная памылка. Няслушны заход.\n"
+#~ "Пачніце гульню зноўку і паведаміце аб памылцы распрацоўніку.\n"
+
+#, fuzzy
+#~ msgid ""
+#~ "This move would not follow the rulebook.\n"
+#~ "Better think again!\n"
+#~ msgstr ""
+#~ "Такі ход - не па правілах.\n"
+#~ "Паспрабуйце яшчэ раз!\n"
+
+#, fuzzy
+#~ msgid "It is not your turn.\n"
+#~ msgstr "Не ваш ход.\n"
+
+#, fuzzy
+#~ msgid "This move is not possible.\n"
+#~ msgstr "Такі ход немагчымы.\n"
+
+#, fuzzy
+#~ msgid "%1 won over 90 points. Super!"
+#~ msgstr "%1 набраў больш 90 ачкоў. Проста выдатна!"
+
+#, fuzzy
+#~ msgid "Move:"
+#~ msgstr "Заход:"
+
+#, fuzzy
+#~ msgid "Won:"
+#~ msgstr "Выйгрыш:"
+
+#, fuzzy
+#~ msgid "Hold on... the other player hasn't been yet..."
+#~ msgstr "Пачакайце...яшчэ не ўсё зашлі..."
+
+#, fuzzy
+#~ msgid "Hold your horses..."
+#~ msgstr "Не гоніце канёў..."
+
+#, fuzzy
+#~ msgid "Ah ah ah... only one go at a time..."
+#~ msgstr "Гэй-гэй-гэй...па адным за раз..."
+
+#, fuzzy
+#~ msgid "Please wait... it is not your turn."
+#~ msgstr "Пачакайце... не ваша чарга."
+
+#, fuzzy
+#~ msgid "Card Game"
+#~ msgstr "Картачная гульня"
+
+#, fuzzy
+#~ msgid "Beta testing"
+#~ msgstr "Бэтатэсціраванне"
+
+#, fuzzy
+#~ msgid "Send Message to Remote Player"
+#~ msgstr "Адправіць паведамленне сеткаваму гульцу"
+
+#, fuzzy
+#~ msgid "Enter Message"
+#~ msgstr "Увядзіце паведамленне"
+
+#, fuzzy
+#~ msgid "Send"
+#~ msgstr "Адправіць"
+
+#, fuzzy
+#~ msgid "Enter a player's name"
+#~ msgstr "Увядзіце імя гульца"
+
+#, fuzzy
+#~ msgid "Network Options"
+#~ msgstr "Параметры сеткі"
+
+#, fuzzy
+#~ msgid "Play As"
+#~ msgstr "Гуляць як"
+
+#, fuzzy
+#~ msgid "Client"
+#~ msgstr "Кліент"
+
+#, fuzzy
+#~ msgid "Network games:"
+#~ msgstr "Сеткавыя гульні:"
+
+#, fuzzy
+#~ msgid "Host:"
+#~ msgstr "Хост:"
+
+#, fuzzy
+#~ msgid "Port:"
+#~ msgstr "Порт:"
+
+#, fuzzy
+#~ msgid "Choose a port to connect to"
+#~ msgstr "Вылучыце порт для падлучэння"

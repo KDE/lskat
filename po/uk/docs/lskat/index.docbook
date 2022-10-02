@@ -1,0 +1,741 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY i18n-lskat "Лейтенант Скат">
+  <!ENTITY lskat "LSkat">
+
+  <!ENTITY % Ukrainian "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>Підручник з гри «Лейтенант Скат»</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Рецензент</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Юрій</firstname
+><surname
+>Чорноіван</surname
+><affiliation
+><address
+><email
+>yurchor@ukr.net</email
+></address
+></affiliation
+><contrib
+>Переклад українською</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>5 жовтня 2021 року</date>
+<releaseinfo
+>1.50 (KDE Gear 21.08)</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>У цій документації описано гру «&i18n-lskat;» версії 1.50</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>гра</keyword>
+<keyword
+>гра у карти</keyword>
+<keyword
+>карткова гра</keyword>
+<keyword
+>аркада</keyword>
+<keyword
+>карти</keyword>
+<keyword
+>скат</keyword>
+<keyword
+>лейтенант</keyword>
+<keyword
+>LsKat</keyword>
+<keyword
+>два гравці</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Вступ</title>
+<note
+><title
+>Тип гри:</title
+><para
+>Карти, аркада</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Можлива кількість гравців:</title
+><para
+>Два</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+>«Лейтенант Скат» (німецькою <foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>) — це весела і захоплива гра у карти для двох гравців, у якій вашим суперником може бути або людина, або вбудований штучний комп’ютерний інтелект </para>
+<para
+>У гру грають за допомогою однієї колоди карт. Карти тасуються і роздаються гравцям так, що половину з них буде закрито, а половину відкрито. Кожен з учасників гри використовує по одній карті кожного ходу. Після того, як всі карти буде використано, раунд завершується і підраховуються набрані очки. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>Як грати</title>
+<note
+><title
+>Мета:</title
+><para
+>Гравець, у якого буде більше за 60 очок, виграє гру.</para
+></note>
+
+<para
+>Одразу після роздачі у кожного з гравців буде по 16 карт. Карти буде показано у вигляді двох горизонтальних рядів, — по чотири карти у ряді. Половину з карт буде відкрито, а половину перевернуто. Ви, як гравець, можете бачити карти вашого суперника, а він (вона) може бачити ваші карти. Хід можна зробити наведенням вказівника миші на відкриту карту з наступним клацанням лівою кнопкою миші. Суперник має відповісти, обравши відповідну карту з власного набору.</para>
+
+<note
+><para
+>Якщо за вашого суперника грає комп’ютер, його карти буде обрано автоматично.</para
+></note>
+
+<para
+>Після виконання ходів буде обчислено вартість карт і вам або вашому опонентові буде нараховано очки. Гра складається з 16 раундів (розіграшу всіх ваших карт та карт вашого суперника). На завершення гри буде порівняно рахунки суперників, переможцем раунду вважається гравець з більшою кількістю очок.</para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>Правила гри, стратегія та поради</title>
+
+<sect1 id="screen">
+<title
+>Вікно гри</title>
+
+<screenshot>
+<screeninfo
+>Типове вікно гри «&i18n-lskat;».</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Типовий зразок вікна гри «&i18n-lskat;».</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>Позначка поточного гравця</seg>
+<seg
+>Набір карт для першого і другого гравця</seg>
+<seg
+>Стос виграних карт (якщо такі є)</seg>
+<seg
+>Ігрове поле</seg>
+<seg
+>Поле рахунка з іменем гравця, його очками у поточній грі, загальним рахунком гравця і кількістю виграшів у перерахунку на одну гру</seg>
+<seg
+>Запис щодо гравця (Людина/Комп’ютер)</seg>
+<seg
+>Козир у поточній грі</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>Правила</title>
+<itemizedlist>
+<listitem
+><para
+>У кожного з гравців є 16 карт. 8 з них перевернуто сорочкою догори, а 8 лежать відкритими.</para
+></listitem>
+<listitem
+><para
+>Зіграти перевернутою картою можна лише після того, як буде заграна карта, яка лежить на ній.</para
+></listitem>
+<listitem
+><para
+>У кожній грі є випадково обраний козир</para
+></listitem>
+<listitem
+><para
+>Всі чотири валети вважаються козирями і не належать до своєї масті.</para
+></listitem>
+<listitem
+><para
+>Якщо обрано певну масть козирів (наприклад, черви) всі сім карт черв, а також всі чотири валети вважатимуться козирями, загалом козирних карт буде 11.</para
+></listitem>
+<listitem
+><para
+>Валети б’ють один одного у такому порядку (від старшого до молодшого): Трефи->Піки->Черви->Бубни.</para
+></listitem>
+<listitem
+><para
+>Послідовність карт козирів: валет треф, валет пік, валет черви, валет бубни, туз, десятка, король, королева, дев’ятка, вісімка, сімка.</para
+></listitem>
+<listitem
+><para
+>Послідовність карт не козирної масті: туз, десятка, король, королева, дев’ятка, вісімка, сімка.</para
+></listitem>
+<listitem id="card-values"
+><para
+>Вартість карт (від найвищої до найнижчої):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Карта</entry
+><entry
+>Вартість</entry
+></row>
+<row
+><entry
+>Туз</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Десятка</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>Король</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Королева</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Валет</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Дев’ятка</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Вісімка</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Сімка</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>Особлива козирна гра називається Великою. У такій грі жодна з мастей не є козирною, — козирними є лише чотири валети. Така гра позначається символом голови валета [8] на дошці рахунка [6].</para
+></listitem>
+<listitem
+><para
+>Якщо гравець починає раунд, він (вона) має обрати карту, якою слід зіграти, або карту тієї самої масті, або козир.</para
+></listitem>
+<listitem
+><para
+>Для гри можна використовувати лише відкриті карти з власного набору.</para
+></listitem>
+<listitem
+><para
+>Гравець, який виграв попередній раунд, має першим ходити наступного раунду.</para
+></listitem>
+<listitem
+><para
+>Переможець (переможниця) раунду додає суму очок виграних у цьому раунді карт до свого рахунка.</para
+></listitem>
+<listitem
+><para
+>Гравець, у якого буде більше за 60 очок, виграє гру.</para
+></listitem>
+<listitem
+><para
+>Якщо обидва гравці матимуть наприкінці раунду по 60 очок на своєму рахунку, гра завершується унічию.</para
+></listitem>
+<listitem
+><para
+>За кожну гру нараховується певна кількість очок, які додаються до загального рахунку.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Очки</entry
+><entry
+>Рахунок</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>від 61 до 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>від 91 до 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>Стратегія та поради</title>
+<para
+>На початку гри гравець, який ходить першим, має зіграти будь-якою з розкритих карт власного набору. Якщо у другого гравця серед відкритих карт є карти тієї самої масті, він має відповісти картою у масть з першою. Якщо у другого гравця таких карт немає, він може походити будь-якою іншою картою, зокрема козирною.</para>
+<para
+>Якщо використано принаймні одну козирну карту, старша козирна карта виграє обидві карти.</para>
+<para
+>Якщо козир не використано, обидві карти виграє старша з карт масті, визначеної першим гравцем.</para>
+<para
+>Якщо у другого гравця немає карти відповідної масті або козирної карти, він може зіграти будь-якою картою: обидві карти дістануться першому гравцеві.</para>
+
+<para
+>Гравець, який виграв попередній раунд, має першим ходити наступного раунду.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Часті запитання</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>Чи можна грати іншою колодою карт?</para
+></question>
+ <answer
+><para
+>Так  Докладніше про це можна дізнатися з                               цього        розділу «Огляду інтерфейсу»</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Я помилився (помилилася)? Можна це виправити? </para
+></question>
+ <answer
+><para
+>Ні. У цій грі немає можливості скасувати хід.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Чи можна використовувати для гри клавіатуру? </para
+></question>
+ <answer
+><para
+>Ні. У цю гру не можна грати за допомогою клавіатури.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Не можу з’ясувати, що слід робити! Чи є у грі підказки? </para
+></question>
+ <answer
+><para
+>Ні. У цій грі немає функції «Підказка».</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Я змушений (змушена) перервати гру, але гру ще не завершено. Чи можу я зберегти поточний стан?</para
+></question>
+ <answer
+><para
+>Ні. У цій грі немає можливості зберегти стан.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Чи можу я змінити імена гравців?</para
+></question>
+ <answer
+><para
+>Так  Щоб дізнатися про те, як змінити імена, показані у правій частині вікна гри, зверніться до                               цього        розділу «Огляду інтерфейсу»</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>Огляд інтерфейсу</title>
+
+<sect1 id="file-menu">
+<title
+>Меню «Гра»</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+><anchor id="new_game"/>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Створити</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>Починає нову гру.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Завершити гру</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Завершує поточну гру.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Гра</guimenu
+> <guimenuitem
+>Очистити статистику</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Спорожнює всю пам’ять гри.</action
+> Відповідні статистичні дані зберігаються наприкінці гри і показуються у вигляді загального рахунку і кількості зіграних і виграних ігор для кожного з гравців. Спорожнити ці статистичні дані можна за допомогою цього пункту меню. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Гра</guimenu
+> <guimenuitem
+>Вийти</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Завершує роботу програми.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Меню «Параметри»</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guisubmenu
+>Першим ходить</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Визначає, хто починатиме наступну: гравець 1 (верхній) чи гравець 2 (нижній). </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guisubmenu
+>За гравця 1 грає</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Визначає, хто має грати за гравця 1 (верхнього). Керувати гравцем може або людина за допомогою маніпулятора миші, або комп’ютер. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guisubmenu
+>За гравця 2 грає</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Визначає, хто має грати за гравця 2 (нижнього). Керувати гравцем може або людина за допомогою маніпулятора миші, або комп’ютер. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guisubmenu
+>Тема</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Визначає візуальну тему. За допомогою цього пункту можна змінити вигляд вікна гри, але не карт. Сорочки карт можна обрати у окремому пункті меню. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>F10</keycap
+> </shortcut
+> <guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Вибір колоди карт...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+>Тут можна обрати чільну та зворотну сторони колоди карт, яку буде використано для гри.</action
+> Зробити вибір можна за допомогою діалогового вікна попереднього перегляду, у якому буде показано всі встановлені теми колод карт. </para>
+<note>
+<para
+>Деякі з тем колод карт позначено у цьому діалозі як теми з масштабованою графікою (&SVG;). Вибір подібної теми забезпечить кращу якість графіки за умов зміни масштабу вікна гри. Карти з графікою фіксованого розміру виглядають гірше, якщо змінити масштаб їх показу. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>Параметри</guimenu
+> <guimenuitem
+>Змінити імена гравців...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Відкриває вікно змінити імен гравців.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Крім того, у грі «&i18n-lskat;» передбачено типові для &kde; пункти меню <guimenu
+>Параметри</guimenu
+> і <guimenu
+>Довідка</guimenu
+>. Щоб дізнатися більше, ознайомтеся з розділами щодо <ulink url="help:/fundamentals/menus.html#menus-settings"
+>меню «Параметри»</ulink
+> та <ulink url="help:/fundamentals/menus.html#menus-help"
+>меню «Довідка»</ulink
+> підручника з основ роботи у &kde;. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Подяки і ліцензія</title>
+
+<para
+>&lskat; </para>
+<para
+>Авторські права на програму належать &Martin.Heni; <email
+>kde@heni-online.de</email
+>, ©2000-2007 </para>
+<para
+>Авторські права на графічні елементи програми належать Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+>, ©2007 </para>
+<para
+>Авторські права на документацію до програми належать &Martin.Heni; <email
+>kde@heni-online.de</email
+>, ©2000-2007 </para>
+<para
+>Автором перетворення документації для &kde; 2.0 є &Mike.McBride; &Mike.McBride.mail; </para>
+
+<para
+>Переклад українською: Юрій Чорноіван <email
+>yurchor@ukr.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+

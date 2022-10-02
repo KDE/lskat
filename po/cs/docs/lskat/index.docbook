@@ -1,0 +1,750 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kappname "&lskat;">
+  <!ENTITY kappversion "1.40"
+><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY % Czech "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>Příručka aplikace Poručík Skat</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Kontrolor</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Lukáš</firstname
+><surname
+>Vlček</surname
+><affiliation
+><address
+><email
+>lukas.vlcek777@gmail.com</email
+></address
+></affiliation
+><contrib
+>Překlad</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2013-05-05</date>
+<releaseinfo
+>&kappversion;</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Tato dokumentace popisuje hru &kappname; ve verzi &kappversion;.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>hra</keyword>
+<keyword
+>hrací karty</keyword>
+<keyword
+>karetní hra</keyword>
+<keyword
+>arkáda</keyword>
+<keyword
+>karetní</keyword>
+<keyword
+>skat</keyword>
+<keyword
+>poručík</keyword>
+<keyword
+>lskat</keyword>
+<keyword
+>dva hráči</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Úvod</title>
+<note
+><title
+>Typ hry:</title
+><para
+>Karetní, arkáda</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Počet možných hráčů:</title
+><para
+>Dva</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+>Poručík Skat (z německého <foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>) je zábavná a chytlavá karetní hra pro dva hráče, kde druhý hráč může být člověk nebo počítač. </para>
+<para
+>Hra se hraje s jediným balíčkem karet. Karty jsou zamíchány a rozdány mezi hráče tak, že jedna polovina z nich je lícem dolů a druhá polovina lícem nahoru. Každý účastník hraje jednou z odkrytých karet za kolo. Jakmile se již kartami hrálo, je kolo ukončeno, body jsou spočítány a připsány. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>Jak hrát</title>
+<note
+><title
+>Cíl:</title
+><para
+>Dosáhnout vyššího skóre než 60 bodů za jednu hru.</para
+></note>
+<para
+>Poté, co jsou karty rozdány, má každý hráč 16 karet. Karty jsou poskládány do dvou řad a čtyř sloupců. Jedna polovina karet je lícem dolů a druhá polovina je lícem nahoru. Hráči tak vidí karty svého protivníka. Hrát můžete, kteroukoli kartou otočenou lícem nahoru. Protihráč musí reagovat odpovídající kartou ze své hromádky karet. <note
+><title
+>Poznámka</title
+><para
+>Je-li protivník PC, karty budou vybírány automaticky.</para
+></note
+> Po tahu hráčů jsou spočítány hodnoty karet a body jsou připsány buď Vám nebo Vašemu protivníkovi. Hra má celkem 16 kol (hrálo-li se již všemi Vašimi kartami i kartami Vašeho protihráče). Po skončené hře je Vaše skóre porovnáno s protihráčovým skóre a hráč s vyšším skóre vyhrává kolo. </para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>Herní pravidla, strategie a tipy</title>
+
+<sect1 id="screen">
+<title
+>Herní obrazovka</title>
+
+<screenshot>
+<screeninfo
+>Výchozí herní obrazovka pro &lskat;.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>Výchozí herní obrazovka návodu pro &lskat;.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>Ukazatel aktivního hráče</seg>
+<seg
+>Balíčky karet pro hráče jedna a hráče dva</seg>
+<seg
+>Balíček vyhraných karet (jsou-li nějaké)</seg>
+<seg
+>Herní plocha</seg>
+<seg
+>Karta s hráčovým jménem a skóre: body v aktuální hře, celkové skóre hráče a počet výher za hru</seg>
+<seg
+>Hráčová ikona (Člověk/PC)</seg>
+<seg
+>'Trumf' v aktuální hře</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>Pravidla</title>
+<itemizedlist>
+<listitem
+><para
+>Každý hráč má 16 karet. 8 z nich je obráceno lícem dolů a dalších 8 lícem nahoru.</para
+></listitem>
+<listitem
+><para
+>Karta obrácená lícem dolů může být obrácena, poté co bylo hráno s kartou, která ji zakrývala.</para
+></listitem>
+<listitem
+><para
+>Každá hra má náhodně vybraný 'trumf'. [8]</para
+></listitem>
+<listitem
+><para
+>Všichni čtyři kluci jsou počítání jako trumf a nepatří k žádné jejich barvě.</para
+></listitem>
+<listitem
+><para
+>Je-li barva (např. srdce) vybrána jako 'trumf', pak se každé ze sedmi srdcí bere jako trumf stejně jako kluci. To dělá celkem 11 trumfů.</para
+></listitem>
+<listitem
+><para
+>Kluci se navzájem přebíjí v tomto pořadí (seřazeno od nejsilnějšího po nejslabší): Kříže->Piky->Srdce->Káry.</para
+></listitem>
+<listitem
+><para
+>Pořadí karet od nejsilnějších po nejslabší s trumfy: Kluk křížový, Kluk pikový, Kluk srdcový, Kluk kárový, Eso, Desítka, Král, Královna, Devítka, Osmička, Sedmička.</para
+></listitem>
+<listitem
+><para
+>Pořadí karet od nejsilnějších po nejslabší bez trumfu: Eso, Desítka, Král, Královna, Devítka, Osmička, Sedmička.</para
+></listitem>
+<listitem id="card-values"
+><para
+>Hodnoty karet (od nejvyšších po nejnižší):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Karta</entry
+><entry
+>Hodnota</entry
+></row>
+<row
+><entry
+>Eso</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Desítka</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>Král</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Královna</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Kluk</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Devítka</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Osmička</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Sedmička</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>Speciální 'trumf' hry je nazýván Trumf. Trumf v této hře nepatří k žádné barvě. Jako trumfy jsou počítány pouze čtyři kluci. Tento typ hry je označen symbolem hlavy kluka [8] na desce se skóre [6].</para
+></listitem>
+<listitem
+><para
+>Začíná-li hráč kolo, má na výběr, se kterou kartou hrát. Buď kartou z balíku nebo 'trumfem'.</para
+></listitem>
+<listitem
+><para
+>Ke hraní v kole mohou být použity pouze karty z hráčova balíčku otočené lícem nahoru.</para
+></listitem>
+<listitem
+><para
+>Hráč, který vyhraje kolo, začíná další.</para
+></listitem>
+<listitem
+><para
+>Hráči, který vyhraje kolo, se do skóre připočtou hodnoty karet odehraných za toto kolo.</para
+></listitem>
+<listitem
+><para
+>Hráč s více než 60 body vyhrává hru.</para
+></listitem>
+<listitem
+><para
+>Skončí-li oba hráči s 60 body, hra končí remízou.</para
+></listitem>
+<listitem
+><para
+>Za každou hru se uděluje určitý počet bodů. Ty jsou připočteny do celkového skóre.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Body</entry
+><entry
+>Skóre</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>61 až 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>91 až 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>Strategie a tipy</title>
+<para
+>Když hra začíná, začínající hráč by měl hrát některou z karet otočených lícem nahoru ze svého balíku. Má-li nyní druhý hráč karty stejné barvy jakou má protihráčova karta, musí odpovědět jednou z těchto karet. Nicméně nemá-li druhý hráč kartu stejné barvy, může hrát s kteroukoli kartou včetně 'trumfu'.</para>
+<para
+>Hraje-li se alespoň jedním 'trumfem', pak nejvyšší 'trumf' vyhrává obě karty.</para>
+<para
+>Nehraje-li se žádným 'trumfem', pak nejvyšší karta barvy začínajícího hráče vyhrává obě karty.</para>
+<para
+>Nemá-li reagující hráč žádnou kartu odpovídající barvy ani žádný 'trumf', musí hrát jinou kartou. Začínající hráč pak vyhrává obě karty.</para>
+
+<para
+>Hráč, který vyhraje kolo, vede další.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Často kladené otázky</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>Můžu hrát s jinou sadou karet?</para
+></question>
+ <answer
+><para
+>Ano. Viz <link linkend="deck_change"
+>tato</link
+> část 'Náhledu na rozhraní'.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Udělal/a jsem chybu. Mohu tah vrátit? </para
+></question>
+ <answer
+><para
+>Ne. Tato hra nepodporuje možnost <quote
+>Zpět</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Mohu při hraní použít klávesnici? </para
+></question>
+ <answer
+><para
+>Ne. Tuto hru nelze hrát pomocí klávesnice.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Nevím jak hrát dál! Jsou zde rady? </para
+></question>
+ <answer
+><para
+>Ne. Tato hra nepodporuje možnost <quote
+>Poradit</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Musím ukončit svoji hru ještě před dokončením. Můžu uložit svůj průběh?</para
+></question>
+ <answer
+><para
+>Ne. Tato hra neumožňuje <quote
+>Uložit stav</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Můžu změnit jména hráčů?</para
+></question>
+ <answer
+><para
+>Ano. Chcete-li změnit jména hráčů zobrazená na pravé straně obrazovky, přejděte do <link linkend="name_change"
+>této</link
+> části 'Náhledu na rozhraní'.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>Náhled na rozhraní</title>
+
+<sect1 id="file-menu">
+<title
+>Nabídka Hra</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+><anchor id="new_game"/>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Hra</guimenu
+> <guimenuitem
+>Nová</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>Spouští novou hru.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>End</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Hra</guimenu
+> <guimenuitem
+>Ukončit hru</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Ukončuje spuštěnou hru.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Hra</guimenu
+> <guimenuitem
+>Vyčistit statistiky</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Čistí celou herní historii.</action
+> Tato statistika je uložena po skončené hře a je zobrazeno celkové skóre a počet odehraných a vyhraných her obou hráčů. Tyto informace vyčistíte pomocí této položky hlavní nabídky. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Hra</guimenu
+> <guimenuitem
+>Ukončit</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Ukončuje tento program.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Nabídka Nastavení</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavení</guimenu
+> <guisubmenu
+>Začínající hráč</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Vybírá hráče 1 (nahoře) nebo hráče 2 (dole), který začíná další hru. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavení</guimenu
+> <guisubmenu
+>Hráč 1 hraje</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Vybírá, kdo hraje za hráče 1 (nahoře). Za hráče může hrát buď místní hráč pomocí myši nebo počítač. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavení</guimenu
+> <guisubmenu
+>Hráč 2 hraje</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Vybírá, kdo hraje za hráče 2 (nahoře). Za hráče může hrát buď místní hráč pomocí myši nebo počítač. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>Nastavení</guimenu
+> <guisubmenu
+>Motiv</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Vybírá vizuální motiv. Ten změní vzhled hry, ale ne karet. Sady karet se vybírají pomocí jejich vlastní položky hlavní nabídky. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><shortcut
+> <keycap
+>F10</keycap
+> </shortcut
+> <guimenu
+>Nastavení</guimenu
+> <guimenuitem
+>Vybrat sadu karet...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+> Vybírá líc i rub karet hracího balíčku.</action
+> Můžete si vybrat v náhledu v dialogovém okně zobrazující všechny balíčky karet instalované pro &kde;. </para>
+<note>
+<para
+>Některé balíčky a sady karet jsou v tomto dialogovém okně označeny jako škálovatelná grafika (SVG). Je-li hra zmenšena nebo zvětšena, jejich výběrem zobrazíte lepší grafickou kvalitu. Pevná velikost grafiky ztrácí kvalitu při změně velikosti, která je odlišná od její původní velikosti. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>Natavení</guimenu
+> <guimenuitem
+>Změnit jména hráčů...</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Mění jména hráčů.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>&lskat; má běžné položky &kde; nabídek <guimenu
+>Nastavení</guimenu
+> a <guimenu
+>Nápověda</guimenu
+>. Pro více informací si přečtěte část o <ulink url="help:/fundamentals/ui.html#menus-settings"
+>nabídce Nastavení</ulink
+> a <ulink url="help:/fundamentals/ui.html#menus-help"
+>nabídce Nápověda</ulink
+> v nápovědě Základy &kde;. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Informace o autorech a licenční ujednání</title>
+
+<para
+>&lskat; </para>
+<para
+>Program copyright 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Graphics copyright 2007 Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+> </para>
+<para
+>Documentation copyright 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Do dokumentace pro &kde; 2.0 převedli: &Mike.McBride; &Mike.McBride.mail; </para>
+
+<para
+>Překlad dokumentace Lukáš Vlček <email
+>lukas.vlcek777@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+
