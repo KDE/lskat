@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-23 00:42+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2007-10-28 14:36+0200\n"
 "Last-Translator: Darafei Praliaskouski <komzpa@licei2.com>\n"
 "Language-Team: Belarusian <i18n@mova.org>\n"
@@ -282,154 +282,154 @@ msgstr ""
 msgid "Run game in demo (autoplay) mode"
 msgstr ""
 
-#: mainwindow.cpp:79
+#: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr ""
 
-#: mainwindow.cpp:126
+#: mainwindow.cpp:127
 #, kde-format
 msgid "Installation error: Theme file error."
 msgstr ""
 
-#: mainwindow.cpp:144
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
 msgstr ""
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:334
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "Гульня скончана. Калі ласка, пачніце новую."
 
-#: mainwindow.cpp:347
+#: mainwindow.cpp:348
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr ""
 
-#: mainwindow.cpp:361
+#: mainwindow.cpp:362
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "Выдаляе ўсю статыстыку пра час, назапашаную за ўсе гульні."
 
-#: mainwindow.cpp:366
+#: mainwindow.cpp:367
 #, fuzzy, kde-format
 #| msgid "Aborts a currently played game. No winner will be declared."
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "Спыняе бягучую гульню. Пераможцаў не будзе."
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:372
 #, kde-format
 msgid "Quits the program."
 msgstr "Завяршае праграму."
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:375
 #, fuzzy, kde-format
 msgid "Starting Player"
 msgstr "Гулец, які робіць першы ход"
 
-#: mainwindow.cpp:377
+#: mainwindow.cpp:378
 #, fuzzy, kde-format
 msgid "Changing starting player..."
 msgstr "Змяняю Гульца, які робіць першы ход..."
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:379
 #, fuzzy, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "Выбірае, які з гульцоў пачынае наступную гульню."
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:382
 #, fuzzy, kde-format
 msgid "Player &1"
 msgstr "Гулец 1"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:383
 #, fuzzy, kde-format
 msgid "Player &2"
 msgstr "Гулец 2"
 
-#: mainwindow.cpp:387
+#: mainwindow.cpp:388
 #, fuzzy, kde-format
 msgid "Player &1 Played By"
 msgstr "Гулец 1 - гэта"
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:391
 #, fuzzy, kde-format
 msgid "Changing who plays player 1..."
 msgstr "Змяняю гульца # 1..."
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:392
 #, fuzzy, kde-format
 msgid "Changing who plays player 1."
 msgstr "Змяняю гульца # 1..."
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:394
 #, kde-format
 msgid "&Mouse"
 msgstr "&Мыш"
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:395
 #, kde-format
 msgid "&Computer"
 msgstr "&Камп'ютэр"
 
-#: mainwindow.cpp:399
+#: mainwindow.cpp:400
 #, fuzzy, kde-format
 msgid "Player &2 Played By"
 msgstr "Гулец 2 - гэта"
 
-#: mainwindow.cpp:402
+#: mainwindow.cpp:403
 #, fuzzy, kde-format
 msgid "Changing who plays player 2..."
 msgstr "Змяняю гульца # 2..."
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:404
 #, fuzzy, kde-format
 msgid "Changing who plays player 2."
 msgstr "Змяняю гульца # 2..."
 
-#: mainwindow.cpp:411
+#: mainwindow.cpp:412
 #, fuzzy, kde-format
 msgid "&Theme"
 msgstr "Сеткавы"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:418
 #, fuzzy, kde-format
 msgid "Changing theme..."
 msgstr "Змяніць узровень..."
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:419
 #, fuzzy, kde-format
 msgid "Changing theme."
 msgstr "Змяніць узровень..."
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:423
 #, fuzzy, kde-format
 msgid "Select &Card Deck..."
 msgstr "Вылучыць размалёўку карт..."
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:426
 #, fuzzy, kde-format
 msgid "Configure card decks..."
 msgstr "Наладзіць размалёўку карт..."
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:427
 #, fuzzy, kde-format
 msgid "Choose how the cards should look."
 msgstr "Задае знешні выгляд карт."
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:431
 #, fuzzy, kde-format
 msgid "&Change Player Names..."
 msgstr "Імёны гульцоў"
 
-#: mainwindow.cpp:501
+#: mainwindow.cpp:502
 #, fuzzy, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Вы сапраўды жадаеце выдаліць усю статыстыку?"
 
-#: mainwindow.cpp:574
+#: mainwindow.cpp:579
 #, kde-format
 msgid "Dealing cards..."
 msgstr ""

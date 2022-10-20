@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-07-23 00:42+0000\n"
+"POT-Creation-Date: 2022-10-20 00:44+0000\n"
 "PO-Revision-Date: 2017-10-29 13:20+0100\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Galician <kde-i18n-doc@kde.org>\n"
@@ -282,154 +282,154 @@ msgstr "Saltar a animación inicial"
 msgid "Run game in demo (autoplay) mode"
 msgstr "Executar o xogo no modo de demostración"
 
-#: mainwindow.cpp:79
+#: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr "Erro de instalación: non se atopou ningunha lista de temas visuais."
 
-#: mainwindow.cpp:126
+#: mainwindow.cpp:127
 #, kde-format
 msgid "Installation error: Theme file error."
 msgstr "Erro de instalación: erro no ficheiro do tema visual."
 
-#: mainwindow.cpp:144
+#: mainwindow.cpp:145
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
 msgstr "Benvido a Skat! Comece unha partida nova."
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:334
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "Partida rematada. Comece unha nova."
 
-#: mainwindow.cpp:347
+#: mainwindow.cpp:348
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr "Seguinte movemento para %1 (xogador %2)"
 
-#: mainwindow.cpp:361
+#: mainwindow.cpp:362
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "Limpa todas as estatísticas que se garden para todas as sesións."
 
-#: mainwindow.cpp:366
+#: mainwindow.cpp:367
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "Remata a partida que se estea a xogar. Non haberá gañador."
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:372
 #, kde-format
 msgid "Quits the program."
 msgstr "Saír do programa."
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:375
 #, kde-format
 msgid "Starting Player"
 msgstr "Xogador inicial"
 
-#: mainwindow.cpp:377
+#: mainwindow.cpp:378
 #, kde-format
 msgid "Changing starting player..."
 msgstr "Cambiando de xogador inicial…"
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:379
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "Escolle o xogador que comezará a seguinte partida."
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Player &1"
 msgstr "Xogador &1"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:383
 #, kde-format
 msgid "Player &2"
 msgstr "Xogador &2"
 
-#: mainwindow.cpp:387
+#: mainwindow.cpp:388
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "Xogador &1 controlado por"
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:391
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "Cambia quen controla o xogador 1…"
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:392
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "Cambia quen controla o xogador 1."
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:394
 #, kde-format
 msgid "&Mouse"
 msgstr "&Rato"
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:395
 #, kde-format
 msgid "&Computer"
 msgstr "&Computador"
 
-#: mainwindow.cpp:399
+#: mainwindow.cpp:400
 #, kde-format
 msgid "Player &2 Played By"
 msgstr "Xogador &2 controlado por"
 
-#: mainwindow.cpp:402
+#: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2..."
 msgstr "Cambia quen controla o xogador 2…"
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:404
 #, kde-format
 msgid "Changing who plays player 2."
 msgstr "Cambia quen controla o xogador 2."
 
-#: mainwindow.cpp:411
+#: mainwindow.cpp:412
 #, kde-format
 msgid "&Theme"
 msgstr "&Tema visual"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:418
 #, kde-format
 msgid "Changing theme..."
 msgstr "Cambiando o tema visual…"
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:419
 #, kde-format
 msgid "Changing theme."
 msgstr "Cambiando o tema visual."
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:423
 #, kde-format
 msgid "Select &Card Deck..."
 msgstr "Escolla un mazo de &cartas…"
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:426
 #, kde-format
 msgid "Configure card decks..."
 msgstr "Configurar as barallas…"
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:427
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Escolla a aparencia das cartas."
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:431
 #, kde-format
 msgid "&Change Player Names..."
 msgstr "Cambiar os &nomes dos xogadores…"
 
-#: mainwindow.cpp:501
+#: mainwindow.cpp:502
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr ""
 "Seguro que queres limpar todos os datos estatísticos de todos os tempos?"
 
-#: mainwindow.cpp:574
+#: mainwindow.cpp:579
 #, kde-format
 msgid "Dealing cards..."
 msgstr "Repartindo as cartas…"
