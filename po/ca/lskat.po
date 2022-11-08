@@ -471,12 +471,3 @@ msgstr "Puntuació: %1"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "Partides: %1/%2"
-
-#~ msgid "OK"
-#~ msgstr "D'acord"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancel·la"
-
-#~ msgid "Player %1 won "
-#~ msgstr "El jugador %1 guanya"
