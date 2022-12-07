@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2022-11-29 06:46+0100\n"
+"PO-Revision-Date: 2022-12-06 08:49+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -78,13 +78,13 @@ msgstr "აგური"
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
-msgstr ""
+msgstr "გრანდი"
 
 #: deck.cpp:165
 #, kde-format
 msgctxt "card name"
 msgid "Ace"
-msgstr ""
+msgstr "ტუზი"
 
 #: deck.cpp:166
 #, kde-format
@@ -138,13 +138,13 @@ msgstr "%1-ი %2-დან"
 #, kde-format
 msgctxt "Title of the game - line 1"
 msgid "Lieutenant Skat"
-msgstr ""
+msgstr "ლეიტენანტი სკატი"
 
 #: display_intro.cpp:94
 #, kde-format
 msgctxt "Title of the game - line 2"
 msgid "for"
-msgstr ""
+msgstr "ვისთვის"
 
 #: display_intro.cpp:95
 #, kde-format
@@ -308,12 +308,12 @@ msgstr "შემდეგი სვლა %1-სთვის (მოთამ�
 #: mainwindow.cpp:362
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
-msgstr ""
+msgstr "ყველა სესიისთვის დამახსოვრებული დროის სტატისტიკის გასუფთავება."
 
 #: mainwindow.cpp:367
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
-msgstr ""
+msgstr "ამჟამად გაშვებული თამაშის დასრულება. გამარჯვებული არ გამოცხადდება."
 
 #: mainwindow.cpp:372
 #, kde-format
@@ -328,12 +328,12 @@ msgstr "მოთამაშის გაშვება"
 #: mainwindow.cpp:378
 #, kde-format
 msgid "Changing starting player..."
-msgstr ""
+msgstr "საწყისი მოთამაშის ცვლილება..."
 
 #: mainwindow.cpp:379
 #, kde-format
 msgid "Chooses which player begins the next game."
-msgstr ""
+msgstr "აირჩევს, შემდეგ თამაშს რომელი მოთამაშე დაიწყებს."
 
 #: mainwindow.cpp:382
 #, kde-format
@@ -348,17 +348,17 @@ msgstr "Player &2"
 #: mainwindow.cpp:388
 #, kde-format
 msgid "Player &1 Played By"
-msgstr ""
+msgstr "მოთამაშე &1-ს თამაშობს"
 
 #: mainwindow.cpp:391
 #, kde-format
 msgid "Changing who plays player 1..."
-msgstr ""
+msgstr "ცვლილება, ვინ თამაშობს პირველ მოთამაშეს..."
 
 #: mainwindow.cpp:392
 #, kde-format
 msgid "Changing who plays player 1."
-msgstr ""
+msgstr "ცვლილება, ვინ თამაშობს პირველ მოთამაშეს."
 
 #: mainwindow.cpp:394
 #, kde-format
@@ -373,17 +373,17 @@ msgstr "&კომპიუტერი"
 #: mainwindow.cpp:400
 #, kde-format
 msgid "Player &2 Played By"
-msgstr ""
+msgstr "მოთამაშე &2-ს თამაშობს"
 
 #: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2..."
-msgstr ""
+msgstr "ცვლილება, ვინ თამაშობს მეორე მოთამაშეს..."
 
 #: mainwindow.cpp:404
 #, kde-format
 msgid "Changing who plays player 2."
-msgstr ""
+msgstr "ცვლილება, ვინ თამაშობს მეორე მოთამაშეს."
 
 #: mainwindow.cpp:412
 #, kde-format
@@ -403,27 +403,27 @@ msgstr "თემის შეცვლა."
 #: mainwindow.cpp:423
 #, kde-format
 msgid "Select &Card Deck..."
-msgstr ""
+msgstr "&აირჩიეთ კარტის ნაკრები..."
 
 #: mainwindow.cpp:426
 #, kde-format
 msgid "Configure card decks..."
-msgstr ""
+msgstr "კარტის ნაკრებების მორგება..."
 
 #: mainwindow.cpp:427
 #, kde-format
 msgid "Choose how the cards should look."
-msgstr ""
+msgstr "აირჩიეთ, როგორ გამოიყურებიან კარტები."
 
 #: mainwindow.cpp:431
 #, kde-format
 msgid "&Change Player Names..."
-msgstr ""
+msgstr "მოთამაშეების სახელების &შეცვლა..."
 
 #: mainwindow.cpp:502
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
-msgstr ""
+msgstr "გნებავთ სტატისტიკის მონაცემების განულება?"
 
 #: mainwindow.cpp:579
 #, kde-format
