@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-20 00:44+0000\n"
-"PO-Revision-Date: 2022-10-08 10:37+0200\n"
+"PO-Revision-Date: 2022-12-12 09:59+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -32,18 +32,18 @@ msgstr "Temuri.doghonadze@gmail.com"
 #, kde-format
 msgctxt "Default player name"
 msgid "Alice"
-msgstr ""
+msgstr "ალისა"
 
 #: config_two.cpp:30
 #, kde-format
 msgctxt "Default player name"
 msgid "Bob"
-msgstr ""
+msgstr "ბობი"
 
 #: deck.cpp:145
 #, kde-format
 msgid "no valid card"
-msgstr ""
+msgstr "სწორი ბარათის გარეშე"
 
 #: deck.cpp:152 deck.cpp:164
 #, kde-format
@@ -54,37 +54,37 @@ msgstr "უცნობია"
 #, kde-format
 msgctxt "suite name"
 msgid "Clubs"
-msgstr ""
+msgstr "ჯვარი"
 
 #: deck.cpp:154
 #, kde-format
 msgctxt "suite name"
 msgid "Spades"
-msgstr ""
+msgstr "ყვავი"
 
 #: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
 msgid "Hearts"
-msgstr ""
+msgstr "გული"
 
 #: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
 msgid "Diamonds"
-msgstr ""
+msgstr "აგური"
 
 #: deck.cpp:157
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
-msgstr ""
+msgstr "გრანდი"
 
 #: deck.cpp:165
 #, kde-format
 msgctxt "card name"
 msgid "Ace"
-msgstr ""
+msgstr "ტუზი"
 
 #: deck.cpp:166
 #, kde-format
@@ -138,13 +138,13 @@ msgstr "%1-ი %2-დან"
 #, kde-format
 msgctxt "Title of the game - line 1"
 msgid "Lieutenant Skat"
-msgstr ""
+msgstr "ლეიტენანტი სკატი"
 
 #: display_intro.cpp:94
 #, kde-format
 msgctxt "Title of the game - line 2"
 msgid "for"
-msgstr ""
+msgstr "ვისთვის"
 
 #: display_intro.cpp:95
 #, kde-format
@@ -156,50 +156,50 @@ msgstr "K D E"
 #, kde-format
 msgctxt "Resulting score of a game with no point"
 msgid "no point"
-msgstr ""
+msgstr "ქულების გაერშე"
 
 #: display_two.cpp:370
 #, kde-format
 msgctxt "Resulting score of a game between 1 and 4"
 msgid "%1 point"
 msgid_plural "%1 points"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 ქულა"
+msgstr[1] "%1 ქულა"
 
 #: engine_two.cpp:235
 #, kde-format
 msgid "Game was ended - no winner"
-msgstr ""
+msgstr "თამაში დასრულდა - გამარჯვებულის გარეშე"
 
 #: engine_two.cpp:244
 #, kde-format
 msgid "Game is drawn"
-msgstr ""
+msgstr "თამაში ფრედ დასრულდა"
 
 #: engine_two.cpp:250
 #, kde-format
 msgid "Player 1 - %1 won "
-msgstr ""
+msgstr "მოთამაშე 1 - %1-მა მოიგო "
 
 #: engine_two.cpp:257 engine_two.cpp:277
 #, kde-format
 msgid "%1 won with 90 points. Super!"
-msgstr ""
+msgstr "%1-მა 90 ქულით მოიგო. გადასარევია!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
 msgid "%1 won to nil. Congratulations!"
-msgstr ""
+msgstr "%1-მა ნულით მოიგო. გილოცავთ!"
 
 #: engine_two.cpp:270
 #, kde-format
 msgid "Player 2 - %1 won "
-msgstr ""
+msgstr "მოთამაშე 2 - %1-მა მოიგო "
 
 #: engine_two.cpp:344
 #, kde-format
 msgid "Game ended"
-msgstr ""
+msgstr "თამაში დასრულდა"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
@@ -227,22 +227,22 @@ msgstr "LSkat"
 #: main.cpp:66
 #, kde-format
 msgid "LSkat: A desktop card game"
-msgstr ""
+msgstr "LSkat: სამაგიდო კარტის თამაში"
 
 #: main.cpp:68
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
-msgstr ""
+msgstr "(c) 1995-2007, Martin Heni"
 
 #: main.cpp:73
 #, kde-format
 msgid "Martin Heni"
-msgstr ""
+msgstr "Martin Heni"
 
 #: main.cpp:73
 #, kde-format
 msgid "Game design and code"
-msgstr ""
+msgstr "თამაშის დიზაინი და კოდი"
 
 #: main.cpp:74
 #, kde-format
@@ -262,17 +262,17 @@ msgstr "Benjamin Meyer"
 #: main.cpp:76
 #, kde-format
 msgid "Code Improvements"
-msgstr ""
+msgstr "კოდის გაუმჯობესება"
 
 #: main.cpp:82
 #, kde-format
 msgid "Enter debug level"
-msgstr ""
+msgstr "გამართვის დონეზე გადასვლა"
 
 #: main.cpp:83
 #, kde-format
 msgid "Skip intro animation"
-msgstr ""
+msgstr "შესავალი ანიმაციის გამოტოვება"
 
 #: main.cpp:84
 #, kde-format
@@ -282,83 +282,83 @@ msgstr "თამაშის დემო ვერსიის გაშვე
 #: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
-msgstr ""
+msgstr "დაყენების შეცდომა: თემების სია ვერ ვიპოვე."
 
 #: mainwindow.cpp:127
 #, kde-format
 msgid "Installation error: Theme file error."
-msgstr ""
+msgstr "დაყენების შეცდომა: თემის ფაილის შეცდომა."
 
 #: mainwindow.cpp:145
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
-msgstr ""
+msgstr "მოგესალმებათ Skat! დაიწყეთ ახალი თამაში."
 
 #: mainwindow.cpp:334
 #, kde-format
 msgid "Game Over. Please start a new game."
-msgstr ""
+msgstr "თამაში დასრულდა. დაიწყეთ ახალი თამაში."
 
 #: mainwindow.cpp:348
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
-msgstr ""
+msgstr "შემდეგი სვლა %1-სთვის (მოთამაშე %2)"
 
 #: mainwindow.cpp:362
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
-msgstr ""
+msgstr "ყველა სესიისთვის დამახსოვრებული დროის სტატისტიკის გასუფთავება."
 
 #: mainwindow.cpp:367
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
-msgstr ""
+msgstr "ამჟამად გაშვებული თამაშის დასრულება. გამარჯვებული არ გამოცხადდება."
 
 #: mainwindow.cpp:372
 #, kde-format
 msgid "Quits the program."
-msgstr ""
+msgstr "პროგრამიდან გასვლა."
 
 #: mainwindow.cpp:375
 #, kde-format
 msgid "Starting Player"
-msgstr ""
+msgstr "მოთამაშის გაშვება"
 
 #: mainwindow.cpp:378
 #, kde-format
 msgid "Changing starting player..."
-msgstr ""
+msgstr "საწყისი მოთამაშის ცვლილება..."
 
 #: mainwindow.cpp:379
 #, kde-format
 msgid "Chooses which player begins the next game."
-msgstr ""
+msgstr "აირჩევს, შემდეგ თამაშს რომელი მოთამაშე დაიწყებს."
 
 #: mainwindow.cpp:382
 #, kde-format
 msgid "Player &1"
-msgstr ""
+msgstr "მოთამაშე &1"
 
 #: mainwindow.cpp:383
 #, kde-format
 msgid "Player &2"
-msgstr ""
+msgstr "Player &2"
 
 #: mainwindow.cpp:388
 #, kde-format
 msgid "Player &1 Played By"
-msgstr ""
+msgstr "მოთამაშე &1-ს თამაშობს"
 
 #: mainwindow.cpp:391
 #, kde-format
 msgid "Changing who plays player 1..."
-msgstr ""
+msgstr "ცვლილება, ვინ თამაშობს პირველ მოთამაშეს..."
 
 #: mainwindow.cpp:392
 #, kde-format
 msgid "Changing who plays player 1."
-msgstr ""
+msgstr "ცვლილება, ვინ თამაშობს პირველ მოთამაშეს."
 
 #: mainwindow.cpp:394
 #, kde-format
@@ -373,17 +373,17 @@ msgstr "&კომპიუტერი"
 #: mainwindow.cpp:400
 #, kde-format
 msgid "Player &2 Played By"
-msgstr ""
+msgstr "მოთამაშე &2-ს თამაშობს"
 
 #: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2..."
-msgstr ""
+msgstr "ცვლილება, ვინ თამაშობს მეორე მოთამაშეს..."
 
 #: mainwindow.cpp:404
 #, kde-format
 msgid "Changing who plays player 2."
-msgstr ""
+msgstr "ცვლილება, ვინ თამაშობს მეორე მოთამაშეს."
 
 #: mainwindow.cpp:412
 #, kde-format
@@ -393,48 +393,48 @@ msgstr "&თემა"
 #: mainwindow.cpp:418
 #, kde-format
 msgid "Changing theme..."
-msgstr ""
+msgstr "თემის შეცვლა..."
 
 #: mainwindow.cpp:419
 #, kde-format
 msgid "Changing theme."
-msgstr ""
+msgstr "თემის შეცვლა."
 
 #: mainwindow.cpp:423
 #, kde-format
 msgid "Select &Card Deck..."
-msgstr ""
+msgstr "&აირჩიეთ კარტის ნაკრები..."
 
 #: mainwindow.cpp:426
 #, kde-format
 msgid "Configure card decks..."
-msgstr ""
+msgstr "კარტის ნაკრებების მორგება..."
 
 #: mainwindow.cpp:427
 #, kde-format
 msgid "Choose how the cards should look."
-msgstr ""
+msgstr "აირჩიეთ, როგორ გამოიყურებიან კარტები."
 
 #: mainwindow.cpp:431
 #, kde-format
 msgid "&Change Player Names..."
-msgstr ""
+msgstr "მოთამაშეების სახელების &შეცვლა..."
 
 #: mainwindow.cpp:502
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
-msgstr ""
+msgstr "გნებავთ სტატისტიკის მონაცემების განულება?"
 
 #: mainwindow.cpp:579
 #, kde-format
 msgid "Dealing cards..."
-msgstr ""
+msgstr "კარტის დარიგება..."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
 #, kde-format
 msgid "Configure Names"
-msgstr ""
+msgstr "სახელების მორგება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: namedialog.ui:20
@@ -464,4 +464,4 @@ msgstr "ქულები: %1"
 #, kde-format
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
-msgstr ""
+msgstr "თამაშები: %1 / %2"
