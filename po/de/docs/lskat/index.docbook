@@ -1,178 +1,379 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY i18n-lskat "Lieutenant Skat">
-  <!ENTITY lskat "LSkat">
-
-  <!ENTITY % English "INCLUDE" >
+  <!ENTITY kappname "&lskat;">
+  <!ENTITY kappversion "1.40"
+><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY % German "INCLUDE">
   <!ENTITY % addindex "IGNORE">
 ]>
 
 <book id="lskat" lang="&language;">
 <bookinfo>
-<title>The &lskat; Handbook</title>
+<title
+>Das Handbuch zu Offiziersskat</title>
 <authorgroup>
-<author>
-<firstname>Martin</firstname>
-<surname>Heni</surname>
-<affiliation><address><email>kde@heni-online.de</email></address></affiliation>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
 </author>
-<author>
-<firstname>Eugene</firstname><surname>Trounev</surname>
-<affiliation><address><email>eugene.trounev@gmail.com</email></address></affiliation>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
 </author>
-<othercredit role="reviewer">
-<firstname>Mike</firstname><surname>McBride</surname>
-<contrib>Reviewer</contrib>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Korrektur</contrib>
 <affiliation>
-<address>&Mike.McBride.mail;</address></affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
 </othercredit>
-<!-- TRANS:ROLES_OF_TRANSLATORS -->
+<othercredit role="translator"
+><firstname
+>Maren</firstname
+><surname
+>Pakura</surname
+><affiliation
+><address
+><email
+>maren@kde.org</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit
+> 
 </authorgroup>
 
-<date>2021-10-05</date>
-<releaseinfo>1.50 (KDE Gear 21.08)</releaseinfo>
+<date
+>2013-05-05</date>
+<releaseinfo
+>&kappversion;</releaseinfo>
 
-<legalnotice>&FDLNotice;</legalnotice>
+<legalnotice
+>&FDLNotice;</legalnotice>
 
 <abstract>
-<para>This documentation describes the game of &i18n-lskat; version 1.50</para>
+<para
+>Dieses Handbuch beschreibt das Spiel &kappname; in der Version &kappversion;</para>
 </abstract>
 
 <keywordset>
-<keyword>KDE</keyword>
-<keyword>kdegames</keyword>
-<keyword>game</keyword>
-<keyword>playing cards</keyword>
-<keyword>card game</keyword>
-<keyword>arcade</keyword>
-<keyword>card</keyword>
-<keyword>skat</keyword>
-<keyword>lieutenant</keyword>
-<keyword>LsKat</keyword>
-<keyword>two players</keyword>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>Spiel</keyword>
+<keyword
+>Karten spielen</keyword>
+<keyword
+>Kartenspiel</keyword>
+<keyword
+>Arcade</keyword>
+<keyword
+>Karte</keyword>
+<keyword
+>Skat</keyword>
+<keyword
+>Offiziersskat</keyword>
+<keyword
+>LSkat</keyword>
+<keyword
+>zwei Spieler</keyword>
 </keywordset>
 </bookinfo>
 
 <chapter id="introduction">
-<title>Introduction</title>
-<note><title>Gametype:</title><para>Card, Arcade</para></note><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
-<note><title>Number of possible players:</title><para>Two</para></note><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
-<para>
-<literal>Lieutenant Skat</literal> (from German <foreignphrase lang="de">Offiziersskat</foreignphrase>) is a fun and engaging card game for two players, where the second player is either live opponent, or built in artificial intelligence.
-</para>
-<para>
-The game is played using a single deck of cards. Cards are shuffled and distributed amongst the players in such a way that half of them are face down and half of them are open. Each participant plays one of the open cards per turn. As soon as all the cards are played the round ends and points are calculated and awarded.
-</para>
+<title
+>Einführung</title>
+<note
+><title
+>Spielart:</title
+><para
+>Kartenspiel, Arcade</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Anzahl der Spieler:</title
+><para
+>Zwei</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+>Offiziersskat ist ein Kartenspiel für zwei Spieler, bei dem der zweite Spieler entweder ein menschlicher Gegner sein kann, oder durch die eingebaute KI gestellt wird. </para>
+<para
+>Das Spiel wird mit einem Stapel von Spielkarten gespielt. Die Karten sind gemischt und an die Spieler so verteilt, dass die eine Hälfte verdeckt liegt und die andere Hälfte offen. Jeder Teilnehmer spielt eine der offenen Karten per Zug. Sobald alle Karten ausgespielt sind, endet die Runde und die Punkte werden zusammengezählt. </para>
 </chapter>
 
 <chapter id="howto">
-<title>How to Play</title>
-<note><title>Objective:</title><para>Score more than 60 points in a single game.</para></note>
-
-<para>Once dealing is finished each player ends up with 16 cards each. Cards are
-displayed in two horizontal rows - four cards per row. Half of the cards are face
-down and half are face up. As a player you can see the cards of your opponent
-as well as your own. You can make a move then by clicking on any of your cards
-which are currently face up. The opponent has to reply by choosing a
-corresponding card form his/her own stack.</para>
-
-<note><para>If your opponent is artificial intelligence, its cards will be chosen automatically.</para></note>
-
-<para>Once the exchange is finished values of the played cards are evaluated and
-either you or your opponent is awarded points. The game is complete in 16
-rounds (when all of your and your opponent's cards have been played). After the
-game ends your score is being compared to that of your opponent and the player
-with the higher score wins the round.</para>
+<title
+>Spielanleitung</title>
+<note
+><title
+>Spielziel:</title
+><para
+>Erzielen von mehr als 60 Punkte in einem Spiel.</para
+></note>
+<para
+>Jeder Spieler bekommt 16 Karten. Diese werden in zwei waagerechten Reihen angeordnet - vier Karten pro Reihe. Die ersten acht Karten liegen mit dem Blatt nach unten, darauf liegen weitere acht mit dem Blatt nach oben. Als Spieler sieht man neben den eigenen Karten auch die des Gegners. Ein Zug wird getätigt, indem auf eine der eigenen offengelegten Karten geklickt wird. Der Gegner muss mit einer entsprechenden Karte von seinem Stapel antworten. <note
+><title
+>Anmerkung:</title
+><para
+>Wenn gegen den Computer gespielt wird, wird dessen Zug automatisch ausgeführt.</para
+></note
+> Ist der Austausch abgeschlossen, werden die Werte der Karten berechnet und einer der Spieler bekommt Punkte. Das Spiel ist nach 16 Runden abgeschlossen (wenn alle Karten gespielt wurden). Nach dem Spiel werden die Punkte der beiden Spieler verglichen und der Spieler mit den meisten Punkten gewinnt die Runde. </para>
 </chapter>
 
 <chapter id="rules_and_tips">
-<title>Game Rules, Strategies and Tips</title>
+<title
+>Spielregeln, Spielstrategien und Tipps</title>
 
 <sect1 id="screen">
-<title>Game Screen</title>
+<title
+>Spielfeld</title>
 
 <screenshot>
-<screeninfo>&i18n-lskat; default game screen.</screeninfo>
+<screeninfo
+>Standardspielfeld von &lskat;</screeninfo>
 <mediaobject>
 <imageobject>
-<imagedata fileref="lskat_screen_01.png" format="PNG" />
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
 </imageobject>
 <textobject>
-<phrase>&i18n-lskat; default game reference screen.</phrase>
+<phrase
+>Standardspielfeld von &lskat;</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
 
 <segmentedlist>
-<segtitle>1</segtitle>
-<segtitle>2, 3</segtitle>
-<segtitle>4</segtitle>
-<segtitle>5</segtitle>
-<segtitle>6</segtitle>
-<segtitle>7</segtitle>
-<segtitle>8</segtitle>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
 <seglistitem>
-<seg>Active player indicator</seg>
-<seg>Card stacks for player one and player two</seg>
-<seg>Stack of won cards (if any)</seg>
-<seg>Gameplay area</seg>
-<seg>Score board with player's name, points in the current game, the overall score of the player, and the amount of wins per game</seg>
-<seg>Player's controller (Human/PC)</seg>
-<seg>The <quote>trump</quote> in the current game</seg>
+<seg
+>Anzeige des aktiven Spielers</seg>
+<seg
+>Kartenstapel für Spieler 1 und Spieler 2</seg>
+<seg
+>Gewonnene Karten</seg>
+<seg
+>Spielfeld</seg>
+<seg
+>Punktetafel mit Spielernamen, Punkten im aktuellen Spiel, Gesamtpunktzahl des Spielers und Anzahl der gewonnenen Runden pro Spiel.</seg>
+<seg
+>Spielersteuerung (Mensch/PC)</seg>
+<seg
+>Die Trumpffarbe im aktuellen Spiel</seg>
 </seglistitem>
 </segmentedlist>
 
 </sect1>
 
 <sect1 id="rules">
-<title>Rules</title>
+<title
+>Spielregeln</title>
 <itemizedlist>
-<listitem><para>Every player owns 16 cards. 8 of them are face down 8 of them are face up.</para></listitem>
-<listitem><para>A face down card can only be opened after a face up card covering it has been played.</para></listitem>
-<listitem><para>Each game has a randomly chosen <quote>trump</quote> card [8].</para></listitem>
-<listitem><para>All four Jacks are counted as trumps and do not belong to their suits.</para></listitem>
-<listitem><para>If a color (&eg; heart) is selected as <quote>trump</quote> all seven hearts as well as all four Jacks count as trumps, making 11 trump cards.</para></listitem>
-<listitem><para>Jacks beat each other in order (greatest to least): Cup->Spade->Heart->Diamond.</para></listitem>
-<listitem><para>The sequence of cards for a trump color: Jack of clubs, Jack of spades, Jack of hearts, Jack of diamonds, Ace, Ten, King, Queen, Nine, Eight, Seven.</para></listitem>
-<listitem><para>The sequence of cards for a non-trump color: Ace, Ten, King, Queen, Nine, Eight, Seven.</para></listitem>
-<listitem id="card-values"><para>The values of the cards (highest to lowest):</para></listitem>
+<listitem
+><para
+>Jeder Spieler besitzt 16 Karten. 8 davon sind offen und 8 weitere verdeckt.</para
+></listitem>
+<listitem
+><para
+>Eine verdeckte Karte wird erst dann umgedreht, wenn die darauf liegende Karte ausgespielt wurde.</para
+></listitem>
+<listitem
+><para
+>Für jedes Spiel wird zufällig eine Trumpffarbe ausgewählt [8].</para
+></listitem>
+<listitem
+><para
+>Alle vier Buben sind immer Trumpfkarten und gehören nicht mehr zu ihrer Farbe.</para
+></listitem>
+<listitem
+><para
+>Wenn &eg; die Farbe Herz Trumpf ist, gelten alle Herzkarten wie auch die vier Buben als Trumpf. Insgesamt sind also 11 Trumpfkarten im Spiel.</para
+></listitem>
+<listitem
+><para
+>Die Reihenfolge der Buben (von oben): Kreuz, Pik, Herz, Karo.</para
+></listitem>
+<listitem
+><para
+>Die Reihenfolge der Karten der Trumpffarbe: Kreuzbube, Pikbube, Herzbube, Karobube, Ass, Zehn, König, Dame, Neun, Acht, Sieben.</para
+></listitem>
+<listitem
+><para
+>Die Reihenfolge der Karten einer Fehlfarbe: Ass, Zehn, König, Dame, Neun, Acht, Sieben.</para
+></listitem>
+<listitem id="card-values"
+><para
+>Die Punktewerte der Karten (von oben nach unten):</para
+></listitem>
 </itemizedlist>
 
 <informaltable>
 <tgroup cols="2">
 <tbody>
-<row><entry>Card</entry><entry>Value</entry></row>
-<row><entry>Ace</entry><entry>11</entry></row>
-<row><entry>Ten</entry><entry>10</entry></row>
-<row><entry>King</entry><entry>4</entry></row>
-<row><entry>Queen</entry><entry>3</entry></row>
-<row><entry>Jack</entry><entry>2</entry></row>
-<row><entry>Nine</entry><entry>0</entry></row>
-<row><entry>Eight</entry><entry>0</entry></row>
-<row><entry>Seven</entry><entry>0</entry></row>
+<row
+><entry
+>Karte</entry
+><entry
+>Wert</entry
+></row>
+<row
+><entry
+>Ass</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Zehn</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>König</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Dame</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Bube</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Neun</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Acht</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Sieben</entry
+><entry
+>0</entry
+></row>
 </tbody>
 </tgroup>
 </informaltable>
 
 <itemizedlist>
-<listitem><para>A special <quote>trump</quote> game is called the Grand. In this game no suit is trump and only the four Jacks count as trump. This game type is indicated by the symbol of a Jack's head [8] on the score board [6].</para></listitem>
-<listitem><para>If player starts the round he has a choice of cards to play with, either a card from a suite or a <quote>trump</quote> card.</para></listitem>
-<listitem><para>Only the face up cards from the player's own stack can be used to play the round.</para></listitem>
-<listitem><para>Player who wins the round starts the next one.</para></listitem>
-<listitem><para>The player who wins the round adds values of the cards played in that round to his/her score.</para></listitem>
-<listitem><para>Player with more than 60 points wins the game.</para></listitem>
-<listitem><para>If both players finish with 60 points each the game ends in a draw.</para></listitem>
-<listitem><para>For each game a certain amount of victory points is awarded and added to the overall score.</para></listitem>
+<listitem
+><para
+>Ein besonderes Trumpfspiel ist der Grand. In diesem Spiel gibt es keine Trumpffarbe, nur die vier Buben sind Trümpfe. Im Spiel wird dies durch das Symbol eines Buben [8] auf dem Spielfeld [6] angezeigt.</para
+></listitem>
+<listitem
+><para
+>Wenn ein Spieler eine Runde beginnt, kann er wählen, welche Karte er ausspielt, entweder eine Fehlfarbe oder eine Trumpfkarte.</para
+></listitem>
+<listitem
+><para
+>Nur die offenliegenden Karten auf dem eigenen Stapel können ausgespielt werden.</para
+></listitem>
+<listitem
+><para
+>Der Spieler, der den Stich gewonnen hat, darf die nächste Karte ausspielen.</para
+></listitem>
+<listitem
+><para
+>Der Spieler, der die Runde gewinnt, bekommt die Punkte der gespielten Karten gutgeschrieben.</para
+></listitem>
+<listitem
+><para
+>Der Spieler mit mehr als 60 Punkten hat gewonnen.</para
+></listitem>
+<listitem
+><para
+>Haben beide Spieler 60 Punkte, endet das Spiel unentschieden.</para
+></listitem>
+<listitem
+><para
+>In jedem Spiel werden Siegerpunkte vergeben und zur Gesamtpunktzahl des Spielers addiert.</para
+></listitem>
 </itemizedlist>
 
 <informaltable>
 <tgroup cols="2">
 <tbody>
-<row><entry>Points</entry><entry>Score</entry></row>
-<row><entry>60</entry><entry>1</entry></row>
-<row><entry>61 to 90</entry><entry>2</entry></row>
-<row><entry>91 to 119</entry><entry>3</entry></row>
-<row><entry>120</entry><entry>4</entry></row>
+<row
+><entry
+>Punkte</entry
+><entry
+>Wertung</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>61 bis 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>91 bis 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
 </tbody>
 </tgroup>
 </informaltable>
@@ -180,238 +381,354 @@ with the higher score wins the round.</para>
 </sect1>
 
 <sect1 id="strategies">
-<title>Strategies and Tips</title>
-<para>
-When the game starts, the starting player should play any of the face up cards from own stack.
-If the second player currently has face up cards that are of the same suit as the card played,
-he has to reply with one of those cards. If, however, the second player does not have a card
-of the same suit, he can play with any other card including a <quote>trump</quote> card.</para>
-<para>If there is at least one <quote>trump</quote> card, the highest <quote>trump</quote> wins both cards.</para>
-<para>If there is no <quote>trump</quote> card, the highest card of the suit played by the starting player wins both cards.</para>
-<para>If the replying player has no card of the requested suit and no <quote>trump</quote> card, he has to play
-any card and the starting player wins both cards.</para>
+<title
+>Spielstrategien und Tipps</title>
+<para
+>Wenn das Spiel beginnt, spielt der erste Spieler eine der aufgedeckten Karten von seinem Stapel. Hat der zweite Spieler aufgedeckte Karten der gleichen Farbe, muss er mit einer dieser Karten antworten. Ist keine Karte gleicher Farbe aufgedeckt, kann er eine beliebige Karte ausspielen, auch eine Trumpfkarte, ausspielen.</para>
+<para
+>Ist mindestens eine Trumpfkarte ausgespielt, dann gewinnt der Spieler mit dem höchsten Trumpf beide Karten.</para>
+<para
+>Ist keine Trumpfkarte ausgespielt, dann gewinnt der Spieler, der die höchste Karte der vom ersten Spieler ausgespielten Farbe hat, beide Karten.</para>
+<para
+>Hat der zweite Spieler keine Karte der ausgespielten Farbe oder keine Trumpfkarte, muss er eine beliebige Karte spielen und der erste Spieler gewinnt beide Karten.</para>
 
-<para>The player who wins the round leads the next one.</para>
+<para
+>Der Spieler, der den Stich gewonnen hat, darf die nächste Karte ausspielen.</para>
 </sect1>
 </chapter>
 
 <chapter id="faq">
-<title>Frequently asked questions</title>
+<title
+>Häufig gestellte Fragen</title>
 
 <qandaset>
 <qandaentry>
- <question><para>Can I play with a different deck of cards?</para></question>
- <answer><para>Yes. Refer to <link linkend="deck_change">this</link> section of 'Interface Overview' for details.</para></answer>
+ <question
+><para
+>Kann ich mit verschiedenen Kartenblättern spielen?</para
+></question>
+ <answer
+><para
+>Ja, wählen Sie <link linkend="deck_change"
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Blatt aussuchen ...</guimenuitem
+> </menuchoice
+></link
+> in der Menüleiste.</para
+></answer>
 </qandaentry>
 <qandaentry>
- <question><para>I have made a mistake. Can I undo? </para></question>
- <answer><para>No. This game does not have an <quote>Undo</quote> feature.</para></answer>
+ <question
+><para
+>Ich habe einen Fehler gemacht. Kann ich einen Spielzug zurücknehmen? </para
+></question>
+ <answer
+><para
+>Nein, in diesem Spiel können Sie keinen Zug zurücknehmen.</para
+></answer>
 </qandaentry>
 <qandaentry>
- <question><para>Can I use the keyboard to play this game? </para></question>
- <answer><para>No. This game cannot be played using keyboard.</para></answer>
+ <question
+><para
+>Kann ich mit der Tastatur spielen? </para
+></question>
+ <answer
+><para
+>Nein, dieses Spiel kann nicht mit der Tastatur gespielt werden.</para
+></answer>
 </qandaentry>
 <qandaentry>
- <question><para>I cannot figure out what to do here! Are there hints? </para></question>
- <answer><para>No. This game does not have a <quote>Hint</quote> feature.</para></answer>
+ <question
+><para
+>Ich komme im Spiel nicht weiter, gibt es Tipps? </para
+></question>
+ <answer
+><para
+>Nein, in diesem Spiel gibt es keine Tipps.</para
+></answer>
 </qandaentry>
 <qandaentry>
- <question><para>I have to quit the game now, but I am not finished yet. Can I save my progress?</para></question>
- <answer><para>No. This game does not have a <quote>Save State</quote> feature.</para></answer>
+ <question
+><para
+>Ich muss das Spiel unterbrechen, kann ich den aktuellen Spielstand speichern?</para
+></question>
+ <answer
+><para
+>Nein, in diesem Spiel kann der aktuelle Spielstand nicht gespeichert werden.</para
+></answer>
 </qandaentry>
 <qandaentry>
- <question><para>Can I change players' names?</para></question>
- <answer><para>Yes. To change the names displayed on the right hand side of the game screen refer to <link linkend="name_change">this</link> section of 'Interface Overview' for details.</para></answer>
+ <question
+><para
+>Kann ich die Namen der Spieler ändern?</para
+></question>
+ <answer
+><para
+>Ja, um die Namen der Spieler zu ändern, wählen Sie <link linkend="name_change"
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Spielernamen ändern ...</guimenuitem
+></menuchoice
+></link
+> in der Menüleiste.</para
+></answer>
 </qandaentry>
 </qandaset>
 </chapter>
 
 <chapter id="interface">
-<title>Interface Overview</title>
+<title
+>Die Benutzeroberfläche</title>
 
 <sect1 id="file-menu">
-<title>The Game Menu</title>
+<title
+>Das Menü Spiel</title>
 
 <variablelist>
 <varlistentry>
-<term><menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap><anchor id="new_game"/>N</keycap></keycombo>
-</shortcut>
-<guimenu>Game</guimenu>
-<guimenuitem>New</guimenuitem></menuchoice></term>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+><anchor id="new_game"/>N</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Neu</guimenuitem
+></menuchoice
+></term>
 <listitem>
 <para>
-<action>Starts a new game.</action>
+<action
+>Startet ein neues Spiel.</action>
 </para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;&End;</keycombo>
-</shortcut>
-<guimenu>Game</guimenu>
-<guimenuitem>End Game</guimenuitem>
-</menuchoice></term>
-<listitem><para>
-<action>Ends a running game.</action>
-</para></listitem>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Ende</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Spiel beenden</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Beendet ein Spiel.</action>
+</para
+></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice>
-<guimenu>Game</guimenu>
-<guimenuitem>Clear Statistics</guimenuitem>
-</menuchoice></term>
-<listitem><para>
-<action>Clears the all time game memory.</action> This statistic is
-saved when the game ended and shows the overall score and the amount of
-played and won games per player. This is cleared with this menu
-item.
-</para></listitem>
+<term
+><menuchoice
+><guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Statistik zurücksetzen</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Löscht die Spielstatistik.</action
+> Diese wird beim Programmende gespeichert und zeigt die Gesamtwertung, die Anzahl der gespielten und gewonnenen Spiele. </para
+></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice>
-<shortcut>
-<keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo>
-</shortcut>
-<guimenu>Game</guimenu>
-<guimenuitem>Quit</guimenuitem>
-</menuchoice></term>
-<listitem><para><action>
-Quits the program.</action>
-</para></listitem>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Beenden</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Beendet das Programm.</action>
+</para
+></listitem>
 </varlistentry>
 </variablelist>
 
 </sect1>
 
 <sect1 id="settings-menu">
-<title>The Settings Menu</title>
+<title
+>Das Menü Einstellungen</title>
 
 <variablelist>
 <varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guisubmenu>Starting Player</guisubmenu></menuchoice></term>
-<listitem><para>
-Selects whether player 1 (top) or player two (bottom)
-begins the next game.
-</para></listitem>
+<term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guisubmenu
+>Startspieler</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Bestimmt, ob Spieler 1 (oben) oder Spieler 2 (unten) das nächste Spiel beginnen soll. </para
+></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guisubmenu>Player 1 Played By</guisubmenu>
-</menuchoice></term>
+<term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guisubmenu
+>Spieler 1 gespielt von</guisubmenu
+> </menuchoice
+></term>
 <listitem>
-<para>
-Chooses who should play for player 1 (top). The player can
-be either controlled by the local player with the mouse or
-the computer will control it.
-</para></listitem>
+<para
+>Hier wählen Sie, wer Spieler 1 (oben) spielt. Der Spieler kann entweder von einem lokalen Spieler mit der Maus oder durch den Computer gesteuert werden. </para
+></listitem>
 </varlistentry>
 
 <varlistentry>
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guisubmenu>Player 2 Played By</guisubmenu>
-</menuchoice></term>
+<term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guisubmenu
+>Spieler 2 gespielt von</guisubmenu
+> </menuchoice
+></term>
 <listitem>
-<para>
-Chooses who should play for player 2 (bottom). The player can
-be either controlled by the local player with the mouse or
-the computer will control it.
-</para></listitem>
+<para
+>Hier wählen Sie, wer Spieler 2 (unten) spielt. Der Spieler kann entweder von einem lokalen Spieler mit der Maus oder durch den Computer gesteuert werden. </para
+></listitem>
 </varlistentry>
 
 <varlistentry id="theme_change">
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guisubmenu>Theme</guisubmenu>
-</menuchoice></term>
+<term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guisubmenu
+>Design</guisubmenu
+> </menuchoice
+></term>
 <listitem>
-<para>
-Chooses a visual theme. This changes the appearance of the game but not
-of the cards. Card decks are selected with their own menu item.
-</para></listitem>
+<para
+>Auswahl eines Designs für das Spielfeld. Damit wird nur das Aussehen des Spielfeldes festgelegt. Für die Auswahl von Designs der Kartenblätter gibt es einen eigenen Menüeintrag. </para
+></listitem>
 </varlistentry>
 
 <varlistentry id="deck_change">
-<term><menuchoice>
-<shortcut>
-<keycap>F10</keycap>
-</shortcut>
-<guimenu>Settings</guimenu>
-<guimenuitem>Select Card Deck...</guimenuitem></menuchoice></term>
-<listitem><para>
-<action>Choose the face and back of the card deck used for playing.</action> You
-can select these in a preview dialog showing all card decks installed.
-</para>
+<term
+><menuchoice
+><shortcut
+> <keycap
+>F10</keycap
+></shortcut
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Blatt aussuchen ...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+>Wählt die Vorder- und Rückseite der Karten aus.</action
+>Sie können diese in einem Fenster aussuchen, in dem alle Vorder -und Rückseiten für Karten in &kde; dargestellt sind. </para>
 <note>
-<para>
-Some card decks or card sets are marked as scalable graphics (&SVG;) in the dialog.
-Choosing them will display better quality of the graphics when the game is
-scaled or enlarged. Fixed size graphics will loose quality when resized different
-than their original size.
-</para>
+<para
+>Einige Kartenblätter in diesem Dialog sind als skalierbare Grafiken (SVG) gekennzeichnet. Diese können in besserer Qualität dargestellt werden, wenn das Spielfeld in der Größe verändert wird. Die anderen Kartenblätter werden in schlechterer Qualität dargestellt, wenn sie nicht in ihrer Originalgröße angezeigt werden. </para>
 </note>
 </listitem>
 </varlistentry>
 
 <varlistentry id="name_change">
-<term><menuchoice>
-<guimenu>Settings</guimenu>
-<guimenuitem>Change Player Names...</guimenuitem>
-</menuchoice></term>
-<listitem><para>
-<action>Change the names of the players.</action>
-</para></listitem>
+<term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Spielernamen ändern ...</guimenuitem
+>  </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Hier können Sie die Namen der Spieler ändern.</action>
+</para
+></listitem>
 </varlistentry>
 
 </variablelist>
 
-<para>
-Additionally &i18n-lskat; has the common &kde; <guimenu>Settings</guimenu> and <guimenu>Help</guimenu>
-menu items, for more information read the sections about the
-<ulink url="help:/fundamentals/menus.html#menus-settings">Settings Menu</ulink> and
-<ulink url="help:/fundamentals/menus.html#menus-help">Help Menu</ulink> of the &kde; Fundamentals.
-</para>
+<para
+>Zusätzlich hat &lskat;  die bekannten &kde;-Einträge im Menü <guimenu
+>Einstellungen</guimenu
+> und <guimenu
+>Hilfe</guimenu
+>, weitere Informationen dazu finden Sie in den Abschnitten über die Menüs <ulink url="help:/fundamentals/menus.html#menus-settings"
+>Einstellungen</ulink
+> und <ulink url="help:/fundamentals/menus.html#menus-help"
+>Hilfe</ulink
+> der &kde;-Grundlagen. </para>
 
 </sect1>
 
 </chapter>
 
 <chapter id="credits">
-<title>Credits and License</title>
+<title
+>Danksagungen und Lizenz</title>
 
-<para>
-&lskat;
-</para>
-<para>
-Program copyright 2000-2007 &Martin.Heni; <email>kde@heni-online.de</email>
-</para>
-<para>
-Graphics copyright 2007 Eugene Trounev <email>eugene.trounev@gmail.com</email>
-</para>
-<para>
-Documentation copyright 2000-2007 &Martin.Heni; <email>kde@heni-online.de</email>
-</para>
-<para>
-Documentation converted to &kde; 2.0 by &Mike.McBride;
-&Mike.McBride.mail;
-</para>
+<para
+>Offiziersskat </para>
+<para
+>Programm Copyright 2000-2007 &Martin.Heni; <email
+>martin@heni-online.de</email
+> </para>
+<para
+>Grafik Copyright 2007 Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+> </para>
+<para
+>Dokumentation Copyright 2000-2007 &Martin.Heni; <email
+>martin@heni-online.de</email
+> </para>
+<para
+>Dokumentation für &kde; 2.0 überarbeitet von &Mike.McBride; &Mike.McBride.mail; </para>
 
-<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
-
-&underFDL;
-&underGPL;
-
-</chapter>
+<para
+>Deutsche Übersetzung von Maren Pakura <email
+>maren@kde.org</email
+></para
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 </book>
