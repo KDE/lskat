@@ -73,9 +73,10 @@ void Deck::shuffle()
         mCards.swapItemsAt(c1, c2);
     }
 
-    // TODO: Hardcoded deck
     return;
-    static int c[] = {
+
+    // TODO: Hardcoded deck
+    /*static int c[] = {
     Ten, Spade, Seven, Diamond, Ten, Diamond, Jack, Club,
     Eight, Club, Nine, Club, Nine, Heart, Jack, Diamond,
     Eight, Spade, Seven, Heart, Nine, Spade, Ten, Club,
@@ -96,7 +97,7 @@ void Deck::shuffle()
         int cc = getCard(Suite(suite), CardType(card));
 
         mCards.append(cc);
-    }
+    }*/
 }
 
 // Draw a card from the deck
