@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-02-14 00:56+0000\n"
 "PO-Revision-Date: 2023-02-07 11:02\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -39,95 +39,95 @@ msgctxt "Default player name"
 msgid "Bob"
 msgstr "李四"
 
-#: deck.cpp:145
+#: deck.cpp:146
 #, kde-format
 msgid "no valid card"
 msgstr "没有可用的牌样"
 
-#: deck.cpp:152 deck.cpp:164
+#: deck.cpp:153 deck.cpp:165
 #, kde-format
 msgid "unknown"
 msgstr "未知"
 
-#: deck.cpp:153
+#: deck.cpp:154
 #, kde-format
 msgctxt "suite name"
 msgid "Clubs"
 msgstr "棍棒"
 
-#: deck.cpp:154
+#: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
 msgid "Spades"
 msgstr "铲子"
 
-#: deck.cpp:155
+#: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
 msgid "Hearts"
 msgstr "心脏"
 
-#: deck.cpp:156
+#: deck.cpp:157
 #, kde-format
 msgctxt "suite name"
 msgid "Diamonds"
 msgstr "钻石"
 
-#: deck.cpp:157
+#: deck.cpp:158
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
 msgstr "庄严"
 
-#: deck.cpp:165
+#: deck.cpp:166
 #, kde-format
 msgctxt "card name"
 msgid "Ace"
 msgstr "优美"
 
-#: deck.cpp:166
+#: deck.cpp:167
 #, kde-format
 msgctxt "card name"
 msgid "King"
 msgstr "国王"
 
-#: deck.cpp:167
+#: deck.cpp:168
 #, kde-format
 msgctxt "card name"
 msgid "Queen"
 msgstr "皇后"
 
-#: deck.cpp:168
+#: deck.cpp:169
 #, kde-format
 msgctxt "card name"
 msgid "Jack"
 msgstr "卫兵"
 
-#: deck.cpp:169
+#: deck.cpp:170
 #, kde-format
 msgctxt "card name"
 msgid "Ten"
 msgstr "十"
 
-#: deck.cpp:170
+#: deck.cpp:171
 #, kde-format
 msgctxt "card name"
 msgid "Nine"
 msgstr "九"
 
-#: deck.cpp:171
+#: deck.cpp:172
 #, kde-format
 msgctxt "card name"
 msgid "Eight"
 msgstr "八"
 
-#: deck.cpp:172
+#: deck.cpp:173
 #, kde-format
 msgctxt "card name"
 msgid "Seven"
 msgstr "七"
 
-#: deck.cpp:181
+#: deck.cpp:182
 #, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"

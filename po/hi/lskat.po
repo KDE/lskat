@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-02-14 00:56+0000\n"
 "PO-Revision-Date: 2021-08-21 16:25+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -45,108 +45,108 @@ msgctxt "Default player name"
 msgid "Bob"
 msgstr "आनंद"
 
-#: deck.cpp:145
+#: deck.cpp:146
 #, kde-format
 msgid "no valid card"
 msgstr "कोई वैध कार्ड नहीं"
 
-#: deck.cpp:152 deck.cpp:164
+#: deck.cpp:153 deck.cpp:165
 #, kde-format
 msgid "unknown"
 msgstr "अज्ञात"
 
-#: deck.cpp:153
+#: deck.cpp:154
 #, fuzzy, kde-format
 #| msgid "Clubs"
 msgctxt "suite name"
 msgid "Clubs"
 msgstr "चिड़िया"
 
-#: deck.cpp:154
+#: deck.cpp:155
 #, fuzzy, kde-format
 #| msgid "Spades"
 msgctxt "suite name"
 msgid "Spades"
 msgstr "काला पान"
 
-#: deck.cpp:155
+#: deck.cpp:156
 #, fuzzy, kde-format
 #| msgid "Hearts"
 msgctxt "suite name"
 msgid "Hearts"
 msgstr "लाल पान"
 
-#: deck.cpp:156
+#: deck.cpp:157
 #, fuzzy, kde-format
 #| msgid "Diamonds"
 msgctxt "suite name"
 msgid "Diamonds"
 msgstr "ईंट"
 
-#: deck.cpp:157
+#: deck.cpp:158
 #, fuzzy, kde-format
 #| msgid "Grand"
 msgctxt "trump name"
 msgid "Grand"
 msgstr "ग्राण्ड"
 
-#: deck.cpp:165
+#: deck.cpp:166
 #, fuzzy, kde-format
 #| msgid "Ace"
 msgctxt "card name"
 msgid "Ace"
 msgstr "इक्का"
 
-#: deck.cpp:166
+#: deck.cpp:167
 #, fuzzy, kde-format
 #| msgid "King"
 msgctxt "card name"
 msgid "King"
 msgstr "राजा"
 
-#: deck.cpp:167
+#: deck.cpp:168
 #, fuzzy, kde-format
 #| msgid "Queen"
 msgctxt "card name"
 msgid "Queen"
 msgstr "रानी"
 
-#: deck.cpp:168
+#: deck.cpp:169
 #, fuzzy, kde-format
 #| msgid "Jack"
 msgctxt "card name"
 msgid "Jack"
 msgstr "जैक"
 
-#: deck.cpp:169
+#: deck.cpp:170
 #, fuzzy, kde-format
 #| msgid "Ten"
 msgctxt "card name"
 msgid "Ten"
 msgstr "दहला"
 
-#: deck.cpp:170
+#: deck.cpp:171
 #, fuzzy, kde-format
 #| msgid "Nine"
 msgctxt "card name"
 msgid "Nine"
 msgstr "नहला"
 
-#: deck.cpp:171
+#: deck.cpp:172
 #, fuzzy, kde-format
 #| msgid "Eight"
 msgctxt "card name"
 msgid "Eight"
 msgstr "अट्ठा"
 
-#: deck.cpp:172
+#: deck.cpp:173
 #, fuzzy, kde-format
 #| msgid "Seven"
 msgctxt "card name"
 msgid "Seven"
 msgstr "सत्ता"
 
-#: deck.cpp:181
+#: deck.cpp:182
 #, fuzzy, kde-format
 #| msgid "%1 of %2"
 msgctxt "eg jack of clubs"

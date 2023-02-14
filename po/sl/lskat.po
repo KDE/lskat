@@ -2,7 +2,7 @@
 # Translation of lskat.po to Slovenian
 # SLOVENIAN TRANSLATION OF LSKAT.
 # Copyright (C) 2001, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
-# $Id: lskat.po 1636410 2022-10-20 01:43:51Z scripty $
+# $Id: lskat.po 1644491 2023-02-14 01:48:03Z scripty $
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 2000.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-02-14 00:56+0000\n"
 "PO-Revision-Date: 2020-02-23 12:44+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -51,95 +51,95 @@ msgctxt "Default player name"
 msgid "Bob"
 msgstr "Tomaž"
 
-#: deck.cpp:145
+#: deck.cpp:146
 #, kde-format
 msgid "no valid card"
 msgstr "ni veljavne karte"
 
-#: deck.cpp:152 deck.cpp:164
+#: deck.cpp:153 deck.cpp:165
 #, kde-format
 msgid "unknown"
 msgstr "neznana"
 
-#: deck.cpp:153
+#: deck.cpp:154
 #, kde-format
 msgctxt "suite name"
 msgid "Clubs"
 msgstr "Križi"
 
-#: deck.cpp:154
+#: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
 msgid "Spades"
 msgstr "Piki"
 
-#: deck.cpp:155
+#: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
 msgid "Hearts"
 msgstr "Srca"
 
-#: deck.cpp:156
+#: deck.cpp:157
 #, kde-format
 msgctxt "suite name"
 msgid "Diamonds"
 msgstr "Kare"
 
-#: deck.cpp:157
+#: deck.cpp:158
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
 msgstr "Grand"
 
-#: deck.cpp:165
+#: deck.cpp:166
 #, kde-format
 msgctxt "card name"
 msgid "Ace"
 msgstr "As"
 
-#: deck.cpp:166
+#: deck.cpp:167
 #, kde-format
 msgctxt "card name"
 msgid "King"
 msgstr "Kralj"
 
-#: deck.cpp:167
+#: deck.cpp:168
 #, kde-format
 msgctxt "card name"
 msgid "Queen"
 msgstr "Dama"
 
-#: deck.cpp:168
+#: deck.cpp:169
 #, kde-format
 msgctxt "card name"
 msgid "Jack"
 msgstr "Fant"
 
-#: deck.cpp:169
+#: deck.cpp:170
 #, kde-format
 msgctxt "card name"
 msgid "Ten"
 msgstr "Deset"
 
-#: deck.cpp:170
+#: deck.cpp:171
 #, kde-format
 msgctxt "card name"
 msgid "Nine"
 msgstr "Devet"
 
-#: deck.cpp:171
+#: deck.cpp:172
 #, kde-format
 msgctxt "card name"
 msgid "Eight"
 msgstr "Osem"
 
-#: deck.cpp:172
+#: deck.cpp:173
 #, kde-format
 msgctxt "card name"
 msgid "Seven"
 msgstr "Sedem"
 
-#: deck.cpp:181
+#: deck.cpp:182
 #, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"

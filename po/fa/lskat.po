@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-02-14 00:56+0000\n"
 "PO-Revision-Date: 2007-09-02 18:25+0330\n"
 "Last-Translator: Nazanin Kazemi <kazemi@itland.ir>\n"
 "Language-Team: Persian <kde-i18n-fa@kde.org>\n"
@@ -40,95 +40,95 @@ msgctxt "Default player name"
 msgid "Bob"
 msgstr "باب"
 
-#: deck.cpp:145
+#: deck.cpp:146
 #, kde-format
 msgid "no valid card"
 msgstr "بدون ورق معتبر"
 
-#: deck.cpp:152 deck.cpp:164
+#: deck.cpp:153 deck.cpp:165
 #, kde-format
 msgid "unknown"
 msgstr "ناشناخته"
 
-#: deck.cpp:153
+#: deck.cpp:154
 #, kde-format
 msgctxt "suite name"
 msgid "Clubs"
 msgstr "گشنیز"
 
-#: deck.cpp:154
+#: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
 msgid "Spades"
 msgstr "پیک"
 
-#: deck.cpp:155
+#: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
 msgid "Hearts"
 msgstr "دل"
 
-#: deck.cpp:156
+#: deck.cpp:157
 #, kde-format
 msgctxt "suite name"
 msgid "Diamonds"
 msgstr "خشت"
 
-#: deck.cpp:157
+#: deck.cpp:158
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
 msgstr "حکم"
 
-#: deck.cpp:165
+#: deck.cpp:166
 #, kde-format
 msgctxt "card name"
 msgid "Ace"
 msgstr "تک"
 
-#: deck.cpp:166
+#: deck.cpp:167
 #, kde-format
 msgctxt "card name"
 msgid "King"
 msgstr "شاه"
 
-#: deck.cpp:167
+#: deck.cpp:168
 #, kde-format
 msgctxt "card name"
 msgid "Queen"
 msgstr "بی بی"
 
-#: deck.cpp:168
+#: deck.cpp:169
 #, kde-format
 msgctxt "card name"
 msgid "Jack"
 msgstr "سرباز"
 
-#: deck.cpp:169
+#: deck.cpp:170
 #, kde-format
 msgctxt "card name"
 msgid "Ten"
 msgstr "ده"
 
-#: deck.cpp:170
+#: deck.cpp:171
 #, kde-format
 msgctxt "card name"
 msgid "Nine"
 msgstr "نه"
 
-#: deck.cpp:171
+#: deck.cpp:172
 #, kde-format
 msgctxt "card name"
 msgid "Eight"
 msgstr "هشت"
 
-#: deck.cpp:172
+#: deck.cpp:173
 #, kde-format
 msgctxt "card name"
 msgid "Seven"
 msgstr "هفت"
 
-#: deck.cpp:181
+#: deck.cpp:182
 #, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"
