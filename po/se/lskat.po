@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-20 00:44+0000\n"
+"POT-Creation-Date: 2023-02-14 00:56+0000\n"
 "PO-Revision-Date: 2007-09-11 22:44+0200\n"
 "Last-Translator: Northern Sami translation team <i18n-sme@lister.ping.uio."
 "no>\n"
@@ -41,95 +41,95 @@ msgctxt "Default player name"
 msgid "Bob"
 msgstr ""
 
-#: deck.cpp:145
+#: deck.cpp:146
 #, kde-format
 msgid "no valid card"
 msgstr ""
 
-#: deck.cpp:152 deck.cpp:164
+#: deck.cpp:153 deck.cpp:165
 #, kde-format
 msgid "unknown"
-msgstr ""
-
-#: deck.cpp:153
-#, kde-format
-msgctxt "suite name"
-msgid "Clubs"
 msgstr ""
 
 #: deck.cpp:154
 #, kde-format
 msgctxt "suite name"
-msgid "Spades"
+msgid "Clubs"
 msgstr ""
 
 #: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
-msgid "Hearts"
+msgid "Spades"
 msgstr ""
 
 #: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
-msgid "Diamonds"
+msgid "Hearts"
 msgstr ""
 
 #: deck.cpp:157
+#, kde-format
+msgctxt "suite name"
+msgid "Diamonds"
+msgstr ""
+
+#: deck.cpp:158
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
 msgstr ""
 
-#: deck.cpp:165
+#: deck.cpp:166
 #, kde-format
 msgctxt "card name"
 msgid "Ace"
 msgstr ""
 
-#: deck.cpp:166
+#: deck.cpp:167
 #, kde-format
 msgctxt "card name"
 msgid "King"
 msgstr ""
 
-#: deck.cpp:167
+#: deck.cpp:168
 #, kde-format
 msgctxt "card name"
 msgid "Queen"
 msgstr ""
 
-#: deck.cpp:168
+#: deck.cpp:169
 #, kde-format
 msgctxt "card name"
 msgid "Jack"
 msgstr ""
 
-#: deck.cpp:169
+#: deck.cpp:170
 #, kde-format
 msgctxt "card name"
 msgid "Ten"
 msgstr ""
 
-#: deck.cpp:170
+#: deck.cpp:171
 #, kde-format
 msgctxt "card name"
 msgid "Nine"
 msgstr ""
 
-#: deck.cpp:171
+#: deck.cpp:172
 #, kde-format
 msgctxt "card name"
 msgid "Eight"
 msgstr ""
 
-#: deck.cpp:172
+#: deck.cpp:173
 #, kde-format
 msgctxt "card name"
 msgid "Seven"
 msgstr ""
 
-#: deck.cpp:181
+#: deck.cpp:182
 #, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"
