@@ -152,7 +152,7 @@ msgstr "لـ"
 #, kde-format
 msgctxt "Title of the game - line 3"
 msgid "K D E"
-msgstr "كدي"
+msgstr "كِيدِي"
 
 #: display_two.cpp:368
 #, kde-format
