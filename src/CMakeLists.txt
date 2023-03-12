@@ -78,8 +78,13 @@ ecm_qt_declare_logging_category(lskat
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../*-apps-lskat.png")
 ecm_add_app_icon(lskat ICONS ${ICONS_SRCS})
 
+if (QT_MAJOR_VERSION STREQUAL "6")
+    target_link_libraries(lskat KDEGames6)
+else()
+    target_link_libraries(lskat KF5KDEGames)
+endif()
+
 target_link_libraries(lskat
-    KF5KDEGames
     KF${KF_MAJOR_VERSION}::CoreAddons
     KF${KF_MAJOR_VERSION}::Crash
     KF${KF_MAJOR_VERSION}::GuiAddons
