@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-02-14 00:56+0000\n"
-"PO-Revision-Date: 2002-03-08 14:55GMT\n"
-"Last-Translator: Wolfram Diestel <wolfram@steloj.de>\n"
+"PO-Revision-Date: 2023-03-25 16:19+0100\n"
+"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <eo@li.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -80,10 +80,10 @@ msgid "Grand"
 msgstr ""
 
 #: deck.cpp:166
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "card name"
 msgid "Ace"
-msgstr "Alinjo"
+msgstr ""
 
 #: deck.cpp:167
 #, kde-format
@@ -122,10 +122,10 @@ msgid "Eight"
 msgstr ""
 
 #: deck.cpp:173
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "card name"
 msgid "Seven"
-msgstr "Sendu"
+msgstr ""
 
 #: deck.cpp:182
 #, kde-format
@@ -134,10 +134,10 @@ msgid "%1 of %2"
 msgstr ""
 
 #: display_intro.cpp:93
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Title of the game - line 1"
 msgid "Lieutenant Skat"
-msgstr "Leŭtenanta skato"
+msgstr ""
 
 #: display_intro.cpp:94
 #, kde-format
@@ -152,37 +152,33 @@ msgid "K D E"
 msgstr "K D E"
 
 #: display_two.cpp:368
-#, fuzzy, kde-format
-#| msgid "%1 points"
+#, kde-format
 msgctxt "Resulting score of a game with no point"
 msgid "no point"
-msgstr "%1 poentoj"
+msgstr ""
 
 #: display_two.cpp:370
-#, fuzzy, kde-format
-#| msgid "%1 points"
+#, kde-format
 msgctxt "Resulting score of a game between 1 and 4"
 msgid "%1 point"
 msgid_plural "%1 points"
-msgstr[0] "%1 poentoj"
-msgstr[1] "%1 poentoj"
+msgstr[0] ""
+msgstr[1] ""
 
 #: engine_two.cpp:235
-#, fuzzy, kde-format
-#| msgid "Game was aborted - no winner"
+#, kde-format
 msgid "Game was ended - no winner"
-msgstr "Ludo estas haltigita - neniu gajninto"
+msgstr ""
 
 #: engine_two.cpp:244
-#, fuzzy, kde-format
+#, kde-format
 msgid "Game is drawn"
-msgstr "      Neniu gajnis"
+msgstr ""
 
 #: engine_two.cpp:250
-#, fuzzy, kde-format
-#| msgid "Player 2 - %1 won "
+#, kde-format
 msgid "Player 1 - %1 won "
-msgstr "Ludanto 2 - %1 gajnis "
+msgstr ""
 
 #: engine_two.cpp:257 engine_two.cpp:277
 #, kde-format
@@ -200,15 +196,15 @@ msgid "Player 2 - %1 won "
 msgstr "Ludanto 2 - %1 gajnis "
 
 #: engine_two.cpp:344
-#, fuzzy, kde-format
+#, kde-format
 msgid "Game ended"
-msgstr "Ludo finita"
+msgstr ""
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Game"
-msgstr "Ludoj:"
+msgstr ""
 
 #. i18n: ectx: Menu (settings)
 #: lskatui.rc:12
@@ -233,10 +229,9 @@ msgid "LSkat: A desktop card game"
 msgstr ""
 
 #: main.cpp:68
-#, fuzzy, kde-format
-#| msgid "(c) Martin Heni   "
+#, kde-format
 msgid "(c) 1995-2007, Martin Heni"
-msgstr "(c) Martin Heni   "
+msgstr ""
 
 #: main.cpp:73
 #, kde-format
@@ -299,9 +294,9 @@ msgid "Welcome to Skat! Please start a new game."
 msgstr ""
 
 #: mainwindow.cpp:334
-#, fuzzy, kde-format
+#, kde-format
 msgid "Game Over. Please start a new game."
-msgstr "Lanĉante novan ludon..."
+msgstr ""
 
 #: mainwindow.cpp:348
 #, kde-format
@@ -315,10 +310,9 @@ msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "Forigas la tutan statistikon de ĉiuj seancoj."
 
 #: mainwindow.cpp:367
-#, fuzzy, kde-format
-#| msgid "Aborts a currently played game. No winner will be declared."
+#, kde-format
 msgid "Ends a currently played game. No winner will be declared."
-msgstr "Ĉesigas momentan ludon. Neniu gajnos."
+msgstr ""
 
 #: mainwindow.cpp:372
 #, kde-format
@@ -326,14 +320,14 @@ msgid "Quits the program."
 msgstr "Haltigas la programon."
 
 #: mainwindow.cpp:375
-#, fuzzy, kde-format
+#, kde-format
 msgid "Starting Player"
-msgstr "Unua ludanto"
+msgstr ""
 
 #: mainwindow.cpp:378
-#, fuzzy, kde-format
+#, kde-format
 msgid "Changing starting player..."
-msgstr "Ŝanĝante unuan ludanton..."
+msgstr ""
 
 #: mainwindow.cpp:379
 #, kde-format
@@ -361,9 +355,9 @@ msgid "Changing who plays player 1..."
 msgstr "Ŝanĝante, kiu estas ludanto 1..."
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
+#, kde-format
 msgid "Changing who plays player 1."
-msgstr "Ŝanĝante, kiu estas ludanto 1..."
+msgstr ""
 
 #: mainwindow.cpp:394
 #, kde-format
@@ -386,47 +380,44 @@ msgid "Changing who plays player 2..."
 msgstr "Ŝanĝante, kiu estas ludanto 2..."
 
 #: mainwindow.cpp:404
-#, fuzzy, kde-format
+#, kde-format
 msgid "Changing who plays player 2."
-msgstr "Ŝanĝante, kiu estas ludanto 2..."
+msgstr ""
 
 #: mainwindow.cpp:412
-#, fuzzy, kde-format
-#| msgid "&Remote"
+#, kde-format
 msgid "&Theme"
-msgstr "&Forulo"
+msgstr ""
 
 #: mainwindow.cpp:418
-#, fuzzy, kde-format
-#| msgid "Change level..."
+#, kde-format
 msgid "Changing theme..."
-msgstr "Ŝanĝu nivelon..."
+msgstr ""
 
 #: mainwindow.cpp:419
-#, fuzzy, kde-format
-#| msgid "Change level..."
+#, kde-format
 msgid "Changing theme."
-msgstr "Ŝanĝu nivelon..."
+msgstr ""
 
 #: mainwindow.cpp:423
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select &Card Deck..."
-msgstr "Elektu &kartaron..."
+msgstr ""
 
 #: mainwindow.cpp:426
-#, fuzzy, kde-format
+#, kde-format
 msgid "Configure card decks..."
-msgstr "Agordu kartarojn..."
+msgstr ""
 
 #: mainwindow.cpp:427
-#, fuzzy, kde-format
+#, kde-format
 msgid "Choose how the cards should look."
-msgstr "Elektas kiel la kartoj aspektu."
+msgstr ""
 
 #: mainwindow.cpp:431
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Change Player Names..."
-msgstr "Ludantonomoj"
+msgstr ""
 
 #: mainwindow.cpp:502
 #, kde-format
@@ -440,273 +431,36 @@ msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
-#, fuzzy, kde-format
+#, kde-format
 msgid "Configure Names"
-msgstr "Agordu nomojn..."
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: namedialog.ui:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Player Names"
-msgstr "Ludantonomoj"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_1)
 #: namedialog.ui:32
-#, fuzzy, kde-format
+#, kde-format
 msgid "Player 1:"
-msgstr "Ludanto 1"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: namedialog.ui:39
-#, fuzzy, kde-format
+#, kde-format
 msgid "Player 2:"
-msgstr "Ludanto 2"
+msgstr ""
 
 #: scoresprite.cpp:148
-#, fuzzy, kde-format
-#| msgid "Score:"
+#, kde-format
 msgctxt "Score in score widget"
 msgid "Score: %1"
-msgstr "Rezulto:"
+msgstr ""
 
 #: scoresprite.cpp:156
-#, fuzzy, kde-format
-#| msgid "Games:"
+#, kde-format
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
-msgstr "Ludoj:"
-
-#~ msgid "OK"
-#~ msgstr "Bone"
-
-#~ msgid "Cancel"
-#~ msgstr "Rezigni"
-
-#, fuzzy
-#~ msgid "Player %1 won "
-#~ msgstr "Ludanto 1 - %1 gajnis "
-
-#, fuzzy
-#~ msgid "Game aborted"
-#~ msgstr "Ludo finita"
-
-#, fuzzy
-#~ msgid "Player 1"
-#~ msgstr "Ludanto &1"
-
-#, fuzzy
-#~ msgid "Player 2"
-#~ msgstr "Ludanto &2"
-
-#, fuzzy
-#~ msgid "KDE"
-#~ msgstr "K D E"
-
-#, fuzzy
-#~ msgid "Start a new game."
-#~ msgstr "Lanĉante novan ludon..."
-
-#~ msgid "Starting a new game..."
-#~ msgstr "Lanĉante novan ludon..."
-
-#, fuzzy
-#~ msgid "&Clear Statistics"
-#~ msgstr "&Malplenigu statistikon..."
-
-#~ msgid "Delete all time statistics..."
-#~ msgstr "Forigu tempostatistikon..."
-
-#, fuzzy
-#~ msgid "End game"
-#~ msgstr "&Finu ludon"
-
-#~ msgid "Ending the current game..."
-#~ msgstr "Finante la nunan ludon..."
-
-#~ msgid "Exiting..."
-#~ msgstr "Finante..."
-
-#~ msgid "Points:"
-#~ msgstr "Poentoj:"
-
-#, fuzzy
-#~ msgid "PlayerName"
-#~ msgstr "Ludantonomoj"
-
-#~ msgid "Send &Message..."
-#~ msgstr "Sendu &mesaĝon..."
-
-#~ msgid "Sending message to remote player..."
-#~ msgstr "Sendante mesaĝon al fora ludanto..."
-
-#~ msgid "Allows you to talk with a remote player."
-#~ msgstr "Permesas al vi babili kun fora ludanto."
-
-#~ msgid "&Player"
-#~ msgstr "&Homo"
-
-#~ msgid "&Level"
-#~ msgstr "&Nivelo"
-
-#~ msgid "Change the strength of the computer player."
-#~ msgstr "Ŝanĝu la nivelon de la komputila ludanto."
-
-#~ msgid "&Normal"
-#~ msgstr "&Normala"
-
-#~ msgid "&Advanced"
-#~ msgstr "&Malfacileta"
-
-#~ msgid "&Hard"
-#~ msgstr "&Spertula"
-
-#~ msgid "Change &Names..."
-#~ msgstr "Ŝanĝu &nomojn..."
-
-#~ msgid "Configure player names..."
-#~ msgstr "Agordu ludantonomojn..."
-
-#~ msgid "This leaves space for the mover"
-#~ msgstr "Tio lasas spacon al la movanto"
-
-#~ msgid "Ready"
-#~ msgstr "Preta"
-
-#, fuzzy
-#~ msgid "Welcome to Lieutenant Skat"
-#~ msgstr "Bonvenon ĉe Leŭtenanta skato"
-
-#~ msgid "Game ended...start a new one..."
-#~ msgstr "Ludo finita... komencu novan..."
-
-#~ msgid "No game running"
-#~ msgstr "Neniu ludo okazas"
-
-#, fuzzy
-#~ msgid "%1 to move..."
-#~ msgstr "Vico de %1..."
-
-#~ msgid ""
-#~ "Cannot start player 1. Maybe the network connection failed or the "
-#~ "computer player process file is not found."
-#~ msgstr ""
-#~ "Ne eblas lanĉi ludanton 1. Eble la retkontakto malsukcesis aŭ la procezo "
-#~ "de la komputila ludanto ne troviĝis."
-
-#~ msgid ""
-#~ "Cannot start player 2. Maybe the network connection failed or the "
-#~ "computer player process file is not found."
-#~ msgstr ""
-#~ "Ne eblas lanĉi ludanton 2. Eble la retkontakto malsukcesis aŭ la procezo "
-#~ "de la komputila ludanto ne troviĝis."
-
-#~ msgid "Remote connection to %1:%2..."
-#~ msgstr "Fora kontakto al %1:%2..."
-
-#, fuzzy
-#~ msgid "Offering remote connection on port %1..."
-#~ msgstr "Ofertante foran kontakton tra pordo %1..."
-
-#~ msgid "Abort"
-#~ msgstr "Haltigu"
-
-#~ msgid "Waiting for the computer to move..."
-#~ msgstr "Atendante la movon de la komputilo..."
-
-#~ msgid "Waiting for remote player..."
-#~ msgstr "Atendante la foran ludanton..."
-
-#~ msgid "Please make your move..."
-#~ msgstr "Bonvolu fari vian movon..."
-
-#~ msgid "Remote connection lost for player 1..."
-#~ msgstr "Fora kontakto al ludanto 1 perdiĝis..."
-
-#~ msgid "Remote connection lost for player 2..."
-#~ msgstr "Fora kontakto al ludanto 2 perdiĝis..."
-
-#~ msgid "Message from remote player:\n"
-#~ msgstr "Mesaĝo de la fora ludanto:\n"
-
-#~ msgid "Remote player ended game..."
-#~ msgstr "Fora ludanto finis la ludon..."
-
-#~ msgid "You are network client...loading remote game..."
-#~ msgstr "Vi estas retkliento...ŝargante foran ludon..."
-
-#~ msgid "You are network server..."
-#~ msgstr "Vi estas retservilo..."
-
-#~ msgid ""
-#~ "Severe internal error. Move to illegal position.\n"
-#~ "Restart game and report bug to the developer.\n"
-#~ msgstr ""
-#~ "Grava interna eraro. Movo al nevalida pozicio.\n"
-#~ "Rekomencu la ludon kaj informu la programiston.\n"
-
-#, fuzzy
-#~ msgid ""
-#~ "This move would not follow the rulebook.\n"
-#~ "Better think again!\n"
-#~ msgstr ""
-#~ "Ho, tiu movo ne sekvus la regularon.\n"
-#~ "Bonvolu repensi!\n"
-
-#~ msgid "It is not your turn.\n"
-#~ msgstr "Ne estas via vico.\n"
-
-#~ msgid "This move is not possible.\n"
-#~ msgstr "Tiu movo ne eblas.\n"
-
-#~ msgid "%1 won over 90 points. Super!"
-#~ msgstr "%1 gajnis pli ol 90 poentojn. Bonege!"
-
-#~ msgid "Move:"
-#~ msgstr "Movo:"
-
-#~ msgid "Won:"
-#~ msgstr "Gajnis:"
-
-#, fuzzy
-#~ msgid "Hold on... the other player hasn't been yet..."
-#~ msgstr "Haltu... la alia ankoraŭ ne iris..."
-
-#~ msgid "Hold your horses..."
-#~ msgstr "Tenu viajn ĉevalojn..."
-
-#, fuzzy
-#~ msgid "Ah ah ah... only one go at a time..."
-#~ msgstr "Hejejej...nur unu movo samtempe..."
-
-#~ msgid "Please wait... it is not your turn."
-#~ msgstr "Bonvolu atendi... ne estas via vico."
-
-#~ msgid "Card Game"
-#~ msgstr "Kartludo"
-
-#, fuzzy
-#~ msgid "Send Message to Remote Player"
-#~ msgstr "Sendu mesaĝon al fora ludanto..."
-
-#, fuzzy
-#~ msgid "Enter Message"
-#~ msgstr "Tajpu mesaĝon"
-
-#~ msgid "Enter a player's name"
-#~ msgstr "Donu ludantonomon"
-
-#, fuzzy
-#~ msgid "Network Options"
-#~ msgstr "Agordu retopciojn..."
-
-#, fuzzy
-#~ msgid "Play As"
-#~ msgstr "Ludantonomoj"
-
-#, fuzzy
-#~ msgid "Network games:"
-#~ msgstr "Agordu retopciojn..."
-
-#, fuzzy
-#~ msgid "Port:"
-#~ msgstr "Pordo"
+msgstr ""
