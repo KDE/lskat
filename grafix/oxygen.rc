@@ -14,7 +14,7 @@ background-svgid=background
 
 # Position of the game deck for the dealing [0..1]
 deck-pos=0.6271,0.300
-# How long does it take for a dealing move [ms] 
+# How long does it take for a dealing move [ms]
 deal-move-time=400.0
 # Position of the cards on the game board for player1 [0..1]
 board-pos1=0.057,0.035
@@ -24,9 +24,9 @@ board-pos2=0.057,0.40
 board-sep=0.12,0.150
 # Shift of second card relative to first card on board [0..1]
 board-shift=0.006,0.006
-# Position of played card player 1 [0..1] 
+# Position of played card player 1 [0..1]
 play-pos1=0.615,0.300
-# Position of played card player 2 [0..1] 
+# Position of played card player 2 [0..1]
 play-pos2=0.635,0.310
 # Position of finished cards for player 1 [0..1]
 stack-pos1=0.580,0.015
@@ -34,7 +34,7 @@ stack-pos1=0.580,0.015
 stack-pos2=0.580,0.490
 # Shift position for finished cards [0..1]
 stack-shift=0.006,0.006
-# Time for removing the cards [ms]  
+# Time for removing the cards [ms]
 remove-time=100.0
 
 # The 'game intro' display
@@ -45,9 +45,9 @@ background-svgid=background
 start-pos=0.1,0.06
 # Shift position for new cards [0..1]
 start-shift=0.30,0.50
-# Time to clear board inwards [ms] 
+# Time to clear board inwards [ms]
 time-clear-in=400
-# Time to clear board outwards [ms] 
+# Time to clear board outwards [ms]
 time-clear-out=400
 
 
@@ -57,7 +57,7 @@ time-clear-out=400
 # Width of the item [0..1]
 width=0.10
 # First frame number to read (0)
-start-frame=0 
+start-frame=0
 # Last frame number to read (odd number)
 end-frame=11
 
@@ -70,7 +70,7 @@ width=0.51
 height=0.33
 # SVG ID of the image
 svgid=cardarea
-# Z-Value 
+# Z-Value
 zValue=5.0
 
 # Cardarea for the second player
@@ -82,10 +82,10 @@ width=0.51
 height=0.33
 # SVG ID of the image
 svgid=cardarea
-# Z-Value 
+# Z-Value
 zValue=5.0
 
-# Play area 
+# Play area
 [playarea]
 pos=0.600,0.27
 # Width of the item [0..1]
@@ -94,7 +94,7 @@ width=0.15
 height=0.20
 # SVG ID of the image
 svgid=playarea
-# Z-Value 
+# Z-Value
 zValue=5.0
 
 [moveicon0]
@@ -102,7 +102,7 @@ zValue=5.0
 pos=0.01,0.05
 # Width of the item [0..1]
 width=0.04
-# Z-Value 
+# Z-Value
 zValue=300.0
 # SVG ID
 svgid=moveicon
@@ -113,7 +113,7 @@ svgid=moveicon
 pos=0.01,0.65
 # Width of the item [0..1]
 width=0.04
-# Z-Value 
+# Z-Value
 zValue=300.0
 # SVG ID
 svgid=moveicon
@@ -124,21 +124,22 @@ svgid=moveicon
 width=0.18
 # Item position [0..1,0..1]
 pos=0.80,0.044
-# Z-Value 
+# Z-Value
 zValue=100.0
 # SVG ID
 svgid=score
 
-# Sub-item positions relativ to score widget itself (status texts player 0 and 1)
+# Sub-item positions relative to score widget itself (status texts player 0 and 1)
 posName=0.10,0.12
-posPoints=0.05,0.22
+posPoints=0.06,0.25
 posScore=0.10,0.625
 posGames=0.10,0.75
 
-# Font width and height relativ to score widget size!!!
-fontHeightPoints=0.22  
+# Font width and height relative to score widget size!
+fontHeightPoints=0.22
 fontHeight=0.073
-fontWidthUpper=0.46
+fontWidthName=0.46
+fontWidthPoints=0.5
 fontWidthLower=0.95
 # Font color for name of player
 fontColorPlayer=255,255,255
@@ -148,35 +149,35 @@ fontColorPlayer=255,255,255
 # Width of the item [0..1]
 width=0.18
 # Item position [0..1,0..1]
-pos=0.80,0.40 
-# Z-Value 
+pos=0.80,0.40
+# Z-Value
 zValue=100.0
 # SVG ID
 svgid=score
 
-# Sub-item positions relativ to score widget itself (status texts player 0 and 1)
+# Sub-item positions relative to score widget itself (status texts player 0 and 1)
 posName=0.10,0.12
-posPoints=0.05,0.22
+posPoints=0.06,0.25
 posScore=0.10,0.625
 posGames=0.10,0.75
 
-# Font width and height relativ to score widget size!!!
-fontHeightPoints=0.22  
+# Font width and height relative to score widget size!
+fontHeightPoints=0.22
 fontHeight=0.073
-fontWidthUpper=0.46
+fontWidthName=0.46
+fontWidthPoints=0.5
 fontWidthLower=0.95
-# Font color for name of player 0 
+# Font color for name of player 0
 fontColorPlayer=255,255,255
 
 
-
-# The score board input icons 
+# The score board input icons
 [scoreinput]
-# Width of the item  [0..1]
+# Width of the item [0..1]
 width=0.050
-# Item positions relativ to score widget itself [0..1,0..1]
+# Item positions relative to score widget itself [0..1,0..1]
 pos=0.115,0.0150
-# Z-Value 
+# Z-Value
 zValue=520.0
 # SVG ID of the image: Auto means to read read ID from frameX (below)
 svgid=auto
@@ -187,17 +188,17 @@ end-frame=2
 # SVG ID for frame0 (Mouse input)
 frame0=score_mouse
 # SVG ID for frame1 (AI input)
-frame1=score_ai 
+frame1=score_ai
 # SVG ID for frame2 (Keyboard input)
 frame2=score_key
 
-# The score board itrump icons 
+# The score board trump icons
 [scoretrump]
-# Width of the item  [0..1]
+# Width of the item [0..1]
 width=0.050
-# Item positions relativ to score widget itself [0..1,0..1]
+# Item positions relative to score widget itself [0..1,0..1]
 pos=0.115,0.072
-# Z-Value 
+# Z-Value
 zValue=520.0
 # SVG ID of the image: Auto means to read read ID from frameX (below)
 svgid=auto
@@ -316,7 +317,6 @@ center=true
 fontColor=0,0,0
 
 
-
 # Text sprite for the score player 1
 [scoretext0]
 # Width of the text
@@ -334,7 +334,7 @@ center=true
 # Font color
 fontColor=255,255,0
 
-# Text sprite for the score player 2 
+# Text sprite for the score player 2
 [scoretext1]
 # Width of the text
 width=0.5
@@ -367,4 +367,3 @@ bold=true
 center=true
 # Font color
 fontColor=255,255,255
-

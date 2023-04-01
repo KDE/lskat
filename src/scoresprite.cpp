@@ -79,9 +79,11 @@ void ScoreSprite::changeTheme()
     fontHeightPoints       *= height;
     double fontHeight       = config.readEntry("fontHeight", 1.0);
     fontHeight             *= height;
-    double fontWidthUpper   = config.readEntry("fontWidthUpper", 1.0);
+    double fontWidthName    = config.readEntry("fontWidthName", 1.0);
+    double fontWidthPoints  = config.readEntry("fontWidthPoints", 1.0);
     double fontWidthLower   = config.readEntry("fontWidthLower", 1.0);
-    fontWidthUpper         *= width;
+    fontWidthName          *= width;
+    fontWidthPoints        *= width;
     fontWidthLower         *= width;
 
     // Retrieve font color
@@ -111,8 +113,8 @@ void ScoreSprite::changeTheme()
     mScore->setDefaultTextColor(fontColor);
     mGames->setDefaultTextColor(fontColor);
 
-    mName->setTextWidth(fontWidthUpper);
-    mPoints->setTextWidth(fontWidthUpper);
+    mName->setTextWidth(fontWidthName);
+    mPoints->setTextWidth(fontWidthPoints);
     mScore->setTextWidth(fontWidthLower);
     mGames->setTextWidth(fontWidthLower);
 
