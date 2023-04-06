@@ -79,8 +79,29 @@ void ScoreSprite::changeTheme()
     fontHeightPoints       *= height;
     double fontHeight       = config.readEntry("fontHeight", 1.0);
     fontHeight             *= height;
-    double fontWidthName    = config.readEntry("fontWidthName", 1.0);
-    double fontWidthPoints  = config.readEntry("fontWidthPoints", 1.0);
+    double fontWidthName;
+    double fontWidthPoints;
+
+    if (!config.hasKey("fontWidthName") && config.hasKey("fontWidthUpper"))
+    {
+        qCWarning(LSKAT_LOG) << "Theme uses obsolete \"fontWidthUpper\" instead of \"fontWidthName\"";
+        fontWidthName = config.readEntry("fontWidthUpper", 1.0);
+    }
+    else
+    {
+        fontWidthName = config.readEntry("fontWidthName", 1.0);
+    }
+
+    if (!config.hasKey("fontWidthPoints") && config.hasKey("fontWidthUpper"))
+    {
+        qCWarning(LSKAT_LOG) << "Theme uses obsolete \"fontWidthUpper\" instead of \"fontWidthPoints\"";
+        fontWidthPoints = config.readEntry("fontWidthUpper", 1.0);
+    }
+    else
+    {
+        fontWidthPoints = config.readEntry("fontWidthPoints", 1.0);
+    }
+
     double fontWidthLower   = config.readEntry("fontWidthLower", 1.0);
     fontWidthName          *= width;
     fontWidthPoints        *= width;
