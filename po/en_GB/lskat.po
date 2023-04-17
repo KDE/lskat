@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-14 00:56+0000\n"
+"POT-Creation-Date: 2023-04-17 00:45+0000\n"
 "PO-Revision-Date: 2014-06-29 12:12+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
 "Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
@@ -454,13 +454,13 @@ msgstr "Player 1:"
 msgid "Player 2:"
 msgstr "Player 2:"
 
-#: scoresprite.cpp:148
+#: scoresprite.cpp:171
 #, kde-format
 msgctxt "Score in score widget"
 msgid "Score: %1"
 msgstr "Score: %1"
 
-#: scoresprite.cpp:156
+#: scoresprite.cpp:179
 #, kde-format
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"

@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames/lskat.pot\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-14 00:56+0000\n"
+"POT-Creation-Date: 2023-04-17 00:45+0000\n"
 "PO-Revision-Date: 2004-09-20 15:44+0200\n"
 "Last-Translator: Thierry Vignaud <tvignaud@mandriva.com>\n"
 "Language-Team: br <LL@li.org>\n"
@@ -461,14 +461,14 @@ msgstr "C'hoarier 1 :"
 msgid "Player 2:"
 msgstr "C'hoarier 2 :"
 
-#: scoresprite.cpp:148
+#: scoresprite.cpp:171
 #, fuzzy, kde-format
 #| msgid "Score:"
 msgctxt "Score in score widget"
 msgid "Score: %1"
 msgstr "Merk :"
 
-#: scoresprite.cpp:156
+#: scoresprite.cpp:179
 #, fuzzy, kde-format
 #| msgid "Games:"
 msgctxt "Won and overall games in score widget"

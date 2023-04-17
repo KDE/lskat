@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-14 00:56+0000\n"
+"POT-Creation-Date: 2023-04-17 00:45+0000\n"
 "PO-Revision-Date: 2005-10-22 15:46+0500\n"
 "Last-Translator: Victor Ibragimov <youth_opportunities@tajikngo.org>\n"
 "Language-Team: Tajik\n"
@@ -477,14 +477,14 @@ msgstr "Бозингари 1:"
 msgid "Player 2:"
 msgstr "Бозингари 2:"
 
-#: scoresprite.cpp:148
+#: scoresprite.cpp:171
 #, fuzzy, kde-format
 #| msgid "Score:"
 msgctxt "Score in score widget"
 msgid "Score: %1"
 msgstr "Ҳисоб:"
 
-#: scoresprite.cpp:156
+#: scoresprite.cpp:179
 #, fuzzy, kde-format
 #| msgid "Games:"
 msgctxt "Won and overall games in score widget"

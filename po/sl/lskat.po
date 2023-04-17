@@ -2,7 +2,7 @@
 # Translation of lskat.po to Slovenian
 # SLOVENIAN TRANSLATION OF LSKAT.
 # Copyright (C) 2001, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
-# $Id: lskat.po 1644491 2023-02-14 01:48:03Z scripty $
+# $Id: lskat.po 1649577 2023-04-17 01:32:19Z scripty $
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 2000.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-14 00:56+0000\n"
+"POT-Creation-Date: 2023-04-17 00:45+0000\n"
 "PO-Revision-Date: 2020-02-23 12:44+0100\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -467,13 +467,13 @@ msgstr "Igralec 1:"
 msgid "Player 2:"
 msgstr "Igralec 2:"
 
-#: scoresprite.cpp:148
+#: scoresprite.cpp:171
 #, kde-format
 msgctxt "Score in score widget"
 msgid "Score: %1"
 msgstr "Rezultat: %1"
 
-#: scoresprite.cpp:156
+#: scoresprite.cpp:179
 #, kde-format
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"

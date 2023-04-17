@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-02-14 00:56+0000\n"
-"PO-Revision-Date: 2023-04-10 14:10\n"
+"POT-Creation-Date: 2023-04-17 00:45+0000\n"
+"PO-Revision-Date: 2023-04-16 12:31\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -452,13 +452,13 @@ msgstr "玩家甲："
 msgid "Player 2:"
 msgstr "玩家乙："
 
-#: scoresprite.cpp:148
+#: scoresprite.cpp:171
 #, kde-format
 msgctxt "Score in score widget"
 msgid "Score: %1"
 msgstr "分数：%1"
 
-#: scoresprite.cpp:156
+#: scoresprite.cpp:179
 #, kde-format
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
