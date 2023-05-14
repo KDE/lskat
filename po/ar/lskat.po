@@ -185,7 +185,7 @@ msgstr "انتهت اللعبة بالتعادل"
 #: engine_two.cpp:250
 #, kde-format
 msgid "Player 1 - %1 won "
-msgstr "اللاعب ١ - %1 فاز"
+msgstr "اللاعب 1 - %1 فاز"
 
 #: engine_two.cpp:257 engine_two.cpp:277
 #, kde-format
