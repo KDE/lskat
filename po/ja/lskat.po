@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.1\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
@@ -168,7 +168,6 @@ msgctxt "Resulting score of a game between 1 and 4"
 msgid "%1 point"
 msgid_plural "%1 points"
 msgstr[0] "%1 ポイント獲得"
-msgstr[1] "%1 ポイント獲得"
 
 #: engine_two.cpp:235
 #, kde-format
