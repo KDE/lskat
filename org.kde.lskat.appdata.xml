@@ -12,6 +12,7 @@
   <name xml:lang="de">Offiziersskat</name>
   <name xml:lang="el">LSkat</name>
   <name xml:lang="en-GB">LSkat</name>
+  <name xml:lang="eo">LSkat</name>
   <name xml:lang="es">LSkat</name>
   <name xml:lang="et">LSkat</name>
   <name xml:lang="eu">LSkat</name>
@@ -49,6 +50,7 @@
   <summary xml:lang="de">Deutsches Kartenspiel Skat für zwei Spieler</summary>
   <summary xml:lang="el">Γερμανικό παιχνίδι καρτών Skat για δύο παίκτες</summary>
   <summary xml:lang="en-GB">German card game Skat for two players</summary>
+  <summary xml:lang="eo">Germana kartoludo Skat por du ludantoj</summary>
   <summary xml:lang="es">Juego de cartas alemán Skat para dos jugadores</summary>
   <summary xml:lang="et">Saksa kaardimäng skatt kahele mängijale</summary>
   <summary xml:lang="eu">Bi jokalarirentzako Skat karta joko alemana</summary>
