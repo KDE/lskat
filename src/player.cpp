@@ -292,3 +292,5 @@ void Player::refresh()
 {
     Q_EMIT signalUpdate(this);
 }
+
+#include "moc_player.cpp"

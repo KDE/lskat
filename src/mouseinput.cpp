@@ -34,3 +34,5 @@ void MouseInput::mousePress(const QPoint &point)
         Q_EMIT signalPlayerInput(mId, playerNumber, cardNumber);
     }
 }
+
+#include "moc_mouseinput.cpp"

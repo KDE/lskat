@@ -80,3 +80,5 @@ void AbstractDisplay::createCardSprites()
         mCards[cardNo] = sprite;
     }// next
 }
+
+#include "moc_abstractdisplay.cpp"

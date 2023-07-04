@@ -475,3 +475,5 @@ int EngineTwo::whoWonMove(int card1, int card2, Suite trump)
     // In all other cases the first card wins
     return 0;
 }
+
+#include "moc_engine_two.cpp"

@@ -30,3 +30,5 @@ Player *AbstractEngine::player(int no)
 {
     return mPlayers[no];
 }
+
+#include "moc_abstractengine.cpp"

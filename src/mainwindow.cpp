@@ -634,3 +634,5 @@ void Mainwindow::setInputType(int no, InputDeviceType type)
         p->setInput(input);
     }
 }
+
+#include "moc_mainwindow.cpp"

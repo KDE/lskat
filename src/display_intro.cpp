@@ -227,3 +227,5 @@ void DisplayIntro::loop()
         mAnimCnt = 0;
     }
 }
+
+#include "moc_display_intro.cpp"

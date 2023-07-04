@@ -44,3 +44,5 @@ QString NameDialogWidget::name(int pos)
         return ui.editPlayer2->text();
     }
 }
+
+#include "moc_namedialogwidget.cpp"

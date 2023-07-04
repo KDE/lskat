@@ -115,3 +115,5 @@ void ConfigTwo::setInputType(int no, InputDeviceType type)
     mInputTypes[no] = type;
     Q_EMIT signalInputType(no, type);
 }
+
+#include "moc_config_two.cpp"

@@ -356,3 +356,5 @@ Themable::~Themable()
 {
     if (mThemeManager) mThemeManager->unregisterTheme(this);
 }
+
+#include "moc_thememanager.cpp"

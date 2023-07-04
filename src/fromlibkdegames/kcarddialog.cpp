@@ -196,3 +196,5 @@ KCardDialog::KCardDialog(KCardWidget *widget)
     connect(buttonBox, &QDialogButtonBox::rejected, this, &KCardDialog::reject);
     mainLayout->addWidget(buttonBox);
 }
+
+#include "moc_kcarddialog.cpp"

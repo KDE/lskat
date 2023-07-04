@@ -387,3 +387,5 @@ void DisplayTwo::showMove(int no)
         mMoveSprites[no]->show();
     }
 }
+
+#include "moc_display_two.cpp"

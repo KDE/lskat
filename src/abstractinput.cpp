@@ -36,3 +36,5 @@ bool AbstractInput::inputAllowed()
 {
     return mInputAllowed;
 }
+
+#include "moc_abstractinput.cpp"

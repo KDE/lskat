@@ -749,3 +749,5 @@ bool AiInput::isLegalMove(int card1, int card2, int pl, const AiInput::Board &cu
     // if (type1 == Jack) qCDebug(LSKAT_LOG) << "ALLOWED  ";
     return true;
 }
+
+#include "moc_aiinput.cpp"
