@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -159,11 +159,12 @@ msgid "no point"
 msgstr "بدون امتیاز"
 
 #: display_two.cpp:370
-#, kde-format
+#, fuzzy, kde-format
 msgctxt "Resulting score of a game between 1 and 4"
 msgid "%1 point"
 msgid_plural "%1 points"
 msgstr[0] "%1 امتیاز"
+msgstr[1] ""
 
 #: engine_two.cpp:235
 #, fuzzy, kde-format
