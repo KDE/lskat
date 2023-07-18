@@ -12,7 +12,6 @@
   <name xml:lang="de">Offiziersskat</name>
   <name xml:lang="el">LSkat</name>
   <name xml:lang="en-GB">LSkat</name>
-  <name xml:lang="eo">LSkat</name>
   <name xml:lang="es">LSkat</name>
   <name xml:lang="et">LSkat</name>
   <name xml:lang="eu">LSkat</name>
@@ -50,7 +49,6 @@
   <summary xml:lang="de">Deutsches Kartenspiel Skat für zwei Spieler</summary>
   <summary xml:lang="el">Γερμανικό παιχνίδι καρτών Skat για δύο παίκτες</summary>
   <summary xml:lang="en-GB">German card game Skat for two players</summary>
-  <summary xml:lang="eo">Germana Skat-kartludo por du ludantoj</summary>
   <summary xml:lang="es">Juego de cartas alemán Skat para dos jugadores</summary>
   <summary xml:lang="et">Saksa kaardimäng skatt kahele mängijale</summary>
   <summary xml:lang="eu">Bi jokalarirentzako Skat karta joko alemana</summary>
@@ -86,7 +84,6 @@
     <p xml:lang="de">Offiziersskat ist ein Kartenspiel für zwei Spieler, bei dem der zweite Spieler entweder ein menschlicher Gegner sein kann, oder durch die eingebaute KI gestellt wird.</p>
     <p xml:lang="el">Ο υπολοχαγός Skat (από τα Γερμανικά «Offiziersskat») είναι ένα διασκεδαστικό και συναρπαστικό παιχνίδι καρτών για δύο παίκτες, με τον δεύτερο παίκτη να είναι ένας ζωντανός αντίπαλος ή μια ενσωματωμένη τεχνητή νοημοσύνη.</p>
     <p xml:lang="en-GB">Lieutenant Skat (from German "Offiziersskat") is a fun and engaging card game for two players, where the second player is either live opponent, or a built in artificial intelligence.</p>
-    <p xml:lang="eo">Leŭtenanta Skato (de la germana "Offiziersskat") estas amuza kaj alloga kartludo por du ludantoj, kie la dua ludanto estas aŭ viva kontraŭulo, aŭ enkonstruita artefarita inteligenteco.</p>
     <p xml:lang="es">El Teniente Skat (en alemán, «Offiziersskat») es un juego de cartas divertido y cautivador para dos jugadores, en el que el otro jugador puede ser un amigo o la computadora.</p>
     <p xml:lang="et">Leitnant Skat (saksa keeles Offiziersskat) on lõbus ja köitev kahe mängijaga mäng, kus vastaseks võib olla nii inimene kui ka arvuti.</p>
     <p xml:lang="eu">Skat Tenientea (Lotinant Skat, alemaneko «Offiziersskat») bi jokalarirentzako karta-joko dibertigarri eta erakargarria da, eta bigarren jokalaria aurkari biziduna da, edo adimen artifizialean eraikia.</p>
