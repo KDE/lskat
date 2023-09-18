@@ -251,10 +251,10 @@ int EngineTwo::evaluateGame()
 
         score1 = 2;
         player1->addWonGame(1);
-        if (points1 >= 90)
+        if (points1 > 90)
         {
             score1 += 1;  // Schneider
-            text = i18n("%1 won with 90 points. Super!", player1->name());
+            text = i18n("%1 won with over 90 points. Super!", player1->name());
         }
         // Do not use 'else if' here!
         if (points1 >= 120)
@@ -271,10 +271,10 @@ int EngineTwo::evaluateGame()
 
         score2 = 2;
         player2->addWonGame(1);
-        if (points2 >= 90)
+        if (points2 > 90)
         {
             score2 += 1;  // Schneider
-            text = i18n("%1 won with 90 points. Super!", player2->name());
+            text = i18n("%1 won with over 90 points. Super!", player2->name());
         }
         // Do not use 'else if' here!
         if (points2 >= 120)
