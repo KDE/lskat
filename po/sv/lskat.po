@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-04-17 00:45+0000\n"
+"POT-Creation-Date: 2023-09-19 00:43+0000\n"
 "PO-Revision-Date: 2012-05-24 20:34+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -183,8 +183,9 @@ msgid "Player 1 - %1 won "
 msgstr "Spelare 1 - %1 vann "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, kde-format
-msgid "%1 won with 90 points. Super!"
+#, fuzzy, kde-format
+#| msgid "%1 won with 90 points. Super!"
+msgid "%1 won with over 90 points. Super!"
 msgstr "%1 vann med 90 poäng. Fantastiskt!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
