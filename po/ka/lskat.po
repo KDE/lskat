@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-19 00:43+0000\n"
-"PO-Revision-Date: 2022-12-06 08:49+0100\n"
+"PO-Revision-Date: 2023-09-20 02:50+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: Poedit 3.3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -182,10 +182,9 @@ msgid "Player 1 - %1 won "
 msgstr "მოთამაშე 1 - %1-მა მოიგო "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1-მა 90 ქულით მოიგო. გადასარევია!"
+msgstr "%1-მა 90 ქულაზე მეტით მოიგო. გადასარევია!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
