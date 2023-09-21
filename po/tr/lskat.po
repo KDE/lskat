@@ -188,10 +188,9 @@ msgid "Player 1 - %1 won "
 msgstr "Oyuncu 1 - %1 kazandı "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 90 puanla kazandı. Harika!"
+msgstr "%1 90 puandan fazlasıyla kazandı. Harika!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format

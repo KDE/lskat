@@ -5,39 +5,41 @@
 # Santiago Fernandez Sancho <santi@kde-es.org>, 2004.
 # Jaime Robles <jaime@kde.org>, 2005.
 # Santiago Fernández Sancho <santi@kde-es.org>, 2007, 2008.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2009, 2012.
+# SPDX-FileCopyrightText: 2009, 2012, 2023 Eloy Cuadra <ecuadra@eloihr.net>
 # Huever, 2009.
 # Kira J. Fernandez <kirajfdez@gmail.com>, 2010.
+# Sofía Priego <spriego@darksylvania.net>, %Y.
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-19 00:43+0000\n"
-"PO-Revision-Date: 2012-05-25 12:05+0200\n"
-"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"PO-Revision-Date: 2023-09-20 22:56+0100\n"
+"Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Valux (José M. Laveda) jmlaveda@jazzfree.com\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 23.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr ""
-"Rafael Osuna,Jose M. Laveda,Pablo J. Barneo González,Pablo de Vicente,Miguel "
-"Revilla Rodríguez,Lucas García,Santiago Fernández,Kira J. Fernández"
+"Sofía Priego,Rafael Osuna,Jose M. Laveda,Pablo J. Barneo González,Pablo de "
+"Vicente,Miguel Revilla Rodríguez,Lucas García,Santiago Fernández,Kira J. "
+"Fernández"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr ""
-"rafa@ecotelco.com,jmlaveda@jazzfree.com,pablob@nikef.nl,vicente@oan.es,"
-"yo@miguelrevilla.com,tanke@escomposlinux.org,santi@kde-es.org,"
-"kirajfdez@gmail.com"
+"spriego@darksylvania.net,rafa@ecotelco.com,jmlaveda@jazzfree.com,"
+"pablob@nikef.nl,vicente@oan.es,yo@miguelrevilla.com,tanke@escomposlinux.org,"
+"santi@kde-es.org,kirajfdez@gmail.com"
 
 #: config_two.cpp:29
 #, kde-format
@@ -54,7 +56,7 @@ msgstr "Roberto"
 #: deck.cpp:146
 #, kde-format
 msgid "no valid card"
-msgstr "tarjeta no válida"
+msgstr "ninguna carta válida"
 
 #: deck.cpp:153 deck.cpp:165
 #, kde-format
@@ -89,7 +91,7 @@ msgstr "Diamantes"
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
-msgstr "Grande"
+msgstr "Triunfo"
 
 #: deck.cpp:166
 #, kde-format
@@ -185,28 +187,27 @@ msgstr "Partida abandonada - sin ganador"
 #: engine_two.cpp:244
 #, kde-format
 msgid "Game is drawn"
-msgstr "Juego empatado"
+msgstr "Partida empatada"
 
 #: engine_two.cpp:250
 #, kde-format
 msgid "Player 1 - %1 won "
-msgstr "Jugador 1 - %1 ganó "
+msgstr "Jugador 1 - %1 ha ganado "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 ganó con 90 puntos. ¡Soberbio!"
+msgstr "%1 ha ganado con más de 90 puntos. ¡Soberbio!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
 msgid "%1 won to nil. Congratulations!"
-msgstr "%1 no ganó a nadie. ¡Enhorabuena!"
+msgstr "%1 no ha ganado a nadie. ¡Enhorabuena!"
 
 #: engine_two.cpp:270
 #, kde-format
 msgid "Player 2 - %1 won "
-msgstr "Jugador 2 - %1 ganó "
+msgstr "Jugador 2 - %1 ha ganado "
 
 #: engine_two.cpp:344
 #, kde-format
@@ -239,12 +240,12 @@ msgstr "LSkat"
 #: main.cpp:66
 #, kde-format
 msgid "LSkat: A desktop card game"
-msgstr "LSkat: Un juego de cartas para el escritorio"
+msgstr "LSkat: Juego de cartas para el escritorio"
 
 #: main.cpp:68
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
-msgstr "(c) 1995-2007, Martin Heni"
+msgstr "© 1995-2007, Martin Heni"
 
 #: main.cpp:73
 #, kde-format
@@ -289,12 +290,12 @@ msgstr "Saltar animación de introducción"
 #: main.cpp:84
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
-msgstr "Ejecutar juego en modo demostración (juego automático)"
+msgstr "Ejecutar el juego en modo demostración (juego automático)"
 
 #: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
-msgstr "Error de instalación: No se encontró la lista de temas."
+msgstr "Error de instalación: No se ha encontrado la lista de temas."
 
 #: mainwindow.cpp:127
 #, kde-format
@@ -320,7 +321,7 @@ msgstr "Siguiente movimiento para %1 (jugador %2)"
 #: mainwindow.cpp:362
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
-msgstr "Borrar todas las estadísticas de tiempo de todas las sesiones."
+msgstr "Borra todas las estadísticas de tiempos de todas las sesiones."
 
 #: mainwindow.cpp:367
 #, kde-format
@@ -330,7 +331,7 @@ msgstr "Abandona la partida actual. Nadie será declarado ganador."
 #: mainwindow.cpp:372
 #, kde-format
 msgid "Quits the program."
-msgstr "Abandona el programa."
+msgstr "Sale del programa."
 
 #: mainwindow.cpp:375
 #, kde-format
@@ -345,7 +346,7 @@ msgstr "Cambiando jugador inicial..."
 #: mainwindow.cpp:379
 #, kde-format
 msgid "Chooses which player begins the next game."
-msgstr "Elige que jugador empieza la próxima partida."
+msgstr "Elige el jugador que empieza la próxima partida."
 
 #: mainwindow.cpp:382
 #, kde-format
@@ -360,7 +361,7 @@ msgstr "Jugador &2"
 #: mainwindow.cpp:388
 #, kde-format
 msgid "Player &1 Played By"
-msgstr "Jugador &1 es "
+msgstr "El jugador &1 es"
 
 #: mainwindow.cpp:391
 #, kde-format
@@ -385,7 +386,7 @@ msgstr "&Máquina"
 #: mainwindow.cpp:400
 #, kde-format
 msgid "Player &2 Played By"
-msgstr "Jugador &2 es"
+msgstr "El jugador &2 es"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -405,22 +406,22 @@ msgstr "&Tema"
 #: mainwindow.cpp:418
 #, kde-format
 msgid "Changing theme..."
-msgstr "Cambiando tema..."
+msgstr "Cambiando el tema..."
 
 #: mainwindow.cpp:419
 #, kde-format
 msgid "Changing theme."
-msgstr "Cambiando tema."
+msgstr "Cambiando el tema."
 
 #: mainwindow.cpp:423
 #, kde-format
 msgid "Select &Card Deck..."
-msgstr "Seleccionar baraja de &cartas..."
+msgstr "Seleccionar la baraja de &cartas..."
 
 #: mainwindow.cpp:426
 #, kde-format
 msgid "Configure card decks..."
-msgstr "Configurar baraja de cartas..."
+msgstr "Configurar la baraja de cartas..."
 
 #: mainwindow.cpp:427
 #, kde-format
