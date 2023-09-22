@@ -1,21 +1,23 @@
 # translation of lskat.po to Italian
 # Copyright (C) 2004, 2005, 2007, 2008 Free Software Foundation, Inc.
-#
 # Andrea Celli <andrea.celli@libero.it>, 2004, 2005.
 # Luciano Montanaro <mikelima@cirulla.net>, 2007, 2008, 2009, 2012.
+# SPDX-FileCopyrightText: 2023 Vincenzo Reale <smart2128vr@gmail.com>
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-19 00:43+0000\n"
-"PO-Revision-Date: 2012-07-09 10:43+0200\n"
-"Last-Translator: Luciano Montanaro <mikelima@cirulla.net>\n"
+"PO-Revision-Date: 2023-09-19 14:24+0200\n"
+"Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -181,10 +183,9 @@ msgid "Player 1 - %1 won "
 msgstr "Giocatore 1 – %1 ha vinto "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 ha vinto con più di 90 punti. Super!"
+msgstr "%1 ha vinto con più di 90 punti. Grande!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
