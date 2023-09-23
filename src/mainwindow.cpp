@@ -17,7 +17,6 @@
 #include <QStandardPaths>
 
 // KF includes
-#include <kwidgetsaddons_version.h>
 #include <KActionCollection>
 #include <KConfigGroup>
 #include <KMessageBox>
@@ -502,11 +501,7 @@ void Mainwindow::menuClearStatistics()
     message = i18n("Do you really want to clear the all time "
                     "statistical data?");
 
-#if KWIDGETSADDONS_VERSION >= QT_VERSION_CHECK(5, 100, 0)
     if (KMessageBox::PrimaryAction == KMessageBox::questionTwoActions(this,
-#else
-    if (KMessageBox::Yes == KMessageBox::questionYesNo(this,
-#endif
                                                        message,
                                                        QString(),
                                                        KStandardGuiItem::clear(),

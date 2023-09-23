@@ -78,19 +78,14 @@ ecm_qt_declare_logging_category(lskat
 file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../*-apps-lskat.png")
 ecm_add_app_icon(lskat ICONS ${ICONS_SRCS})
 
-if (QT_MAJOR_VERSION STREQUAL "6")
-    target_link_libraries(lskat KDEGames6)
-else()
-    target_link_libraries(lskat KF5KDEGames)
-endif()
-
 target_link_libraries(lskat
-    KF${KF_MAJOR_VERSION}::CoreAddons
-    KF${KF_MAJOR_VERSION}::Crash
-    KF${KF_MAJOR_VERSION}::GuiAddons
-    KF${KF_MAJOR_VERSION}::XmlGui
-    Qt${QT_MAJOR_VERSION}::Gui
-    Qt${QT_MAJOR_VERSION}::Svg
+    KDEGames6
+    KF6::CoreAddons
+    KF6::Crash
+    KF6::GuiAddons
+    KF6::XmlGui
+    Qt6::Gui
+    Qt6::Svg
 )
 
 install(TARGETS lskat  ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
