@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 00:43+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2022-01-22 13:05+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -226,213 +226,213 @@ msgstr "الإ&عدادات"
 msgid "Main Toolbar"
 msgstr "شريط  الأدوات العام"
 
-#: main.cpp:64
+#: main.cpp:61
 #, kde-format
 msgid "LSkat"
 msgstr "النقيب سكيت"
 
-#: main.cpp:66
+#: main.cpp:63
 #, kde-format
 msgid "LSkat: A desktop card game"
 msgstr "النقيب سكيت: لعبة ورق للسطح المكتب"
 
-#: main.cpp:68
+#: main.cpp:65
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
 msgstr "(c) 1995-2007, Martin Heni"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Martin Heni"
 msgstr "Martin Heni"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Game design and code"
 msgstr "تصميم اللعبة و كتابة الشفرة"
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Eugene Trounev"
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Graphics"
 msgstr "الرسوميات"
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Code Improvements"
 msgstr "تحسينات الشفرة"
 
-#: main.cpp:82
+#: main.cpp:79
 #, kde-format
 msgid "Enter debug level"
 msgstr "أدخل مستوى التصحيح"
 
-#: main.cpp:83
+#: main.cpp:80
 #, kde-format
 msgid "Skip intro animation"
 msgstr "تخطى المقدمة المتحركة"
 
-#: main.cpp:84
+#: main.cpp:81
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "شغل اللعبة في النمط الاستعراضي (لعب تلقائي)"
 
-#: mainwindow.cpp:80
+#: mainwindow.cpp:79
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr "خطأ تثبيتي: لا يوجد قائمة السمات"
 
-#: mainwindow.cpp:127
+#: mainwindow.cpp:126
 #, kde-format
 msgid "Installation error: Theme file error."
 msgstr "خطأ تثبيتي: خطأ في ملف السمة"
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
 msgstr "أهلا بك إلى سكات ! الرجاء بدأ لعبة جديدة."
 
-#: mainwindow.cpp:334
+#: mainwindow.cpp:333
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "انتهت اللعبة. الرجاء ابدأ لعبة جديدة."
 
-#: mainwindow.cpp:348
+#: mainwindow.cpp:347
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr "الحركة التالية لـ %1 (اللاعب %2)"
 
-#: mainwindow.cpp:362
+#: mainwindow.cpp:361
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "مسح كل احصائيات الوقت التي يحتفظ بها في كل جلسة."
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:366
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "ينهي اللعبة الحالية. لن يعلن عن أي فائز."
 
-#: mainwindow.cpp:372
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Quits the program."
 msgstr "الخروج من البرنامج."
 
-#: mainwindow.cpp:375
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Starting Player"
 msgstr "اللاعب البادئ"
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:377
 #, kde-format
 msgid "Changing starting player..."
 msgstr "جاري تغيير اللاعب البادئ..."
 
-#: mainwindow.cpp:379
+#: mainwindow.cpp:378
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "اختار أي لاعب سوف يبدأ بالمرة القادمة."
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &1"
 msgstr "اللاعب &1"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Player &2"
 msgstr "اللاعب &2"
 
-#: mainwindow.cpp:388
+#: mainwindow.cpp:387
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "اللاعب &1 بواسطة"
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "جاري تغيير اللاعب 1..."
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:391
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "تغيير من يلعب اللاعب 1."
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Mouse"
 msgstr "ال&فأرة"
 
-#: mainwindow.cpp:395
+#: mainwindow.cpp:394
 #, kde-format
 msgid "&Computer"
 msgstr "ال&حاسب"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:399
 #, kde-format
 msgid "Player &2 Played By"
 msgstr "اللاعب &2 بواسطة"
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:402
 #, kde-format
 msgid "Changing who plays player 2..."
 msgstr "جاري تغيير اللاعب 2..."
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2."
 msgstr "تغيير من يلعب اللاعب 1."
 
-#: mainwindow.cpp:412
+#: mainwindow.cpp:411
 #, kde-format
 msgid "&Theme"
 msgstr "ال&سمة"
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Changing theme..."
 msgstr "تغيير السمة..."
 
-#: mainwindow.cpp:419
+#: mainwindow.cpp:418
 #, kde-format
 msgid "Changing theme."
 msgstr "تغيير السمة."
 
-#: mainwindow.cpp:423
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Select &Card Deck..."
 msgstr "اختر &شكل البطاقة..."
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Configure card decks..."
 msgstr "تنسيق شكل البطاقات..."
 
-#: mainwindow.cpp:427
+#: mainwindow.cpp:426
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "اختار كيف سوف تبدو البطاقات."
 
-#: mainwindow.cpp:431
+#: mainwindow.cpp:430
 #, kde-format
 msgid "&Change Player Names..."
 msgstr "&غيّر أسماء اللاعبين..."
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:501
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "هل تريد حقا مسح كل احصائيات الوقت ؟"
 
-#: mainwindow.cpp:579
+#: mainwindow.cpp:574
 #, kde-format
 msgid "Dealing cards..."
 msgstr "توزيع الأوراق..."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-05-31 18:01+0200\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2012-06-13 23:08+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -33,142 +33,142 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "m.puzovic@etoncollege.org.uk,caslav.ilic@gmx.net,slsimic@gmail.com"
 
-#: config_two.cpp:43
+#: config_two.cpp:29
 #, kde-format
 msgctxt "Default player name"
 msgid "Alice"
 msgstr "Ана"
 
-#: config_two.cpp:44
+#: config_two.cpp:30
 #, kde-format
 msgctxt "Default player name"
 msgid "Bob"
 msgstr "Брана"
 
-#: deck.cpp:163
+#: deck.cpp:146
 #, kde-format
 msgid "no valid card"
 msgstr "нема добре карте"
 
 # >> suite name
-#: deck.cpp:170 deck.cpp:182
+#: deck.cpp:153 deck.cpp:165
 #, kde-format
 msgid "unknown"
 msgstr "непознат"
 
 # потребна једнина, користи се у „дама треф“, и сл.
-#: deck.cpp:171
+#: deck.cpp:154
 #, kde-format
 msgctxt "suite name"
 msgid "Clubs"
 msgstr "треф"
 
 # потребна једнина, користи се у „дама пик“, и сл.
-#: deck.cpp:172
+#: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
 msgid "Spades"
 msgstr "пик"
 
 # потребна једнина, користи се у „дама херц“, и сл.
-#: deck.cpp:173
+#: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
 msgid "Hearts"
 msgstr "херц"
 
 # потребна једнина, користи се у „дама каро“, и сл.
-#: deck.cpp:174
+#: deck.cpp:157
 #, kde-format
 msgctxt "suite name"
 msgid "Diamonds"
 msgstr "каро"
 
-#: deck.cpp:175
+#: deck.cpp:158
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
 msgstr "велики"
 
-#: deck.cpp:183
+#: deck.cpp:166
 #, kde-format
 msgctxt "card name"
 msgid "Ace"
 msgstr "кец"
 
-#: deck.cpp:184
+#: deck.cpp:167
 #, kde-format
 msgctxt "card name"
 msgid "King"
 msgstr "краљ"
 
-#: deck.cpp:185
+#: deck.cpp:168
 #, kde-format
 msgctxt "card name"
 msgid "Queen"
 msgstr "дама"
 
-#: deck.cpp:186
+#: deck.cpp:169
 #, kde-format
 msgctxt "card name"
 msgid "Jack"
 msgstr "жандар"
 
-#: deck.cpp:187
+#: deck.cpp:170
 #, kde-format
 msgctxt "card name"
 msgid "Ten"
 msgstr "десет"
 
-#: deck.cpp:188
+#: deck.cpp:171
 #, kde-format
 msgctxt "card name"
 msgid "Nine"
 msgstr "девет"
 
-#: deck.cpp:189
+#: deck.cpp:172
 #, kde-format
 msgctxt "card name"
 msgid "Eight"
 msgstr "осам"
 
-#: deck.cpp:190
+#: deck.cpp:173
 #, kde-format
 msgctxt "card name"
 msgid "Seven"
 msgstr "седам"
 
-#: deck.cpp:199
+#: deck.cpp:182
 #, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"
 msgstr "%1 %2"
 
-#: display_intro.cpp:107
+#: display_intro.cpp:93
 #, kde-format
 msgctxt "Title of the game - line 1"
 msgid "Lieutenant Skat"
 msgstr "Поручник Скат"
 
-#: display_intro.cpp:108
+#: display_intro.cpp:94
 #, kde-format
 msgctxt "Title of the game - line 2"
 msgid "for"
 msgstr "за"
 
-#: display_intro.cpp:109
+#: display_intro.cpp:95
 #, kde-format
 msgctxt "Title of the game - line 3"
 msgid "K D E"
 msgstr "К Д Е"
 
-#: display_two.cpp:382
+#: display_two.cpp:368
 #, kde-format
 msgctxt "Resulting score of a game with no point"
 msgid "no point"
 msgstr "без поена"
 
-#: display_two.cpp:384
+#: display_two.cpp:370
 #, kde-format
 msgctxt "Resulting score of a game between 1 and 4"
 msgid "%1 point"
@@ -178,37 +178,38 @@ msgstr[1] "%1 поена"
 msgstr[2] "%1 поена"
 msgstr[3] "1 поен"
 
-#: engine_two.cpp:249
+#: engine_two.cpp:235
 #, kde-format
 msgid "Game was ended - no winner"
 msgstr "Партија је завршена — нема побједника"
 
-#: engine_two.cpp:258
+#: engine_two.cpp:244
 #, kde-format
 msgid "Game is drawn"
 msgstr "Партија неријешена"
 
-#: engine_two.cpp:264
+#: engine_two.cpp:250
 #, kde-format
 msgid "Player 1 - %1 won "
 msgstr "Играч 1 — %1 побиједи "
 
-#: engine_two.cpp:271 engine_two.cpp:291
-#, kde-format
-msgid "%1 won with 90 points. Super!"
+#: engine_two.cpp:257 engine_two.cpp:277
+#, fuzzy, kde-format
+#| msgid "%1 won with 90 points. Super!"
+msgid "%1 won with over 90 points. Super!"
 msgstr "%1 побиједи са 90 поена. Одлично!"
 
-#: engine_two.cpp:277 engine_two.cpp:297
+#: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
 msgid "%1 won to nil. Congratulations!"
 msgstr "%1 побиједи према нули. Честитамо!"
 
-#: engine_two.cpp:284
+#: engine_two.cpp:270
 #, kde-format
 msgid "Player 2 - %1 won "
 msgstr "Играч 2 — %1 побиједи "
 
-#: engine_two.cpp:358
+#: engine_two.cpp:344
 #, kde-format
 msgid "Game ended"
 msgstr "Партија завршена"
@@ -231,213 +232,213 @@ msgstr "&Подешавање"
 msgid "Main Toolbar"
 msgstr "Главна трака"
 
-#: main.cpp:75
+#: main.cpp:61
 #, kde-format
 msgid "LSkat"
 msgstr "П‑скат"
 
-#: main.cpp:77
+#: main.cpp:63
 #, kde-format
 msgid "LSkat: A desktop card game"
 msgstr "Игра с картама на површи"
 
-#: main.cpp:79
+#: main.cpp:65
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
 msgstr "© 1995-2007, Мартин Хени"
 
-#: main.cpp:84
+#: main.cpp:70
 #, kde-format
 msgid "Martin Heni"
 msgstr "Мартин Хени"
 
-#: main.cpp:84
+#: main.cpp:70
 #, kde-format
 msgid "Game design and code"
 msgstr "дизајн игре и програмирање"
 
-#: main.cpp:85
+#: main.cpp:71
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Јевгениј Труњов"
 
-#: main.cpp:85
+#: main.cpp:71
 #, kde-format
 msgid "Graphics"
 msgstr "графика"
 
-#: main.cpp:87
+#: main.cpp:73
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Бенџамин К. Мејер"
 
-#: main.cpp:87
+#: main.cpp:73
 #, kde-format
 msgid "Code Improvements"
 msgstr "побољшања кôда"
 
-#: main.cpp:93
+#: main.cpp:79
 #, kde-format
 msgid "Enter debug level"
 msgstr "Уђи на исправљачки ниво"
 
-#: main.cpp:94
+#: main.cpp:80
 #, kde-format
 msgid "Skip intro animation"
 msgstr "Прескочи уводну анимацију"
 
-#: main.cpp:95
+#: main.cpp:81
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "Покрени игру у демо режиму"
 
-#: mainwindow.cpp:92
+#: mainwindow.cpp:79
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr "Грешка инсталације: није нађен списак тема."
 
-#: mainwindow.cpp:139
+#: mainwindow.cpp:126
 #, kde-format
 msgid "Installation error: Theme file error."
 msgstr "Грешка инсталације: грешка фајла теме."
 
-#: mainwindow.cpp:157
+#: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
 msgstr "Добро дошли у П‑скат! Започните нову партију."
 
-#: mainwindow.cpp:346
+#: mainwindow.cpp:333
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "Крај игре. Започните нову партију."
 
-#: mainwindow.cpp:360
+#: mainwindow.cpp:347
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr "На потезу %1 (играч %2)"
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:361
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "Чисти цјелокупну статистику прикупљену из досадашњих сесија."
 
-#: mainwindow.cpp:379
+#: mainwindow.cpp:366
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "Завршава се текућа партија. Побједник неће бити проглашен."
 
-#: mainwindow.cpp:384
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Quits the program."
 msgstr "Напушта програм."
 
-#: mainwindow.cpp:387
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Starting Player"
 msgstr "Први на потезу"
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:377
 #, kde-format
 msgid "Changing starting player..."
 msgstr "Мијења ко је први на потезу."
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:378
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "Бира који играч започиње сљедећу партију."
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &1"
 msgstr "Играч &1"
 
-#: mainwindow.cpp:395
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Player &2"
 msgstr "Играч &2"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:387
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "Играчем &1 управља"
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "Мијења ко управља играчем 1."
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:391
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "Мијења ко управља играчем 1."
 
-#: mainwindow.cpp:406
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Mouse"
 msgstr "&миш"
 
-#: mainwindow.cpp:407
+#: mainwindow.cpp:394
 #, kde-format
 msgid "&Computer"
 msgstr "&рачунар"
 
-#: mainwindow.cpp:412
+#: mainwindow.cpp:399
 #, kde-format
 msgid "Player &2 Played By"
 msgstr "Играчем &2 управља"
 
-#: mainwindow.cpp:415
+#: mainwindow.cpp:402
 #, kde-format
 msgid "Changing who plays player 2..."
 msgstr "Мијења ко управља играчем 2."
 
-#: mainwindow.cpp:416
+#: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2."
 msgstr "Мијења ко управља играчем 2."
 
-#: mainwindow.cpp:424
+#: mainwindow.cpp:411
 #, kde-format
 msgid "&Theme"
 msgstr "&Тема"
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Changing theme..."
 msgstr "Мијења тему."
 
-#: mainwindow.cpp:431
+#: mainwindow.cpp:418
 #, kde-format
 msgid "Changing theme."
 msgstr "Мијења тему."
 
-#: mainwindow.cpp:435
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Select &Card Deck..."
 msgstr "&Шпил карата..."
 
-#: mainwindow.cpp:438
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Configure card decks..."
 msgstr "Подесите шпил карата."
 
-#: mainwindow.cpp:439
+#: mainwindow.cpp:426
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Изаберите како ће карте изгледати."
 
-#: mainwindow.cpp:443
+#: mainwindow.cpp:430
 #, kde-format
 msgid "&Change Player Names..."
 msgstr "&Имена играча..."
 
-#: mainwindow.cpp:514
+#: mainwindow.cpp:501
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Желите ли заиста да очистите цјелокупну статистику?"
 
-#: mainwindow.cpp:585
+#: mainwindow.cpp:574
 #, kde-format
 msgid "Dealing cards..."
 msgstr "Дијелим карте..."
@@ -466,13 +467,13 @@ msgstr "Играч 1:"
 msgid "Player 2:"
 msgstr "Играч 2:"
 
-#: scoresprite.cpp:161
+#: scoresprite.cpp:171
 #, kde-format
 msgctxt "Score in score widget"
 msgid "Score: %1"
 msgstr "Резултат: %1"
 
-#: scoresprite.cpp:169
+#: scoresprite.cpp:179
 #, kde-format
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 00:43+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2012-07-10 15:57+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -219,213 +219,213 @@ msgstr "ការ​កំណត់"
 msgid "Main Toolbar"
 msgstr "របារ​ឧបករណ៍​មេ"
 
-#: main.cpp:64
+#: main.cpp:61
 #, kde-format
 msgid "LSkat"
 msgstr "LSkat"
 
-#: main.cpp:66
+#: main.cpp:63
 #, kde-format
 msgid "LSkat: A desktop card game"
 msgstr "LSkat ៖ ល្បែង​បៀ​ផ្ទៃតុ"
 
-#: main.cpp:68
+#: main.cpp:65
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
 msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ១៩៩៥-២០០៧ ដោយ Martin Heni"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Martin Heni"
 msgstr "Martin Heni"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Game design and code"
 msgstr "កូដ និង​ការ​រចនាល្បែង"
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Eugene Trounev"
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Graphics"
 msgstr "ក្រាហ្វិក"
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Code Improvements"
 msgstr "កា​រកែសម្អ​កូដ"
 
-#: main.cpp:82
+#: main.cpp:79
 #, kde-format
 msgid "Enter debug level"
 msgstr "បញ្ចូល​កម្រិត​បំបាត់​កំហុស"
 
-#: main.cpp:83
+#: main.cpp:80
 #, kde-format
 msgid "Skip intro animation"
 msgstr "រំលង​ចលនា​សេចក្ដី​ណែនាំ"
 
-#: main.cpp:84
+#: main.cpp:81
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "រត់​ល្បែង​​ជា​របៀប​​​បង្ហាញ​សាកល្បង (លេង​ដោយ​ស្វ័យ​ប្រវត្តិ)"
 
-#: mainwindow.cpp:80
+#: mainwindow.cpp:79
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr "កំហុស​ដំឡើង ៖ រក​មិន​ឃើញ​ស្បែកទេ ។"
 
-#: mainwindow.cpp:127
+#: mainwindow.cpp:126
 #, kde-format
 msgid "Installation error: Theme file error."
 msgstr "កំហុស​ដំឡើង ៖ កំហុស​ឯកសារ​ស្បែក ។"
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
 msgstr "សូម​ស្វាគមន៍​មក​កាន់​ Skat! សូម​ចាប់​ផ្ដើម​ល្បែង​ថ្មី ។"
 
-#: mainwindow.cpp:334
+#: mainwindow.cpp:333
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "ល្បែង​ចប់​ហើយ ។ សូម​ចាប់ផ្ដើម​ល្បែង​ថ្មី ។"
 
-#: mainwindow.cpp:348
+#: mainwindow.cpp:347
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr "ផ្លាស់ទី​បន្ទាប់​សម្រាប់ %1 (អ្នក​លេង %2)"
 
-#: mainwindow.cpp:362
+#: mainwindow.cpp:361
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "ជម្រះ​ស្ថិតិ​ពេលវេលា​ទាំង​អស់ ដែល​ត្រូវ​បាន​រក្សា​ទុក​ក្នុង​សម័យ​ទាំង​អស់ ។"
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:366
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "បញ្ចប់​​ល្បែង​ដែល​បាន​លេង​បច្ចុប្បន្ន ។ គ្មាន​អ្នក​ឈ្នះ​នឹង​ត្រូវ​បាន​ប្រកាសទេ ។"
 
-#: mainwindow.cpp:372
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Quits the program."
 msgstr "ចេញ​ពី​កម្មវិធី ។"
 
-#: mainwindow.cpp:375
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Starting Player"
 msgstr "អ្នក​លេង​ចាប់​ផ្ដើម​"
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:377
 #, kde-format
 msgid "Changing starting player..."
 msgstr "កំពុង​ផ្លាស់ប្ដូរ​អ្នក​លេង​ចាប់​ផ្ដើម..."
 
-#: mainwindow.cpp:379
+#: mainwindow.cpp:378
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "ជ្រើស​អ្នក​លេង​មួយ​ណាដែលត្រូវ​ចាប់​ផ្ដើម​ល្បែង​បន្ទាប់ ។"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &1"
 msgstr "អ្នក​លេង ១"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Player &2"
 msgstr "អ្នក​លេង ២"
 
-#: mainwindow.cpp:388
+#: mainwindow.cpp:387
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "អ្នក​លេង ១ ត្រូវ​លេង​ដោយ"
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវលេង​ជា​អ្នក​លេង​ទី ១..."
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:391
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវ​លេង​ជា​អ្នក​លេង​ទី ១"
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Mouse"
 msgstr "កណ្តុរ"
 
-#: mainwindow.cpp:395
+#: mainwindow.cpp:394
 #, kde-format
 msgid "&Computer"
 msgstr "កុំព្យូទ័រ"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:399
 #, kde-format
 msgid "Player &2 Played By"
 msgstr "អ្នក​លេង ២ ត្រូវ​​លេង​ដោយ"
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:402
 #, kde-format
 msgid "Changing who plays player 2..."
 msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវលេង​ជា​អ្នក​លេង​ទី ២..."
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2."
 msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវ​លេង​ជា​អ្នក​លេង​ទី ២ ។"
 
-#: mainwindow.cpp:412
+#: mainwindow.cpp:411
 #, kde-format
 msgid "&Theme"
 msgstr "ស្បែក"
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Changing theme..."
 msgstr "ផ្លាស់​ប្ដូរ​ស្បែក..."
 
-#: mainwindow.cpp:419
+#: mainwindow.cpp:418
 #, kde-format
 msgid "Changing theme."
 msgstr "ផ្លាស់​ប្ដូរ​ស្បែក..."
 
-#: mainwindow.cpp:423
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Select &Card Deck..."
 msgstr "ជ្រើស​ហ៊ូបៀ"
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Configure card decks..."
 msgstr "កំណត់​រចនាសម្ព័ន្ធ​ហ៊ូបៀ"
 
-#: mainwindow.cpp:427
+#: mainwindow.cpp:426
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "ជ្រើស​នូវ​វិធី​ដែល​បៀ​គួរ​បង្ហាញ ។"
 
-#: mainwindow.cpp:431
+#: mainwindow.cpp:430
 #, kde-format
 msgid "&Change Player Names..."
 msgstr "ផ្លាស់ប្ដូរ​ឈ្មោះ​អ្នក​លេង..."
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:501
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​ជម្រះ​ទិន្នន័យ​ស្ថិតិ​ពេល​វេលា​ទាំង​អស់​ឬទេ ?"
 
-#: mainwindow.cpp:579
+#: mainwindow.cpp:574
 #, kde-format
 msgid "Dealing cards..."
 msgstr "កំពុង​ចែកបៀ..."

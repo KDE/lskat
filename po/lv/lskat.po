@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 00:43+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2010-04-25 21:50+0300\n"
 "Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -223,213 +223,213 @@ msgstr "Ie&statījumi"
 msgid "Main Toolbar"
 msgstr "Galvenā rīkjosla "
 
-#: main.cpp:64
+#: main.cpp:61
 #, kde-format
 msgid "LSkat"
 msgstr "LSkat"
 
-#: main.cpp:66
+#: main.cpp:63
 #, kde-format
 msgid "LSkat: A desktop card game"
 msgstr "LSkat: darbvirsmas kāršu spēle"
 
-#: main.cpp:68
+#: main.cpp:65
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
 msgstr "(c) 1995-2007, Martin Heni"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Martin Heni"
 msgstr "Martin Heni"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Game design and code"
 msgstr "Spēles dizains un kods"
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Eugene Trounev"
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Graphics"
 msgstr "Grafika"
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Code Improvements"
 msgstr "Koda uzlabojumi"
 
-#: main.cpp:82
+#: main.cpp:79
 #, kde-format
 msgid "Enter debug level"
 msgstr "Ievadiet atkļūdošanas pakāpi"
 
-#: main.cpp:83
+#: main.cpp:80
 #, kde-format
 msgid "Skip intro animation"
 msgstr "Izlaist ievada animāciju"
 
-#: main.cpp:84
+#: main.cpp:81
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "Palaist spēli demonstrācijas (automātiskā) režīmā"
 
-#: mainwindow.cpp:80
+#: mainwindow.cpp:79
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr "Instalācijas kļūda: Nav atrasts tēmu saraksts,"
 
-#: mainwindow.cpp:127
+#: mainwindow.cpp:126
 #, kde-format
 msgid "Installation error: Theme file error."
 msgstr "Instalācijas kļūda: Tēmas faila kļūda."
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
 msgstr "Sveicināti Skat! Lūdzu sāciet jaunu spēli."
 
-#: mainwindow.cpp:334
+#: mainwindow.cpp:333
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "Spēle galā. Lūdzu sāciet jaunu spēli."
 
-#: mainwindow.cpp:348
+#: mainwindow.cpp:347
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr "Nākamais gājiens %1 (%2. spēlētājs)"
 
-#: mainwindow.cpp:362
+#: mainwindow.cpp:361
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "Notīra visu laiku statistiku, kas tiek glabāta par visām sesijām."
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:366
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "Pārtrauc aktīvo spēli. Uzvarētājs netiks noteikts."
 
-#: mainwindow.cpp:372
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Quits the program."
 msgstr "Iziet no programmas."
 
-#: mainwindow.cpp:375
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Starting Player"
 msgstr "Sākošais spēlētājs"
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:377
 #, kde-format
 msgid "Changing starting player..."
 msgstr "Maina sākošo spēlētāju..."
 
-#: mainwindow.cpp:379
+#: mainwindow.cpp:378
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "Izvēlas kurš spēlētājs sāks nākamo spēli."
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &1"
 msgstr "&1. spēlētājs"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Player &2"
 msgstr "&2. spēlētājs"
 
-#: mainwindow.cpp:388
+#: mainwindow.cpp:387
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "Kā &1 spēlētājs spēlē"
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "Maina kurš spēlē kā 1. spēlētājs..."
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:391
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "Maina kurš spēlē kā 1. spēlētājs."
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Mouse"
 msgstr "&Pele"
 
-#: mainwindow.cpp:395
+#: mainwindow.cpp:394
 #, kde-format
 msgid "&Computer"
 msgstr "&Dators"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:399
 #, kde-format
 msgid "Player &2 Played By"
 msgstr "Kā &2 spēlētājs spēlē"
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:402
 #, kde-format
 msgid "Changing who plays player 2..."
 msgstr "Maina kurš spēlē kā 2. spēlētājs..."
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2."
 msgstr "Maina kurš spēlē kā 2. spēlētājs."
 
-#: mainwindow.cpp:412
+#: mainwindow.cpp:411
 #, kde-format
 msgid "&Theme"
 msgstr "&Tēma"
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Changing theme..."
 msgstr "Maina tēmu..."
 
-#: mainwindow.cpp:419
+#: mainwindow.cpp:418
 #, kde-format
 msgid "Changing theme."
 msgstr "Maina tēmu."
 
-#: mainwindow.cpp:423
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Select &Card Deck..."
 msgstr "Izvēlieties &kāršu kavu..."
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Configure card decks..."
 msgstr "Konfigurēt kāršu kavas..."
 
-#: mainwindow.cpp:427
+#: mainwindow.cpp:426
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Izvēlēties kā izskatās kārtis."
 
-#: mainwindow.cpp:431
+#: mainwindow.cpp:430
 #, kde-format
 msgid "&Change Player Names..."
 msgstr "&Mainīt spēlētāju vārdus..."
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:501
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Vai tiešām vēlaties izdzēst visu laiku statistikas datus?"
 
-#: mainwindow.cpp:579
+#: mainwindow.cpp:574
 #, kde-format
 msgid "Dealing cards..."
 msgstr "Dala kārtis..."

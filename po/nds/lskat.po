@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 00:43+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2014-05-13 19:18+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -224,213 +224,213 @@ msgstr "&Instellen"
 msgid "Main Toolbar"
 msgstr "Hööft-Warktüüchbalken"
 
-#: main.cpp:64
+#: main.cpp:61
 #, kde-format
 msgid "LSkat"
 msgstr "Buernskat"
 
-#: main.cpp:66
+#: main.cpp:63
 #, kde-format
 msgid "LSkat: A desktop card game"
 msgstr "Buernskat: En Koortenspeel op den Reekner"
 
-#: main.cpp:68
+#: main.cpp:65
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
 msgstr "(c) 1995-2007, Martin Heni"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Martin Heni"
 msgstr "Martin Heni"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Game design and code"
 msgstr "Speelutsehn un Programmkode"
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Eugene Trounev"
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Graphics"
 msgstr "Grafik"
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Code Improvements"
 msgstr "Programmkodeverbetern"
 
-#: main.cpp:82
+#: main.cpp:79
 #, kde-format
 msgid "Enter debug level"
 msgstr "Fehlersöök-Bedrief anmaken"
 
-#: main.cpp:83
+#: main.cpp:80
 #, kde-format
 msgid "Skip intro animation"
 msgstr "Startanimatschoon övergahn"
 
-#: main.cpp:84
+#: main.cpp:81
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "Speel in Demobedrief starten"
 
-#: mainwindow.cpp:80
+#: mainwindow.cpp:79
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr "Schaadhaftig Installatschoon: Musterlist lett sik nich finnen."
 
-#: mainwindow.cpp:127
+#: mainwindow.cpp:126
 #, kde-format
 msgid "Installation error: Theme file error."
 msgstr "Schaadhaftig Installatschoon: Musterdateifehler"
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
 msgstr "Willkamen bi Skat! Bitte en nieg Speel starten."
 
-#: mainwindow.cpp:334
+#: mainwindow.cpp:333
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "Speel vörbi. Bitte en nieg Speel starten."
 
-#: mainwindow.cpp:348
+#: mainwindow.cpp:347
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr "%1 is an de Reeg (Speler %2)"
 
-#: mainwindow.cpp:362
+#: mainwindow.cpp:361
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "Maakt de Heeltiet-Statistik vun all Törns leddig."
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:366
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "Ophollen mit dat aktuelle Speel, nüms winnt dat."
 
-#: mainwindow.cpp:372
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Quits the program."
 msgstr "Beendt dat Programm."
 
-#: mainwindow.cpp:375
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Starting Player"
 msgstr "Startspeler"
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:377
 #, kde-format
 msgid "Changing starting player..."
 msgstr "Startspeler utsöken..."
 
-#: mainwindow.cpp:379
+#: mainwindow.cpp:378
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "Söcht den Speler ut, de dat nakamen Speel starten schall."
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &1"
 msgstr "Speler &1"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Player &2"
 msgstr "Speler &2"
 
-#: mainwindow.cpp:388
+#: mainwindow.cpp:387
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "Speler &1 warrt speelt vun"
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "Ännern, wokeen Speler 1 is..."
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:391
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "Ännern, wokeen Speler 1 is."
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Mouse"
 msgstr "&Muus"
 
-#: mainwindow.cpp:395
+#: mainwindow.cpp:394
 #, kde-format
 msgid "&Computer"
 msgstr "&Reekner"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:399
 #, kde-format
 msgid "Player &2 Played By"
 msgstr "Speler &2 warrt speelt vun"
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:402
 #, kde-format
 msgid "Changing who plays player 2..."
 msgstr "Ännern, wokeen Speler 2 is..."
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2."
 msgstr "Ännern, wokeen Speler 2 is."
 
-#: mainwindow.cpp:412
+#: mainwindow.cpp:411
 #, kde-format
 msgid "&Theme"
 msgstr "&Muster"
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Changing theme..."
 msgstr "Muster ännern..."
 
-#: mainwindow.cpp:419
+#: mainwindow.cpp:418
 #, kde-format
 msgid "Changing theme."
 msgstr "Muster ännern..."
 
-#: mainwindow.cpp:423
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Select &Card Deck..."
 msgstr "&Koortenspeel utsöken..."
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Configure card decks..."
 msgstr "Koorten instellen..."
 
-#: mainwindow.cpp:427
+#: mainwindow.cpp:426
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Söök ut, woans de Koorten utsehn schöölt."
 
-#: mainwindow.cpp:431
+#: mainwindow.cpp:430
 #, kde-format
 msgid "&Change Player Names..."
 msgstr "Spelernaams ä&nnern..."
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:501
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Wullt Du redig de Heeltietstatistik torüchsetten?"
 
-#: mainwindow.cpp:579
+#: mainwindow.cpp:574
 #, kde-format
 msgid "Dealing cards..."
 msgstr "Koorten geven..."

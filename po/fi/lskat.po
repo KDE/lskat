@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 00:43+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2016-01-07 17:16+0200\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -229,213 +229,213 @@ msgstr "Päätyökalurivi"
 
 # pmap: =/gen=LSkatin/
 # pmap: =/elat=LSkatista/
-#: main.cpp:64
+#: main.cpp:61
 #, kde-format
 msgid "LSkat"
 msgstr "LSkat"
 
-#: main.cpp:66
+#: main.cpp:63
 #, kde-format
 msgid "LSkat: A desktop card game"
 msgstr "LSkat: Korttipeli"
 
-#: main.cpp:68
+#: main.cpp:65
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
 msgstr "© 1995–2007 Martin Heni"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Martin Heni"
 msgstr "Martin Heni"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Game design and code"
 msgstr "Pelin suunnittelu ja ohjelmointi"
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Eugene Trounev"
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Graphics"
 msgstr "Grafiikat"
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Code Improvements"
 msgstr "Koodinparannuksia"
 
-#: main.cpp:82
+#: main.cpp:79
 #, kde-format
 msgid "Enter debug level"
 msgstr "Anna virheenpaikannustaso"
 
-#: main.cpp:83
+#: main.cpp:80
 #, kde-format
 msgid "Skip intro animation"
 msgstr "Ohita alkuanimaatio"
 
-#: main.cpp:84
+#: main.cpp:81
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "Aja peliä esittelytilassa"
 
-#: mainwindow.cpp:80
+#: mainwindow.cpp:79
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr "Asennusvirhe. Teemaluetteloa ei löytynyt."
 
-#: mainwindow.cpp:127
+#: mainwindow.cpp:126
 #, kde-format
 msgid "Installation error: Theme file error."
 msgstr "Asennusvirhe. Teematiedostovirhe."
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
 msgstr "Tervetuloa Skatiin. Aloita uusi peli."
 
-#: mainwindow.cpp:334
+#: mainwindow.cpp:333
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "Peli päättyi. Aloita uusi peli."
 
-#: mainwindow.cpp:348
+#: mainwindow.cpp:347
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr "%2. pelaajan (%1) vuoro"
 
-#: mainwindow.cpp:362
+#: mainwindow.cpp:361
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "Poistaa kaikki aikatilastot, joita pidetään kaikissa istunnoissa."
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:366
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "Päättää nykyisen pelin niin, ettei voittajaa julisteta."
 
-#: mainwindow.cpp:372
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Quits the program."
 msgstr "Lopettaa ohjelman."
 
-#: mainwindow.cpp:375
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Starting Player"
 msgstr "Aloittaja"
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:377
 #, kde-format
 msgid "Changing starting player..."
 msgstr "Vaihdan aloittajaa"
 
-#: mainwindow.cpp:379
+#: mainwindow.cpp:378
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "Valitsee kumpi pelaaja aloittaa seuraavan pelin."
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &1"
 msgstr "Pelaaja &1"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Player &2"
 msgstr "Pelaaja &2"
 
-#: mainwindow.cpp:388
+#: mainwindow.cpp:387
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "Pelaajaa &1 pelaa"
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "Vaihdetaan pelaaja 1…"
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:391
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "Vaihtaa pelaajan 1."
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Mouse"
 msgstr "&Käyttäjä"
 
-#: mainwindow.cpp:395
+#: mainwindow.cpp:394
 #, kde-format
 msgid "&Computer"
 msgstr "&Tietokone"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:399
 #, kde-format
 msgid "Player &2 Played By"
 msgstr "Pelaajaa &2 pelaa"
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:402
 #, kde-format
 msgid "Changing who plays player 2..."
 msgstr "Vaihdetaan pelaajaa 2…"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2."
 msgstr "Vaihtaa pelaajan 2…"
 
-#: mainwindow.cpp:412
+#: mainwindow.cpp:411
 #, kde-format
 msgid "&Theme"
 msgstr "&Teema"
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:417
 #, kde-format
 msgid "Changing theme..."
 msgstr "Vaihdetaan teemaa…"
 
-#: mainwindow.cpp:419
+#: mainwindow.cpp:418
 #, kde-format
 msgid "Changing theme."
 msgstr "Vaihdetaan teema."
 
-#: mainwindow.cpp:423
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Select &Card Deck..."
 msgstr "Valitse &korttipakka…"
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Configure card decks..."
 msgstr "Aseta korttipakkaa…"
 
-#: mainwindow.cpp:427
+#: mainwindow.cpp:426
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Valitse miltä korttien pitäisi näyttää."
 
-#: mainwindow.cpp:431
+#: mainwindow.cpp:430
 #, kde-format
 msgid "&Change Player Names..."
 msgstr "&Pelaajien nimet"
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:501
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Haluatko varmasti tyhjentää kaikki tilastot?"
 
-#: mainwindow.cpp:579
+#: mainwindow.cpp:574
 #, kde-format
 msgid "Dealing cards..."
 msgstr "Jaetaan kortteja…"

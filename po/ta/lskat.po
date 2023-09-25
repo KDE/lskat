@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-19 00:43+0000\n"
+"POT-Creation-Date: 2023-09-25 01:40+0000\n"
 "PO-Revision-Date: 2005-03-07 03:30-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team: Tamil <en@li.org>\n"
@@ -229,219 +229,219 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: main.cpp:64
+#: main.cpp:61
 #, kde-format
 msgid "LSkat"
 msgstr ""
 
-#: main.cpp:66
+#: main.cpp:63
 #, kde-format
 msgid "LSkat: A desktop card game"
 msgstr ""
 
-#: main.cpp:68
+#: main.cpp:65
 #, fuzzy, kde-format
 #| msgid "(c) Martin Heni   "
 msgid "(c) 1995-2007, Martin Heni"
 msgstr "மார்ட்டின் ஹெனி"
 
-#: main.cpp:73
+#: main.cpp:70
 #, fuzzy, kde-format
 #| msgid "(c) Martin Heni   "
 msgid "Martin Heni"
 msgstr "மார்ட்டின் ஹெனி"
 
-#: main.cpp:73
+#: main.cpp:70
 #, kde-format
 msgid "Game design and code"
 msgstr ""
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Eugene Trounev"
 msgstr ""
 
-#: main.cpp:74
+#: main.cpp:71
 #, kde-format
 msgid "Graphics"
 msgstr ""
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr ""
 
-#: main.cpp:76
+#: main.cpp:73
 #, kde-format
 msgid "Code Improvements"
 msgstr ""
 
-#: main.cpp:82
+#: main.cpp:79
 #, kde-format
 msgid "Enter debug level"
 msgstr "பிழைநீக்கி நிலையை உள்ளிடு"
 
-#: main.cpp:83
+#: main.cpp:80
 #, kde-format
 msgid "Skip intro animation"
 msgstr ""
 
-#: main.cpp:84
+#: main.cpp:81
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr ""
 
-#: mainwindow.cpp:80
+#: mainwindow.cpp:79
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr ""
 
-#: mainwindow.cpp:127
+#: mainwindow.cpp:126
 #, kde-format
 msgid "Installation error: Theme file error."
 msgstr ""
 
-#: mainwindow.cpp:145
+#: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
 msgstr ""
 
-#: mainwindow.cpp:334
+#: mainwindow.cpp:333
 #, fuzzy, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "ஒரு புது விளையாட்டை ஆரம்பித்தல்..."
 
-#: mainwindow.cpp:348
+#: mainwindow.cpp:347
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr ""
 
-#: mainwindow.cpp:362
+#: mainwindow.cpp:361
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "அனைத்து காலக்கூட்டத்தில் வைக்கப்பட்டிருந்த அனைத்து காலப் புள்ளிவிவரங்களை நீக்குகிறது."
 
-#: mainwindow.cpp:367
+#: mainwindow.cpp:366
 #, fuzzy, kde-format
 #| msgid "Aborts a currently played game. No winner will be declared."
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "தற்போது விளையாடிய விளையாட்டு முறி அடித்தது .வெற்றியாளரை அறிவிக்க முடியாது."
 
-#: mainwindow.cpp:372
+#: mainwindow.cpp:371
 #, kde-format
 msgid "Quits the program."
 msgstr "நிரலிலிருந்து வெளியேறுதல்"
 
-#: mainwindow.cpp:375
+#: mainwindow.cpp:374
 #, kde-format
 msgid "Starting Player"
 msgstr "தொடக்க ஆட்டக்காரர்"
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:377
 #, kde-format
 msgid "Changing starting player..."
 msgstr "தொடக்க ஆட்டக்காரரில் மாற்றம்"
 
-#: mainwindow.cpp:379
+#: mainwindow.cpp:378
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "அடுத்த விளையாட்டை தொடங்குவதற்கு விளையாட்டாளரை தேர்வு செய்கிறது."
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &1"
 msgstr "விளையாடுபவர் 1"
 
-#: mainwindow.cpp:383
+#: mainwindow.cpp:382
 #, kde-format
 msgid "Player &2"
 msgstr "விளையாடுபவர்2"
 
-#: mainwindow.cpp:388
+#: mainwindow.cpp:387
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "1 விளையாட்டாளாரால் விளையாடப்பட்டது"
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "1யில் விளையாடுபவரின் விளையாட்டை மாற்றுகிறது..."
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:391
 #, fuzzy, kde-format
 msgid "Changing who plays player 1."
 msgstr "1யில் விளையாடுபவரின் விளையாட்டை மாற்றுகிறது..."
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Mouse"
 msgstr ""
 
-#: mainwindow.cpp:395
+#: mainwindow.cpp:394
 #, kde-format
 msgid "&Computer"
 msgstr "கணினி"
 
-#: mainwindow.cpp:400
+#: mainwindow.cpp:399
 #, kde-format
 msgid "Player &2 Played By"
 msgstr "2 விளையாட்டாளாரால் விளையாடப்பட்டது"
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:402
 #, kde-format
 msgid "Changing who plays player 2..."
 msgstr "அளவு"
 
-#: mainwindow.cpp:404
+#: mainwindow.cpp:403
 #, fuzzy, kde-format
 msgid "Changing who plays player 2."
 msgstr "அளவு"
 
-#: mainwindow.cpp:412
+#: mainwindow.cpp:411
 #, fuzzy, kde-format
 #| msgid "&Remote"
 msgid "&Theme"
 msgstr "தொலைதூரம்"
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:417
 #, fuzzy, kde-format
 #| msgid "Change level..."
 msgid "Changing theme..."
 msgstr "நிலையை மாற்றவும்"
 
-#: mainwindow.cpp:419
+#: mainwindow.cpp:418
 #, fuzzy, kde-format
 #| msgid "Change level..."
 msgid "Changing theme."
 msgstr "நிலையை மாற்றவும்"
 
-#: mainwindow.cpp:423
+#: mainwindow.cpp:422
 #, kde-format
 msgid "Select &Card Deck..."
 msgstr "அட்டையின் மேல் பகுதியை தேர்ந்தெடு"
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Configure card decks..."
 msgstr "அட்டையின் மேல் பகுதியை அமை"
 
-#: mainwindow.cpp:427
+#: mainwindow.cpp:426
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "அட்டை எப்படி இருக்க வேண்டும் என்று தேர்வு செய்"
 
-#: mainwindow.cpp:431
+#: mainwindow.cpp:430
 #, fuzzy, kde-format
 msgid "&Change Player Names..."
 msgstr "விளையாடுபவர் பெயர்கள்"
 
-#: mainwindow.cpp:502
+#: mainwindow.cpp:501
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "நீங்கள் உண்மையாக அனைத்து கால புள்ளிவிவர தகவல்களை நீக்க வேண்டுமா?"
 
-#: mainwindow.cpp:579
+#: mainwindow.cpp:574
 #, kde-format
 msgid "Dealing cards..."
 msgstr ""
