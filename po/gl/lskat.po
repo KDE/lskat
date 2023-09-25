@@ -1,25 +1,26 @@
 # translation of lskat.po to galician
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # mvillarino <mvillarino@users.sourceforge.net>, 2007, 2008, 2009.
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2009, 2017.
 # Xosé <xosecalvo@gmail.com>, 2012.
 # Marce Villarino <mvillarino@kde-espana.org>, 2014.
-# Adrián Chaves (Gallaecio) <adrian@chaves.io>, 2017.
+# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-04-17 00:45+0000\n"
-"PO-Revision-Date: 2017-10-29 13:20+0100\n"
+"PO-Revision-Date: 2023-09-24 14:56+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language-Team: Galician <proxecto@trasno.gal>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 23.08.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -172,7 +173,7 @@ msgstr[1] "%1 puntos"
 #: engine_two.cpp:235
 #, kde-format
 msgid "Game was ended - no winner"
-msgstr "Rematouse a partida - ninguén gañou"
+msgstr "A partida rematou, non gañou ninguén."
 
 #: engine_two.cpp:244
 #, kde-format
@@ -182,7 +183,7 @@ msgstr "A partida está empatada"
 #: engine_two.cpp:250
 #, kde-format
 msgid "Player 1 - %1 won "
-msgstr "Xogador 2 - gañou %1"
+msgstr "Xogador 2 — gañou %1 "
 
 #: engine_two.cpp:257 engine_two.cpp:277
 #, kde-format
@@ -197,7 +198,7 @@ msgstr "%1 gañou sen nada. Parabéns!"
 #: engine_two.cpp:270
 #, kde-format
 msgid "Player 2 - %1 won "
-msgstr "Xogador 2 - gañou %1"
+msgstr "Xogador 2 — gañou %1 "
 
 #: engine_two.cpp:344
 #, kde-format
@@ -311,7 +312,7 @@ msgstr "Seguinte movemento para %1 (xogador %2)"
 #: mainwindow.cpp:362
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
-msgstr "Limpa todas as estatísticas que se garden para todas as sesións."
+msgstr "Elimina as estatísticas gardadas de todas as sesións."
 
 #: mainwindow.cpp:367
 #, kde-format
@@ -426,8 +427,7 @@ msgstr "Cambiar os &nomes dos xogadores…"
 #: mainwindow.cpp:502
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
-msgstr ""
-"Seguro que queres limpar todos os datos estatísticos de todos os tempos?"
+msgstr "Seguro que quere eliminar o historial completo de datos estatísticos?"
 
 #: mainwindow.cpp:579
 #, kde-format
