@@ -183,10 +183,9 @@ msgid "Player 1 - %1 won "
 msgstr "Hráč 1 - %1 vyhrál "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 vyhrál s 90 body. Super!"
+msgstr ""
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
