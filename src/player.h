@@ -9,8 +9,8 @@
 #define PLAYER_H
 
 // Qt includes
+#include <QList>
 #include <QObject>
-#include <QVector>
 
 // KF includes
 #include <KConfig>
@@ -242,7 +242,7 @@ private:
     // Card deck
     Deck *mDeck;
     // Our cards
-    QVector<int> mCards;
+    QList<int> mCards;
     // Our won cards
     QList<int> mWonCards;
     // Our points
