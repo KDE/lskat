@@ -10,7 +10,6 @@
 
 #include <QFlags>
 
-#include "libkdegames_export.h"
 class QPixmap;
 class QString;
 class QSize;
