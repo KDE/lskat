@@ -1,4 +1,4 @@
-# Version: $Revision: 1660889 $
+# Version: $Revision: 1661394 $
 # translation of lskat.po to Polish
 # Copyright (C) 2002, 2003, 2004, 2005, 2008, 2009 Free Software Foundation, Inc.
 #
@@ -7,13 +7,13 @@
 # Michal Rudolf <mrudolf@kdewebdev.org>, 2002, 2003, 2004, 2005, 2008, 2009.
 # Krzysztof Lichota <lichota@mimuw.edu.pl>, 2005.
 # Maciej Wikło <maciej.wiklo@wp.pl>, 2010.
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2012, 2014.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2012, 2014, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:40+0000\n"
-"PO-Revision-Date: 2014-12-30 07:34+0100\n"
+"PO-Revision-Date: 2023-09-30 11:07+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 ">\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 23.04.3\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -191,10 +191,9 @@ msgid "Player 1 - %1 won "
 msgstr "Gracz 1 - %1 zwyciężył "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 zdobył 90 punktów. Wspaniale!"
+msgstr "%1 zdobył ponad 90 punktów. Wspaniale!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
