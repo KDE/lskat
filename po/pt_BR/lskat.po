@@ -6,21 +6,21 @@
 # Lisiane Sztoltz Teixeira <lisiane@kdemail.net>, 2004.
 # Stephen Killing <stephen.killing@kdemail.net>, 2005.
 # Mauricio Piacentini <piacentini@kde.org>, 2007, 2009.
-# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009.
-# André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2010, 2011, 2012
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2023.
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2010, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-09-25 01:40+0000\n"
-"PO-Revision-Date: 2012-05-24 23:58-0300\n"
-"Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
-"Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
+"PO-Revision-Date: 2023-10-05 18:23-0300\n"
+"Last-Translator: Luiz Fernando Ranghetti <elchevive@opensuse.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 22.12.3\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #, kde-format
@@ -191,10 +191,9 @@ msgid "Player 1 - %1 won "
 msgstr "Jogador 1 - %1 venceu "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 venceu com 90 pontos. Muito bem!"
+msgstr "%1 venceu com mais de 90 pontos. Muito bem!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
