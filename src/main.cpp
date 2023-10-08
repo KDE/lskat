@@ -74,6 +74,7 @@ int main(int argc, char *argv[])
     // 'Thanks to' aboutData.addCredit(i18n("KDE"), i18n("KDE"));
 
     KAboutData::setApplicationData(aboutData);
+    QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("lskat")));
 
     QCommandLineParser parser;
     parser.addOption(QCommandLineOption(QStringList() << QStringLiteral("d") << QStringLiteral("debug"), i18n("Enter debug level"), QStringLiteral("level")));
@@ -115,8 +116,6 @@ int main(int argc, char *argv[])
         Mainwindow *mainwindow = new Mainwindow();
         mainwindow->show();
     }
-
-    application.setWindowIcon(QIcon::fromTheme(QStringLiteral("lskat")));
 
     return application.exec();
 }
