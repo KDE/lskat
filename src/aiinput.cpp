@@ -658,7 +658,6 @@ double AiInput::rulebaseAnswerMover(int p, int card, const AiInput::Board &curre
     double result = 0.0;
     Suite suite   = Deck::getSuite(card);
     CardType type = Deck::getCardType(card);
-    Suite altSuite = (suite == current.trump || type == Jack)?Grand:suite;
 
     // Check whether we win the move
     if (wouldWinMove(p, card, current))
