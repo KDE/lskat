@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-10-09 01:45+0000\n"
 "PO-Revision-Date: 2010-02-02 22:00+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -269,17 +269,17 @@ msgstr "Benjamin Meyer"
 msgid "Code Improvements"
 msgstr "コードの改良"
 
-#: main.cpp:79
+#: main.cpp:80
 #, kde-format
 msgid "Enter debug level"
 msgstr "デバッグレベルを指定"
 
-#: main.cpp:80
+#: main.cpp:81
 #, kde-format
 msgid "Skip intro animation"
 msgstr "起動時のアニメーションを省略"
 
-#: main.cpp:81
+#: main.cpp:82
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "ゲームをデモ (自動プレイ) モードで実行"

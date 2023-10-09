@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-10-09 01:45+0000\n"
 "PO-Revision-Date: 2012-07-10 15:57+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -264,17 +264,17 @@ msgstr "Benjamin Meyer"
 msgid "Code Improvements"
 msgstr "កា​រកែសម្អ​កូដ"
 
-#: main.cpp:79
+#: main.cpp:80
 #, kde-format
 msgid "Enter debug level"
 msgstr "បញ្ចូល​កម្រិត​បំបាត់​កំហុស"
 
-#: main.cpp:80
+#: main.cpp:81
 #, kde-format
 msgid "Skip intro animation"
 msgstr "រំលង​ចលនា​សេចក្ដី​ណែនាំ"
 
-#: main.cpp:81
+#: main.cpp:82
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "រត់​ល្បែង​​ជា​របៀប​​​បង្ហាញ​សាកល្បង (លេង​ដោយ​ស្វ័យ​ប្រវត្តិ)"

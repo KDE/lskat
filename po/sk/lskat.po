@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-10-09 01:45+0000\n"
 "PO-Revision-Date: 2012-08-07 15:55+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -267,17 +267,17 @@ msgstr "Benjamin Meyer"
 msgid "Code Improvements"
 msgstr "Vylepšenia kódu"
 
-#: main.cpp:79
+#: main.cpp:80
 #, kde-format
 msgid "Enter debug level"
 msgstr "Vstúpiť do ladiacej úrovne"
 
-#: main.cpp:80
+#: main.cpp:81
 #, kde-format
 msgid "Skip intro animation"
 msgstr "Preskočiť úvodnú animáciu"
 
-#: main.cpp:81
+#: main.cpp:82
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "Spustiť hru v demo režime"

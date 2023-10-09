@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames/lskat.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-09-25 01:40+0000\n"
+"POT-Creation-Date: 2023-10-09 01:45+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -267,17 +267,17 @@ msgstr "Benjamin Meyer"
 msgid "Code Improvements"
 msgstr "Feabhsúcháin"
 
-#: main.cpp:79
+#: main.cpp:80
 #, kde-format
 msgid "Enter debug level"
 msgstr "Iontráil an leibhéal dífhabhtaithe"
 
-#: main.cpp:80
+#: main.cpp:81
 #, kde-format
 msgid "Skip intro animation"
 msgstr "Ná bac leis an mbeochan tosaigh"
 
-#: main.cpp:81
+#: main.cpp:82
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "Rith an cluiche sa mhód taispeána (uathoibríoch)"
