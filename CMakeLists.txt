@@ -55,11 +55,6 @@ ecm_set_disabled_deprecation_versions(
     KDEGAMES 7.5
 )
 
-# added by KDE_COMPILERSETTINGS_LEVEL 5.85
-remove_definitions(
-    -DQT_NO_CAST_FROM_ASCII
-)
-
 add_subdirectory(src)
 add_subdirectory(grafix)
 add_subdirectory(doc)

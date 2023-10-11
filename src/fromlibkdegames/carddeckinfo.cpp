@@ -46,7 +46,7 @@ public:
         for (const QString& dir : dirs) {
             const QStringList deckFolderNames = QDir(dir).entryList(QStringList() << QStringLiteral("svg*"));
             for (const QString& deck : deckFolderNames) {
-                list.append(dir + '/' + deck + QStringLiteral("/index.desktop"));
+                list.append(dir + QLatin1Char('/') + deck + QStringLiteral("/index.desktop"));
             }
         }
 

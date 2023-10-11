@@ -159,14 +159,14 @@ void ThemeManager::updateTheme(const QString &themefile)
     mThemeFile = themefile;
 
     // Process dirs
-    QString rcfile = QStandardPaths::locate(QStandardPaths::AppDataLocation, "grafix/" + themefile);
+    QString rcfile = QStandardPaths::locate(QStandardPaths::AppDataLocation, QLatin1String("grafix/") + themefile);
     if (global_debug > 0) qCDebug(LSKAT_LOG) << "ThemeManager LOAD with theme " << rcfile;
 
     // Read config and SVG file for theme
     delete mConfig;
     mConfig = new KConfig(rcfile, KConfig::NoGlobals);
     QString svgfile = config(QStringLiteral("general")).readEntry("svgfile");
-    svgfile = QStandardPaths::locate(QStandardPaths::AppDataLocation, "grafix/" + svgfile);
+    svgfile = QStandardPaths::locate(QStandardPaths::AppDataLocation, QLatin1String("grafix/") + svgfile);
     if (global_debug > 0) qCDebug(LSKAT_LOG) << "Reading SVG master file  =" << svgfile;
 
     mAspectRatio     =  config(QStringLiteral("general")).readEntry("aspect-ratio", 1.0);

@@ -71,7 +71,7 @@ Mainwindow::Mainwindow(QWidget *parent)
     for (const QString& dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
         for (const QString& file : fileNames) {
-            themeList.append(dir + '/' + file);
+            themeList.append(dir + QLatin1Char('/') + file);
         }
     }
     if (themeList.isEmpty())
