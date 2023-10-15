@@ -420,7 +420,7 @@ void Mainwindow::initGUI()
     // Choose card deck
     QAction *action1 = actionCollection()->addAction(QStringLiteral("select_carddeck"));
     action1->setText(i18n("Select &Card Deck..."));
-    actionCollection()->setDefaultShortcut(action1, QKeySequence(Qt::Key_F10));
+    KActionCollection::setDefaultShortcut(action1, QKeySequence(Qt::Key_F10));
     connect(action1, &QAction::triggered, this, &Mainwindow::menuCardDeck);
     action1->setToolTip(i18n("Configure card decks..."));
     action1->setWhatsThis(i18n("Choose how the cards should look."));
