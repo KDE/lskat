@@ -21,7 +21,7 @@
 #include <KConfigGroup>
 #include <KMessageBox>
 #include <KSharedConfig>
-#include <KStandardGameAction>
+#include <KGameStandardAction>
 #include <KLocalizedString>
 #include <KSelectAction>
 // Application specific includes
@@ -291,7 +291,7 @@ AbstractInput *Mainwindow::createInput(
 void Mainwindow::startGame()
 {
     // Enable game action
-    QLatin1String endName(KStandardGameAction::name(KStandardGameAction::End));
+    QLatin1String endName(KGameStandardAction::name(KGameStandardAction::End));
     ACTION(endName)->setEnabled(true);
 
     // Deal cards to player - Shuffle card deck and reset pile
@@ -328,7 +328,7 @@ void Mainwindow::startGame()
 // Here a game over is signalled
 void Mainwindow::gameOver(int /*winner*/)
 {
-    QLatin1String endName(KStandardGameAction::name(KStandardGameAction::End));
+    QLatin1String endName(KGameStandardAction::name(KGameStandardAction::End));
     ACTION(endName)->setEnabled(false);
     statusBar()->showMessage(i18n("Game Over. Please start a new game."));
 
@@ -353,21 +353,21 @@ void Mainwindow::initGUI()
     QAction *action;
 
     // Start a new game
-    action = KStandardGameAction::gameNew(this, &Mainwindow::menuNewLSkatGame, actionCollection());
+    action = KGameStandardAction::gameNew(this, &Mainwindow::menuNewLSkatGame, actionCollection());
     if (global_demo_mode) action->setEnabled(false);
 
     // Clear all time statistics
-    action = KStandardGameAction::clearStatistics(this, &Mainwindow::menuClearStatistics, actionCollection());
+    action = KGameStandardAction::clearStatistics(this, &Mainwindow::menuClearStatistics, actionCollection());
     action->setWhatsThis(i18n("Clears the all time statistics which is kept in all sessions."));
     if (global_demo_mode) action->setEnabled(false);
 
     // End a game
-    action = KStandardGameAction::end(this, &Mainwindow::menuEndGame, actionCollection());
+    action = KGameStandardAction::end(this, &Mainwindow::menuEndGame, actionCollection());
     action->setWhatsThis(i18n("Ends a currently played game. No winner will be declared."));
     action->setEnabled(false);
 
     // Quit the program
-    action = KStandardGameAction::quit(this, &QWidget::close, actionCollection());
+    action = KGameStandardAction::quit(this, &QWidget::close, actionCollection());
     action->setWhatsThis(i18n("Quits the program."));
 
     // Determine start player
