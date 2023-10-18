@@ -69,7 +69,7 @@ Mainwindow::Mainwindow(QWidget *parent)
     QStringList themeList;
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("grafix"), QStandardPaths::LocateDirectory);
     for (const QString& dir : dirs) {
-        const QStringList fileNames = QDir(dir).entryList(QStringList() << QStringLiteral("*.desktop"));
+        const QStringList fileNames = QDir(dir).entryList({QStringLiteral("*.desktop")});
         for (const QString& file : fileNames) {
             themeList.append(dir + QLatin1Char('/') + file);
         }
@@ -376,11 +376,10 @@ void Mainwindow::initGUI()
     connect(startPlayerAct, &KSelectAction::indexTriggered, this, &Mainwindow::menuStartplayer);
     startPlayerAct->setToolTip(i18n("Changing starting player..."));
     startPlayerAct->setWhatsThis(i18n("Chooses which player begins the next game."));
-    QStringList list;
-    list.clear();
-    list.append(i18n("Player &1"));
-    list.append(i18n("Player &2"));
-    startPlayerAct->setItems(list);
+    startPlayerAct->setItems({
+        i18n("Player &1"),
+        i18n("Player &2"),
+    });
     if (global_demo_mode) startPlayerAct->setEnabled(false);
 
     // Determine who plays player 1
@@ -389,10 +388,11 @@ void Mainwindow::initGUI()
     connect(player1Act, &KSelectAction::indexTriggered, this, &Mainwindow::menuPlayer1By);
     player1Act->setToolTip(i18n("Changing who plays player 1..."));
     player1Act->setWhatsThis(i18n("Changing who plays player 1."));
-    list.clear();
-    list.append(i18n("&Mouse"));
-    list.append(i18n("&Computer"));
-    player1Act->setItems(list);
+    const QStringList inputDevices {
+        i18n("&Mouse"),
+        i18n("&Computer"),
+    };
+    player1Act->setItems(inputDevices);
     if (global_demo_mode) player1Act->setEnabled(false);
 
     // Determine who plays player 2
@@ -401,7 +401,7 @@ void Mainwindow::initGUI()
     connect(player2Act, &KSelectAction::indexTriggered, this, &Mainwindow::menuPlayer2By);
     player2Act->setToolTip(i18n("Changing who plays player 2..."));
     player2Act->setWhatsThis(i18n("Changing who plays player 2."));
-    player2Act->setItems(list);
+    player2Act->setItems(inputDevices);
     if (global_demo_mode) player2Act->setEnabled(false);
 
     // Add all theme files to the menu

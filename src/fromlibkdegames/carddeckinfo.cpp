@@ -44,7 +44,7 @@ public:
         QStringList list;
         const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QStringLiteral("carddecks"), QStandardPaths::LocateDirectory);
         for (const QString& dir : dirs) {
-            const QStringList deckFolderNames = QDir(dir).entryList(QStringList() << QStringLiteral("svg*"));
+            const QStringList deckFolderNames = QDir(dir).entryList({QStringLiteral("svg*")});
             for (const QString& deck : deckFolderNames) {
                 list.append(dir + QLatin1Char('/') + deck + QStringLiteral("/index.desktop"));
             }
