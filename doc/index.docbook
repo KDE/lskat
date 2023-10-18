@@ -343,9 +343,6 @@ of the cards. Card decks are selected with their own menu item.
 
 <varlistentry id="deck_change">
 <term><menuchoice>
-<shortcut>
-<keycap>F10</keycap>
-</shortcut>
 <guimenu>Settings</guimenu>
 <guimenuitem>Select Card Deck...</guimenuitem></menuchoice></term>
 <listitem><para>
