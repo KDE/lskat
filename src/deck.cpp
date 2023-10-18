@@ -59,6 +59,7 @@ Suite Deck::randomTrump()
 void Deck::shuffle()
 {
     mCards.clear();
+    mCards.reserve(NUMBER_OF_CARDS);
     // Fill card deck with ordered cards
     for (int i = 0; i < NUMBER_OF_CARDS; i++)
     {

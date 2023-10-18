@@ -94,6 +94,8 @@ void DisplayIntro::loop()
         QString s2 = i18nc("Title of the game - line 2", "for");
         QString s3 = i18nc("Title of the game - line 3", "K D E");
 
+        mSprites.reserve(6);
+
         // Text sprite title foreground
         TextSprite *text1a = new TextSprite(s1, QStringLiteral("name-front"), mTheme, scene());
         mSprites.append(text1a);

@@ -72,6 +72,9 @@ void CardSprite::changeTheme()
     // Frames (loaded on demand)
     mFrames.clear();
     mHotspots.clear();
+    const int frameCount = endFrame - startFrame + 1;
+    mFrames.reserve(frameCount);
+    mHotspots.reserve(frameCount);
     QPixmap nullPixmap;
     for (int i = startFrame; i <= endFrame; i++)
     {

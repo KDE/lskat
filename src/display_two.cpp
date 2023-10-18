@@ -35,6 +35,8 @@ DisplayTwo::DisplayTwo(Deck *deck, QGraphicsScene *theScene, ThemeManager *theme
     // Choose a background color
     scene()->setBackgroundBrush(QColor(0, 0, 128));
 
+    mSprites.reserve(10);
+
     // Create move icon
     mMoveSprites[0] = new PixmapSprite(QStringLiteral("moveicon0"), mTheme, mAdvancePeriod, 0, scene());
     if (!mMoveSprites[0]) qCCritical(LSKAT_LOG) << "Cannot load sprite" << "moveicon";

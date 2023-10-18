@@ -70,6 +70,7 @@ Mainwindow::Mainwindow(QWidget *parent)
     const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("grafix"), QStandardPaths::LocateDirectory);
     for (const QString& dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList({QStringLiteral("*.desktop")});
+        themeList.reserve(themeList.size() + fileNames.size());
         for (const QString& file : fileNames) {
             themeList.append(dir + QLatin1Char('/') + file);
         }

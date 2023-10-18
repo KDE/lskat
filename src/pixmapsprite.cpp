@@ -101,6 +101,9 @@ void PixmapSprite::changeTheme()
     QPixmap pixmap;
     if (svgid == QLatin1String("auto"))
     {
+        const int frameCount = mEndFrame - mStartFrame + 1;
+        mFrames.reserve(frameCount);
+        mHotspots.reserve(frameCount);
         for (int i = mStartFrame; i <= mEndFrame; i++)
         {
             QString name = QStringLiteral("frame%1").arg(i);
