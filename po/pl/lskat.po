@@ -1,4 +1,4 @@
-# Version: $Revision: 1661987 $
+# Version: $Revision: 1662680 $
 # translation of lskat.po to Polish
 # Copyright (C) 2002, 2003, 2004, 2005, 2008, 2009 Free Software Foundation, Inc.
 #
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-10-19 01:40+0000\n"
 "PO-Revision-Date: 2023-09-30 11:07+0200\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
@@ -48,113 +48,113 @@ msgctxt "Default player name"
 msgid "Bob"
 msgstr "Kuba"
 
-#: deck.cpp:146
+#: deck.cpp:147
 #, kde-format
 msgid "no valid card"
 msgstr "brak poprawnej karty"
 
-#: deck.cpp:153 deck.cpp:165
+#: deck.cpp:154 deck.cpp:166
 #, kde-format
 msgid "unknown"
 msgstr "nieznany"
 
-#: deck.cpp:154
+#: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
 msgid "Clubs"
 msgstr "Trefl"
 
-#: deck.cpp:155
+#: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
 msgid "Spades"
 msgstr "Pik"
 
-#: deck.cpp:156
+#: deck.cpp:157
 #, kde-format
 msgctxt "suite name"
 msgid "Hearts"
 msgstr "Kier"
 
-#: deck.cpp:157
+#: deck.cpp:158
 #, kde-format
 msgctxt "suite name"
 msgid "Diamonds"
 msgstr "Karo"
 
-#: deck.cpp:158
+#: deck.cpp:159
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
 msgstr "Grand"
 
-#: deck.cpp:166
+#: deck.cpp:167
 #, kde-format
 msgctxt "card name"
 msgid "Ace"
 msgstr "As"
 
-#: deck.cpp:167
+#: deck.cpp:168
 #, kde-format
 msgctxt "card name"
 msgid "King"
 msgstr "Król"
 
-#: deck.cpp:168
+#: deck.cpp:169
 #, kde-format
 msgctxt "card name"
 msgid "Queen"
 msgstr "Dama"
 
-#: deck.cpp:169
+#: deck.cpp:170
 #, kde-format
 msgctxt "card name"
 msgid "Jack"
 msgstr "Walet"
 
-#: deck.cpp:170
+#: deck.cpp:171
 #, kde-format
 msgctxt "card name"
 msgid "Ten"
 msgstr "Dziesiątka"
 
-#: deck.cpp:171
+#: deck.cpp:172
 #, kde-format
 msgctxt "card name"
 msgid "Nine"
 msgstr "Dziewiątka"
 
-#: deck.cpp:172
+#: deck.cpp:173
 #, kde-format
 msgctxt "card name"
 msgid "Eight"
 msgstr "Ósemka"
 
-#: deck.cpp:173
+#: deck.cpp:174
 #, kde-format
 msgctxt "card name"
 msgid "Seven"
 msgstr "Siódemka"
 
-#: deck.cpp:182
+#: deck.cpp:183
 #, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"
 msgstr "%1 z %2"
 
-#: display_intro.cpp:93
+#: display_intro.cpp:92
 #, kde-format
 msgctxt "Title of the game - line 1"
 msgid "Lieutenant Skat"
 msgstr "Skat"
 
-#: display_intro.cpp:94
+#: display_intro.cpp:93
 #, kde-format
 msgctxt "Title of the game - line 2"
 msgid "for"
 msgstr "dla"
 
-#: display_intro.cpp:95
+#: display_intro.cpp:94
 #, kde-format
 msgctxt "Title of the game - line 3"
 msgid "K D E"
@@ -288,7 +288,7 @@ msgstr "Pomiń wstępną animację"
 msgid "Run game in demo (autoplay) mode"
 msgstr "Uruchom grę w trybie demonstracyjnym"
 
-#: mainwindow.cpp:79
+#: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr "Błąd instalacji: brak listy wystrojów."
@@ -344,37 +344,37 @@ msgstr "Zmiana gracza rozpoczynającego..."
 msgid "Chooses which player begins the next game."
 msgstr "Wybiera gracz rozpoczynającego grę."
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:380
 #, kde-format
 msgid "Player &1"
 msgstr "Gracz &1"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &2"
 msgstr "Gracz &2"
 
-#: mainwindow.cpp:387
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "Gracz &1"
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:389
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "Zmienia sterowanie graczem 1..."
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "Zmiana sterowania graczem 1."
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:392
 #, kde-format
 msgid "&Mouse"
 msgstr "&Mysz"
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Computer"
 msgstr "&Komputer"
@@ -414,27 +414,27 @@ msgstr "Zmiana wystroju."
 msgid "Select &Card Deck..."
 msgstr "Wybierz &talię kart..."
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:424
 #, kde-format
 msgid "Configure card decks..."
 msgstr "Ustawienia talii kart..."
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Wybiera wygląd kart."
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:429
 #, kde-format
 msgid "&Change Player Names..."
 msgstr "&Zmień imiona graczy..."
 
-#: mainwindow.cpp:501
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Na pewno usunąć dane statystyczne ze wszystkich gier?"
 
-#: mainwindow.cpp:574
+#: mainwindow.cpp:573
 #, kde-format
 msgid "Dealing cards..."
 msgstr "Rozdawanie kart..."

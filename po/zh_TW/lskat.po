@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-10-19 01:40+0000\n"
 "PO-Revision-Date: 2012-06-05 10:11+0800\n"
 "Last-Translator: Franklin Weng <franklin@goodhorse.idv.tw>\n"
 "Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
@@ -42,113 +42,113 @@ msgctxt "Default player name"
 msgid "Bob"
 msgstr "Bob"
 
-#: deck.cpp:146
+#: deck.cpp:147
 #, kde-format
 msgid "no valid card"
 msgstr "沒有可用的牌"
 
-#: deck.cpp:153 deck.cpp:165
+#: deck.cpp:154 deck.cpp:166
 #, kde-format
 msgid "unknown"
 msgstr "未知"
 
-#: deck.cpp:154
+#: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
 msgid "Clubs"
 msgstr "梅花"
 
-#: deck.cpp:155
+#: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
 msgid "Spades"
 msgstr "黑桃"
 
-#: deck.cpp:156
+#: deck.cpp:157
 #, kde-format
 msgctxt "suite name"
 msgid "Hearts"
 msgstr "紅心"
 
-#: deck.cpp:157
+#: deck.cpp:158
 #, kde-format
 msgctxt "suite name"
 msgid "Diamonds"
 msgstr "方塊"
 
-#: deck.cpp:158
+#: deck.cpp:159
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
 msgstr "王牌"
 
-#: deck.cpp:166
+#: deck.cpp:167
 #, kde-format
 msgctxt "card name"
 msgid "Ace"
 msgstr "A"
 
-#: deck.cpp:167
+#: deck.cpp:168
 #, kde-format
 msgctxt "card name"
 msgid "King"
 msgstr "K"
 
-#: deck.cpp:168
+#: deck.cpp:169
 #, kde-format
 msgctxt "card name"
 msgid "Queen"
 msgstr "Q"
 
-#: deck.cpp:169
+#: deck.cpp:170
 #, kde-format
 msgctxt "card name"
 msgid "Jack"
 msgstr "J"
 
-#: deck.cpp:170
+#: deck.cpp:171
 #, kde-format
 msgctxt "card name"
 msgid "Ten"
 msgstr "10"
 
-#: deck.cpp:171
+#: deck.cpp:172
 #, kde-format
 msgctxt "card name"
 msgid "Nine"
 msgstr "9"
 
-#: deck.cpp:172
+#: deck.cpp:173
 #, kde-format
 msgctxt "card name"
 msgid "Eight"
 msgstr "8"
 
-#: deck.cpp:173
+#: deck.cpp:174
 #, kde-format
 msgctxt "card name"
 msgid "Seven"
 msgstr "7"
 
-#: deck.cpp:182
+#: deck.cpp:183
 #, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"
 msgstr "%2 %1"
 
-#: display_intro.cpp:93
+#: display_intro.cpp:92
 #, kde-format
 msgctxt "Title of the game - line 1"
 msgid "Lieutenant Skat"
 msgstr "Lieutenant Skat"
 
-#: display_intro.cpp:94
+#: display_intro.cpp:93
 #, kde-format
 msgctxt "Title of the game - line 2"
 msgid "for"
 msgstr "　"
 
-#: display_intro.cpp:95
+#: display_intro.cpp:94
 #, kde-format
 msgctxt "Title of the game - line 3"
 msgid "K D E"
@@ -281,7 +281,7 @@ msgstr "跳過介紹動畫"
 msgid "Run game in demo (autoplay) mode"
 msgstr "以示範模式開始遊戲"
 
-#: mainwindow.cpp:79
+#: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr "安裝錯誤：找不到佈景主題列表。"
@@ -337,37 +337,37 @@ msgstr "更換先手玩家"
 msgid "Chooses which player begins the next game."
 msgstr "選擇開始下一場遊戲的玩家。"
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:380
 #, kde-format
 msgid "Player &1"
 msgstr "玩家 1(&1)"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &2"
 msgstr "玩家 2(&2)"
 
-#: mainwindow.cpp:387
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "玩家 1 控制者(&1)"
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:389
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "變更玩家 1"
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "變更玩家 1。"
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:392
 #, kde-format
 msgid "&Mouse"
 msgstr "滑鼠(&M)"
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Computer"
 msgstr "電腦(&C)"
@@ -407,27 +407,27 @@ msgstr "更換佈景主題。"
 msgid "Select &Card Deck..."
 msgstr "選擇牌面樣式(&C)..."
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:424
 #, kde-format
 msgid "Configure card decks..."
 msgstr "設定牌面樣式..."
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "選擇牌的外觀"
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:429
 #, kde-format
 msgid "&Change Player Names..."
 msgstr "變更玩家名稱(&C)..."
 
-#: mainwindow.cpp:501
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "您想要清除所有的統計資料嗎？"
 
-#: mainwindow.cpp:574
+#: mainwindow.cpp:573
 #, kde-format
 msgid "Dealing cards..."
 msgstr "發牌中..."

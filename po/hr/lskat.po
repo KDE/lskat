@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat 0\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-10-19 01:40+0000\n"
 "PO-Revision-Date: 2006-08-30 13:35+0100\n"
 "Last-Translator: Renato Pavicic <renato@translator-shop.org>\n"
 "Language-Team: Croatian <kde-croatia-list@lists.sourceforge.net>\n"
@@ -42,115 +42,115 @@ msgctxt "Default player name"
 msgid "Bob"
 msgstr "Bob"
 
-#: deck.cpp:146
+#: deck.cpp:147
 #, kde-format
 msgid "no valid card"
 msgstr ""
 
-#: deck.cpp:153 deck.cpp:165
+#: deck.cpp:154 deck.cpp:166
 #, kde-format
 msgid "unknown"
-msgstr ""
-
-#: deck.cpp:154
-#, kde-format
-msgctxt "suite name"
-msgid "Clubs"
 msgstr ""
 
 #: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
-msgid "Spades"
+msgid "Clubs"
 msgstr ""
 
 #: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
-msgid "Hearts"
+msgid "Spades"
 msgstr ""
 
 #: deck.cpp:157
 #, kde-format
 msgctxt "suite name"
-msgid "Diamonds"
+msgid "Hearts"
 msgstr ""
 
 #: deck.cpp:158
+#, kde-format
+msgctxt "suite name"
+msgid "Diamonds"
+msgstr ""
+
+#: deck.cpp:159
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
 msgstr ""
 
-#: deck.cpp:166
+#: deck.cpp:167
 #, fuzzy, kde-format
 msgctxt "card name"
 msgid "Ace"
 msgstr "Alice"
 
-#: deck.cpp:167
+#: deck.cpp:168
 #, kde-format
 msgctxt "card name"
 msgid "King"
 msgstr ""
 
-#: deck.cpp:168
+#: deck.cpp:169
 #, kde-format
 msgctxt "card name"
 msgid "Queen"
 msgstr ""
 
-#: deck.cpp:169
+#: deck.cpp:170
 #, kde-format
 msgctxt "card name"
 msgid "Jack"
 msgstr ""
 
-#: deck.cpp:170
+#: deck.cpp:171
 #, kde-format
 msgctxt "card name"
 msgid "Ten"
 msgstr ""
 
-#: deck.cpp:171
+#: deck.cpp:172
 #, kde-format
 msgctxt "card name"
 msgid "Nine"
 msgstr ""
 
-#: deck.cpp:172
+#: deck.cpp:173
 #, kde-format
 msgctxt "card name"
 msgid "Eight"
 msgstr ""
 
-#: deck.cpp:173
+#: deck.cpp:174
 #, fuzzy, kde-format
 msgctxt "card name"
 msgid "Seven"
 msgstr "Poslužitelj"
 
-#: deck.cpp:182
+#: deck.cpp:183
 #, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"
 msgstr ""
 
-#: display_intro.cpp:93
+#: display_intro.cpp:92
 #, fuzzy, kde-format
 #| msgid "Lieutenant Skat"
 msgctxt "Title of the game - line 1"
 msgid "Lieutenant Skat"
 msgstr "Vojnički skat"
 
-#: display_intro.cpp:94
+#: display_intro.cpp:93
 #, fuzzy, kde-format
 #| msgid "for"
 msgctxt "Title of the game - line 2"
 msgid "for"
 msgstr "za"
 
-#: display_intro.cpp:95
+#: display_intro.cpp:94
 #, fuzzy, kde-format
 #| msgid "K D E"
 msgctxt "Title of the game - line 3"
@@ -293,7 +293,7 @@ msgstr ""
 msgid "Run game in demo (autoplay) mode"
 msgstr ""
 
-#: mainwindow.cpp:79
+#: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr ""
@@ -350,37 +350,37 @@ msgstr "Zamjena igrača prvog na potezu …"
 msgid "Chooses which player begins the next game."
 msgstr "Odaberite koji igrač započinje prvi u sljedećoj igri."
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:380
 #, kde-format
 msgid "Player &1"
 msgstr "Igrač &1"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &2"
 msgstr "Igrač &2"
 
-#: mainwindow.cpp:387
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "Igračem &1 upravlja"
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:389
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "Zamjena upravljanja igračem 1 …"
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, fuzzy, kde-format
 msgid "Changing who plays player 1."
 msgstr "Zamjena upravljanja igračem 1..."
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:392
 #, kde-format
 msgid "&Mouse"
 msgstr ""
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Computer"
 msgstr "&Računalo"
@@ -423,27 +423,27 @@ msgstr "Promjena razine..."
 msgid "Select &Card Deck..."
 msgstr "Odaberite š&pil karata …"
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:424
 #, kde-format
 msgid "Configure card decks..."
 msgstr "Konfiguriranje špilova karata …"
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Odaberite na koji će način izgledati karte."
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:429
 #, fuzzy, kde-format
 msgid "&Change Player Names..."
 msgstr "Imena igrača"
 
-#: mainwindow.cpp:501
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Želite li zaista izbrisati sve statistike vremena?"
 
-#: mainwindow.cpp:574
+#: mainwindow.cpp:573
 #, kde-format
 msgid "Dealing cards..."
 msgstr ""

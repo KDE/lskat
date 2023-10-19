@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-10-19 01:40+0000\n"
 "PO-Revision-Date: 2009-06-13 16:24+0000\n"
 "Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
 "Language-Team: icelandic <kde-isl@molar.is>\n"
@@ -46,115 +46,115 @@ msgctxt "Default player name"
 msgid "Bob"
 msgstr "Bonni"
 
-#: deck.cpp:146
+#: deck.cpp:147
 #, kde-format
 msgid "no valid card"
 msgstr ""
 
-#: deck.cpp:153 deck.cpp:165
+#: deck.cpp:154 deck.cpp:166
 #, fuzzy, kde-format
 msgid "unknown"
 msgstr "óþekkt"
 
-#: deck.cpp:154
+#: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
 msgid "Clubs"
 msgstr ""
 
-#: deck.cpp:155
+#: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
 msgid "Spades"
 msgstr ""
 
-#: deck.cpp:156
+#: deck.cpp:157
 #, kde-format
 msgctxt "suite name"
 msgid "Hearts"
 msgstr ""
 
-#: deck.cpp:157
+#: deck.cpp:158
 #, kde-format
 msgctxt "suite name"
 msgid "Diamonds"
 msgstr ""
 
-#: deck.cpp:158
+#: deck.cpp:159
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
 msgstr ""
 
-#: deck.cpp:166
+#: deck.cpp:167
 #, fuzzy, kde-format
 msgctxt "card name"
 msgid "Ace"
 msgstr "Aldís"
 
-#: deck.cpp:167
+#: deck.cpp:168
 #, kde-format
 msgctxt "card name"
 msgid "King"
 msgstr ""
 
-#: deck.cpp:168
+#: deck.cpp:169
 #, kde-format
 msgctxt "card name"
 msgid "Queen"
 msgstr ""
 
-#: deck.cpp:169
+#: deck.cpp:170
 #, fuzzy, kde-format
 msgctxt "card name"
 msgid "Jack"
 msgstr "Jón"
 
-#: deck.cpp:170
+#: deck.cpp:171
 #, kde-format
 msgctxt "card name"
 msgid "Ten"
 msgstr ""
 
-#: deck.cpp:171
+#: deck.cpp:172
 #, kde-format
 msgctxt "card name"
 msgid "Nine"
 msgstr ""
 
-#: deck.cpp:172
+#: deck.cpp:173
 #, kde-format
 msgctxt "card name"
 msgid "Eight"
 msgstr ""
 
-#: deck.cpp:173
+#: deck.cpp:174
 #, fuzzy, kde-format
 msgctxt "card name"
 msgid "Seven"
 msgstr "Þjónn"
 
-#: deck.cpp:182
+#: deck.cpp:183
 #, fuzzy, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"
 msgstr "%1 af %2"
 
-#: display_intro.cpp:93
+#: display_intro.cpp:92
 #, fuzzy, kde-format
 #| msgid "Lieutenant Skat"
 msgctxt "Title of the game - line 1"
 msgid "Lieutenant Skat"
 msgstr "Skat Liðþjálfi"
 
-#: display_intro.cpp:94
+#: display_intro.cpp:93
 #, fuzzy, kde-format
 #| msgid "for"
 msgctxt "Title of the game - line 2"
 msgid "for"
 msgstr "fyrir"
 
-#: display_intro.cpp:95
+#: display_intro.cpp:94
 #, fuzzy, kde-format
 #| msgid "K D E"
 msgctxt "Title of the game - line 3"
@@ -295,7 +295,7 @@ msgstr ""
 msgid "Run game in demo (autoplay) mode"
 msgstr ""
 
-#: mainwindow.cpp:79
+#: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr ""
@@ -352,37 +352,37 @@ msgstr "Breyti fyrsta leikmanni..."
 msgid "Chooses which player begins the next game."
 msgstr "Velur hvaða leikmaður hefur leikinn."
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:380
 #, kde-format
 msgid "Player &1"
 msgstr "Leikmaður &1"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &2"
 msgstr "Leikmaður &2"
 
-#: mainwindow.cpp:387
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "Leikmaður &1 er"
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:389
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "Breytir hver leikur fyrsta leikmann..."
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, fuzzy, kde-format
 msgid "Changing who plays player 1."
 msgstr "Breytir hver leikur fyrsta leikmann..."
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:392
 #, fuzzy, kde-format
 msgid "&Mouse"
 msgstr "&Mús"
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Computer"
 msgstr "&Tölva"
@@ -425,27 +425,27 @@ msgstr "Breyta styrk..."
 msgid "Select &Card Deck..."
 msgstr "Velja &Spilastokk..."
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:424
 #, kde-format
 msgid "Configure card decks..."
 msgstr "Stilla spilastokka..."
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Stilla hvernig spilin eiga að líta út."
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:429
 #, fuzzy, kde-format
 msgid "&Change Player Names..."
 msgstr "Nöfn leikmanna"
 
-#: mainwindow.cpp:501
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Viltu hreinsa allar tímamælingar?"
 
-#: mainwindow.cpp:574
+#: mainwindow.cpp:573
 #, kde-format
 msgid "Dealing cards..."
 msgstr ""

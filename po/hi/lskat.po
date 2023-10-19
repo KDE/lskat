@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-09 01:45+0000\n"
+"POT-Creation-Date: 2023-10-19 01:40+0000\n"
 "PO-Revision-Date: 2021-08-21 16:25+0530\n"
 "Last-Translator: Raghavendra Kamath <raghu@raghukamath.com>\n"
 "Language-Team: kde-hindi\n"
@@ -45,129 +45,129 @@ msgctxt "Default player name"
 msgid "Bob"
 msgstr "आनंद"
 
-#: deck.cpp:146
+#: deck.cpp:147
 #, kde-format
 msgid "no valid card"
 msgstr "कोई वैध कार्ड नहीं"
 
-#: deck.cpp:153 deck.cpp:165
+#: deck.cpp:154 deck.cpp:166
 #, kde-format
 msgid "unknown"
 msgstr "अज्ञात"
 
-#: deck.cpp:154
+#: deck.cpp:155
 #, fuzzy, kde-format
 #| msgid "Clubs"
 msgctxt "suite name"
 msgid "Clubs"
 msgstr "चिड़िया"
 
-#: deck.cpp:155
+#: deck.cpp:156
 #, fuzzy, kde-format
 #| msgid "Spades"
 msgctxt "suite name"
 msgid "Spades"
 msgstr "काला पान"
 
-#: deck.cpp:156
+#: deck.cpp:157
 #, fuzzy, kde-format
 #| msgid "Hearts"
 msgctxt "suite name"
 msgid "Hearts"
 msgstr "लाल पान"
 
-#: deck.cpp:157
+#: deck.cpp:158
 #, fuzzy, kde-format
 #| msgid "Diamonds"
 msgctxt "suite name"
 msgid "Diamonds"
 msgstr "ईंट"
 
-#: deck.cpp:158
+#: deck.cpp:159
 #, fuzzy, kde-format
 #| msgid "Grand"
 msgctxt "trump name"
 msgid "Grand"
 msgstr "ग्राण्ड"
 
-#: deck.cpp:166
+#: deck.cpp:167
 #, fuzzy, kde-format
 #| msgid "Ace"
 msgctxt "card name"
 msgid "Ace"
 msgstr "इक्का"
 
-#: deck.cpp:167
+#: deck.cpp:168
 #, fuzzy, kde-format
 #| msgid "King"
 msgctxt "card name"
 msgid "King"
 msgstr "राजा"
 
-#: deck.cpp:168
+#: deck.cpp:169
 #, fuzzy, kde-format
 #| msgid "Queen"
 msgctxt "card name"
 msgid "Queen"
 msgstr "रानी"
 
-#: deck.cpp:169
+#: deck.cpp:170
 #, fuzzy, kde-format
 #| msgid "Jack"
 msgctxt "card name"
 msgid "Jack"
 msgstr "जैक"
 
-#: deck.cpp:170
+#: deck.cpp:171
 #, fuzzy, kde-format
 #| msgid "Ten"
 msgctxt "card name"
 msgid "Ten"
 msgstr "दहला"
 
-#: deck.cpp:171
+#: deck.cpp:172
 #, fuzzy, kde-format
 #| msgid "Nine"
 msgctxt "card name"
 msgid "Nine"
 msgstr "नहला"
 
-#: deck.cpp:172
+#: deck.cpp:173
 #, fuzzy, kde-format
 #| msgid "Eight"
 msgctxt "card name"
 msgid "Eight"
 msgstr "अट्ठा"
 
-#: deck.cpp:173
+#: deck.cpp:174
 #, fuzzy, kde-format
 #| msgid "Seven"
 msgctxt "card name"
 msgid "Seven"
 msgstr "सत्ता"
 
-#: deck.cpp:182
+#: deck.cpp:183
 #, fuzzy, kde-format
 #| msgid "%1 of %2"
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"
 msgstr "%1 इसमें काः %2"
 
-#: display_intro.cpp:93
+#: display_intro.cpp:92
 #, fuzzy, kde-format
 #| msgid "Lieutenant Skat"
 msgctxt "Title of the game - line 1"
 msgid "Lieutenant Skat"
 msgstr "लेफ्टिनेंट स्केट"
 
-#: display_intro.cpp:94
+#: display_intro.cpp:93
 #, fuzzy, kde-format
 #| msgid "for"
 msgctxt "Title of the game - line 2"
 msgid "for"
 msgstr "के लिए"
 
-#: display_intro.cpp:95
+#: display_intro.cpp:94
 #, fuzzy, kde-format
 #| msgid "K D E"
 msgctxt "Title of the game - line 3"
@@ -309,7 +309,7 @@ msgstr "परिचय एनिमेशन छोड़ें"
 msgid "Run game in demo (autoplay) mode"
 msgstr "खेल को डेमो मोड में (स्वचालित) चलाएँ"
 
-#: mainwindow.cpp:79
+#: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
 msgstr "संस्थापना त्रुटि: कोई प्रसंग सूची नहीं मिला."
@@ -367,37 +367,37 @@ msgstr "प्रारंभ करने वाला खिलाड़ी �
 msgid "Chooses which player begins the next game."
 msgstr "चुनें कि कौन सा खिलाड़ी अगला खेल प्रारंभ करेगा."
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:380
 #, kde-format
 msgid "Player &1"
 msgstr "खिलाड़ी &1"
 
-#: mainwindow.cpp:382
+#: mainwindow.cpp:381
 #, kde-format
 msgid "Player &2"
 msgstr "खिलाड़ी &2    "
 
-#: mainwindow.cpp:387
+#: mainwindow.cpp:386
 #, kde-format
 msgid "Player &1 Played By"
 msgstr "खिलाड़ी &1 खेला जाएगा के द्वारा."
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:389
 #, kde-format
 msgid "Changing who plays player 1..."
 msgstr "खिलाड़ी 1 कौन खेलेगा बदलें..."
 
-#: mainwindow.cpp:391
+#: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "खिलाड़ी 1 कौन खेलेगा बदलें."
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:392
 #, kde-format
 msgid "&Mouse"
 msgstr "माउस (&M)"
 
-#: mainwindow.cpp:394
+#: mainwindow.cpp:393
 #, kde-format
 msgid "&Computer"
 msgstr "कम्प्यूटर (&C)"
@@ -437,28 +437,28 @@ msgstr "प्रसंग बदला जा रहा है"
 msgid "Select &Card Deck..."
 msgstr "ताश की गड्डी चुनें... (&C)"
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:424
 #, kde-format
 msgid "Configure card decks..."
 msgstr "ताश की गड्डी कॉन्फ़िगर करें..."
 
-#: mainwindow.cpp:426
+#: mainwindow.cpp:425
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "पसंद करें कि ताश कैसे दिखें."
 
-#: mainwindow.cpp:430
+#: mainwindow.cpp:429
 #, fuzzy, kde-format
 #| msgid "&Change Player Names"
 msgid "&Change Player Names..."
 msgstr "खिलाड़ियों के नाम बदलें (&C)"
 
-#: mainwindow.cpp:501
+#: mainwindow.cpp:500
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "क्या आप सचमुच अब तक के आंकड़े डाटा साफ करना चाहेंगे?"
 
-#: mainwindow.cpp:574
+#: mainwindow.cpp:573
 #, kde-format
 msgid "Dealing cards..."
 msgstr "डील करने वाले कार्ड..."
