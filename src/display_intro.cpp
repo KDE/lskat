@@ -63,9 +63,8 @@ void DisplayIntro::start()
     mTimer->start(50);
 
     // Stop all card sprites
-    for (int i = 0; i < mCards.size(); i++)
-    {
-        mCards[i]->stop();
+    for (CardSprite *sprite : std::as_const(mCards)) {
+        sprite->stop();
     }
 }
 

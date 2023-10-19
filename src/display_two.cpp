@@ -104,9 +104,7 @@ void DisplayTwo::changeTheme()
 void DisplayTwo::start()
 {
     // Stop all card sprites
-    for (int i = 0; i < mCards.size(); i++)
-    {
-        CardSprite *sprite = mCards[i];
+    for (CardSprite *sprite : std::as_const(mCards)) {
         sprite->stop();
     }
 

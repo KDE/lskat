@@ -51,13 +51,10 @@ public:
             }
         }
 
-        if (list.isEmpty()) return;
-
-        for (QStringList::ConstIterator it = list.constBegin(); it != list.constEnd(); ++it)
-        {
-            KConfig cfg(*it, KConfig::SimpleConfig);
+        for (const QString &deckPath : std::as_const(list)) {
+            KConfig cfg(deckPath, KConfig::SimpleConfig);
             KConfigGroup cfgcg(&cfg, "KDE Backdeck");
-            QString path = (*it).left((*it).lastIndexOf(QLatin1Char('/')) + 1);
+            QString path = deckPath.left(deckPath.lastIndexOf(QLatin1Char('/')) + 1);
             Q_ASSERT(path[path.length() - 1] == QLatin1Char('/'));
             QPixmap pixmap(path + cfgcg.readEntry("Preview", "12c.png"));
             if (pixmap.isNull()) continue;

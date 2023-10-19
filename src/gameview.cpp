@@ -211,7 +211,8 @@ void GameView::drawItems(QPainter *painter, int numItems, QGraphicsItem *items[]
     mDrawTimes.append(elapsed);
     if (mDrawTimes.size() > 50) mDrawTimes.removeFirst();
     double avg = 0.0;
-    for (int i = 0; i < mDrawTimes.size(); i++) avg += mDrawTimes[i];
+    for (int drawTime : std::as_const(mDrawTimes))
+        avg += drawTime;
     avg /= mDrawTimes.size();
 
     if (global_debug > 0)

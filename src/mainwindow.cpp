@@ -83,9 +83,8 @@ Mainwindow::Mainwindow(QWidget *parent)
     }
 
     // Read theme files
-    for (int i = 0; i < themeList.size(); i++)
-    {
-        KConfig themeInfo(themeList.at(i), KConfig::SimpleConfig);
+    for (const QString &themePath : std::as_const(themeList)) {
+        KConfig themeInfo(themePath, KConfig::SimpleConfig);
         KConfigGroup themeGroup(&themeInfo, "Theme");
         QString name = themeGroup.readEntry("Name", QString());
         QString file = themeGroup.readEntry("File", QString());
@@ -94,7 +93,7 @@ Mainwindow::Mainwindow(QWidget *parent)
         if (mThemeDefault.isNull()) mThemeDefault = name;
         if (isDefault) mThemeDefault = name;
 
-        if (global_debug > 0) qCDebug(LSKAT_LOG) << "Found theme: " << themeList.at(i) << " Name(i18n)=" << name << " File=" << file << " default=" << isDefault;
+        if (global_debug > 0) qCDebug(LSKAT_LOG) << "Found theme: " << themePath << " Name(i18n)=" << name << " File=" << file << " default=" << isDefault;
     }
     mThemeIndexNo = themeIdxFromName(mThemeDefault);
 
