@@ -634,14 +634,10 @@
 <varlistentry id="deck_change">
 <term
 ><menuchoice
-><shortcut
-> <keycap
->F10</keycap
-> </shortcut
-> <guimenu
+><guimenu
 >Параметри</guimenu
 > <guimenuitem
->Вибір колоди карт...</guimenuitem
+>Вибрати колоду карт...</guimenuitem
 ></menuchoice
 ></term>
 <listitem

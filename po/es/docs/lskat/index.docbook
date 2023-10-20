@@ -682,14 +682,10 @@
 <varlistentry id="deck_change">
 <term
 ><menuchoice
-><shortcut
-> <keycap
->F10</keycap
-> </shortcut
-> <guimenu
+><guimenu
 >Preferencias</guimenu
 > <guimenuitem
->Seleccionar baraja de cartas</guimenuitem
+>Seleccionar baraja de cartas...</guimenuitem
 ></menuchoice
 ></term>
 <listitem
