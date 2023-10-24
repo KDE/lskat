@@ -291,7 +291,7 @@ AbstractInput *Mainwindow::createInput(
 void Mainwindow::startGame()
 {
     // Enable game action
-    QLatin1String endName(KGameStandardAction::name(KGameStandardAction::End));
+    const QString endName(KGameStandardAction::name(KGameStandardAction::End));
     ACTION(endName)->setEnabled(true);
 
     // Deal cards to player - Shuffle card deck and reset pile
@@ -328,7 +328,7 @@ void Mainwindow::startGame()
 // Here a game over is signalled
 void Mainwindow::gameOver(int /*winner*/)
 {
-    QLatin1String endName(KGameStandardAction::name(KGameStandardAction::End));
+    const QString endName(KGameStandardAction::name(KGameStandardAction::End));
     ACTION(endName)->setEnabled(false);
     statusBar()->showMessage(i18n("Game Over. Please start a new game."));
 
