@@ -190,9 +190,7 @@
 <seg
 >Controlador del jugador (humà o ordinador)</seg>
 <seg
->El <quote
->trumfo</quote
-> en la partida actual</seg>
+>El «trumfo» en la partida actual</seg>
 </seglistitem>
 </segmentedlist>
 
@@ -212,9 +210,7 @@
 ></listitem>
 <listitem
 ><para
->Cada partida té una carta de <quote
->trumfo</quote
-> triada a l'atzar [8].</para
+>Cada partida té una carta de «trumfo» triada a l'atzar [8].</para
 ></listitem>
 <listitem
 ><para
@@ -222,9 +218,7 @@
 ></listitem>
 <listitem
 ><para
->Si se selecciona un color (&pex;, cors) com a <quote
->trumfo</quote
->, els set cors, així com les quatre sotes comptaran com trumfos, fent 11 cartes de trumfo.</para
+>Si se selecciona un color (&pex;, cors) com a «trumfo», els set cors, així com les quatre sotes comptaran com trumfos, fent 11 cartes de trumfo.</para
 ></listitem>
 <listitem
 ><para
@@ -308,15 +302,11 @@
 <itemizedlist>
 <listitem
 ><para
->Un joc especial de <quote
->trumfo</quote
-> s'anomena Grand. En aquest joc, cap coll és trumfo i només les quatre sotes compten com trumfo. Aquest tipus de joc està indicat pel símbol del cap d'una sota [8] en la taula de puntuacions [6].</para
+>Un joc especial de «trumfo» s'anomena Grand. En aquest joc, cap coll és trumfo i només les quatre sotes compten com trumfo. Aquest tipus de joc està indicat pel símbol del cap d'una sota [8] en la taula de puntuacions [6].</para
 ></listitem>
 <listitem
 ><para
->Si el jugador comença la tanda, tindrà una selecció de cartes per a jugar, sigui una carta d'un coll o una carta <quote
->trumfo</quote
->.</para
+>Si el jugador comença la tanda, tindrà una selecció de cartes per a jugar, sigui una carta d'un coll o una carta «trumfo».</para
 ></listitem>
 <listitem
 ><para
@@ -387,23 +377,13 @@
 <title
 >Les estratègies i consells</title>
 <para
->Quan el joc comença, el jugador inicial haurà de jugar qualsevol de les cartes de cara amunt en el seu munt. Si el segon jugador té cartes cara amunt que són del mateix coll que la carta jugada, haurà de respondre amb una d'aquestes cartes. No obstant això, si el segon jugador no té una carta del mateix coll, podrà jugar qualsevol altra carta, inclosa una carta <quote
->trumfo</quote
->.</para>
+>Quan el joc comença, el jugador inicial haurà de jugar qualsevol de les cartes de cara amunt en el seu munt. Si el segon jugador té cartes cara amunt que són del mateix coll que la carta jugada, haurà de respondre amb una d'aquestes cartes. No obstant això, si el segon jugador no té una carta del mateix coll, podrà jugar qualsevol altra carta, inclosa una carta «trumfo».</para>
 <para
->Si hi ha a l'almenys una carta de <quote
->trumfo</quote
->, el <quote
->trumfo</quote
-> més alt guanyarà ambdues cartes.</para>
+>Si hi ha a l'almenys una carta de «trumfo», el «trumfo» més alt guanyarà ambdues cartes.</para>
 <para
->Si no hi ha cap carta de <quote
->trumfo</quote
->, la carta més alta del coll jugat pel jugador inicial guanyarà ambdues cartes.</para>
+>Si no hi ha cap carta de «trumfo», la carta més alta del coll jugat pel jugador inicial guanyarà ambdues cartes.</para>
 <para
->Si el jugador respon que no té cap carta del coll sol·licitat i tampoc una carta de <quote
->trumfo</quote
->, aquest haurà de jugar qualsevol carta i el jugador inicial guanyarà ambdues cartes.</para>
+>Si el jugador respon que no té cap carta del coll sol·licitat i tampoc una carta de «trumfo», aquest haurà de jugar qualsevol carta i el jugador inicial guanyarà ambdues cartes.</para>
 
 <para
 >El jugador que guanyi la tanda començarà la següent.</para>
@@ -434,9 +414,7 @@
 ></question>
  <answer
 ><para
->No. Aquest joc no té una característica <quote
->Desfés</quote
->.</para
+>No. Aquest joc no té una característica «Desfés».</para
 ></answer>
 </qandaentry>
 <qandaentry>
@@ -456,9 +434,7 @@
 ></question>
  <answer
 ><para
->No. Aquest joc no té una característica <quote
->Consell</quote
->.</para
+>No. Aquest joc no té una característica «Consell».</para
 ></answer>
 </qandaentry>
 <qandaentry>
@@ -468,9 +444,7 @@
 ></question>
  <answer
 ><para
->No. Aquest joc no té una característica <quote
->Desa l'estat</quote
->.</para
+>No. Aquest joc no té una característica «Desa l'estat».</para
 ></answer>
 </qandaentry>
 <qandaentry>
