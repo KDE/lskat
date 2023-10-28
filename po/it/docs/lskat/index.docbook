@@ -690,14 +690,10 @@
 <varlistentry id="deck_change">
 <term
 ><menuchoice
-><shortcut
-> <keycap
->F10</keycap
-> </shortcut
-> <guimenu
+><guimenu
 >Impostazioni</guimenu
 > <guimenuitem
->Seleziona il mazzo di carte...</guimenuitem
+>Seleziona mazzo di carte...</guimenuitem
 ></menuchoice
 ></term>
 <listitem
