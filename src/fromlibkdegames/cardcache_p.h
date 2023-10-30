@@ -10,7 +10,6 @@
 
 #include <KImageCache>
 
-#include <QImage>
 #include <QThread>
 #include <QString>
 #include <QStringList>
@@ -37,14 +36,14 @@ public:
     QPixmap renderSvg(const QString &element);
     void ensureNonNullPixmap(QPixmap &pix);
 public Q_SLOTS:
-    void submitRendering(const QString &key, const QImage &image);
+    void submitRendering(const QString &key, const QPixmap &pixmap);
 };
 
 class LoadThread : public QThread
 {
     Q_OBJECT
 Q_SIGNALS:
-    void renderingDone(const QString &key, const QImage &image);
+    void renderingDone(const QString &key, const QPixmap &pixmap);
 public:
     explicit LoadThread(KCardCachePrivate *d);
     ~LoadThread() override;

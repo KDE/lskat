@@ -12,7 +12,6 @@
 #include "thememanager.h"
 
 // Qt includes
-#include <QImage>
 #include <QPixmap>
 #include <QPainter>
 #include <QRectF>
@@ -285,12 +284,11 @@ const QPixmap ThemeManager::getPixmap(QSvgRenderer *renderer, const QString &svg
     }
 
     // Create new image
-    QImage image(size, QImage::Format_ARGB32_Premultiplied);
-    image.fill(0);
-    QPainter p(&image);
+    pixmap = QPixmap(size);
+    pixmap.fill(Qt::transparent);
+    QPainter p(&pixmap);
     renderer->render(&p, svgid);
     p.end();
-    pixmap = QPixmap::fromImage(image);
     if (pixmap.isNull())
         qCCritical(LSKAT_LOG) << "ThemeManager::getPixmap Cannot load svgid ID " << svgid;
 

@@ -10,7 +10,6 @@
 
 #include <QDateTime>
 #include <QFileInfo>
-#include <QImage>
 #include <QMutexLocker>
 #include <QPainter>
 #include <QPixmap>
@@ -202,12 +201,11 @@ QPixmap KCardCachePrivate::renderSvg(const QString &element)
     return doRender(element, renderer(), size);
 }
 
-void KCardCachePrivate::submitRendering(const QString &key, const QImage &image)
+void KCardCachePrivate::submitRendering(const QString &key, const QPixmap &pixmap)
 {
     qCDebug(LSKAT_LOG) << "Received render of" << key << "from rendering thread.";
-    QPixmap pix = QPixmap::fromImage(image);
     QMutexLocker l(cacheMutex);
-    cache->insertPixmap(key, pix);
+    cache->insertPixmap(key, pixmap);
 }
 
 LoadThread::LoadThread(KCardCachePrivate *d_)
@@ -256,7 +254,7 @@ void LoadThread::run()
             if (doKill)
                 return;
         }
-        QImage img = QImage(size, QImage::Format_ARGB32);
+        QPixmap img(size);
         img.fill(Qt::transparent);
         QPainter p(&img);
         {
