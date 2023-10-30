@@ -147,19 +147,6 @@ public:
     QPixmap backside() const;
 
     /**
-     * Retrieve the default size for the backside card.
-     *
-     * Make sure to set a reasonable theme, before calling this function.
-     *
-     * @param variant which variant, like a back with another color, to use.
-     * Defaults to -1 which means no variant.
-     *
-     * @returns the default size of the selected background variant
-     *
-     */
-    QSizeF defaultBackSize() const;
-
-    /**
      * Invalidates all cached images in the current size for the current
      * backside theme
      */
@@ -183,20 +170,6 @@ public:
      * @see CardInfo
      */
     QPixmap frontside(KCardInfo info) const;
-
-    /**
-     * Retrieve the default size for the frontside card.
-     *
-     * Make sure to set a reasonable theme, before calling this function.
-     *
-     * @param info A combination of CardInfo flags to identify what type of card
-     * to load. There are of course only certain combinations that make sense,
-     * like King | Heart, some flags are used standalone, like Joker.
-     *
-     * @returns the default size of the selected frontside card
-     *
-     */
-    QSizeF defaultCardSize(KCardInfo info) const;
 
     /**
      * Invalidates all cached images in the current size for the current

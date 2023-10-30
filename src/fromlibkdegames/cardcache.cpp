@@ -416,63 +416,6 @@ void KCardCache::loadTheme(LoadInfos infos)
     d->loadThread->start(QThread::IdlePriority);
 }
 
-QSizeF KCardCache::defaultCardSize(KCardInfo info) const
-{
-    if (d->deckName.isEmpty())
-        return QSizeF();
-
-    QPixmap pix;
-    QString key = d->deckName + QLatin1Char('_') + info.svgName() + QLatin1String("_default");
-    {
-        QMutexLocker(d->cacheMutex);
-        if (d->cache && d->cache->findPixmap(key, &pix))
-            return pix.size();
-    }
-
-    {
-        QMutexLocker(d->rendererMutex);
-        QSizeF size = d->renderer()->boundsOnElement(info.svgName()).size();
-        pix = QPixmap(size.toSize());
-    }
-
-    {
-        QMutexLocker(d->cacheMutex);
-        if (d->cache)
-            d->cache->insertPixmap(key, pix);
-    }
-
-    return pix.size();
-}
-
-QSizeF KCardCache::defaultBackSize() const
-{
-    if (d->deckName.isEmpty())
-        return QSizeF();
-
-    QString element = QStringLiteral("back");
-    QPixmap pix;
-    QString key = d->deckName + QLatin1Char('_') + element + QLatin1String("_default");
-    {
-        QMutexLocker(d->cacheMutex);
-        if (d->cache && d->cache->findPixmap(key, &pix))
-            return pix.size();
-    }
-
-    {
-        QMutexLocker(d->rendererMutex);
-        QSizeF size = d->renderer()->boundsOnElement(element).size();
-        pix = QPixmap(size.toSize());
-    }
-
-    {
-        QMutexLocker(d->cacheMutex);
-        if (d->cache)
-            d->cache->insertPixmap(key, pix);
-    }
-
-    return pix.size();
-}
-
 void KCardCache::invalidateCache()
 {
     QMutexLocker l(d->cacheMutex);
