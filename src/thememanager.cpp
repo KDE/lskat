@@ -12,6 +12,7 @@
 #include "thememanager.h"
 
 // Qt includes
+#include <QApplication>
 #include <QPixmap>
 #include <QPainter>
 #include <QRectF>
@@ -236,29 +237,35 @@ KConfigGroup ThemeManager::config(const QString &id)
 const QPixmap ThemeManager::getCard(int suite, int cardtype, double width)
 {
     KCardInfo info = convertToKCardInfo(CardDeck::Suite(suite), CardDeck::CardType(cardtype));
-    QSize s(int(width), int(width / mCardAspectRatio));
 
-    if (s != mCardCache->size())
-    {
-        mCardCache->setSize(s);
+    const qreal dpr = qApp->devicePixelRatio();
+    const int deviceWidth = width * dpr;
+    const QSize deviceSize(deviceWidth, int(deviceWidth / mCardAspectRatio));
+
+    if (deviceSize != mCardCache->size()) {
+        mCardCache->setSize(deviceSize);
         QMetaObject::invokeMethod(this, "loadCardsInBackground", Qt::QueuedConnection);
     }
 
     QPixmap pix = mCardCache->frontside(info);
+    pix.setDevicePixelRatio(dpr);
     return pix;
 }
 
 // Get the pixmap for a card back, given the desired card width in pixel
 const QPixmap ThemeManager::getCardback(double width)
 {
-    QSize s(int(width), int(width / mCardAspectRatio));
-    if (s != mCardCache->size())
-    {
-        mCardCache->setSize(s);
+    const qreal dpr = qApp->devicePixelRatio();
+    const int deviceWidth = width * dpr;
+    const QSize deviceSize(deviceWidth, int(deviceWidth / mCardAspectRatio));
+
+    if (deviceSize != mCardCache->size()) {
+        mCardCache->setSize(deviceSize);
         QMetaObject::invokeMethod(this, "loadCardsInBackground", Qt::QueuedConnection);
     }
 
     QPixmap pix = mCardCache->backside();
+    pix.setDevicePixelRatio(dpr);
     return pix;
 }
 
@@ -273,22 +280,26 @@ const QPixmap ThemeManager::getPixmap(QSvgRenderer *renderer, const QString &svg
         return pixmap;
     }
 
+    const auto dpr = qApp->devicePixelRatio();
+    const QSize deviceSize = size * dpr;
+
     // Cached pixmap?
     if (mPixmapCache.contains(svgid))
     {
         pixmap = mPixmapCache[svgid];
-        if (pixmap.size() == size)
+        if (pixmap.size() == deviceSize)
         {
             return pixmap;
         }
     }
 
     // Create new image
-    pixmap = QPixmap(size);
+    pixmap = QPixmap(deviceSize);
     pixmap.fill(Qt::transparent);
     QPainter p(&pixmap);
     renderer->render(&p, svgid);
     p.end();
+    pixmap.setDevicePixelRatio(dpr);
     if (pixmap.isNull())
         qCCritical(LSKAT_LOG) << "ThemeManager::getPixmap Cannot load svgid ID " << svgid;
 
