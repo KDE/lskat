@@ -85,7 +85,7 @@ Mainwindow::Mainwindow(QWidget *parent)
     // Read theme files
     for (const QString &themePath : std::as_const(themeList)) {
         KConfig themeInfo(themePath, KConfig::SimpleConfig);
-        KConfigGroup themeGroup(&themeInfo, "Theme");
+        KConfigGroup themeGroup(&themeInfo, QStringLiteral("Theme"));
         QString name = themeGroup.readEntry("Name", QString());
         QString file = themeGroup.readEntry("File", QString());
         bool isDefault = themeGroup.readEntry("Default", false);
@@ -215,7 +215,7 @@ void Mainwindow::saveProperties()
     KConfig *config = KSharedConfig::openConfig().data();
 
     // Program data
-    KConfigGroup cfg = config->group("ProgramData");
+    KConfigGroup cfg = config->group(QStringLiteral("ProgramData"));
     cfg.writeEntry("startplayer", mStartPlayer);
     cfg.writeEntry("ThemeIndexNo", mThemeIndexNo);
 
@@ -230,7 +230,7 @@ void Mainwindow::readProperties()
     KConfig *config = KSharedConfig::openConfig().data();
 
     // Program data
-    KConfigGroup cfg = config->group("ProgramData");
+    KConfigGroup cfg = config->group(QStringLiteral("ProgramData"));
 
     // Theme number
     mThemeIndexNo = cfg.readEntry("ThemeIndexNo", themeIdxFromName(mThemeDefault));
@@ -466,7 +466,7 @@ void Mainwindow::menuCardDeck()
 {
     QString front = mCardTheme;
 
-    KConfigGroup grp = KSharedConfig::openConfig()->group("ProgramData");
+    KConfigGroup grp = KSharedConfig::openConfig()->group(QStringLiteral("ProgramData"));
     KCardWidget *cardwidget = new KCardWidget();
     QPointer<KCardDialog> dlg;
 

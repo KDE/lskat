@@ -50,7 +50,7 @@ ConfigTwo::~ConfigTwo()
 // Save properties
 void ConfigTwo::save(KConfig *cfg)
 {
-    KConfigGroup group = cfg->group("LSkatData");
+    KConfigGroup group = cfg->group(QStringLiteral("LSkatData"));
     group.writeEntry("input0", (int)mInputTypes[0]);
     group.writeEntry("input1", (int)mInputTypes[1]);
 
@@ -70,7 +70,7 @@ void ConfigTwo::save(KConfig *cfg)
 void ConfigTwo::load(KConfig *cfg)
 {
     reset();
-    KConfigGroup group = cfg->group("LSkatData");
+    KConfigGroup group = cfg->group(QStringLiteral("LSkatData"));
     int num;
     num = group.readEntry("input0", (int)mInputTypes[0]);
     setInputType(0, (InputDeviceType)num);

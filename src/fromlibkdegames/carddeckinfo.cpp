@@ -53,7 +53,7 @@ public:
 
         for (const QString &deckPath : std::as_const(list)) {
             KConfig cfg(deckPath, KConfig::SimpleConfig);
-            KConfigGroup cfgcg(&cfg, "KDE Backdeck");
+            KConfigGroup cfgcg(&cfg, QStringLiteral("KDE Backdeck"));
             QString path = deckPath.left(deckPath.lastIndexOf(QLatin1Char('/')) + 1);
             Q_ASSERT(path[path.length() - 1] == QLatin1Char('/'));
             QPixmap pixmap(path + cfgcg.readEntry("Preview", "12c.png"));
