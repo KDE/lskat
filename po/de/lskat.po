@@ -1,7 +1,7 @@
 # Stefan Winter <swinter@kde.org>, 2004, 2005, 2007.
 # Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2008.
 # Burkhard Lück <lueck@hube-lueck.de>, 2008, 2010.
-# Johannes Obermayr <johannesobermayr@gmx.de>, 2009.
+# Johannes Obermayr <johannesobermayr@gmx.de>, 2009, 2023.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2009.
 # Frederik Schwarzer <schwarzer@kde.org>, 2012.
 msgid ""
@@ -9,14 +9,15 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-10-19 01:40+0000\n"
-"PO-Revision-Date: 2012-05-24 13:35+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"PO-Revision-Date: 2023-12-18 01:45+0100\n"
+"Last-Translator: Johannes Obermayr <johannesobermayr@gmx.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 23.08.4\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -182,10 +183,9 @@ msgid "Player 1 - %1 won "
 msgstr "Spieler 1 – %1 hat gewonnen "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 hat mit 90 Punkten gewonnen. Super!"
+msgstr "%1 hat mit über 90 Punkten gewonnen. Super!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
