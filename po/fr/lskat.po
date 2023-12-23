@@ -7,7 +7,7 @@
 # Nicolas Ternisien <nicolas.ternisien@gmail.com>, 2004, 2005.
 # Nicolas Ternisien <nicolas.ternisien@gmail.com>, 2008, 2010.
 # Ludovic Grossard <grossard@kde.org>, 2008, 2012.
-# SPDX-FileCopyrightText: 2013, 2023 xavier <xavier.besnard@neuf.fr>
+# SPDX-FileCopyrightText: 2013, 2023 Xavier Besnard <xavier.besnard@kde.org>
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
