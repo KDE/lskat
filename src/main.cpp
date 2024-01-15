@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     global_debug = 0;
 
     QApplication application(argc, argv);
-    KLocalizedString::setApplicationDomain("lskat");
+    KLocalizedString::setApplicationDomain(QByteArrayLiteral("lskat"));
 
     KAboutData aboutData(QStringLiteral("lskat"), i18n("LSkat"),
                           QStringLiteral(LSKAT_VERSION_STRING),
