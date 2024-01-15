@@ -75,7 +75,7 @@ ecm_qt_declare_logging_category(lskat
     EXPORT LSKAT
 )
 
-file(GLOB ICONS_SRCS "${CMAKE_CURRENT_SOURCE_DIR}/../*-apps-lskat.png")
+file(GLOB ICONS_SRCS "${CMAKE_SOURCE_DIR}/icons/*-apps-lskat.png")
 ecm_add_app_icon(lskat ICONS ${ICONS_SRCS})
 
 target_link_libraries(lskat
