@@ -67,7 +67,7 @@ Mainwindow::Mainwindow(QWidget *parent)
 
     // Read theme files
     QStringList themeList;
-    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("grafix"), QStandardPaths::LocateDirectory);
+    const QStringList dirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("themes"), QStandardPaths::LocateDirectory);
     for (const QString& dir : dirs) {
         const QStringList fileNames = QDir(dir).entryList({QStringLiteral("*.desktop")});
         themeList.reserve(themeList.size() + fileNames.size());

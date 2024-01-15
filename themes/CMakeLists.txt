@@ -17,7 +17,7 @@ function(install_theme name)
             ${name}.desktop
             ${ARG_RC}
             ${svgz}
-        DESTINATION ${KDE_INSTALL_DATADIR}/lskat/grafix
+        DESTINATION ${KDE_INSTALL_DATADIR}/lskat/themes
     )
 endfunction()
 

@@ -58,7 +58,7 @@ ecm_set_disabled_deprecation_versions(
 )
 
 add_subdirectory(src)
-add_subdirectory(grafix)
+add_subdirectory(themes)
 add_subdirectory(doc)
 
 ########### install files ###############
