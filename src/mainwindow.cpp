@@ -110,7 +110,7 @@ Mainwindow::Mainwindow(QWidget *parent)
 
     // TODO: Bugfix: Needs to be here if initGUI is before readProperties
     if (global_debug > 0) qCDebug(LSKAT_LOG) << "Setting current theme item to " << mThemeIndexNo;
-    ((KSelectAction *)ACTION(QLatin1String("theme")))->setCurrentItem(mThemeIndexNo);
+    ((KSelectAction *)ACTION(QStringLiteral("theme")))->setCurrentItem(mThemeIndexNo);
 
     // Get the card deck
     const quint32 seed = QRandomGenerator::global()->generate();
@@ -434,7 +434,7 @@ void Mainwindow::initGUI()
 // Choose start player
 void Mainwindow::menuStartplayer()
 {
-    int i = ((KSelectAction *)ACTION(QLatin1String("startplayer")))->currentItem();
+    int i = ((KSelectAction *)ACTION(QStringLiteral("startplayer")))->currentItem();
     setStartPlayer(i);
 }
 
@@ -450,14 +450,14 @@ void Mainwindow::changeTheme(int idx)
 // Select input for player 1
 void Mainwindow::menuPlayer1By()
 {
-    int i = ((KSelectAction *)ACTION(QLatin1String("player1")))->currentItem();
+    int i = ((KSelectAction *)ACTION(QStringLiteral("player1")))->currentItem();
     mLSkatConfig->setInputType(0, (InputDeviceType)i);
 }
 
 // Select input for player 2
 void Mainwindow::menuPlayer2By()
 {
-    int i = ((KSelectAction *)ACTION(QLatin1String("player2")))->currentItem();
+    int i = ((KSelectAction *)ACTION(QStringLiteral("player2")))->currentItem();
     mLSkatConfig->setInputType(1, (InputDeviceType)i);
 }
 
@@ -602,7 +602,7 @@ void Mainwindow::menuPlayerNames()
 void Mainwindow::setStartPlayer(int no)
 {
     mStartPlayer = no;
-    ((KSelectAction *)ACTION(QLatin1String("startplayer")))->setCurrentItem(mStartPlayer);
+    ((KSelectAction *)ACTION(QStringLiteral("startplayer")))->setCurrentItem(mStartPlayer);
 }
 
 // Set the input type for a given player number.
@@ -612,12 +612,12 @@ void Mainwindow::setInputType(int no, InputDeviceType type)
     // Player 1
     if (no == 0)
     {
-        ((KSelectAction *)ACTION(QLatin1String("player1")))->setCurrentItem((int)type);
+        ((KSelectAction *)ACTION(QStringLiteral("player1")))->setCurrentItem((int)type);
         p = mLSkatConfig->player(0);
     }
     else if (no == 1)
     {
-        ((KSelectAction *)ACTION(QLatin1String("player2")))->setCurrentItem((int)type);
+        ((KSelectAction *)ACTION(QStringLiteral("player2")))->setCurrentItem((int)type);
         p = mLSkatConfig->player(1);
     }
 
