@@ -82,6 +82,7 @@ target_link_libraries(lskat
     KDEGames6
     KF6::CoreAddons
     KF6::Crash
+    KF6::DBusAddons
     KF6::GuiAddons
     KF6::I18n
     KF6::XmlGui

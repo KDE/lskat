@@ -36,6 +36,7 @@
 #include "mainwindow.h"
 
 #include <KAboutData>
+#include <KDBusService>
 #include <KCrash>
 #include <KLocalizedString>
 
@@ -87,6 +88,7 @@ int main(int argc, char *argv[])
     /* command line handling */
 
     KCrash::initialize();
+    KDBusService service;
 
     // Check for debug command line option
     if (parser.isSet(QStringLiteral("debug")))
