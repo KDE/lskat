@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-10-19 01:40+0000\n"
+"POT-Creation-Date: 2024-01-19 00:36+0000\n"
 "PO-Revision-Date: 2012-06-05 10:11+0800\n"
 "Last-Translator: Franklin Weng <franklin@goodhorse.idv.tw>\n"
 "Language-Team: Chinese Traditional <zh-l10n@lists.linux.org.tw>\n"
@@ -221,62 +221,62 @@ msgstr "設定(&S)"
 msgid "Main Toolbar"
 msgstr "主工具列"
 
-#: main.cpp:61
+#: main.cpp:62
 #, kde-format
 msgid "LSkat"
 msgstr "LSkat"
 
-#: main.cpp:63
+#: main.cpp:64
 #, kde-format
 msgid "LSkat: A desktop card game"
 msgstr "Lskat：紙牌遊戲"
 
-#: main.cpp:65
+#: main.cpp:66
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
 msgstr "(c) 1995-2007, Martin Heni"
 
-#: main.cpp:70
+#: main.cpp:71
 #, kde-format
 msgid "Martin Heni"
 msgstr "Martin Heni"
 
-#: main.cpp:70
+#: main.cpp:71
 #, kde-format
 msgid "Game design and code"
 msgstr "遊戲設計與撰寫"
 
-#: main.cpp:71
+#: main.cpp:72
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Eugene Trounev"
 
-#: main.cpp:71
+#: main.cpp:72
 #, kde-format
 msgid "Graphics"
 msgstr "圖形"
 
-#: main.cpp:73
+#: main.cpp:74
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:73
+#: main.cpp:74
 #, kde-format
 msgid "Code Improvements"
 msgstr "改進程式碼"
 
-#: main.cpp:80
+#: main.cpp:81
 #, kde-format
 msgid "Enter debug level"
 msgstr "輸入除錯等級"
 
-#: main.cpp:81
+#: main.cpp:82
 #, kde-format
 msgid "Skip intro animation"
 msgstr "跳過介紹動畫"
 
-#: main.cpp:82
+#: main.cpp:83
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "以示範模式開始遊戲"
