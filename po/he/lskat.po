@@ -10,19 +10,20 @@
 # license as the program which it accompanies.
 # Diego Iastrubni <elcuco@kde.org>, 2005.
 # Elkana Bardugo <ttv200@gmail.com>, 2017. #zanata
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-19 00:36+0000\n"
-"PO-Revision-Date: 2017-05-16 07:01-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: hebrew <kde-l10n-he@kde.org>\n"
+"PO-Revision-Date: 2024-01-19 08:41+0200\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -131,10 +132,10 @@ msgid "Eight"
 msgstr ""
 
 #: deck.cpp:174
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "card name"
 msgid "Seven"
-msgstr "שרת"
+msgstr "שבע"
 
 #: deck.cpp:183
 #, kde-format
@@ -161,10 +162,10 @@ msgid "K D E"
 msgstr "K D E"
 
 #: display_two.cpp:368
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Resulting score of a game with no point"
 msgid "no point"
-msgstr "%1 נקודות"
+msgstr "אין נקודות"
 
 #: display_two.cpp:370
 #, fuzzy, kde-format
@@ -374,7 +375,7 @@ msgstr "שינוי השחקן אשר ישחק את שחקן 1."
 #: mainwindow.cpp:392
 #, kde-format
 msgid "&Mouse"
-msgstr ""
+msgstr "&עכבר"
 
 #: mainwindow.cpp:393
 #, kde-format
