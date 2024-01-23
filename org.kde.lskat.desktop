@@ -91,6 +91,7 @@ GenericName[sv]=Klassiskt tyskt kortspel
 GenericName[tr]=Klasik Alman Kart Oyunu
 GenericName[uk]=Класична німецька карткова гра
 GenericName[x-test]=xxClassic German Card Gamexx
+GenericName[zh_TW]=經典的德國卡牌遊戲
 Exec=lskat
 Icon=lskat
 Type=Application
