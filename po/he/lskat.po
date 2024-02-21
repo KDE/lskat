@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-19 00:36+0000\n"
-"PO-Revision-Date: 2024-01-19 08:41+0200\n"
+"PO-Revision-Date: 2024-02-20 10:51+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -38,13 +38,13 @@ msgid "Your emails"
 msgstr "kde-l10n-he@kde.org"
 
 #: config_two.cpp:29
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Default player name"
 msgid "Alice"
 msgstr "אפרת"
 
 #: config_two.cpp:30
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Default player name"
 msgid "Bob"
 msgstr "בני"
@@ -52,84 +52,84 @@ msgstr "בני"
 #: deck.cpp:147
 #, kde-format
 msgid "no valid card"
-msgstr ""
+msgstr "אין קלף תקף"
 
 #: deck.cpp:154 deck.cpp:166
 #, kde-format
 msgid "unknown"
-msgstr ""
+msgstr "לא ידוע"
 
 #: deck.cpp:155
 #, kde-format
 msgctxt "suite name"
 msgid "Clubs"
-msgstr ""
+msgstr "תלתנים"
 
 #: deck.cpp:156
 #, kde-format
 msgctxt "suite name"
 msgid "Spades"
-msgstr ""
+msgstr "עלים"
 
 #: deck.cpp:157
 #, kde-format
 msgctxt "suite name"
 msgid "Hearts"
-msgstr ""
+msgstr "לבבות"
 
 #: deck.cpp:158
 #, kde-format
 msgctxt "suite name"
 msgid "Diamonds"
-msgstr ""
+msgstr "יהלומים"
 
 #: deck.cpp:159
 #, kde-format
 msgctxt "trump name"
 msgid "Grand"
-msgstr ""
+msgstr "שליט"
 
 #: deck.cpp:167
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "card name"
 msgid "Ace"
-msgstr "אפרת"
+msgstr "אס"
 
 #: deck.cpp:168
 #, kde-format
 msgctxt "card name"
 msgid "King"
-msgstr ""
+msgstr "מלך"
 
 #: deck.cpp:169
 #, kde-format
 msgctxt "card name"
 msgid "Queen"
-msgstr ""
+msgstr "מלכה"
 
 #: deck.cpp:170
 #, kde-format
 msgctxt "card name"
 msgid "Jack"
-msgstr ""
+msgstr "נסיך"
 
 #: deck.cpp:171
 #, kde-format
 msgctxt "card name"
 msgid "Ten"
-msgstr ""
+msgstr "עשר"
 
 #: deck.cpp:172
 #, kde-format
 msgctxt "card name"
 msgid "Nine"
-msgstr ""
+msgstr "תשע"
 
 #: deck.cpp:173
 #, kde-format
 msgctxt "card name"
 msgid "Eight"
-msgstr ""
+msgstr "שמונה"
 
 #: deck.cpp:174
 #, kde-format
@@ -141,22 +141,22 @@ msgstr "שבע"
 #, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"
-msgstr ""
+msgstr "%1 מתוך %2"
 
 #: display_intro.cpp:92
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Title of the game - line 1"
 msgid "Lieutenant Skat"
-msgstr "Lieutenant Skat"
+msgstr "הקצין סקאט"
 
 #: display_intro.cpp:93
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Title of the game - line 2"
 msgid "for"
-msgstr "עבור"
+msgstr "לטובת"
 
 #: display_intro.cpp:94
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Title of the game - line 3"
 msgid "K D E"
 msgstr "K D E"
@@ -168,113 +168,112 @@ msgid "no point"
 msgstr "אין נקודות"
 
 #: display_two.cpp:370
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Resulting score of a game between 1 and 4"
 msgid "%1 point"
 msgid_plural "%1 points"
-msgstr[0] "%1 נקודות"
+msgstr[0] "נקודה"
 msgstr[1] "%1 נקודות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[2] "%1 נקודות"
+msgstr[3] "%1 נקודות"
 
 #: engine_two.cpp:235
-#, fuzzy, kde-format
+#, kde-format
 msgid "Game was ended - no winner"
-msgstr "המשחק בוטל - אין מנצח"
+msgstr "המשחק נגמר - לא הוכרז ניצחון"
 
 #: engine_two.cpp:244
-#, fuzzy, kde-format
+#, kde-format
 msgid "Game is drawn"
-msgstr "תיקו"
+msgstr "המשחק נגמר בתיקו"
 
 #: engine_two.cpp:250
-#, fuzzy, kde-format
+#, kde-format
 msgid "Player 1 - %1 won "
-msgstr "שחקן 2 - %1 ניצח"
+msgstr "שחקן 1 - הניצחון של %1 "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 won with 90 points. Super!"
+msgstr "ניצחון של למעלה מ־90 נקודות לטובת %1. מצוין!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
 msgid "%1 won to nil. Congratulations!"
-msgstr "%1 won to nil. Congratulations!"
+msgstr "ניצחון מוחץ לטובת %1. ברכות!"
 
 #: engine_two.cpp:270
 #, kde-format
 msgid "Player 2 - %1 won "
-msgstr "שחקן 2 - %1 ניצח"
+msgstr "שחקן 2 - הניצחון של %1"
 
 #: engine_two.cpp:344
-#, fuzzy, kde-format
+#, kde-format
 msgid "Game ended"
-msgstr "שם המשחק:"
+msgstr "המשחק נגמר"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Game"
-msgstr "משחקים:"
+msgstr "מ&שחק"
 
 #. i18n: ectx: Menu (settings)
 #: lskatui.rc:12
 #, kde-format
 msgid "&Settings"
-msgstr ""
+msgstr "ה&גדרות"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: lskatui.rc:24
 #, kde-format
 msgid "Main Toolbar"
-msgstr ""
+msgstr "סרגל כלים ראשי"
 
 #: main.cpp:62
 #, kde-format
 msgid "LSkat"
-msgstr ""
+msgstr "LSkat"
 
 #: main.cpp:64
 #, kde-format
 msgid "LSkat: A desktop card game"
-msgstr ""
+msgstr "LSkat: משחק קלפים למחשב"
 
 #: main.cpp:66
-#, fuzzy, kde-format
+#, kde-format
 msgid "(c) 1995-2007, Martin Heni"
-msgstr "(c) Martin Heni   "
+msgstr "(c) 1995‏-2007, מרטין הני"
 
 #: main.cpp:71
-#, fuzzy, kde-format
+#, kde-format
 msgid "Martin Heni"
-msgstr "(c) Martin Heni   "
+msgstr "מרטין הני"
 
 #: main.cpp:71
 #, kde-format
 msgid "Game design and code"
-msgstr ""
+msgstr "עיצוב משחק ותכנות"
 
 #: main.cpp:72
 #, kde-format
 msgid "Eugene Trounev"
-msgstr ""
+msgstr "יוג׳ין טרונב"
 
 #: main.cpp:72
 #, kde-format
 msgid "Graphics"
-msgstr ""
+msgstr "גרפיקה"
 
 #: main.cpp:74
 #, kde-format
 msgid "Benjamin Meyer"
-msgstr ""
+msgstr "בנג׳מין מייר"
 
 #: main.cpp:74
 #, kde-format
 msgid "Code Improvements"
-msgstr ""
+msgstr "שיפורי קוד"
 
 #: main.cpp:81
 #, kde-format
@@ -284,38 +283,38 @@ msgstr "היכנס לרמת ניפוי באגים"
 #: main.cpp:82
 #, kde-format
 msgid "Skip intro animation"
-msgstr ""
+msgstr "דילוג על הנפשת הפתיחה"
 
 #: main.cpp:83
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
-msgstr ""
+msgstr "הרצת המשחק במצב הדגמה (משחק אוטומטי)"
 
 #: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
-msgstr ""
+msgstr "שגיאת התקנה: לא נמצאה רשימת ערכות עיצוב."
 
 #: mainwindow.cpp:126
 #, kde-format
 msgid "Installation error: Theme file error."
-msgstr ""
+msgstr "שגיאת התקנה: שגיאת קובץ ערכת עיצוב."
 
 #: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
-msgstr ""
+msgstr "ברוך בואך לסקאט! נא להתחיל משחק חדש."
 
 #: mainwindow.cpp:333
-#, fuzzy, kde-format
+#, kde-format
 msgid "Game Over. Please start a new game."
-msgstr "התחלת משחק חדש..."
+msgstr "המשחק נגמר. נא להתחיל משחק חדש."
 
 #: mainwindow.cpp:347
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
-msgstr ""
+msgstr "המהלך הבא של %1 (שחקן %2)"
 
 #: mainwindow.cpp:361
 #, kde-format
@@ -323,9 +322,9 @@ msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "ניקוי הסטטיסטיקה לגבי זמנים הנשמרת עבור כל ההפעלות."
 
 #: mainwindow.cpp:366
-#, fuzzy, kde-format
+#, kde-format
 msgid "Ends a currently played game. No winner will be declared."
-msgstr "עזיבת המשחק הנוכחי. אף אחד מהשחקנים לא יוכתר כמנצח."
+msgstr "מסיים את המשחק שמתקיים כעת. לא יוכרז מנצח."
 
 #: mainwindow.cpp:371
 #, kde-format
@@ -340,7 +339,7 @@ msgstr "השחקן המתחיל"
 #: mainwindow.cpp:377
 #, kde-format
 msgid "Changing starting player..."
-msgstr "שינוי השחקן שיתחיל..."
+msgstr "שינוי השחקן שיתחיל…"
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -365,12 +364,12 @@ msgstr "שחקן &1 משוחק על ידי"
 #: mainwindow.cpp:389
 #, kde-format
 msgid "Changing who plays player 1..."
-msgstr "שינוי השחקן אשר ישחק את שחקן 1."
+msgstr "שינוי השחקן שישחק את שחקן 1."
 
 #: mainwindow.cpp:390
-#, fuzzy, kde-format
+#, kde-format
 msgid "Changing who plays player 1."
-msgstr "שינוי השחקן אשר ישחק את שחקן 1."
+msgstr "שינוי השחקן שישחק את שחקן 1."
 
 #: mainwindow.cpp:392
 #, kde-format
@@ -380,7 +379,7 @@ msgstr "&עכבר"
 #: mainwindow.cpp:393
 #, kde-format
 msgid "&Computer"
-msgstr "&מחשב"
+msgstr "מ&חשב"
 
 #: mainwindow.cpp:399
 #, kde-format
@@ -390,67 +389,67 @@ msgstr "שחקן &2 משוחק על ידי"
 #: mainwindow.cpp:402
 #, kde-format
 msgid "Changing who plays player 2..."
-msgstr "שינוי השחקן אשר ישחק את שחקן 2."
+msgstr "שינוי השחקן שישחק את שחקן 2."
 
 #: mainwindow.cpp:403
-#, fuzzy, kde-format
+#, kde-format
 msgid "Changing who plays player 2."
-msgstr "שינוי השחקן אשר ישחק את שחקן 2."
+msgstr "שינוי השחקן שישחק את שחקן 2."
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Theme"
-msgstr "מ&רוחק"
+msgstr "&ערכת עיצוב"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
+#, kde-format
 msgid "Changing theme..."
-msgstr "שינוי רמת הקושי."
+msgstr "ערכת העיצוב מוחלפת…"
 
 #: mainwindow.cpp:418
-#, fuzzy, kde-format
+#, kde-format
 msgid "Changing theme."
-msgstr "שינוי רמת הקושי."
+msgstr "החלפת ערכת העיצוב."
 
 #: mainwindow.cpp:422
 #, kde-format
 msgid "Select &Card Deck..."
-msgstr "בחירת &חפיסת קלפים..."
+msgstr "בחירת &חפיסת קלפים…"
 
 #: mainwindow.cpp:424
 #, kde-format
 msgid "Configure card decks..."
-msgstr "הגדרות חפיסות קלפים..."
+msgstr "הגדרות חפיסות קלפים…"
 
 #: mainwindow.cpp:425
 #, kde-format
 msgid "Choose how the cards should look."
-msgstr "בחירה המראה של הקלפים."
+msgstr "בחירת מראה הקלפים."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Change Player Names..."
-msgstr "שמות השחקנים"
+msgstr "ה&חלפת שמות השחקנים…"
 
 #: mainwindow.cpp:500
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
-msgstr "האם אתה בטוח שברצונך לנקות את כל הנתונים הסטטיסטיים לגבי זמנים?"
+msgstr "לנקות את כל הנתונים הסטטיסטיים לגבי זמנים?"
 
 #: mainwindow.cpp:573
 #, kde-format
 msgid "Dealing cards..."
-msgstr ""
+msgstr "הקלפים מחולקים…"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
 #, kde-format
 msgid "Configure Names"
-msgstr "הגדרות שמות"
+msgstr "הגדרת שמות"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: namedialog.ui:20
-#, fuzzy, kde-format
+#, kde-format
 msgid "Player Names"
 msgstr "שמות השחקנים"
 
@@ -467,13 +466,13 @@ msgid "Player 2:"
 msgstr "שחקן 2:"
 
 #: scoresprite.cpp:171
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Score in score widget"
 msgid "Score: %1"
-msgstr "נקודות:"
+msgstr "ניקוד: %1"
 
 #: scoresprite.cpp:179
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
-msgstr "משחקים:"
+msgstr "משחקים: %1 / %2"
