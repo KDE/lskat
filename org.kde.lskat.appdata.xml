@@ -20,6 +20,7 @@
   <name xml:lang="fi">LSkat</name>
   <name xml:lang="fr">LSkat</name>
   <name xml:lang="gl">LSkat</name>
+  <name xml:lang="he">LSkat</name>
   <name xml:lang="hu">LSkat</name>
   <name xml:lang="id">LSkat</name>
   <name xml:lang="it">LSkat</name>
@@ -59,6 +60,7 @@
   <summary xml:lang="fi">Saksalainen skat-korttipeli kahdelle pelaajalle</summary>
   <summary xml:lang="fr">Jeu de cartes allemand « Skat » pour deux joueurs</summary>
   <summary xml:lang="gl">Xogo de cartas alemán Skat para dúas persoas.</summary>
+  <summary xml:lang="he">משחק הקלפים הגרמני סקאט לשני שחקנים</summary>
   <summary xml:lang="hu">Skat, egy német kártyajáték két játékos részére</summary>
   <summary xml:lang="id">Permainan kartu Skat Jerman untuk dua pemain</summary>
   <summary xml:lang="it">Gioco di carte tedesco Skat per due giocatori</summary>
@@ -97,6 +99,7 @@
     <p xml:lang="fi">Luutnantti-skat (saksan Offiziersskat) on hauska ja viihdyttävä kahden pelaajan korttipeli, missä toinen pelaajista on joko ihminen tai tekoäly.</p>
     <p xml:lang="fr">Le Skat (de l'allemand « Offiziersskat ») est un jeu de cartes amusant et ludique pour deux joueurs, le second joueur peut être un humain ou une intelligence artificielle.</p>
     <p xml:lang="gl">O Tenente Skat (do alemán «Offiziersskat») é un xogo de cartas para dous xogadores no que o segundo xogador tanto pode ser un adversario ao vivo ou un xogador de intelixencia artificial.</p>
+    <p xml:lang="he">הקצין סקאט (מגרמנית „Offiziersskat”) הוא משחק מאתגר ומהנה לשני שחקנים, השחקן השני יכול להיות אדם או מנגנון בינה מלאכותית מובנה.</p>
     <p xml:lang="hu">A Skat hadnagy  (németül „Offiziersskat”) egy szórakoztató és magával ragadó kártyajáték két játékos számára, ahol a második játékos vagy élő ellenfél, vagy egy beépített mesterséges intelligencia.</p>
     <p xml:lang="id">Lieutenant Skat (dari German "Offiziersskat") adalah sebuah permainan yang menyenangkan dan permainan kartu yang menarik untuk dua pemain, dimana pemain kedua adalah antara lawan hidup, atau dibangun dalam kecerdasan buatan.</p>
     <p xml:lang="it">Tenente Skat (dal tedesco «Offiziersskat») è un gioco di carte divertente e coinvolgente per due giocatori, in cui il secondo giocatore è una persona o un'intelligenza artificiale.</p>
