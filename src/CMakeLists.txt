@@ -69,7 +69,8 @@ ki18n_wrap_ui(lskat
 ecm_qt_declare_logging_category(lskat
     HEADER lskat_debug.h
     IDENTIFIER LSKAT_LOG
-    CATEGORY_NAME org.kde.lskat
+    CATEGORY_NAME lskat
+    OLD_CATEGORY_NAMES org.kde.lskat
     DEFAULT_SEVERITY Debug
     DESCRIPTION "LSkat game"
     EXPORT LSKAT
