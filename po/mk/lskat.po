@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:37+0000\n"
 "PO-Revision-Date: 2006-04-26 01:34+0200\n"
 "Last-Translator: Zaklina Gjalevska <gjalevska@yahoo.com>\n"
 "Language-Team: Macedonian <mkde-l10n@lists.sourceforge.net>\n"
@@ -337,13 +337,17 @@ msgid "Quits the program."
 msgstr "Излегува од програмата."
 
 #: mainwindow.cpp:374
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Starting Player"
+msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Почетен играч"
 
 #: mainwindow.cpp:377
-#, kde-format
-msgid "Changing starting player..."
+#, fuzzy, kde-format
+#| msgid "Changing starting player..."
+msgctxt "@info:tooltip"
+msgid "Change starting player"
 msgstr "Промена на почетниот играч..."
 
 #: mainwindow.cpp:378
@@ -352,23 +356,30 @@ msgid "Chooses which player begins the next game."
 msgstr "Избира кој играч ќе ја започне следната игра."
 
 #: mainwindow.cpp:380
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1"
+msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "Играч &1"
 
 #: mainwindow.cpp:381
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2"
+msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "Играч &2"
 
 #: mainwindow.cpp:386
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1 Played By"
+msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "Со играчот &1 игра"
 
 #: mainwindow.cpp:389
-#, kde-format
-msgid "Changing who plays player 1..."
+#, fuzzy, kde-format
+msgctxt "@info:tooltip"
+msgid "Change who plays player 1"
 msgstr "Менувам кој ќе игра со играчот 1..."
 
 #: mainwindow.cpp:390
@@ -378,22 +389,28 @@ msgstr "Менувам кој ќе игра со играчот 1..."
 
 #: mainwindow.cpp:392
 #, kde-format
+msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr ""
 
 #: mainwindow.cpp:393
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Computer"
+msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Компјутер"
 
 #: mainwindow.cpp:399
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2 Played By"
+msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "Со играчот &2 игра"
 
 #: mainwindow.cpp:402
-#, kde-format
-msgid "Changing who plays player 2..."
+#, fuzzy, kde-format
+msgctxt "@info:tooltip"
+msgid "Change who plays player 2"
 msgstr "Менувам кој ќе игра со играчот 2..."
 
 #: mainwindow.cpp:403
@@ -404,13 +421,15 @@ msgstr "Менувам кој ќе игра со играчот 2..."
 #: mainwindow.cpp:411
 #, fuzzy, kde-format
 #| msgid "&Remote"
+msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Мрежен играч"
 
 #: mainwindow.cpp:417
 #, fuzzy, kde-format
 #| msgid "Change level..."
-msgid "Changing theme..."
+msgctxt "@info:tooltip"
+msgid "Change theme"
 msgstr "Менува ниво..."
 
 #: mainwindow.cpp:418
@@ -420,13 +439,17 @@ msgid "Changing theme."
 msgstr "Менува ниво..."
 
 #: mainwindow.cpp:422
-#, kde-format
-msgid "Select &Card Deck..."
+#, fuzzy, kde-format
+#| msgid "Select &Card Deck..."
+msgctxt "@action"
+msgid "Select &Card Deck…"
 msgstr "&Избери шпил..."
 
 #: mainwindow.cpp:424
-#, kde-format
-msgid "Configure card decks..."
+#, fuzzy, kde-format
+#| msgid "Configure card decks..."
+msgctxt "@info:tooltip"
+msgid "Configure card decks"
 msgstr "Конфигурација на шпиловите карти..."
 
 #: mainwindow.cpp:425
@@ -436,7 +459,8 @@ msgstr "Изберете како да изгледаат картите."
 
 #: mainwindow.cpp:429
 #, fuzzy, kde-format
-msgid "&Change Player Names..."
+msgctxt "@action"
+msgid "&Change Player Names…"
 msgstr "Имиња на играчите"
 
 #: mainwindow.cpp:500
@@ -446,7 +470,8 @@ msgstr "Дали навистина сакате да ги избришете с
 
 #: mainwindow.cpp:573
 #, kde-format
-msgid "Dealing cards..."
+msgctxt "@info"
+msgid "Dealing cards…"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
@@ -486,6 +511,17 @@ msgstr "Резултат:"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "Игри:"
+
+#~ msgid "Changing who plays player 1..."
+#~ msgstr "Менувам кој ќе игра со играчот 1..."
+
+#~ msgid "Changing who plays player 2..."
+#~ msgstr "Менувам кој ќе игра со играчот 2..."
+
+#, fuzzy
+#~| msgid "Change level..."
+#~ msgid "Changing theme..."
+#~ msgstr "Менува ниво..."
 
 #, fuzzy
 #~ msgid "Player %1 won "

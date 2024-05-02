@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:37+0000\n"
 "PO-Revision-Date: 2024-04-22 15:58\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -319,13 +319,17 @@ msgid "Quits the program."
 msgstr "退出程序。"
 
 #: mainwindow.cpp:374
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Starting Player"
+msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "开始玩家"
 
 #: mainwindow.cpp:377
-#, kde-format
-msgid "Changing starting player..."
+#, fuzzy, kde-format
+#| msgid "Changing starting player..."
+msgctxt "@info:tooltip"
+msgid "Change starting player"
 msgstr "改变开始玩家..."
 
 #: mainwindow.cpp:378
@@ -334,24 +338,32 @@ msgid "Chooses which player begins the next game."
 msgstr "选择由哪个玩家开始下一局游戏。"
 
 #: mainwindow.cpp:380
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1"
+msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "玩家甲(&1)"
 
 #: mainwindow.cpp:381
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2"
+msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "玩家乙(&2)"
 
 #: mainwindow.cpp:386
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1 Played By"
+msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "玩家甲为(&1)"
 
 #: mainwindow.cpp:389
-#, kde-format
-msgid "Changing who plays player 1..."
-msgstr "改变由谁控制玩家甲..."
+#, fuzzy, kde-format
+#| msgid "Changing who plays player 1."
+msgctxt "@info:tooltip"
+msgid "Change who plays player 1"
+msgstr "改变由谁控制玩家甲。"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -359,24 +371,32 @@ msgid "Changing who plays player 1."
 msgstr "改变由谁控制玩家甲。"
 
 #: mainwindow.cpp:392
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Mouse"
+msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "鼠标(&M)"
 
 #: mainwindow.cpp:393
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Computer"
+msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "电脑(&C)"
 
 #: mainwindow.cpp:399
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2 Played By"
+msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "玩家乙为(&2)"
 
 #: mainwindow.cpp:402
-#, kde-format
-msgid "Changing who plays player 2..."
-msgstr "改变由谁控制玩家乙..."
+#, fuzzy, kde-format
+#| msgid "Changing who plays player 2."
+msgctxt "@info:tooltip"
+msgid "Change who plays player 2"
+msgstr "改变由谁控制玩家乙。"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -384,14 +404,18 @@ msgid "Changing who plays player 2."
 msgstr "改变由谁控制玩家乙。"
 
 #: mainwindow.cpp:411
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Theme"
+msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "主题(&T)"
 
 #: mainwindow.cpp:417
-#, kde-format
-msgid "Changing theme..."
-msgstr "更改主题..."
+#, fuzzy, kde-format
+#| msgid "Changing theme."
+msgctxt "@info:tooltip"
+msgid "Change theme"
+msgstr "更改主题。"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -399,13 +423,17 @@ msgid "Changing theme."
 msgstr "更改主题。"
 
 #: mainwindow.cpp:422
-#, kde-format
-msgid "Select &Card Deck..."
+#, fuzzy, kde-format
+#| msgid "Select &Card Deck..."
+msgctxt "@action"
+msgid "Select &Card Deck…"
 msgstr "选择牌垛(&C)..."
 
 #: mainwindow.cpp:424
-#, kde-format
-msgid "Configure card decks..."
+#, fuzzy, kde-format
+#| msgid "Configure card decks..."
+msgctxt "@info:tooltip"
+msgid "Configure card decks"
 msgstr "配置牌垛..."
 
 #: mainwindow.cpp:425
@@ -414,8 +442,10 @@ msgid "Choose how the cards should look."
 msgstr "选择牌的外观。"
 
 #: mainwindow.cpp:429
-#, kde-format
-msgid "&Change Player Names..."
+#, fuzzy, kde-format
+#| msgid "&Change Player Names..."
+msgctxt "@action"
+msgid "&Change Player Names…"
 msgstr "更改玩家名字(&C)"
 
 #: mainwindow.cpp:500
@@ -424,8 +454,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "您真的要清除所有时间统计数据吗？"
 
 #: mainwindow.cpp:573
-#, kde-format
-msgid "Dealing cards..."
+#, fuzzy, kde-format
+#| msgid "Dealing cards..."
+msgctxt "@info"
+msgid "Dealing cards…"
 msgstr "正在处置牌..."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
@@ -463,3 +495,12 @@ msgstr "分数：%1"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "游戏：%1/%2"
+
+#~ msgid "Changing who plays player 1..."
+#~ msgstr "改变由谁控制玩家甲..."
+
+#~ msgid "Changing who plays player 2..."
+#~ msgstr "改变由谁控制玩家乙..."
+
+#~ msgid "Changing theme..."
+#~ msgstr "更改主题..."

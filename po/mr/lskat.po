@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:37+0000\n"
 "PO-Revision-Date: 2013-03-12 18:29+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
@@ -321,12 +321,14 @@ msgstr ""
 
 #: mainwindow.cpp:374
 #, kde-format
+msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr ""
 
 #: mainwindow.cpp:377
 #, kde-format
-msgid "Changing starting player..."
+msgctxt "@info:tooltip"
+msgid "Change starting player"
 msgstr ""
 
 #: mainwindow.cpp:378
@@ -335,23 +337,30 @@ msgid "Chooses which player begins the next game."
 msgstr ""
 
 #: mainwindow.cpp:380
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1"
+msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "खेळाडू &1"
 
 #: mainwindow.cpp:381
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2"
+msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "खेळाडू &2"
 
 #: mainwindow.cpp:386
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1"
+msgctxt "@title:menu"
 msgid "Player &1 Played By"
-msgstr ""
+msgstr "खेळाडू &1"
 
 #: mainwindow.cpp:389
 #, kde-format
-msgid "Changing who plays player 1..."
+msgctxt "@info:tooltip"
+msgid "Change who plays player 1"
 msgstr ""
 
 #: mainwindow.cpp:390
@@ -360,23 +369,30 @@ msgid "Changing who plays player 1."
 msgstr ""
 
 #: mainwindow.cpp:392
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Mouse"
+msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "माऊस (&M)"
 
 #: mainwindow.cpp:393
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Computer"
+msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "संगणक (&C)"
 
 #: mainwindow.cpp:399
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2"
+msgctxt "@title:menu"
 msgid "Player &2 Played By"
-msgstr ""
+msgstr "खेळाडू &2"
 
 #: mainwindow.cpp:402
 #, kde-format
-msgid "Changing who plays player 2..."
+msgctxt "@info:tooltip"
+msgid "Change who plays player 2"
 msgstr ""
 
 #: mainwindow.cpp:403
@@ -385,14 +401,18 @@ msgid "Changing who plays player 2."
 msgstr ""
 
 #: mainwindow.cpp:411
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Theme"
+msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "शैली (&T)"
 
 #: mainwindow.cpp:417
-#, kde-format
-msgid "Changing theme..."
-msgstr "शैली बदलत आहे..."
+#, fuzzy, kde-format
+#| msgid "Changing theme."
+msgctxt "@info:tooltip"
+msgid "Change theme"
+msgstr "शैली बदलत आहे."
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -401,13 +421,16 @@ msgstr "शैली बदलत आहे."
 
 #: mainwindow.cpp:422
 #, kde-format
-msgid "Select &Card Deck..."
+msgctxt "@action"
+msgid "Select &Card Deck…"
 msgstr ""
 
 #: mainwindow.cpp:424
-#, kde-format
-msgid "Configure card decks..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Configure Names"
+msgctxt "@info:tooltip"
+msgid "Configure card decks"
+msgstr "नावे संयोजीत करा"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -415,9 +438,11 @@ msgid "Choose how the cards should look."
 msgstr ""
 
 #: mainwindow.cpp:429
-#, kde-format
-msgid "&Change Player Names..."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "Player Names"
+msgctxt "@action"
+msgid "&Change Player Names…"
+msgstr "खेळाडू नावे"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -426,7 +451,8 @@ msgstr ""
 
 #: mainwindow.cpp:573
 #, kde-format
-msgid "Dealing cards..."
+msgctxt "@info"
+msgid "Dealing cards…"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
@@ -464,6 +490,9 @@ msgstr "अंक : %1"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "खेळ : %1 / %2"
+
+#~ msgid "Changing theme..."
+#~ msgstr "शैली बदलत आहे..."
 
 #~ msgid "OK"
 #~ msgstr "ठीक आहे"

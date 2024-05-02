@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:37+0000\n"
 "PO-Revision-Date: 2012-07-10 15:57+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer\n"
@@ -321,13 +321,17 @@ msgid "Quits the program."
 msgstr "ចេញ​ពី​កម្មវិធី ។"
 
 #: mainwindow.cpp:374
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Starting Player"
+msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "អ្នក​លេង​ចាប់​ផ្ដើម​"
 
 #: mainwindow.cpp:377
-#, kde-format
-msgid "Changing starting player..."
+#, fuzzy, kde-format
+#| msgid "Changing starting player..."
+msgctxt "@info:tooltip"
+msgid "Change starting player"
 msgstr "កំពុង​ផ្លាស់ប្ដូរ​អ្នក​លេង​ចាប់​ផ្ដើម..."
 
 #: mainwindow.cpp:378
@@ -336,24 +340,32 @@ msgid "Chooses which player begins the next game."
 msgstr "ជ្រើស​អ្នក​លេង​មួយ​ណាដែលត្រូវ​ចាប់​ផ្ដើម​ល្បែង​បន្ទាប់ ។"
 
 #: mainwindow.cpp:380
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1"
+msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "អ្នក​លេង ១"
 
 #: mainwindow.cpp:381
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2"
+msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "អ្នក​លេង ២"
 
 #: mainwindow.cpp:386
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1 Played By"
+msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "អ្នក​លេង ១ ត្រូវ​លេង​ដោយ"
 
 #: mainwindow.cpp:389
-#, kde-format
-msgid "Changing who plays player 1..."
-msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវលេង​ជា​អ្នក​លេង​ទី ១..."
+#, fuzzy, kde-format
+#| msgid "Changing who plays player 1."
+msgctxt "@info:tooltip"
+msgid "Change who plays player 1"
+msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវ​លេង​ជា​អ្នក​លេង​ទី ១"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -361,24 +373,32 @@ msgid "Changing who plays player 1."
 msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវ​លេង​ជា​អ្នក​លេង​ទី ១"
 
 #: mainwindow.cpp:392
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Mouse"
+msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "កណ្តុរ"
 
 #: mainwindow.cpp:393
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Computer"
+msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "កុំព្យូទ័រ"
 
 #: mainwindow.cpp:399
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2 Played By"
+msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "អ្នក​លេង ២ ត្រូវ​​លេង​ដោយ"
 
 #: mainwindow.cpp:402
-#, kde-format
-msgid "Changing who plays player 2..."
-msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវលេង​ជា​អ្នក​លេង​ទី ២..."
+#, fuzzy, kde-format
+#| msgid "Changing who plays player 2."
+msgctxt "@info:tooltip"
+msgid "Change who plays player 2"
+msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវ​លេង​ជា​អ្នក​លេង​ទី ២ ។"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -386,13 +406,17 @@ msgid "Changing who plays player 2."
 msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវ​លេង​ជា​អ្នក​លេង​ទី ២ ។"
 
 #: mainwindow.cpp:411
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Theme"
+msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "ស្បែក"
 
 #: mainwindow.cpp:417
-#, kde-format
-msgid "Changing theme..."
+#, fuzzy, kde-format
+#| msgid "Changing theme."
+msgctxt "@info:tooltip"
+msgid "Change theme"
 msgstr "ផ្លាស់​ប្ដូរ​ស្បែក..."
 
 #: mainwindow.cpp:418
@@ -401,13 +425,17 @@ msgid "Changing theme."
 msgstr "ផ្លាស់​ប្ដូរ​ស្បែក..."
 
 #: mainwindow.cpp:422
-#, kde-format
-msgid "Select &Card Deck..."
+#, fuzzy, kde-format
+#| msgid "Select &Card Deck..."
+msgctxt "@action"
+msgid "Select &Card Deck…"
 msgstr "ជ្រើស​ហ៊ូបៀ"
 
 #: mainwindow.cpp:424
-#, kde-format
-msgid "Configure card decks..."
+#, fuzzy, kde-format
+#| msgid "Configure card decks..."
+msgctxt "@info:tooltip"
+msgid "Configure card decks"
 msgstr "កំណត់​រចនាសម្ព័ន្ធ​ហ៊ូបៀ"
 
 #: mainwindow.cpp:425
@@ -416,8 +444,10 @@ msgid "Choose how the cards should look."
 msgstr "ជ្រើស​នូវ​វិធី​ដែល​បៀ​គួរ​បង្ហាញ ។"
 
 #: mainwindow.cpp:429
-#, kde-format
-msgid "&Change Player Names..."
+#, fuzzy, kde-format
+#| msgid "&Change Player Names..."
+msgctxt "@action"
+msgid "&Change Player Names…"
 msgstr "ផ្លាស់ប្ដូរ​ឈ្មោះ​អ្នក​លេង..."
 
 #: mainwindow.cpp:500
@@ -426,8 +456,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "តើ​អ្នក​ពិត​ជា​ចង់​ជម្រះ​ទិន្នន័យ​ស្ថិតិ​ពេល​វេលា​ទាំង​អស់​ឬទេ ?"
 
 #: mainwindow.cpp:573
-#, kde-format
-msgid "Dealing cards..."
+#, fuzzy, kde-format
+#| msgid "Dealing cards..."
+msgctxt "@info"
+msgid "Dealing cards…"
 msgstr "កំពុង​ចែកបៀ..."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
@@ -465,6 +497,15 @@ msgstr "ពិន្ទុ ៖ %1"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "ល្បែង ៖ %1 / %2"
+
+#~ msgid "Changing who plays player 1..."
+#~ msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវលេង​ជា​អ្នក​លេង​ទី ១..."
+
+#~ msgid "Changing who plays player 2..."
+#~ msgstr "កំពុង​ផ្លាស់​ប្ដូរ​នរណា​ត្រូវលេង​ជា​អ្នក​លេង​ទី ២..."
+
+#~ msgid "Changing theme..."
+#~ msgstr "ផ្លាស់​ប្ដូរ​ស្បែក..."
 
 #~ msgid "OK"
 #~ msgstr "យល់​​ព្រម​"

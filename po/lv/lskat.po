@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:37+0000\n"
 "PO-Revision-Date: 2010-04-25 21:50+0300\n"
 "Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -325,13 +325,17 @@ msgid "Quits the program."
 msgstr "Iziet no programmas."
 
 #: mainwindow.cpp:374
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Starting Player"
+msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Sākošais spēlētājs"
 
 #: mainwindow.cpp:377
-#, kde-format
-msgid "Changing starting player..."
+#, fuzzy, kde-format
+#| msgid "Changing starting player..."
+msgctxt "@info:tooltip"
+msgid "Change starting player"
 msgstr "Maina sākošo spēlētāju..."
 
 #: mainwindow.cpp:378
@@ -340,24 +344,32 @@ msgid "Chooses which player begins the next game."
 msgstr "Izvēlas kurš spēlētājs sāks nākamo spēli."
 
 #: mainwindow.cpp:380
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1"
+msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "&1. spēlētājs"
 
 #: mainwindow.cpp:381
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2"
+msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "&2. spēlētājs"
 
 #: mainwindow.cpp:386
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1 Played By"
+msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "Kā &1 spēlētājs spēlē"
 
 #: mainwindow.cpp:389
-#, kde-format
-msgid "Changing who plays player 1..."
-msgstr "Maina kurš spēlē kā 1. spēlētājs..."
+#, fuzzy, kde-format
+#| msgid "Changing who plays player 1."
+msgctxt "@info:tooltip"
+msgid "Change who plays player 1"
+msgstr "Maina kurš spēlē kā 1. spēlētājs."
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -365,24 +377,32 @@ msgid "Changing who plays player 1."
 msgstr "Maina kurš spēlē kā 1. spēlētājs."
 
 #: mainwindow.cpp:392
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Mouse"
+msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Pele"
 
 #: mainwindow.cpp:393
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Computer"
+msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Dators"
 
 #: mainwindow.cpp:399
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2 Played By"
+msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "Kā &2 spēlētājs spēlē"
 
 #: mainwindow.cpp:402
-#, kde-format
-msgid "Changing who plays player 2..."
-msgstr "Maina kurš spēlē kā 2. spēlētājs..."
+#, fuzzy, kde-format
+#| msgid "Changing who plays player 2."
+msgctxt "@info:tooltip"
+msgid "Change who plays player 2"
+msgstr "Maina kurš spēlē kā 2. spēlētājs."
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -390,14 +410,18 @@ msgid "Changing who plays player 2."
 msgstr "Maina kurš spēlē kā 2. spēlētājs."
 
 #: mainwindow.cpp:411
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Theme"
+msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Tēma"
 
 #: mainwindow.cpp:417
-#, kde-format
-msgid "Changing theme..."
-msgstr "Maina tēmu..."
+#, fuzzy, kde-format
+#| msgid "Changing theme."
+msgctxt "@info:tooltip"
+msgid "Change theme"
+msgstr "Maina tēmu."
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -405,13 +429,17 @@ msgid "Changing theme."
 msgstr "Maina tēmu."
 
 #: mainwindow.cpp:422
-#, kde-format
-msgid "Select &Card Deck..."
+#, fuzzy, kde-format
+#| msgid "Select &Card Deck..."
+msgctxt "@action"
+msgid "Select &Card Deck…"
 msgstr "Izvēlieties &kāršu kavu..."
 
 #: mainwindow.cpp:424
-#, kde-format
-msgid "Configure card decks..."
+#, fuzzy, kde-format
+#| msgid "Configure card decks..."
+msgctxt "@info:tooltip"
+msgid "Configure card decks"
 msgstr "Konfigurēt kāršu kavas..."
 
 #: mainwindow.cpp:425
@@ -420,8 +448,10 @@ msgid "Choose how the cards should look."
 msgstr "Izvēlēties kā izskatās kārtis."
 
 #: mainwindow.cpp:429
-#, kde-format
-msgid "&Change Player Names..."
+#, fuzzy, kde-format
+#| msgid "&Change Player Names..."
+msgctxt "@action"
+msgid "&Change Player Names…"
 msgstr "&Mainīt spēlētāju vārdus..."
 
 #: mainwindow.cpp:500
@@ -430,8 +460,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "Vai tiešām vēlaties izdzēst visu laiku statistikas datus?"
 
 #: mainwindow.cpp:573
-#, kde-format
-msgid "Dealing cards..."
+#, fuzzy, kde-format
+#| msgid "Dealing cards..."
+msgctxt "@info"
+msgid "Dealing cards…"
 msgstr "Dala kārtis..."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
@@ -469,6 +501,15 @@ msgstr "Punkti: %1"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "Spēles: %1 / %2"
+
+#~ msgid "Changing who plays player 1..."
+#~ msgstr "Maina kurš spēlē kā 1. spēlētājs..."
+
+#~ msgid "Changing who plays player 2..."
+#~ msgstr "Maina kurš spēlē kā 2. spēlētājs..."
+
+#~ msgid "Changing theme..."
+#~ msgstr "Maina tēmu..."
 
 #~ msgid "OK"
 #~ msgstr "Labi"

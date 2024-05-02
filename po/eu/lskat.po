@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:37+0000\n"
 "PO-Revision-Date: 2023-09-19 20:50+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -326,13 +326,17 @@ msgid "Quits the program."
 msgstr "Programa ixten du."
 
 #: mainwindow.cpp:374
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Starting Player"
+msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Hasierako jokalaria"
 
 #: mainwindow.cpp:377
-#, kde-format
-msgid "Changing starting player..."
+#, fuzzy, kde-format
+#| msgid "Changing starting player..."
+msgctxt "@info:tooltip"
+msgid "Change starting player"
 msgstr "Hasierako jokalaria aldatzen..."
 
 #: mainwindow.cpp:378
@@ -341,24 +345,32 @@ msgid "Chooses which player begins the next game."
 msgstr "Hurrengo jokoa zein jokalarik hasiko duen hautatzen du."
 
 #: mainwindow.cpp:380
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1"
+msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "&1. jokalaria"
 
 #: mainwindow.cpp:381
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2"
+msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "&2. jokalaria"
 
 #: mainwindow.cpp:386
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1 Played By"
+msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "&1. jokalariaren kontrola:"
 
 #: mainwindow.cpp:389
-#, kde-format
-msgid "Changing who plays player 1..."
-msgstr "1. jokalaria nork kontrolatzen duen aldatzen..."
+#, fuzzy, kde-format
+#| msgid "Changing who plays player 1."
+msgctxt "@info:tooltip"
+msgid "Change who plays player 1"
+msgstr "1. jokalaria nork jokatzen duen aldatzen."
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -366,24 +378,32 @@ msgid "Changing who plays player 1."
 msgstr "1. jokalaria nork jokatzen duen aldatzen."
 
 #: mainwindow.cpp:392
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Mouse"
+msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Sagua"
 
 #: mainwindow.cpp:393
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Computer"
+msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Ordenagailua"
 
 #: mainwindow.cpp:399
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2 Played By"
+msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "&2. jokalariaren kontrola:"
 
 #: mainwindow.cpp:402
-#, kde-format
-msgid "Changing who plays player 2..."
-msgstr "2. jokalaria nork kontrolatzen duen aldatzen..."
+#, fuzzy, kde-format
+#| msgid "Changing who plays player 2."
+msgctxt "@info:tooltip"
+msgid "Change who plays player 2"
+msgstr "2. jokalaria nork jokatzen duen aldatzen."
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -391,14 +411,18 @@ msgid "Changing who plays player 2."
 msgstr "2. jokalaria nork jokatzen duen aldatzen."
 
 #: mainwindow.cpp:411
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Theme"
+msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Gaia"
 
 #: mainwindow.cpp:417
-#, kde-format
-msgid "Changing theme..."
-msgstr "Gaia aldatzea..."
+#, fuzzy, kde-format
+#| msgid "Changing theme."
+msgctxt "@info:tooltip"
+msgid "Change theme"
+msgstr "Gaia aldatzea."
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -406,13 +430,17 @@ msgid "Changing theme."
 msgstr "Gaia aldatzea."
 
 #: mainwindow.cpp:422
-#, kde-format
-msgid "Select &Card Deck..."
+#, fuzzy, kde-format
+#| msgid "Select &Card Deck..."
+msgctxt "@action"
+msgid "Select &Card Deck…"
 msgstr "Hautatu &karta-sorta..."
 
 #: mainwindow.cpp:424
-#, kde-format
-msgid "Configure card decks..."
+#, fuzzy, kde-format
+#| msgid "Configure card decks..."
+msgctxt "@info:tooltip"
+msgid "Configure card decks"
 msgstr "Konfiguratu karta-sortak..."
 
 #: mainwindow.cpp:425
@@ -421,8 +449,10 @@ msgid "Choose how the cards should look."
 msgstr "Hautatu karten itxura."
 
 #: mainwindow.cpp:429
-#, kde-format
-msgid "&Change Player Names..."
+#, fuzzy, kde-format
+#| msgid "&Change Player Names..."
+msgctxt "@action"
+msgid "&Change Player Names…"
 msgstr "&Aldatu jokalarien izenak..."
 
 #: mainwindow.cpp:500
@@ -431,8 +461,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "Ziur zaude estatistika guztiak garbitu nahi dituzula?"
 
 #: mainwindow.cpp:573
-#, kde-format
-msgid "Dealing cards..."
+#, fuzzy, kde-format
+#| msgid "Dealing cards..."
+msgctxt "@info"
+msgid "Dealing cards…"
 msgstr "Kartak banatzen..."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
@@ -470,6 +502,15 @@ msgstr "Puntuazioa: %1"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "Jokoak: %1 / %2"
+
+#~ msgid "Changing who plays player 1..."
+#~ msgstr "1. jokalaria nork kontrolatzen duen aldatzen..."
+
+#~ msgid "Changing who plays player 2..."
+#~ msgstr "2. jokalaria nork kontrolatzen duen aldatzen..."
+
+#~ msgid "Changing theme..."
+#~ msgstr "Gaia aldatzea..."
 
 #~ msgid "OK"
 #~ msgstr "Ados"

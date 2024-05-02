@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:36+0000\n"
+"POT-Creation-Date: 2024-05-02 00:37+0000\n"
 "PO-Revision-Date: 2007-04-15 09:08+0000\n"
 "Last-Translator: Zlatko Popov <zlatkopopov@fsa-bg.org>\n"
 "Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
@@ -322,13 +322,17 @@ msgid "Quits the program."
 msgstr "Излиза от програмата."
 
 #: mainwindow.cpp:374
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Starting Player"
+msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Първи играч"
 
 #: mainwindow.cpp:377
-#, kde-format
-msgid "Changing starting player..."
+#, fuzzy, kde-format
+#| msgid "Changing starting player..."
+msgctxt "@info:tooltip"
+msgid "Change starting player"
 msgstr "Смяна на започващия играч..."
 
 #: mainwindow.cpp:378
@@ -337,23 +341,30 @@ msgid "Chooses which player begins the next game."
 msgstr "Смяна на започващия играч за следващата игра."
 
 #: mainwindow.cpp:380
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1"
+msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "Играч &1"
 
 #: mainwindow.cpp:381
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2"
+msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "Играч &2"
 
 #: mainwindow.cpp:386
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &1 Played By"
+msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "Играч &1"
 
 #: mainwindow.cpp:389
-#, kde-format
-msgid "Changing who plays player 1..."
+#, fuzzy, kde-format
+msgctxt "@info:tooltip"
+msgid "Change who plays player 1"
 msgstr "Смяна на играч 1..."
 
 #: mainwindow.cpp:390
@@ -363,22 +374,28 @@ msgstr "Смяна на играч 1..."
 
 #: mainwindow.cpp:392
 #, kde-format
+msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr ""
 
 #: mainwindow.cpp:393
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "&Computer"
+msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Компютъра"
 
 #: mainwindow.cpp:399
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Player &2 Played By"
+msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "Играч &2"
 
 #: mainwindow.cpp:402
-#, kde-format
-msgid "Changing who plays player 2..."
+#, fuzzy, kde-format
+msgctxt "@info:tooltip"
+msgid "Change who plays player 2"
 msgstr "Смяна на играч 2..."
 
 #: mainwindow.cpp:403
@@ -388,12 +405,14 @@ msgstr "Смяна на играч 2..."
 
 #: mainwindow.cpp:411
 #, fuzzy, kde-format
+msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Отдалечен играч"
 
 #: mainwindow.cpp:417
 #, fuzzy, kde-format
-msgid "Changing theme..."
+msgctxt "@info:tooltip"
+msgid "Change theme"
 msgstr "Смяна на ниво..."
 
 #: mainwindow.cpp:418
@@ -402,13 +421,17 @@ msgid "Changing theme."
 msgstr "Смяна на ниво..."
 
 #: mainwindow.cpp:422
-#, kde-format
-msgid "Select &Card Deck..."
+#, fuzzy, kde-format
+#| msgid "Select &Card Deck..."
+msgctxt "@action"
+msgid "Select &Card Deck…"
 msgstr "Настройване на к&артите..."
 
 #: mainwindow.cpp:424
-#, kde-format
-msgid "Configure card decks..."
+#, fuzzy, kde-format
+#| msgid "Configure card decks..."
+msgctxt "@info:tooltip"
+msgid "Configure card decks"
 msgstr "Настройване на колодата от карти..."
 
 #: mainwindow.cpp:425
@@ -418,7 +441,8 @@ msgstr "Настройване на колодата от карти."
 
 #: mainwindow.cpp:429
 #, fuzzy, kde-format
-msgid "&Change Player Names..."
+msgctxt "@action"
+msgid "&Change Player Names…"
 msgstr "Имена на играчите"
 
 #: mainwindow.cpp:500
@@ -429,7 +453,8 @@ msgstr ""
 
 #: mainwindow.cpp:573
 #, kde-format
-msgid "Dealing cards..."
+msgctxt "@info"
+msgid "Dealing cards…"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
@@ -467,3 +492,13 @@ msgstr "Резултат:"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "Игри:"
+
+#~ msgid "Changing who plays player 1..."
+#~ msgstr "Смяна на играч 1..."
+
+#~ msgid "Changing who plays player 2..."
+#~ msgstr "Смяна на играч 2..."
+
+#, fuzzy
+#~ msgid "Changing theme..."
+#~ msgstr "Смяна на ниво..."
