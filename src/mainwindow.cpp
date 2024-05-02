@@ -371,35 +371,35 @@ void Mainwindow::initGUI()
     action->setWhatsThis(i18n("Quits the program."));
 
     // Determine start player
-    KSelectAction *startPlayerAct = new KSelectAction(i18n("Starting Player"), this);
+    KSelectAction *startPlayerAct = new KSelectAction(i18nc("@title:menu", "Starting Player"), this);
     actionCollection()->addAction(QStringLiteral("startplayer"), startPlayerAct);
     connect(startPlayerAct, &KSelectAction::indexTriggered, this, &Mainwindow::menuStartplayer);
-    startPlayerAct->setToolTip(i18n("Changing starting player..."));
+    startPlayerAct->setToolTip(i18nc("@info:tooltip", "Change starting player"));
     startPlayerAct->setWhatsThis(i18n("Chooses which player begins the next game."));
     startPlayerAct->setItems({
-        i18n("Player &1"),
-        i18n("Player &2"),
+        i18nc("@item:inmenu", "Player &1"),
+        i18nc("@item:inmenu", "Player &2"),
     });
     if (global_demo_mode) startPlayerAct->setEnabled(false);
 
     // Determine who plays player 1
-    KSelectAction *player1Act = new KSelectAction(i18n("Player &1 Played By"), this);
+    KSelectAction *player1Act = new KSelectAction(i18nc("@title:menu", "Player &1 Played By"), this);
     actionCollection()->addAction(QStringLiteral("player1"), player1Act);
     connect(player1Act, &KSelectAction::indexTriggered, this, &Mainwindow::menuPlayer1By);
-    player1Act->setToolTip(i18n("Changing who plays player 1..."));
+    player1Act->setToolTip(i18nc("@info:tooltip", "Change who plays player 1"));
     player1Act->setWhatsThis(i18n("Changing who plays player 1."));
     const QStringList inputDevices {
-        i18n("&Mouse"),
-        i18n("&Computer"),
+        i18nc("@item:inmenu", "&Mouse"),
+        i18nc("@item:inmenu", "&Computer"),
     };
     player1Act->setItems(inputDevices);
     if (global_demo_mode) player1Act->setEnabled(false);
 
     // Determine who plays player 2
-    KSelectAction *player2Act = new KSelectAction(i18n("Player &2 Played By"), this);
+    KSelectAction *player2Act = new KSelectAction(i18nc("@title:menu", "Player &2 Played By"), this);
     actionCollection()->addAction(QStringLiteral("player2"), player2Act);
     connect(player2Act, &KSelectAction::indexTriggered, this, &Mainwindow::menuPlayer2By);
-    player2Act->setToolTip(i18n("Changing who plays player 2..."));
+    player2Act->setToolTip(i18nc("@info:tooltip", "Change who plays player 2"));
     player2Act->setWhatsThis(i18n("Changing who plays player 2."));
     player2Act->setItems(inputDevices);
     if (global_demo_mode) player2Act->setEnabled(false);
@@ -408,25 +408,25 @@ void Mainwindow::initGUI()
     QStringList themes(mThemeFiles.keys());
     themes.sort();
 
-    KSelectAction *themeAct = new KSelectAction(i18n("&Theme"), this);
+    KSelectAction *themeAct = new KSelectAction(i18nc("@title:menu", "&Theme"), this);
     actionCollection()->addAction(QStringLiteral("theme"), themeAct);
     themeAct->setItems(themes);
     connect(themeAct, &KSelectAction::indexTriggered, this, &Mainwindow::changeTheme);
     if (global_debug > 0) qCDebug(LSKAT_LOG) << "Setting current theme item to " << mThemeIndexNo;
     themeAct->setCurrentItem(mThemeIndexNo);
-    themeAct->setToolTip(i18n("Changing theme..."));
+    themeAct->setToolTip(i18nc("@info:tooltip", "Change theme"));
     themeAct->setWhatsThis(i18n("Changing theme."));
 
     // Choose card deck
     QAction *action1 = actionCollection()->addAction(QStringLiteral("select_carddeck"));
-    action1->setText(i18n("Select &Card Deck..."));
+    action1->setText(i18nc("@action", "Select &Card Deck…"));
     connect(action1, &QAction::triggered, this, &Mainwindow::menuCardDeck);
-    action1->setToolTip(i18n("Configure card decks..."));
+    action1->setToolTip(i18nc("@info:tooltip", "Configure card decks"));
     action1->setWhatsThis(i18n("Choose how the cards should look."));
 
     // Change player names
     action = actionCollection()->addAction(QStringLiteral("change_names"));
-    action->setText(i18n("&Change Player Names..."));
+    action->setText(i18nc("@action", "&Change Player Names…"));
     connect(action, &QAction::triggered, this, &Mainwindow::menuPlayerNames);
     if (global_demo_mode) action->setEnabled(false);
 }
@@ -570,7 +570,7 @@ void Mainwindow::menuNewLSkatGame()
     AbstractInput *input2 = createInput(mLSkatConfig->inputType(1), mDisplay, mEngine);
     p2->setInput(input2);
 
-    statusBar()->showMessage(i18n("Dealing cards..."));
+    statusBar()->showMessage(i18nc("@info", "Dealing cards…"));
 
     // Start game
     startGame();
