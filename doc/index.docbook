@@ -344,7 +344,7 @@ of the cards. Card decks are selected with their own menu item.
 <varlistentry id="deck_change">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Select Card Deck...</guimenuitem></menuchoice></term>
+<guimenuitem>Select Card Deck…</guimenuitem></menuchoice></term>
 <listitem><para>
 <action>Choose the face and back of the card deck used for playing.</action> You
 can select these in a preview dialog showing all card decks installed.
@@ -363,7 +363,7 @@ than their original size.
 <varlistentry id="name_change">
 <term><menuchoice>
 <guimenu>Settings</guimenu>
-<guimenuitem>Change Player Names...</guimenuitem>
+<guimenuitem>Change Player Names…</guimenuitem>
 </menuchoice></term>
 <listitem><para>
 <action>Change the names of the players.</action>
