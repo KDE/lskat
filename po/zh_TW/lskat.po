@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-02 00:37+0000\n"
-"PO-Revision-Date: 2024-01-22 17:31+0900\n"
+"PO-Revision-Date: 2024-05-03 03:36+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.4\n"
+"X-Generator: Lokalize 24.04.70\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #, kde-format
@@ -323,15 +323,13 @@ msgid "Quits the program."
 msgstr "離開本程式"
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "先出牌的玩家"
 
 #: mainwindow.cpp:377
-#, fuzzy, kde-format
-#| msgid "Changing starting player..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
 msgstr "更換先手玩家"
@@ -342,32 +340,28 @@ msgid "Chooses which player begins the next game."
 msgstr "選擇開始下一場遊戲的玩家。"
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
-msgstr "玩家 1(&1)"
+msgstr "玩家 &1"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
-msgstr "玩家 2(&2)"
+msgstr "玩家 &2"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
-msgstr "玩家 1 控制者(&1)"
+msgstr "玩家 &1 控制者"
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr "變更玩家 1。"
+msgstr "變更玩家 1"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -375,32 +369,28 @@ msgid "Changing who plays player 1."
 msgstr "變更玩家 1。"
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "滑鼠(&M)"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "電腦(&C)"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
-msgstr "玩家 2 控制者(&2)"
+msgstr "玩家 &2 控制者"
 
 #: mainwindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr "變更玩家 2。"
+msgstr "變更玩家 2"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -408,18 +398,16 @@ msgid "Changing who plays player 2."
 msgstr "變更玩家 2。"
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "佈景主題(&T)"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "更換佈景主題。"
+msgstr "更換佈景主題"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -427,18 +415,16 @@ msgid "Changing theme."
 msgstr "更換佈景主題。"
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "選擇牌面樣式(&C)..."
+msgstr "選擇牌面樣式(&C)…"
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "設定牌面樣式..."
+msgstr "設定牌面樣式"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -446,11 +432,10 @@ msgid "Choose how the cards should look."
 msgstr "選擇牌的外觀"
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
-msgstr "變更玩家名稱(&C)..."
+msgstr "變更玩家名稱(&C)…"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -458,11 +443,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "您想要清除所有的統計資料嗎？"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
-msgstr "發牌中..."
+msgstr "發牌中…"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14

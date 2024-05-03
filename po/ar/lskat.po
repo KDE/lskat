@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-02 00:37+0000\n"
-"PO-Revision-Date: 2024-01-17 19:17+0400\n"
+"PO-Revision-Date: 2024-05-02 11:33+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -327,18 +327,16 @@ msgid "Quits the program."
 msgstr "الخروج من البرنامج."
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "اللاعب البادئ"
 
 #: mainwindow.cpp:377
-#, fuzzy, kde-format
-#| msgid "Changing starting player..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
-msgstr "جاري تغيير اللاعب البادئ..."
+msgstr "جاري تغيير اللاعب البادئ"
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -346,32 +344,28 @@ msgid "Chooses which player begins the next game."
 msgstr "اختار أي لاعب سوف يبدأ بالمرة القادمة."
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "اللاعب &1"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "اللاعب &2"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "اللاعب &1 بواسطة"
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr "تغيير من يلعب اللاعب 1."
+msgstr "تغيير من يلعب اللاعب 1"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -379,32 +373,28 @@ msgid "Changing who plays player 1."
 msgstr "تغيير من يلعب اللاعب 1."
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "ال&فأرة"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "ال&حاسب"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "اللاعب &2 بواسطة"
 
 #: mainwindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr "تغيير من يلعب اللاعب 1."
+msgstr "تغيير من يلعب اللاعب 1"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -412,18 +402,16 @@ msgid "Changing who plays player 2."
 msgstr "تغيير من يلعب اللاعب 1."
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "ال&سمة"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "تغيير السمة."
+msgstr "غيّر السمة"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -431,18 +419,16 @@ msgid "Changing theme."
 msgstr "تغيير السمة."
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "اختر &شكل البطاقة..."
+msgstr "اختر &شكل البطاقة…"
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "تنسيق شكل البطاقات..."
+msgstr "اضبط شكل البطاقات"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -450,11 +436,10 @@ msgid "Choose how the cards should look."
 msgstr "اختار كيف سوف تبدو البطاقات."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
-msgstr "&غيّر أسماء اللاعبين..."
+msgstr "&غيّر أسماء اللاعبين…"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -462,11 +447,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "هل تريد حقا مسح كل احصائيات الوقت ؟"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
-msgstr "توزيع الأوراق..."
+msgstr "توزيع الأوراق…"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14

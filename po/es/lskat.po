@@ -5,7 +5,7 @@
 # Santiago Fernandez Sancho <santi@kde-es.org>, 2004.
 # Jaime Robles <jaime@kde.org>, 2005.
 # Santiago Fernández Sancho <santi@kde-es.org>, 2007, 2008.
-# SPDX-FileCopyrightText: 2009, 2012, 2023 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2009, 2012, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
 # Huever, 2009.
 # Kira J. Fernandez <kirajfdez@gmail.com>, 2010.
 # Sofía Priego <spriego@darksylvania.net>, %Y.
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-02 00:37+0000\n"
-"PO-Revision-Date: 2023-09-20 22:56+0100\n"
+"PO-Revision-Date: 2024-05-02 18:20+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "First-Translator: Valux (José M. Laveda) jmlaveda@jazzfree.com\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #, kde-format
@@ -280,7 +280,7 @@ msgstr "Mejoras del código"
 #: main.cpp:81
 #, kde-format
 msgid "Enter debug level"
-msgstr "Introduzca nivel de depuración"
+msgstr "Entrar al nivel de depuración"
 
 #: main.cpp:82
 #, kde-format
@@ -300,17 +300,17 @@ msgstr "Error de instalación: No se ha encontrado la lista de temas."
 #: mainwindow.cpp:126
 #, kde-format
 msgid "Installation error: Theme file error."
-msgstr "Error de instalación: Error en el archivo del tema."
+msgstr "Error de instalación: Error en archivo de tema."
 
 #: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
-msgstr "¡Bienvenido a Skat! Inicie una partida nueva."
+msgstr "¡Bienvenido a Skat! Empieza una partida nueva."
 
 #: mainwindow.cpp:333
 #, kde-format
 msgid "Game Over. Please start a new game."
-msgstr "Partida terminada. Inicie una partida nueva."
+msgstr "Partida terminada. Empieza una partida nueva."
 
 #: mainwindow.cpp:347
 #, kde-format
@@ -334,18 +334,16 @@ msgid "Quits the program."
 msgstr "Sale del programa."
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Jugador inicial"
 
 #: mainwindow.cpp:377
-#, fuzzy, kde-format
-#| msgid "Changing starting player..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
-msgstr "Cambiando jugador inicial..."
+msgstr "Cambiar el jugador inicial"
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -353,32 +351,28 @@ msgid "Chooses which player begins the next game."
 msgstr "Elige el jugador que empieza la próxima partida."
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "Jugador &1"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "Jugador &2"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "El jugador &1 es"
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr "Cambiando quién es el jugador 1."
+msgstr "Cambiar quién es el jugador 1"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -386,32 +380,28 @@ msgid "Changing who plays player 1."
 msgstr "Cambiando quién es el jugador 1."
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Ratón"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Máquina"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "El jugador &2 es"
 
 #: mainwindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr "Cambiando quién es el jugador 2."
+msgstr "Cambiar quién es el jugador 2"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -419,18 +409,16 @@ msgid "Changing who plays player 2."
 msgstr "Cambiando quién es el jugador 2."
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Tema"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "Cambiando el tema."
+msgstr "Cambiar el tema"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -438,18 +426,16 @@ msgid "Changing theme."
 msgstr "Cambiando el tema."
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
 msgstr "Seleccionar la baraja de &cartas..."
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "Configurar la baraja de cartas..."
+msgstr "Configurar la baraja de cartas"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -457,8 +443,7 @@ msgid "Choose how the cards should look."
 msgstr "Elegir el aspecto de las cartas."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
 msgstr "&Cambiar los nombres de los jugadores..."
@@ -466,14 +451,13 @@ msgstr "&Cambiar los nombres de los jugadores..."
 #: mainwindow.cpp:500
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
-msgstr "¿Realmente desea borrar todos los datos estadísticos de tiempos?"
+msgstr "¿Realmente quieres borrar todos los datos estadísticos de tiempos?"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
-msgstr "Repartir cartas..."
+msgstr "Repartiendo cartas..."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14

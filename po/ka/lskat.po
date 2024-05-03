@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-02 00:37+0000\n"
-"PO-Revision-Date: 2023-09-20 02:50+0200\n"
+"PO-Revision-Date: 2024-05-02 06:00+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -321,18 +321,16 @@ msgid "Quits the program."
 msgstr "პროგრამიდან გასვლა."
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "მოთამაშის გაშვება"
 
 #: mainwindow.cpp:377
-#, fuzzy, kde-format
-#| msgid "Changing starting player..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
-msgstr "საწყისი მოთამაშის ცვლილება..."
+msgstr "საწყისი მოთამაშის ცვლილება"
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -340,32 +338,28 @@ msgid "Chooses which player begins the next game."
 msgstr "აირჩევს, შემდეგ თამაშს რომელი მოთამაშე დაიწყებს."
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "მოთამაშე &1"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
-msgstr "Player &2"
+msgstr "მოთამაშე &2"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "მოთამაშე &1-ს თამაშობს"
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr "ცვლილება, ვინ თამაშობს პირველ მოთამაშეს."
+msgstr "ცვლილება, ვინ თამაშობს პირველ მოთამაშეს"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -373,32 +367,28 @@ msgid "Changing who plays player 1."
 msgstr "ცვლილება, ვინ თამაშობს პირველ მოთამაშეს."
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&თაგუნა"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&კომპიუტერი"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "მოთამაშე &2-ს თამაშობს"
 
 #: mainwindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr "ცვლილება, ვინ თამაშობს მეორე მოთამაშეს."
+msgstr "ცვლილება, ვინ თამაშობს მეორე მოთამაშეს"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -406,18 +396,16 @@ msgid "Changing who plays player 2."
 msgstr "ცვლილება, ვინ თამაშობს მეორე მოთამაშეს."
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&თემა"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "თემის შეცვლა."
+msgstr "თემის შეცვლა"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -425,18 +413,16 @@ msgid "Changing theme."
 msgstr "თემის შეცვლა."
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "&აირჩიეთ კარტის ნაკრები..."
+msgstr "&აირჩიეთ კარტის ნაკრები…"
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "კარტის ნაკრებების მორგება..."
+msgstr "კარტის ნაკრებების მორგება"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -444,11 +430,10 @@ msgid "Choose how the cards should look."
 msgstr "აირჩიეთ, როგორ გამოიყურებიან კარტები."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
-msgstr "მოთამაშეების სახელების &შეცვლა..."
+msgstr "მოთამაშეების სახელების &შეცვლა…"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -456,11 +441,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "გნებავთ სტატისტიკის მონაცემების განულება?"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
-msgstr "კარტის დარიგება..."
+msgstr "კარტის დარიგება…"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
