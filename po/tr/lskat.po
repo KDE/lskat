@@ -8,13 +8,13 @@
 # Ömer Fadıl USTA <omer_fad@yahoo.com>, 2004.
 # obsoleteman <tulliana@gmail.com>, 2008-2009.
 # Volkan Gezer <volkangezer@gmail.com>, 2013.
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kdegames-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-01-19 00:36+0000\n"
-"PO-Revision-Date: 2022-11-21 22:35+0300\n"
+"PO-Revision-Date: 2024-05-02 14:13+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.08.3\n"
+"X-Generator: Lokalize 24.07.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -38,13 +38,13 @@ msgstr "tulliana@gmail.com, emir_sari@icloud.com"
 #, kde-format
 msgctxt "Default player name"
 msgid "Alice"
-msgstr "Alice"
+msgstr "Ayça"
 
 #: config_two.cpp:30
 #, kde-format
 msgctxt "Default player name"
 msgid "Bob"
-msgstr "Bob"
+msgstr "Göktuğ"
 
 #: deck.cpp:147
 #, kde-format
@@ -150,7 +150,7 @@ msgstr "Lieutenant Skat"
 #, kde-format
 msgctxt "Title of the game - line 2"
 msgid "for"
-msgstr "için"
+msgstr "—"
 
 #: display_intro.cpp:94
 #, kde-format
@@ -175,7 +175,7 @@ msgstr[1] "%1 puan"
 #: engine_two.cpp:235
 #, kde-format
 msgid "Game was ended - no winner"
-msgstr "Oyun bitti - kazanan yok"
+msgstr "Oyun bitti — kazanan yok"
 
 #: engine_two.cpp:244
 #, kde-format
@@ -185,12 +185,12 @@ msgstr "Oyun berabere"
 #: engine_two.cpp:250
 #, kde-format
 msgid "Player 1 - %1 won "
-msgstr "Oyuncu 1 - %1 kazandı "
+msgstr "Oyuncu 1 — %1 kazandı "
 
 #: engine_two.cpp:257 engine_two.cpp:277
 #, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 90 puandan fazlasıyla kazandı. Harika!"
+msgstr "%1, +90 puanla kazandı. Güzel!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
@@ -200,7 +200,7 @@ msgstr "%1 kazandı. Tebrikler!"
 #: engine_two.cpp:270
 #, kde-format
 msgid "Player 2 - %1 won "
-msgstr "Oyuncu 2 - %1 kazandı "
+msgstr "Oyuncu 2 — %1 kazandı "
 
 #: engine_two.cpp:344
 #, kde-format
@@ -238,7 +238,7 @@ msgstr "Lskat: Bir masaüstü kart oyunu"
 #: main.cpp:66
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
-msgstr "(c) 1995-2007, Martin Heni"
+msgstr "(c) 1995–2007, Martin Heni"
 
 #: main.cpp:71
 #, kde-format
@@ -298,12 +298,12 @@ msgstr "Kurulum hatası: Tema dosyası hatası."
 #: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
-msgstr "Skat Oyununa Hoş Geldiniz! Lütfen yeni bir oyun başlatın."
+msgstr "Skat oyununa hoş geldiniz! Lütfen yeni bir oyun başlatın."
 
 #: mainwindow.cpp:333
 #, kde-format
 msgid "Game Over. Please start a new game."
-msgstr "Oyun Bitti. Lütfen yeni bir oyun başlatın."
+msgstr "Oyun bitti. Lütfen yeni bir oyun başlatın."
 
 #: mainwindow.cpp:347
 #, kde-format
@@ -470,4 +470,4 @@ msgstr "Puan: %1"
 #, kde-format
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
-msgstr "Oyunlar: %1 / %2"
+msgstr "Oyun: %1/%2"
