@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&lskat;">
-  <!ENTITY kappversion "1.40"
-><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY i18n-lskat "Lieutenant Skat">
+  <!ENTITY lskat "LSkat">
+
   <!ENTITY % French "INCLUDE">
   <!ENTITY % addindex "IGNORE">
 ]>
@@ -10,7 +10,7 @@
 <book id="lskat" lang="&language;">
 <bookinfo>
 <title
->Manuel de Lieutenant Skat</title>
+>Manuel utilisateur de &lskat; </title>
 <authorgroup>
 <author
 ><firstname
@@ -52,16 +52,16 @@
 </authorgroup>
 
 <date
->05-05-2013</date>
+>05-10-2021</date>
 <releaseinfo
->&kappversion;</releaseinfo>
+>1.50 (KDE Gear 21.08)</releaseinfo>
 
 <legalnotice
 >&FDLNotice;</legalnotice>
 
 <abstract>
 <para
->Cette documentation décrit le jeu &kappname; version &kappversion;</para>
+>Cette documentation décrit le jeu &i18n-lskat; en version 1.50</para>
 </abstract>
 
 <keywordset>
@@ -108,9 +108,11 @@
 ></note
 ><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 <para
->Lieutenant Skat (de l'allemand <foreignphrase lang="de"
+><literal
+>Lieutenant Skat</literal
+> (De l'allemand <foreignphrase lang="de"
 >Offiziersskat</foreignphrase
->) est un jeu de cartes pour deux joueurs. où le deuxième joueur est soit un humain, soit l'ordinateur. </para>
+>) est un jeu de cartes, amusant et attrayant, pour deux joueurs, où le deuxième joueur est soit un humain, soit l'ordinateur. </para>
 <para
 >Le jeu se joue en utilisant un simple jeu de cartes. Les cartes sont battues et distribuées entre les joueurs de manière que huit d'entre elles soient visibles par tour. Dès que toutes les cartes sont jouées, la partie se termine et les points sont calculées et attribuées. </para>
 </chapter>
@@ -124,14 +126,17 @@
 ><para
 >Le score de plus de 60 points dans une partie simple.</para
 ></note>
+
 <para
->Une fois que la donne est terminée, chaque joueur commence avec 16 cartes chacun. Les cartes sont affichées sur deux lignes horizontales - quatre cartes par ligne. La moitié des cartes est couverte et l'autre moitié découverte. Vous pouvez voir les cartes de votre adversaire comme les vôtre. Vous pouvez réaliser un mouvement en cliquant sur n'importe quelle carte découverte. L'adversaire répond en choisissant une carte de forme correspondante de sa propre pile. <note
-><title
->Remarque</title
+>Une fois que la donne est terminée, chaque joueur commence avec 16 cartes chacun. Les cartes sont affichées sur deux lignes horizontales - quatre cartes par ligne. La moitié des cartes sont couverte et l'autre moitié découverte. Chaque joueur peut voir les cartes de son adversaire comme les vôtres. Vous pouvez alors effectuer un mouvement en cliquant sur n'importe quelle carte découverte. L'adversaire doit répondre en sélectionnant une carte de forme correspondante de sa propre pile.</para>
+
+<note
 ><para
-> Si votre adversaire est l'ordinateur, ses cartes seront choisies automatiquement. </para
-></note
-> Une fois que l'échange est terminé, les valeurs des cartes jouées sont évaluées et distribuées à vous ou à votre adversaire. La partie se joue en 16 parties (quand toutes vos cartes et celles de votre adversaire sont jouées). À la fin de la partie, votre score est comparé à celui de votre adversaire et le joueur avec le score le plus élevé remporte la partie. </para>
+>Si votre adversaire est une intelligence artificielle, ses cartes seront choisies automatiquement.</para
+></note>
+
+<para
+>Une fois l'échange terminé, les valeurs des cartes jouées sont évaluées et soit vous, soit votre adversaire allez recevoir des points. Le jeu est terminé en 16 tours (Lorsque toutes vos cartes et celles de votre adversaire ont été jouées). Après la fin de la partie, votre score est comparé à celui de votre adversaire et le joueur avec le score le plus élevé remporte le tour.</para>
 </chapter>
 
 <chapter id="rules_and_tips">
@@ -144,14 +149,14 @@
 
 <screenshot>
 <screeninfo
->Écran de jeu par défaut de &lskat;.</screeninfo>
+>Écran de jeu par défaut de &i18n-lskat;</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="lskat_screen_01.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->Écran de référence de jeu par défaut de &lskat;.</phrase>
+>Écran de référence de jeu par défaut de &i18n-lskat;.</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -185,7 +190,9 @@
 <seg
 >Contrôleur des joueurs (humain / ordinateur)</seg>
 <seg
->« L'atout » dans la partie actuelle</seg>
+><quote
+>L'atout</quote
+>dans la partie actuelle</seg>
 </seglistitem>
 </segmentedlist>
 
@@ -205,7 +212,9 @@
 ></listitem>
 <listitem
 ><para
->Chaque partie a des cartes « l'atout » choisit aléatoirement [8].</para
+>Chaque partie a des cartes <quote
+>d'atout</quote
+>choisit aléatoirement [8].</para
 ></listitem>
 <listitem
 ><para
@@ -213,15 +222,17 @@
 ></listitem>
 <listitem
 ><para
->Si une couleur (par exemple cœur) est choisie comme atout, les sept cœurs comme les quatre valets comptent comme atout, ce qui donne onze cartes à l'atout.</para
+>Si une couleur (Par exemple du cœur) est sélectionnée comme <quote
+>atout</quote
+>, les sept cœurs comme les quatre valets comptent comme des atouts, ce qui donne onze cartes d'atout.</para
 ></listitem>
 <listitem
 ><para
->Les valets se battent chacun dans l'ordre suivant (du plus fort au plus faible) : trèfle, pique, cœur, carreau.</para
+>Les valets se battent chacun dans l'ordre suivant (Du plus fort au plus faible) : trèfle, pique, cœur, carreau.</para
 ></listitem>
 <listitem
 ><para
->La séquence de cartes pour une couleur d'atout : valet de trèfle, valet de pique, valet de coeur, valet de carreau, as, 10, roi, reine, 9, 8, 7.</para
+>La séquence de cartes pour une couleur d'atout : valet de trèfle, valet de pique, valet de cœur, valet de carreau, as, 10, roi, reine, 9, 8, 7.</para
 ></listitem>
 <listitem
 ><para
@@ -297,11 +308,13 @@
 <itemizedlist>
 <listitem
 ><para
->Une partie spéciale d'atouts est appelé le « Grand ». Dans ce jeu, aucune couleur n'est à l'atout, les quatre valets seulement comptent comme atout. Ce type de jeu est indiqué par le symbole d'une tête de valet [8] sur le tableau de score [6].</para
+>Une partie spéciale avec des cartes <quote
+>d'atouts</quote
+> existe et est appelé le « Grand ». Dans cette partie, aucune couleur n'est une carte d'atout, seuls les quatre valets comptent comme carte d'atout. Ce type de partie est indiqué par le symbole d'une tête de valet [8] sur le tableau de score [6].</para
 ></listitem>
 <listitem
 ><para
->Si le joueur démarre la partie, il a le choix des cartes à jouer, soit d'une couleur ou soit d'un atout.</para
+>Si le joueur démarre la partie, il peut choisir les cartes à jouer, soit une carte de couleur ou soit d'une carte d'atout.</para
 ></listitem>
 <listitem
 ><para
@@ -372,13 +385,21 @@
 <title
 >Stratégies et astuces</title>
 <para
->Quand la partie démarre, le joueur de départ doit jouer une carte découverte de sa propre pile. Si le deuxième joueur a actuellement des cartes découvertes ayant la même couleur que les cartes jouées, le joueur2 doit répondre avec une de ces cartes. Si, cependant, le deuxième joueur ne possède pas une carte de couleur identique, le joueur2 peut jouer avec d'autres cartes, y compris une carte atout.</para>
+>Lorsque la partie démarre, le joueur de départ doit jouer n'importe quelle carte découverte de sa propre pile. Si le deuxième joueur a actuellement des cartes découvertes ayant la même couleur que les cartes jouées, ce dernier doit répondre avec une de ces cartes. Si, cependant, le deuxième joueur ne possède aucune carte de couleur identique, ce dernier peut jouer n'importe quelle autre carte, y compris une carte d'atout.</para>
 <para
->S'il y a au moins une carte d'atout, la carte d'atout la plus forte gagne tous les cartes.</para>
+>S'il y a au moins une carte <quote
+>d'atout</quote
+>, la carte <quote
+>d'atout</quote
+> la plus forte gagne tous les cartes.</para>
 <para
->S'il y a aucune carte d'atout, la carte la plus forte de la couleur jouée au début gagne toutes les cartes.</para>
+>S'il y a aucune carte <quote
+>d'atout</quote
+>, la carte la plus forte de la couleur jouée par le premier joueur gagne toutes les cartes.</para>
 <para
->Si le joueur répondant ne possède aucune carte de la couleur demandée et aucun atout, il doit jouer n'importe quelle carte et le joueur ayant démarré remporte toutes les cartes.</para>
+>Si le joueur suivant ne possède aucune carte de la couleur demandée et aucune carte <quote
+>d'atout</quote
+>, il doit jouer n'importe quelle carte et le joueur ayant démarré remporte toutes les cartes.</para>
 
 <para
 >Le joueur qui gagne la partie commence la suivante.</para>
@@ -500,14 +521,12 @@
 ><menuchoice
 ><shortcut
 > <keycombo action="simul"
->&Ctrl;<keycap
->Fin</keycap
-></keycombo
+>&Ctrl; &End;</keycombo
 > </shortcut
 > <guimenu
 >Partie</guimenu
 > <guimenuitem
->Fin de partie</guimenuitem
+>Terminer la partie</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -530,8 +549,8 @@
 <listitem
 ><para
 ><action
->Efface toutes les parties en mémoire.</action
-> Ces statistiques sont enregistrées quand la partie se termine et montrent le score total et le nombre de parties jouées et gagnées par le joueur. Ceci s'efface avec cette option du menu. </para
+>Efface toute la mémoire des parties antérieures.</action
+> Ces statistiques sont enregistrées quand la partie se termine et affichent le score total et le nombre de parties jouées et gagnées par joueur. Celles-ci sont effacées avec cet élément de menu. </para
 ></listitem>
 </varlistentry>
 
@@ -622,31 +641,27 @@
 ></term>
 <listitem>
 <para
->Choisit le thème visuel. Ceci modifie l'apparence du jeu mais pas celle des cartes. Les jeux de cartes sont sélectionnés avec leur propre menu d'option. </para
+>Sélectionne un thème visuel. Ceci modifie l'apparence du jeu mais pas celle des cartes. Les jeux de cartes sont sélectionnés avec leur propre menu d'options. </para
 ></listitem>
 </varlistentry>
 
 <varlistentry id="deck_change">
 <term
 ><menuchoice
-><shortcut
-> <keycap
->F10</keycap
-> </shortcut
-> <guimenu
+><guimenu
 >Configuration</guimenu
 > <guimenuitem
->Aspect des cartes...</guimenuitem
+>Sélectionner un jeu de cartes...</guimenuitem
 ></menuchoice
 ></term>
 <listitem
 ><para
 ><action
->Choisit l'aspect des cartes utilisées pour jouer.</action
-> Vous pouvez les sélectionner dans une boîte de dialogue d'aperçu montrant tous les styles de cartes installés pour &kde;. </para>
+>Sélectionner l'aspect et le dos des cartes utilisés pour le jeu.</action
+> Vous pouvez les sélectionner dans une boîte de dialogue d'aperçu affichant tous les styles de jeux de cartes installés pour &kde;. </para>
 <note>
 <para
->Certains jeux de cartes sont affichés comme des images vectorielles (SVG) dans la boîte de dialogue. Les choisir affichera une meilleure qualité graphique si le jeu est rétréci ou élargi. Les images à taille fixe perdront la qualité si elles sont redimensionnées par rapport à leur taille originale. </para>
+>Certains jeux de cartes ou paquets de cartes sont affichés comme des images vectorielles (Format &SVG;) dans la boîte de dialogue. Leur sélection fournira une meilleure qualité graphique lorsque le jeu est réduit ou élargi. Les graphiques de taille fixe perdront en qualité si elles sont redimensionnées en dehors de leur taille originale. </para>
 </note>
 </listitem>
 </varlistentry>
@@ -671,14 +686,14 @@
 </variablelist>
 
 <para
->De plus, &lskat; possède des éléments communs de menu &kde; <guimenu
+>De plus, &i18n-lskat; possède des éléments communs de menu de &kde; comme <guimenu
 >Configuration</guimenu
 > et <guimenu
 >Aide</guimenu
 >. Pour plus d'informations, veuillez consulter les sections <ulink url="help:/fundamentals/menus.html#menus-settings"
->Menu de configuration</ulink
+>Menu « Configuration » </ulink
 > et <ulink url="help:/fundamentals/menus.html#menus-help"
->Menu d'aide</ulink
+>Menu « Aide » </ulink
 > des fondamentaux de &kde;. </para>
 
 </sect1>
