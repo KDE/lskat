@@ -90,7 +90,7 @@ Mainwindow::Mainwindow(QWidget *parent)
         QString file = themeGroup.readEntry("File", QString());
         bool isDefault = themeGroup.readEntry("Default", false);
         mThemeFiles[name] = file;
-        if (mThemeDefault.isNull()) mThemeDefault = name;
+        if (mThemeDefault.isEmpty()) mThemeDefault = name;
         if (isDefault) mThemeDefault = name;
 
         if (global_debug > 0) qCDebug(LSKAT_LOG) << "Found theme: " << themePath << " Name(i18n)=" << name << " File=" << file << " default=" << isDefault;
