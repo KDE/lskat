@@ -27,7 +27,7 @@ Player::Player(int id, QObject *parent)
     mTrump  = Club;
 
     // Reset internal variables - they are set by 'load'
-    setName(QLatin1String(""));
+    setName(QString());
     mScore         = 0;
     mNumberOfGames = 0;
     mGamesWon      = 0;
