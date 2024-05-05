@@ -5,27 +5,27 @@
 # Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2009, 2017.
 # Xosé <xosecalvo@gmail.com>, 2012.
 # Marce Villarino <mvillarino@kde-espana.org>, 2014.
-# SPDX-FileCopyrightText: 2023 Adrián Chaves (Gallaecio)
+# SPDX-FileCopyrightText: 2023, 2024 Adrián Chaves (Gallaecio)
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-02 00:37+0000\n"
-"PO-Revision-Date: 2023-09-24 14:56+0200\n"
+"PO-Revision-Date: 2024-05-04 10:58+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
-"Language-Team: Galician <proxecto@trasno.gal>\n"
+"Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "mvillarino, Adrián Chaves Fernández"
+msgstr "mvillarino, Adrián Chaves (Gallaecio)"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
@@ -325,18 +325,16 @@ msgid "Quits the program."
 msgstr "Saír do programa."
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
-msgstr "Xogador inicial"
+msgstr "Participante inicial"
 
 #: mainwindow.cpp:377
-#, fuzzy, kde-format
-#| msgid "Changing starting player..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
-msgstr "Cambiando de xogador inicial…"
+msgstr "Cambiar o participante inicial."
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -344,65 +342,57 @@ msgid "Chooses which player begins the next game."
 msgstr "Escolle o xogador que comezará a seguinte partida."
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
-msgstr "Xogador &1"
+msgstr "Participante &1"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
-msgstr "Xogador &2"
+msgstr "Participante &2"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
-msgstr "Xogador &1 controlado por"
+msgstr "Participante &1 controlado por"
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr "Cambia quen controla o xogador 1."
+msgstr "Cambiar quen xoga como participante 1."
 
 #: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1."
-msgstr "Cambia quen controla o xogador 1."
+msgstr "Cambiando quen xoga como participante 1."
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Rato"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Computador"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
-msgstr "Xogador &2 controlado por"
+msgstr "Participante &2 controlado por"
 
 #: mainwindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr "Cambia quen controla o xogador 2."
+msgstr "Cambiar quen xoga como participante 2."
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -410,18 +400,16 @@ msgid "Changing who plays player 2."
 msgstr "Cambia quen controla o xogador 2."
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
-msgstr "&Tema visual"
+msgstr "&Tema"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "Cambiando o tema visual."
+msgstr "Cambiar o tema."
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -429,15 +417,13 @@ msgid "Changing theme."
 msgstr "Cambiando o tema visual."
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
 msgstr "Escolla un mazo de &cartas…"
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
 msgstr "Configurar as barallas…"
@@ -448,8 +434,7 @@ msgid "Choose how the cards should look."
 msgstr "Escolla a aparencia das cartas."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
 msgstr "Cambiar os &nomes dos xogadores…"
@@ -460,8 +445,7 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "Seguro que quere eliminar o historial completo de datos estatísticos?"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
 msgstr "Repartindo as cartas…"
