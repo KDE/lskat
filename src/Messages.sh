@@ -1,3 +1,3 @@
 #! /usr/bin/env bash
-$EXTRACTRC *.rc *.ui >> rc.cpp
-$XGETTEXT *.cpp -o $podir/lskat.pot 
+$EXTRACTRC $(find . -name "*.rc") $(find . -name "*.ui") >> rc.cpp
+$XGETTEXT $(find . -name "*.cpp") -o $podir/lskat.pot
