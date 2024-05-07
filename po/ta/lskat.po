@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-01-19 00:36+0000\n"
+"POT-Creation-Date: 2024-05-07 02:26+0000\n"
 "PO-Revision-Date: 2005-03-07 03:30-0800\n"
 "Last-Translator: Tamil PC <tamilpc@ambalam.com>\n"
 "Language-Team: Tamil <en@li.org>\n"
@@ -210,6 +210,43 @@ msgstr "விளையாடுபவர் 2 - %1 வெற்றி"
 #| msgid "Game name:"
 msgid "Game ended"
 msgstr "விளையாட்டு பெயர்:"
+
+#: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
+#, kde-format
+msgid "unnamed"
+msgstr ""
+
+#: fromlibkdegames/kcarddialog.cpp:190
+#, kde-format
+msgctxt "@title:window"
+msgid "Card Deck Selection"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
+#: fromlibkdegames/kgamecardselector.ui:23
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, cardDescription)
+#: fromlibkdegames/kgamecardselector.ui:41
+#, kde-format
+msgid "Deck description."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, cardName)
+#: fromlibkdegames/kgamecardselector.ui:54
+#, kde-format
+msgid "Deck Name"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, previewImage)
+#: fromlibkdegames/kgamecardselector.ui:83
+#, kde-format
+msgid ""
+"Frontside\n"
+"Preview"
+msgstr ""
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
