@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames/lskat.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-02 00:37+0000\n"
+"POT-Creation-Date: 2024-05-07 00:37+0000\n"
 "PO-Revision-Date: 2004-12-03 14:52-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -203,6 +203,43 @@ msgstr "Imreoir 2 - %1 cluiche buaite "
 #, kde-format
 msgid "Game ended"
 msgstr "Críochnaíodh an cluiche"
+
+#: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
+#, kde-format
+msgid "unnamed"
+msgstr ""
+
+#: fromlibkdegames/kcarddialog.cpp:190
+#, kde-format
+msgctxt "@title:window"
+msgid "Card Deck Selection"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
+#: fromlibkdegames/kgamecardselector.ui:23
+#, kde-format
+msgid "Preview"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, cardDescription)
+#: fromlibkdegames/kgamecardselector.ui:41
+#, kde-format
+msgid "Deck description."
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, cardName)
+#: fromlibkdegames/kgamecardselector.ui:54
+#, kde-format
+msgid "Deck Name"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, previewImage)
+#: fromlibkdegames/kgamecardselector.ui:83
+#, kde-format
+msgid ""
+"Frontside\n"
+"Preview"
+msgstr ""
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
