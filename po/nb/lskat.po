@@ -540,12 +540,3 @@ msgstr "Poeng: %1"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "Spill: %1 / %2"
-
-#~ msgid "Changing who plays player 1..."
-#~ msgstr "Endrer hvem som spiller spiller nr. 1 …"
-
-#~ msgid "Changing who plays player 2..."
-#~ msgstr "Endrer hvem som spiller spiller nr. 2 …"
-
-#~ msgid "Changing theme..."
-#~ msgstr "Endrer tema …"
