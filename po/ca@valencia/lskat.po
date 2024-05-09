@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 02:26+0000\n"
-"PO-Revision-Date: 2024-05-02 15:32+0200\n"
+"PO-Revision-Date: 2024-05-07 11:36+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -209,31 +209,31 @@ msgstr "Ha acabat la partida"
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "sense nom"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "Selecció de baralla"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "Vista prèvia"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "Descripció de la baralla."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "Nom de la baralla"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -242,6 +242,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"Vista prèvia\n"
+"frontal"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
@@ -372,7 +374,7 @@ msgstr "Jugador que comença"
 #: mainwindow.cpp:377
 #, kde-format
 msgid "Changing starting player..."
-msgstr "S'ha canviat el jugador que comença..."
+msgstr "S'ha canviat el jugador que comença…"
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -397,7 +399,7 @@ msgstr "&Jugador 1 jugat per"
 #: mainwindow.cpp:389
 #, kde-format
 msgid "Changing who plays player 1..."
-msgstr "S'ha canviat a qui juga com a jugador 1..."
+msgstr "S'ha canviat a qui juga com a jugador 1…"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -422,7 +424,7 @@ msgstr "Jugador &2 jugat per"
 #: mainwindow.cpp:402
 #, kde-format
 msgid "Changing who plays player 2..."
-msgstr "S'ha canviat a qui juga com a jugador 2..."
+msgstr "S'ha canviat a qui juga com a jugador 2…"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -437,7 +439,7 @@ msgstr "&Tema"
 #: mainwindow.cpp:417
 #, kde-format
 msgid "Changing theme..."
-msgstr "Canvia el tema..."
+msgstr "Canvia el tema…"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -447,12 +449,12 @@ msgstr "Es canvia el tema."
 #: mainwindow.cpp:422
 #, kde-format
 msgid "Select &Card Deck..."
-msgstr "Selecciona una &baralla..."
+msgstr "Selecciona una &baralla…"
 
 #: mainwindow.cpp:424
 #, kde-format
 msgid "Configure card decks..."
-msgstr "Configura les baralles..."
+msgstr "Configura les baralles…"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -462,7 +464,7 @@ msgstr "Escolliu l'aspecte de les cartes."
 #: mainwindow.cpp:429
 #, kde-format
 msgid "&Change Player Names..."
-msgstr "&Canvia el nom dels jugadors..."
+msgstr "&Canvia el nom dels jugadors…"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -472,7 +474,7 @@ msgstr "Segur que voleu netejar les dades estadístiques totals?"
 #: mainwindow.cpp:573
 #, kde-format
 msgid "Dealing cards..."
-msgstr "S'estan repartint les cartes..."
+msgstr "S'estan repartint les cartes…"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
