@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 02:26+0000\n"
-"PO-Revision-Date: 2024-05-07 17:03+0400\n"
+"PO-Revision-Date: 2024-05-09 09:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -216,7 +216,7 @@ msgstr "غير مسمًّى"
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "اختيار سطح البطاقة"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
@@ -228,13 +228,13 @@ msgstr "معاينة"
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "وصف السطح"
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "اسم السطح"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -243,6 +243,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"الواجهة\n"
+"معاينة"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
