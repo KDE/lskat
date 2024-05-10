@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-05-04 10:58+0200\n"
+"PO-Revision-Date: 2024-05-09 19:25+0200\n"
 "Last-Translator: Adrián Chaves (Gallaecio) <adrian@chaves.io>\n"
 "Language-Team: Proxecto Trasno (proxecto@trasno.gal)\n"
 "Language: gl\n"
@@ -208,31 +208,31 @@ msgstr "Rematou a partida"
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "sen nome"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "Selección de baralla"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "Vista previa"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "Descrición da baralla."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "Nome da baralla"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -241,6 +241,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"Vista previa\n"
+"frontal"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
@@ -457,13 +459,13 @@ msgstr "Cambiando o tema visual."
 #, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "Escolla un mazo de &cartas…"
+msgstr "Sele&ccionar unha baralla…"
 
 #: mainwindow.cpp:424
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "Configurar as barallas…"
+msgstr "Configurar as barallas."
 
 #: mainwindow.cpp:425
 #, kde-format
