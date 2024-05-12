@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-05-02 23:45+0100\n"
+"PO-Revision-Date: 2024-05-10 09:14+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
@@ -204,31 +204,31 @@ msgstr "Ludo finiĝis"
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "sennoma"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "Elekto de Kartaro"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "Antaŭrigardo"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "Priskribo de kartaro."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "Nomo de Kartaro"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -237,6 +237,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"Facoflanka\n"
+"Antaŭrigardo"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
