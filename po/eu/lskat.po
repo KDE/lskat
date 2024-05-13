@@ -1,7 +1,7 @@
 # Translation for lskat.po to Euskara/Basque (eu).
 # Copyright (C) 2003-2023 This file is copyright:
 # This file is distributed under the same license as the lskakt package.
-# SPDX-FileCopyrightText: 2023 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
+# SPDX-FileCopyrightText: 2023, 2024 KDE euskaratzeko proiektuko arduraduna <xalba@ni.eus>
 #
 # Translators:
 # Marcos  <marcos@euskalgnu.org>, 2003.
@@ -13,14 +13,14 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2023-09-19 20:50+0200\n"
+"PO-Revision-Date: 2024-05-12 16:29+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #, kde-format
@@ -209,31 +209,31 @@ msgstr "Jokoa amaitu da"
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "izengabea"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "Karta-sorta hautatzea"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "Aurreikuspegia"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "Karta-sortaren deskribapena."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "Karta-sortaren izena"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -242,6 +242,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"Aurrealdearen\n"
+"Aurreikuspegia"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
@@ -363,18 +365,16 @@ msgid "Quits the program."
 msgstr "Programa ixten du."
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
-msgstr "Hasierako jokalaria"
+msgstr "Hasteko jokalaria"
 
 #: mainwindow.cpp:377
-#, fuzzy, kde-format
-#| msgid "Changing starting player..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
-msgstr "Hasierako jokalaria aldatzen..."
+msgstr "Aldatu hasteko jokalaria"
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -382,32 +382,28 @@ msgid "Chooses which player begins the next game."
 msgstr "Hurrengo jokoa zein jokalarik hasiko duen hautatzen du."
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "&1. jokalaria"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "&2. jokalaria"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
-msgstr "&1. jokalariaren kontrola:"
+msgstr "&1. jokalaria jokatzen du"
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr "1. jokalaria nork jokatzen duen aldatzen."
+msgstr "Aldatu 1. jokalaria nork jokatzen duen"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -415,32 +411,28 @@ msgid "Changing who plays player 1."
 msgstr "1. jokalaria nork jokatzen duen aldatzen."
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Sagua"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Ordenagailua"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
-msgstr "&2. jokalariaren kontrola:"
+msgstr "&2. jokalaria jokatzen du"
 
 #: mainwindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr "2. jokalaria nork jokatzen duen aldatzen."
+msgstr "Aldatu 2. jokalaria nork jokatzen duen"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -448,18 +440,16 @@ msgid "Changing who plays player 2."
 msgstr "2. jokalaria nork jokatzen duen aldatzen."
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Gaia"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "Gaia aldatzea."
+msgstr "Aldatu gaia"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -467,18 +457,16 @@ msgid "Changing theme."
 msgstr "Gaia aldatzea."
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
 msgstr "Hautatu &karta-sorta..."
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "Konfiguratu karta-sortak..."
+msgstr "Konfiguratu karta-sortak"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -486,8 +474,7 @@ msgid "Choose how the cards should look."
 msgstr "Hautatu karten itxura."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
 msgstr "&Aldatu jokalarien izenak..."
@@ -498,8 +485,7 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "Ziur zaude estatistika guztiak garbitu nahi dituzula?"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
 msgstr "Kartak banatzen..."
