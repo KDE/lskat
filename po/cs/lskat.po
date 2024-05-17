@@ -205,7 +205,7 @@ msgstr "Hra skončila"
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "nepojmenováno"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
@@ -217,19 +217,19 @@ msgstr ""
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "Náhled"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "Popis sady."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "Název sady"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -238,6 +238,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"Přední strana\n"
+"Náhled"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
