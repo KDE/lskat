@@ -1,15 +1,15 @@
 # translation of lskat.pot to esperanto
 # Copyright (C) 2020 Free Software Foundation, Inc.
 # This file is distributed under the same license as the lskat package.
-# Oliver Kellogg <okellogg@users.sourceforge.net, 2023.
+# Oliver Kellogg <olivermkellogg@gmail.com, 2023.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 02:26+0000\n"
-"PO-Revision-Date: 2023-12-16 07:44+0100\n"
-"Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
+"PO-Revision-Date: 2024-05-10 09:14+0100\n"
+"Last-Translator: Oliver Kellogg <olivermkellogg@gmail.com>\n"
 "Language-Team: Esperanto <kde-i18n-eo@kde.org>\n"
 "Language: eo\n"
 "MIME-Version: 1.0\n"
@@ -204,31 +204,31 @@ msgstr "Ludo finiĝis"
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "sennoma"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "Elekto de Kartaro"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "Antaŭrigardo"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "Priskribo de kartaro."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "Nomo de Kartaro"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -237,6 +237,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"Facoflanka\n"
+"Antaŭrigardo"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
@@ -360,7 +362,7 @@ msgstr "Haltigas la programon."
 #: mainwindow.cpp:374
 #, kde-format
 msgid "Starting Player"
-msgstr "Komencante Ludanton"
+msgstr "Komencanta Ludanto"
 
 #: mainwindow.cpp:377
 #, kde-format
@@ -395,7 +397,7 @@ msgstr "Ŝanĝante, kiu estas ludanto 1..."
 #: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1."
-msgstr "Ŝanĝi kiu ludas ludanton 1."
+msgstr "Ŝanĝante kiu ludas ludanton 1."
 
 #: mainwindow.cpp:392
 #, kde-format
@@ -420,7 +422,7 @@ msgstr "Ŝanĝante, kiu estas ludanto 2..."
 #: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2."
-msgstr "Ŝanĝi kiu ludas la ludanton 2."
+msgstr "Ŝanĝante kiu ludas ludanton 2."
 
 #: mainwindow.cpp:411
 #, kde-format
