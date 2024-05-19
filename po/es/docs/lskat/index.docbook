@@ -104,6 +104,20 @@
 ><contrib
 >Traductora</contrib
 ></othercredit
+> <othercredit role="translator"
+><firstname
+>Eloy</firstname
+> <surname
+>Cuadra</surname
+> <affiliation
+><address
+><email
+>ecuadra@eloihr.net</email
+></address
+></affiliation
+> <contrib
+>Corrección de la traducción</contrib
+></othercredit
 > 
 </authorgroup>
 
@@ -170,7 +184,7 @@
 >Offiziersskat</foreignphrase
 >) es un divertido y adictivo juego de cartas para dos jugadores, en el que el oponente puede ser otra persona o la inteligencia artificial incorporada. </para>
 <para
->El juego se juego con una sola baraja de cartas. Las cartas se mezclan y distribuyen entre los jugadores de forma que la mitad estén boca abajo y la otra mitad boca arriba. Cada participante juega una de las cartas que se encuentra boca arriba en cada turno. En el momento en que se hayan jugado todas las cartas finaliza la partida, se calculan los puntos y se adjudican. </para>
+>Se juega con una sola baraja de cartas. Las cartas se mezclan y distribuyen entre los jugadores de forma que la mitad estén boca abajo y la otra mitad boca arriba. Cada participante juega una de las cartas que se encuentra boca arriba en cada turno. En el momento en que se hayan jugado todas las cartas finaliza la partida, se calculan los puntos y se adjudican. </para>
 </chapter>
 
 <chapter id="howto">
@@ -184,15 +198,15 @@
 ></note>
 
 <para
->Una vez que finalice el reparto cada jugador tendrá 16 cartas. Las cartas se muestran en dos filas verticales, cuatro cartas por fila. La mitad de las cartas estarán boca arriba y la otra mitad boca abajo. Como jugador puede ver las cartas de su oponente además de las propias. Puede hacer un movimiento pulsando sobre cualquiera de sus cartas que estén boca arriba. El adversario responderá eligiendo un carta de las suyas.</para>
+>Una vez que finalice el reparto, cada jugador tendrá 16 cartas. Las cartas se muestran en dos filas verticales, cuatro cartas por fila. La mitad de las cartas estarán boca arriba y la otra mitad boca abajo. Como jugador, puedes ver las cartas de tu oponente además de las propias. Puedes hacer un movimiento pulsando sobre cualquiera de sus cartas que estén boca arriba. El adversario responderá eligiendo una carta de las tuyas.</para>
 
 <note
 ><para
->Si su adversario es la inteligencia artificial, sus cartas se elegirán automáticamente.</para
+>Si tu adversario es la inteligencia artificial, sus cartas se elegirán automáticamente.</para
 ></note>
 
 <para
->Una vez que haya terminado el intercambio se evaluarán los valores de las cartas de los jugadores para adjudicar los puntos. La partida termina en 16 rondas (cuando se han jugado todas las cartas). Después de finalizar la partida su puntuación se comparará con la de su adversario y el jugador con más puntos ganará.</para>
+>Una vez que hayas terminado el intercambio, se evaluarán los valores de las cartas de los jugadores para adjudicar los puntos. La partida termina en 16 rondas (cuando se han jugado todas las cartas). Después de finalizar la partida, tu puntuación se comparará con la de tu adversario y el jugador con más puntos ganará.</para>
 </chapter>
 
 <chapter id="rules_and_tips">
@@ -258,7 +272,7 @@
 <itemizedlist>
 <listitem
 ><para
->Cada jugador tiene 16 cartas. 8 cubiertas y 8 vistas. El jugador que comienza puede jugar con cualquiera de sus cartas vistas.</para
+>Cada jugador tiene 16 cartas: 8 cubiertas y 8 vistas.</para
 ></listitem>
 <listitem
 ><para
@@ -274,7 +288,7 @@
 ></listitem>
 <listitem
 ><para
->Si, por ejemplo, se selecciona un corazón como «triunfo» las siete cartas de corazones serán también triunfos además de los cuatro jotas, lo que hace un total de 11 cartas de triunfo.</para
+>Si, por ejemplo, se selecciona un corazón como «triunfo», las siete cartas de corazones serán también triunfos además de las cuatro jotas, lo que hace un total de 11 cartas de triunfo.</para
 ></listitem>
 <listitem
 ><para
@@ -282,11 +296,11 @@
 ></listitem>
 <listitem
 ><para
->La secuencia de las cartas para un color de triunfo: Jota de trébol, jota de picas, jota de corazones, jota de diamantes, as, diez, rey, reina, nuevo, ocho, siete.</para
+>La secuencia de las cartas para un color de triunfo: jota de trébol, jota de picas, jota de corazones, jota de diamantes, as, diez, rey, reina, nueve, ocho, siete.</para
 ></listitem>
 <listitem
 ><para
->La secuencia de cartas para un color de no triumfo: As, diez, rey, reina, nueve, ocho, siete.</para
+>La secuencia de cartas para un color de no triunfo: as, diez, rey, reina, nueve, ocho, siete.</para
 ></listitem>
 <listitem id="card-values"
 ><para
@@ -433,7 +447,7 @@
 <title
 >Estrategias y consejos</title>
 <para
->Cuando se inicia el juego, el jugador que comienza deberá utilizar cualquiera de las cartas cara arriba de su propio montón. Si el segundo jugador tiene actualmente cartas cara arriba que son del mismo palo que la carta jugada, tiene que responder con una de ellas. Sin embargo, si el segundo jugador no tiene una carta del mismo palo, puede jugar con cualquier otra, incluyendo una carta de «triunfo».</para>
+>Cuando empieza el juego, el jugador que comienza deberá usar cualquiera de las cartas boca arriba de su propio montón. Si el segundo jugador tiene actualmente cartas boca arriba que son del mismo palo que la carta jugada, tiene que responder con una de ellas. Sin embargo, si el segundo jugador no tiene ninguna carta del mismo palo, puede jugar con cualquier otra, incluyendo una carta de «triunfo».</para>
 <para
 >Si hay al menos una carta de «triunfo», el «triunfo» más alto ganará ambas cartas.</para>
 <para
@@ -458,35 +472,35 @@
 ></question>
  <answer
 ><para
->Sí. Consulte <link linkend="deck_change"
+>Sí. Consulta <link linkend="deck_change"
 >esta</link
-> sección en «Visión general de la interfaz» para obtener más detalles.</para
+> sección en «Vista general de la interfaz» para obtener más detalles.</para
 ></answer>
 </qandaentry>
 <qandaentry>
  <question
 ><para
->He cometido un error ¿Puedo deshacerlo? </para
+>He cometido un error. ¿Puedo deshacerlo? </para
 ></question>
  <answer
 ><para
->No. Este juego no tiene la funcionalidad «Deshacer».</para
+>No. Este juego no tiene la funcionalidad de deshacer movimientos.</para
 ></answer>
 </qandaentry>
 <qandaentry>
  <question
 ><para
->¿Puedo utilizar el teclado para jugar a este juego? </para
+>¿Puedo usar el teclado para jugar a este juego? </para
 ></question>
  <answer
 ><para
->No. Este juego no puede jugarse con el teclado.</para
+>No. Este juego no permite el uso del teclado.</para
 ></answer>
 </qandaentry>
 <qandaentry>
  <question
 ><para
->No se como continuar ¿Hay pistas? </para
+>No sé cómo continuar. ¿Hay pistas? </para
 ></question>
  <answer
 ><para
@@ -496,7 +510,7 @@
 <qandaentry>
  <question
 ><para
->Debo abandonar el juego, pero todavía no he terminado la partida ¿puedo guardar mi progreso?</para
+>Debo salir del juego, pero todavía no he terminado la partida. ¿Puedo guardar el estado actual?</para
 ></question>
  <answer
 ><para
@@ -510,9 +524,9 @@
 ></question>
  <answer
 ><para
->Sí. Para cambiar los nombre que se muestran en pantalla en su parte derecha consulte <link linkend="name_change"
+>Sí. Para cambiar los nombre que se muestran en la parte derecha de la pantalla, consulta <link linkend="name_change"
 >esta</link
-> sección en «Visión general de la interfaz» para obtener más detalles.</para
+> sección en «Vista general de la interfaz» para obtener más detalles.</para
 ></answer>
 </qandaentry>
 </qandaset>
@@ -520,7 +534,7 @@
 
 <chapter id="interface">
 <title
->Visión general de la interfaz</title>
+>Vista general de la interfaz</title>
 
 <sect1 id="file-menu">
 <title
@@ -675,7 +689,7 @@
 ></term>
 <listitem>
 <para
->Selecciona un tema visual, cambiando el aspecto del juego, pero no de las cartas. Las barajas de cartas se seleccionan con su propia opción del menú. </para
+>Selecciona un tema visual para cambiar el aspecto del juego, pero no el de las cartas. Las barajas de cartas se seleccionan con su propia opción del menú. </para
 ></listitem>
 </varlistentry>
 
@@ -691,11 +705,11 @@
 <listitem
 ><para
 ><action
->Selección del anverso y el reverso de la baraja utilizada en el juego.</action
-> Puede seleccionarlas a través de un diálogo de previsualización que muestra todas las barajas instaladas. </para>
+>Selección del anverso y del reverso de la baraja usada en el juego.</action
+> Puedes seleccionarlas mediante un diálogo de previsualización que muestra todas las barajas instaladas. </para>
 <note>
 <para
->Algunos reversos de cartas o de barajas están definidos como gráficos escalables (&SVG;) en el diálogo. Eligiéndolos se mostrará una mejor calidad en los gráficos cuando el juego se escala o se agranda. Los gráficos de tamaño fijo perderán calidad si se cambia su tamaño a otro distinto al original. </para>
+>Algunos reversos de cartas o de barajas están definidos como gráficos escalables (&SVG;) en el diálogo. Si los seleccionas, obtendrás una mejor calidad en los gráficos cuando el juego se escala o se agranda. Los gráficos de tamaño fijo perderán calidad al cambiar su tamaño a otro distinto al original. </para>
 </note>
 </listitem>
 </varlistentry>
@@ -720,11 +734,11 @@
 </variablelist>
 
 <para
->Además &i18n-lskat; tiene las opciones de menú <guimenu
+>Además, &i18n-lskat; tiene las opciones de los menús <guimenu
 >Preferencias</guimenu
 > y <guimenu
 >Ayuda</guimenu
-> comunes de &kde;. Para obtener más información, consulte las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
+> comunes de &kde;. Para obtener más información, consulta las secciones sobre el <ulink url="help:/fundamentals/menus.html#menus-settings"
 >Menú «Preferencias»</ulink
 > y <ulink url="help:/fundamentals/menus.html#menus-help"
 >Menú «Ayuda» </ulink
@@ -741,29 +755,33 @@
 <para
 >&lskat;. </para>
 <para
->Derechos de autor del programa 2000-2007 &Martin.Heni; <email
+>Copyright del programa 2000-2007 &Martin.Heni; <email
 >kde@heni-online.de</email
 >. </para>
 <para
->Derechos de autor de los gráficos 2007 Eugene Trounev <email
+>Copyright de los gráficos 2007 Eugene Trounev <email
 >eugene.trounev@gmail.com</email
 >. </para>
 <para
->Derechos de autor de la documentación 2000-2007 &Martin.Heni; <email
+>Copyright de la documentación 2000-2007 &Martin.Heni; <email
 >kde@heni-online.de</email
 >. </para>
 <para
 >Documentación convertida a &kde; 2.0 por &Mike.McBride; &Mike.McBride.mail;. </para>
 
 <para
->Traducido por Rocío Gallego <email
+>Documentación traducida por Rocío Gallego <email
 >traducciones@rociogallego.com</email
->, Rafael Osuna<email
+>, Rafael Osuna <email
 >rosuna@wol.es</email
 >, Miguel Revilla Rodríguez <email
 >yo@miguelrevilla.com</email
 > y Kira J. Fernández <email
 >kirajfdez@gmail.com</email
+>.</para
+><para
+>Corregida por Eloy Cuadra <email
+>ecuadra@eloihr.net</email
 >.</para
 > &underFDL; &underGPL; </chapter>
 
