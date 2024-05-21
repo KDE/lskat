@@ -2,21 +2,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # SPDX-FileCopyrightText: 2010, 2012, 2017, 2023 Vít Pelčák <vit@pelcak.org>
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
+# SPDX-FileCopyrightText: 2024 Vit Pelcak <vpelcak@suse.cz>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2023-10-12 16:43+0200\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2024-05-20 10:48+0200\n"
+"Last-Translator: Vit Pelcak <vpelcak@suse.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 23.08.1\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -211,7 +212,7 @@ msgstr "nepojmenováno"
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "Výběr sady karet"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
@@ -364,13 +365,13 @@ msgstr "Ukončí program."
 #, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
-msgstr ""
+msgstr "Začínající hráč"
 
 #: mainwindow.cpp:377
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
-msgstr ""
+msgstr "Změnit začínajícího hráče"
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -381,25 +382,25 @@ msgstr "Vybere hráče, který začne příští hru."
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
-msgstr ""
+msgstr "Hráč &1"
 
 #: mainwindow.cpp:381
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
-msgstr ""
+msgstr "Hráč &2"
 
 #: mainwindow.cpp:386
 #, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
-msgstr ""
+msgstr "Hráče &1 hraje"
 
 #: mainwindow.cpp:389
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr ""
+msgstr "Změnit, kdo hraje hráče 1"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -410,25 +411,25 @@ msgstr "Mění se, kdo hraje hráče 1."
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
-msgstr ""
+msgstr "&Myš"
 
 #: mainwindow.cpp:393
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
-msgstr ""
+msgstr "Počít&ač"
 
 #: mainwindow.cpp:399
 #, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
-msgstr ""
+msgstr "Hráče &2 hraje"
 
 #: mainwindow.cpp:402
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr ""
+msgstr "Změnit, kdo hraje hráče 2"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -439,13 +440,13 @@ msgstr "Mění se, kdo hraje hráče 2."
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
-msgstr ""
+msgstr "Mo&tiv"
 
 #: mainwindow.cpp:417
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr ""
+msgstr "Změnit motiv"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -456,13 +457,13 @@ msgstr "Mění se motiv."
 #, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr ""
+msgstr "Vyberte &sadu karet…"
 
 #: mainwindow.cpp:424
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr ""
+msgstr "Nastavte sadu karet"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -473,7 +474,7 @@ msgstr "Vybere, jak budou vypadat karty."
 #, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
-msgstr ""
+msgstr "Změnit &jména hráčů…"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -484,7 +485,7 @@ msgstr "Opravdu si přejete smazat všechna statistická data?"
 #, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
-msgstr ""
+msgstr "Rozdávají se karty..."
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
