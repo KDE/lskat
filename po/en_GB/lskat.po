@@ -3,20 +3,21 @@
 #
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2004, 2005.
 # Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2009.
-# Steve Allewell <steve.allewell@gmail.com>, 2014.
+# SPDX-FileCopyrightText: 2014, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2014-06-29 12:12+0100\n"
+"PO-Revision-Date: 2024-05-23 19:34+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: British English\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -182,10 +183,9 @@ msgid "Player 1 - %1 won "
 msgstr "Player 1 - %1 won "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 won with 90 points. Super!"
+msgstr "%1 won with over 90 points. Super!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
@@ -205,31 +205,31 @@ msgstr "Game ended"
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "unnamed"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "Card Deck Selection"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "Preview"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "Deck description."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "Deck Name"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -238,6 +238,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"Frontside\n"
+"Preview"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
@@ -359,18 +361,16 @@ msgid "Quits the program."
 msgstr "Quits the program."
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Starting Player"
 
 #: mainwindow.cpp:377
-#, fuzzy, kde-format
-#| msgid "Changing starting player..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
-msgstr "Changing starting player..."
+msgstr "Change starting player"
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -378,32 +378,28 @@ msgid "Chooses which player begins the next game."
 msgstr "Chooses which player begins the next game."
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "Player &1"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "Player &2"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "Player &1 Played By"
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr "Changing who plays player 1."
+msgstr "Change who plays player 1"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -411,32 +407,28 @@ msgid "Changing who plays player 1."
 msgstr "Changing who plays player 1."
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Mouse"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Computer"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "Player &2 Played By"
 
 #: mainwindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr "Changing who plays player 2."
+msgstr "Change who plays player 2"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -444,18 +436,16 @@ msgid "Changing who plays player 2."
 msgstr "Changing who plays player 2."
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Theme"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "Changing theme."
+msgstr "Change theme"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -463,18 +453,16 @@ msgid "Changing theme."
 msgstr "Changing theme."
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "Select &Card Deck..."
+msgstr "Select &Card Deck…"
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "Configure card decks..."
+msgstr "Configure card decks"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -482,11 +470,10 @@ msgid "Choose how the cards should look."
 msgstr "Choose how the cards should look."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
-msgstr "&Change Player Names..."
+msgstr "&Change Player Names…"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -494,11 +481,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "Do you really want to clear the all time statistical data?"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
-msgstr "Dealing cards..."
+msgstr "Dealing cards…"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
