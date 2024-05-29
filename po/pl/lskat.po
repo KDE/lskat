@@ -1,4 +1,4 @@
-# Version: $Revision: 1680898 $
+# Version: $Revision: 1681083 $
 # translation of lskat.po to Polish
 # Copyright (C) 2002, 2003, 2004, 2005, 2008, 2009 Free Software Foundation, Inc.
 #
@@ -20,10 +20,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-">\n"
-"X-Generator: Lokalize 23.08.5\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10"
-" || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -370,14 +368,12 @@ msgstr "Zamykanie programu."
 
 #: mainwindow.cpp:374
 #, kde-format
-#| msgid "Starting Player"
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Gracz rozpoczynający"
 
 #: mainwindow.cpp:377
 #, kde-format
-#| msgid "Changing starting player..."
 msgctxt "@info:tooltip"
 msgid "Change starting player"
 msgstr "Zmień gracza rozpoczynającego"
@@ -389,28 +385,24 @@ msgstr "Wybiera gracz rozpoczynającego grę."
 
 #: mainwindow.cpp:380
 #, kde-format
-#| msgid "Player &1"
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "Gracz &1"
 
 #: mainwindow.cpp:381
 #, kde-format
-#| msgid "Player &2"
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "Gracz &2"
 
 #: mainwindow.cpp:386
 #, kde-format
-#| msgid "Player &1 Played By"
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "Gracz &1"
 
 #: mainwindow.cpp:389
 #, kde-format
-#| msgid "Changing who plays player 1."
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
 msgstr "Zmień kto gra graczem 1"
@@ -422,28 +414,24 @@ msgstr "Zmiana sterowania graczem 1."
 
 #: mainwindow.cpp:392
 #, kde-format
-#| msgid "&Mouse"
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Mysz"
 
 #: mainwindow.cpp:393
 #, kde-format
-#| msgid "&Computer"
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Komputer"
 
 #: mainwindow.cpp:399
 #, kde-format
-#| msgid "Player &2 Played By"
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "Gracz &2"
 
 #: mainwindow.cpp:402
 #, kde-format
-#| msgid "Changing who plays player 2."
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
 msgstr "Zmień kto gra graczem 2"
@@ -455,14 +443,12 @@ msgstr "Zmiana sterowania graczem 2."
 
 #: mainwindow.cpp:411
 #, kde-format
-#| msgid "&Theme"
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "Wys&trój"
 
 #: mainwindow.cpp:417
 #, kde-format
-#| msgid "Changing theme."
 msgctxt "@info:tooltip"
 msgid "Change theme"
 msgstr "Zmień wygląd"
@@ -474,14 +460,12 @@ msgstr "Zmiana wystroju."
 
 #: mainwindow.cpp:422
 #, kde-format
-#| msgid "Select &Card Deck..."
 msgctxt "@action"
 msgid "Select &Card Deck…"
 msgstr "Wybierz &talię kart…"
 
 #: mainwindow.cpp:424
 #, kde-format
-#| msgid "Configure card decks..."
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
 msgstr "Ustawienia talii kart"
@@ -493,7 +477,6 @@ msgstr "Wybiera wygląd kart."
 
 #: mainwindow.cpp:429
 #, kde-format
-#| msgid "&Change Player Names..."
 msgctxt "@action"
 msgid "&Change Player Names…"
 msgstr "&Zmień imiona graczy…"
@@ -505,7 +488,6 @@ msgstr "Na pewno usunąć dane statystyczne ze wszystkich gier?"
 
 #: mainwindow.cpp:573
 #, kde-format
-#| msgid "Dealing cards..."
 msgctxt "@info"
 msgid "Dealing cards…"
 msgstr "Rozdawanie kart…"
@@ -563,4 +545,3 @@ msgstr "Gry: %1/%2"
 
 #~ msgid "Player %1 won "
 #~ msgstr "Gracz %1 zwyciężył "
-
