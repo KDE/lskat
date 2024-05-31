@@ -529,13 +529,3 @@ msgstr "Резултат:"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "Игри:"
-
-#~ msgid "Changing who plays player 1..."
-#~ msgstr "Смяна на играч 1..."
-
-#~ msgid "Changing who plays player 2..."
-#~ msgstr "Смяна на играч 2..."
-
-#, fuzzy
-#~ msgid "Changing theme..."
-#~ msgstr "Смяна на ниво..."
