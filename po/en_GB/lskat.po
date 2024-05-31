@@ -3,20 +3,21 @@
 #
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2004, 2005.
 # Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2009.
-# Steve Allewell <steve.allewell@gmail.com>, 2014.
+# SPDX-FileCopyrightText: 2014, 2024 Steve Allewell <steve.allewell@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 02:26+0000\n"
-"PO-Revision-Date: 2014-06-29 12:12+0100\n"
+"PO-Revision-Date: 2024-05-30 19:50+0100\n"
 "Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
-"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language-Team: British English\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.02.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -182,10 +183,9 @@ msgid "Player 1 - %1 won "
 msgstr "Player 1 - %1 won "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 won with 90 points. Super!"
+msgstr "%1 won with over 90 points. Super!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
@@ -205,31 +205,31 @@ msgstr "Game ended"
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "unnamed"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "Card Deck Selection"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "Preview"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "Deck description."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "Deck Name"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -238,6 +238,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"Frontside\n"
+"Preview"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
