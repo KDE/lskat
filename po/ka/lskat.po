@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 02:26+0000\n"
-"PO-Revision-Date: 2023-09-20 02:50+0200\n"
+"PO-Revision-Date: 2024-06-02 05:50+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -204,31 +204,31 @@ msgstr "თამაში დასრულდა"
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "უსახელო"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "კარტის ნაკრების არჩევანი"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "მინიატურა"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "ნაკრების აღწერა"
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "ნაკრების სახელი"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -237,6 +237,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"წინა მხრის\n"
+"მინიატურა"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
