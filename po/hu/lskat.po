@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-05-18 14:40+0200\n"
+"PO-Revision-Date: 2024-07-31 21:48+0200\n"
 "Last-Translator: Kristof Kiszel <ulysses@fsf.hu>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 24.02.2\n"
+"X-Generator: Lokalize 24.05.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -361,18 +361,16 @@ msgid "Quits the program."
 msgstr "Kilépés a programból."
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Kezdőjátékos"
 
 #: mainwindow.cpp:377
-#, fuzzy, kde-format
-#| msgid "Changing starting player..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
-msgstr "A kezdőjátékos megváltoztatása..."
+msgstr "Kezdőjátékos megváltoztatása"
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -380,32 +378,28 @@ msgid "Chooses which player begins the next game."
 msgstr "Itt lehet kiválasztani, hogy ki kezdi a következő játékot."
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "&1. játékos"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "&2. játékos"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "&1. játékos"
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr "Az 1. játékos beállítása."
+msgstr "Az 1. játékos beállítása"
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -413,32 +407,28 @@ msgid "Changing who plays player 1."
 msgstr "Az 1. játékos beállítása."
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
-msgstr "&Személy"
+msgstr "&Egér"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Gép"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "&2. játékos"
 
 #: mainwindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr "A 2. játékos beállítása."
+msgstr "A 2. játékos beállítása"
 
 #: mainwindow.cpp:403
 #, kde-format
@@ -446,18 +436,16 @@ msgid "Changing who plays player 2."
 msgstr "A 2. játékos beállítása."
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Téma"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "A téma megváltoztatása."
+msgstr "A téma megváltoztatása"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -465,18 +453,16 @@ msgid "Changing theme."
 msgstr "A téma megváltoztatása."
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "Kártyacsomag vá&lasztása..."
+msgstr "Kártyacsomag kivá&lasztása…"
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "A kártyacsomagok beállítása..."
+msgstr "Kártyacsomagok beállítása"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -484,11 +470,10 @@ msgid "Choose how the cards should look."
 msgstr "Itt lehet kiválasztani a kártyák megjelenési módját."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
-msgstr "A játékosok ne&vei..."
+msgstr "A játékosok ne&vei…"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -496,11 +481,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "Biztosan törölni szeretné a statisztikai adatokat?"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
-msgstr "Osztás..."
+msgstr "Osztás…"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
