@@ -2,14 +2,14 @@
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the kdegames package.
 # Myong-sung Kim <xfuncrushx@gmail.com>, 2008, 2009.
-# Shinjo Park <kde@peremen.name>, 2011, 2013, 2020, 2023.
+# SPDX-FileCopyrightText: 2011, 2013, 2020, 2023, 2024 Shinjo Park <kde@peremen.name>
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2023-10-08 23:39+0200\n"
+"PO-Revision-Date: 2024-08-20 00:32+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
 "Language: ko\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 22.12.3\n"
+"X-Generator: Lokalize 23.08.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -204,31 +204,31 @@ msgstr "게임 끝남"
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "이름 없음"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "카드 덱 선택"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "미리 보기"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "덱 설명입니다."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "덱 이름"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -237,6 +237,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"앞쪽\n"
+"미리 보기"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
@@ -358,18 +360,16 @@ msgid "Quits the program."
 msgstr "프로그램을 종료합니다."
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "시작 플레이어"
 
 #: mainwindow.cpp:377
-#, fuzzy, kde-format
-#| msgid "Changing starting player..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
-msgstr "시작 플레이어 변경 중..."
+msgstr "시작 플레이어 변경"
 
 #: mainwindow.cpp:378
 #, kde-format
@@ -377,84 +377,74 @@ msgid "Chooses which player begins the next game."
 msgstr "다음 게임을 시작할 플레이어를 선택해 주십시오."
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "플레이어 1(&1)"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "플레이어 2(&2)"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "플레이어 1 조작 방법(&1)"
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr "플레이어 1 변경 중."
+msgstr "플레이어 1 변경"
 
 #: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1."
-msgstr "플레이어 1 변경 중."
+msgstr "플레이어 1 변경 중"
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "마우스(&M)"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "컴퓨터(&C)"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "플레이어 2 조작 방법(&2)"
 
 #: mainwindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr "플레이어 2 변경 중."
+msgstr "플레이어 2 변경"
 
 #: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2."
-msgstr "플레이어 2 변경 중."
+msgstr "플레이어 2 변경 중"
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "테마(&T)"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "테마 변경 중."
+msgstr "테마 변경"
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -462,18 +452,16 @@ msgid "Changing theme."
 msgstr "테마 변경 중."
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "카드 모양 선택(&C)..."
+msgstr "카드 모양 선택(&C)…"
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "카드 모양 설정..."
+msgstr "카드 모양 설정"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -481,11 +469,10 @@ msgid "Choose how the cards should look."
 msgstr "카드 모양을 선택하십시오."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
-msgstr "플레이어 이름 변경(&C)..."
+msgstr "플레이어 이름 변경(&C)…"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -493,11 +480,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "게임 통계 정보를 삭제하시겠습니까?"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
-msgstr "카드 돌리는 중..."
+msgstr "카드 돌리는 중…"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
