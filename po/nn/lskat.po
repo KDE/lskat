@@ -184,7 +184,6 @@ msgstr "Spelar 1 – %1 vann"
 
 #: engine_two.cpp:257 engine_two.cpp:277
 #, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
 msgid "%1 won with over 90 points. Super!"
 msgstr "%1 vann med 90 poeng. Supert!"
 
@@ -361,14 +360,12 @@ msgstr "Avsluttar programmet."
 
 #: mainwindow.cpp:374
 #, fuzzy, kde-format
-#| msgid "Starting Player"
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Spelar som startar"
 
 #: mainwindow.cpp:377
 #, fuzzy, kde-format
-#| msgid "Changing starting player..."
 msgctxt "@info:tooltip"
 msgid "Change starting player"
 msgstr "Endrar kva for spelar som startar …"
@@ -380,28 +377,24 @@ msgstr "Vel kva for spelar som skal starta neste spel."
 
 #: mainwindow.cpp:380
 #, fuzzy, kde-format
-#| msgid "Player &1"
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "Spelar &1"
 
 #: mainwindow.cpp:381
 #, fuzzy, kde-format
-#| msgid "Player &2"
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "Spelar &2"
 
 #: mainwindow.cpp:386
 #, fuzzy, kde-format
-#| msgid "Player &1 Played By"
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "Spelar &1 spelt av"
 
 #: mainwindow.cpp:389
 #, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
 msgstr "Endrar kven som styrer spelar 1."
@@ -413,28 +406,24 @@ msgstr "Endrar kven som styrer spelar 1."
 
 #: mainwindow.cpp:392
 #, fuzzy, kde-format
-#| msgid "&Mouse"
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Mus"
 
 #: mainwindow.cpp:393
 #, fuzzy, kde-format
-#| msgid "&Computer"
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Datamaskin"
 
 #: mainwindow.cpp:399
 #, fuzzy, kde-format
-#| msgid "Player &2 Played By"
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "Spelar &2 spelt av"
 
 #: mainwindow.cpp:402
 #, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
 msgstr "Endrar kven som styrer spelar 2."
@@ -446,14 +435,12 @@ msgstr "Endrar kven som styrer spelar 2."
 
 #: mainwindow.cpp:411
 #, fuzzy, kde-format
-#| msgid "&Theme"
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Tema"
 
 #: mainwindow.cpp:417
 #, fuzzy, kde-format
-#| msgid "Changing theme."
 msgctxt "@info:tooltip"
 msgid "Change theme"
 msgstr "Endrar tema."
@@ -465,14 +452,12 @@ msgstr "Endrar tema."
 
 #: mainwindow.cpp:422
 #, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
 msgctxt "@action"
 msgid "Select &Card Deck…"
 msgstr "Vel &kortstokk …"
 
 #: mainwindow.cpp:424
 #, fuzzy, kde-format
-#| msgid "Configure card decks..."
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
 msgstr "Endra kortstokk …"
@@ -484,7 +469,6 @@ msgstr "Vel korleis korta skal sjå ut."
 
 #: mainwindow.cpp:429
 #, fuzzy, kde-format
-#| msgid "&Change Player Names..."
 msgctxt "@action"
 msgid "&Change Player Names…"
 msgstr "&Byt namn på spelarar …"
@@ -496,7 +480,6 @@ msgstr "Er du sikker på at du vil nullstilla all statistikken?"
 
 #: mainwindow.cpp:573
 #, fuzzy, kde-format
-#| msgid "Dealing cards..."
 msgctxt "@info"
 msgid "Dealing cards…"
 msgstr "Delar ut kort …"
