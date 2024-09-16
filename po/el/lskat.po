@@ -19,8 +19,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -364,8 +364,7 @@ msgid "Quits the program."
 msgstr "Τερματίζει το πρόγραμμα."
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Παίκτης που ξεκινά"
@@ -383,22 +382,19 @@ msgid "Chooses which player begins the next game."
 msgstr "Επιλέγει ποιος παίκτης ξεκινά το επόμενο παιχνίδι."
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "Παίκτης &1"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "Παίκτης &2"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "Ο παίκτης &1 παίχτηκε από τον/την"
@@ -416,22 +412,19 @@ msgid "Changing who plays player 1."
 msgstr "Αλλαγή του παίκτη 1."
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Ποντίκι"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Υπολογιστής"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "Ο παίκτης &2 παίχτηκε από τον/την "
@@ -449,8 +442,7 @@ msgid "Changing who plays player 2."
 msgstr "Αλλαγή του παίκτη 2."
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Θέμα"
@@ -468,18 +460,16 @@ msgid "Changing theme."
 msgstr "Τροποποίηση θέματος."
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "Επιλογή &τράπουλας..."
+msgstr "Επιλογή &τράπουλας…"
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "Ρύθμιση τράπουλας..."
+msgstr "Ρύθμιση τράπουλας"
 
 #: mainwindow.cpp:425
 #, kde-format
@@ -487,11 +477,10 @@ msgid "Choose how the cards should look."
 msgstr "Αλλαγή της εμφάνισης των χαρτιών."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
-msgstr "&Τροποποίηση ονομάτων παικτών..."
+msgstr "&Τροποποίηση ονομάτων παικτών…"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -499,11 +488,10 @@ msgid "Do you really want to clear the all time statistical data?"
 msgstr "Επιθυμείτε πραγματικά τον καθαρισμό όλων των στατιστικών δεδομένων;"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
-msgstr "Μοίρασμα χαρτιών..."
+msgstr "Μοίρασμα χαρτιών…"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
