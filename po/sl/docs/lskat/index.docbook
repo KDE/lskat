@@ -1,0 +1,769 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY i18n-lskat "Lieutenant Skat">
+  <!ENTITY lskat "LSkat">
+
+  <!ENTITY % Slovenian "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>&lskat; Priročnik</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>Recenzent</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Matjaž</firstname
+><surname
+>Jeran</surname
+><affiliation
+><address
+><email
+>matjaz.jeran@amis.net</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>05.10.2021</date>
+<releaseinfo
+>1.50 (KDE Gear 21.08)</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Ta dokumentacija opisuje igro &i18n-lskat; različica 1.50</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>igra</keyword>
+<keyword
+>igranje kart</keyword>
+<keyword
+>igra s kartami</keyword>
+<keyword
+>arkadna</keyword>
+<keyword
+>kartica</keyword>
+<keyword
+>skat</keyword>
+<keyword
+>poročnik</keyword>
+<keyword
+>LsKat</keyword>
+<keyword
+>dva igralca</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+<note
+><title
+>Vrsta igre:</title
+><para
+>Kartica, Arkadna</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>Število možnih igralcev:</title
+><para
+>Dva</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+><literal
+>Poročnik Skat</literal
+> (iz nemščine <foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>) je zabavna in privlačna igra s kartami za dva igralca, kjer je drugi igralec bodisi živ nasprotnik bodisi vgrajena umetna inteligenca. </para>
+<para
+>Igra se igra z enim kompletom kart. Karte se premešajo in razdelijo med igralce tako, da jih je polovica obrnjenih navzdol, polovica pa odprtih. Vsak udeleženec igra eno od odprtih kart na potezo. Takoj, ko so odigrane vse karte, se krog zaključi in točke se izračunajo in podelijo. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>Kako igrati</title>
+<note
+><title
+>Cilj:</title
+><para
+>Zberite več kot 60 točk v eni igri.</para
+></note>
+
+<para
+>Ko je razdelitev končana, ima vsak igralec 16 kart. Karte so prikazane v dveh vodoravnih vrstah - štiri karte na vrstico. Polovica kart je obrnjena navzdol in polovica obrnjena navzgor. Kot igralec lahko vidite karte svojega nasprotnika in svoje. Nato lahko naredite potezo s klikom na katero koli od svojih kart, ki so trenutno obrnjene navzgor. Nasprotnik mora odgovoriti z izbiro ustrezne karte iz svojega niza.</para>
+
+<note
+><para
+>Če je vaš nasprotnik umetna inteligenca, bodo njegove karte izbrane samodejno.</para
+></note>
+
+<para
+>Ko je menjava končana, se ovrednotijo vrednosti odigranih kart in vi ali vaš nasprotnik dobite točke. Igra je zaključena v 16 rundah (ko so odigrane vse vaše in nasprotnikove karte). Po koncu igre se vaš rezultat primerja z rezultatom vašega nasprotnika in igralec z višjim rezultatom zmaga krog.</para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>Pravila igre, strategije in nasveti</title>
+
+<sect1 id="screen">
+<title
+>Igralni zaslon</title>
+
+<screenshot>
+<screeninfo
+>&i18n-lskat; privzeti zaslon igre.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>&i18n-lskat; privzeti referenčni zaslon igre.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>Indikator aktivnega igralca</seg>
+<seg
+>Skupki kart za prvega in drugega igralca</seg>
+<seg
+>Kup osvojenih kart (če obstajajo)</seg>
+<seg
+>Območje igranja</seg>
+<seg
+>Semafor z imenom igralca, točkami v trenutni igri, skupnim rezultatom igralca in številom zmag na igro</seg>
+<seg
+>Krmilnik igralca (človek/PC)</seg>
+<seg
+><quote
+>Adut</quote
+> v trenutni igri</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>Pravila</title>
+<itemizedlist>
+<listitem
+><para
+>Vsak igralec ima v lasti 16 kart. 8 jih je obrnjenih navzdol, 8 jih je obrnjenih navzgor.</para
+></listitem>
+<listitem
+><para
+>Karto, obrnjeno navzdol, je mogoče odpreti šele po odigrani karti, obrnjeni navzgor, ki jo pokriva.</para
+></listitem>
+<listitem
+><para
+>Vsaka igra ima naključno izbranega <quote
+>aduta</quote
+> karto [8].</para
+></listitem>
+<listitem
+><para
+>Vsi štirje fanti se štejejo kot aduti in ne spadajo med njihove barve.</para
+></listitem>
+<listitem
+><para
+>Če je barva (&ie; srce) izbrana kot <quote
+>adut</quote
+>, se vseh sedem src in vsi štirje fanti štejejo za adute, kar pomeni 11 adutov.</para
+></listitem>
+<listitem
+><para
+>Fanti se med seboj premagujejo v vrstnem redu (največji proti najmanj): križ->pik->srce->kara.</para
+></listitem>
+<listitem
+><para
+>Zaporedje kart za adutovsko barvo: križev fant, pikov fant, srčev fant, karov fant, as, desetka, kralj, dama, devetka, osmica, sedmica.</para
+></listitem>
+<listitem
+><para
+>Zaporedje kart za barvo brez aduta: as, desetka, kralj, dama, devetka, osmica, sedmica.</para
+></listitem>
+<listitem id="card-values"
+><para
+>Vrednosti kart (od največje do najnižje):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Kartica</entry
+><entry
+>Vrednost</entry
+></row>
+<row
+><entry
+>As</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>Deset</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>Kralj</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>Dama</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>Fant</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>Devet</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Osem</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>Sedem</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>Posebna igra <quote
+>adutov</quote
+> se imenuje Grand. V tej igri nobena barva ni adut in samo štirje fanti štejejo kot adut. Ta vrsta igre je označena s simbolom fantove glave [8] na semaforju [6].</para
+></listitem>
+<listitem
+><para
+>Če igralec začne krog, lahko izbira med kartami, s katerimi lahko igra, bodisi karto iz kompleta ali karto <quote
+>aduta</quote
+>.</para
+></listitem>
+<listitem
+><para
+>Za igranje kroga se lahko uporabijo samo obrnjene karte iz igralčevega kupčka.</para
+></listitem>
+<listitem
+><para
+>Igralec, ki zmaga krog, začne naslednji krog.</para
+></listitem>
+<listitem
+><para
+>Igralec, ki zmaga v krogu, svojemu rezultatu doda vrednosti kart, odigranih v tem krogu.</para
+></listitem>
+<listitem
+><para
+>Igralec z več kot 60 točkami zmaga.</para
+></listitem>
+<listitem
+><para
+>Če oba igralca končata s po 60 točkami, se igra konča z remijem.</para
+></listitem>
+<listitem
+><para
+>Za vsako igro se dodeli določeno število zmagovalnih točk, ki se dodajo skupnemu rezultatu.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>Točke</entry
+><entry
+>Rezultat</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>61 do 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>91 do 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>Strategije in nasveti</title>
+<para
+>Ko se igra začne, mora začetni igralec odigrati katero koli od obrnjenih kart iz svojega kupa. Če ima drugi igralec trenutno obrnjene karte, ki so iste barve kot igrana karta, mora odgovoriti z eno od teh kart. Če pa drugi igralec nima karte iste barve, lahko igra s katero koli drugo karto, vključno z <quote
+>adutom</quote
+>.</para>
+<para
+>Če je vsaj en <quote
+>adut</quote
+> karta, premaga obe karti najvišji <quote
+>adut</quote
+>.</para>
+<para
+>Če ni <quote
+>aduta</quote
+>, premaga obe karti najvišja karta v barvi, ki jo igra začetni igralec.</para>
+<para
+>Če igralec, ki odgovori, nima karte zahtevane barve in <quote
+>aduta</quote
+>, mora odigrati katero koli karto in začetni igralec dobi obe karti.</para>
+
+<para
+>Igralec, ki zmaga krog, vodi naslednjega.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Pogosto zastavljena vprašanja</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>Ali lahko igram z drugim kompletom kart?</para
+></question>
+ <answer
+><para
+>Da. Za podrobnosti glejte <link linkend="deck_change"
+>ta</link
+> razdelek »Pregled vmesnika«.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Naredil sem napako. Ali lahko razveljavim? </para
+></question>
+ <answer
+><para
+>Ne. Ta igra nima funkcije <quote
+>Razveljavi</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ali lahko uporabljam tipkovnico za igranje te igre? </para
+></question>
+ <answer
+><para
+>Ne. Te igre ni mogoče igrati s tipkovnico.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ne morem ugotoviti, kaj naj naredim tukaj! Ali obstajajo namigi? </para
+></question>
+ <answer
+><para
+>Ne. Ta igra nima funkcije <quote
+>Namig</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Zdaj moram zapustiti igro, vendar še nisem končal. Ali lahko shranim svoj napredek?</para
+></question>
+ <answer
+><para
+>Ne. Ta igra nima funkcije <quote
+>Shrani stanje</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>Ali lahko spremenim imena igralcev?</para
+></question>
+ <answer
+><para
+>Da. Če želite spremeniti imena, prikazana na desni strani zaslona igre, glejte <link linkend="name_change"
+>ta</link
+> razdelek 'Pregled vmesnika' za podrobnosti.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>Pregled vmesnika</title>
+
+<sect1 id="file-menu">
+<title
+>Meni igre</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+><anchor id="new_game"/>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Nova</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>Začne novo igro.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Končaj igro</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Konča tekočo igro.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Igra</guimenu
+> <guimenuitem
+>Počisti statistiko</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Počisti pomnilnik vseh iger.</action
+> Ta statistika se shrani, ko se igra konča in prikazuje skupni rezultat ter število odigranih in zmaganih iger na igralca. To se počisti s to postavko menija. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Igra</guimenu
+> <guimenuitem
+>Zapusti</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>Zapusti program.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Meni z nastavitvami</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guisubmenu
+>Zagon igralca</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>Izbere, ali igralec 1 (zgoraj) ali igralec 2 (spodaj) začne naslednjo igro. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guisubmenu
+>Igralec 1, ki ga igra</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Izbere, kdo naj igra za igralca 1 (zgoraj). Igralca lahko upravlja lokalni igralec z miško ali pa ga upravlja računalnik. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guisubmenu
+>Igralec 2, ki ga igra</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Izbere, kdo naj igra za igralca 2 (spodaj). Igralca lahko upravlja lokalni igralec z miško ali pa ga upravlja računalnik. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guisubmenu
+>Tema</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>Izbere vizualno temo. To spremeni videz igre, ne pa tudi kart. Kompleti kart so izbrani z lastnim elementom menija. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Izberite komplet kart...</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+>Izberite sprednjo in zadnjo stran kompleta kart, ki se uporablja za igranje.</action
+> To lahko izberete v pogovornem oknu za predogled, ki prikazuje vse nameščene komplete kart. </para>
+<note>
+<para
+>Nekateri kompleti kart ali kompleti kart so v pogovornem oknu označeni kot razširljiva grafika (&SVG;). Če jih izberete, bo prikazana boljša kakovost grafike, ko se igra pomanjša ali poveča. Grafika fiksne velikosti bo izgubila kakovost, če bo velikost drugačna od prvotne velikosti. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Spremeni imena igralcev…</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>Spremeni imena igralcev.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>Dodatno &i18n-lskat; ima skupno &kde; Elemente menija <guimenu
+>Nastavitve</guimenu
+> in <guimenu
+>Pomoč</guimenu
+>, za več informacij preberite razdelke o <ulink url="help:/fundamentals/menus.html#menus-settings"
+>meniju z nastavitvami</ulink
+> in <ulink url="help:/fundamentals/menus.html#menus-help"
+>meni Pomoč</ulink
+> v &kde; Osnove. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Zasluge in licenca</title>
+
+<para
+>&lskat; </para>
+<para
+>Avtorske pravice za program 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Avtorske pravice za grafiko 2007 Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+> </para>
+<para
+>Avtorske pravice za dokumentacijo 2000-2007 &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>Dokumentacija pretvorjena v &kde; 2.0 avtor &Mike.McBride; &Mike.McBride.mail; </para>
+
+<para
+>Prevod: Matjaž Jeran<email
+>matjaz.jeran@amis.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+
