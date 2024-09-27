@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2024-09-25 19:30+0200\n"
+"PO-Revision-Date: 2024-09-26 18:51+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
 "Language: nn\n"
@@ -210,7 +210,7 @@ msgstr "namnlaus"
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "Val av kortstokk"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
@@ -222,13 +222,13 @@ msgstr "Førehandsvising"
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "Kortstokkskildring."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "Kortstokknamn"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -237,6 +237,8 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"Framside\n"
+"førehandsvising"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
