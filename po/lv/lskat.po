@@ -3,31 +3,32 @@
 #
 # Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
 # Einars Sprugis <einars8@gmail.com>, 2010.
+# SPDX-FileCopyrightText: 2024 Toms Trasuns <toms.trasuns@posteo.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-05-07 00:37+0000\n"
-"PO-Revision-Date: 2010-04-25 21:50+0300\n"
-"Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
-"Language-Team: Latvian <locale@laka.lv>\n"
+"PO-Revision-Date: 2024-11-12 20:22+0200\n"
+"Last-Translator: Toms Trasuns <toms.trasuns@posteo.net>\n"
+"Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
 "Language: lv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 24.08.3\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
 "2);\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andris Maziks, Viesturs Zariņš"
+msgstr "Andris Maziks, Viesturs Zariņš, Toms Trasūns"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andris.m@delfi.lv, viesturs.zarins@mii.lu.lv"
+msgstr "andris.m@delfi.lv, viesturs.zarins@mii.lu.lv, toms.trasuns@posteo.net"
 
 #: config_two.cpp:29
 #, kde-format
@@ -145,7 +146,7 @@ msgstr "Leitnants Skats"
 #, kde-format
 msgctxt "Title of the game - line 2"
 msgid "for"
-msgstr "priekš"
+msgstr "izstrādāts"
 
 #: display_intro.cpp:94
 #, kde-format
@@ -171,7 +172,7 @@ msgstr[2] "%1 punktu"
 #: engine_two.cpp:235
 #, kde-format
 msgid "Game was ended - no winner"
-msgstr "Spēle tika pārtraukta - nav uzvarētāja"
+msgstr "Partija beidzās — nav uzvarētāja"
 
 #: engine_two.cpp:244
 #, kde-format
@@ -179,16 +180,14 @@ msgid "Game is drawn"
 msgstr "Neizšķirts"
 
 #: engine_two.cpp:250
-#, fuzzy, kde-format
-#| msgid "Player 2 - %1 won "
+#, kde-format
 msgid "Player 1 - %1 won "
-msgstr "Uzvarēja 2. spēlētājs - %1"
+msgstr "1. spēlētājs — %1 — uzvarēja "
 
 #: engine_two.cpp:257 engine_two.cpp:277
-#, fuzzy, kde-format
-#| msgid "%1 won with 90 points. Super!"
+#, kde-format
 msgid "%1 won with over 90 points. Super!"
-msgstr "%1 uzvarēja ar 90 punktiem. Super!"
+msgstr "%1 uzvarēja ar vairāk nekā 90 punktiem. Lieliski!"
 
 #: engine_two.cpp:263 engine_two.cpp:283
 #, kde-format
@@ -198,41 +197,41 @@ msgstr "%1 atstāja pretinieku sausā. Apsveicam!"
 #: engine_two.cpp:270
 #, kde-format
 msgid "Player 2 - %1 won "
-msgstr "Uzvarēja 2. spēlētājs - %1"
+msgstr "2. spēlētājs — %1 — uzvarēja "
 
 #: engine_two.cpp:344
 #, kde-format
 msgid "Game ended"
-msgstr "Spēle pārtraukta"
+msgstr "Partija beidzās"
 
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "nenosaukts"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
 msgctxt "@title:window"
 msgid "Card Deck Selection"
-msgstr ""
+msgstr "Karšu kavas atlase"
 
 #. i18n: ectx: property (title), widget (QGroupBox, previerGroupBox)
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "Priekšskatījums"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
 #, kde-format
 msgid "Deck description."
-msgstr ""
+msgstr "Kavas apraksts."
 
 #. i18n: ectx: property (text), widget (QLabel, cardName)
 #: fromlibkdegames/kgamecardselector.ui:54
 #, kde-format
 msgid "Deck Name"
-msgstr ""
+msgstr "Kavas nosaukums"
 
 #. i18n: ectx: property (text), widget (QLabel, previewImage)
 #: fromlibkdegames/kgamecardselector.ui:83
@@ -241,12 +240,14 @@ msgid ""
 "Frontside\n"
 "Preview"
 msgstr ""
+"Priekšpuse\n"
+"Priekšskatījums"
 
 #. i18n: ectx: Menu (game)
 #: lskatui.rc:10
 #, kde-format
 msgid "&Game"
-msgstr "&Spēle"
+msgstr "&Partija"
 
 #. i18n: ectx: Menu (settings)
 #: lskatui.rc:12
@@ -268,12 +269,12 @@ msgstr "LSkat"
 #: main.cpp:64
 #, kde-format
 msgid "LSkat: A desktop card game"
-msgstr "LSkat: darbvirsmas kāršu spēle"
+msgstr "„LSkat“: darbvirsmas kāršu spēle"
 
 #: main.cpp:66
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
-msgstr "(c) 1995-2007, Martin Heni"
+msgstr "(c) 1995—2007, Martin Heni"
 
 #: main.cpp:71
 #, kde-format
@@ -323,28 +324,28 @@ msgstr "Palaist spēli demonstrācijas (automātiskā) režīmā"
 #: mainwindow.cpp:80
 #, kde-format
 msgid "Installation error: No theme list found."
-msgstr "Instalācijas kļūda: Nav atrasts tēmu saraksts,"
+msgstr "Instalācijas kļūda: nav atrasts motīvu saraksts,"
 
 #: mainwindow.cpp:126
 #, kde-format
 msgid "Installation error: Theme file error."
-msgstr "Instalācijas kļūda: Tēmas faila kļūda."
+msgstr "Instalācijas kļūda: motīva datnes kļūda."
 
 #: mainwindow.cpp:144
 #, kde-format
 msgid "Welcome to Skat! Please start a new game."
-msgstr "Sveicināti Skat! Lūdzu sāciet jaunu spēli."
+msgstr "Sveicināti „Skat“! Sāciet jaunu spēli."
 
 #: mainwindow.cpp:333
 #, kde-format
 msgid "Game Over. Please start a new game."
-msgstr "Spēle galā. Lūdzu sāciet jaunu spēli."
+msgstr "Spēle ir galā. Sāciet jaunu spēli."
 
 #: mainwindow.cpp:347
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
-msgstr "Nākamais gājiens %1 (%2. spēlētājs)"
+msgstr "Nākamo gājienu iet %1 (%2. spēlētājs)"
 
 #: mainwindow.cpp:361
 #, kde-format
@@ -354,7 +355,7 @@ msgstr "Notīra visu laiku statistiku, kas tiek glabāta par visām sesijām."
 #: mainwindow.cpp:366
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
-msgstr "Pārtrauc aktīvo spēli. Uzvarētājs netiks noteikts."
+msgstr "Pārtrauc aktīvo spēli. Uzvarētājs nav noteikts."
 
 #: mainwindow.cpp:371
 #, kde-format
@@ -362,51 +363,45 @@ msgid "Quits the program."
 msgstr "Iziet no programmas."
 
 #: mainwindow.cpp:374
-#, fuzzy, kde-format
-#| msgid "Starting Player"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
-msgstr "Sākošais spēlētājs"
+msgstr "Spēlētājs, kurš sāk"
 
 #: mainwindow.cpp:377
-#, fuzzy, kde-format
-#| msgid "Changing starting player..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
-msgstr "Maina sākošo spēlētāju..."
+msgstr "Maina spēlētāju, kurš sāk"
 
 #: mainwindow.cpp:378
 #, kde-format
 msgid "Chooses which player begins the next game."
-msgstr "Izvēlas kurš spēlētājs sāks nākamo spēli."
+msgstr "Izvēlas, kurš spēlētājs sāks nākamo partiju."
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player &1"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "&1. spēlētājs"
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player &2"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "&2. spēlētājs"
 
 #: mainwindow.cpp:386
-#, fuzzy, kde-format
-#| msgid "Player &1 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
-msgstr "Kā &1 spēlētājs spēlē"
+msgstr "&1 spēlētājs spēlē kā"
 
 #: mainwindow.cpp:389
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 1."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
-msgstr "Maina kurš spēlē kā 1. spēlētājs."
+msgstr "Mainīt, kurš spēlē kā 1. spēlētājs."
 
 #: mainwindow.cpp:390
 #, kde-format
@@ -414,79 +409,70 @@ msgid "Changing who plays player 1."
 msgstr "Maina kurš spēlē kā 1. spēlētājs."
 
 #: mainwindow.cpp:392
-#, fuzzy, kde-format
-#| msgid "&Mouse"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
-msgstr "&Pele"
+msgstr "Cilvēks ar &peli"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Dators"
 
 #: mainwindow.cpp:399
-#, fuzzy, kde-format
-#| msgid "Player &2 Played By"
+#, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
-msgstr "Kā &2 spēlētājs spēlē"
+msgstr "&2. spēlētājs spēlē kā"
 
 #: mainwindow.cpp:402
-#, fuzzy, kde-format
-#| msgid "Changing who plays player 2."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
-msgstr "Maina kurš spēlē kā 2. spēlētājs."
+msgstr "Mainīt, kurš spēlē kā 2. spēlētājs."
 
 #: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2."
-msgstr "Maina kurš spēlē kā 2. spēlētājs."
+msgstr "Maina, kurš spēlē kā 2. spēlētājs."
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
-msgstr "&Tēma"
+msgstr "&Motīvs"
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "Maina tēmu."
+msgstr "Mainīt motīvu"
 
 #: mainwindow.cpp:418
 #, kde-format
 msgid "Changing theme."
-msgstr "Maina tēmu."
+msgstr "Maina motīvu"
 
 #: mainwindow.cpp:422
-#, fuzzy, kde-format
-#| msgid "Select &Card Deck..."
+#, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "Izvēlieties &kāršu kavu..."
+msgstr "Atlasīt &kāršu kavu..."
 
 #: mainwindow.cpp:424
-#, fuzzy, kde-format
-#| msgid "Configure card decks..."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
-msgstr "Konfigurēt kāršu kavas..."
+msgstr "Konfigurēt kāršu kavas"
 
 #: mainwindow.cpp:425
 #, kde-format
 msgid "Choose how the cards should look."
-msgstr "Izvēlēties kā izskatās kārtis."
+msgstr "Izvēlēties kāršu izskatu."
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "&Change Player Names..."
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
 msgstr "&Mainīt spēlētāju vārdus..."
@@ -494,11 +480,10 @@ msgstr "&Mainīt spēlētāju vārdus..."
 #: mainwindow.cpp:500
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
-msgstr "Vai tiešām vēlaties izdzēst visu laiku statistikas datus?"
+msgstr "Vai tiešām vēlaties izdzēst visus statistikas datus?"
 
 #: mainwindow.cpp:573
-#, fuzzy, kde-format
-#| msgid "Dealing cards..."
+#, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
 msgstr "Dala kārtis..."
@@ -507,7 +492,7 @@ msgstr "Dala kārtis..."
 #: namedialog.ui:14
 #, kde-format
 msgid "Configure Names"
-msgstr "Konfigurēt vārdus"
+msgstr "Mainīt vārdus"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: namedialog.ui:20
@@ -519,13 +504,13 @@ msgstr "Spēlētāju vārdi"
 #: namedialog.ui:32
 #, kde-format
 msgid "Player 1:"
-msgstr "Spēlētājs 1:"
+msgstr "1. spēlētājs:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: namedialog.ui:39
 #, kde-format
 msgid "Player 2:"
-msgstr "Spēlētājs 2:"
+msgstr "2. spēlētājs:"
 
 #: scoresprite.cpp:171
 #, kde-format
@@ -537,7 +522,7 @@ msgstr "Punkti: %1"
 #, kde-format
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
-msgstr "Spēles: %1 / %2"
+msgstr "Partijas: %1 / %2"
 
 #~ msgid "Changing who plays player 1..."
 #~ msgstr "Maina kurš spēlē kā 1. spēlētājs..."
