@@ -29,6 +29,7 @@
   <name xml:lang="it">LSkat</name>
   <name xml:lang="ka">LSkat</name>
   <name xml:lang="ko">LSkat</name>
+  <name xml:lang="lv">LSkat</name>
   <name xml:lang="nl">LSkat</name>
   <name xml:lang="nn">LSkat</name>
   <name xml:lang="pl">LSkat</name>
@@ -70,6 +71,7 @@
   <summary xml:lang="it">Gioco di carte tedesco Skat per due giocatori</summary>
   <summary xml:lang="ka">გერმანული თამაში კარტებით "Skat" ორი მოთამაშისთვის</summary>
   <summary xml:lang="ko">2인용 독일식 카드 게임 스카트</summary>
+  <summary xml:lang="lv">Vācu kāršu spēle „Skat“ diviem spēlētājiem</summary>
   <summary xml:lang="nl">Duits kaartspel Skat voor twee spelers</summary>
   <summary xml:lang="nn">Det tyske kortspelet Skat for to spelarar</summary>
   <summary xml:lang="pl">Niemiecka gra karciana Skat dla dwóch graczy</summary>
@@ -110,6 +112,7 @@
     <p xml:lang="it">Tenente Skat (dal tedesco «Offiziersskat») è un gioco di carte divertente e coinvolgente per due giocatori, in cui il secondo giocatore è una persona o un'intelligenza artificiale.</p>
     <p xml:lang="ka">ლეიტენანტი სკატი (გერმანული "Offiziersskat"-დან) სახალისო კარტის თამაშია ორი კაცისთვის, სადაც მეორე მოთამაშე ან ცოცხალი ადამიანია, ან ჩაშენებული ხელოვნური ინტელექტი.</p>
     <p xml:lang="ko">스카트 중사(독일어 "Offiziersskat"에서 따 옴)는 2인용 카드 게임입니다. 두 번째 플레이어는 사람이나 AI 둘 다가 될 수 있습니다.</p>
+    <p xml:lang="lv">Leitnants Skats (no vācu „Offiziersskat“) ir interesanta un aizraujoša kāršu spēle diviem spēlētājiem. Otrs spēlētājs var būt vai nu īsts cilvēks, vai arī iebūvētais mākslīgais intelekts.</p>
     <p xml:lang="nl">Luitenant Skat (uit het Duits  "Offiziersskat) is een leuk en uitdagend kaartspel voor twee spelers, waar de tweede speler ofwel een levende tegenstander is of ingebouwd met kunstmatige intelligentie.</p>
     <p xml:lang="nn">Løytnant Skat (frå tysk: «Offiziersskat») er eit morosamt kortspel for to spelarar. Du kan anten spela mot ein annan spelar eller mot datamaskina.</p>
     <p xml:lang="pl">Porucznik Skat (z niemieckiego "Offiziersskat") jest wciągającą grą karcianą dla dwóch graczy, w której drugi gracz jest żywy lub sztuczną inteligencją.</p>
