@@ -87,6 +87,7 @@ target_link_libraries(lskat
     KF6::GuiAddons
     KF6::I18n
     KF6::XmlGui
+    KF6::IconThemes
     Qt6::Gui
     Qt6::Svg
 )
