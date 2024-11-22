@@ -2,7 +2,7 @@
 # Translation of lskat.po to Slovenian
 # SLOVENIAN TRANSLATION OF LSKAT.
 # Copyright (C) 2001, 2003, 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
-# $Id: lskat.po 1679487 2024-05-08 01:11:05Z scripty $
+# $Id: lskat.po 1695692 2024-11-22 01:16:46Z scripty $
 # $Source$
 #
 # Marko Samastur <markos@elite.org>, 2000.
@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:37+0000\n"
+"POT-Creation-Date: 2024-11-22 00:38+0000\n"
 "PO-Revision-Date: 2024-05-07 06:25+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -271,62 +271,62 @@ msgstr "Na&stavitve"
 msgid "Main Toolbar"
 msgstr "Glavna orodna vrstica"
 
-#: main.cpp:62
+#: main.cpp:80
 #, kde-format
 msgid "LSkat"
 msgstr "LSkat"
 
-#: main.cpp:64
+#: main.cpp:82
 #, kde-format
 msgid "LSkat: A desktop card game"
 msgstr "LSkat: Namizna igra s kartami"
 
-#: main.cpp:66
+#: main.cpp:84
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
 msgstr "© 1995-2007, Martin Heni"
 
-#: main.cpp:71
+#: main.cpp:89
 #, kde-format
 msgid "Martin Heni"
 msgstr "Martin Heni"
 
-#: main.cpp:71
+#: main.cpp:89
 #, kde-format
 msgid "Game design and code"
 msgstr "Oblikovanje igre in koda"
 
-#: main.cpp:72
+#: main.cpp:90
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Eugene Trounev"
 
-#: main.cpp:72
+#: main.cpp:90
 #, kde-format
 msgid "Graphics"
 msgstr "Grafika"
 
-#: main.cpp:74
+#: main.cpp:92
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:74
+#: main.cpp:92
 #, kde-format
 msgid "Code Improvements"
 msgstr "Izboljšave kode"
 
-#: main.cpp:81
+#: main.cpp:99
 #, kde-format
 msgid "Enter debug level"
 msgstr "Vnesite stopnjo razhroščevanja"
 
-#: main.cpp:82
+#: main.cpp:100
 #, kde-format
 msgid "Skip intro animation"
 msgstr "Preskoči uvodno animacijo"
 
-#: main.cpp:83
+#: main.cpp:101
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "Zaženi igro v predstavitvenem načinu (samopredvajanje)"

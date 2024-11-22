@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-05-07 00:37+0000\n"
+"POT-Creation-Date: 2024-11-22 00:38+0000\n"
 "PO-Revision-Date: 2024-05-09 09:59+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -263,62 +263,62 @@ msgstr "الإ&عدادات"
 msgid "Main Toolbar"
 msgstr "شريط  الأدوات العام"
 
-#: main.cpp:62
+#: main.cpp:80
 #, kde-format
 msgid "LSkat"
 msgstr "النقيب سكيت"
 
-#: main.cpp:64
+#: main.cpp:82
 #, kde-format
 msgid "LSkat: A desktop card game"
 msgstr "النقيب سكيت: لعبة ورق للسطح المكتب"
 
-#: main.cpp:66
+#: main.cpp:84
 #, kde-format
 msgid "(c) 1995-2007, Martin Heni"
 msgstr "(c) 1995-2007, Martin Heni"
 
-#: main.cpp:71
+#: main.cpp:89
 #, kde-format
 msgid "Martin Heni"
 msgstr "Martin Heni"
 
-#: main.cpp:71
+#: main.cpp:89
 #, kde-format
 msgid "Game design and code"
 msgstr "تصميم اللعبة و كتابة الشفرة"
 
-#: main.cpp:72
+#: main.cpp:90
 #, kde-format
 msgid "Eugene Trounev"
 msgstr "Eugene Trounev"
 
-#: main.cpp:72
+#: main.cpp:90
 #, kde-format
 msgid "Graphics"
 msgstr "الرسوميات"
 
-#: main.cpp:74
+#: main.cpp:92
 #, kde-format
 msgid "Benjamin Meyer"
 msgstr "Benjamin Meyer"
 
-#: main.cpp:74
+#: main.cpp:92
 #, kde-format
 msgid "Code Improvements"
 msgstr "تحسينات الشفرة"
 
-#: main.cpp:81
+#: main.cpp:99
 #, kde-format
 msgid "Enter debug level"
 msgstr "أدخل مستوى التصحيح"
 
-#: main.cpp:82
+#: main.cpp:100
 #, kde-format
 msgid "Skip intro animation"
 msgstr "تخطى المقدمة المتحركة"
 
-#: main.cpp:83
+#: main.cpp:101
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
 msgstr "شغل اللعبة في النمط الاستعراضي (لعب تلقائي)"
