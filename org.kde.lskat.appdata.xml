@@ -37,6 +37,7 @@
   <name xml:lang="pt-BR">LSkat</name>
   <name xml:lang="ro">LSkat</name>
   <name xml:lang="ru">LSkat</name>
+  <name xml:lang="sa">LSat</name>
   <name xml:lang="sk">LSkat</name>
   <name xml:lang="sl">LSkat</name>
   <name xml:lang="sr">П‑скат</name>
@@ -79,6 +80,7 @@
   <summary xml:lang="pt-BR">Jogo de cartas alemão Tenente Skat para dois jogadores</summary>
   <summary xml:lang="ro">Joc de cărți german Skat pentru doi jucători</summary>
   <summary xml:lang="ru">Немецкая карточная игра «Скат» для двоих игроков</summary>
+  <summary xml:lang="sa">जर्मन-पत्तेः क्रीडा द्वयोः खिलाडयोः कृते स्केटम्</summary>
   <summary xml:lang="sk">Nemecká kartová hra pre dvoch hráčov</summary>
   <summary xml:lang="sl">Nemška igra Skat za dva igralca</summary>
   <summary xml:lang="sv">Tyskt kortspel Skat för två spelare</summary>
@@ -119,6 +121,7 @@
     <p xml:lang="pt">O Tenente Skat (do Alemão "Offiziersskat") é um jogo de cartas engraçado e viciante para dois jogadores, onde o segundo jogador é um adversário ao vivo ou um baseado em inteligência artificial.</p>
     <p xml:lang="pt-BR">Tenente Skat (do alemão "Offiziersskat") é um jogo de cartas para dois jogadores onde o segundo jogador ou é um adversário real ou uma construção feita com inteligência artificial.</p>
     <p xml:lang="ru">«Лейтенант Скат» (от немецкого «Offiziersskat») — увлекательная карточная игра для двоих игроков (вторым игроком может быть как человек, так и компьютер).</p>
+    <p xml:lang="sa">लेफ्टिनेंट स्काट् (जर्मनभाषायाः "Offiziersskat" इत्यस्मात्) द्वयोः खिलाडयोः कृते एकः मजेदारः आकर्षकः च ताशक्रीडा अस्ति, यत्र द्वितीयः खिलाडी यावान् लाइव् प्रतिद्वन्द्वी अस्ति, अथवा कृत्रिमबुद्धौ निर्मितः अस्ति</p>
     <p xml:lang="sk">Poručík Skar (z nemčiny "Offiziersskat") je zábavná a podmanivá kartová hra pre dvoch hráčov, kde druhý hráč je živý protivník alebo vstavaná umelá inteligencia. </p>
     <p xml:lang="sl">Lieutenant Skat (iz nemškega imena »Offiziersskat«) je zabavna igra s kartami za dva igralca, v kateri je drugi igralec bodisi človeški bodisi vgrajeni računalniški igralec z umetno inteligenco.</p>
     <p xml:lang="sr">Поручник Скат (од немачког „Offiziersskat“) представља забавну и заразну игру са картама за два играча, где је други играч или живи противник или уграђена вештачка интелигенција.</p>
