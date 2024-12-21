@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2024-12-13 20:20+0530\n"
+"PO-Revision-Date: 2024-12-20 21:53+0530\n"
 "Last-Translator: kali <skkalwar999@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
 "Language: sa\n"
@@ -404,7 +404,7 @@ msgstr "परिवर्तनं कः क्रीडति 1"
 #: mainwindow.cpp:390
 #, kde-format
 msgid "Changing who plays player 1."
-msgstr "कः खिलाडी क्रीडति इति परिवर्तनम् १."
+msgstr "कः खिलाडी क्रीडति इति परिवर्तनम्"
 
 #: mainwindow.cpp:392
 #, kde-format
@@ -433,7 +433,7 @@ msgstr "परिवर्तनं कः क्रीडति 2"
 #: mainwindow.cpp:403
 #, kde-format
 msgid "Changing who plays player 2."
-msgstr "कः खिलाडी क्रीडति इति परिवर्तनम् २."
+msgstr "कः खिलाडी क्रीडति इति परिवर्तनम्"
 
 #: mainwindow.cpp:411
 #, kde-format
@@ -502,13 +502,13 @@ msgstr "खिलाडी नाम"
 #: namedialog.ui:32
 #, kde-format
 msgid "Player 1:"
-msgstr "खिलाडी १ : १."
+msgstr "खिलाडी १ :"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: namedialog.ui:39
 #, kde-format
 msgid "Player 2:"
-msgstr "खिलाडी २ : १."
+msgstr "खिलाडी २ :"
 
 #: scoresprite.cpp:171
 #, kde-format
