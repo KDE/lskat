@@ -1,20 +1,21 @@
-# translation of lskat.po to Español
-# Miguel Revilla Rodríguez <yo@miguelrevilla.com>, 2002.
-# Lucas Garcia <tanke@escomposlinux.org>, 2003.
-# Rafael Osuna <rosuna@wol.es>, 2004.
-# Santiago Fernandez Sancho <santi@kde-es.org>, 2004.
-# Jaime Robles <jaime@kde.org>, 2005.
-# Santiago Fernández Sancho <santi@kde-es.org>, 2007, 2008.
+# Spanish translations for lskat.po package.
+# Copyright (C) 2002-2025 This file is copyright:
+# This file is distributed under the same license as the lskat package.
+#
+# SPDX-FileCopyrightText: 2002 Miguel Revilla Rodríguez <yo@miguelrevilla.com>
+# SPDX-FileCopyrightText: 2003 Lucas Garcia <tanke@escomposlinux.org>
+# SPDX-FileCopyrightText: 2004 Rafael Osuna <rosuna@wol.es>
+# SPDX-FileCopyrightText: 2004, 2007, 2008 Santiago Fernández Sancho <santi@kde-es.org>
+# SPDX-FileCopyrightText: 2005 Jaime Robles <jaime@kde.org>
 # SPDX-FileCopyrightText: 2009, 2012, 2023, 2024 Eloy Cuadra <ecuadra@eloihr.net>
-# Huever, 2009.
-# Kira J. Fernandez <kirajfdez@gmail.com>, 2010.
-# Sofía Priego <spriego@darksylvania.net>, %Y.
+# SPDX-FileCopyrightText: 2010 Kira J. Fernandez <kirajfdez@gmail.com>
+# SPDX-FileCopyrightText: 2024, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-11-22 00:38+0000\n"
-"PO-Revision-Date: 2024-05-08 00:25+0100\n"
+"PO-Revision-Date: 2025-04-25 20:52+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -468,7 +469,7 @@ msgstr "Cambiando el tema."
 #, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "Seleccionar la baraja de &cartas..."
+msgstr "Seleccionar la baraja de &cartas…"
 
 #: mainwindow.cpp:424
 #, kde-format
@@ -485,7 +486,7 @@ msgstr "Elegir el aspecto de las cartas."
 #, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
-msgstr "&Cambiar los nombres de los jugadores..."
+msgstr "&Cambiar los nombres de los jugadores…"
 
 #: mainwindow.cpp:500
 #, kde-format
@@ -496,7 +497,7 @@ msgstr "¿Realmente quieres borrar todos los datos estadísticos de tiempos?"
 #, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
-msgstr "Repartiendo cartas..."
+msgstr "Repartiendo cartas…"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, NameDialog)
 #: namedialog.ui:14
@@ -533,18 +534,3 @@ msgstr "Puntuación: %1"
 msgctxt "Won and overall games in score widget"
 msgid "Games: %1 / %2"
 msgstr "Partidas: %1 / %2"
-
-#~ msgid "Changing who plays player 1..."
-#~ msgstr "Cambiando quién es el jugador 1..."
-
-#~ msgid "Changing who plays player 2..."
-#~ msgstr "Cambiando quién es el jugador 2..."
-
-#~ msgid "Changing theme..."
-#~ msgstr "Cambiando el tema..."
-
-#~ msgid "OK"
-#~ msgstr "Aceptar"
-
-#~ msgid "Cancel"
-#~ msgstr "Cancelar"
