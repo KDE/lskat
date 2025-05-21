@@ -87,7 +87,7 @@
   <summary xml:lang="tr">İki kişilik Alman kart oyunu Skat</summary>
   <summary xml:lang="uk">Німецька карткова гра «Скат» для двох гравців</summary>
   <summary xml:lang="x-test">xxGerman card game Skat for two playersxx</summary>
-  <summary xml:lang="zh-TW">德國雙人卡牌遊戲 Skat</summary>
+  <summary xml:lang="zh-TW">德國雙人卡牌遊戲斯卡特</summary>
   <description>
     <p>
       Lieutenant Skat (from German "Offiziersskat") is a fun and engaging card game for two players,
@@ -132,6 +132,7 @@
     <p xml:lang="tr">Teğmen Skat (Almacada, "Offiziersskat"), iki oyunculu, eğlenceli ve ilgi çekici bir kart oyunudur; buradaki ikinci oyuncu, canlı bir rakip veya yapay zekadır.</p>
     <p xml:lang="uk">Лейтенант Скат (німецькою «Offiziersskat») — це весела і захоплива гра у карти для двох гравців, у якій вашим суперником може бути або людина, або вбудований штучний комп’ютерний інтелект</p>
     <p xml:lang="x-test">xxLieutenant Skat (from German "Offiziersskat") is a fun and engaging card game for two players, where the second player is either live opponent, or a built in artificial intelligence.xx</p>
+    <p xml:lang="zh-TW">中尉斯卡特（德語 "Offiziersskat"）是一個雙人的有趣卡牌遊戲，第二個玩家可以是真人玩家也可以是內建的電腦對手。</p>
   </description>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=lskat</url>
   <url type="help">https://docs.kde.org/?application=lskat</url>
