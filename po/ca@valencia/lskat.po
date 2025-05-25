@@ -473,7 +473,7 @@ msgstr "Configura les baralles"
 #: mainwindow.cpp:425
 #, kde-format
 msgid "Choose how the cards should look."
-msgstr "Escolliu l'aspecte de les cartes."
+msgstr "Trieu l'aspecte de les cartes."
 
 #: mainwindow.cpp:429
 #, kde-format
