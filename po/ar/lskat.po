@@ -321,7 +321,7 @@ msgstr "تخطى المقدمة المتحركة"
 #: main.cpp:101
 #, kde-format
 msgid "Run game in demo (autoplay) mode"
-msgstr "شغل اللعبة في النمط الاستعراضي (لعب تلقائي)"
+msgstr "شغل اللعبة في النمط الاستعراضي (لعب آليّ)"
 
 #: mainwindow.cpp:80
 #, kde-format
