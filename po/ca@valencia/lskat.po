@@ -381,7 +381,7 @@ msgstr "Canvia el jugador que comença"
 #: mainwindow.cpp:378
 #, kde-format
 msgid "Chooses which player begins the next game."
-msgstr "Seleccioneu quin jugador comença la partida següent."
+msgstr "Trieu quin jugador comença la partida següent."
 
 #: mainwindow.cpp:380
 #, kde-format
@@ -462,7 +462,7 @@ msgstr "Es canvia el tema."
 #, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
-msgstr "Selecciona una &baralla…"
+msgstr "Tria una &baralla…"
 
 #: mainwindow.cpp:424
 #, kde-format
