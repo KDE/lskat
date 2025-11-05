@@ -658,10 +658,10 @@
 ><para
 ><action
 >Sélectionner l'aspect et le dos des cartes utilisés pour le jeu.</action
-> Vous pouvez les sélectionner dans une boîte de dialogue d'aperçu affichant tous les styles de jeux de cartes installés pour &kde;. </para>
+> Vous pouvez les sélectionner dans une boite de dialogue d'aperçu affichant tous les styles de jeux de cartes installés pour &kde;. </para>
 <note>
 <para
->Certains jeux de cartes ou paquets de cartes sont affichés comme des images vectorielles (Format &SVG;) dans la boîte de dialogue. Leur sélection fournira une meilleure qualité graphique lorsque le jeu est réduit ou élargi. Les graphiques de taille fixe perdront en qualité si elles sont redimensionnées en dehors de leur taille originale. </para>
+>Certains jeux de cartes ou paquets de cartes sont affichés comme des images vectorielles (Format &SVG;) dans la boite de dialogue. Leur sélection fournira une meilleure qualité graphique lorsque le jeu est réduit ou élargi. Les graphiques de taille fixe perdront en qualité si elles sont redimensionnées en dehors de leur taille originale. </para>
 </note>
 </listitem>
 </varlistentry>
