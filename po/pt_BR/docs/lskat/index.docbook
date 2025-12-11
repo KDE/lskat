@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kappname "&lskat;">
-  <!ENTITY kappversion "1.40"
-><!--Applicaion version. Use this variable everywhere it's needed.-->
+  <!ENTITY i18n-lskat "Tenente Skat">
+  <!ENTITY lskat "LSkat">
+
   <!ENTITY % Brazilian-Portuguese "INCLUDE">
   <!ENTITY % addindex "IGNORE">
 ]>
@@ -10,7 +10,7 @@
 <book id="lskat" lang="&language;">
 <bookinfo>
 <title
->Manual do Tenente Skat</title>
+>Manual do &lskat;</title>
 <authorgroup>
 <author
 ><firstname
@@ -80,16 +80,16 @@
 </authorgroup>
 
 <date
->05/05/2013</date>
+>05/10/2021</date>
 <releaseinfo
->&kappversion;</releaseinfo>
+>1.50 (KDE Gear 21.08)</releaseinfo>
 
 <legalnotice
 >&FDLNotice;</legalnotice>
 
 <abstract>
 <para
->Esta documentação descreve a versão &kappversion; do jogo &kappname;</para>
+>Esta documentação descreve a versão 1.50 do jogo &i18n-lskat;</para>
 </abstract>
 
 <keywordset>
@@ -112,7 +112,7 @@
 <keyword
 >tenente</keyword>
 <keyword
->lskat</keyword>
+>LsKat</keyword>
 <keyword
 >dois jogadores</keyword>
 </keywordset>
@@ -136,7 +136,9 @@
 ></note
 ><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
 <para
->O Tenente Skat (do alemão <foreignphrase lang="de"
+>O <literal
+>Tenente Skat</literal
+> (do alemão <foreignphrase lang="de"
 >Offiziersskat</foreignphrase
 >) é um jogo de cartas para dois jogadores onde o segundo jogador ou é um oponente real ou a inteligência artificial do jogo. </para>
 <para
@@ -152,14 +154,17 @@
 ><para
 >Pontuações com mais de 60 pontos num único jogo.</para
 ></note>
+
 <para
->Logo que tenha terminado a distribuição, cada jogador fica com 16 cartas cada um. As cartas são apresentadas em duas filas horizontais - quatro cartas por fila. Metade das cartas têm a face para baixo e a outra tem as faces para cima. Como jogador, você poderá ver as cartas do adversário, assim como as suas. Você poderá fazer uma jogada então, clicando para isso numa das suas cartas que tenha a face para cima. O adversário terá que responder com uma carta correspondente da sua própria pilha. <note
-><title
->Nota</title
+>Logo que tenha terminado a distribuição, cada jogador fica com 16 cartas cada um. As cartas são apresentadas em duas filas horizontais - quatro cartas por fila. Metade das cartas têm a face para baixo e a outra tem as faces para cima. Como jogador, você poderá ver as cartas do adversário, assim como as suas. Você poderá fazer uma jogada então, clicando para isso numa das suas cartas que tenha a face para cima. O adversário terá que responder com uma carta correspondente da sua própria pilha.</para>
+
+<note
 ><para
->Se o seu adversário for de inteligência artificial, as suas cartas serão escolhidas automaticamente.</para
-></note
-> Logo que a troca termine, os valores das cartas jogadas são avaliados e você ou o seu adversário irão ganhar pontos. O jogo fica completo em 16 rodadas (quando tiver jogado todas as suas cartas e as do seu adversário). Depois de o jogo terminar, a sua pontuação será comparada com a do seu adversário e o jogador com maior pontuação ganha o jogo. </para>
+>Se o seu oponente for uma inteligência artificial, as cartas dela serão escolhidas automaticamente.</para
+></note>
+
+<para
+>Assim que a troca de cartas termina, os valores das cartas jogadas são avaliados e você ou seu oponente recebem pontos. O jogo é concluído em 16 rodadas (quando todas as suas cartas e as do seu oponente tiverem sido jogadas). Após o fim do jogo, sua pontuação é comparada à do seu oponente e o jogador com a pontuação mais alta vence a rodada.</para>
 </chapter>
 
 <chapter id="rules_and_tips">
@@ -172,14 +177,14 @@
 
 <screenshot>
 <screeninfo
->A tela de jogo padrão do &lskat;.</screeninfo>
+>A tela de jogo padrão do &i18n-lskat;.</screeninfo>
 <mediaobject>
 <imageobject>
 <imagedata fileref="lskat_screen_01.png" format="PNG"/>
 </imageobject>
 <textobject>
 <phrase
->Tela de jogo de referência padrão do &lskat;.</phrase>
+>Tela de jogo de referência padrão do &i18n-lskat;.</phrase>
 </textobject>
 </mediaobject>
 </screenshot>
@@ -213,7 +218,9 @@
 <seg
 >Controlador do jogador (Humano/PC)</seg>
 <seg
->O 'trunfo' no jogo atual</seg>
+>O <quote
+>trunfo</quote
+> no jogo atual</seg>
 </seglistitem>
 </segmentedlist>
 
@@ -233,7 +240,9 @@
 ></listitem>
 <listitem
 ><para
->Cada jogo tem uma carta de 'trunfo', escolhida aleatoriamente [8].</para
+>Cada jogo tem uma carta de <quote
+>trunfo</quote
+>, escolhida aleatoriamente [8].</para
 ></listitem>
 <listitem
 ><para
@@ -241,7 +250,9 @@
 ></listitem>
 <listitem
 ><para
->Se o 'trunfo' for &eg; copas, todas as sete copas, assim como todos os quatro Valetes contam como trunfos, gerando assim 11 cartas de trunfo.</para
+>Se o <quote
+>trunfo</quote
+> for, &eg;, copas, todas as sete copas, assim como todos os quatro Valetes contam como trunfos, gerando assim 11 cartas de trunfo.</para
 ></listitem>
 <listitem
 ><para
@@ -325,13 +336,17 @@
 <itemizedlist>
 <listitem
 ><para
->Um 'trunfo' especial é o <firstterm
+>Um <quote
+>trunfo</quote
+> especial é o <firstterm
 >Grande</firstterm
 >. Neste jogo, nenhum naipe é trunfo e somente os quatro Valetes é que contam como trunfo. No jogo isto é indicado com o símbolo da cabeça do Valete [8] na tabela de pontuações [6].</para
 ></listitem>
 <listitem
 ><para
->Se o jogador iniciar a jogada, ele terá uma seleção de cartas com que jogar, sendo uma carta de determinado naipe ou uma carta de 'trunfo'.</para
+>Se o jogador iniciar a jogada, ele terá uma seleção de cartas com que jogar, sendo uma carta de determinado naipe ou uma carta de <quote
+>trunfo</quote
+>.</para
 ></listitem>
 <listitem
 ><para
@@ -402,13 +417,23 @@
 <title
 >Estratégias e dicas</title>
 <para
->Quando o jogo começa, o jogador inicial deverá jogar uma das cartas com face para cima da sua própria pilha. Se o segundo jogador tiver cartas visíveis que sejam do mesmo naipe que a carta jogada, ele terá de responder com uma dessas cartas. Se, todavia, o segundo jogador não tiver uma carta do mesmo naipe, ele poderá jogar com qualquer outra carta, incluindo a carta 'trunfo'.</para>
+>Quando o jogo começa, o jogador inicial deverá jogar uma das cartas com face para cima da sua própria pilha. Se o segundo jogador tiver cartas visíveis que sejam do mesmo naipe que a carta jogada, ele terá de responder com uma dessas cartas. Se, todavia, o segundo jogador não tiver uma carta do mesmo naipe, ele poderá jogar com qualquer outra carta, incluindo a carta <quote
+>trunfo</quote
+>.</para>
 <para
->Se existir pelo menos uma carta de 'trunfo', a carta de 'trunfo' mais alta ganha ambas as cartas.</para>
+>Se existir pelo menos uma carta de <quote
+>trunfo</quote
+>, a carta de <quote
+>trunfo</quote
+> mais alta ganha ambas as cartas.</para>
 <para
->Se não existir uma carta de 'trunfo', a carta mais alta do naipe jogado pelo jogador inicial ganha ambas as cartas.</para>
+>Se não existir uma carta de <quote
+>trunfo</quote
+>, a carta mais alta do naipe jogado pelo jogador inicial ganha ambas as cartas.</para>
 <para
->Se o jogador que responde não tiver nenhuma carta do naipe definido e também não tiver nenhuma carta de 'trunfo', terá de jogar qualquer carta e o jogador inicial irá ganhar ambas as cartas.</para>
+>Se o jogador que responde não tiver nenhuma carta do naipe definido e também não tiver nenhuma carta de <quote
+>trunfo</quote
+>, terá de jogar qualquer carta e o jogador inicial irá ganhar ambas as cartas.</para>
 
 <para
 >O jogador que ganhar a ronda poderá fazer a próxima jogada.</para>
@@ -561,7 +586,7 @@
 ><para
 ><action
 >Limpa toda a memória de jogos.</action
-> Esta estatística é normalmente gravada quando o jogo termina e mostra o número de jogos vencidos e efetuados por cada jogador. Isto é limpo com esta opção do menu. </para
+> Esta estatística é normalmente gravada quando o jogo termina e mostra o número de jogos vencidos e efetuados por cada jogador. Isto é limpo com este item do menu. </para
 ></listitem>
 </varlistentry>
 
@@ -652,31 +677,27 @@
 ></term>
 <listitem>
 <para
->Escolhe um tema visual. Isto altera a aparência do menu, mas não das cartas. Os baralhos de cartas têm uma opção de menu correspondente. </para
+>Escolhe um tema visual. Isto altera a aparência do menu, mas não das cartas. Os baralhos de cartas têm um item de menu correspondente. </para
 ></listitem>
 </varlistentry>
 
 <varlistentry id="deck_change">
 <term
 ><menuchoice
-><shortcut
-> <keycap
->F10</keycap
-> </shortcut
-> <guimenu
+><guimenu
 >Configurações</guimenu
 > <guimenuitem
->Selecionar o Baralho...</guimenuitem
+>Selecionar baralho…</guimenuitem
 ></menuchoice
 ></term>
 <listitem
 ><para
 ><action
 > Escolha a face e o verso do baralho de cartas usado para jogar.</action
-> Você poderá selecioná-los num diálogo de pré-visualização que mostra todos os baralhos instalados no &kde;. </para>
+> Você poderá selecioná-los num diálogo de pré-visualização que mostra todos os baralhos instalados. </para>
 <note>
 <para
->Alguns baralhos estão marcados como SVG ou gráficos vetoriais. Selecioná-los irá mostrar uma melhor qualidade das imagens, quando o jogo for alargado ou mudar de tamanho. As imagens de tamanho fixo irão perder qualidade se forem dimensionadas para um formato diferente do original. </para>
+>Alguns baralhos estão marcados como &SVG; ou gráficos vetoriais. Selecioná-los irá mostrar uma melhor qualidade das imagens, quando o jogo for alargado ou mudar de tamanho. As imagens de tamanho fixo irão perder qualidade se forem dimensionadas para um formato diferente do original. </para>
 </note>
 </listitem>
 </varlistentry>
@@ -687,7 +708,7 @@
 ><guimenu
 >Configurações</guimenu
 > <guimenuitem
->Mudar os Nomes dos Jogadores...</guimenuitem
+>Mudar nomes dos jogadores…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
@@ -701,7 +722,7 @@
 </variablelist>
 
 <para
->O &lskat; possui os itens de menu normais do &kde; para a <guimenu
+>O &i18n-lskat; possui os itens de menu normais do &kde; para a <guimenu
 >Configurações</guimenu
 > e <guimenu
 >Ajuda</guimenu
