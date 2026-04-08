@@ -147,6 +147,7 @@
     <binary>lskat</binary>
   </provides>
   <releases>
+    <release version="1.50.26040" date="2026-04-16"/>
     <release version="1.50.25123" date="2026-03-05"/>
     <release version="1.50.25122" date="2026-02-05"/>
     <release version="1.50.25121" date="2026-01-08"/>
