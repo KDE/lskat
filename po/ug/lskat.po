@@ -8,24 +8,25 @@ msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:50+0000\n"
-"PO-Revision-Date: 2013-09-08 07:05+0900\n"
-"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
+"PO-Revision-Date: 2026-05-31 20:23-0400\n"
+"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "ئابدۇقادىر ئابلىز, غەيرەت كەنجى"
+msgstr "ئابدۇقادىر ئابلىز، غەيرەت كەنجى"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sahran.ug@gmail.com,  gheyret@gmail.com"
+msgstr "sahranbay@gmail.com, gheyret@gmail.com"
 
 #: config_two.cpp:29
 #, kde-format
@@ -47,7 +48,7 @@ msgstr ""
 #: deck.cpp:154 deck.cpp:166
 #, kde-format
 msgid "unknown"
-msgstr "نامەلۇم"
+msgstr "يوچۇن"
 
 #: deck.cpp:155
 #, kde-format
@@ -65,13 +66,13 @@ msgstr ""
 #, kde-format
 msgctxt "suite name"
 msgid "Hearts"
-msgstr "Hearts"
+msgstr ""
 
 #: deck.cpp:158
 #, kde-format
 msgctxt "suite name"
 msgid "Diamonds"
-msgstr "ئالماسلار"
+msgstr "ئالماس"
 
 #: deck.cpp:159
 #, kde-format
@@ -101,7 +102,7 @@ msgstr "پەرزىن"
 #, kde-format
 msgctxt "card name"
 msgid "Jack"
-msgstr "Jack"
+msgstr ""
 
 #: deck.cpp:171
 #, kde-format
@@ -131,7 +132,7 @@ msgstr "يەتتە"
 #, kde-format
 msgctxt "eg jack of clubs"
 msgid "%1 of %2"
-msgstr "%2 نىڭ %1"
+msgstr "%1 / %2"
 
 #: display_intro.cpp:92
 #, kde-format
@@ -202,7 +203,7 @@ msgstr ""
 #: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
 #, kde-format
 msgid "unnamed"
-msgstr ""
+msgstr "ئاتسىز"
 
 #: fromlibkdegames/kcarddialog.cpp:190
 #, kde-format
@@ -214,7 +215,7 @@ msgstr ""
 #: fromlibkdegames/kgamecardselector.ui:23
 #, kde-format
 msgid "Preview"
-msgstr ""
+msgstr "ئالدىن كۆزەت"
 
 #. i18n: ectx: property (text), widget (QLabel, cardDescription)
 #: fromlibkdegames/kgamecardselector.ui:41
@@ -272,7 +273,7 @@ msgstr "(c) 1995-2007، Martin Heni"
 #: main.cpp:89
 #, kde-format
 msgid "Martin Heni"
-msgstr "Martin Heni"
+msgstr ""
 
 #: main.cpp:89
 #, kde-format
@@ -287,12 +288,12 @@ msgstr "Eugene Trounev"
 #: main.cpp:90
 #, kde-format
 msgid "Graphics"
-msgstr "گرافىك"
+msgstr "گىرافىك"
 
 #: main.cpp:92
 #, kde-format
 msgid "Benjamin Meyer"
-msgstr "Benjamin Meyer"
+msgstr ""
 
 #: main.cpp:92
 #, kde-format
@@ -374,18 +375,16 @@ msgid "Chooses which player begins the next game."
 msgstr ""
 
 #: mainwindow.cpp:380
-#, fuzzy, kde-format
-#| msgid "Player 1:"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
-msgstr "ئوينىغۇچى 1:"
+msgstr ""
 
 #: mainwindow.cpp:381
-#, fuzzy, kde-format
-#| msgid "Player 2:"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
-msgstr "ئوينىغۇچى 2:"
+msgstr ""
 
 #: mainwindow.cpp:386
 #, kde-format
@@ -408,11 +407,10 @@ msgstr ""
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
-msgstr ""
+msgstr "چاشقىنەك(&M)"
 
 #: mainwindow.cpp:393
-#, fuzzy, kde-format
-#| msgid "&Computer"
+#, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "كومپيۇتېر(&C)"
@@ -435,18 +433,16 @@ msgid "Changing who plays player 2."
 msgstr ""
 
 #: mainwindow.cpp:411
-#, fuzzy, kde-format
-#| msgid "&Theme"
+#, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
-msgstr "ئۆرنەك(&T)"
+msgstr ""
 
 #: mainwindow.cpp:417
-#, fuzzy, kde-format
-#| msgid "Changing theme."
+#, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
-msgstr "ئۆرنەك ئۆزگەرتىدۇ."
+msgstr ""
 
 #: mainwindow.cpp:418
 #, kde-format
@@ -471,11 +467,10 @@ msgid "Choose how the cards should look."
 msgstr ""
 
 #: mainwindow.cpp:429
-#, fuzzy, kde-format
-#| msgid "Player Names"
+#, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
-msgstr "ئوينىغۇچىنىڭ ئاتى"
+msgstr ""
 
 #: mainwindow.cpp:500
 #, kde-format
