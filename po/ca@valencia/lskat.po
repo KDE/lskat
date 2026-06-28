@@ -174,7 +174,7 @@ msgstr[1] "%1 punts"
 #: engine_two.cpp:235
 #, kde-format
 msgid "Game was ended - no winner"
-msgstr "La partida ha acabat - ningú guanya"
+msgstr "La partida ha acabat – ningú guanya"
 
 #: engine_two.cpp:244
 #, kde-format
@@ -184,7 +184,7 @@ msgstr "La partida és un empat"
 #: engine_two.cpp:250
 #, kde-format
 msgid "Player 1 - %1 won "
-msgstr "Jugador 1 - %1 guanya "
+msgstr "Jugador 1 – %1 guanya "
 
 #: engine_two.cpp:257 engine_two.cpp:277
 #, kde-format
@@ -199,7 +199,7 @@ msgstr "%1 guanya a ningú. Felicitacions!"
 #: engine_two.cpp:270
 #, kde-format
 msgid "Player 2 - %1 won "
-msgstr "Jugador 2 - %1 guanya"
+msgstr "Jugador 2 – %1 guanya"
 
 #: engine_two.cpp:344
 #, kde-format
