@@ -632,7 +632,7 @@
 ><guimenu
 >Настройка</guimenu
 > <guisubmenu
->Игрок 1 - это</guisubmenu
+>Игрок 1 — это</guisubmenu
 > </menuchoice
 ></term>
 <listitem>
@@ -647,7 +647,7 @@
 ><guimenu
 >Настройка</guimenu
 ><guisubmenu
->Игрок 2 - это</guisubmenu
+>Игрок 2 — это</guisubmenu
 > </menuchoice
 ></term>
 <listitem>
@@ -674,14 +674,10 @@
 <varlistentry id="deck_change">
 <term
 ><menuchoice
-><shortcut
-> <keycap
->F10</keycap
-> </shortcut
-> <guimenu
+><guimenu
 >Настройка</guimenu
 > <guimenuitem
->Выбрать раскраску карт...</guimenuitem
+>Выбрать раскраску карт…</guimenuitem
 ></menuchoice
 ></term>
 <listitem
@@ -702,7 +698,7 @@
 ><guimenu
 >Настройка</guimenu
 > <guimenuitem
->Изменить имена игроков...</guimenuitem
+>Изменить имена игроков…</guimenuitem
 > </menuchoice
 ></term>
 <listitem
