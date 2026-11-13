@@ -1,0 +1,769 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY i18n-lskat "Lieutenant Skat">
+  <!ENTITY lskat "LSkat">
+
+  <!ENTITY % Arabic "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book id="lskat" lang="&language;">
+<bookinfo>
+<title
+>دليل سكات ل</title>
+<authorgroup>
+<author
+><firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+><address
+><email
+>kde@heni-online.de</email
+></address
+></affiliation>
+</author>
+<author
+><firstname
+>Eugene</firstname
+><surname
+>Trounev</surname
+> <affiliation
+><address
+><email
+>eugene.trounev@gmail.com</email
+></address
+></affiliation>
+</author>
+<othercredit role="reviewer"
+><firstname
+>Mike</firstname
+><surname
+>McBride</surname
+> <contrib
+>مُراجِع</contrib>
+<affiliation>
+<address
+>&Mike.McBride.mail;</address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<date
+>2021-10-05</date>
+<releaseinfo
+>1.50 (ترس كيدي 21.08)</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>تصف هذه الوثائق لعبة سكات ل الإصدار 1.50</para>
+</abstract>
+
+<keywordset>
+<keyword
+>كيدي</keyword>
+<keyword
+>ألعاب كيدي</keyword>
+<keyword
+>لعبة</keyword>
+<keyword
+>أوراق اللعب</keyword>
+<keyword
+>لعبة ورق</keyword>
+<keyword
+>أركيد</keyword>
+<keyword
+>بطاقة</keyword>
+<keyword
+>سكات</keyword>
+<keyword
+>ملازم</keyword>
+<keyword
+>سكات ل</keyword>
+<keyword
+>لاعبان</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>مقدمة</title>
+<note
+><title
+>نوع اللعبة:</title
+><para
+>بطاقة، أركيد</para
+></note
+><!-- Game genre. Use as many as necessary. Available game types are: Arcade, Board, Card, Dice, Toys, Logic, Strategy.-->
+<note
+><title
+>عدد اللاعبين الممكنين:</title
+><para
+>اثنان</para
+></note
+><!--Number of possible players. It can be: One, Two,..., Multiplayer-->
+<para
+><literal
+>ملازم سكات</literal
+> (من الألمانية <foreignphrase lang="de"
+>Offiziersskat</foreignphrase
+>) هي لعبة ورق ممتعة وجذابة للاعبين، حيث يكون اللاعب الثاني إما خصمًا حقيقيًا أو ذكاءً اصطناعيًا مدمجًا. </para>
+<para
+>تُلعب اللعبة باستخدام مجموعة واحدة من الأوراق. تُخلط الأوراق وتُوزع على اللاعبين بحيث يكون نصفها مقلوبًا ونصفها مفتوحًا. يلعب كل مشارك إحدى الأوراق المفتوحة في كل دور. بمجرد لعب جميع الأوراق تنتهي الجولة وتُحسب النقاط وتُمنح. </para>
+</chapter>
+
+<chapter id="howto">
+<title
+>كيف تلعب</title>
+<note
+><title
+>الهدف:</title
+><para
+>إحراز أكثر من 60 نقطة في لعبة واحدة.</para
+></note>
+
+<para
+>بمجرد انتهاء التوزيع يحصل كل لاعب على 16 ورقة. تُعرض الأوراق في صفين أفقيين - أربع أوراق في كل صف. يكون نصف الأوراق مقلوبًا ونصفها الآخر للأعلى. يمكنك كلاعب رؤية أوراق خصمك بالإضافة إلى أوراقك. يمكنك القيام بنقلة بالنقر على أي من أوراقك المفتوحة حاليًا. على الخصم الرد باختيار ورقة مقابلة من مجموعته الخاصة.</para>
+
+<note
+><para
+>إذا كان خصمك هو الذكاء الاصطناعي، فستُختار أوراقه آليًا.</para
+></note>
+
+<para
+>بمجرد انتهاء التبادل، تُقيم قيم البطاقات التي لُعبت ويُمنح النقاط إما لك أو لخصمك. تكتمل اللعبة في 16 جولة (عندما تكون جميع بطاقاتك وخصمك قد لُعبت). بعد انتهاء اللعبة، تُقارن نتيجتك بنتيجة خصمك واللاعب الذي يحصل على نتيجة أعلى يفوز بالجولة.</para>
+</chapter>
+
+<chapter id="rules_and_tips">
+<title
+>قواعد اللعبة واستراتيجياتها وتلميحاتها</title>
+
+<sect1 id="screen">
+<title
+>شاشة اللعبة</title>
+
+<screenshot>
+<screeninfo
+>شاشة لعبة ملازم سكات المبدئية.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="lskat_screen_01.png" format="PNG"/>
+</imageobject>
+<textobject>
+<phrase
+>شاشة مرجع لعبة ملازم سكات المبدئية.</phrase>
+</textobject>
+</mediaobject>
+</screenshot>
+
+<segmentedlist>
+<segtitle
+>1</segtitle>
+<segtitle
+>2, 3</segtitle>
+<segtitle
+>4</segtitle>
+<segtitle
+>5</segtitle>
+<segtitle
+>6</segtitle>
+<segtitle
+>7</segtitle>
+<segtitle
+>8</segtitle>
+<seglistitem>
+<seg
+>مؤشر اللاعب النشط</seg>
+<seg
+>أكوام الأوراق للاعب الأول واللاعب الثاني</seg>
+<seg
+>كومة الأوراق الرابحة (إن وجدت)</seg>
+<seg
+>منطقة اللعب</seg>
+<seg
+>لوحة النتائج مع اسم اللاعب، والنقاط في اللعبة الحالية، والنتيجة الإجمالية للاعب، وعدد مرات الفوز في كل لعبة</seg>
+<seg
+>متحكم اللاعب (إنسان/حاسوب)</seg>
+<seg
+>ورقة <quote
+>التغلب</quote
+> في اللعبة الحالية</seg>
+</seglistitem>
+</segmentedlist>
+
+</sect1>
+
+<sect1 id="rules">
+<title
+>القواعد</title>
+<itemizedlist>
+<listitem
+><para
+>يمتلك كل لاعب 16 ورقة. 8 منها مقلوبة و8 منها مفتوحة.</para
+></listitem>
+<listitem
+><para
+>لا يمكن فتح الورقة المقلوبة إلا بعد لعب الورقة المفتوحة التي تغطيها.</para
+></listitem>
+<listitem
+><para
+>لكل لعبة ورقة <quote
+>تغلب</quote
+> تُختار عشوائيًا [8].</para
+></listitem>
+<listitem
+><para
+>تُعد جميع الأوراق الأربع من نوع (شب) أوراق تغلب ولا تنتمي لمجموعاتها.</para
+></listitem>
+<listitem
+><para
+>إذا اختير لون (مثل الهاص) ليكون <quote
+>التغلب</quote
+> فإن جميع أوراق الهاص السبعة بالإضافة إلى الأوراق الأربع من نوع (شب) تُعد أوراق تغلب، مما يجعلها 11 ورقة تغلب.</para
+></listitem>
+<listitem
+><para
+>تغلب أوراق (الشب) بعضها البعض بالترتيب (من الأعلى للأقل): الكبة -> السبيت ->الهاص -> الديمن.</para
+></listitem>
+<listitem
+><para
+>تسلسل الأوراق للون التغلب: شب الكبة، شب السبيت، شب الهاص، شب الديمن، أص، عشرة، ملك، ملكة، تسعة، ثمانية، سبعة.</para
+></listitem>
+<listitem
+><para
+>تسلسل الأوراق للألوان التي ليست تغلبًا: أص، عشرة، ملك، ملكة، تسعة، ثمانية، سبعة.</para
+></listitem>
+<listitem id="card-values"
+><para
+>قيم الأوراق (من الأعلى للأقل):</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>بطاقة</entry
+><entry
+>القيمة</entry
+></row>
+<row
+><entry
+>أص</entry
+><entry
+>11</entry
+></row>
+<row
+><entry
+>عشرة</entry
+><entry
+>10</entry
+></row>
+<row
+><entry
+>ملك</entry
+><entry
+>4</entry
+></row>
+<row
+><entry
+>ملكة</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>شب</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>تسعة</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>ثمانية</entry
+><entry
+>0</entry
+></row>
+<row
+><entry
+>سبعة</entry
+><entry
+>0</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<itemizedlist>
+<listitem
+><para
+>هناك لعبة <quote
+>تغلب</quote
+> خاصة تسمى (جراند). في هذه اللعبة لا يوجد لون تغلب وتُعد أوراق (الشب) الأربعة فقط أوراق تغلب. يُشار إلى هذا النوع من الألعاب برمز رأس (الشب) [8] على لوحة النتائج [6].</para
+></listitem>
+<listitem
+><para
+>إذا بدأ اللاعب الجولة، فلديه خيار اللعب بأي ورقة، سواء كانت من مجموعة ملونة أو ورقة <quote
+>تغلب</quote
+>.</para
+></listitem>
+<listitem
+><para
+>يمكن استخدام الأوراق المفتوحة فقط من مجموعة اللاعب الخاصة للعب الجولة.</para
+></listitem>
+<listitem
+><para
+>اللاعب الذي يفوز بالجولة يبدأ الجولة التالية.</para
+></listitem>
+<listitem
+><para
+>يضيف اللاعب الذي يفوز بالجولة قيم الأوراق التي لُعبت في تلك الجولة إلى نتيجته.</para
+></listitem>
+<listitem
+><para
+>اللاعب الذي يحرز أكثر من 60 نقطة يفوز باللعبة.</para
+></listitem>
+<listitem
+><para
+>إذا انتهى كلا اللاعبين بـ 60 نقطة لكل منهما تنتهي اللعبة بالتعادل.</para
+></listitem>
+<listitem
+><para
+>تُمنح كمية معينة من نقاط الفوز لكل لعبة وتُضاف إلى النتيجة الإجمالية.</para
+></listitem>
+</itemizedlist>
+
+<informaltable>
+<tgroup cols="2">
+<tbody>
+<row
+><entry
+>النقاط</entry
+><entry
+>النتيجة</entry
+></row>
+<row
+><entry
+>60</entry
+><entry
+>1</entry
+></row>
+<row
+><entry
+>61 إلى 90</entry
+><entry
+>2</entry
+></row>
+<row
+><entry
+>91 إلى 119</entry
+><entry
+>3</entry
+></row>
+<row
+><entry
+>120</entry
+><entry
+>4</entry
+></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="strategies">
+<title
+>الاستراتيجيات والتلميحات</title>
+<para
+>عندما تبدأ اللعبة، يجب على اللاعب البادئ لعب أي من الأوراق المفتوحة من مجموعته الخاصة. إذا كان لدى اللاعب الثاني حاليًا أوراق مفتوحة من نفس النوع (اللون) الذي لُعب، فعليه الرد بإحدى تلك الأوراق. أما إذا لم يكن لدى اللاعب الثاني ورقة من نفس النوع، فيمكنه اللعب بأي ورقة أخرى بما في ذلك ورقة <quote
+>تغلب</quote
+>.</para>
+<para
+>إذا وجدت ورقة <quote
+>تغلب</quote
+> واحدة على الأقل، فإن أعلى ورقة <quote
+>تغلب</quote
+> تربح كلتا الورقتين.</para>
+<para
+>إذا لم توجد ورقة <quote
+>تغلب</quote
+>، فإن أعلى ورقة من النوع الذي لعبه اللاعب البادئ تربح كلتا الورقتين.</para>
+<para
+>إذا لم يملك اللاعب المستجيب ورقة من النوع المطلوب ولا ورقة <quote
+>تغلب</quote
+>، فعليه لعب أي ورقة ويربح اللاعب البادئ كلتا الورقتين.</para>
+
+<para
+>اللاعب الذي يفوز بالجولة يقود الجولة التالية.</para>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>الأسئلة الشائعة</title>
+
+<qandaset>
+<qandaentry>
+ <question
+><para
+>هل يمكنني اللعب بمجموعة أوراق مختلفة؟</para
+></question>
+ <answer
+><para
+>نعم. ارجع إلى <link linkend="deck_change"
+>هذا</link
+> القسم من 'نظرة عامة على الواجهة' للحصول على التفاصيل.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>لقد ارتكبت خطأ. هل يمكنني التراجع؟ </para
+></question>
+ <answer
+><para
+>لا. لا تملك هذه اللعبة ميزة <quote
+>تراجع</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>هل يمكنني استخدام لوحة المفاتيح للعب هذه اللعبة؟ </para
+></question>
+ <answer
+><para
+>لا. لا يمكن لعب هذه اللعبة باستخدام لوحة المفاتيح.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>لا أعرف ماذا أفعل هنا! هل هناك تلميحات؟ </para
+></question>
+ <answer
+><para
+>لا. لا تملك هذه اللعبة ميزة <quote
+>تلميح</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>يجب أن أخرج من اللعبة الآن، لكنني لم أنتهِ بعد. هل يمكنني حفظ تقدمي؟</para
+></question>
+ <answer
+><para
+>لا. لا تملك هذه اللعبة ميزة <quote
+>حفظ الحالة</quote
+>.</para
+></answer>
+</qandaentry>
+<qandaentry>
+ <question
+><para
+>هل يمكنني تغيير أسماء اللاعبين؟</para
+></question>
+ <answer
+><para
+>نعم. لتغيير الأسماء المعروضة على الجانب الأيمن من شاشة اللعبة، ارجع إلى <link linkend="name_change"
+>هذا</link
+> القسم من 'نظرة عامة على الواجهة' للتفاصيل.</para
+></answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="interface">
+<title
+>نظرة عامة على الواجهة</title>
+
+<sect1 id="file-menu">
+<title
+>قائمة اللعبة</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+><anchor id="new_game"/>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>جديد</guimenuitem
+></menuchoice
+></term>
+<listitem>
+<para>
+<action
+>يبدأ لعبة جديدة.</action>
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&End;</keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>أنهِ اللعبة</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>ينهي اللعبة الجارية.</action>
+</para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>لعبة</guimenu
+> <guimenuitem
+>امسح الإحصائيات</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>يمسح ذاكرة اللعبة لكل الأوقات.</action
+> تُحفظ هذه الإحصائية عند انتهاء اللعبة وتعرض النتيجة الإجمالية وعدد الألعاب الملعوبة والفائزة لكل لاعب. وتُمسح عبر عنصر القائمة هذا. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>لعبة</guimenu
+> <guimenuitem
+>أنهِ</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para
+><action
+>الخروج من البرنامج.</action>
+</para
+></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>قائمة الإعدادات</title>
+
+<variablelist>
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guisubmenu
+>اللاعب البادئ</guisubmenu
+></menuchoice
+></term>
+<listitem
+><para
+>يحدد ما إذا كان اللاعب 1 (في الأعلى) أو اللاعب 2 (في الأسفل) هو من سيبدأ اللعبة التالية. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guisubmenu
+>اللاعب 1 يلعب به</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>يختار من سيلعب كلاعب 1 (في الأعلى). يمكن التحكم باللاعب إما من قبل اللاعب المحلي باستخدام الفأرة أو سيتحكم به الحاسوب. </para
+></listitem>
+</varlistentry>
+
+<varlistentry>
+<term
+><menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guisubmenu
+>اللاعب 2 يلعب به</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>يختار من سيلعب كلاعب 2 (في الأسفل). يمكن التحكم باللاعب إما من قبل اللاعب المحلي باستخدام الفأرة أو سيتحكم به الحاسوب. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="theme_change">
+<term
+><menuchoice
+><guimenu
+>الإعدادات</guimenu
+><guisubmenu
+>السمة</guisubmenu
+> </menuchoice
+></term>
+<listitem>
+<para
+>يختار سمة بصرية. يغير هذا مظهر اللعبة وليس الأوراق. تُختار مجموعات الأوراق عبر عنصر القائمة الخاص بها. </para
+></listitem>
+</varlistentry>
+
+<varlistentry id="deck_change">
+<term
+><menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>اختر مجموعة الأوراق…</guimenuitem
+></menuchoice
+></term>
+<listitem
+><para
+><action
+>يختار وجه وظهر مجموعة الأوراق المستخدمة للعب.</action
+> يمكنك تحديدها في حوار معاينة يعرض جميع مجموعات الأوراق المثبتة. </para>
+<note>
+<para
+>تُعلم بعض مجموعات الأوراق كرسوميات قابلة للتحجيم (&SVG;) في الحوار. اختيارها سيعرض الرسوميات بجودة أفضل عند تحجيم اللعبة أو تكبيرها. أما الرسوميات ثابتة الحجم فستفقد جودتها عند تغيير حجمها عن حجمها الأصلي. </para>
+</note>
+</listitem>
+</varlistentry>
+
+<varlistentry id="name_change">
+<term
+><menuchoice
+><guimenu
+>الإعدادات</guimenu
+> <guimenuitem
+>غير أسماء اللاعبين…</guimenuitem
+> </menuchoice
+></term>
+<listitem
+><para>
+<action
+>تغيير أسماء اللاعبين.</action>
+</para
+></listitem>
+</varlistentry>
+
+</variablelist>
+
+<para
+>بالإضافة إلى ذلك، تملك لعبة ملازم سكات عناصر قائمتي <guimenu
+>الإعدادات</guimenu
+> و<guimenu
+>المساعدة</guimenu
+> الشائعة في كيدي، لمزيد من المعلومات اقرأ الأقسام المتعلقة بـ <ulink url="help:/fundamentals/menus.html#menus-settings"
+>قائمة الإعدادات</ulink
+> و<ulink url="help:/fundamentals/menus.html#menus-help"
+>قائمة المساعدة</ulink
+> في أساسيات كيدي. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>الحقوق والترخيص</title>
+
+<para
+>ملازم سكات </para>
+<para
+>حقوق نشر البرنامج 2000-2007 لـ &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>حقوق نشر الرسوميات 2007 لـ Eugene Trounev <email
+>eugene.trounev@gmail.com</email
+> </para>
+<para
+>حقوق نشر التوثيق 2000-2007 لـ &Martin.Heni; <email
+>kde@heni-online.de</email
+> </para>
+<para
+>حول &Mike.McBride; التوثيق إلى كيدي 2.0 &Mike.McBride.mail; </para>
+
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+
+
