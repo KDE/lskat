@@ -10,6 +10,7 @@
 
 #include <QDir>
 #include <QFileInfo>
+#include <QMap>
 #include <QRandomGenerator>
 #include <QStandardPaths>
 
