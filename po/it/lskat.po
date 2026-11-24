@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:50+0000\n"
+"POT-Creation-Date: 2026-11-24 01:00+0000\n"
 "PO-Revision-Date: 2024-05-07 13:15+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128vr@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -202,7 +202,7 @@ msgstr "Giocatore 2 – %1 ha vinto "
 msgid "Game ended"
 msgstr "Partita interrotta"
 
-#: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
+#: fromlibkdegames/carddeckinfo.cpp:63 fromlibkdegames/carddeckinfo.cpp:64
 #, kde-format
 msgid "unnamed"
 msgstr "senza nome"

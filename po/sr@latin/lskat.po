@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:50+0000\n"
+"POT-Creation-Date: 2026-11-24 01:00+0000\n"
 "PO-Revision-Date: 2026-10-09 22:30+0200\n"
 "Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -216,7 +216,7 @@ msgstr "Igrač 2 — %1 pobedi "
 msgid "Game ended"
 msgstr "Partija završena"
 
-#: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
+#: fromlibkdegames/carddeckinfo.cpp:63 fromlibkdegames/carddeckinfo.cpp:64
 #, kde-format
 msgid "unnamed"
 msgstr "neimenovan"

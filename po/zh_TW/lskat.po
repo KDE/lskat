@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:50+0000\n"
+"POT-Creation-Date: 2026-11-24 01:00+0000\n"
 "PO-Revision-Date: 2025-05-03 14:51+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -203,7 +203,7 @@ msgstr "玩家 2 ─ %1 勝"
 msgid "Game ended"
 msgstr "遊戲結束"
 
-#: fromlibkdegames/carddeckinfo.cpp:62 fromlibkdegames/carddeckinfo.cpp:63
+#: fromlibkdegames/carddeckinfo.cpp:63 fromlibkdegames/carddeckinfo.cpp:64
 #, kde-format
 msgid "unnamed"
 msgstr "未命名"
