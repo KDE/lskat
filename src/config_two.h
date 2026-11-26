@@ -48,10 +48,10 @@ public:
     void reset();
 
     /**
-     * Retrieve hash iterator over players.
-     * @return The iterator.
+     * Retrieve the players.
+     * @return The players hash.
      */
-    QHashIterator<int, Player *> playerIterator();
+    const QHash<int, Player *> &players() const;
 
     /**
      * Retrieve a player.

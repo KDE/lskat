@@ -374,11 +374,8 @@ void DisplayTwo::showScore(int position, int score)
 // Show the setPos icon for the given player
 void DisplayTwo::showMove(int no)
 {
-    QHashIterator<int, PixmapSprite *> it(mMoveSprites);
-    while (it.hasNext())
+    for (PixmapSprite *sprite : std::as_const(mMoveSprites))
     {
-        it.next();
-        PixmapSprite *sprite = it.value();
         sprite->hide();
     }
 

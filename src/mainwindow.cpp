@@ -301,11 +301,9 @@ void Mainwindow::startGame()
     Suite trump = mDeck->randomTrump();
 
     // Loop all players in the game
-    QHashIterator<int,Player *> it = mLSkatConfig->playerIterator();
-    while (it.hasNext())
+    const QHash<int, Player *> &players = mLSkatConfig->players();
+    for (Player *player : players)
     {
-        it.next();
-        Player *player = it.value();
         player->setDeck(mDeck);
         // Deal cards
         player->deal(16);
@@ -506,11 +504,9 @@ void Mainwindow::menuClearStatistics()
                                                        KStandardGuiItem::clear(),
                                                        KStandardGuiItem::cancel()))
     {
-        QHashIterator<int,Player *> it = mLSkatConfig->playerIterator();
-        while (it.hasNext())
+        const QHash<int, Player *> &players = mLSkatConfig->players();
+        for (Player *player : players)
         {
-            it.next();
-            Player *player = it.value();
             player->clear();
         }
     }

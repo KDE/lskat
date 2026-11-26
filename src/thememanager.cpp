@@ -183,10 +183,8 @@ void ThemeManager::updateTheme(const QString &themefile)
     }
 
     // Notify all theme objects of a change
-    QHashIterator<Themable *, int> it(mObjects);
-    while (it.hasNext())
+    for (auto it = mObjects.cbegin(), end = mObjects.cend(); it != end; ++it)
     {
-        it.next();
         Themable *ob = it.key();
         ob->changeTheme();
     }
@@ -205,10 +203,8 @@ void ThemeManager::rescale(int scale, QPoint offset)
     mOffset = offset;
     if (global_debug > 1) qCDebug(LSKAT_LOG) << "THEMEMANAGER:: Rescale to " << scale << " offset to " << offset;
 
-    QHashIterator<Themable *, int> it(mObjects);
-    while (it.hasNext())
+    for (auto it = mObjects.cbegin(), end = mObjects.cend(); it != end; ++it)
     {
-        it.next();
         Themable *ob = it.key();
         ob->changeTheme();
     }

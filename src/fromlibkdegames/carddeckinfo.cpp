@@ -111,12 +111,8 @@ QString defaultDeckName()
 {
     QString noDefault;
     // Count filtered cards
-    QMap<QString, KCardThemeInfo> temp = deckinfoStatic->themeNameMap;
-    QMapIterator<QString, KCardThemeInfo> it(temp);
-    while (it.hasNext())
+    for (const KCardThemeInfo &v : std::as_const(deckinfoStatic->themeNameMap))
     {
-        it.next();
-        KCardThemeInfo v = it.value();
         // Filter
         if (v.isDefault) return v.noi18Name;
         // Collect any deck if no default is stored

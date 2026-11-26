@@ -37,13 +37,7 @@ void ConfigTwo::reset()
 // Destructor
 ConfigTwo::~ConfigTwo()
 {
-    QHashIterator<int, Player *> it(mPlayers);
-    while (it.hasNext())
-    {
-        it.next();
-        Player *player = it.value();
-        delete player;
-    }
+    qDeleteAll(mPlayers);
     mPlayers.clear();
 }
 
@@ -55,10 +49,8 @@ void ConfigTwo::save(KConfig *cfg)
     group.writeEntry("input1", (int)mInputTypes[1]);
 
     // Save player
-    QHashIterator<int, Player *> it = playerIterator();
-    while (it.hasNext())
+    for (auto it = mPlayers.cbegin(), end = mPlayers.cend(); it != end; ++it)
     {
-        it.next();
         Player *player = it.value();
         int no = it.key();
         KConfigGroup playercfg = cfg->group(QStringLiteral("LSkat_Player%1").arg(no));
@@ -78,10 +70,8 @@ void ConfigTwo::load(KConfig *cfg)
     setInputType(1, (InputDeviceType)num);
 
     // Load player
-    QHashIterator<int, Player *> it = playerIterator();
-    while (it.hasNext())
+    for (auto it = mPlayers.cbegin(), end = mPlayers.cend(); it != end; ++it)
     {
-        it.next();
         Player *player = it.value();
         int no = it.key();
         KConfigGroup playercfg = cfg->group(QStringLiteral("LSkat_Player%1").arg(no));
@@ -96,11 +86,10 @@ Player *ConfigTwo::player(int no)
     return mPlayers[no];
 }
 
-// Retrieve player as iterator
-QHashIterator<int, Player *> ConfigTwo::playerIterator()
+// Retrieve players
+const QHash<int, Player *> &ConfigTwo::players() const
 {
-    QHashIterator<int, Player *> it(mPlayers);
-    return it;
+    return mPlayers;
 }
 
 // Retrieve input type of given player
