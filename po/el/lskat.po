@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-24 01:00+0000\n"
+"POT-Creation-Date: 2026-11-27 01:01+0000\n"
 "PO-Revision-Date: 2013-07-08 06:25+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -336,158 +336,158 @@ msgstr "Σφάλμα εγκατάστασης: Σφάλμα αρχείου θέ�
 msgid "Welcome to Skat! Please start a new game."
 msgstr "Καλώς ήρθατε στο Skat! Παρακαλώ ξεκινήστε ένα νέο παιχνίδι."
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:331
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "Τέλος παιχνιδιού. Παρακαλώ ξεκινήστε ένα νέο παιχνίδι."
 
-#: mainwindow.cpp:347
+#: mainwindow.cpp:345
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr "Επόμενη κίνηση για %1 (παίκτης %2)"
 
-#: mainwindow.cpp:361
+#: mainwindow.cpp:359
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr ""
 "Καθαρισμός όλων των στατιστικών που διατηρήθηκαν σε όλες τις συνεδρίες."
 
-#: mainwindow.cpp:366
+#: mainwindow.cpp:364
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "Τερματίζει ένα τρέχον παιχνίδι. Δε θα ανακηρυχθεί νικητής."
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:369
 #, kde-format
 msgid "Quits the program."
 msgstr "Τερματίζει το πρόγραμμα."
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:372
 #, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Παίκτης που ξεκινά"
 
-#: mainwindow.cpp:377
+#: mainwindow.cpp:375
 #, fuzzy, kde-format
 #| msgid "Changing starting player..."
 msgctxt "@info:tooltip"
 msgid "Change starting player"
 msgstr "Αλλαγή του παίκτη που ξεκινά..."
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:376
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "Επιλέγει ποιος παίκτης ξεκινά το επόμενο παιχνίδι."
 
-#: mainwindow.cpp:380
+#: mainwindow.cpp:378
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "Παίκτης &1"
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:379
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "Παίκτης &2"
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:384
 #, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "Ο παίκτης &1 παίχτηκε από τον/την"
 
-#: mainwindow.cpp:389
+#: mainwindow.cpp:387
 #, fuzzy, kde-format
 #| msgid "Changing who plays player 1."
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
 msgstr "Αλλαγή του παίκτη 1."
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:388
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "Αλλαγή του παίκτη 1."
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:390
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Ποντίκι"
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:391
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Υπολογιστής"
 
-#: mainwindow.cpp:399
+#: mainwindow.cpp:397
 #, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "Ο παίκτης &2 παίχτηκε από τον/την "
 
-#: mainwindow.cpp:402
+#: mainwindow.cpp:400
 #, fuzzy, kde-format
 #| msgid "Changing who plays player 2."
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
 msgstr "Αλλαγή του παίκτη 2."
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:401
 #, kde-format
 msgid "Changing who plays player 2."
 msgstr "Αλλαγή του παίκτη 2."
 
-#: mainwindow.cpp:411
+#: mainwindow.cpp:409
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Θέμα"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:415
 #, fuzzy, kde-format
 #| msgid "Changing theme."
 msgctxt "@info:tooltip"
 msgid "Change theme"
 msgstr "Τροποποίηση θέματος."
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:416
 #, kde-format
 msgid "Changing theme."
 msgstr "Τροποποίηση θέματος."
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:420
 #, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
 msgstr "Επιλογή &τράπουλας…"
 
-#: mainwindow.cpp:424
+#: mainwindow.cpp:422
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
 msgstr "Ρύθμιση τράπουλας"
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:423
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Αλλαγή της εμφάνισης των χαρτιών."
 
-#: mainwindow.cpp:429
+#: mainwindow.cpp:427
 #, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
 msgstr "&Τροποποίηση ονομάτων παικτών…"
 
-#: mainwindow.cpp:500
+#: mainwindow.cpp:498
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Επιθυμείτε πραγματικά τον καθαρισμό όλων των στατιστικών δεδομένων;"
 
-#: mainwindow.cpp:573
+#: mainwindow.cpp:569
 #, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"

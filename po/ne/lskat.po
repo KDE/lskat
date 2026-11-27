@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-24 01:00+0000\n"
+"POT-Creation-Date: 2026-11-27 01:01+0000\n"
 "PO-Revision-Date: 2007-08-20 12:15+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -339,168 +339,168 @@ msgstr "स्थापना त्रुटि: विषयवस्तु �
 msgid "Welcome to Skat! Please start a new game."
 msgstr "स्क्याटमा स्वागत छ! कृपया नयाँ खेल सुरु गर्नुहोस् ।"
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:331
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "खेल समाप्त । कृपया नयाँ खेल सुरु गर्नुहोस् ।"
 
-#: mainwindow.cpp:347
+#: mainwindow.cpp:345
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr "%1 का लागि पछिल्लो चाल (खेलाडि %2)"
 
-#: mainwindow.cpp:361
+#: mainwindow.cpp:359
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "सबै सत्रमा राखिएका सबै समयका तथ्याङ्क खाली गर्छ ।"
 
-#: mainwindow.cpp:366
+#: mainwindow.cpp:364
 #, fuzzy, kde-format
 #| msgid "Aborts a currently played game. No winner will be declared."
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "हालै खेलिएको खेल परित्याग गर्छ । विजेता घोषित हुने छैन ।"
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:369
 #, kde-format
 msgid "Quits the program."
 msgstr "कार्यक्रम अन्त्य गर्छ ।"
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:372
 #, fuzzy, kde-format
 #| msgid "Starting Player"
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "सुरुको खेलाडी"
 
-#: mainwindow.cpp:377
+#: mainwindow.cpp:375
 #, fuzzy, kde-format
 #| msgid "Changing starting player..."
 msgctxt "@info:tooltip"
 msgid "Change starting player"
 msgstr "सुरुको खेलाडी परिवर्तन..."
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:376
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "पछिल्लो खेल सुरुआत गर्ने खेलाडी रोज्दछ ।"
 
-#: mainwindow.cpp:380
+#: mainwindow.cpp:378
 #, fuzzy, kde-format
 #| msgid "Player &1"
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "खेलाडी १"
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:379
 #, fuzzy, kde-format
 #| msgid "Player &2"
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "खेलाडी २"
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:384
 #, fuzzy, kde-format
 #| msgid "Player &1 Played By"
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "खेलाडी १ यस अनुरुप खेल्यो"
 
-#: mainwindow.cpp:389
+#: mainwindow.cpp:387
 #, fuzzy, kde-format
 #| msgid "Changing who plays player 1."
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
 msgstr "खेलाडी १ परिवर्तन गरिँदैछ ।"
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:388
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "खेलाडी १ परिवर्तन गरिँदैछ ।"
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:390
 #, fuzzy, kde-format
 #| msgid "&Mouse"
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "माउस"
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:391
 #, fuzzy, kde-format
 #| msgid "&Computer"
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "कम्प्युटर"
 
-#: mainwindow.cpp:399
+#: mainwindow.cpp:397
 #, fuzzy, kde-format
 #| msgid "Player &2 Played By"
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "खेलाडी २ ले यस अनुरुप खेल्यो"
 
-#: mainwindow.cpp:402
+#: mainwindow.cpp:400
 #, fuzzy, kde-format
 #| msgid "Changing who plays player 2."
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
 msgstr "खेलाडी २ परिवर्तन गरिँदैछ ।"
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:401
 #, kde-format
 msgid "Changing who plays player 2."
 msgstr "खेलाडी २ परिवर्तन गरिँदैछ ।"
 
-#: mainwindow.cpp:411
+#: mainwindow.cpp:409
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr ""
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:415
 #, fuzzy, kde-format
 #| msgid "Changing starting player..."
 msgctxt "@info:tooltip"
 msgid "Change theme"
 msgstr "सुरुको खेलाडी परिवर्तन..."
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:416
 #, kde-format
 msgid "Changing theme."
 msgstr ""
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:420
 #, fuzzy, kde-format
 #| msgid "Select &Card Deck..."
 msgctxt "@action"
 msgid "Select &Card Deck…"
 msgstr "ताशको पत्ती चयन गर्नुहोस्..."
 
-#: mainwindow.cpp:424
+#: mainwindow.cpp:422
 #, fuzzy, kde-format
 #| msgid "Configure card decks..."
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
 msgstr "ताशका पत्ती कन्फिगर गर्नुहोस्..."
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:423
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "तास कस्तो देखिनु पर्छ रोज्नुहोस् ।"
 
-#: mainwindow.cpp:429
+#: mainwindow.cpp:427
 #, fuzzy, kde-format
 #| msgid "&Change Player Names"
 msgctxt "@action"
 msgid "&Change Player Names…"
 msgstr "खेलाडीको नाम परिवर्तन गर्नुहोस्"
 
-#: mainwindow.cpp:500
+#: mainwindow.cpp:498
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "तपाईँ वास्तवमै सबै समयका तथ्याङ्किय डेटा खाली गर्न चाहनुहुन्छ?"
 
-#: mainwindow.cpp:573
+#: mainwindow.cpp:569
 #, fuzzy, kde-format
 #| msgid "Dealing cards..."
 msgctxt "@info"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lskat\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-24 01:00+0000\n"
+"POT-Creation-Date: 2026-11-27 01:01+0000\n"
 "PO-Revision-Date: 2002-10-10 13:28SAST\n"
 "Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
 "Language-Team: Xhosa <xhosa@translate.org.za>\n"
@@ -347,166 +347,166 @@ msgstr ""
 msgid "Welcome to Skat! Please start a new game."
 msgstr ""
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:331
 #, fuzzy, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "Iqala umdlalo omtsha..."
 
-#: mainwindow.cpp:347
+#: mainwindow.cpp:345
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr ""
 
-#: mainwindow.cpp:361
+#: mainwindow.cpp:359
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "Icima zonke izitatistiki ezigcinwe zonke iintlanganiso."
 
-#: mainwindow.cpp:366
+#: mainwindow.cpp:364
 #, fuzzy, kde-format
 #| msgid "Aborts a currently played game. No winner will be declared."
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "Ilahla umdlalo odlalwa ngoku. Akukho mntu ophumeleleyo."
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:369
 #, kde-format
 msgid "Quits the program."
 msgstr "Ikhupha udweliso lwenkqubo."
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:372
 #, fuzzy, kde-format
 #| msgid "Starting Player"
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Iqalisa Umdlali"
 
-#: mainwindow.cpp:377
+#: mainwindow.cpp:375
 #, fuzzy, kde-format
 #| msgid "Changing starting player..."
 msgctxt "@info:tooltip"
 msgid "Change starting player"
 msgstr "Itshintsha umdlali oqalayo..."
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:376
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "Ikhetha ukuba kuzakuqala owuphi umdlali kumdlalo olandelayo."
 
-#: mainwindow.cpp:380
+#: mainwindow.cpp:378
 #, fuzzy, kde-format
 #| msgid "Player &1"
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "Umdlali &1"
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:379
 #, fuzzy, kde-format
 #| msgid "Player &2"
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "Umdlali &2"
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:384
 #, fuzzy, kde-format
 #| msgid "Player &1 Played By"
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "Umdlali &1 Udlalwe Ngu"
 
-#: mainwindow.cpp:389
+#: mainwindow.cpp:387
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
 msgstr "Tshintsha umntu odlala nomdlali wokuqala..."
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:388
 #, fuzzy, kde-format
 msgid "Changing who plays player 1."
 msgstr "Tshintsha umntu odlala nomdlali wokuqala..."
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:390
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr ""
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:391
 #, fuzzy, kde-format
 #| msgid "&Computer"
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Khomputa"
 
-#: mainwindow.cpp:399
+#: mainwindow.cpp:397
 #, fuzzy, kde-format
 #| msgid "Player &2 Played By"
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "Umdlali &2 Idlalwe Ngu"
 
-#: mainwindow.cpp:402
+#: mainwindow.cpp:400
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
 msgstr "Itshintsha ukuba ngubani umsebenzisi 2..."
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:401
 #, fuzzy, kde-format
 msgid "Changing who plays player 2."
 msgstr "Itshintsha ukuba ngubani umsebenzisi 2..."
 
-#: mainwindow.cpp:411
+#: mainwindow.cpp:409
 #, fuzzy, kde-format
 #| msgid "&Remote"
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Ubekelo kude"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:415
 #, fuzzy, kde-format
 #| msgid "Change level..."
 msgctxt "@info:tooltip"
 msgid "Change theme"
 msgstr "Tshintsha umphakamo..."
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:416
 #, fuzzy, kde-format
 #| msgid "Change level..."
 msgid "Changing theme."
 msgstr "Tshintsha umphakamo..."
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:420
 #, fuzzy, kde-format
 #| msgid "Select &Card Deck..."
 msgctxt "@action"
 msgid "Select &Card Deck…"
 msgstr "Khetha &Ikhadileeck..."
 
-#: mainwindow.cpp:424
+#: mainwindow.cpp:422
 #, fuzzy, kde-format
 #| msgid "Configure card decks..."
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
 msgstr "Qwalasela ikhadi lamadeck..."
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:423
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Khetha ukuba abonakale njani amakhadi."
 
-#: mainwindow.cpp:429
+#: mainwindow.cpp:427
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
 msgstr "Amagama Omdlali"
 
-#: mainwindow.cpp:500
+#: mainwindow.cpp:498
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Ingaba ufuna ukucima zonke i data zestatistiki zalolonke ixesha?"
 
-#: mainwindow.cpp:573
+#: mainwindow.cpp:569
 #, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"

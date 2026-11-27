@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdegames-kde4\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-11-24 01:00+0000\n"
+"POT-Creation-Date: 2026-11-27 01:01+0000\n"
 "PO-Revision-Date: 2026-11-16 19:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -339,153 +339,153 @@ msgstr "Kurulum hatası: Tema dosyası hatası."
 msgid "Welcome to Skat! Please start a new game."
 msgstr "Skat oyununa hoş geldiniz! Lütfen yeni bir oyun başlatın."
 
-#: mainwindow.cpp:333
+#: mainwindow.cpp:331
 #, kde-format
 msgid "Game Over. Please start a new game."
 msgstr "Oyun bitti. Lütfen yeni bir oyun başlatın."
 
-#: mainwindow.cpp:347
+#: mainwindow.cpp:345
 #, kde-format
 msgctxt "Player name and number"
 msgid "Next move for %1 (player %2)"
 msgstr "%1 için sonraki hareket (oyuncu %2)"
 
-#: mainwindow.cpp:361
+#: mainwindow.cpp:359
 #, kde-format
 msgid "Clears the all time statistics which is kept in all sessions."
 msgstr "Bütün sezonların içinde tutulan zaman istatistiklerini temizler."
 
-#: mainwindow.cpp:366
+#: mainwindow.cpp:364
 #, kde-format
 msgid "Ends a currently played game. No winner will be declared."
 msgstr "Oynanan oyunu bitirir. Kimse kazanmayacak."
 
-#: mainwindow.cpp:371
+#: mainwindow.cpp:369
 #, kde-format
 msgid "Quits the program."
 msgstr "Programdan çıkar."
 
-#: mainwindow.cpp:374
+#: mainwindow.cpp:372
 #, kde-format
 msgctxt "@title:menu"
 msgid "Starting Player"
 msgstr "Başlayan Oyuncu"
 
-#: mainwindow.cpp:377
+#: mainwindow.cpp:375
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change starting player"
 msgstr "Başlangıç oyuncusunu değiştir"
 
-#: mainwindow.cpp:378
+#: mainwindow.cpp:376
 #, kde-format
 msgid "Chooses which player begins the next game."
 msgstr "Birsonraki oyuna hangi oyuncunun başlayacağını seçer."
 
-#: mainwindow.cpp:380
+#: mainwindow.cpp:378
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &1"
 msgstr "Oyuncu &1"
 
-#: mainwindow.cpp:381
+#: mainwindow.cpp:379
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "Player &2"
 msgstr "Oyuncu &2"
 
-#: mainwindow.cpp:386
+#: mainwindow.cpp:384
 #, kde-format
 msgctxt "@title:menu"
 msgid "Player &1 Played By"
 msgstr "&1. Oyuncuyu Oynayan"
 
-#: mainwindow.cpp:389
+#: mainwindow.cpp:387
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 1"
 msgstr "1. oyuncuyu oynayanın kim olduğunu değiştir"
 
-#: mainwindow.cpp:390
+#: mainwindow.cpp:388
 #, kde-format
 msgid "Changing who plays player 1."
 msgstr "Kimin 1. oyuncuyu oynayacağı değiştiriliyor."
 
-#: mainwindow.cpp:392
+#: mainwindow.cpp:390
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "&Mouse"
 msgstr "&Fare"
 
-#: mainwindow.cpp:393
+#: mainwindow.cpp:391
 #, kde-format
 msgctxt "@item:inmenu"
 msgid "&Computer"
 msgstr "&Bilgisayar"
 
-#: mainwindow.cpp:399
+#: mainwindow.cpp:397
 #, kde-format
 msgctxt "@title:menu"
 msgid "Player &2 Played By"
 msgstr "&2. Oyuncuyu Oynayan"
 
-#: mainwindow.cpp:402
+#: mainwindow.cpp:400
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change who plays player 2"
 msgstr "2. oyuncuyu oynayanın kim olduğunu değiştir"
 
-#: mainwindow.cpp:403
+#: mainwindow.cpp:401
 #, kde-format
 msgid "Changing who plays player 2."
 msgstr "Kimin 2. oyuncuyu oynayacağı değiştiriliyor."
 
-#: mainwindow.cpp:411
+#: mainwindow.cpp:409
 #, kde-format
 msgctxt "@title:menu"
 msgid "&Theme"
 msgstr "&Tema"
 
-#: mainwindow.cpp:417
+#: mainwindow.cpp:415
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Change theme"
 msgstr "Temayı değiştir"
 
-#: mainwindow.cpp:418
+#: mainwindow.cpp:416
 #, kde-format
 msgid "Changing theme."
 msgstr "Tema değiştiriliyor."
 
-#: mainwindow.cpp:422
+#: mainwindow.cpp:420
 #, kde-format
 msgctxt "@action"
 msgid "Select &Card Deck…"
 msgstr "Kart &Destesini Seç…"
 
-#: mainwindow.cpp:424
+#: mainwindow.cpp:422
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Configure card decks"
 msgstr "Kart destelerini yapılandır"
 
-#: mainwindow.cpp:425
+#: mainwindow.cpp:423
 #, kde-format
 msgid "Choose how the cards should look."
 msgstr "Kartların nasıl görüneceğini seçin."
 
-#: mainwindow.cpp:429
+#: mainwindow.cpp:427
 #, kde-format
 msgctxt "@action"
 msgid "&Change Player Names…"
 msgstr "Oyuncu Adlarını &Değiştir…"
 
-#: mainwindow.cpp:500
+#: mainwindow.cpp:498
 #, kde-format
 msgid "Do you really want to clear the all time statistical data?"
 msgstr "Tüm istatistikleri temizlemek istediğinizden emin misiniz?"
 
-#: mainwindow.cpp:573
+#: mainwindow.cpp:569
 #, kde-format
 msgctxt "@info"
 msgid "Dealing cards…"
